@@ -6,7 +6,7 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 - **Framework**: Astro (static site generator)
 - **Hosting**: Vercel — auto-deploys on every push to `main`
 - **Repo**: https://github.com/maguirebaseball-debug/jackmaguire-site
-- **Live site**: https://www.jackmaguire.org
+- **Live site**: https://jackmaguire.org (canonical non-www; www redirects to it)
 
 ## Key directories
 - `src/content/blog/` — blog posts as Markdown files
@@ -45,6 +45,11 @@ NPM_CONFIG_CACHE=/tmp/npm-jack-cache
 - `/recommendations/films`
 - `/itineraries/central-europe` (15-day trip: Geneva → Venice → Ljubljana → Graz → Bratislava → Brno → Prague → Wrocław → Dublin)
 - `/itineraries/nyc-euro` (Greenwich Village + Meatpacking day itinerary)
+
+## Search Console status
+- Property: jackmaguire.org (domain-level) — this is the one to manage
+- Sitemap submitted: https://jackmaguire.org/sitemap-index.xml — resubmit if it shows "couldn't fetch" (DNS was still propagating at setup)
+- TODO: turn off WordPress.com auto-renew (plan paid through Jan 2029, next charge Dec 2028)
 
 ## About the site owner
 Jack Maguire — Senior Paid Social Media Director at National Debt Relief. East Village, NYC.

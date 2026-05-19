@@ -1,0 +1,25 @@
+HOW TO START A CLAUDE CODE SESSION FOR THIS SITE
+=================================================
+
+1. Open VS Code
+2. Open the Terminal (View > Terminal, or Cmd+`)
+3. Type this and press Enter:
+   cd ~/Developer/jackmaguire-site
+
+4. Type this and press Enter:
+   claude
+
+That's it. Claude will read CLAUDE.md automatically and know the full context.
+
+WHAT YOU CAN SAY TO CLAUDE:
+- "Write a new post about [topic]"
+- "Add [restaurant name] to the NYC restaurants recommendations page"
+- "Change the font size / color / layout of [thing]"
+- "Build the /recommendations/books page"
+- "Push everything live"
+
+THE SITE IS LIVE AT: https://jackmaguire.org
+GITHUB REPO: https://github.com/maguirebaseball-debug/jackmaguire-site
+VERCEL DASHBOARD: https://vercel.com
+
+REMINDER: Turn off WordPress auto-renew (paid through Jan 2029, no rush).
