@@ -6,7 +6,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://www.jackmaguire.org',
+	site: 'https://jackmaguire.org',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
