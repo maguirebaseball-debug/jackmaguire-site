@@ -1,0 +1,61 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const lastUpdated = 'May 2026';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Now — ${SITE_TITLE}`} description="What I'm up to right now." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Now</h1>
+			<p class="updated">Last updated: {lastUpdated}</p>
+
+			<div class="prose">
+				<h2>Location</h2>
+				<p>East Village, New York City.</p>
+
+				<h2>Work</h2>
+				<p>Senior Paid Social Media Director at National Debt Relief. Focused on measurement, creative testing, and building scalable campaign structures across FB/IG/TikTok/Snap.</p>
+
+				<h2>Reading</h2>
+				<p>Update this with what you're currently reading.</p>
+
+				<h2>Thinking about</h2>
+				<p>Update this with what's on your mind.</p>
+
+				<h2>Travel</h2>
+				<p>Central Europe, April–May 2026. Geneva → Venice → Ljubljana → Graz → Bratislava → Brno → Prague → Wrocław → Dublin.</p>
+			</div>
+
+			<p class="note"><em>This is a <a href="https://nownpage.org" target="_blank">/now page</a>. It reflects what I'm actually doing, not what I've done.</em></p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.updated {
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+		margin-top: -0.5em;
+		margin-bottom: 2em;
+	}
+	.prose h2 {
+		font-size: 1.1em;
+		margin-top: 1.5em;
+		margin-bottom: 0.3em;
+	}
+	.note {
+		margin-top: 3em;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+</style>

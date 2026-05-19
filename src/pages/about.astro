@@ -1,0 +1,67 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description="About Jack Maguire." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>About</h1>
+			<div class="prose">
+				<p>
+					I'm Jack Maguire. I live in the East Village in New York City and work as a Senior Paid Social
+					Media Director at National Debt Relief. Over the last 10+ years I've helped run and scale
+					advertising programs for large brands across Facebook, Instagram, TikTok, and Snapchat —
+					working across creative, data, and analytics teams.
+				</p>
+				<p>
+					Before NYC I worked at Good Apple, Visiting Angels, Ascension Press, and Renegade
+					Communications. I studied Business Management and Philosophy at McGill University.
+				</p>
+				<p>
+					This site is a place for notes, writing, and things I'm trying to understand better.
+					Topics include NYC food, travel, philosophy, AI tools, and whatever else I'm paying
+					attention to.
+				</p>
+
+				<h2>Background</h2>
+				<ul>
+					<li>Senior Paid Social Media Director, National Debt Relief</li>
+					<li>Previously: Good Apple, Visiting Angels, Ascension Press, Renegade Communications</li>
+					<li>McGill University — Business Management &amp; Philosophy</li>
+					<li>East Village, NYC</li>
+				</ul>
+
+				<h2>Contact</h2>
+				<p>
+					Email: <a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a>
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 600px;
+	}
+	.prose h2 {
+		font-size: 1.2em;
+		margin-top: 2em;
+		margin-bottom: 0.5em;
+	}
+	.prose ul {
+		padding-left: 1.5em;
+	}
+	.prose li {
+		margin-bottom: 0.3em;
+	}
+</style>

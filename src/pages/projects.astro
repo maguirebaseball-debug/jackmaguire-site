@@ -1,0 +1,72 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects — ${SITE_TITLE}`} description="Tools, experiments, and other things I've built or written." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Projects</h1>
+			<p class="intro">Tools, experiments, and other things I've built or written.</p>
+
+			<ul class="project-list">
+				<li>
+					<a href="/itineraries/central-europe">
+						<span class="title">A Fortnight in Central Europe</span>
+						<span class="desc">15-day itinerary: Geneva → Venice → Ljubljana → Graz → Bratislava → Brno → Prague → Wrocław → Dublin</span>
+					</a>
+				</li>
+				<li>
+					<a href="/itineraries/nyc-euro">
+						<span class="title">NYC Euro-esque Day</span>
+						<span class="desc">A Greenwich Village and Meatpacking day on foot — one good walk and one good table</span>
+					</a>
+				</li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.intro {
+		color: rgb(var(--gray));
+		margin-bottom: 2.5em;
+	}
+	.project-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.project-list li {
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.project-list li a {
+		display: block;
+		padding: 1.25em 0;
+		text-decoration: none;
+		color: inherit;
+	}
+	.project-list li a:hover .title {
+		color: var(--accent);
+	}
+	.title {
+		display: block;
+		font-size: 1.1em;
+		font-weight: 600;
+		color: rgb(var(--black));
+		margin-bottom: 0.3em;
+	}
+	.desc {
+		display: block;
+		font-size: 0.9em;
+		color: rgb(var(--gray));
+	}
+</style>

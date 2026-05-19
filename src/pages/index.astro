@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 6);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="intro">
+				<h1>Jack Maguire</h1>
+				<p>
+					Performance marketing and paid social in NYC. I write about food, travel,
+					philosophy, and how AI is changing the way I work and think. Based in the East Village.
+				</p>
+			</section>
+
+			<section class="recent">
+				<h2>Recent writing</h2>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									<span class="title">{post.data.title}</span>
+									<span class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<p class="all-link"><a href="/blog">All writing →</a></p>
+			</section>
+
+			<section class="nav-grid">
+				<a href="/projects" class="nav-card">
+					<h3>Projects</h3>
+					<p>Tools and experiments</p>
+				</a>
+				<a href="/recommendations" class="nav-card">
+					<h3>Recommendations</h3>
+					<p>Books, apps, restaurants, films</p>
+				</a>
+				<a href="/now" class="nav-card">
+					<h3>Now</h3>
+					<p>What I'm working on</p>
+				</a>
+				<a href="/about" class="nav-card">
+					<h3>About</h3>
+					<p>Background and contact</p>
+				</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.intro {
+		margin-bottom: 3em;
+	}
+	.intro h1 {
+		font-size: 2em;
+		margin-bottom: 0.4em;
+	}
+	.intro p {
+		color: rgb(var(--gray));
+		font-size: 1.1em;
+		max-width: 560px;
+	}
+	.recent h2 {
+		font-size: 1.1em;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: rgb(var(--gray));
+		margin-bottom: 1em;
+	}
+	.recent ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1em 0;
+	}
+	.recent ul li {
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.recent ul li a {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1em;
+		padding: 0.75em 0;
+		text-decoration: none;
+		color: rgb(var(--black));
+	}
+	.recent ul li a:hover .title {
+		color: var(--accent);
+	}
+	.recent ul li a .date {
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+		white-space: nowrap;
+	}
+	.all-link {
+		text-align: right;
+		margin-top: 0.5em;
+	}
+	.nav-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-top: 3em;
+	}
+	.nav-card {
+		display: block;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		padding: 1.25em;
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s, box-shadow 0.2s;
+	}
+	.nav-card:hover {
+		border-color: var(--accent);
+		box-shadow: var(--box-shadow);
+	}
+	.nav-card h3 {
+		margin: 0 0 0.3em 0;
+		font-size: 1em;
+		color: rgb(var(--black));
+	}
+	.nav-card p {
+		margin: 0;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+	@media (max-width: 480px) {
+		.nav-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

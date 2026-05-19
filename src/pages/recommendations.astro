@@ -1,0 +1,71 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Recommendations — ${SITE_TITLE}`} description="Books, apps, restaurants, and films I recommend." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Recommendations</h1>
+			<p class="intro">Things I consistently return to and recommend without hesitation.</p>
+
+			<section>
+				<h2>NYC Restaurants</h2>
+				<p>Practical dining picks across New York City. Updated as I eat.</p>
+				<a href="/recommendations/nyc-restaurants" class="section-link">View list →</a>
+			</section>
+
+			<section>
+				<h2>Books</h2>
+				<p>Books worth your time and attention.</p>
+				<a href="/recommendations/books" class="section-link">View list →</a>
+			</section>
+
+			<section>
+				<h2>Apps</h2>
+				<p>Tools I consistently use and recommend.</p>
+				<a href="/recommendations/apps" class="section-link">View list →</a>
+			</section>
+
+			<section>
+				<h2>Films</h2>
+				<p>Films I strongly recommend watching.</p>
+				<a href="/recommendations/films" class="section-link">View list →</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.intro {
+		color: rgb(var(--gray));
+		margin-bottom: 2.5em;
+	}
+	section {
+		border-bottom: 1px solid rgb(var(--gray-light));
+		padding: 1.5em 0;
+	}
+	section:last-child {
+		border-bottom: none;
+	}
+	section h2 {
+		font-size: 1.2em;
+		margin-bottom: 0.4em;
+	}
+	section p {
+		margin: 0 0 0.5em 0;
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+	}
+	.section-link {
+		font-size: 0.9em;
+	}
+</style>

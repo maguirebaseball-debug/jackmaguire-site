@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Writing — ${SITE_TITLE}`} description="Essays, reviews, and notes." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Writing</h1>
+			{allTags.length > 0 && (
+				<div class="tags">
+					{allTags.map((tag) => (
+						<span class="tag">{tag}</span>
+					))}
+				</div>
+			)}
+			<ul>
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<span class="title">{post.data.title}</span>
+								<span class="meta">
+									<FormattedDate date={post.data.pubDate} />
+									{post.data.tags && post.data.tags.length > 0 && (
+										<span class="tag-list"> · {post.data.tags.join(', ')}</span>
+									)}
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	h1 {
+		margin-bottom: 1.5em;
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin-bottom: 2em;
+	}
+	.tag {
+		font-size: 0.8em;
+		padding: 0.2em 0.7em;
+		background: rgb(var(--gray-light));
+		border-radius: 20px;
+		color: rgb(var(--gray-dark));
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	ul li {
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	ul li a {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1em;
+		padding: 0.9em 0;
+		text-decoration: none;
+		color: rgb(var(--black));
+	}
+	ul li a:hover .title {
+		color: var(--accent);
+	}
+	.meta {
+		font-size: 0.82em;
+		color: rgb(var(--gray));
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+	.tag-list {
+		font-style: italic;
+	}
+	@media (max-width: 600px) {
+		ul li a {
+			flex-direction: column;
+			gap: 0.2em;
+		}
+		.meta {
+			white-space: normal;
+		}
+	}
+</style>
