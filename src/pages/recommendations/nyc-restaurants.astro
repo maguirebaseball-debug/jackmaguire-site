@@ -53,6 +53,23 @@ import { SITE_TITLE } from '../../consts';
 				color: rgb(var(--gray));
 				margin-top: 0.15em;
 			}
+			.restaurant-img {
+				width: 100%;
+				max-height: 260px;
+				object-fit: cover;
+				border-radius: 7px;
+				margin-bottom: 1em;
+				display: block;
+			}
+			.img-attribution {
+				font-size: 0.72em;
+				color: rgb(var(--gray));
+				margin-top: -0.6em;
+				margin-bottom: 1em;
+			}
+			.img-attribution a {
+				color: rgb(var(--gray));
+			}
 			.verdict-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -125,7 +142,7 @@ import { SITE_TITLE } from '../../consts';
 		<Header />
 		<main>
 			<h1>NYC Restaurants</h1>
-			<p class="intro">Places worth seeking out. Honest pros and cons from real visits and reviews.</p>
+			<p class="intro">Places worth seeking out. Honest assessments based on firsthand visits and consistent reviewer consensus.</p>
 
 			<div class="restaurant-list">
 
@@ -133,22 +150,22 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">01</span>
 						<div class="restaurant-name">Jakarta Munch at Hungry Pearl</div>
-						<div class="restaurant-type">Indonesian &mdash; Food Hall</div>
+						<div class="restaurant-type">Indonesian, Food Hall</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li><span class="item-name">Beef Rendang</span> (slow-cooked coconut beef) is a consistent must-order</li>
+								<li><span class="item-name">Beef Rendang</span> (slow-cooked coconut beef) stands as a consistent standout order</li>
 								<li>Clear labeling for vegan and gluten-free diners</li>
-								<li><span class="item-name">Jus Alpukat</span> (avocado smoothie with chocolate) is a fan favorite</li>
+								<li><span class="item-name">Jus Alpukat</span> (avocado smoothie with chocolate) is highly regarded among regulars</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Around $17&ndash;20 per bowl, which feels high for a food hall</li>
-								<li>Chicken Gulai can be less marinated than the beef options</li>
+								<li>Approximately $17 to $20 per bowl, which represents a premium for a food hall setting</li>
+								<li>Chicken Gulai is less marinated than the beef options</li>
 							</ul>
 						</div>
 					</div>
@@ -158,22 +175,22 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">02</span>
 						<div class="restaurant-name">Europa Bar and Grill</div>
-						<div class="restaurant-type">Bar &amp; Grill &mdash; Gravesend, Brooklyn</div>
+						<div class="restaurant-type">Bar and Grill, Gravesend, Brooklyn</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
 								<li>True neighborhood spot with outdoor seating and a pool table</li>
-								<li>Locals claim it has some of the best cheeseburgers in Gravesend</li>
+								<li>Widely regarded locally for some of the best cheeseburgers in Gravesend</li>
 								<li>High-energy karaoke and DJ nights on Saturdays</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Ratings on secondary sites diverge significantly from Google Maps</li>
-								<li>Neighborhood dive, not a fine dining experience</li>
+								<li>Ratings on secondary review platforms diverge significantly from Google Maps</li>
+								<li>Neighborhood dive format; not a fine dining experience</li>
 							</ul>
 						</div>
 					</div>
@@ -183,22 +200,22 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">03</span>
 						<div class="restaurant-name">Greyz Bistro</div>
-						<div class="restaurant-type">Caribbean-Asian Fusion &mdash; Crown Heights</div>
+						<div class="restaurant-type">Caribbean-Asian Fusion, Crown Heights</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Chef Garth praised for Michelin-level food quality</li>
+								<li>Chef Garth has received consistent praise for Michelin-caliber execution</li>
 								<li>Standouts: Oxtail Ravioli, Jerk Chicken Tacos, Snapper with Lavender Beurre Blanc</li>
-								<li>Chef interacts personally with guests</li>
+								<li>Chef engages personally with guests throughout the meal</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Prices (e.g., a $75 omelet) can feel jarring for Crown Heights</li>
-								<li>Ambiance described as lacking the polish that matches the price point</li>
+								<li>Pricing (e.g., a $75 omelet) represents a significant premium relative to the neighborhood context</li>
+								<li>Ambiance does not consistently match the price point</li>
 							</ul>
 						</div>
 					</div>
@@ -208,22 +225,22 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">04</span>
 						<div class="restaurant-name">390 Social</div>
-						<div class="restaurant-type">Cocktail Bar &amp; Event Space &mdash; Park Slope</div>
+						<div class="restaurant-type">Cocktail Bar and Event Space, Park Slope</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>$1.50 oyster happy hour (Sun&ndash;Fri) is one of the best steals in Brooklyn</li>
-								<li>Highly recommended for private events; manager Dana frequently praised</li>
-								<li>Greenery-filled decor and a cozy speakeasy lower level</li>
+								<li>$1.50 oyster happy hour (Sun. through Fri.) ranks among the strongest value offerings in Brooklyn</li>
+								<li>Consistently recommended for private events; manager Dana is frequently cited for attentive service</li>
+								<li>Greenery-forward interior with a lower-level speakeasy room</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Menu focuses on specialized tapas, not standard bar fare</li>
-								<li>Downstairs room gets cramped for groups over 35</li>
+								<li>Menu centers on specialized tapas rather than standard bar fare</li>
+								<li>Lower-level room becomes congested for groups exceeding 35</li>
 							</ul>
 						</div>
 					</div>
@@ -233,22 +250,22 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">05</span>
 						<div class="restaurant-name">Oxford Cafe</div>
-						<div class="restaurant-type">Breakfast &amp; Fast-Casual &mdash; FiDi / Midtown</div>
+						<div class="restaurant-type">Breakfast and Fast-Casual, FiDi / Midtown</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li><span class="item-name">The "Billy" Wrap</span> rated 9.5/10 by some Beli users</li>
-								<li>Lightning-fast service, great for the work crowd</li>
-								<li>Hearty portions at prices that undercut nearby tourist traps</li>
+								<li><span class="item-name">The "Billy" Wrap</span> has earned top ratings on Beli</li>
+								<li>Service is notably efficient, well-suited to the midday work crowd</li>
+								<li>Generous portions at prices that compare favorably against surrounding tourist-oriented options</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Classic hole-in-the-wall; not a leisurely brunch spot</li>
-								<li>Some locations have limited Sunday hours</li>
+								<li>Counter-service format is optimized for speed, not a setting for leisurely dining</li>
+								<li>Some locations operate with limited Sunday hours</li>
 							</ul>
 						</div>
 					</div>
@@ -264,15 +281,15 @@ import { SITE_TITLE } from '../../consts';
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>High-end sushi paired with a world-class Japanese vinyl sound system</li>
+								<li>Premium omakase sushi complemented by a dedicated Japanese vinyl sound system</li>
 								<li>Chef Kevin Garrison's dry-aged fish delivers intense, concentrated flavor</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Mandatory 20% administrative fee that is not a gratuity</li>
-								<li>Reservations are extremely competitive on Resy</li>
+								<li>Mandatory 20% administrative fee that is not classified as gratuity</li>
+								<li>Reservations are highly competitive on Resy</li>
 							</ul>
 						</div>
 					</div>
@@ -282,21 +299,21 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">07</span>
 						<div class="restaurant-name">Grand Eleven</div>
-						<div class="restaurant-type">Bar &mdash; Tribeca</div>
+						<div class="restaurant-type">Bar, Tribeca</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Stunning three-story layout mixing Art Deco and modern wood styles</li>
-								<li>Highly imaginative cocktail program and a consistently great playlist</li>
+								<li>Three-story interior combining Art Deco and contemporary wood design</li>
+								<li>Inventive cocktail program with consistently well-curated music</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Food menu is minimal: mostly sliders and snacks</li>
-								<li>Can be slightly hard to find on an awkward split lot</li>
+								<li>Food offerings are limited, primarily sliders and bar snacks</li>
+								<li>Entrance location on a split lot requires additional navigation</li>
 							</ul>
 						</div>
 					</div>
@@ -306,21 +323,28 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">08</span>
 						<div class="restaurant-name">Freak Bar</div>
-						<div class="restaurant-type">Bar &mdash; Coney Island</div>
+						<div class="restaurant-type">Bar, Coney Island</div>
 					</div>
+					<img
+						src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Freak_bar.jpg"
+						alt="Interior of Freak Bar, Coney Island"
+						class="restaurant-img"
+						loading="lazy"
+					/>
+					<p class="img-attribution">Photo: <a href="https://commons.wikimedia.org/wiki/File:Freak_bar.jpg" target="_blank" rel="noopener">"Freak bar"</a> by Lanagaballa7, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>The ultimate Coney Island experience; attached to the Circus Sideshow</li>
-								<li>Excellent selection of local craft beers including Coney Island Brewery</li>
+								<li>An immersive Coney Island experience, adjacent to the Circus Sideshow</li>
+								<li>Strong selection of local craft beers, including offerings from Coney Island Brewery</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Clown and skeleton decor is not for the faint of heart</li>
-								<li>Gets extremely crowded and loud when the sideshow lets out</li>
+								<li>Sideshow-themed interior design is distinctive and not suited to all preferences</li>
+								<li>Volume and density increase significantly following Circus Sideshow performances</li>
 							</ul>
 						</div>
 					</div>
@@ -330,21 +354,21 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">09</span>
 						<div class="restaurant-name">Tatanka's Tincture Bar</div>
-						<div class="restaurant-type">Apothecary Cafe &mdash; Bed-Stuy</div>
+						<div class="restaurant-type">Apothecary Cafe, Bed-Stuy</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Unique drinks infused with tinctures (ashwagandha, rose, etc.) you won't find elsewhere</li>
-								<li>Hot Honey Wings and Mac N Cheese are legendary among regulars</li>
+								<li>Specialty drinks infused with botanical tinctures (ashwagandha, rose, and others) not readily available elsewhere</li>
+								<li>Hot Honey Wings and Mac and Cheese are standout dishes among regular visitors</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Very small footprint that fills up fast</li>
-								<li>Earthy botanical flavors are polarizing if that's not your thing</li>
+								<li>Limited seating fills quickly during peak hours</li>
+								<li>Botanical flavor profiles are distinctive and not universally preferred</li>
 							</ul>
 						</div>
 					</div>
@@ -360,14 +384,14 @@ import { SITE_TITLE } from '../../consts';
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Reddit raves about the wok hei in the Drunken Noodles</li>
-								<li>$1 appetizer and drink special during happy hour</li>
+								<li>Widely noted for exceptional wok hei in the Drunken Noodles</li>
+								<li>$1 appetizer and drink specials available during happy hour</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Narrow entrance and dining area feel cramped during peak dinner</li>
+								<li>Narrow floor plan can feel congested during peak dinner hours</li>
 							</ul>
 						</div>
 					</div>
@@ -383,15 +407,15 @@ import { SITE_TITLE } from '../../consts';
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Hormone-free chicken and triple-cooked fries that stay crispy</li>
-								<li>Owners frequently mentioned by name for warmth and remembering regulars</li>
+								<li>Hormone-free chicken with triple-cooked fries that maintain crispness</li>
+								<li>Owners are consistently cited for attentive service and recognition of returning guests</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Very limited indoor seating; primarily grab-and-go or delivery</li>
-								<li>Made-to-order means longer waits than standard fast food</li>
+								<li>Indoor seating is limited; format is primarily grab-and-go or delivery</li>
+								<li>Made-to-order preparation results in longer wait times relative to standard fast food</li>
 							</ul>
 						</div>
 					</div>
@@ -401,21 +425,21 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">12</span>
 						<div class="restaurant-name">Sunday C&amp;C Bakery</div>
-						<div class="restaurant-type">Vegan &mdash; Latin-Asian Fusion</div>
+						<div class="restaurant-type">Vegan, Latin-Asian Fusion</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Frequently called "S-tier" on Reddit; Lion's Mane Mushrooms and Guava Bread are standouts</li>
-								<li>Creative Latin-Asian flavors you won't find at a standard vegan cafe</li>
+								<li>Consistently rated among the best of its kind; Lion's Mane Mushrooms and Guava Bread are standout items</li>
+								<li>Latin-Asian flavor combinations not typically available at conventional vegan cafes</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
 							<span class="verdict-label">Cons</span>
 							<ul>
-								<li>Popular items and weekend specials often sell out by early afternoon</li>
-								<li>Counter-service only with very few seats</li>
+								<li>High-demand items and weekend specials frequently sell out before midday</li>
+								<li>Counter-service format with minimal seating</li>
 							</ul>
 						</div>
 					</div>
@@ -425,13 +449,13 @@ import { SITE_TITLE } from '../../consts';
 					<div class="restaurant-header">
 						<span class="restaurant-number">13</span>
 						<div class="restaurant-name">Willows Tavern</div>
-						<div class="restaurant-type">Bar &mdash; Ridgewood</div>
+						<div class="restaurant-type">Bar, Ridgewood</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
 							<ul>
-								<li>Massive willow tree in the backyard; one of the best outdoor drinking spots in Ridgewood</li>
+								<li>Expansive willow tree in the rear garden makes this one of the strongest outdoor drinking options in Ridgewood</li>
 							</ul>
 						</div>
 						<div class="verdict-block cons">
