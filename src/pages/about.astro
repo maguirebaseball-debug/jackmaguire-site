@@ -8,7 +8,19 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`About — ${SITE_TITLE}`} description="About Jack Maguire." />
+		<BaseHead title={`About — ${SITE_TITLE}`} description="Jack Maguire is a performance marketing and paid social media director based in East Village, NYC. 12+ years managing paid social campaigns across Meta, TikTok, and Instagram." />
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Jack Maguire",
+			"url": "https://jackmaguire.org",
+			"jobTitle": "Paid Social Media Director",
+			"alumniOf": { "@type": "Organization", "name": "McGill University" },
+			"address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY" },
+			"sameAs": ["https://www.linkedin.com/in/paidsocialdirector/"]
+		}
+		</script>
 	</head>
 	<body>
 		<Header />
@@ -16,27 +28,62 @@ import { SITE_TITLE } from '../consts';
 			<h1>About</h1>
 			<div class="prose">
 				<p>
-					I'm Jack Maguire. I live in the East Village in New York City and work as a Senior Paid Social
-					Media Director at National Debt Relief. Over the last 10+ years I've helped run and scale
-					advertising programs for large brands across Facebook, Instagram, TikTok, and Snapchat —
-					working across creative, data, and analytics teams.
+					I'm Jack Maguire. I live in the East Village in New York City. I've spent 12+ years
+					working in performance marketing and paid social media — starting from nothing in particular
+					and building up to director-level roles managing large-scale advertising programs across
+					Meta, TikTok, Instagram, Facebook, and Snapchat. This site is where I write about what
+					I'm paying attention to: NYC food, travel, philosophy, AI, and occasionally work.
+				</p>
+
+				<h2>Work</h2>
+				<p>
+					I'm a paid social media director and performance marketing specialist. Most recently
+					I was Senior Paid Social Media Director at National Debt Relief (March 2022 – January
+					2026), where I managed over $1M in monthly ad spend across Meta and TikTok, led a team
+					of paid social managers, and worked closely with legal and compliance on advertising in
+					the regulated debt settlement industry.
 				</p>
 				<p>
-					Before NYC I worked at Good Apple, Visiting Angels, Ascension Press, and Renegade
-					Communications. I studied Business Management and Philosophy at McGill University.
+					Before that: Good Apple (NYC agency, paid social strategy), Visiting Angels (managed
+					paid social across 800+ franchise locations), Ascension Press (grew Facebook and YouTube
+					to 100K+ followers), and Renegade Communications (media buying and campaign management).
+					My platforms have included Meta, TikTok, Instagram, Facebook, Snapchat, Pinterest,
+					LinkedIn, Reddit, Quora, and YouTube.
 				</p>
 				<p>
-					This site is a place for notes, writing, and things I'm trying to understand better.
-					Topics include NYC food, travel, philosophy, AI tools, and whatever else I'm paying
-					attention to.
+					I've been an AI-first practitioner for several years — using LLMs daily for campaign
+					optimization, creative briefing, and analytics work since well before it became common
+					practice. I think a lot about how AI is actually changing performance marketing, not
+					the hype version.
+				</p>
+
+				<h2>This site</h2>
+				<p>
+					I write about what I'm genuinely interested in. That means NYC food and restaurants
+					(food is my primary lens for exploring a city — I'll visit 25+ places in a single trip
+					before I visit a single museum). It means travel, with a preference for building real
+					itineraries rather than following someone else's. It means philosophy, which I studied
+					at McGill and have never really stopped thinking about. It means AI tools in practice,
+					not in theory. And it means the occasional essay on whatever I can't stop turning over.
+				</p>
+
+				<h2>Outside work</h2>
+				<p>
+					Before my junior year of college I thru-hiked the Appalachian Trail — 2,178 miles in
+					99 days with my brother. That's still the hardest thing I've done and the experience
+					I return to most when I need to remember I can figure things out. I've run three
+					marathons. I've read somewhere north of 300 books, with a bias toward systems thinking,
+					behavioral economics, philosophy, theology, and narrative history. I moved to New York
+					City because the city feeds something real — I live in the East Village and try not
+					to take it for granted.
 				</p>
 
 				<h2>Background</h2>
 				<ul>
-					<li>Senior Paid Social Media Director, National Debt Relief</li>
-					<li>Previously: Good Apple, Visiting Angels, Ascension Press, Renegade Communications</li>
+					<li>Most recently: Senior Paid Social Media Director, National Debt Relief</li>
+					<li>Previously: Good Apple &middot; Visiting Angels &middot; Ascension Press &middot; Renegade Communications</li>
 					<li>McGill University — Business Management &amp; Philosophy</li>
-					<li>East Village, NYC</li>
+					<li>East Village, New York City</li>
 				</ul>
 
 				<h2>Contact</h2>
