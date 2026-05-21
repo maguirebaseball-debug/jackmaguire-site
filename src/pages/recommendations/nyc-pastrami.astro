@@ -128,6 +128,50 @@ import { SITE_TITLE } from '../../consts';
 				border-top: 1px solid rgba(var(--gray), 15%);
 				margin: 2em 0;
 			}
+			.sandwich-wrap {
+				float: right;
+				margin: 0 0 0.5em 1.5em;
+				width: 180px;
+			}
+			.sandwich-wrap svg {
+				width: 100%;
+				height: auto;
+				filter: drop-shadow(2px 4px 5px rgba(0,0,0,0.10));
+				transform: rotate(-4deg);
+			}
+			.pickle-divider {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1.25em;
+				margin: 2em 0;
+			}
+			.pickle-divider::before,
+			.pickle-divider::after {
+				content: '';
+				flex: 1;
+				height: 1px;
+				background: rgba(var(--gray), 20%);
+			}
+			.pickle-divider svg {
+				width: 96px;
+				height: auto;
+				opacity: 0.82;
+			}
+			.skyline-wrap {
+				margin: 2.5em auto 0;
+				max-width: 300px;
+				opacity: 0.55;
+			}
+			.skyline-wrap svg {
+				width: 100%;
+				height: auto;
+			}
+			@media (max-width: 520px) {
+				.sandwich-wrap {
+					width: 120px;
+				}
+			}
 			.sources-note {
 				font-size: 0.82em;
 				color: rgb(var(--gray));
@@ -143,6 +187,34 @@ import { SITE_TITLE } from '../../consts';
 		<Header />
 		<main>
 			<h1>NYC Pastrami, Ranked</h1>
+
+			<div class="sandwich-wrap" aria-hidden="true">
+				<svg viewBox="0 0 180 148" xmlns="http://www.w3.org/2000/svg">
+					<!-- Top bun dome -->
+					<path d="M22,72 C20,46 30,17 90,13 C150,9 160,40 160,72 Z"
+						fill="#e8a86d" stroke="#7a4220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<!-- Bun sheen -->
+					<path d="M48,46 C62,36 100,33 128,42" stroke="#f0c080" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+					<!-- Sesame seeds -->
+					<ellipse cx="57" cy="34" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1" transform="rotate(-18,57,34)"/>
+					<ellipse cx="90" cy="23" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1"/>
+					<ellipse cx="123" cy="33" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1" transform="rotate(18,123,33)"/>
+					<!-- Meat layer 1 (ruffled) -->
+					<path d="M18,72 C30,67 43,75 56,70 C69,65 82,73 95,69 C108,65 121,72 134,68 C147,64 158,70 163,72 L163,83 C158,81 147,75 134,79 C121,83 108,76 95,80 C82,84 69,77 56,81 C43,85 30,78 18,83 Z"
+						fill="#8b1f1f" stroke="#5a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
+					<!-- Meat layer 2 -->
+					<path d="M16,83 C28,78 41,86 54,81 C67,76 80,84 93,80 C106,76 119,83 132,79 C145,75 157,81 165,83 L165,93 C157,91 145,85 132,89 C119,93 106,86 93,90 C80,94 67,87 54,91 C41,95 28,89 16,93 Z"
+						fill="#a02424" stroke="#5a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
+					<!-- Mustard smear -->
+					<path d="M14,93 C48,89 125,95 167,93 L168,99 C125,101 48,96 14,99 Z"
+						fill="#eac820" stroke="#a89010" stroke-width="1" stroke-linejoin="round"/>
+					<!-- Bottom bun -->
+					<path d="M12,99 Q90,96 170,99 Q174,113 158,127 Q90,134 22,127 Q6,113 12,99 Z"
+						fill="#d4855a" stroke="#7a4220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<!-- Bottom bun highlight -->
+					<path d="M28,104 Q90,100 154,104" stroke="#e8a070" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+				</svg>
+			</div>
 
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda — a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.
@@ -194,7 +266,7 @@ import { SITE_TITLE } from '../../consts';
 						<div class="entry-name">Katz's Delicatessen</div>
 						<div class="entry-location">Lower East Side, Manhattan</div>
 						<div class="entry-note">
-							Appeared on 14 lists — more than any other restaurant — and held the top position on most of them. The average rank of 1.3 confirms it is not just the most famous; it is genuinely the consensus best. The main complaints are the price ($28.95), the lines, and the tourist density. None of that changes what is in the sandwich.
+							Appeared on 14 lists, more than any other restaurant, and held the top position on most of them. The average rank of 1.3 confirms it is not just the most famous; it is genuinely the consensus best. The main complaints are the price ($28.95), the lines, and the tourist density. None of that changes what is in the sandwich.
 						</div>
 					</div>
 					<div class="score-block">
@@ -335,7 +407,20 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<hr class="divider" />
+				<div class="pickle-divider" aria-hidden="true">
+					<svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg">
+						<!-- Pickle body -->
+						<ellipse cx="60" cy="24" rx="54" ry="17" fill="#5a9a30" stroke="#2a5a10" stroke-width="2" transform="rotate(-6,60,24)"/>
+						<!-- Light stripe -->
+						<path d="M20,18 Q50,12 85,17 Q100,20 100,20" stroke="#8aca50" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+						<!-- Bumps -->
+						<circle cx="32" cy="22" r="3" fill="#4a8820" stroke="#2a5a10" stroke-width="1"/>
+						<circle cx="60" cy="18" r="3" fill="#4a8820" stroke="#2a5a10" stroke-width="1"/>
+						<circle cx="88" cy="22" r="3" fill="#4a8820" stroke="#2a5a10" stroke-width="1"/>
+						<!-- End nub -->
+						<ellipse cx="108" cy="23" rx="7" ry="5.5" fill="#4a8820" stroke="#2a5a10" stroke-width="1.5" transform="rotate(-6,108,23)"/>
+					</svg>
+				</div>
 
 				<div class="entry">
 					<div class="rank-num">12</div>
@@ -511,6 +596,58 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
+			</div>
+
+			<div class="skyline-wrap" aria-hidden="true">
+				<svg viewBox="0 0 300 75" xmlns="http://www.w3.org/2000/svg">
+					<!-- Left cluster -->
+					<rect x="4" y="48" width="16" height="26" fill="#2a2840" rx="1"/>
+					<rect x="22" y="36" width="11" height="38" fill="#2a2840" rx="1"/>
+					<rect x="35" y="24" width="9" height="50" fill="#2a2840" rx="1"/>
+					<!-- Empire State style -->
+					<rect x="45" y="14" width="17" height="60" fill="#332850" rx="1"/>
+					<rect x="49" y="7" width="9" height="12" fill="#332850"/>
+					<rect x="51" y="2" width="5" height="9" fill="#332850"/>
+					<line x1="53" y1="0" x2="53" y2="4" stroke="#332850" stroke-width="2"/>
+					<!-- Windows ES -->
+					<rect x="48" y="20" width="3" height="3" fill="#f0d060" opacity="0.55"/>
+					<rect x="55" y="20" width="3" height="3" fill="#f0d060" opacity="0.75"/>
+					<rect x="48" y="30" width="3" height="3" fill="#f0d060" opacity="0.4"/>
+					<rect x="55" y="30" width="3" height="3" fill="#f0d060" opacity="0.6"/>
+					<rect x="48" y="40" width="3" height="3" fill="#f0d060" opacity="0.7"/>
+					<!-- Mid buildings -->
+					<rect x="63" y="30" width="14" height="44" fill="#2a2840" rx="1"/>
+					<rect x="79" y="20" width="11" height="54" fill="#2a2840" rx="1"/>
+					<rect x="92" y="38" width="13" height="36" fill="#2a2840" rx="1"/>
+					<!-- Chrysler style -->
+					<rect x="106" y="16" width="15" height="58" fill="#28304a" rx="1"/>
+					<path d="M106,16 L113,4 L121,16 Z" fill="#28304a"/>
+					<rect x="109" y="24" width="3" height="3" fill="#f0d060" opacity="0.6"/>
+					<rect x="115" y="24" width="3" height="3" fill="#f0d060" opacity="0.45"/>
+					<rect x="109" y="34" width="3" height="3" fill="#f0d060" opacity="0.7"/>
+					<!-- More mid buildings -->
+					<rect x="122" y="32" width="17" height="42" fill="#2a2840" rx="1"/>
+					<rect x="141" y="42" width="11" height="32" fill="#2a2840" rx="1"/>
+					<!-- Tall tower pair -->
+					<rect x="153" y="10" width="13" height="64" fill="#332850" rx="1"/>
+					<rect x="168" y="22" width="13" height="52" fill="#2a2840" rx="1"/>
+					<!-- Windows tall -->
+					<rect x="156" y="18" width="3" height="3" fill="#f0d060" opacity="0.5"/>
+					<rect x="162" y="18" width="3" height="3" fill="#f0d060" opacity="0.65"/>
+					<rect x="156" y="28" width="3" height="3" fill="#f0d060" opacity="0.4"/>
+					<!-- Right cluster -->
+					<rect x="182" y="40" width="13" height="34" fill="#2a2840" rx="1"/>
+					<rect x="196" y="28" width="11" height="46" fill="#2a2840" rx="1"/>
+					<rect x="209" y="44" width="14" height="30" fill="#2a2840" rx="1"/>
+					<rect x="224" y="34" width="12" height="40" fill="#2a2840" rx="1"/>
+					<rect x="237" y="50" width="11" height="24" fill="#2a2840" rx="1"/>
+					<rect x="249" y="26" width="13" height="48" fill="#2a2840" rx="1"/>
+					<rect x="263" y="42" width="11" height="32" fill="#2a2840" rx="1"/>
+					<rect x="275" y="36" width="10" height="38" fill="#2a2840" rx="1"/>
+					<rect x="286" y="50" width="13" height="24" fill="#2a2840" rx="1"/>
+					<!-- Ground -->
+					<rect x="0" y="72" width="300" height="3" fill="#2a2840"/>
+				</svg>
 			</div>
 
 			<p class="sources-note">
