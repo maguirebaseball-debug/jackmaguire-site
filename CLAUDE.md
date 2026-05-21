@@ -28,9 +28,32 @@ Available tags: nyc, food, books, essays, philosophy, tech, ai, travel
 
 ## Deploying
 ```bash
-git add -A && git commit -m "description" && git push
+cd ~/Developer/jackmaguire-site
+git add src/pages/path/to/file.astro
+git commit -m "description"
+git push
 ```
 Vercel redeploys automatically. Live in ~60 seconds.
+
+## Writing style
+Never use em dashes (—) in any content, copy, or prose written for this site. Use a comma, period, or restructure the sentence instead.
+
+## Design philosophy
+
+This is a personal site. It should look like one.
+
+**Avoid the safe median.** The default AI-generated design palette — muted blue accent, warm off-white background, small-caps labels, hairline dividers, rounded card grid with identical padding everywhere — is recognizable precisely because it is the safest, most neutral option. Any time a layout or typographic choice feels "tastefully editorial," push it further.
+
+**Visual hierarchy must match content importance.** The #1 entry on a ranking page should look structurally different from the #22 entry. Do not make everything visually equal. Break the grid for what matters. If the top result uses the same card size, padding, and font weight as the last result, the design has failed.
+
+**Decoration must earn its place.** An illustration should relate to the actual content, not just gesture at a theme. A skyline silhouette that encodes no information is worse than no skyline. If decoration does not add meaning or delight, remove it.
+
+**Idiosyncratic over polished.** Personal sites accrue personality over time: a first-person aside from Jack, a detail specific to the actual subject matter, something that could not have come from a template. Include at least one element per page that signals a real person built this.
+
+**No bloodless pages.** For food content especially: opinion exists. Prose can be direct and first-person. If every visual decision is neutral and every sentence is in the passive voice, the page is not personal.
+
+## Terminal command formatting
+Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.
 
 ## npm cache fix
 If npm throws cache permission errors, prefix commands with:

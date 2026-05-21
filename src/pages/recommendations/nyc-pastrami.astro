@@ -158,15 +158,6 @@ import { SITE_TITLE } from '../../consts';
 				height: auto;
 				opacity: 0.82;
 			}
-			.skyline-wrap {
-				margin: 2.5em auto 0;
-				max-width: 300px;
-				opacity: 0.55;
-			}
-			.skyline-wrap svg {
-				width: 100%;
-				height: auto;
-			}
 			@media (max-width: 520px) {
 				.sandwich-wrap {
 					width: 120px;
@@ -180,6 +171,42 @@ import { SITE_TITLE } from '../../consts';
 			}
 			.sources-note a {
 				color: rgb(var(--gray));
+			}
+			/* Top 3: break the uniform grid, make the winner feel like a winner */
+			.entry.top3-entry {
+				background: #fdf8ef;
+				border-left: 4px solid #c4942e;
+				padding-left: calc(1.5em - 4px);
+				box-shadow: 0 2px 10px rgba(196,148,46,0.14), 0 6px 24px rgba(var(--gray), 10%);
+			}
+			.top3-entry .rank-num {
+				font-size: 2.5em;
+				line-height: 1.0;
+				padding-top: 0.05em;
+			}
+			.top3-entry .entry-name {
+				font-size: 1.2em;
+			}
+			.top3-entry .avg-rank {
+				font-size: 1.8em;
+			}
+			.personal-aside {
+				font-size: 0.88em;
+				color: rgb(var(--gray));
+				font-style: italic;
+				margin: -1em 0 2.5em;
+				padding-left: 1em;
+				border-left: 2px solid rgba(var(--gray), 25%);
+				line-height: 1.6;
+			}
+			.ticket-wrap {
+				margin: 2.5em auto 0;
+				max-width: 200px;
+			}
+			.ticket-wrap svg {
+				width: 100%;
+				height: auto;
+				filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.15));
 			}
 		</style>
 	</head>
@@ -219,6 +246,7 @@ import { SITE_TITLE } from '../../consts';
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda — a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.
 			</p>
+			<p class="personal-aside">I have eaten at Katz's twice and Pastrami Queen once. The data agrees with my palate on both.</p>
 
 			<div class="methodology">
 				<strong>How this works:</strong> For each list, we recorded where every restaurant placed — 1st, 2nd, 3rd, and so on. We then calculated each restaurant's average rank across all the lists it appeared in. Lower average rank is better. A place that tops two lists beats a place that consistently sits at #5 on seven lists. No points for just showing up. Only mainstream publications were excluded (NYT, Eater, Grubstreet, Infatuation, Thrillist, and similar). 30 sources total; 23 restaurants ranked.
@@ -226,7 +254,7 @@ import { SITE_TITLE } from '../../consts';
 
 			<div class="ranking-list">
 
-				<div class="entry">
+				<div class="entry top3-entry">
 					<div class="rank-num top3">1</div>
 					<div class="entry-body">
 						<div class="entry-name">Parkview Diner</div>
@@ -243,7 +271,7 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry top3-entry">
 					<div class="rank-num top3">1</div>
 					<div class="entry-body">
 						<div class="entry-name">Moe's Pastrami &amp; Burger</div>
@@ -260,7 +288,7 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry top3-entry">
 					<div class="rank-num top3">3</div>
 					<div class="entry-body">
 						<div class="entry-name">Katz's Delicatessen</div>
@@ -598,55 +626,23 @@ import { SITE_TITLE } from '../../consts';
 
 			</div>
 
-			<div class="skyline-wrap" aria-hidden="true">
-				<svg viewBox="0 0 300 75" xmlns="http://www.w3.org/2000/svg">
-					<!-- Left cluster -->
-					<rect x="4" y="48" width="16" height="26" fill="#2a2840" rx="1"/>
-					<rect x="22" y="36" width="11" height="38" fill="#2a2840" rx="1"/>
-					<rect x="35" y="24" width="9" height="50" fill="#2a2840" rx="1"/>
-					<!-- Empire State style -->
-					<rect x="45" y="14" width="17" height="60" fill="#332850" rx="1"/>
-					<rect x="49" y="7" width="9" height="12" fill="#332850"/>
-					<rect x="51" y="2" width="5" height="9" fill="#332850"/>
-					<line x1="53" y1="0" x2="53" y2="4" stroke="#332850" stroke-width="2"/>
-					<!-- Windows ES -->
-					<rect x="48" y="20" width="3" height="3" fill="#f0d060" opacity="0.55"/>
-					<rect x="55" y="20" width="3" height="3" fill="#f0d060" opacity="0.75"/>
-					<rect x="48" y="30" width="3" height="3" fill="#f0d060" opacity="0.4"/>
-					<rect x="55" y="30" width="3" height="3" fill="#f0d060" opacity="0.6"/>
-					<rect x="48" y="40" width="3" height="3" fill="#f0d060" opacity="0.7"/>
-					<!-- Mid buildings -->
-					<rect x="63" y="30" width="14" height="44" fill="#2a2840" rx="1"/>
-					<rect x="79" y="20" width="11" height="54" fill="#2a2840" rx="1"/>
-					<rect x="92" y="38" width="13" height="36" fill="#2a2840" rx="1"/>
-					<!-- Chrysler style -->
-					<rect x="106" y="16" width="15" height="58" fill="#28304a" rx="1"/>
-					<path d="M106,16 L113,4 L121,16 Z" fill="#28304a"/>
-					<rect x="109" y="24" width="3" height="3" fill="#f0d060" opacity="0.6"/>
-					<rect x="115" y="24" width="3" height="3" fill="#f0d060" opacity="0.45"/>
-					<rect x="109" y="34" width="3" height="3" fill="#f0d060" opacity="0.7"/>
-					<!-- More mid buildings -->
-					<rect x="122" y="32" width="17" height="42" fill="#2a2840" rx="1"/>
-					<rect x="141" y="42" width="11" height="32" fill="#2a2840" rx="1"/>
-					<!-- Tall tower pair -->
-					<rect x="153" y="10" width="13" height="64" fill="#332850" rx="1"/>
-					<rect x="168" y="22" width="13" height="52" fill="#2a2840" rx="1"/>
-					<!-- Windows tall -->
-					<rect x="156" y="18" width="3" height="3" fill="#f0d060" opacity="0.5"/>
-					<rect x="162" y="18" width="3" height="3" fill="#f0d060" opacity="0.65"/>
-					<rect x="156" y="28" width="3" height="3" fill="#f0d060" opacity="0.4"/>
-					<!-- Right cluster -->
-					<rect x="182" y="40" width="13" height="34" fill="#2a2840" rx="1"/>
-					<rect x="196" y="28" width="11" height="46" fill="#2a2840" rx="1"/>
-					<rect x="209" y="44" width="14" height="30" fill="#2a2840" rx="1"/>
-					<rect x="224" y="34" width="12" height="40" fill="#2a2840" rx="1"/>
-					<rect x="237" y="50" width="11" height="24" fill="#2a2840" rx="1"/>
-					<rect x="249" y="26" width="13" height="48" fill="#2a2840" rx="1"/>
-					<rect x="263" y="42" width="11" height="32" fill="#2a2840" rx="1"/>
-					<rect x="275" y="36" width="10" height="38" fill="#2a2840" rx="1"/>
-					<rect x="286" y="50" width="13" height="24" fill="#2a2840" rx="1"/>
-					<!-- Ground -->
-					<rect x="0" y="72" width="300" height="3" fill="#2a2840"/>
+			<div class="ticket-wrap" aria-hidden="true">
+				<svg viewBox="0 0 160 90" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(2deg)">
+					<!-- Ticket body -->
+					<rect x="3" y="3" width="154" height="76" fill="#fdf6e3" stroke="#3a280a" stroke-width="1.5" rx="3"/>
+					<!-- Header stripe -->
+					<rect x="3" y="3" width="154" height="20" fill="#3a280a" rx="3"/>
+					<rect x="3" y="18" width="154" height="5" fill="#3a280a"/>
+					<!-- Header text -->
+					<text x="80" y="16" text-anchor="middle" font-family="Georgia, serif" font-size="7.5" fill="#fdf6e3" letter-spacing="2.5">HOLD ONTO THIS TICKET</text>
+					<!-- NO. label -->
+					<text x="80" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#7a5820" letter-spacing="3">NO.</text>
+					<!-- Big number -->
+					<text x="80" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="#3a280a">47</text>
+					<!-- Perforation line -->
+					<line x1="14" y1="72" x2="146" y2="72" stroke="#3a280a" stroke-width="0.75" stroke-dasharray="3,3"/>
+					<!-- Bottom text -->
+					<text x="80" y="83" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#7a5820" letter-spacing="2">DO NOT LOSE</text>
 				</svg>
 			</div>
 
