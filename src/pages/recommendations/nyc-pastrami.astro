@@ -128,16 +128,23 @@ import { SITE_TITLE } from '../../consts';
 				border-top: 1px solid rgba(var(--gray), 15%);
 				margin: 2em 0;
 			}
-			.sandwich-wrap {
-				float: right;
-				margin: 0 0 0.5em 1.5em;
-				width: 180px;
+			.epigraph {
+				margin: -0.5em 0 2.5em;
+				padding: 1em 0 1em 1.75em;
+				border-left: 3px solid rgb(var(--gray-dark));
+				font-size: 1.05em;
+				font-style: italic;
+				color: rgb(var(--gray-dark));
+				line-height: 1.65;
 			}
-			.sandwich-wrap svg {
-				width: 100%;
-				height: auto;
-				filter: drop-shadow(2px 4px 5px rgba(0,0,0,0.10));
-				transform: rotate(-4deg);
+			.epigraph p {
+				margin: 0 0 0.4em;
+			}
+			.epigraph cite {
+				font-size: 0.82em;
+				font-style: normal;
+				color: rgb(var(--gray));
+				display: block;
 			}
 			.pickle-divider {
 				display: flex;
@@ -158,11 +165,6 @@ import { SITE_TITLE } from '../../consts';
 				height: auto;
 				opacity: 0.82;
 			}
-			@media (max-width: 520px) {
-				.sandwich-wrap {
-					width: 120px;
-				}
-			}
 			.sources-note {
 				font-size: 0.82em;
 				color: rgb(var(--gray));
@@ -172,32 +174,24 @@ import { SITE_TITLE } from '../../consts';
 			.sources-note a {
 				color: rgb(var(--gray));
 			}
-			/* Top 3: break the uniform grid, make the winner feel like a winner */
+			/* Top 3: larger rank numeral, warm background, left border — structurally distinct from #22 */
 			.entry.top3-entry {
 				background: #fdf8ef;
 				border-left: 4px solid #c4942e;
 				padding-left: calc(1.5em - 4px);
 				box-shadow: 0 2px 10px rgba(196,148,46,0.14), 0 6px 24px rgba(var(--gray), 10%);
+				grid-template-columns: 3.5em 1fr auto;
 			}
 			.top3-entry .rank-num {
-				font-size: 2.5em;
-				line-height: 1.0;
+				font-size: 2.25em;
+				line-height: 1.05;
 				padding-top: 0.05em;
 			}
 			.top3-entry .entry-name {
 				font-size: 1.2em;
 			}
 			.top3-entry .avg-rank {
-				font-size: 1.8em;
-			}
-			.personal-aside {
-				font-size: 0.88em;
-				color: rgb(var(--gray));
-				font-style: italic;
-				margin: -1em 0 2.5em;
-				padding-left: 1em;
-				border-left: 2px solid rgba(var(--gray), 25%);
-				line-height: 1.6;
+				font-size: 1.75em;
 			}
 			.ticket-wrap {
 				margin: 2.5em auto 0;
@@ -215,38 +209,13 @@ import { SITE_TITLE } from '../../consts';
 		<main>
 			<h1>NYC Pastrami, Ranked</h1>
 
-			<div class="sandwich-wrap" aria-hidden="true">
-				<svg viewBox="0 0 180 148" xmlns="http://www.w3.org/2000/svg">
-					<!-- Top bun dome -->
-					<path d="M22,72 C20,46 30,17 90,13 C150,9 160,40 160,72 Z"
-						fill="#e8a86d" stroke="#7a4220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-					<!-- Bun sheen -->
-					<path d="M48,46 C62,36 100,33 128,42" stroke="#f0c080" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-					<!-- Sesame seeds -->
-					<ellipse cx="57" cy="34" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1" transform="rotate(-18,57,34)"/>
-					<ellipse cx="90" cy="23" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1"/>
-					<ellipse cx="123" cy="33" rx="6" ry="2.5" fill="#f2d898" stroke="#9a7030" stroke-width="1" transform="rotate(18,123,33)"/>
-					<!-- Meat layer 1 (ruffled) -->
-					<path d="M18,72 C30,67 43,75 56,70 C69,65 82,73 95,69 C108,65 121,72 134,68 C147,64 158,70 163,72 L163,83 C158,81 147,75 134,79 C121,83 108,76 95,80 C82,84 69,77 56,81 C43,85 30,78 18,83 Z"
-						fill="#8b1f1f" stroke="#5a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
-					<!-- Meat layer 2 -->
-					<path d="M16,83 C28,78 41,86 54,81 C67,76 80,84 93,80 C106,76 119,83 132,79 C145,75 157,81 165,83 L165,93 C157,91 145,85 132,89 C119,93 106,86 93,90 C80,94 67,87 54,91 C41,95 28,89 16,93 Z"
-						fill="#a02424" stroke="#5a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
-					<!-- Mustard smear -->
-					<path d="M14,93 C48,89 125,95 167,93 L168,99 C125,101 48,96 14,99 Z"
-						fill="#eac820" stroke="#a89010" stroke-width="1" stroke-linejoin="round"/>
-					<!-- Bottom bun -->
-					<path d="M12,99 Q90,96 170,99 Q174,113 158,127 Q90,134 22,127 Q6,113 12,99 Z"
-						fill="#d4855a" stroke="#7a4220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-					<!-- Bottom bun highlight -->
-					<path d="M28,104 Q90,100 154,104" stroke="#e8a070" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-				</svg>
-			</div>
-
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda — a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.
 			</p>
-			<p class="personal-aside">I have eaten at Katz's twice and Pastrami Queen once. The data agrees with my palate on both.</p>
+			<blockquote class="epigraph">
+				<p>I have eaten at Katz's twice and Pastrami Queen once. The data agrees with my palate on both.</p>
+				<cite>— J.M.</cite>
+			</blockquote>
 
 			<div class="methodology">
 				<strong>How this works:</strong> For each list, we recorded where every restaurant placed — 1st, 2nd, 3rd, and so on. We then calculated each restaurant's average rank across all the lists it appeared in. Lower average rank is better. A place that tops two lists beats a place that consistently sits at #5 on seven lists. No points for just showing up. Only mainstream publications were excluded (NYT, Eater, Grubstreet, Infatuation, Thrillist, and similar). 30 sources total; 23 restaurants ranked.
