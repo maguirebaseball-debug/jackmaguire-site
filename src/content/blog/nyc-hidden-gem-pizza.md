@@ -59,10 +59,6 @@ Opened July 2025 by veteran pizzaiolo Andrea Kenuti, who came up at Scarr's Pizz
 
 Tokyo-Neapolitan pizza from acclaimed pizzaiolo Tsubasa Tamaki, making his U.S. debut in the East Village. The dough uses a proprietary flour blend imported from Japan. Dinner only, Tuesday through Saturday. This is a different category of pizza than anything else on this list.
 
-**[Nate's Detroit Pizza](https://www.natesdetroitpizzanewyork.com/)** — 244 E 13th St, East Village. 4.7 stars, 150 reviews.
-
-Detroit-style in the East Village, which means thick rectangular pies with caramelized cheese edges and sauce on top. The style is having a moment nationally; this location is executing it well.
-
 **[Nova Pizza & Grill](https://novapizzagrill.com/)** — 1739 2nd Ave, Upper East Side. 4.8 stars, 58 reviews.
 
 Classic New York-style pies on the Upper East Side, at 90th and Second. Neighborhood restaurant, not a destination spot. Good to know about if you're in the area and don't want to deal with the usual tourist-facing options further south.
@@ -91,7 +87,7 @@ Detroit-style square pies with crispy caramelized edges. This style is underrepr
 
 A perfect 5.0 with 32 reviews is the highest-risk, highest-reward entry on this list. That review count sits right at the floor of statistical reliability. But a 5.0 with no negative reviews whatsoever in New York City is hard to manufacture. Worth the small gamble.
 
-**Casa Caribe Pizza** — 4 Stuyvesant Ave, Bushwick/Bed-Stuy border. 4.8 stars, 72 reviews.
+**[Casa Caribe Pizza](https://www.casacaribepizzeria.com/)** — 4 Stuyvesant Ave, Bushwick/Bed-Stuy border. 4.8 stars, 72 reviews.
 
 Caribbean-inflected pizza on Stuyvesant Avenue, in the stretch between Bushwick and Bed-Stuy. No standalone website, which is often a sign that a place doesn't need one.
 
@@ -107,7 +103,7 @@ Pizza and panzerotti, which are deep-fried calzones. Chef Aurel Xhepexhiu opened
 
 Francesco Cuozzo spent 22 years at a different Williamsburg location before moving to Grand Street. High-quality ingredients imported from Italy, full Italian menu alongside the pizza. This is the kind of legacy place that food media overlooks because it doesn't have a story hook.
 
-**Supreme Pizza NY** — 22 4th Ave, Boerum Hill. 4.9 stars, 107 reviews.
+**[Supreme Pizza NY](https://maps.google.com/?q=Supreme+Pizza+NY,+22+4th+Ave,+Brooklyn,+NY+11217)** — 22 4th Ave, Boerum Hill. 4.9 stars, 107 reviews.
 
 On 4th Avenue in Boerum Hill, a stretch that doesn't get much food coverage despite being genuinely neighborhood-dense. No dedicated website. Consistently strong ratings.
 
@@ -119,27 +115,27 @@ Roman-style square slices alongside 18-inch New York-style pies, on the corner o
 
 Neighborhood pizza shop on the less-trafficked northern stretch of Washington Avenue, between Prospect Heights and Crown Heights. The website says they're "real people running this place," which is a low bar but apparently worth stating in 2026.
 
-**THE SWISS SLICE GT** — 2703 Church Ave, Flatbush. 4.9 stars, 67 reviews.
+**[THE SWISS SLICE GT](https://www.theswissslicegt.com/)** — 2703 Church Ave, Flatbush. 4.9 stars, 67 reviews.
 
 The all-caps name and the Church Avenue address put this firmly outside standard food coverage territory. I have no information on what Swiss Slice means in this context. That is, independently, a reason to go find out.
 
-**Little Plaza Pizza** — 188 Parkside Ave, Flatbush. 4.9 stars, 79 reviews.
+**[Little Plaza Pizza](https://www.littleplazapizza.com/)** — 188 Parkside Ave, Flatbush. 4.9 stars, 79 reviews.
 
 On Parkside Avenue between Prospect Park and Flatbush proper. Consistently strong ratings in a neighborhood that doesn't benefit from much food media attention.
 
-**Anna Bella Pizza Café** — 7521 3rd Ave, Bay Ridge. 5.0 stars, 54 reviews.
+**[Anna Bella Pizza Café](https://www.instagram.com/annabellapizzacafe/)** — 7521 3rd Ave, Bay Ridge. 5.0 stars, 54 reviews.
 
 Detroit-style slices in Bay Ridge, which is already a pizza-serious neighborhood. The combination of a perfect score and a format that still feels underrepresented in Brooklyn makes this one worth the trip down Third Avenue.
 
-**SABRA PIZZA & RESTAURANT** — 271 Bay Ridge Ave, Bay Ridge. 5.0 stars, 41 reviews.
+**[SABRA PIZZA & RESTAURANT](https://www.instagram.com/sabrapizzaandrestaurant/)** — 271 Bay Ridge Ave, Bay Ridge. 5.0 stars, 41 reviews.
 
 Another perfect-score entry in Bay Ridge. Two 5.0 spots within a mile of each other in the same neighborhood suggests Bay Ridge is doing something right that nobody is writing about.
 
-**Urban Crust Pizza & Grill** — 1150 Liberty Ave, East New York. 4.9 stars, 82 reviews.
+**[Urban Crust Pizza & Grill](https://www.urbancrust.net/)** — 1150 Liberty Ave, East New York. 4.9 stars, 82 reviews.
 
 Liberty Avenue in East New York is not a neighborhood that comes up in pizza conversations. This place has 82 reviews and a 4.9. The data does not care about the narrative.
 
-**Se'or Pizza** — 3005 Avenue K, Midwood. 4.9 stars, 48 reviews.
+**[Se'or Pizza](https://seorpizza.com/)** — 3005 Avenue K, Midwood. 4.9 stars, 48 reviews.
 
 Avenue K in Midwood, deep Brooklyn. No dedicated website. The review count is low enough that this could go either way, but the rating is consistent and the location suggests it's serving a loyal neighborhood base rather than chasing discovery.
 
@@ -179,11 +175,11 @@ Pizza on the boardwalk at Beach 97th Street. Open daily noon to 8 PM, weather pe
 
 On the Grand Concourse in the Fordham neighborhood. Halal pizza with a strong and consistent following. The Bronx is underrepresented in the broader NYC food conversation; this rating reflects real quality.
 
-**Supreme Pizza NY** — 1043 E 163rd St, Melrose. 4.9 stars, 148 reviews.
+**[Supreme Pizza NY](https://maps.google.com/?q=Supreme+Pizza+NY,+1043+E+163rd+St,+Bronx,+NY+10459)** — 1043 E 163rd St, Melrose. 4.9 stars, 148 reviews.
 
 East Bronx, 163rd Street. No dedicated website. 148 reviews at 4.9 stars means this has been consistent long enough to matter. Almost certainly serving a loyal neighborhood base.
 
-**Best Bite Pizza** — 889 Hunts Point Ave, Hunts Point. 4.9 stars, 47 reviews.
+**[Best Bite Pizza](https://bestbitepizzany.com/)** — 889 Hunts Point Ave, Hunts Point. 4.9 stars, 47 reviews.
 
 Hunts Point is not a neighborhood that food writing reaches. This place has 47 reviews and a 4.9. No website, no press. Just a pizza shop doing its job.
 
