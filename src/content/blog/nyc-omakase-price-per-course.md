@@ -15,7 +15,7 @@ I wanted a different frame: price per course, across the whole market, organized
 
 I started with the [2026 NYC Omakase List from The Sushi Legend](https://thesushilegend.com/nyc-omakase-list-2026/), a spreadsheet-style PDF that tracks approximately 150 active omakase restaurants in New York with course counts and prices. That's the most complete public dataset I've found. I cross-validated pricing against [The Infatuation's under-$100 omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100), individual restaurant websites, [Food and Spot reviews](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc), and Resy. Where prices conflicted, I used the restaurant's own website or most recent booking platform as the tiebreaker.
 
-This covers traditional Japanese sushi omakase only. All-you-can-eat formats (SourAji, Shinsen, Hatsu Omakase), non-Japanese omakase, and cocktail or vegan variations are not included. Kaiseki elements, dessert courses, and standard supplements within a traditional omakase are fine — those are part of the format.
+This covers traditional Japanese sushi omakase only. All-you-can-eat formats (SourAji, Shinsen, Hatsu Omakase), non-Japanese omakase, and cocktail or vegan variations are not included. Kaiseki elements, dessert courses, and standard supplements within a traditional omakase are fine. Those are part of the format.
 
 I haven't eaten at all of these. Some I've been to. The rankings are data, not tasting notes.
 
@@ -42,7 +42,7 @@ The 13→14 boundary marks a real shift in pace and formality. The 17→18 bound
 
 *Photo by [Julie Campan](https://www.pexels.com/@julie-campan-194253660) / Pexels*
 
-## Tier A — 10 to 13 Courses
+## Tier A: 10 to 13 Courses
 
 The most crowded tier. Over 50 restaurants in this range. This is where lunch omakase, casual counter spots, and high-turnover value plays concentrate.
 
@@ -80,9 +80,9 @@ The most crowded tier. Over 50 restaurants in this range. This is where lunch om
 
 *Photo by [Airam Dato-on](https://www.pexels.com/@airamdphoto) / Pexels*
 
-## Tier B — 14 to 17 Courses
+## Tier B: 14 to 17 Courses
 
-The standard dinner omakase tier. This is what most people picture when they think "omakase night out." It's also where the single best price-per-course value in all of NYC sits.
+The standard dinner omakase tier. This is what most people picture when they think "omakase night out." This tier also has the best price-per-course value in the city.
 
 **Top values by price per course:**
 
@@ -108,7 +108,7 @@ The standard dinner omakase tier. This is what most people picture when they thi
 
 **[Uka Omakase](https://ukaomakase.com/)** at 238 E 60th Street is the best price-per-course value in New York City at any tier. Sixteen courses for $56, including a complimentary sake shot when you sit down. The menu goes through hamachi with shishito, salmon with foie gras, and uni from Hokkaido. [Food and Spot's review](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc) covers the full menu in detail. Reservations through [Resy](https://resy.com/cities/new-york-ny/venues/uka-omakase). The same restaurant also offers an 18-course VIP counter option for $98, which shows up in Tier C below.
 
-**[Sushi W](https://www.sushiwny.com/)** on the Upper West Side runs at $53 for 14 courses with a no-tip policy, making the all-in cost comparable to Uka at roughly $3.79 per course. [The Infatuation's budget omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) calls it the most affordable seated option in the city. The same location offers 17 courses for $68 (Tier B upper end, or entry into Tier C depending on format).
+**[Sushi W](https://www.sushiwny.com/)** on the Upper West Side runs at $53 for 14 courses with a no-tip policy, making the all-in cost comparable to Uka at roughly $3.79 per course. [The Infatuation's budget omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) calls it the most affordable seated option in the city. The same location offers 17 courses for $68, which sits at the top of Tier B.
 
 **[Sanyuu West](https://www.sanyuuwest.com/)** in Chelsea is the most-reviewed value play in this tier. Fifteen courses for $78 at a 16-seat U-shaped counter, with the full range of premium ingredients: uni, truffle, foie gras, caviar. The [Infatuation review](https://www.theinfatuation.com/new-york/reviews/sanyuu-west) rates it highly. About 70 minutes, dinner only.
 
@@ -120,7 +120,7 @@ The standard dinner omakase tier. This is what most people picture when they thi
 
 *Photo by [Derek Duran](https://unsplash.com/@derekduran) / Unsplash*
 
-## Tier C — 18 to 20 Courses
+## Tier C: 18 to 20 Courses
 
 The extended omakase. Ninety minutes or more, ingredient-heavy, usually where the premium fish (bluefin otoro, Hokkaido sea urchin, A5 wagyu) shows up in volume rather than as single token bites.
 
@@ -148,7 +148,7 @@ This tier is smaller than the lower two. Around 30 active restaurants in NYC off
 
 **[Yamashiro](https://yamashirony.com/)** at 466 Myrtle Avenue in Clinton Hill is the standout for this tier. Nineteen courses for $108 is $5.68 per course, which competes with mid-tier Tier B pricing while delivering a full extended-omakase format. The menu features A5 wagyu, otoro seared over oak charcoal, caviar, and truffle. The [2026 Sushi Legend list](https://thesushilegend.com/nyc-omakase-list-2026/) confirms the pricing. Reviews on [Yelp](https://www.yelp.com/biz/yamashiro-brooklyn-2) are consistently strong, with the 19-course version getting specific praise over the base 12-course option.
 
-**[Uka Omakase's](https://ukaomakase.com/) VIP counter** at $98 for 18 courses ($5.44 per course) technically wins on price, but it's the same restaurant as the Tier B recommendation. For those who want to stay in Tier C at a different venue, Yamashiro is the pick.
+**[Uka Omakase's](https://ukaomakase.com/) VIP counter** at $98 for 18 courses ($5.44 per course) is the best price-per-course in this tier, but it's the same restaurant as the Tier B recommendation. For a different venue, Yamashiro is the pick.
 
 **[Sushi Koya](https://www.instagram.com/sushi_koya/)** at 163 W 71st Street on the Upper West Side runs 18 courses for $115 with a BYOB policy, which changes the math meaningfully if you drink. [The Sushi Legend review](https://thesushilegend.com/nyc-omakase-list-2026/) has it in the 2026 list at $115 for the 18-course format.
 
@@ -160,9 +160,9 @@ A note on this tier: [Shiso](https://www.yelp.com/biz/shiso-new-york) (214 E 9th
 
 *Photo by [Diana Nguyen](https://www.pexels.com/@diana-nguyen-2065905) / Pexels*
 
-## Tier D — 21+ Courses
+## Tier D: 21+ Courses
 
-Seven active restaurants in NYC. This is destination dining, not value dining. The universe is small enough that the full list fits in a paragraph.
+Seven active restaurants in NYC. This is destination dining, not value dining. The whole tier fits in a table.
 
 **[Sushi Nakazawa](https://www.sushinakazawa.com/new-york/omakase-and-menu/omakase)** at 23 Commerce Street in the West Village is the only sub-$10-per-course option in this tier: 21 courses for $190, or $9.05 per course. Michelin-rated. That gap between Nakazawa and the next entry in the table is the most important number in Tier D.
 
@@ -189,13 +189,13 @@ Everything above $225 in this tier is a different category of proposition. If yo
 
 **[Uka Omakase](https://ukaomakase.com/) at $56 for 16 courses.** That's $3.50 per course at a counter that serves Hokkaido uni, foie gras salmon, and smoked kampachi. It is not close. The next competitor in Tier B is Sushi W at $3.79 per course (which includes gratuity). For Tier C, the same restaurant's 18-course VIP tier at $98 is still the best value in that bracket.
 
-The full ranked research file — all 150 restaurants, all four tiers, prices and price-per-course calculations — is available at the bottom of this page and at the source links below.
+The full ranked research file covers all 150 restaurants across all four tiers with prices and price-per-course calculations. Source links are below.
 
 ---
 
 ## A Note on Timing
 
-The [Sushi Legend's 2026 list](https://thesushilegend.com/nyc-omakase-list-2026/) was published in January 2026. Prices and course counts change. A few restaurants confirmed in that list have already moved: Shiso closed, a few prices updated. The values here were verified in May 2026 against individual booking platforms, but the shelf life of any specific number is probably six to twelve months before another check is warranted.
+The [Sushi Legend's 2026 list](https://thesushilegend.com/nyc-omakase-list-2026/) was published in January 2026. Prices and course counts change. A few restaurants confirmed in that list have already moved: Shiso closed, a few prices updated. The values here were verified in May 2026 against individual booking platforms, but the shelf life of any specific number is probably six to twelve months before the numbers start drifting.
 
 If a restaurant from this list has raised prices or closed by the time you read this, that's how this works. The methodology stays the same even when the data ages out.
 
@@ -203,17 +203,17 @@ If a restaurant from this list has raised prices or closed by the time you read 
 
 ## Sources
 
-- [The Sushi Legend: 2026 NYC Omakase List](https://thesushilegend.com/nyc-omakase-list-2026/) — primary data source, ~150 restaurants, course counts and prices
-- [The Sushi Legend: 2025 NYC Omakase List](https://thesushilegend.com/nyc-omakase-list-2025/) — prior year comparison, confirming restaurant continuity
-- [The Infatuation: Best Sushi Omakase Under $100 in NYC](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) — 16-restaurant editorial guide, cross-reference for Tier A and B
-- [The Infatuation: Sanyuu West Review](https://www.theinfatuation.com/new-york/reviews/sanyuu-west) — price and format verification
-- [The Infatuation: Omakase by Korami Review](https://www.theinfatuation.com/new-york/reviews/omakase-by-korami) — price and format verification
-- [The Infatuation: Takumi Omakase Review](https://www.theinfatuation.com/new-york/reviews/takumi-omakase) — price and format verification
-- [The Infatuation: Shiki Omakase Review](https://www.theinfatuation.com/new-york/reviews/shiki-omakase) — price and format verification
-- [The Infatuation: Mojo East Review](https://www.theinfatuation.com/new-york/reviews/mojo-east) — price and format verification
-- [Food and Spot: Uka Omakase](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc) — $56/16-course pricing verification, menu details
-- [Food and Spot: Mojo East](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/mojo-east-affordable-usd55-omakase-in-nyc-13-course-sushi-with-no-tip) — $55/13-course pricing verification
-- [The Sushi Legend: Under-$100 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-100-nyc/) — curated budget guide, supplemental cross-reference
-- [The Sushi Legend: Under-$200 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-200-in-nyc-2026/) — Tier B/C mid-range cross-reference
-- [Yamashiro Brooklyn (Yelp)](https://www.yelp.com/biz/yamashiro-brooklyn-2) — Tier C pricing and review verification
-- [Shiso NYC (Yelp — Closed)](https://www.yelp.com/biz/shiso-new-york) — closure confirmed May 2026
+- [The Sushi Legend: 2026 NYC Omakase List](https://thesushilegend.com/nyc-omakase-list-2026/): primary data source, ~150 restaurants, course counts and prices
+- [The Sushi Legend: 2025 NYC Omakase List](https://thesushilegend.com/nyc-omakase-list-2025/): prior year comparison, confirming restaurant continuity
+- [The Infatuation: Best Sushi Omakase Under $100 in NYC](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100): 16-restaurant editorial guide, cross-reference for Tier A and B
+- [The Infatuation: Sanyuu West Review](https://www.theinfatuation.com/new-york/reviews/sanyuu-west): price and format verification
+- [The Infatuation: Omakase by Korami Review](https://www.theinfatuation.com/new-york/reviews/omakase-by-korami): price and format verification
+- [The Infatuation: Takumi Omakase Review](https://www.theinfatuation.com/new-york/reviews/takumi-omakase): price and format verification
+- [The Infatuation: Shiki Omakase Review](https://www.theinfatuation.com/new-york/reviews/shiki-omakase): price and format verification
+- [The Infatuation: Mojo East Review](https://www.theinfatuation.com/new-york/reviews/mojo-east): price and format verification
+- [Food and Spot: Uka Omakase](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc): $56/16-course pricing verification, menu details
+- [Food and Spot: Mojo East](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/mojo-east-affordable-usd55-omakase-in-nyc-13-course-sushi-with-no-tip): $55/13-course pricing verification
+- [The Sushi Legend: Under-$100 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-100-nyc/): curated budget guide, supplemental cross-reference
+- [The Sushi Legend: Under-$200 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-200-in-nyc-2026/): Tier B/C mid-range cross-reference
+- [Yamashiro Brooklyn (Yelp)](https://www.yelp.com/biz/yamashiro-brooklyn-2): Tier C pricing and review verification
+- [Shiso NYC (Yelp, Closed)](https://www.yelp.com/biz/shiso-new-york): closure confirmed May 2026
