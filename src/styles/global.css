@@ -86,7 +86,25 @@ input {
 }
 table {
 	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5rem 0;
 }
+th,
+td {
+	border: 1px solid rgb(var(--gray-light));
+	padding: 12px;
+	text-align: left;
+}
+th {
+	background-color: rgba(var(--gray-light), 0.2);
+	font-family: var(--font-fraunces);
+	font-weight: 600;
+	color: rgb(var(--black));
+}
+tr:nth-of-type(even) {
+	background-color: rgba(var(--gray-light), 0.05);
+}
+
 img {
 	max-width: 100%;
 	height: auto;
