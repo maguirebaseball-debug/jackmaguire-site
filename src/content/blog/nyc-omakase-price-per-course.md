@@ -5,9 +5,9 @@ pubDate: 2026-05-22
 tags: ["nyc", "food"]
 ---
 
-![Nigiri sushi platter with tuna, salmon, and yellowtail at an omakase counter](https://images.pexels.com/photos/30682753/pexels-photo-30682753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+![Premium nigiri assortment in a wood box: toro, uni, shrimp, and salmon](/images/omakase-hero.jpg)
 
-*Photo by [Airam Dato-on](https://www.pexels.com/@airamdphoto) / Pexels*
+*Photo by Jack Maguire, March 2026*
 
 Omakase is the most pricing-opaque food category in New York. A 12-course meal can cost $50 or $200 depending entirely on which counter you sit at. Restaurant websites rarely explain why. Most listicles sort by reputation or vibe, which tells you nothing about whether you're getting value.
 
@@ -38,9 +38,9 @@ The 13→14 boundary marks a real shift in pace and formality. The 17→18 bound
 
 ---
 
-![Fresh salmon nigiri on a slate board with chopsticks](https://images.pexels.com/photos/7029264/pexels-photo-7029264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+![Nigiri lineup on a green leaf: tuna, salmon, and white fish with wasabi and pickled ginger](/images/omakase-nigiri-row.jpg)
 
-*Photo by [Julie Campan](https://www.pexels.com/@julie-campan-194253660) / Pexels*
+*Photo by Jack Maguire, April 2018*
 
 ## Tier A: 10 to 13 Courses
 
@@ -76,9 +76,9 @@ The most crowded tier. Over 50 restaurants in this range. This is where lunch om
 
 ---
 
-![Sushi chef using a pastry brush to glaze a piece of nigiri at a counter](https://images.pexels.com/photos/30682878/pexels-photo-30682878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+![Omakase nigiri lineup with white fish, salmon, and tuna](/images/omakase-tier-a.jpg)
 
-*Photo by [Airam Dato-on](https://www.pexels.com/@airamdphoto) / Pexels*
+*Photo by Jack Maguire, October 2020*
 
 ## Tier B: 14 to 17 Courses
 
@@ -116,9 +116,9 @@ The standard dinner omakase tier. This is what most people picture when they thi
 
 ---
 
-![Assorted sushi varieties on a white ceramic plate, including nigiri and rolls](https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?fm=jpg&q=60&w=1260&auto=format&fit=crop)
+![Otoro nigiri with truffle on a woven plate](/images/omakase-tier-b.jpg)
 
-*Photo by [Derek Duran](https://unsplash.com/@derekduran) / Unsplash*
+*Photo by Jack Maguire, June 2023*
 
 ## Tier C: 18 to 20 Courses
 
@@ -156,9 +156,9 @@ A note on this tier: [Shiso](https://www.yelp.com/biz/shiso-new-york) (214 E 9th
 
 ---
 
-![A chef presenting a sushi platter at a Japanese restaurant counter](https://images.pexels.com/photos/29502503/pexels-photo-29502503.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+![Omakase counter with the chef preparing fish, bonsai tree visible on the shelf behind](/images/omakase-tier-c.jpg)
 
-*Photo by [Diana Nguyen](https://www.pexels.com/@diana-nguyen-2065905) / Pexels*
+*Photo by Jack Maguire, June 2023*
 
 ## Tier D: 21+ Courses
 
@@ -181,9 +181,9 @@ Everything above $225 in this tier is a different category of proposition. If yo
 
 ---
 
-![Variety of sushi including nigiri, rolls, and sashimi on a wooden board](https://images.unsplash.com/photo-1553621042-f6e147245754?fm=jpg&q=60&w=1260&auto=format&fit=crop)
+![Two pieces of uni nigiri on a white background, close-up](/images/omakase-tier-d.jpg)
 
-*Photo by [Riccardo Bergamini](https://unsplash.com/@rbrg) / Unsplash*
+*Photo by Jack Maguire, June 2017*
 
 ## The Single Best Value in NYC
 
