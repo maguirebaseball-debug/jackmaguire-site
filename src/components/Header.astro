@@ -4,54 +4,52 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links"
-                                <a href="/start" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg>
-		<a href="/start">Start Here</a> Start Here </a>
-                                >
-			<HeaderLink href="/blog">Writing</HeaderLink>
-			<HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/recommendations">Recs</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-	</nav>
+        <nav>
+                <h2><a href="/">{SITE_TITLE}</a></h2>
+                <div class="internal-links">
+                        <HeaderLink href="/start">Start Here</HeaderLink>
+                        <HeaderLink href="/blog">Writing</HeaderLink>
+                        <HeaderLink href="/projects">Projects</HeaderLink>
+                        <HeaderLink href="/recommendations">Recs</HeaderLink>
+                        <HeaderLink href="/about">About</HeaderLink>
+                </div>
+        </nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 720px;
-		margin: 0 auto;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	@media (max-width: 720px) {
-		.internal-links {
-			font-size: 0.9em;
-		}
-	}
+        header {
+                margin: 0;
+                padding: 0 1em;
+                background: white;
+                box-shadow: 0 2px 8px rgba(var(--black), 5%);
+        }
+        h2 {
+                margin: 0;
+                font-size: 1em;
+        }
+        h2 a,
+        h2 a.active {
+                text-decoration: none;
+        }
+        nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 720px;
+                margin: 0 auto;
+        }
+        nav a {
+                padding: 1em 0.5em;
+                color: var(--black);
+                border-bottom: 4px solid transparent;
+                text-decoration: none;
+        }
+        nav a.active {
+                text-decoration: none;
+                border-bottom-color: var(--accent);
+        }
+        @media (max-width: 720px) {
+                .internal-links {
+                        font-size: 0.9em;
+                }
+        }
 </style>
