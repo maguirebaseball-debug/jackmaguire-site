@@ -5,6 +5,8 @@ pubDate: 2026-05-21
 tags: ["essays", "skincare"]
 ---
 
+![Niacinamide for Men in Their Late 30s](/images/niacinamide.png)
+
 I've been working seriously on my skin for about six months. My routine going in was already fairly solid: SPF every morning, a BHA a few times a week, ceramide moisturizer. I noticed real improvement in texture and clarity. But two things were still bothering me: hyperpigmentation on my cheeks and T-zone, and pores that looked larger than I wanted, particularly in photos. That's what sent me deep into the niacinamide research.
 
 Here's what the science actually says, what it means for Caucasian men specifically at this age, and how to get the most out of it.
