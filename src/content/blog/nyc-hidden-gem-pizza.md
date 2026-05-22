@@ -13,6 +13,8 @@ So I wrote scripts to query the Google Places API across 100+ NYC neighborhoods,
 
 I have to be upfront about something: I haven't eaten at most of these. I've spent years recommending restaurants to friends, with a strong track record, and I trust my read of the data. But these are research findings, not tasting notes. I'm publishing this because the list is useful, and because the spots that are currently under 200 reviews won't stay there.
 
+![NYC pizza map with pins](/images/pizza-map-pins.png)
+
 ---
 
 ## Why the Review Count Filter Matters
@@ -26,6 +28,8 @@ The 30 to 200 range is the sweet spot. Enough reviews to establish a real patter
 ---
 
 ## Manhattan
+
+![NYC subway heading toward a pizza slice](/images/pizza-subway.png)
 
 **[Fermento Pizza NYC](https://www.fermentonyc.com/)** — 226 Varick St, West Village. 5.0 stars, 96 reviews.
 
@@ -66,6 +70,8 @@ Classic New York-style pies on the Upper East Side, at 90th and Second. Neighbor
 ---
 
 ## Brooklyn
+
+![Square pizza on a peel in front of a Brooklyn brownstone](/images/pizza-brownstone.png)
 
 **[Ziggy's Roman Cafe](https://www.ziggysromancafe.com/)** — 15 Main St, DUMBO. 4.9 stars, 94 reviews.
 
@@ -171,6 +177,8 @@ Pizza on the boardwalk at Beach 97th Street. Open daily noon to 8 PM, weather pe
 
 ## The Bronx
 
+![Pizza slice with anchor and waterfront](/images/pizza-anchor.png)
+
 **[Halal King Pizza](https://www.halalkingpizza.com/)** — 2197 Grand Concourse, Fordham area. 4.9 stars, 93 reviews.
 
 On the Grand Concourse in the Fordham neighborhood. Halal pizza with a strong and consistent following. The Bronx is underrepresented in the broader NYC food conversation; this rating reflects real quality.
@@ -190,6 +198,8 @@ City Island is a nautical enclave in the northeastern Bronx that most New Yorker
 ---
 
 ## Staten Island
+
+![Staten Island Ferry carrying a pizza slice](/images/pizza-ferry.png)
 
 **[La Vera Pizzeria](https://laverapizzasi.com/)** — 2071 Clove Rd, Grasmere. 4.9 stars, 194 reviews.
 
