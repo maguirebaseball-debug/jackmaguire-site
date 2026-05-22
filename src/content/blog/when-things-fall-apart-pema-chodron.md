@@ -5,11 +5,11 @@ pubDate: 2026-02-13
 tags: ["books", "essays"]
 ---
 
-I read *When Things Fall Apart* during a profoundly difficult period — significant losses, the kind that don't yield to analysis or planning. I sought a book that could meaningfully address suffering without offering false solutions.
+I read *When Things Fall Apart* during a profoundly difficult period: significant losses, the kind that don't yield to analysis or planning. I sought a book that could meaningfully address suffering without offering false solutions.
 
 The book's primary value was not in fixing my problems or providing a path forward. It was in teaching me how to be with what was happening.
 
-During that period, I found myself constantly attempting to intellectualize pain and anticipate future relief. The key insight the book gave me was recognizing that my impulse to escape the present moment was itself a form of suffering. Not the original wound — the escaping.
+During that period, I found myself constantly attempting to intellectualize pain and anticipate future relief. The key insight the book gave me was recognizing that my impulse to escape the present moment was itself a form of suffering. Not the original wound: the escaping.
 
 The core teaching that resonated most was about accepting groundlessness and allowing situations to remain incomplete and unresolved. Rather than constructing narratives to regain emotional stability, the practice is to stop fighting circumstances and instead practice presence with the actual experience.
 

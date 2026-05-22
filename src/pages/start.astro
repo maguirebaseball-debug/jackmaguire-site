@@ -1,0 +1,108 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+        <head>
+                <BaseHead title={`Start Here | ${SITE_TITLE}`} description="An introduction to Jack Maguire, his philosophy, and his work." />
+                <style>
+                        main {
+                                width: 720px;
+                                max-width: calc(100% - 2em);
+                                margin: auto;
+                                padding: 3em 1em;
+                        }
+                        .prose h2 {
+                                font-size: 1.8em;
+                                margin-top: 2em;
+                                margin-bottom: 0.5em;
+                                color: rgb(var(--black));
+                        }
+                        .prose p {
+                                margin-bottom: 1.5em;
+                                line-height: 1.8;
+                                color: rgb(var(--gray-dark));
+                        }
+                        .prose strong {
+                                color: rgb(var(--black));
+                        }
+                        .note {
+                                padding: 1.5em;
+                                background-color: rgba(var(--gray-light), 0.2);
+                                border-left: 4px solid var(--accent);
+                                margin: 2em 0;
+                                font-style: italic;
+                        }
+                </style>
+        </head>
+        <body>
+                <Header />
+                <main>
+                        <h1>Start Here</h1>
+                        <div class="prose">
+                                <p>Welcome to the index. If you have landed on this page, you are likely looking for the operating system that runs in the background of everything I write, build, and publish. My name is Jack Maguire. I am based in the East Village of New York City. This site is my personal archive. It is not optimized for search algorithms. It is not designed to funnel you into a newsletter sequence. It is a map of how I navigate reality.</p>
+
+                                <p>This page exists to save you time. It outlines what I do, what I study, and the exact frameworks I use to measure value in my work and my personal life. We will cover the mechanics of performance marketing, the philosophy of existentialism, the architecture of travel, and the chemistry of flavor.</p>
+
+                                <h2>The Engine of Performance Marketing</h2>
+
+                                <p>My career pays the rent, but it also shapes my cognition. I work as a Senior Paid Social Media Director. I currently focus on National Debt Relief. I manage scale. I build scalable campaign structures across Meta, TikTok, and Snapchat. The advertising industry is fundamentally saturated with noise. Most practitioners rely on vanity metrics and vague uplift. I rely on deterministic attribution and incrementality.</p>
+
+                                <p>I did not start in a boardroom. I started as a server at an Olive Garden. The distance between those two realities taught me everything I know about systems thinking. In a high-volume restaurant, you learn the physics of human behavior. You learn how to read friction. In media buying, I apply those same principles to capital. We do not guess. We let the data dictate the budget. We measure lifetime value (LTV). We prioritize return on ad spend (ROAS) only when it maps perfectly to actual business outcomes.</p>
+
+                                <p>I am inherently suspicious of trade manual writing disguised as insight. I avoid jargon heavy practitioner content. I am interested in how platforms actually distribute attention. I care about creative testing that isolates variables. My baseline assumption is that every platform is trying to optimize for its own revenue, not mine. The job of a media buyer is to exploit the delta between what the algorithm wants and what the business actually needs.</p>
+
+                                <h2>The Geography of Meaning</h2>
+
+                                <p>I am rooted in New York City. Specifically, the East Village. This is an active choice. Urbanism is a core intellectual interest. I study how cities function. I study zoning, transit oriented development, and the necessity of third places. Density creates serendipity. New York City provides a baseline level of friction that prevents you from going numb. It forces you to remain sharp.</p>
+
+                                <p>I walk extensively. I view the city as a living laboratory for behavioral economics. You can watch micro economies form on a single block. I am fascinated by the spatial arrangement of human lives. I do not romanticize the grit. I simply acknowledge that a city built for pedestrians is a city built for psychological resilience.</p>
+
+                                <h2>The Architecture of Travel</h2>
+
+                                <p>I am an Optimizer Explorer. I treat travel as a highly technical project. I do not wander aimlessly. Aimless drifting leads to loneliness. Instead, I rely on a framework I call curated risk. I am willing to undertake intense solo bus routes across Latin America or navigate four wheel drive tracks in remote Australia, but I do so with rigorous, analytical preparation.</p>
+
+                                <p>I anchor my logistics using IATA codes. I practice the butler method of minimalist packing. I aim to travel with a base weight so light that it fits in a small paper bag. Carrying less physical weight translates directly to increased cognitive bandwidth. I completed the Appalachian Trail in ninety nine days. That experience permanently rewired my threshold for discomfort.</p>
+
+                                <p>Solo travel requires intentional design. I use hostels as a specific social technology. They are not merely budget accommodations. They are engineered environments that solve the isolation problem. I alternate between total autonomy (a private hotel room, long silent walks) and structured social immersion. This rhythm is mandatory for a successful trip. I calculate the minimum viable length for any journey. I have learned to quit while an experience is peaking rather than overstaying my welcome just to satisfy an itinerary.</p>
+
+                                <h2>The Mechanics of Flavor</h2>
+
+                                <p>Food is not just sustenance. It is an intersection of culture, biology, and applied thermodynamics. I study food science deeply. I analyze the Maillard reaction. I am fascinated by molecular gastronomy and the brutal reality of chef culture. Running a high volume kitchen requires extreme technical precision. I respect that precision immensely.</p>
+
+                                <p>On this site, you will find extensive writing about food. I rank omakase counters by price per course. I seek out A5 Wagyu and Hokkaido uni, but I apply the exact same rigorous evaluation to a local pizza slice. Taste is genetic. Flavor is cognitive. The difference between a good meal and a great meal is often the narrative context surrounding it.</p>
+
+                                <p>I track ingredient pairings. I write scoring rubrics for restaurant dishes. I do not care about prestige. I care about execution. A perfectly seared piece of tofu with black garlic and cabbage commands the same respect from me as a Michelin starred tasting menu. The value is found in the intent of the cook and the reality on the plate.</p>
+
+                                <h2>The Philosophy of Presence</h2>
+
+                                <p>My intellectual foundation is rooted in philosophy and theology. For a long time, I relied on rigid teleological frameworks. My world was organized around specific centers of gravity: primarily my faith and my most significant relationship. When those structures dissolved, the world flattened. The activities remained, but the central organizing principle vanished.</p>
+
+                                <p>This forced a massive recalibration. I turned to existentialism and phenomenology. I stopped trying to process grief and loss as if they were math problems to be optimized. I realized that the best parts of life are not optimized into existence. They are encountered.</p>
+
+                                <p>I now operate under a very specific principle: Presence over optimization. My life is already happening. It is not a prologue. It is not a preparation phase. I am done building a resume for a hypothetical future partner. I am focusing on meaning as an accumulation. Meaning is not a single sun that you orbit. It builds quietly in a conversation. It builds in a meal made with attention. It builds in a single paragraph that shifts how you view the world.</p>
+
+                                <p>My inner critic is loud. It demands perfection. It treats every setback as proof of defectiveness. I fight this by maintaining an honest inventory. I survived a massive transition. I built a career from the ground up. I taught myself statistics, philosophy, and AI tooling because my curiosity demanded it. Taking emotional risks for clarity is always better than hiding in ambiguity. I value tolerating uncertainty without becoming rigid.</p>
+
+                                <h2>The Social Ecosystem</h2>
+
+                                <p>I am an extrovert. I host. I connect. I initiate. I appreciate the energy of club culture and electronic dance music. But being socially skilled is entirely different from being known.</p>
+
+                                <p>I value friendships where I am allowed to be unimpressive. Where I can admit to feeling lonely in a crowded room, and the other person can simply sit with that truth without demanding that I be entertaining. Connection is nourishing today. Right now. I pursue connection from a life that already feels inhabited, not from a life that feels like a rough draft waiting for someone else to finalize it.</p>
+
+                                <h2>The Synthesis</h2>
+
+                                <p>If you read the essays on this site, you will notice a pattern. I try to compress complexity into clean models. I value sharp, specific prose. I reject vague uplift and bland life advice. I want to understand how incentives, systems, and reality actually work.</p>
+
+                                <p>This site is an active document. It tracks the evolution of my thoughts. Whether I am writing about performance marketing incrementality, the psychological resilience built on the Appalachian Trail, or the precise cost per course of an East Village sushi counter, the underlying question is always the same: How do we extract meaning from the raw data of human experience?</p>
+
+                                <p>I am glad you are here. Welcome to the index.</p>
+                        </div>
+                </main>
+                <Footer />
+        </body>
+</html>

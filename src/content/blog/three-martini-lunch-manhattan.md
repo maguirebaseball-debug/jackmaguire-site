@@ -1,5 +1,5 @@
 ---
-title: "Three Martini Lunch – Manhattan"
+title: "Three Martini Lunch - Manhattan"
 description: "Five places in Manhattan worth considering for a proper three martini lunch, ranked by what actually matters."
 pubDate: 2026-02-22
 tags: ["nyc", "food"]

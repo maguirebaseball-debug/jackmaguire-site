@@ -5,7 +5,7 @@ pubDate: 2026-02-16
 tags: ["nyc"]
 ---
 
-The 2025-2026 season brought variable conditions — extreme cold snaps and unseasonable warmth — alongside increased corporate consolidation of local mountains. This ranking is specifically for intermediate riders seeking good snow conditions, uncrowded terrain, and reasonable travel times from NYC.
+The 2025-2026 season brought variable conditions: extreme cold snaps and unseasonable warmth: alongside increased corporate consolidation of local mountains. This ranking is specifically for intermediate riders seeking good snow conditions, uncrowded terrain, and reasonable travel times from NYC.
 
 ## Ranking Methodology
 
@@ -32,7 +32,7 @@ Good for a weekday trip when you want reliability over ideal conditions.
 
 ## 3. Blue Mountain (Palmerton, PA)
 
-Pennsylvania's highest vertical drop. Sustained runs like Razor's Edge are good for working on technique. The issue is the travel — a 13-14 hour total day from NYC makes this a difficult commitment compared to Catskill alternatives.
+Pennsylvania's highest vertical drop. Sustained runs like Razor's Edge are good for working on technique. The issue is the travel: a 13-14 hour total day from NYC makes this a difficult commitment compared to Catskill alternatives.
 
 ## 4. Camelback Mountain (Tannersville, PA)
 
@@ -44,6 +44,6 @@ The closest option at 47 miles but struggles with low elevation. Boilerplate ice
 
 ## Additional Notes
 
-- **Don't book Plattekill for weekdays** — it closes Monday-Thursday.
-- **Wear low-light goggles** — the Northeast's flat gray conditions make contrast goggles essential.
-- **Hydrate on the bus** — the rides are long and dry air plus alcohol at the mountain adds up.
+- **Don't book Plattekill for weekdays**: it closes Monday-Thursday.
+- **Wear low-light goggles**: the Northeast's flat gray conditions make contrast goggles essential.
+- **Hydrate on the bus**: the rides are long and dry air plus alcohol at the mountain adds up.

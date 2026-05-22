@@ -1,6 +1,6 @@
 ---
 title: "Why Analytic Philosophy Has Changed So Much Since 2015"
-description: "A guided tour of the structural turn in analytic philosophy over the last decade — from grounding to consciousness to AI alignment."
+description: "A guided tour of the structural turn in analytic philosophy over the last decade: from grounding to consciousness to AI alignment."
 pubDate: 2026-01-28
 tags: ["essays", "philosophy"]
 ---

@@ -29,9 +29,9 @@ Course counts cluster naturally into four tiers based on where the market concen
 
 | Tier | Courses | Typical Duration | What It Is |
 |------|---------|-----------------|------------|
-| A | 10–13 | 45–70 min | Quick counter, casual pace |
-| B | 14–17 | 60–90 min | Standard dinner omakase |
-| C | 18–20 | 90–120 min | Extended, premium-ingredient heavy |
+| A | 10-13 | 45-70 min | Quick counter, casual pace |
+| B | 14-17 | 60-90 min | Standard dinner omakase |
+| C | 18-20 | 90-120 min | Extended, premium-ingredient heavy |
 | D | 21+ | 2+ hours | Grand omakase |
 
 The 13→14 boundary marks a real shift in pace and formality. The 17→18 boundary marks the jump to extended-format meals with more complex preparations. Everything at 21+ is a different category of commitment, in time and cost.
@@ -50,7 +50,7 @@ The most crowded tier. Over 50 restaurants in this range. This is where lunch om
 
 | Restaurant | Neighborhood | Courses | Price | $/Course |
 |-----------|-------------|---------|-------|----------|
-| [Sendo](https://www.sendo.nyc/) | Midtown (876 6th Ave) | 10–13 | $33–48 | ~$3.30–3.69 |
+| [Sendo](https://www.sendo.nyc/) | Midtown (876 6th Ave) | 10-13 | $33-48 | ~$3.30-3.69 |
 | [Sushi by Bou](https://www.sushibybou.com/) | Multiple (Times Square, East Village, NoMad) | 12 | $50 | $4.17 |
 | [Sushi Yashin](https://www.yelp.com/biz/sushi-yashin-brooklyn) | Park Slope | 11 | $50 | $4.55 |
 | [Mojo East](https://www.theinfatuation.com/new-york/reviews/mojo-east) | Lower East Side | 13 | $55* | $4.23 |
@@ -169,7 +169,7 @@ Seven active restaurants in NYC. This is destination dining, not value dining. T
 | Restaurant | Neighborhood | Courses | Price | $/Course |
 |-----------|-------------|---------|-------|----------|
 | [Sushi Nakazawa](https://www.sushinakazawa.com/new-york/) | West Village | 21 | $190 | $9.05 |
-| [Office of Mr. Moto](https://www.yelp.com/biz/office-of-mr-moto-new-york) | Lower Manhattan | 21 | $215–225 | $10.24–10.71 |
+| [Office of Mr. Moto](https://www.yelp.com/biz/office-of-mr-moto-new-york) | Lower Manhattan | 21 | $215-225 | $10.24-10.71 |
 | [Joji](https://www.jojinyc.com/) | Midtown (One Vanderbilt) | 21 | $410 | $19.52 |
 | [ICCA](https://www.yelp.com/biz/icca-new-york) | Lower Manhattan | 21 | $495 | $23.57 |
 | [Noz 17](https://www.noz17.com/) | Midtown | 23 | $465 | $20.22 |

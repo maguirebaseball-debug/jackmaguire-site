@@ -11,7 +11,7 @@ The short version: small fishing boats in New England are dying not because of b
 
 ## The Core Problem: Environmental Blindness
 
-Fishermen lack real-time forecasts for paralytic shellfish poisoning, subsurface temperatures, harmful algal blooms, and whale migration patterns. This data is critical for navigating regulatory closures and understanding where fish are moving. It exists — it's collected by agencies and institutions — but it's not integrated into anything a captain can actually use while making decisions on the water.
+Fishermen lack real-time forecasts for paralytic shellfish poisoning, subsurface temperatures, harmful algal blooms, and whale migration patterns. This data is critical for navigating regulatory closures and understanding where fish are moving. It exists: it's collected by agencies and institutions: but it's not integrated into anything a captain can actually use while making decisions on the water.
 
 ## Market Opacity
 
@@ -19,7 +19,7 @@ Small operators cannot access live auction pricing from New Bedford and Gloucest
 
 ## Regulatory Burden
 
-Amendment 23's monitoring requirements impose $700–$1,200 daily fees per vessel. For small boats landing $3,000 worth of fish, this can represent up to 40% of gross revenue. The regulatory compliance burden scales poorly with size — it's the same paperwork whether you're running three boats or forty.
+Amendment 23's monitoring requirements impose $700-$1,200 daily fees per vessel. For small boats landing $3,000 worth of fish, this can represent up to 40% of gross revenue. The regulatory compliance burden scales poorly with size: it's the same paperwork whether you're running three boats or forty.
 
 ## The Numbers
 
@@ -29,9 +29,9 @@ Groundfish vessels under 50 feet have experienced a 40% revenue decline. Large v
 
 The proposed solution integrates five data clusters: oceanographic data (NERACOOS buoys), auction pricing, regulatory updates, biological threat forecasts, and port infrastructure information. Three specific tools could transform daily operations:
 
-- **Market delta calculator** — current price spread between landing options, updated continuously
-- **Monitoring cost tracker** — daily compliance cost relative to projected catch value
-- **Bycatch avoidance map** — whale migration and closure areas overlaid with historical catch data
+- **Market delta calculator**: current price spread between landing options, updated continuously
+- **Monitoring cost tracker**: daily compliance cost relative to projected catch value
+- **Bycatch avoidance map**: whale migration and closure areas overlaid with historical catch data
 
 ## Why This Matters Beyond Fishing
 

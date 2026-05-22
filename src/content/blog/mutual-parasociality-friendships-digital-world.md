@@ -9,19 +9,19 @@ tags: ["essays"]
 
 Start with a simple grid. Two axes: depth (emotional significance) and proximity (daily presence).
 
-**The Core Circle** occupies the top right quadrant — high depth, high proximity. These are intimate relationships with people physically present in daily life: partners, local best friends, nearby siblings.
+**The Core Circle** occupies the top right quadrant: high depth, high proximity. These are intimate relationships with people physically present in daily life: partners, local best friends, nearby siblings.
 
-**The Anchors Afar** occupy the top left — high depth, low proximity. These include long-distance close friends from high school or college, former coworkers you genuinely connected with. The emotional bond remains strong despite physical distance.
+**The Anchors Afar** occupy the top left: high depth, low proximity. These include long-distance close friends from high school or college, former coworkers you genuinely connected with. The emotional bond remains strong despite physical distance.
 
-**The Circumstantial Network** occupies the bottom right — low depth, high proximity. Coworkers, neighbors, familiar service workers. They shape daily environment but not inner life.
+**The Circumstantial Network** occupies the bottom right: low depth, high proximity. Coworkers, neighbors, familiar service workers. They shape daily environment but not inner life.
 
-**The Distant Periphery** occupies the bottom left — low depth, low proximity. Acquaintances and online-only connections.
+**The Distant Periphery** occupies the bottom left: low depth, low proximity. Acquaintances and online-only connections.
 
 Most people overestimate how many relationships they have in the top left.
 
 ## The Reminiscence Window
 
-When friendships transition from high proximity to low proximity — when someone moves, or you move, or a job ends — a temporary window exists where shared memory sustains connection. Conversations consist of mutual reminiscence about past shared experiences.
+When friendships transition from high proximity to low proximity: when someone moves, or you move, or a job ends: a temporary window exists where shared memory sustains connection. Conversations consist of mutual reminiscence about past shared experiences.
 
 But this window eventually closes. Shared memories become well-worn stories. Conversations shift from reminiscing to reporting current, separate lives.
 
@@ -33,22 +33,22 @@ Top-left relationships are inherently unstable because love alone does not hold 
 
 The decay progresses through stages:
 
-1. **Reporting** — Filling each other in since casual observation is impossible
-2. **Curating** — Selecting stories deemed worth sharing
-3. **Performing** — Polishing curated narratives before sharing
-4. **Contentification** — The relationship becomes mutual content production: long voice notes, scheduled calls, a text thread that reads like a newsletter exchange
+1. **Reporting**: Filling each other in since casual observation is impossible
+2. **Curating**: Selecting stories deemed worth sharing
+3. **Performing**: Polishing curated narratives before sharing
+4. **Contentification**: The relationship becomes mutual content production: long voice notes, scheduled calls, a text thread that reads like a newsletter exchange
 
 The surface looks like closeness. The underlying structure is something else.
 
 ## Mutual Parasociality: When Both People Become Each Other's Audience
 
-Traditional parasocial relationships involve one-sided attachment to someone unaware of the observer. Mutual parasociality differs: both parties care and participate, but what they are showing up for is a performance. Both consume curated versions of each other while the foundational element — being seen before you had a chance to prepare — disappears.
+Traditional parasocial relationships involve one-sided attachment to someone unaware of the observer. Mutual parasociality differs: both parties care and participate, but what they are showing up for is a performance. Both consume curated versions of each other while the foundational element: being seen before you had a chance to prepare: disappears.
 
 You can maintain a mutual parasocial relationship indefinitely. It feels like friendship. The metrics look right: regular contact, warmth, shared history. But the texture has changed. You are each other's audience rather than each other's reality.
 
 ## Why This Matters More If You Live Digitally
 
-Digital communication obscures the content pipeline. Activity feels synonymous with connection. A busy text thread, a streak of voice notes, a standing weekly call — these register as closeness even when the underlying relationship has quietly migrated to the bottom left corner of the grid.
+Digital communication obscures the content pipeline. Activity feels synonymous with connection. A busy text thread, a streak of voice notes, a standing weekly call: these register as closeness even when the underlying relationship has quietly migrated to the bottom left corner of the grid.
 
 The problem is not bad intentions. It is that the infrastructure of digital communication makes it easy to maintain the appearance of closeness without the substance.
 

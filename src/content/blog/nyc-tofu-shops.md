@@ -9,13 +9,13 @@ A ranked list of places to buy tofu across New York City, from high-volume pan-A
 
 ## Top Picks
 
-**H Mart** (34-51 48th St, Long Island City, Queens) — The most reliable option for broad tofu selection. High-volume pan-Asian turnover means fresh stock. Multiple locations across the city.
+**H Mart** (34-51 48th St, Long Island City, Queens): The most reliable option for broad tofu selection. High-volume pan-Asian turnover means fresh stock. Multiple locations across the city.
 
-**Sunrise Mart** (SoHo) — Japanese tofu-type breadth. Worth knowing if you're in lower Manhattan.
+**Sunrise Mart** (SoHo): Japanese tofu-type breadth. Worth knowing if you're in lower Manhattan.
 
-**Fong On** (Chinatown, Manhattan) — In-house small-batch production plus wholesale. If you want tofu made on-site, this is the place. Historic Chinatown operation.
+**Fong On** (Chinatown, Manhattan): In-house small-batch production plus wholesale. If you want tofu made on-site, this is the place. Historic Chinatown operation.
 
-**Sun Hing Lung Ho Fun** — Factory-style tofu and rice roll production. Less of a retail experience, more of a working production operation.
+**Sun Hing Lung Ho Fun**: Factory-style tofu and rice roll production. Less of a retail experience, more of a working production operation.
 
 ## Notes on the Category
 

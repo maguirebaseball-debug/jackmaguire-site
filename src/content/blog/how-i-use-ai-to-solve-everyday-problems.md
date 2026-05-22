@@ -1,6 +1,6 @@
 ---
 title: "How I Use AI to Solve Problems"
-description: "Using AI research tools to aggregate distributed consensus rather than asking single experts — and why that difference matters."
+description: "Using AI research tools to aggregate distributed consensus rather than asking single experts: and why that difference matters."
 pubDate: 2026-01-24
 tags: ["tech", "ai"]
 ---
@@ -37,7 +37,7 @@ By forcing aggregation of 50 independent sources with statistical rigor, you eff
 
 ## The Science
 
-The 155°F recommendation differs from the USDA's 165°F guideline because federal standards prioritize instant pathogen lethality for institutional liability. However, 155°F held for several minutes achieves adequate pasteurization — requiring only "50 seconds at 155°F for a 7-log reduction of Salmonella" — while preserving meat texture.
+The 155°F recommendation differs from the USDA's 165°F guideline because federal standards prioritize instant pathogen lethality for institutional liability. However, 155°F held for several minutes achieves adequate pasteurization: requiring only "50 seconds at 155°F for a 7-log reduction of Salmonella": while preserving meat texture.
 
 ## A Replicable Framework
 
