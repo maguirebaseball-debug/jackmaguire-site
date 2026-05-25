@@ -42,28 +42,38 @@ I have not yet visited these locations. I am conducting deep research to identif
 *   **Image Attribution:** *Photo / Openverse (Creative Commons)*
 ![Carmine Street Guitars](https://live.staticflickr.com/4061/4297936860_7562f7291c_b.jpg)
 
-### 6. Harbor Defense Museum (Fort Hamilton)
+### 6. Museum of Nostalgia (Astoria)
+*   **Rating:** 4.9 | **Reviews:** 210
+*   **Link:** [Museum of Nostalgia](https://museumofnostalgia.com/)
+*   **Overview:** A curated collection of vintage toys from the 1970s and 1980s. The owners allow open conversation and encourage visitors to handle specific items.
+
+### 7. The Conjuring Arts Research Center (Manhattan)
+*   **Rating:** 4.9 | **Reviews:** 240
+*   **Link:** [Conjuring Arts](https://conjuringarts.org/)
+*   **Overview:** A private library dedicated to the history of magic and mentalism. The center requires prior arrangements for visitors.
+
+### 8. Harbor Defense Museum (Fort Hamilton)
 *   **Rating:** 4.8 | **Reviews:** 135
 *   **Link:** [Harbor Defense Museum](https://history.army.mil/museums/fieldMuseums/harbor_defense/index.html)
 *   **Overview:** Located inside an active military fort. The museum documents the coastal defense history of the region. Visitors must present valid identification for entry.
 *   **Image Attribution:** *Photo / Openverse (Creative Commons)*
 ![Harbor Defense Museum](https://live.staticflickr.com/4375/36477790704_95df1e9676_b.jpg)
 
-### 7. Center for Book Arts (Manhattan)
+### 9. Center for Book Arts (Manhattan)
 *   **Rating:** 4.8 | **Reviews:** 180
 *   **Link:** [Center for Book Arts](https://centerforbookarts.org/)
 *   **Overview:** A dedicated space for letterpress printing and bookbinding. The gallery features highly specific technical exhibitions.
 *   **Image Attribution:** *Photo / Openverse (Creative Commons)*
 ![Center for Book Arts](https://live.staticflickr.com/7255/7687491738_9b88b0533b_b.jpg)
 
-### 8. Grolier Club (Upper East Side)
+### 10. Grolier Club (Upper East Side)
 *   **Rating:** 4.7 | **Reviews:** 275
 *   **Link:** [Grolier Club](https://www.grolierclub.org/)
 *   **Overview:** The oldest bibliophile society in the nation. The club hosts public exhibitions featuring rare books and historical manuscripts.
 *   **Image Attribution:** *Photo / Wikimedia Commons (Creative Commons)*
 ![Grolier Club](https://upload.wikimedia.org/wikipedia/commons/d/dd/Grolier_Club.jpg)
 
-### 9. Amateur Comedy Club (Murray Hill)
+### 11. Amateur Comedy Club (Murray Hill)
 *   **Rating:** 4.7 | **Reviews:** 340
 *   **Link:** [Amateur Comedy Club](https://www.amateurcomedyclub.org/)
 *   **Overview:** A private club operating since the late nineteenth century. The venue occasionally opens for historic and intimate performances.
