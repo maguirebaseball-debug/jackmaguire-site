@@ -88,5 +88,3 @@ I have not yet visited these locations. I am conducting deep research to identif
 
 ![Amateur Comedy Club](https://upload.wikimedia.org/wikipedia/commons/2/27/Sniffen_Court_1-9_%28west%29.jpg)
 <div align="center"><small><em>Photo / Wikimedia Commons (Creative Commons)</em></small></div>
-
-- Jack

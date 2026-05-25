@@ -39,6 +39,8 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 
 ## Writing style
 * **Harvard Business Review (HBR) Professional Tone**: The writing must be entirely declarative, objective, active, and highly professional. It should read like an authoritative executive summary rather than a dramatic or poetic blog post.
+* **Photography and Citations**: Always include non-stock, Creative Commons photography in articles and cite the source/license appropriately on the site. If an exact picture of the specific location (interior or exterior) cannot be found, do not include an image at all. Never use loosely connected or generic thematic photos. Place the image attribution directly below the image using markdown (`![Alt](URL)` followed by `<small>Citation</small>`) so it appears in a significantly smaller font without breaking page typography. Images should be constrained in height so they do not dominate the scroll.
+* **Image Verification**: Always verify that image URLs load successfully (e.g., by testing the URL status code) and confirm they render correctly on the site. Never use guessed or placeholder URLs.
 * **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence.
 * **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
 * **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
@@ -47,7 +49,6 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
 * **Colors**: The primary accent color is Olive Green (#556B2F), with darker moss greens for hover states. No standard web blues.
 * **Texture**: Maintain the subtle SVG noise/film-grain overlay on the body to give the screen a physical, paper-like texture.
-* **Human Touch**: Include handwritten signatures (using the Caveat font) at the end of posts ("- Jack") to signify human authorship.
 * **Visual hierarchy must match content importance**: The #1 entry on a ranking page should look structurally different from the #22 entry. Break the grid for what matters.
 * **Idiosyncratic over polished**: Personal sites accrue personality over time. Include elements that signal a real person built this. Prose can be direct and first-person.
 
