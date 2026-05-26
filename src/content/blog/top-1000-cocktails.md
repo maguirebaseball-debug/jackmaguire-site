@@ -4,11 +4,6 @@ description: 'A data-driven statistical ranking of the world’s 1000 most impor
 pubDate: '2026-05-26'
 ---
 
-This is a data-driven statistical ranking of 1000 cocktails generated via language model analysis. The cocktails are tiered and scored out of 100 based on their statistical significance across multiple datasets.
-
-**Methodology:**
-* The score out of 100 is a weighted calculation of the cocktail's general prominence and average ranking position.
-
 ## S-Tier (Essential Canon)
 
 | Rank | Cocktail | Score |
