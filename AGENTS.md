@@ -78,3 +78,7 @@ NPM_CONFIG_CACHE=/tmp/npm-jack-cache
 Jack Maguire, Senior Paid Social Media Director at National Debt Relief. East Village, NYC.
 Topics: performance marketing, NYC food, travel, philosophy, AI tools.
 Contact: maguirebaseball@gmail.com
+
+## Agent Workflows & Text Generation
+* **True Blinded Variations**: When the user asks for multiple "blinded" variations of a text, you MUST NOT simulate this in a single response or a single LLM pass. You MUST actually invoke separate sub-agents (using the `invoke_agent` tool or similar delegation mechanisms) to generate each variation entirely independently. This is strictly required to maximize perplexity and capture a full universe of diverse possible answers.
+* **Copy-Paste Workflows**: Whenever you generate text that the user is intended to paste somewhere else (like a social media post, external email, or forum submission), you MUST automatically copy it directly to their clipboard using `pbcopy` (e.g., via `run_shell_command` with `echo "text" | pbcopy` or piping a heredoc) AND output the text inside a markdown code block so it avoids terminal visual line-break formatting issues.
