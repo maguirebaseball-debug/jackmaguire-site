@@ -30,6 +30,14 @@ const posts = (await getCollection('blog'))
 			<section class="recent">
 				<h2>Recent writing</h2>
 				<ul>
+					<li>
+						<a href="/ai-supply-chain-stocks.html">
+							<span class="title">Non-Obvious AI Supply Chain Stocks</span>
+							<span class="date">
+								<FormattedDate date={new Date('2026-05-26')} />
+							</span>
+						</a>
+					</li>
 					{
 						posts.map((post) => (
 							<li>
@@ -106,6 +114,12 @@ const posts = (await getCollection('blog'))
 		text-decoration: none;
 		color: rgb(var(--black));
 	}
+	@media (max-width: 600px) {
+		.recent ul li a {
+			flex-direction: column;
+			gap: 0.25em;
+		}
+	}
 	.recent ul li a:hover .title {
 		color: var(--accent);
 	}
@@ -147,7 +161,7 @@ const posts = (await getCollection('blog'))
 		font-size: 0.85em;
 		color: rgb(var(--gray));
 	}
-	@media (max-width: 480px) {
+	@media (max-width: 600px) {
 		.nav-grid {
 			grid-template-columns: 1fr;
 		}
