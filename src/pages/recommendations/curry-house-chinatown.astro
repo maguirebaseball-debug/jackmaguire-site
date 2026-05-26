@@ -9,8 +9,8 @@ import { SITE_TITLE } from '../../consts';
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Curry House Pop! Non-Spicy Malay Intel : ${SITE_TITLE}`}
-			description="A high-energy, pop-style ranking of the best non-spicy Malay dishes at Curry House in Chinatown."
+			title={`Curry House Pop! Malay Intel : ${SITE_TITLE}`}
+			description="A high-energy, pop-style ranking of the best Malay dishes at Curry House in Chinatown."
 		/>
 		<style>
 			:root {
@@ -19,115 +19,141 @@ import { SITE_TITLE } from '../../consts';
 				--pop-blue: #00d2ff;
 				--pop-green: #39ff14;
 				--pop-black: #1a1a1a;
+				--card-bg: #ffffff;
 			}
 
 			body {
 				background-color: #fff9e6;
+				/* Slightly subtler dots for better legibility */
 				background-image: 
-					radial-gradient(var(--pop-pink) 0.5px, transparent 0.5px),
-					radial-gradient(var(--pop-pink) 0.5px, #fff9e6 0.5px);
-				background-size: 20px 20px;
-				background-position: 0 0, 10px 10px;
-				font-family: 'Atkinson Hyperlegible', sans-serif;
+					radial-gradient(rgba(255, 45, 117, 0.2) 1px, transparent 1px);
+				background-size: 30px 30px;
+				font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+				color: var(--pop-black);
 			}
 
 			main {
-				max-width: 800px;
+				max-width: 850px;
 				margin: 0 auto;
-				padding: 2em 1em;
+				padding: 2em 1.25em;
 			}
 
 			.hero {
 				background: var(--pop-yellow);
 				border: 6px solid var(--pop-black);
-				padding: 2em;
-				transform: rotate(-1deg);
-				margin-bottom: 3em;
+				padding: 2.5em 2em;
+				margin-bottom: 4em;
 				box-shadow: 12px 12px 0px var(--pop-pink);
+				text-align: center;
 			}
 
 			.hero h1 {
-				font-size: 3.5em;
+				font-size: clamp(2.5em, 10vw, 4.5em);
 				margin: 0;
 				color: var(--pop-black);
 				text-transform: uppercase;
-				line-height: 0.9;
+				line-height: 0.85;
 				font-weight: 900;
-				letter-spacing: -2px;
+				letter-spacing: -3px;
+				/* Ensure long words don't break layout */
+				word-wrap: break-word;
+				overflow-wrap: break-word;
 			}
 
 			.hero p {
-				font-size: 1.2em;
-				margin-top: 1em;
-				font-weight: 700;
+				font-size: clamp(1em, 3vw, 1.4em);
+				margin-top: 1.5em;
+				font-weight: 800;
 				color: var(--pop-pink);
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+
+			.section-title {
+				font-size: 2.5em;
+				font-weight: 900;
+				text-transform: uppercase;
+				background: var(--pop-black);
+				color: #fff;
+				display: inline-block;
+				padding: 0.2em 0.6em;
+				margin-bottom: 1.5em;
+				transform: rotate(-2deg);
+				box-shadow: 6px 6px 0px var(--pop-yellow);
 			}
 
 			.ranking-container {
 				display: flex;
 				flex-direction: column;
-				gap: 4em;
+				gap: 3.5em;
+				margin-bottom: 6em;
 			}
 
 			.dish-card {
-				background: #fff;
-				border: 4px solid var(--pop-black);
-				padding: 0;
+				background: var(--card-bg);
+				border: 5px solid var(--pop-black);
 				position: relative;
-				transition: transform 0.2s;
+				transition: transform 0.2s, box-shadow 0.2s;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.dish-card:hover {
-				transform: translate(-4px, -4px);
-				box-shadow: 8px 8px 0px var(--pop-blue);
+				transform: translate(-5px, -5px);
 			}
 
-			.dish-card.rank-1 {
-				box-shadow: 15px 15px 0px var(--pop-green);
-			}
+			.mild-card:hover { box-shadow: 10px 10px 0px var(--pop-blue); }
+			.spicy-card:hover { box-shadow: 10px 10px 0px var(--pop-pink); }
 
 			.rank-badge {
 				position: absolute;
 				top: -25px;
-				left: -20px;
-				width: 70px;
-				height: 70px;
-				background: var(--pop-pink);
+				left: -15px;
+				width: 60px;
+				height: 60px;
 				border: 4px solid var(--pop-black);
 				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 2em;
+				font-size: 1.8em;
 				font-weight: 900;
 				color: #fff;
 				z-index: 10;
-				transform: rotate(-15deg);
+				transform: rotate(-10deg);
+				box-shadow: 4px 4px 0px var(--pop-black);
 			}
+
+			.mild-badge { background: var(--pop-blue); }
+			.spicy-badge { background: var(--pop-pink); }
 
 			.dish-header {
 				background: var(--pop-black);
 				color: #fff;
-				padding: 1em 1.5em;
+				padding: 1.2em 1.5em;
 				display: flex;
-				justify-content: space-between;
-				align-items: center;
+				flex-direction: column;
+				gap: 0.4em;
 			}
 
 			.dish-name {
-				font-size: 1.8em;
+				font-size: clamp(1.4em, 5vw, 2em);
 				font-weight: 800;
 				margin: 0;
 				text-transform: uppercase;
+				line-height: 1.1;
+				/* Prevent overflow on long dish names */
+				word-break: break-word;
 			}
 
 			.dish-origin {
-				font-size: 0.8em;
+				font-size: 0.85em;
 				background: var(--pop-yellow);
 				color: var(--pop-black);
-				padding: 0.2em 0.6em;
+				padding: 0.1em 0.5em;
 				font-weight: 900;
-				transform: skew(-10deg);
+				align-self: flex-start;
+				text-transform: uppercase;
 			}
 
 			.dish-body {
@@ -135,77 +161,62 @@ import { SITE_TITLE } from '../../consts';
 			}
 
 			.dish-desc {
-				font-size: 1.1em;
-				line-height: 1.5;
+				font-size: 1.15em;
+				line-height: 1.6;
 				color: var(--pop-black);
-				font-weight: 500;
+				font-weight: 600;
+				margin: 0;
 			}
 
 			.dish-meta {
 				margin-top: 1.5em;
 				display: flex;
-				gap: 1em;
+				gap: 0.8em;
 				flex-wrap: wrap;
 			}
 
 			.tag {
-				border: 2px solid var(--pop-black);
-				padding: 0.3em 0.8em;
-				font-weight: 800;
+				border: 3px solid var(--pop-black);
+				padding: 0.4em 0.8em;
+				font-weight: 900;
 				text-transform: uppercase;
 				font-size: 0.8em;
+				letter-spacing: 0.5px;
 			}
 
-			.tag-spiceless { background: var(--pop-green); }
+			.tag-mild { background: var(--pop-green); }
+			.tag-spicy { background: var(--pop-pink); color: #fff; }
 			.tag-specialty { background: var(--pop-blue); }
 			.tag-classic { background: var(--pop-yellow); }
 
-			.warning-zone {
-				margin-top: 5em;
-				background: var(--pop-black);
-				color: #fff;
-				padding: 2em;
-				border: 10px repeating-linear-gradient(45deg, var(--pop-yellow), var(--pop-yellow) 10px, var(--pop-black) 10px, var(--pop-black) 20px);
-				border-width: 10px;
-				border-style: solid;
-			}
-
-			.warning-zone h2 {
-				color: var(--pop-yellow);
-				text-transform: uppercase;
-				font-size: 2em;
-				margin-top: 0;
-			}
-
-			.warning-list {
-				list-style: none;
-				padding: 0;
-			}
-
-			.warning-item {
-				border-bottom: 2px dashed rgba(255,255,255,0.3);
-				padding: 1em 0;
-			}
-
-			.warning-item strong {
-				color: var(--pop-pink);
-				display: block;
-				font-size: 1.2em;
-				text-transform: uppercase;
-			}
-
 			.intel-footer {
-				margin-top: 4em;
+				margin-top: 5em;
+				padding: 3em 1em;
 				text-align: center;
-				font-weight: 800;
+				font-weight: 900;
 				color: var(--pop-black);
 				text-transform: uppercase;
-				letter-spacing: 2px;
+				letter-spacing: 3px;
+				border-top: 6px dashed var(--pop-black);
+				font-size: 0.9em;
 			}
 
+			/* Responsive Adjustments */
 			@media (max-width: 600px) {
-				.hero h1 { font-size: 2.5em; }
-				.dish-name { font-size: 1.4em; }
+				main { padding: 1em 0.75em; }
+				.hero { padding: 1.5em 1em; border-width: 4px; }
+				.section-title { font-size: 1.8em; width: 100%; text-align: center; transform: none; box-sizing: border-box; }
+				.dish-card { border-width: 4px; }
+				.rank-badge { width: 50px; height: 50px; font-size: 1.5em; top: -15px; left: -10px; }
+				.dish-header { padding: 1em; }
+				.dish-body { padding: 1em; }
+				.dish-desc { font-size: 1.05em; }
+			}
+
+			/* Specific fix for text wrapping on mobile */
+			* {
+				max-width: 100%;
+				box-sizing: border-box;
 			}
 		</style>
 	</head>
@@ -213,101 +224,126 @@ import { SITE_TITLE } from '../../consts';
 		<Header />
 		<main>
 			<section class="hero">
-				<h1>Malay-Pop Intel:<br/>Curry House</h1>
-				<p>NO SPICE? NO PROBLEM. WE RANKED THE BEST MILD MALAY GEMS AT 9 PELL ST.</p>
+				<h1>Malay-Pop<br/>Intel</h1>
+				<p>Triple-Verified Rankings: Curry House (9 Pell St)</p>
 			</section>
 
+			<h2 class="section-title">Zero Heat Favorites</h2>
 			<div class="ranking-container">
-				<article class="dish-card rank-1">
-					<div class="rank-badge">#1</div>
+				<!-- MILD #1 -->
+				<article class="dish-card mild-card">
+					<div class="rank-badge mild-badge">#1</div>
 					<header class="dish-header">
 						<h2 class="dish-name">Bah Kut Teh</h2>
-						<span class="dish-origin">IPOH SPECIALTY</span>
+						<span class="dish-origin">Ipoh Regional Specialty</span>
 					</header>
 					<div class="dish-body">
 						<p class="dish-desc">
-							The holy grail of Malaysian comfort food. "Meat Bone Tea" is a deeply savory, complex herbal pork rib soup. The owners are from Ipoh, and this is their masterwork. Zero chili, 100% herbal umami.
+							"Meat Bone Tea" — a deeply savory, complex herbal pork rib soup. The owners are from Ipoh, and this is their masterwork. Rich, medicinal in the best way, and completely devoid of chili.
 						</p>
 						<div class="dish-meta">
-							<span class="tag tag-spiceless">ZERO HEAT</span>
-							<span class="tag tag-specialty">HERBAL POWER</span>
+							<span class="tag tag-mild">Zero Heat</span>
+							<span class="tag tag-specialty">Herbal Power</span>
 						</div>
 					</div>
 				</article>
 
-				<article class="dish-card">
-					<div class="rank-badge" style="background: var(--pop-blue)">#2</div>
+				<!-- MILD #2 -->
+				<article class="dish-card mild-card">
+					<div class="rank-badge mild-badge">#2</div>
 					<header class="dish-header">
 						<h2 class="dish-name">Hainanese Chicken</h2>
-						<span class="dish-origin">S.E. ASIA CLASSIC</span>
+						<span class="dish-origin">S.E. Asia Classic</span>
 					</header>
 					<div class="dish-body">
 						<p class="dish-desc">
-							Gentle, poached, and perfect. Served with fragrant rice cooked in chicken fat. It's the ultimate "safe" bet that doesn't sacrifice flavor. Get the half bird if you're serious.
+							Silky, poached chicken served with fragrant rice cooked in ginger and chicken fat. It is the gold standard for high-flavor, low-heat dining.
 						</p>
 						<div class="dish-meta">
-							<span class="tag tag-spiceless">MILD AS CAN BE</span>
-							<span class="tag tag-classic">STAPLE</span>
+							<span class="tag tag-mild">Zero Heat</span>
+							<span class="tag tag-classic">Consensus Fav</span>
 						</div>
 					</div>
 				</article>
 
-				<article class="dish-card">
-					<div class="rank-badge" style="background: var(--pop-green)">#3</div>
+				<!-- MILD #3 -->
+				<article class="dish-card mild-card">
+					<div class="rank-badge mild-badge">#3</div>
 					<header class="dish-header">
 						<h2 class="dish-name">Ipoh Chicken Noodles</h2>
-						<span class="dish-origin">CLEAR SOUP</span>
+						<span class="dish-origin">Clear Soup specialty</span>
 					</header>
 					<div class="dish-body">
 						<p class="dish-desc">
-							A light, clear broth with shredded chicken. While everyone else is sweating over red curry, you'll be cooling off with this soothing, salt-forward Ipoh specialty.
+							Light, savory broth with shredded chicken and noodles. A clean, salt-forward bowl that highlights the quality of the house broth without any spice interference.
 						</p>
 						<div class="dish-meta">
-							<span class="tag tag-spiceless">CLEAN BROTH</span>
-							<span class="tag tag-specialty">IPOHTOWN</span>
-						</div>
-					</div>
-				</article>
-
-				<article class="dish-card">
-					<div class="rank-badge" style="background: var(--pop-yellow); color: var(--pop-black);">#4</div>
-					<header class="dish-header">
-						<h2 class="dish-name">Roti Canai</h2>
-						<span class="dish-origin">APPETIZER</span>
-					</header>
-					<div class="dish-body">
-						<p class="dish-desc">
-							Flaky, buttery flatbread that melts in your mouth. <strong>PRO TIP:</strong> The default curry dip has a kick. Ask for DAL (lentil) dip or just eat it plain. It's that good.
-						</p>
-						<div class="dish-meta">
-							<span class="tag tag-classic">TEXTURE KING</span>
-							<span class="tag tag-specialty">MODIFY DIP</span>
+							<span class="tag tag-mild">Clean Broth</span>
+							<span class="tag tag-specialty">Ipoh Style</span>
 						</div>
 					</div>
 				</article>
 			</div>
 
-			<section class="warning-zone">
-				<h2>X FILTERED OUT X</h2>
-				<p>WE TRIPLE-VERIFIED THESE AND THEY ARE TOO HOT TO HANDLE:</p>
-				<div class="warning-list">
-					<div class="warning-item">
-						<strong>Asam Laksa</strong>
-						Sour, fishy, and spicy. A Malay classic, but it will burn.
+			<h2 class="section-title" style="background: var(--pop-pink); box-shadow: 6px 6px 0px var(--pop-black);">Spicy Standouts</h2>
+			<div class="ranking-container">
+				<!-- SPICY #1 -->
+				<article class="dish-card spicy-card">
+					<div class="rank-badge spicy-badge">#1</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Asam Laksa</h2>
+						<span class="dish-origin">Penang Style</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							The ultimate sour and spicy fish-based noodle soup. It's an explosion of tamarind, mackerel, and bird's eye chili. Not for the faint of heart, but highly rewarding.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spicy">High Heat</span>
+							<span class="tag tag-specialty">Pungent & Tangy</span>
+						</div>
 					</div>
-					<div class="warning-item">
-						<strong>Any Sambal Dish</strong>
-						Sambal is chili paste. If it says Sambal, it's a trap.
+				</article>
+
+				<!-- SPICY #2 -->
+				<article class="dish-card spicy-card">
+					<div class="rank-badge spicy-badge">#2</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Beef Rendang</h2>
+						<span class="dish-origin">Slow-Cooked Classic</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							Dry beef curry slow-braised in coconut milk and spices until the liquid evaporates. The result is intense, spicy, and incredibly tender beef.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spicy">Medium-High Heat</span>
+							<span class="tag tag-classic">Iconic</span>
+						</div>
 					</div>
-					<div class="warning-item">
-						<strong>Curry Beef Stew</strong>
-						Delicious, but the base curry has built-in heat.
+				</article>
+
+				<!-- SPICY #3 -->
+				<article class="dish-card spicy-card">
+					<div class="rank-badge spicy-badge">#3</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Curry Chicken</h2>
+						<span class="dish-origin">House Favorite</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							Rich, aromatic curry with bone-in chicken and potatoes. It carries a persistent, warm heat that builds throughout the meal.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spicy">Warm Heat</span>
+							<span class="tag tag-classic">Comfort</span>
+						</div>
 					</div>
-				</div>
-			</section>
+				</article>
+			</div>
 
 			<div class="intel-footer">
-				TRIPLE-VERIFIED INTEL // GOOGLE PLACES API // GRUBHUB LIVE FEED
+				Verified via Google Places API // Grubhub Live Feed // Direct Review Sentiment Analysis
 			</div>
 		</main>
 		<Footer />
