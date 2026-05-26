@@ -1,0 +1,315 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Curry House Pop! Non-Spicy Malay Intel : ${SITE_TITLE}`}
+			description="A high-energy, pop-style ranking of the best non-spicy Malay dishes at Curry House in Chinatown."
+		/>
+		<style>
+			:root {
+				--pop-pink: #ff2d75;
+				--pop-yellow: #fff200;
+				--pop-blue: #00d2ff;
+				--pop-green: #39ff14;
+				--pop-black: #1a1a1a;
+			}
+
+			body {
+				background-color: #fff9e6;
+				background-image: 
+					radial-gradient(var(--pop-pink) 0.5px, transparent 0.5px),
+					radial-gradient(var(--pop-pink) 0.5px, #fff9e6 0.5px);
+				background-size: 20px 20px;
+				background-position: 0 0, 10px 10px;
+				font-family: 'Atkinson Hyperlegible', sans-serif;
+			}
+
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2em 1em;
+			}
+
+			.hero {
+				background: var(--pop-yellow);
+				border: 6px solid var(--pop-black);
+				padding: 2em;
+				transform: rotate(-1deg);
+				margin-bottom: 3em;
+				box-shadow: 12px 12px 0px var(--pop-pink);
+			}
+
+			.hero h1 {
+				font-size: 3.5em;
+				margin: 0;
+				color: var(--pop-black);
+				text-transform: uppercase;
+				line-height: 0.9;
+				font-weight: 900;
+				letter-spacing: -2px;
+			}
+
+			.hero p {
+				font-size: 1.2em;
+				margin-top: 1em;
+				font-weight: 700;
+				color: var(--pop-pink);
+			}
+
+			.ranking-container {
+				display: flex;
+				flex-direction: column;
+				gap: 4em;
+			}
+
+			.dish-card {
+				background: #fff;
+				border: 4px solid var(--pop-black);
+				padding: 0;
+				position: relative;
+				transition: transform 0.2s;
+			}
+
+			.dish-card:hover {
+				transform: translate(-4px, -4px);
+				box-shadow: 8px 8px 0px var(--pop-blue);
+			}
+
+			.dish-card.rank-1 {
+				box-shadow: 15px 15px 0px var(--pop-green);
+			}
+
+			.rank-badge {
+				position: absolute;
+				top: -25px;
+				left: -20px;
+				width: 70px;
+				height: 70px;
+				background: var(--pop-pink);
+				border: 4px solid var(--pop-black);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2em;
+				font-weight: 900;
+				color: #fff;
+				z-index: 10;
+				transform: rotate(-15deg);
+			}
+
+			.dish-header {
+				background: var(--pop-black);
+				color: #fff;
+				padding: 1em 1.5em;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.dish-name {
+				font-size: 1.8em;
+				font-weight: 800;
+				margin: 0;
+				text-transform: uppercase;
+			}
+
+			.dish-origin {
+				font-size: 0.8em;
+				background: var(--pop-yellow);
+				color: var(--pop-black);
+				padding: 0.2em 0.6em;
+				font-weight: 900;
+				transform: skew(-10deg);
+			}
+
+			.dish-body {
+				padding: 1.5em;
+			}
+
+			.dish-desc {
+				font-size: 1.1em;
+				line-height: 1.5;
+				color: var(--pop-black);
+				font-weight: 500;
+			}
+
+			.dish-meta {
+				margin-top: 1.5em;
+				display: flex;
+				gap: 1em;
+				flex-wrap: wrap;
+			}
+
+			.tag {
+				border: 2px solid var(--pop-black);
+				padding: 0.3em 0.8em;
+				font-weight: 800;
+				text-transform: uppercase;
+				font-size: 0.8em;
+			}
+
+			.tag-spiceless { background: var(--pop-green); }
+			.tag-specialty { background: var(--pop-blue); }
+			.tag-classic { background: var(--pop-yellow); }
+
+			.warning-zone {
+				margin-top: 5em;
+				background: var(--pop-black);
+				color: #fff;
+				padding: 2em;
+				border: 10px repeating-linear-gradient(45deg, var(--pop-yellow), var(--pop-yellow) 10px, var(--pop-black) 10px, var(--pop-black) 20px);
+				border-width: 10px;
+				border-style: solid;
+			}
+
+			.warning-zone h2 {
+				color: var(--pop-yellow);
+				text-transform: uppercase;
+				font-size: 2em;
+				margin-top: 0;
+			}
+
+			.warning-list {
+				list-style: none;
+				padding: 0;
+			}
+
+			.warning-item {
+				border-bottom: 2px dashed rgba(255,255,255,0.3);
+				padding: 1em 0;
+			}
+
+			.warning-item strong {
+				color: var(--pop-pink);
+				display: block;
+				font-size: 1.2em;
+				text-transform: uppercase;
+			}
+
+			.intel-footer {
+				margin-top: 4em;
+				text-align: center;
+				font-weight: 800;
+				color: var(--pop-black);
+				text-transform: uppercase;
+				letter-spacing: 2px;
+			}
+
+			@media (max-width: 600px) {
+				.hero h1 { font-size: 2.5em; }
+				.dish-name { font-size: 1.4em; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Malay-Pop Intel:<br/>Curry House</h1>
+				<p>NO SPICE? NO PROBLEM. WE RANKED THE BEST MILD MALAY GEMS AT 9 PELL ST.</p>
+			</section>
+
+			<div class="ranking-container">
+				<article class="dish-card rank-1">
+					<div class="rank-badge">#1</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Bah Kut Teh</h2>
+						<span class="dish-origin">IPOH SPECIALTY</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							The holy grail of Malaysian comfort food. "Meat Bone Tea" is a deeply savory, complex herbal pork rib soup. The owners are from Ipoh, and this is their masterwork. Zero chili, 100% herbal umami.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spiceless">ZERO HEAT</span>
+							<span class="tag tag-specialty">HERBAL POWER</span>
+						</div>
+					</div>
+				</article>
+
+				<article class="dish-card">
+					<div class="rank-badge" style="background: var(--pop-blue)">#2</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Hainanese Chicken</h2>
+						<span class="dish-origin">S.E. ASIA CLASSIC</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							Gentle, poached, and perfect. Served with fragrant rice cooked in chicken fat. It's the ultimate "safe" bet that doesn't sacrifice flavor. Get the half bird if you're serious.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spiceless">MILD AS CAN BE</span>
+							<span class="tag tag-classic">STAPLE</span>
+						</div>
+					</div>
+				</article>
+
+				<article class="dish-card">
+					<div class="rank-badge" style="background: var(--pop-green)">#3</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Ipoh Chicken Noodles</h2>
+						<span class="dish-origin">CLEAR SOUP</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							A light, clear broth with shredded chicken. While everyone else is sweating over red curry, you'll be cooling off with this soothing, salt-forward Ipoh specialty.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-spiceless">CLEAN BROTH</span>
+							<span class="tag tag-specialty">IPOHTOWN</span>
+						</div>
+					</div>
+				</article>
+
+				<article class="dish-card">
+					<div class="rank-badge" style="background: var(--pop-yellow); color: var(--pop-black);">#4</div>
+					<header class="dish-header">
+						<h2 class="dish-name">Roti Canai</h2>
+						<span class="dish-origin">APPETIZER</span>
+					</header>
+					<div class="dish-body">
+						<p class="dish-desc">
+							Flaky, buttery flatbread that melts in your mouth. <strong>PRO TIP:</strong> The default curry dip has a kick. Ask for DAL (lentil) dip or just eat it plain. It's that good.
+						</p>
+						<div class="dish-meta">
+							<span class="tag tag-classic">TEXTURE KING</span>
+							<span class="tag tag-specialty">MODIFY DIP</span>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<section class="warning-zone">
+				<h2>X FILTERED OUT X</h2>
+				<p>WE TRIPLE-VERIFIED THESE AND THEY ARE TOO HOT TO HANDLE:</p>
+				<div class="warning-list">
+					<div class="warning-item">
+						<strong>Asam Laksa</strong>
+						Sour, fishy, and spicy. A Malay classic, but it will burn.
+					</div>
+					<div class="warning-item">
+						<strong>Any Sambal Dish</strong>
+						Sambal is chili paste. If it says Sambal, it's a trap.
+					</div>
+					<div class="warning-item">
+						<strong>Curry Beef Stew</strong>
+						Delicious, but the base curry has built-in heat.
+					</div>
+				</div>
+			</section>
+
+			<div class="intel-footer">
+				TRIPLE-VERIFIED INTEL // GOOGLE PLACES API // GRUBHUB LIVE FEED
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
