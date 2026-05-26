@@ -1,0 +1,658 @@
+{
+  "total_sources": 500,
+  "runs": {
+    "1": 50,
+    "2": 50,
+    "3": 50,
+    "4": 50,
+    "5": 50,
+    "6": 50,
+    "7": 50,
+    "8": 50,
+    "9": 50,
+    "10": 50
+  },
+  "batches": {
+    "1": 100,
+    "2": 100,
+    "3": 100,
+    "4": 100,
+    "5": 100
+  },
+  "clusters": {
+    "capitalization and macro bounds": 50,
+    "discount rates and present value": 50,
+    "equity premium and required returns": 50,
+    "rational bubbles and transversality": 50,
+    "limits to arbitrage and market efficiency": 50,
+    "intangible capital and monopoly rents": 50,
+    "safe assets, rates, and fiscal capacity": 50,
+    "index investing and passive ownership": 50,
+    "international portfolio equilibrium": 50,
+    "legal, monetary, and institutional constraints": 50
+  },
+  "top_terms": [
+    [
+      "that",
+      640
+    ],
+    [
+      "economics",
+      554
+    ],
+    [
+      "this",
+      387
+    ],
+    [
+      "business",
+      271
+    ],
+    [
+      "capital",
+      253
+    ],
+    [
+      "have",
+      235
+    ],
+    [
+      "from",
+      232
+    ],
+    [
+      "finance",
+      196
+    ],
+    [
+      "risk",
+      178
+    ],
+    [
+      "economic",
+      172
+    ],
+    [
+      "firms",
+      159
+    ],
+    [
+      "their",
+      148
+    ],
+    [
+      "policy",
+      146
+    ],
+    [
+      "monetary",
+      145
+    ],
+    [
+      "corporate",
+      143
+    ],
+    [
+      "equity",
+      142
+    ],
+    [
+      "these",
+      142
+    ],
+    [
+      "which",
+      136
+    ],
+    [
+      "investment",
+      135
+    ],
+    [
+      "more",
+      130
+    ],
+    [
+      "price",
+      130
+    ],
+    [
+      "growth",
+      116
+    ],
+    [
+      "investors",
+      107
+    ],
+    [
+      "data",
+      104
+    ],
+    [
+      "rate",
+      102
+    ],
+    [
+      "countries",
+      101
+    ],
+    [
+      "large",
+      101
+    ],
+    [
+      "research",
+      101
+    ],
+    [
+      "also",
+      101
+    ],
+    [
+      "high",
+      101
+    ],
+    [
+      "volatility",
+      100
+    ],
+    [
+      "power",
+      99
+    ],
+    [
+      "wealth",
+      97
+    ],
+    [
+      "global",
+      96
+    ],
+    [
+      "than",
+      96
+    ],
+    [
+      "liquidity",
+      95
+    ],
+    [
+      "find",
+      94
+    ],
+    [
+      "crisis",
+      94
+    ],
+    [
+      "time",
+      93
+    ],
+    [
+      "international",
+      93
+    ],
+    [
+      "governance",
+      90
+    ],
+    [
+      "over",
+      90
+    ],
+    [
+      "theory",
+      87
+    ],
+    [
+      "they",
+      84
+    ],
+    [
+      "system",
+      83
+    ],
+    [
+      "first",
+      81
+    ],
+    [
+      "real",
+      81
+    ],
+    [
+      "exchange",
+      80
+    ],
+    [
+      "effects",
+      78
+    ],
+    [
+      "science",
+      76
+    ],
+    [
+      "economy",
+      76
+    ],
+    [
+      "firm",
+      75
+    ],
+    [
+      "empirical",
+      75
+    ],
+    [
+      "both",
+      73
+    ],
+    [
+      "interest",
+      73
+    ],
+    [
+      "abstract",
+      73
+    ],
+    [
+      "rates",
+      72
+    ],
+    [
+      "development",
+      70
+    ],
+    [
+      "some",
+      69
+    ],
+    [
+      "performance",
+      68
+    ],
+    [
+      "other",
+      68
+    ],
+    [
+      "income",
+      68
+    ],
+    [
+      "change",
+      67
+    ],
+    [
+      "such",
+      67
+    ],
+    [
+      "foreign",
+      65
+    ],
+    [
+      "there",
+      65
+    ],
+    [
+      "models",
+      64
+    ],
+    [
+      "been",
+      63
+    ],
+    [
+      "impact",
+      63
+    ],
+    [
+      "information",
+      63
+    ],
+    [
+      "increase",
+      62
+    ],
+    [
+      "portfolio",
+      62
+    ],
+    [
+      "ownership",
+      61
+    ],
+    [
+      "computer",
+      61
+    ],
+    [
+      "public",
+      61
+    ],
+    [
+      "housing",
+      60
+    ],
+    [
+      "long",
+      59
+    ],
+    [
+      "credit",
+      58
+    ],
+    [
+      "show",
+      58
+    ],
+    [
+      "future",
+      58
+    ]
+  ],
+  "representative_sources": [
+    {
+      "id": "R01-001",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Why do countries matter so much for corporate governance?\u2606",
+      "authors": "Craig Doidge; G ANDREWKAROLYI; Ren\u00e9 M. Stulz",
+      "year": 2007,
+      "type": "article",
+      "source": "Journal of Financial Economics",
+      "doi_or_url": "https://doi.org/10.1016/j.jfineco.2006.09.002",
+      "cited_by_count": 1226,
+      "concepts": "Corporate governance; Transparency (behavior); Incentive; Business; Variance (accounting); Capital market",
+      "abstract": ""
+    },
+    {
+      "id": "R01-002",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Capital Regulation, Risk-Taking and Monetary Policy: A Missing Link in the Transmission Mechanism?",
+      "authors": "Claudio Borio; Haibin Zhu",
+      "year": 2008,
+      "type": "article",
+      "source": "SSRN Electronic Journal",
+      "doi_or_url": "https://doi.org/10.2139/ssrn.1334132",
+      "cited_by_count": 678,
+      "concepts": "Mechanism (biology); Link (geometry); Transmission (telecommunications); Monetary policy; Monetary economics; Capital (architecture)",
+      "abstract": ""
+    },
+    {
+      "id": "R01-003",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Why do Countries Matter so Much for Corporate Governance?",
+      "authors": "Craig Doidge; George Andrew Karolyi; Ren\u00e9 M. Stulz",
+      "year": 2004,
+      "type": "article",
+      "source": "SSRN Electronic Journal",
+      "doi_or_url": "https://doi.org/10.2139/ssrn.580883",
+      "cited_by_count": 410,
+      "concepts": "Corporate governance; Business; Accounting; Financial system; Finance",
+      "abstract": ""
+    },
+    {
+      "id": "R01-004",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Why Has CEO Pay Increased So Much?",
+      "authors": "Xavier Gabaix; Augustin Landier",
+      "year": 2006,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w12365",
+      "cited_by_count": 285,
+      "concepts": "Business; Economics",
+      "abstract": "This paper develops a simple equilibrium model of CEO pay. CEOs have different talents and are matched to firms in a competitive assignment model. In market equilibrium, a CEO's pay changes one for one with aggregate firm size, while changing much less with the size of his own firm. The model determines the level of CEO pay across firms and over time, offering a benchmark for calibratable corporate finance. The sixfold increase of CEO pay between 1980 and 2003 can be fully attributed to the six-fold increase in market capitalization of large US companies during that period. We find a very small dispersion in CEO talent, which nonetheless justifies large pay differences. The data broadly support the model. The size of large firms explains many of the patterns in CEO pay, across firms, over time, and between countries."
+    },
+    {
+      "id": "R01-005",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "What Segments Equity Markets?",
+      "authors": "Geert Bekaert; Campbell R. Harvey; Christian Lundblad; Stephan Siegel",
+      "year": 2009,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w14802",
+      "cited_by_count": 270,
+      "concepts": "Equity (law); Economics; Financial economics; Business; Political science; Law",
+      "abstract": "We propose a new, valuation-based measure of world equity market segmentation. While we observe decreased levels of segmentation in many developing countries, the level of segmentation is still significant. In contrast to previous research, we characterize the factors that account for variation in market segmentation both through time as well as across countries. While a country's regulation with respect to foreign capital flows is important in determining its level of segmentation, we find that non-regulatory factors are also related to the cross-sectional and time-series variation in the level of segmentation. We identify a country's political risk profile and its stock market development as two additional local segmentation factors as well as the U.S. corporate credit spread as a global segmentation factor."
+    },
+    {
+      "id": "R01-006",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Global Wealth Inequality",
+      "authors": "Gabriel Zucman",
+      "year": 2019,
+      "type": "article",
+      "source": "Annual Review of Economics",
+      "doi_or_url": "https://doi.org/10.1146/annurev-economics-080218-025852",
+      "cited_by_count": 335,
+      "concepts": "Inequality; Economics; Globalization; National wealth; Economic inequality; Wealth elasticity of demand",
+      "abstract": "This article reviews the recent literature on the dynamics of global wealth inequality. I first reconcile available estimates of wealth inequality in the United States. Both surveys and tax data show that wealth inequality has increased dramatically since the 1980s, with a top 1% wealth share of approximately 40% in 2016 versus 25-30% in the 1980s. Second, I discuss the fast-growing literature on wealth inequality across the world. Evidence points toward a rise in global wealth concentration: For China, Europe, and the United States combined, the top 1% wealth share has increased from 28% in 1980 to 33% today, while the bottom 75% share hovered around 10%. Recent studies, however, may underestimate the level and rise of inequality, as financial globalization makes it increasingly hard to measure wealth at the top. I discuss how new data sources (leaks from financial institutions, tax amnesties, and macroeconomic statistics of tax havens) can be leveraged to better capture the wealth of the rich."
+    },
+    {
+      "id": "R01-007",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Are Financial Assets Priced Locally or Globally?",
+      "authors": "George Andrew Karolyi; Ren\u00e9 M. Stulz",
+      "year": 2002,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w8994",
+      "cited_by_count": 302,
+      "concepts": "Business; Finance; Financial system",
+      "abstract": "We review the international finance literature to assess the extent to which international factors affect financial asset demands and prices. International asset pricing models with mean-variance investors predict that an asset's risk premium depends on its covariance with the world market portfolio and, possibly, with exchange rate changes. The existing empirical evidence shows that a country's risk premium depends on its covariance with the world market portfolio and that there is some evidence that exchange rate risk affects expected returns. However, the theoretical asset pricing literature relying on mean-variance optimizing investors fails in explaining the portfolio holdings of investors, equity flows, and the time-varying properties of correlations across countries. The home bias has the effect of increasing local influences on asset prices, while equity flows and cross-country correlations increase global influences on asset prices."
+    },
+    {
+      "id": "R01-008",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Power Laws in Economics: An Introduction",
+      "authors": "Xavier Gabaix",
+      "year": 2016,
+      "type": "article",
+      "source": "The Journal of Economic Perspectives",
+      "doi_or_url": "https://doi.org/10.1257/jep.30.1.185",
+      "cited_by_count": 418,
+      "concepts": "Economics; Power (physics); Market power; Stock (firearms); Law; Law and economics",
+      "abstract": "Many of the insights of economics seem to be qualitative, with many fewer reliable quantitative laws. However a series of power laws in economics do count as true and nontrivial quantitative laws-and they are not only established empirically, but also understood theoretically. I will start by providing several illustrations of empirical power laws having to do with patterns involving cities, firms, and the stock market. I summarize some of the theoretical explanations that have been proposed. I suggest that power laws help us explain many economic phenomena, including aggregate economic fluctuations. I hope to clarify why power laws are so special, and to demonstrate their utility. In conclusion, I list some power-law-related economic enigmas that demand further exploration. A formal definition may be useful."
+    },
+    {
+      "id": "R01-009",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Behavioral Corporate Finance: A Survey",
+      "authors": "Malcolm Baker; Richard S. Ruback; Jeffrey Wurgler",
+      "year": 2004,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w10863",
+      "cited_by_count": 288,
+      "concepts": "Corporate finance; Business; Behavioral economics; Finance; Accounting",
+      "abstract": "Research in behavioral corporate finance takes two distinct approaches. The first emphasizes that investors are less than fully rational. It views managerial financing and investment decisions as rational responses to securities market mispricing. The second approach emphasizes that managers are less than fully rational. It studies the effect of nonstandard preferences and judgmental biases on managerial decisions. This survey reviews the theory, empirical challenges, and current evidence pertaining to each approach. Overall, the behavioral approaches help to explain a number of important financing and investment patterns. The survey closes with a list of open questions."
+    },
+    {
+      "id": "R01-010",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Measuring Capital and Technology: An Expanded Framework",
+      "authors": "Carol Corrado; Charles R. Hulten; Daniel E. Sichel",
+      "year": 2004,
+      "type": "article",
+      "source": "Finance and Economics Discussion Series",
+      "doi_or_url": "https://doi.org/10.17016/feds.2004.65",
+      "cited_by_count": 195,
+      "concepts": "Economics; Investment (military); Capital (architecture); Consumption (sociology); Productivity; Return of capital",
+      "abstract": "Business outlays on intangible assets are usually expensed in economic and financial accounts. Following Hulten (1979), this paper develops an intertemporal framework for measuring capital in which consumer utility maximization governs the expenditures that are current consumption versus those that are capital investment. This framework suggests that any business outlay that is intended to increase future rather than current consumption should be treated as capital investment. Applying this principle to newly developed estimates of business spending on intangibles, we find that, by about the mid-1990s, business investment in intangible capital was as large as business investment in traditional, tangible capital. Relative to official measures, our framework portrays the U.S. economy as having had higher gross private saving and, under plausible assumptions, fractionally higher average annual rates of change in real output and labor productivity from 1995 to 2002."
+    },
+    {
+      "id": "R01-011",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Meta-analyzing ownership concentration and firm performance in Asia: Towards a more fine-grained understanding",
+      "authors": "Pursey Heugens; Marc van Essen; J. van Oosterhout",
+      "year": 2008,
+      "type": "article",
+      "source": "Asia Pacific Journal of Management",
+      "doi_or_url": "https://doi.org/10.1007/s10490-008-9109-0",
+      "cited_by_count": 279,
+      "concepts": "Expropriation; Shareholder; Corporate governance; Business; Private benefits of control; Control (management)",
+      "abstract": "We present a meta-analysis of the relationship between concentrated ownership and firm financial performance in Asia. At the cross-national level of analysis, we find a small but significant positive association between both variables. This finding suggests that in regions with less than perfect legal protection of minority shareholders, ownership concentration is an efficient corporate governance strategy. Yet, a focus on this aggregate effect alone conceals the existence of true heterogeneity in the effect size distribution. We purposefully model this heterogeneity by exploring moderating effects at the levels of owner identity and national institutions. Regarding owner identity, we find that our focal relationship is stronger for foreign than for domestic owners, and that pure \u201cmarket\u201d investors outperform \u201cstable\u201d or \u201cinside\u201d owners whom are multiply tied to the firm. Regarding institutions, we find that a certain threshold level of institutional development is necessary to make concentrated ownership an effective corporate governance strategy. Yet we also find that strong legal protection of shareholders makes ownership concentration inconsequential and therefore redundant. Fi"
+    },
+    {
+      "id": "R01-012",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Asymmetries in housing and financial market institutions and EMU",
+      "authors": "Duncan Maclennan",
+      "year": 1998,
+      "type": "article",
+      "source": "Oxford Review of Economic Policy",
+      "doi_or_url": "https://doi.org/10.1093/oxrep/14.3.54",
+      "cited_by_count": 226,
+      "concepts": "Economics; Convergence (economics); Labour market flexibility; Flexibility (engineering); Inflation (cosmology); Asset (computer security)",
+      "abstract": "Despite convergence pressures, differences in housing and financial market institutions across the 15 member states of the European Union are still enormous. This paper argues that they have profound effects on the responsiveness of output and inflation in the different countries to changes in short-term interest rates, as well as to asset market shocks of external origin. The economic reasoning behind this claim is set out and the institutional differences are described. The paper assesses the sometimes conflicting empirical evidence on this issue. Barriers to convergence and implications for labour market flexibility are discussed. The UK, Ireland, Finland and Sweden tend to cluster at one extreme of the relevant institutional characteristics. The paper includes a set of proposals for institutional reforms to reduce the tensions within EMU and the potential for instability in these economies entailed by EMU membership. The paper connects the symptoms of overheating in the Eurozone observed in mid-2000 with our analysis and concludes by reviewing prospects for the UK."
+    },
+    {
+      "id": "R01-013",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Behavioral Corporate Finance: An Updated Survey",
+      "authors": "Malcolm Baker; Jeffrey Wurgler",
+      "year": 2011,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w17333",
+      "cited_by_count": 192,
+      "concepts": "Corporate finance; Finance; Economics; Business; Accounting",
+      "abstract": "We survey the theory and evidence of behavioral corporate finance, which generally takes one of two approaches. The market timing and catering approach views managerial financing and investment decisions as rational managerial responses to securities mispricing. The managerial biases approach studies the direct effects of managers' biases and nonstandard preferences on their decisions. We review relevant psychology, economic theory and predictions, empirical challenges, empirical evidence, new directions such as behavioral signaling, and open questions."
+    },
+    {
+      "id": "R01-014",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "THE IMPACT OF ESG FACTORS ON MARKET VALUE OF COMPANIES FROM TRAVEL AND TOURISM INDUSTRY",
+      "authors": "George H. Ionescu; Daniela Firoiu; Ramona P\u00eervu; Ruxandra Dana Vilag",
+      "year": 2019,
+      "type": "article",
+      "source": "Technological and Economic Development of Economy",
+      "doi_or_url": "https://doi.org/10.3846/tede.2019.10294",
+      "cited_by_count": 191,
+      "concepts": "Tourism; Business; Value (mathematics); Corporate governance; Shareholder; Market value",
+      "abstract": "The aim of this paper is to investigate the relationship between environmental, social, and governance (ESG) factors and firm market value for the companies from travel and tourism industry and, in the same time, to investigates the question if the association between good ESG scores for travel and tourism companies and their market value can be used as a performance predictor. The impact of extra-financial ESG performance on market value of the companies was estimated using the modified version of the Ohlson (1995) model, based on a sample of 73 listed companies, worldwide distributed, during the 2010-2015 period. The overall results of this research are consistent with the value enhancing theory (as opposed with the shareholder expense theory). From the ESG factors, the governance factor seems to have the most important influence on the market value of the selected companies, regardless of the geographic region where they are located. Thus, our findings provide new insights into the influence of each ESG factor on the market value of the companies, providing a useful tool for stakeholders to measure economic impact but also for use as a predictor of economic performance."
+    },
+    {
+      "id": "R01-015",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "The Rate of Return on Everything, 1870-2015",
+      "authors": "\u00d2scar Jord\u00e0; Katharina Knoll; D. Kuvshinov; Moritz Schularick; Alan M. Taylor",
+      "year": 2017,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w24112",
+      "cited_by_count": 116,
+      "concepts": "Economics; Rate of return; Equity (law); Monetary economics; Financial economics; Bond",
+      "abstract": "What is the aggregate real rate of return in the economy? Is it higher than the growth rate of the economy and, if so, by how much? Is there a tendency for returns to fall in the long-run? Which particular assets have the highest long-run returns? We answer these questions on the basis of a new and comprehensive dataset for all major asset classes, including housing. The annual data on total returns for equity, housing, bonds, and bills cover 16 advanced economies from 1870 to 2015, and our new evidence reveals many new findings and puzzles."
+    },
+    {
+      "id": "R01-016",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "On the International Spillovers of US Quantitative Easing",
+      "authors": "Marcel Fratzscher; Marco Lo Duca; Roland Straub",
+      "year": 2013,
+      "type": "article",
+      "source": "SSRN Electronic Journal",
+      "doi_or_url": "https://doi.org/10.2139/ssrn.2276855",
+      "cited_by_count": 281,
+      "concepts": "Quantitative easing; Economics; Monetary economics; Monetary policy; Central bank",
+      "abstract": ""
+    },
+    {
+      "id": "R01-017",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Can investor sentiment be a momentum time-series predictor? Evidence from China",
+      "authors": "Xing Han; Youwei Li",
+      "year": 2017,
+      "type": "article",
+      "source": "Journal of Empirical Finance",
+      "doi_or_url": "https://doi.org/10.1016/j.jempfin.2017.04.001",
+      "cited_by_count": 163,
+      "concepts": "Contrarian; Predictability; Momentum (technical analysis); Portfolio; Econometrics; Economics",
+      "abstract": ""
+    },
+    {
+      "id": "R01-018",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "Capital Account Policies and the Real Exchange Rate",
+      "authors": "Olivier Jeanne",
+      "year": 2013,
+      "type": "article",
+      "source": "NBER International Seminar on Macroeconomics",
+      "doi_or_url": "https://doi.org/10.1086/669583",
+      "cited_by_count": 100,
+      "concepts": "Exchange rate; Monetary economics; Economics; Business",
+      "abstract": "Previous articleNext article FreePart I: Exchange RatesCapital Account Policies and the Real Exchange RateOlivier JeanneOlivier JeanneJohns Hopkins University and NBER Search for more articles by this author Full TextPDF Add to favoritesDownload CitationTrack CitationsPermissionsReprints Share onFacebookTwitterLinked InRedditEmailQR Code SectionsMoreI. IntroductionThere are debates about the extent to which emerging market and developing countries that have accumulated large amounts of foreign exchange reserves in the 2000s are doing so in order to undervalue their currency. However, we do not have a simple model of how a country can achieve persistent real exchange rate distortions through reserve accumulation. The main purpose of this paper is to present such a model and to use it to answer a few questions about undervaluation policies.Real exchange rate undervaluation is often presented, in policy debates, as the result of a monetary operation. For example, it is argued that the People's Bank of China (PBOC) has resisted the appreciation of the renminbi by pegging the nominal exchange rate and accumulating reserves. But pegging the nominal exchange rate is not the same thing as"
+    },
+    {
+      "id": "R01-019",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": "The Rate of Return on Everything, 1870-2015",
+      "authors": "Federal Reserve Bank of San Francisco; \u00d2scar Jord\u00e0; Katharina Knoll; Deutsche Bundesbank; D. Kuvshinov; Moritz Schularick",
+      "year": 2017,
+      "type": "article",
+      "source": "Federal Reserve Bank of San Francisco, Working Paper Series",
+      "doi_or_url": "https://doi.org/10.24148/wp2017-25",
+      "cited_by_count": 75,
+      "concepts": "Economics; Rate of return; Equity (law); Financial economics; Bond; Monetary economics",
+      "abstract": "This paper answers fundamental questions that have preoccupied modern economic thought since the 18th century. What is the aggregate real rate of return in the economy? Is it higher than the growth rate of the economy and, if so, by how much? Is there a tendency for returns to fall in the long-run? Which particular assets have the highest long-run returns? We answer these questions on the basis of a new and comprehensive dataset for all major asset classes, including-for the first time-total returns to the largest, but oft ignored, component of household wealth, housing. The annual data on total returns for equity, housing, bonds, and bills cover 16 advanced economies from 1870 to 2015, and our new evidence reveals many new insights and puzzles."
+    },
+    {
+      "id": "R01-020",
+      "run": 1,
+      "batch": 1,
+      "cluster": "capitalization and macro bounds",
+      "title": ". . . and the Cross-Section of Expected Returns",
+      "authors": "Campbell R. Harvey; Yan Liu; Heqing Zhu",
+      "year": 2014,
+      "type": "report",
+      "source": "National Bureau of Economic Research",
+      "doi_or_url": "https://doi.org/10.3386/w20592",
+      "cited_by_count": 147,
+      "concepts": "Section (typography); Cross section (physics); Computer science; Physics; Operating system; Astronomy",
+      "abstract": "Hundreds of papers and hundreds of factors attempt to explain the cross-section of expected returns. Given this extensive data mining, it does not make any economic or statistical sense to use the usual significance criteria for a newly discovered factor, e.g., a t-ratio greater than 2.0. However, what hurdle should be used for current research? Our paper introduces a multiple testing framework and provides a time series of historical significance cutoffs from the first empirical tests in 1967 to today. Our new method allows for correlation among the tests as well as missing data. We also project forward 20 years assuming the rate of factor production remains similar to the experience of the last few years. The estimation of our model suggests that a newly discovered factor needs to clear a much higher hurdle, with a t-ratio greater than 3.0. Echoing a recent disturbing conclusion in the medical literature, we argue that most claimed research findings in financial economics are likely false."
+    }
+  ]
+}

@@ -48,7 +48,6 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
 * **Colors**: The primary accent color is Olive Green (#556B2F), with darker moss greens for hover states. No standard web blues.
 * **Texture**: Maintain the subtle SVG noise/film-grain overlay on the body to give the screen a physical, paper-like texture.
-* **Human Touch**: Include handwritten signatures (using the Caveat font) at the end of posts ("- Jack") to signify human authorship.
 * **Visual hierarchy must match content importance**: The #1 entry on a ranking page should look structurally different from the #22 entry. Break the grid for what matters.
 * **Idiosyncratic over polished**: Personal sites accrue personality over time. Include elements that signal a real person built this. Prose can be direct and first-person.
 

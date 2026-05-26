@@ -1,0 +1,519 @@
+# Market Limits Source Audit
+
+Total sources: 500
+
+## Batch 1
+
+- R01-001. Why do countries matter so much for corporate governance?☆. Craig Doidge; G ANDREWKAROLYI; René M. Stulz (2007). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2006.09.002
+- R01-002. Capital Regulation, Risk-Taking and Monetary Policy: A Missing Link in the Transmission Mechanism?. Claudio Borio; Haibin Zhu (2008). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1334132
+- R01-003. Why do Countries Matter so Much for Corporate Governance?. Craig Doidge; George Andrew Karolyi; René M. Stulz (2004). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.580883
+- R01-004. Why Has CEO Pay Increased So Much?. Xavier Gabaix; Augustin Landier (2006). National Bureau of Economic Research. https://doi.org/10.3386/w12365
+- R01-005. What Segments Equity Markets?. Geert Bekaert; Campbell R. Harvey; Christian Lundblad; Stephan Siegel (2009). National Bureau of Economic Research. https://doi.org/10.3386/w14802
+- R01-006. Global Wealth Inequality. Gabriel Zucman (2019). Annual Review of Economics. https://doi.org/10.1146/annurev-economics-080218-025852
+- R01-007. Are Financial Assets Priced Locally or Globally?. George Andrew Karolyi; René M. Stulz (2002). National Bureau of Economic Research. https://doi.org/10.3386/w8994
+- R01-008. Power Laws in Economics: An Introduction. Xavier Gabaix (2016). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.30.1.185
+- R01-009. Behavioral Corporate Finance: A Survey. Malcolm Baker; Richard S. Ruback; Jeffrey Wurgler (2004). National Bureau of Economic Research. https://doi.org/10.3386/w10863
+- R01-010. Measuring Capital and Technology: An Expanded Framework. Carol Corrado; Charles R. Hulten; Daniel E. Sichel (2004). Finance and Economics Discussion Series. https://doi.org/10.17016/feds.2004.65
+- R01-011. Meta-analyzing ownership concentration and firm performance in Asia: Towards a more fine-grained understanding. Pursey Heugens; Marc van Essen; J. van Oosterhout (2008). Asia Pacific Journal of Management. https://doi.org/10.1007/s10490-008-9109-0
+- R01-012. Asymmetries in housing and financial market institutions and EMU. Duncan Maclennan (1998). Oxford Review of Economic Policy. https://doi.org/10.1093/oxrep/14.3.54
+- R01-013. Behavioral Corporate Finance: An Updated Survey. Malcolm Baker; Jeffrey Wurgler (2011). National Bureau of Economic Research. https://doi.org/10.3386/w17333
+- R01-014. THE IMPACT OF ESG FACTORS ON MARKET VALUE OF COMPANIES FROM TRAVEL AND TOURISM INDUSTRY. George H. Ionescu; Daniela Firoiu; Ramona Pîrvu; Ruxandra Dana Vilag (2019). Technological and Economic Development of Economy. https://doi.org/10.3846/tede.2019.10294
+- R01-015. The Rate of Return on Everything, 1870-2015. Òscar Jordà; Katharina Knoll; D. Kuvshinov; Moritz Schularick; Alan M. Taylor (2017). National Bureau of Economic Research. https://doi.org/10.3386/w24112
+- R01-016. On the International Spillovers of US Quantitative Easing. Marcel Fratzscher; Marco Lo Duca; Roland Straub (2013). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2276855
+- R01-017. Can investor sentiment be a momentum time-series predictor? Evidence from China. Xing Han; Youwei Li (2017). Journal of Empirical Finance. https://doi.org/10.1016/j.jempfin.2017.04.001
+- R01-018. Capital Account Policies and the Real Exchange Rate. Olivier Jeanne (2013). NBER International Seminar on Macroeconomics. https://doi.org/10.1086/669583
+- R01-019. The Rate of Return on Everything, 1870-2015. Federal Reserve Bank of San Francisco; Òscar Jordà; Katharina Knoll; Deutsche Bundesbank; D. Kuvshinov; Moritz Schularick (2017). Federal Reserve Bank of San Francisco, Working Paper Series. https://doi.org/10.24148/wp2017-25
+- R01-020. . . . and the Cross-Section of Expected Returns. Campbell R. Harvey; Yan Liu; Heqing Zhu (2014). National Bureau of Economic Research. https://doi.org/10.3386/w20592
+- R01-021. Why Do Countries Matter So Much for Corporate Governance?. René M. Stulz; Craig Doidge; Andrew Karolyi (2004). National Bureau of Economic Research. https://doi.org/10.3386/w10726
+- R01-022. The First Global Financial Crisis of the 21st Century. Carmen Reinhart; Andrew J. Felton (2008). Munich Personal RePEc Archive (Ludwig Maximilian University of Munich). https://openalex.org/W1628064201
+- R01-023. Designing Financial Safety Nets to Fit Country Circumstances. Edward J. Kane (2000). World Bank, Washington, DC eBooks. https://doi.org/10.1596/1813-9450-2453
+- R01-024. Wealth of Two Nations: The U.S. Racial Wealth Gap, 1860-2020. Ellora Derenoncourt; Chi Hyun Kim; Moritz Kuhn; Moritz Schularick (2022). . https://doi.org/10.21034/iwp.59
+- R01-025. The Financial Crisis and The Geography of Wealth Transfers. Pierre‐Olivier Gourinchas; Hélène Rey; Kai Truempler (2011). National Bureau of Economic Research. https://doi.org/10.3386/w17353
+- R01-026. global development finance. Nicholas Stern; Philip Suttle; Eung Kim; Fernando Mar- Tel-Garcia; Punam Decpg; Nevin Chuhan (2000). . https://doi.org/10.2458/azu_acku_hg3881_g567_2003
+- R01-027. Behavioral Corporate Finance: A Survey. Malcolm Baker; Richard S. Ruback; Jeffrey Wurgler (2004). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.602902
+- R01-028. Risk and Expected Returns of Private Equity Investments: Evidence Based on Market Prices. Narasimhan Jegadeesh; Roman Kräussl; Joshua Matthew Pollet (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15335
+- R01-029. The effect of fiscal and monetary policies interaction on stock market performance: Evidence from Nigeria. Adedoyin Isola Lawal; Russell Olukayode Somoye; Abiola Ayoopo Babajide; T. I. Nwanji (2017). Future Business Journal. https://doi.org/10.1016/j.fbj.2017.11.004
+- R01-030. Corporate Governance and Development. Stijn Claessens; B. Burçin Yurtoğlu (2012). International Finance Corporation, Washington, DC eBooks. https://doi.org/10.1596/26874
+- R01-031. Wealth and its Distribution in Germany, 1895-2018. Thilo Albers; Charlotte Bartels; Moritz Schularick (2022). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.4103952
+- R01-032. India at the Crossroads -- Sustaining Growth and Reducing Poverty. Tim Callen; P. A. Reynolds; Christopher Towe (2001). . https://doi.org/10.5089/9781557759924.071
+- R01-033. Wealth of Two Nations: The U.S. Racial Wealth Gap, 1860-2020. Ellora Derenoncourt; Chi Hyun Kim; Moritz Kuhn; Moritz Schularick (2022). National Bureau of Economic Research. https://doi.org/10.3386/w30101
+- R01-034. Urbanization beyond Municipal Boundaries. World Bank (2013). Washington, DC: World Bank eBooks. https://doi.org/10.1596/978-0-8213-9840-1
+- R01-035. Corporate Governance, Economic Entrenchment and Growth. Bernard Yeung; Randall Mørck; Daniel Wolfenzon (2004). The Faculty Digital Archive (New York University). http://archive.nyu.edu/handle/2451/26135
+- R01-036. Wealth and Its Distribution in Germany, 1895-2018. Thilo Albers; Charlotte Bartels; Moritz Schularick (2022). . https://doi.org/10.31235/osf.io/y6zpq
+- R01-037. Nordic Economic Policy Review. Nordic Council of Ministers (2011). TemaNord. https://doi.org/10.6027/tn2011-570
+- R01-038. The Rise and Fall of the Widely Held Firm - A History of Corporate Ownership in Canada. Randall Mørck; Michael De Percy; Gloria Yuan Tian; Bernard Yeung (2004). National Bureau of Economic Research. https://doi.org/10.3386/w10635
+- R01-039. Stock price reactions to brand value announcements: Magnitude and moderators. Marie Dutordoir; F.H.M. Verbeeten; Dominique De Beijer (2014). International Journal of Research in Marketing. https://doi.org/10.1016/j.ijresmar.2014.08.001
+- R01-040. Capital Account Policies and the Real Exchange Rate. Olivier Jeanne (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2151544
+- R01-041. Risk and Expected Returns of Private Equity Investments: Evidence Based on Market Prices. Narasimhan Jegadeesh; Roman Kräussl; Joshua Matthew Pollet (2009). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1364776
+- R01-042. Can we use volatility to diagnose financial bubbles? lessons from 40 historical bubbles. Didier Sornette; Peter Cauwels; Georgi Smilyanov (2018). Quantitative Finance and Economics. https://doi.org/10.3934/qfe.2018.1.1
+- R01-043. Impact of legal institutions on IPO survival: A global perspective. Susanne Espenlaub; Abhinav Goyal; Abdulkadir Mohamed (2016). Journal of Financial Stability. https://doi.org/10.1016/j.jfs.2016.06.003
+- R01-044. Dominican Republic Tax System Review. World Bank (2021). World Bank, Washington, DC eBooks. https://doi.org/10.1596/35858
+- R01-045. Who Benefits From Productivity Growth? Direct and Indirect Effects of Local TFP Growth on Wages, Rents, and Inequality. Richard Hornbeck; Enrico Moretti (2018). National Bureau of Economic Research. https://doi.org/10.3386/w24661
+- R01-046. Excess Profit Taxes: Historical Perspective and Contemporary Relevance. Shafik Hebous; Nate Vernon; Dinar Prihardini (2022). IMF Working Paper. https://doi.org/10.5089/9798400221729.001
+- R01-047. Economic integration and the currency and equity markets nexus. Muhammad Aftab; Rubi Ahmad; Izlin Ismail; Kate Phylaktis (2020). International Journal of Finance & Economics. https://doi.org/10.1002/ijfe.2065
+- R01-048. Policy Instruments to Lean Against the Wind in Latin America. International Monetary Fund (2011). IMF Working Paper. https://doi.org/10.5089/9781455297726.001
+- R01-049. Global Portfolio Diversification for Long-Horizon Investors. Luis M. Viceira; Zixuan Wang (2018). National Bureau of Economic Research. https://doi.org/10.3386/w24646
+- R01-050. Factor Incomes in Global Value Chains: The Role of Intangibles. Wen Chen; Bart Los; Marcel P. Timmer (2018). National Bureau of Economic Research. https://doi.org/10.3386/w25242
+- R02-001. Stocks versus Bonds: Explaining the Equity Risk Premium. Clifford S. Asness (2000). Financial Analysts Journal. https://doi.org/10.2469/faj.v56.n2.2347
+- R02-002. Investor Psychology and Security Market Under‐ and Overreactions. Kent Daniel; David Hirshleifer; Avanidhar Subrahmanyam (1998). The Journal of Finance. https://doi.org/10.1111/0022-1082.00077
+- R02-003. The Dividend-Price Ratio and Expectations of Future Dividends and Discount Factors. John Y. Campbell; Robert J. Shiller (1988). Review of Financial Studies. https://doi.org/10.1093/rfs/1.3.195
+- R02-004. The Long‐Run Performance of initial Public Offerings. Jay R. Ritter (1991). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.1991.tb03743.x
+- R02-005. The Dividend-Price Ratio and Expectations of Future Dividends and Discount Factors. John Campbell; Robert J. Shiller (1986). National Bureau of Economic Research. https://doi.org/10.3386/w2100
+- R02-006. What Explains the Stock Market's Reaction to Federal Reserve Policy?. Ben Bernanke; Kenneth N. Kuttner (2005). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2005.00760.x
+- R02-007. Patent Statistics as Economic Indicators: A Survey. Zvi Griliches (1990). National Bureau of Economic Research. https://doi.org/10.3386/w3301
+- R02-008. From Efficient Markets Theory to Behavioral Finance. Robert J. Shiller (2003). The Journal of Economic Perspectives. https://doi.org/10.1257/089533003321164967
+- R02-009. Mandatory IFRS Reporting around the World: Early Evidence on the Economic Consequences. Holger Daske; Luzi Hail; Christian Leuz; Rodrigo Verdi (2008). Journal of Accounting Research. https://doi.org/10.1111/j.1475-679x.2008.00306.x
+- R02-010. Investor Sentiment and the Cross-section of Stock Returns. Malcolm Baker; Jeffrey Wurgler (2003). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.464843
+- R02-011. … and the Cross-Section of Expected Returns. Campbell R. Harvey; Yan Liu; Caroline Zhu (2015). Review of Financial Studies. https://doi.org/10.1093/rfs/hhv059
+- R02-012. Noise. Fischer Black (1986). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.1986.tb04513.x
+- R02-013. The Dog That Did Not Bark: A Defense of Return Predictability. John H. Cochrane (2007). Review of Financial Studies. https://doi.org/10.1093/rfs/hhm046
+- R02-014. The Rise of Market Power and the Macroeconomic Implications*. Jan De Loecker; Jan Eeckhout; Gabriel Unger (2020). The Quarterly Journal of Economics. https://doi.org/10.1093/qje/qjz041
+- R02-015. Efficient Capital Markets: II. Eugene F. Fama (1991). The Journal of Finance. https://doi.org/10.2307/2328565
+- R02-016. The knowledge spillover theory of entrepreneurship. Zoltán J. Ács; Pontus Braunerhjelm; David B. Audretsch; Bo Carlsson (2008). Small Business Economics. https://doi.org/10.1007/s11187-008-9157-3
+- R02-017. Empirical Asset Pricing via Machine Learning. Shihao Gu; Bryan Kelly; Dacheng Xiu (2020). Review of Financial Studies. https://doi.org/10.1093/rfs/hhaa009
+- R02-018. Feverish Stock Price Reactions to COVID-19*. Stefano Ramelli; Alexander F. Wagner (2020). The Review of Corporate Finance Studies. https://doi.org/10.1093/rcfs/cfaa012
+- R02-019. Stock Return Predictability: Is it There?. Andrew Ang; Geert Bekaert (2001). National Bureau of Economic Research. https://doi.org/10.3386/w8207
+- R02-020. Takeovers: Their Causes and Consequences. Michael C. Jensen (1988). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.2.1.21
+- R02-021. The Modern Industrial Revolution, Exit, and the Failure of Internal Control Systems. Michael C. Jensen (1993). The Journal of Finance. https://doi.org/10.2307/2329018
+- R02-022. Stock Prices and Social Dynamics. Robert J. Shiller (1984). RePEc: Research Papers in Economics. https://openalex.org/W3122885231
+- R02-023. Contrarian Investment, Extrapolation, and Risk. Josef Lakonishok; Robert W. Vishny; Andrei Shleifer (1993). National Bureau of Economic Research. https://doi.org/10.3386/w4360
+- R02-024. Taxation and Corporate Investment: A q-Theory Approach. Lawrence H. Summers; Barry Bosworth; James Tobin; Philip M. White (1981). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534397
+- R02-025. Liquidity and Expected Returns: Lessons from Emerging Markets. Geert Bekaert; Campbell R. Harvey; Christian Lundblad (2007). Review of Financial Studies. https://doi.org/10.1093/rfs/hhm030
+- R02-026. How Do Family Ownership, Control, and Management Affect Firm Value?. Belén Villalonga; Raphael Amit (2004). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.556032
+- R02-027. Conditioning Variables and the Cross Section of Stock Returns. Wayne E. Ferson; Campbell R. Harvey (1999). The Journal of Finance. https://doi.org/10.1111/0022-1082.00148
+- R02-028. Expected Option Returns. Joshua D. Coval; Tyler Shumway (2001). The Journal of Finance. https://doi.org/10.1111/0022-1082.00352
+- R02-029. Estimating the Intertemporal Risk-Return Tradeoff Using the Implied Cost of Capital. Ľuboš Pástor; Meenakshi Sinha; Bhaskaran Swaminathan (2008). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2008.01415.x
+- R02-030. ‘Climate value at risk’ of global financial assets. Simon Dietz; Alex Bowen; Charlie Dixon; Philip Gradwell (2016). Nature Climate Change. https://doi.org/10.1038/nclimate2972
+- R02-031. Information content of equity analyst reports. Paul Asquith; Michael B. Mikhail; Andrea S. Au (2004). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2004.01.002
+- R02-032. The Rise of Market Power and the Macroeconomic Implications. Jan De Loecker; Jan Eeckhout (2017). National Bureau of Economic Research. https://doi.org/10.3386/w23687
+- R02-033. Do Firms Hedge in Response to Tax Incentives?. John R. Graham; Daniel A. Rogers (2002). The Journal of Finance. https://doi.org/10.1111/1540-6261.00443
+- R02-034. The Theory of Capital Structure. Milton Harris; Artur Raviv (1991). The Journal of Finance. https://doi.org/10.2307/2328697
+- R02-035. Inflation Illusion and Stock Prices. John Y. Campbell; Tuomo Vuolteenaho (2004). American Economic Review. https://doi.org/10.1257/0002828041301533
+- R02-036. Predictive regressions with time-varying coefficients. Thomas Dangl; Michael Halling (2012). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2012.04.003
+- R02-037. On the Importance of Measuring Payout Yield: Implications for Empirical Asset Pricing. Jacob Boudoukh; Roni Michaely; Matthew Richardson; Michael R. Roberts (2007). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2007.01226.x
+- R02-038. Perspectives on Behavioral Finance: Does "Irrationality" Disappear with Wealth? Evidence from Expectations and Actions. Annette Vissing‐Jørgensen (2003). NBER Macroeconomics Annual. https://doi.org/10.1086/ma.18.3585252
+- R02-039. The Current Account and Macroeconomic Adjustment in the 1970s. Jeffrey D. Sachs; Richard N. Cooper; Stanley Fischer (1981). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534399
+- R02-040. Quality minus junk. Clifford S. Asness; Andrea Frazzini; Lasse Heje Pedersen (2018). Review of Accounting Studies. https://doi.org/10.1007/s11142-018-9470-2
+- R02-041. Large Shareholder Diversification and Corporate Risk-Taking. Mara Faccio; Maria‐Teresa Marchica; Roberto Mura (2011). Review of Financial Studies. https://doi.org/10.1093/rfs/hhr065
+- R02-042. Bubbles, Rational Expectations and Financial Markets. Olivier Blanchard; Mark W. Watson (1982). National Bureau of Economic Research. https://doi.org/10.3386/w0945
+- R02-043. Portfolio Choice over the Life‐Cycle when the Stock and Labor Markets Are Cointegrated. Luca Benzoni; Pierre Collin‐Dufresne; Robert S. Goldstein (2007). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2007.01271.x
+- R02-044. Evidence on the Characteristics of Cross Sectional Variation in Stock Returns. Kent Daniel; Sheridan Titman (1997). The Journal of Finance. https://doi.org/10.2307/2329554
+- R02-045. The Financing of R&amp;D and Innovation. Bronwyn H. Hall; Josh Lerner (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15325
+- R02-046. Speculative Dynamics. David Cutler; James M. Poterba; Lawrence H. Summers (1991). The Review of Economic Studies. https://doi.org/10.2307/2298010
+- R02-047. Stock Market Wealth and Consumption. James M. Poterba (2000). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.14.2.99
+- R02-048. The Relevance of the Value Relevance Literature for Financial Accounting Standard Setting. Robert W. Holthausen; Ross L. Watts (2000). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.228950
+- R02-049. Globalization of Equity Markets and the Cost of Capital. René M. Stulz (1999). National Bureau of Economic Research. https://doi.org/10.3386/w7021
+- R02-050. The Economic Implications of Corporate Financial Reporting. John R. Graham; Campbell R. Harvey; Shiva Rajgopal (2004). National Bureau of Economic Research. https://doi.org/10.3386/w10550
+
+## Batch 2
+
+- R03-001. Deciphering the Liquidity and Credit Crunch 2007-2008. Markus K. Brunnermeier (2009). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.23.1.77
+- R03-002. A Behavioral Approach to Law and Economics. Christine Jolls; Cass R. Sunstein; Richard H. Thaler (1998). Stanford Law Review. https://doi.org/10.2307/1229304
+- R03-003. Anomalies: Risk Aversion. Matthew Rabin; Richard H. Thaler (2001). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.15.1.219
+- R03-004. What is the Expected Return on the Market?*. Ian Martin (2016). The Quarterly Journal of Economics. https://doi.org/10.1093/qje/qjw034
+- R03-005. Behavioral Economics: Past, Present, Future. Colin F. Camerer; George Loewenstein (2003). CaltechAUTHORS (California Institute of Technology). https://openalex.org/W1789388849
+- R03-006. Valuation in Over-the-Counter Markets. Darrell Duffie; Nicolae Gârleanu; Lasse Heje Pedersen (2007). Review of Financial Studies. https://doi.org/10.1093/rfs/hhm037
+- R03-007. The macroeconomic impact of financial and uncertainty shocks. Dario Caldara; Cristina Fuentes-Albero; Simon Gilchrist; Egon Zakrajšek (2016). European Economic Review. https://doi.org/10.1016/j.euroecorev.2016.02.020
+- R03-008. Anomalies and Market Efficiency. G. William Schwert (2002). National Bureau of Economic Research. https://doi.org/10.3386/w9277
+- R03-009. Robust Permanent Income and Pricing. Lars Peter Hansen; Thomas J. Sargent; Thomas D. Tallarini (1999). The Review of Economic Studies. https://doi.org/10.1111/1467-937x.00112
+- R03-010. Anomalies: The Winner's Curse. Richard H. Thaler (1988). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.2.1.191
+- R03-011. The Equity Premium in Retrospect. Rajnish Mehra; Edward C. Prescott (2003). National Bureau of Economic Research. https://doi.org/10.3386/w9525
+- R03-012. Financial Factors in Economic Fluctuations. Lawrence J. Christiano; Roberto Motto; Massimo Rostagno (2010). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1600166
+- R03-013. What Moves the Stock and Bond Markets? A Variance Decomposition for Long-Term Asset Returns. John Campbell; John Ammer (1991). National Bureau of Economic Research. https://doi.org/10.3386/w3760
+- R03-014. Stock Market Volatility and Learning. Klaus Adam; Albert Marcet; Juan Pablo Nicolini (2015). The Journal of Finance. https://doi.org/10.1111/jofi.12364
+- R03-015. A brief history of market efficiency. Elroy Dimson; Massoud Mussavian (1998). European Financial Management. https://doi.org/10.1111/1468-036x.00056
+- R03-016. Beliefs, Doubts and Learning: Valuing Macroeconomic Risk. Lars Peter Hansen (2007). American Economic Review. https://doi.org/10.1257/aer.97.2.1
+- R03-017. Anomalies: Closed-End Mutual Funds. Charles M.C. Lee; Andrei Shleifer; Richard H. Thaler (1990). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.4.4.153
+- R03-018. Exchange Arrangements Entering the Twenty-First Century: Which Anchor will Hold?*. Ethan Ilzetzki; Carmen Reinhart; Kenneth Rogoff (2019). The Quarterly Journal of Economics. https://doi.org/10.1093/qje/qjy033
+- R03-019. Bond and Stock Returns in a Simple Exchange Model. John Y. Campbell (1986). The Quarterly Journal of Economics. https://doi.org/10.2307/1884178
+- R03-020. Recovering Risk Aversion from Option Prices and Realized Returns. Jens Carsten Jackwerth (1996). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.7745
+- R03-021. The Determinants of Stock and Bond Return Comovements. Lieven Baele; Geert Bekaert; Koen Inghelbrecht (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15260
+- R03-022. Financial factors in economic fluctuations. Lawrence J. Christiano; Massimo Rostagno; Roberto Motto (2010). Econstor (Econstor). http://hdl.handle.net/10419/153626
+- R03-023. Consumption-Based Asset Pricing with Higher Cumulants. Ian Martin (2012). The Review of Economic Studies. https://doi.org/10.1093/restud/rds029
+- R03-024. Crash Risk in Currency Markets. Emmanuel Farhi; Samuel P. Fraiberger; Xavier Gabaix; Romain Rancière; Adrien Verdelhan (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15062
+- R03-025. The Macroeconomic Effects of Housing Wealth, Housing Finance, and Limited Risk-Sharing in General Equilibrium. Jack Favilukis; Sydney C. Ludvigson; Stijn Van Nieuwerburgh (2010). National Bureau of Economic Research. https://doi.org/10.3386/w15988
+- R03-026. Managerial Power and Rent Extraction in the Design of Executive Compensation. Lucian A. Bebchuk; Jesse M. Fried; David I. Walker (2002). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.316590
+- R03-027. Option Valuation with Conditional Heteroskedasticity and Nonnormality. Peter Christoffersen; Redouane Elkamhi; Bruno Feunou; Kris Jacobs (2009). Review of Financial Studies. https://doi.org/10.1093/rfs/hhp078
+- R03-028. Option-Implied Risk-Neutral Distributions and Risk Aversion. Jens Carsten Jackwerth (2004). . https://doi.org/10.2470/rf.v2004.n1.3925
+- R03-029. Heterogeneity in Financial Market Participation: Appraising its Implications for the C-CAPM. Monica Paiella (2004). European Finance Review. https://doi.org/10.1007/s10679-004-2545-x
+- R03-030. Accounting for Macro-Finance Trends: Market Power, Intangibles, and Risk Premia. Emmanuel Farhi; Gourio François (2018). Brookings Papers on Economic Activity. https://doi.org/10.1353/eca.2018.0024
+- R03-031. The Global Financial Crisis, Behavioural Finance and Financial Regulation: In Search of a New Orthodoxy. Emilios Avgouleas (2009). Journal of Corporate Law Studies. https://doi.org/10.1080/14735970.2009.11421534
+- R03-032. Corporate Earnings: Facts and Fiction. Baruch Lev (2003). The Journal of Economic Perspectives. https://doi.org/10.1257/089533003765888412
+- R03-033. Do Intermediaries Matter for Aggregate Asset Prices?. Valentin Haddad; Tyler Muir (2021). The Journal of Finance. https://doi.org/10.1111/jofi.13086
+- R03-034. The Arbitrage Principle in Financial Economics. Hal R. Varian (1987). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.1.2.55
+- R03-035. Dynamic Asset Allocation With Event Risk. Jun Liu; Francis A. Longstaff; Jun Pan (2002). National Bureau of Economic Research. https://doi.org/10.3386/w9103
+- R03-036. The Value and Performance of U.S. Corporations. Bronwyn H. Hall; Robert E. Hall; John W. Heaton; N. Gregory Mankiw (1993). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534602
+- R03-037. Managerial Power and Rent Extraction in the Design of Executive Compensation. Lucian A. Bebchuk; Jesse M. Fried; David I. Walker (2002). National Bureau of Economic Research. https://doi.org/10.3386/w9068
+- R03-038. Skill and luck in private equity performance. Arthur G. Korteweg; Morten Sørensen (2017). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2017.03.006
+- R03-039. A Labor Capital Asset Pricing Model. Lars‐Alexander Kuehn; Mikhail Simutin; Jessie Jiaxu Wang (2017). The Journal of Finance. https://doi.org/10.1111/jofi.12504
+- R03-040. Loss aversion, overconfidence of investors and their impact on market performance evidence from the US stock markets. Ahmed Bouteska; Boutheina Regaieg (2018). Journal of Economics Finance and Administrative Science. https://doi.org/10.1108/jefas-07-2017-0081
+- R03-041. What Is the Consumption-CAPM Missing? An Information-Theoretic Framework for the Analysis of Asset Pricing Models. Anisha Ghosh; Christian Julliard; Alex P. Taylor (2016). Review of Financial Studies. https://doi.org/10.1093/rfs/hhw075
+- R03-042. Drivers of green bond issuance and new evidence on the “greenium”. Kristin Ulrike Löffler; Aleksandar Petreski; Andreas Stephan (2021). Eurasian economic review :. https://doi.org/10.1007/s40822-020-00165-y
+- R03-043. The Market Price of Aggregate Risk and the Wealth Distribution. Hanno Lustig; YiLi Chien (2005). National Bureau of Economic Research. https://doi.org/10.3386/w11132
+- R03-044. Option Return Predictability. Xintong Zhan; Bing Han; Jie Cao; Qing Tong (2021). Review of Financial Studies. https://doi.org/10.1093/rfs/hhab067
+- R03-045. The Econometrics of Option Pricing. René García; Éric Ghysels; Éric Renault (2010). Elsevier eBooks. https://doi.org/10.1016/b978-0-444-50897-3.50012-2
+- R03-046. The U.S. Public Debt Valuation Puzzle. Zhengyang Jiang; Hanno Lustig; Stijn Van Nieuwerburgh; Mindy Z. Xiaolan (2019). National Bureau of Economic Research. https://doi.org/10.3386/w26583
+- R03-047. European regional policies in light of recent location theories. Diego Puga (2002). Journal of Economic Geography. https://doi.org/10.1093/jeg/2.4.373
+- R03-048. Globalization and Asset Returns. Geert Bekaert; Campbell R. Harvey; Andrea Kiguel; Xiaozheng Wang (2016). Annual Review of Financial Economics. https://doi.org/10.1146/annurev-financial-121415-032905
+- R03-049. Can Time-Varying Risk of Rare Disasters Explain Aggregate Stock Market Volatility?. Jessica A. Wachter (2008). National Bureau of Economic Research. https://doi.org/10.3386/w14386
+- R03-050. Rare Booms and Disasters in a Multisector Endowment Economy. Jerry Tsai; Jessica A. Wachter (2015). Review of Financial Studies. https://doi.org/10.1093/rfs/hhv074
+- R04-001. ECONOMETRIC TESTS OF ASSET PRICE BUBBLES: TAKING STOCK*. Refet S. Gürkaynak (2008). Journal of Economic Surveys. https://doi.org/10.1111/j.1467-6419.2007.00530.x
+- R04-002. Contagious Currency Crises. Barry Eichengreen; Andrew Rose; Charles Wyplosz (1996). National Bureau of Economic Research. https://doi.org/10.3386/w5681
+- R04-003. The Effects of Monetary Policy on Stock Market Bubbles: Some Evidence. Jordi Gaĺı; Luca Gambetti (2015). American Economic Journal Macroeconomics. https://doi.org/10.1257/mac.20140003
+- R04-004. Theoretical Analysis Regarding a Zero Lower Bound on Nominal Interest Rates. Bennett T. McCallum (2000). National Bureau of Economic Research. https://doi.org/10.3386/w7677
+- R04-005. Herd on the Street: Informational Inefficiencies in a Market with Short-Term Speculation. Kenneth Froot; David Scharfstein; Jeremy C. Stein (1992). The Journal of Finance. https://doi.org/10.2307/2328947
+- R04-006. In Search of the Origins of Financial Fluctuations: The Inelastic Markets Hypothesis. Xavier Gabaix; Ralph S. J. Koijen (2021). National Bureau of Economic Research. https://doi.org/10.3386/w28967
+- R04-007. Episodes of Exuberance in Housing Markets: In Search of the Smoking Gun. Efthymios Pavlidis; Alisa Yusupova; Iván Payá; David Peel; Enrique Martínez‐García; Adrienne Mack (2015). The Journal of Real Estate Finance and Economics. https://doi.org/10.1007/s11146-015-9531-2
+- R04-008. Intrinsic Bubbles: The Case of Stock Prices. Kenneth Froot; Maurice Obstfeld (1989). National Bureau of Economic Research. https://doi.org/10.3386/w3091
+- R04-009. Speculative bubbles in agricultural commodity markets. Luciano Gutierrez (2012). European Review of Agricultural Economics. https://doi.org/10.1093/erae/jbs017
+- R04-010. Housing Wealth Isn’t Wealth. Willem H. Buiter (2010). Economics. https://doi.org/10.5018/economics-ejournal.ja.2010-22
+- R04-011. The Effects of Monetary Policy on Stock Market Bubbles: Some Evidence. Jordi Galı́; Luca Gambetti (2014). National Bureau of Economic Research. https://doi.org/10.3386/w19981
+- R04-012. Bifurcation routes to volatility clustering under evolutionary learning. Andrea Gaunersdorfer; Cars Hommes; Florian Wagener (2007). Journal of Economic Behavior & Organization. https://doi.org/10.1016/j.jebo.2007.07.004
+- R04-013. Bubbles, Financial Crises, and Systemic Risk. Markus K. Brunnermeier; Martin Oehmke (2012). National Bureau of Economic Research. https://doi.org/10.3386/w18398
+- R04-014. Fiscal Requirements for Price Stability. Michael Woodford (2001). Journal of money credit and banking. https://doi.org/10.2307/2673890
+- R04-015. Macroeconomic Policy in DSGE and Agent-Based Models Redux: New Developments and Challenges Ahead. Giorgio Fagiolo; Andrea Roventini (2017). Journal of Artificial Societies and Social Simulation. https://doi.org/10.18564/jasss.3280
+- R04-016. More is different ... and complex! the case for agent-based macroeconomics. Giovanni Dosi; Andrea Roventini (2019). Journal of Evolutionary Economics. https://doi.org/10.1007/s00191-019-00609-y
+- R04-017. An Evaluation of Recent Evidence on Stock Market Bubbles. Robert Flood; Robert J. Hodrick; Paul D. Kaplan (1986). National Bureau of Economic Research. https://doi.org/10.3386/w1971
+- R04-018. A Bayesian dynamic stochastic general equilibrium model of stock market bubbles and business cycles. Jianjun Miao; Pengfei Wang; Zhiwei Xu (2015). Quantitative Economics. https://doi.org/10.3982/qe505
+- R04-019. Behavioral learning equilibria. Cars Hommes; Mei Zhu (2013). Journal of Economic Theory. https://doi.org/10.1016/j.jet.2013.09.002
+- R04-020. Herd on the Street: Informational Inefficiencies in a Market with Short-Term Speculation. Kenneth Froot; David Scharfstein; Jeremy C. Stein (1990). National Bureau of Economic Research. https://doi.org/10.3386/w3250
+- R04-021. Arbitrage in Housing Markets. Edward L. Glaeser; Joseph Gyourko (2007). National Bureau of Economic Research. https://doi.org/10.3386/w13704
+- R04-022. Emissions Trading, Capital Flows and the Kyoto Protocol. Warwick J. McKibbin; Martin T. Ross; Robert Shackleton; Peter J. Wilcoxen (1999). The Energy Journal. https://doi.org/10.5547/issn0195-6574-ej-vol20-nosi-12
+- R04-023. Housing Wealth Isn't Wealth. Willem H. Buiter (2008). National Bureau of Economic Research. https://doi.org/10.3386/w14204
+- R04-024. The Unconventional Dynamics of Economic and Financial Aggregates. Karim M. Abadir; Gabriel Talmain (2010). . https://doi.org/10.1201/b10440-12
+- R04-025. Stocks as Money: Convenience Yield and the Tech-Stock Bubble. John H. Cochrane (2002). National Bureau of Economic Research. https://doi.org/10.3386/w8987
+- R04-026. Animal Spirits, Financial Crises and Persistent Unemployment. Roger E. A. Farmer (2013). The Economic Journal. https://doi.org/10.1111/ecoj.12028
+- R04-027. <b>Rtadf</b>: Testing for Bubbles with <i>EViews</i>. Itamar Caspi (2017). Journal of Statistical Software. https://doi.org/10.18637/jss.v081.c01
+- R04-028. Assessing Dynamic Efficiency: Theory and Evidence. Andrew B. Abel; N. Gregory Mankiw; Lawrence H. Summers; Richard Zeckhauser (1986). National Bureau of Economic Research. https://doi.org/10.3386/w2097
+- R04-029. Booms, busts and behavioural heterogeneity in stock prices. Cars Hommes; Daan in ׳t Veld (2017). Journal of Economic Dynamics and Control. https://doi.org/10.1016/j.jedc.2017.05.006
+- R04-030. Understanding Crude Oil Prices. James D. Hamilton (2008). National Bureau of Economic Research. https://doi.org/10.3386/w14492
+- R04-031. Understanding Inflation as a Joint Monetary-Fiscal Phenomenon. Eric M. Leeper; Campbell Leith (2016). Handbook of macroeconomics. https://doi.org/10.1016/bs.hesmac.2016.03.012
+- R04-032. A Goldilocks Theory of Fiscal Deficits. Atif Mian; Ludwig Straub; Amir Sufi (2022). National Bureau of Economic Research. https://doi.org/10.3386/w29707
+- R04-033. The New Consensus in Macroeconomics: A Critical Appraisal. Philip Arestis (2009). Palgrave Macmillan UK eBooks. https://doi.org/10.1007/978-0-230-29166-9_6
+- R04-034. A Theory of Asset Pricing Based on Heterogeneous Information. Elías Albagli; Christian Hellwig; Aleh Tsyvinski (2011). National Bureau of Economic Research. https://doi.org/10.3386/w17548
+- R04-035. Monetary Policy and Business Cycles with Endogenous Entry and Product Variety. Florin Bilbiie; Fabio Ghironi; Marc J. Melitz (2007). National Bureau of Economic Research. https://doi.org/10.3386/w13199
+- R04-036. Stability, chaos and multiple attractors: a single agent makes a difference. Tamotsu Onozaki; Gernot Sieg; Masanori Yokoo (2003). Journal of Economic Dynamics and Control. https://doi.org/10.1016/s0165-1889(02)00090-8
+- R04-037. Towards a General Theory of Deep Downturns. Joseph E. Stiglitz (2015). National Bureau of Economic Research. https://doi.org/10.3386/w21444
+- R04-038. The spirit of capitalism, stock market bubbles and output fluctuations. Takashi Kamihigashi (2008). International Journal of Economic Theory. https://doi.org/10.1111/j.1742-7363.2007.00066.x
+- R04-039. Macroeconomic Policy in DSGE and Agent-Based Models Redux: New Developments and Challenges Ahead. Giorgio Fagiolo (2016). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2763735
+- R04-040. The Great Housing Boom of China. Yi Wen; Kaiji Chen (2014). . https://doi.org/10.20955/wp.2014.022
+- R04-041. An Experimental Test of the Lucas Asset Pricing Model. Sean Crockett; John Duffy; Yehuda Izhakian (2018). The Review of Economic Studies. https://doi.org/10.1093/restud/rdy035
+- R04-042. Monetary Policy and Bubbles in a New Keynesian Model with Overlapping Generations. Jordi Gaĺı (2021). American Economic Journal Macroeconomics. https://doi.org/10.1257/mac.20180427
+- R04-043. TESTING FOR SPECULATIVE BUBBLES USING SPOT AND FORWARD PRICES. Efthymios Pavlidis; Iván Payá; David Peel (2017). International Economic Review. https://doi.org/10.1111/iere.12249
+- R04-044. Land Speculation and Wobbly Dynamics with Endogenous Phase Transitions. Tomohiro Hirano; Joseph E. Stiglitz (2022). National Bureau of Economic Research. https://doi.org/10.3386/w29745
+- R04-045. Flattening the Curve: Pandemic-Induced Revaluation of Urban Real Estate. Arpit Gupta; Jonas Peeters; Vrinda Mittal; Stijn Van Nieuwerburgh (2021). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3780012
+- R04-046. Parameter Learning in General Equilibrium: The Asset Pricing Implications. Pierre Collin‐Dufresne; Michael Johannes; Lars A. Lochstoer (2013). National Bureau of Economic Research. https://doi.org/10.3386/w19705
+- R04-047. The Fiscal Theory of Price Level with a Bubble. Markus K. Brunnermeier; Sebastian Merkel; Yuliy Sannikov (2020). National Bureau of Economic Research. https://doi.org/10.3386/w27116
+- R04-048. U.S. stock prices and the dot.com-bubble: Can dividend policy rescue the efficient market hypothesis?. Tobias Basse; Tony Klein; Samuel A. Vigne; Christoph Wegener (2021). Journal of Corporate Finance. https://doi.org/10.1016/j.jcorpfin.2021.101892
+- R04-049. More Hedging Instruments May Destabilize Markets. William A. Brock; Cars Hommes; Florian Wagener (2008). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.933043
+- R04-050. What Has Financed Government Debt?. Hess Chung; Eric M. Leeper (2007). National Bureau of Economic Research. https://doi.org/10.3386/w13425
+
+## Batch 3
+
+- R05-001. A Simple Model of Capital Market Equilibrium with Incomplete Information. Robert C. Merton (1987). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.1987.tb04565.x
+- R05-002. Stock market driven acquisitions. Andrei Shleifer; Robert W. Vishny (2003). Journal of Financial Economics. https://doi.org/10.1016/s0304-405x(03)00211-3
+- R05-003. High-Frequency Trading and Price Discovery. Jonathan Brogaard; Terrence Hendershott; Ryan Riordan (2014). Review of Financial Studies. https://doi.org/10.1093/rfs/hhu032
+- R05-004. The Capital Asset Pricing Model: Theory and Evidence. Eugene F. Fama; Kenneth R. French (2004). The Journal of Economic Perspectives. https://doi.org/10.1257/0895330042162430
+- R05-005. THE ROLE OF INVENTORIES AND SPECULATIVE TRADING IN THE GLOBAL MARKET FOR CRUDE OIL. Lutz Kilian; Daniel Murphy (2013). Journal of Applied Econometrics. https://doi.org/10.1002/jae.2322
+- R05-006. Driven to Distraction: Extraneous Events and Underreaction to Earnings News. David Hirshleifer; Sonya S. Lim; Siew Hong Teoh (2009). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2009.01501.x
+- R05-007. The High-Frequency Trading Arms Race: Frequent Batch Auctions as a Market Design Response *. Eric Budish; Peter Cramton; John J. Shim (2015). The Quarterly Journal of Economics. https://doi.org/10.1093/qje/qjv027
+- R05-008. Mispricing Factors. Robert F. Stambaugh; Yu Yuan (2016). Review of Financial Studies. https://doi.org/10.1093/rfs/hhw107
+- R05-009. Anomalies: Foreign Exchange. Kenneth Froot; Richard H. Thaler (1990). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.4.3.179
+- R05-010. Trading and arbitrage in cryptocurrency markets. Igor Makarov; Antoinette Schoar (2019). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2019.07.001
+- R05-011. An econometric model of serial correlation and illiquidity in hedge fund returns. Mila Getmansky; Andrew W. Lo; Igor Makarov (2004). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2004.04.001
+- R05-012. Order Flow and Exchange Rate Dynamics. Martin D.D. Evans; Richard K. Lyons (1999). National Bureau of Economic Research. https://doi.org/10.3386/w7317
+- R05-013. From the bird's eye to the microscope: A survey of new stylized facts of the intra-daily foreign exchange markets. Dominique Guillaume; Michel M. Dacorogna; Rakhal Dave; Ulrich Müller; Richard B. Olsen; Olivier V. Pictet (1997). Finance and Stochastics. https://doi.org/10.1007/s007800050018
+- R05-014. How Auctions Work for Wine and Art. Orley Ashenfelter (1989). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.3.3.23
+- R05-015. Intraday Price Formation in U.S. Equity Index Markets. Joel Hasbrouck (2003). The Journal of Finance. https://doi.org/10.1046/j.1540-6261.2003.00609.x
+- R05-016. Analyst Disagreement, Mispricing, and Liquidity*. Ronnie Sadka; Anna Scherbina (2007). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2007.01278.x
+- R05-017. Asset Float and Speculative Bubbles. Harrison Hong; José Scheinkman; Wei Xiong (2006). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2006.00867.x
+- R05-018. Heterogeneous Agent Models in Economics and Finance. Cars Hommes (2005). RePEc: Research Papers in Economics. https://openalex.org/W3125836965
+- R05-019. Driven to Distraction: Extraneous Events and Underreaction to Earnings News. David Hirshleifer; Sonya S. Lim; Siew Hong Teoh (2007). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.891735
+- R05-020. Towards a Macroprudential Framework for Financial Supervision and Regulation?. Claudio Borio (2003). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.841306
+- R05-021. Arbitrage Asymmetry and the Idiosyncratic Volatility Puzzle. Robert F. Stambaugh; Jianfeng Yu; Yu Yuan (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2155491
+- R05-022. Speculative Prices and Popular Models. Robert J. Shiller (1990). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.4.2.55
+- R05-023. Cryptocurrency trading: a comprehensive survey. Fan Fang; Carmine Ventre; Michail Basios; Leslie Kanthan; David Martínez‐Rego; Fan Wu (2022). Financial Innovation. https://doi.org/10.1186/s40854-021-00321-6
+- R05-024. Does Algorithmic Trading Improve Liquidity?. Terrence Hendershott; Charles M. Jones; Albert J. Menkveld (2011). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2010.01624.x
+- R05-025. Can Internet Search Queries Help to Predict Stock Market Volatility?. Thomas Dimpfl; Stephan Jank (2015). European Financial Management. https://doi.org/10.1111/eufm.12058
+- R05-026. Perspectives on Behavioral Finance: Does 'Irrationality' Disappear with Wealth? Evidence from Expectations and Actions. Annette Vissing‐Jørgensen (2003). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.417421
+- R05-027. Individual Irrationality and Aggregate Outcomes. Ernst Fehr; Jean‐Robert Tyran (2005). The Journal of Economic Perspectives. https://doi.org/10.1257/089533005775196651
+- R05-028. An Equation and its Worlds. Donald MacKenzie (2003). Social Studies of Science. https://doi.org/10.1177/0306312703336002
+- R05-029. The Real Effects of Financial Markets. Philip L. Bond; Alex Edmans; Itay Goldstein (2011). National Bureau of Economic Research. https://doi.org/10.3386/w17719
+- R05-030. The Price Impact of Order Book Events. R. Cont; A. Kukanov; S. Stoikov (2013). Journal of Financial Econometrics. https://doi.org/10.1093/jjfinec/nbt003
+- R05-031. Screening Peers Softly: Inferring the Quality of Small Borrowers. Rajkamal Iyer; Asim Ijaz Khwaja; Erzo F.P. Luttmer; Kelly Shue (2015). Management Science. https://doi.org/10.1287/mnsc.2015.2181
+- R05-032. High Frequency Trading and Price Discovery. Terrence Hendershott; Ryan Riordan (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1928510
+- R05-033. Risk Everywhere: Modeling and Managing Volatility. Tim Bollerslev; Benjamin Hood; John Huss; Lasse Heje Pedersen (2018). Review of Financial Studies. https://doi.org/10.1093/rfs/hhy041
+- R05-034. Efficiently Inefficient Markets for Assets and Asset Management. Nicolae Gârleanu; Lasse Heje Pedersen (2018). The Journal of Finance. https://doi.org/10.1111/jofi.12696
+- R05-035. Dark trading and price discovery. Carole Comerton‐Forde; Tālis J. Putniņš (2015). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2015.06.013
+- R05-036. Salience theory and stock prices: Empirical evidence. Mathijs Cosemans; Rik Frehen (2020). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2020.12.012
+- R05-037. Stock Market Driven Acquisitions. Andrei Shleifer; Robert W. Vishny (2001). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.278563
+- R05-038. Back-Running: Seeking and Hiding Fundamental Information in Order Flows*. Liyan Yang; Haoxiang Zhu (2019). Review of Financial Studies. https://doi.org/10.1093/rfs/hhz070
+- R05-039. Technical Analysis in the Foreign Exchange Market: A Layman's Guide. Christopher J. Neely (1997). . https://doi.org/10.20955/r.79.23-38
+- R05-040. Window Dressing in Mutual Funds. Vikas Agarwal; Gerald D. Gay; Leng Ling (2014). Review of Financial Studies. https://doi.org/10.1093/rfs/hhu045
+- R05-041. Intraday Price Formation in US Equity Index Markets. Joel Hasbrouck (2001). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.252304
+- R05-042. Non‐linear Predictability of UK Stock Market Returns*. David G. McMillan (2003). Oxford Bulletin of Economics and Statistics. https://doi.org/10.1111/j.1468-0084.2003.00061.x
+- R05-043. Limits of Arbitrage: The State of the Theory. Denis Gromb; Dimitri Vayanos (2010). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1567243
+- R05-044. Fire Sales in Finance and Macroeconomics. Andrei Shleifer; Robert W. Vishny (2010). National Bureau of Economic Research. https://doi.org/10.3386/w16642
+- R05-045. The Dynamics of Market Efficiency. Dominik Rösch; Avanidhar Subrahmanyam; Mathijs A. van Dijk (2016). Review of Financial Studies. https://doi.org/10.1093/rfs/hhw085
+- R05-046. Investor Attention and Asset Pricing Anomalies. Lei Jiang; Jinyu Liu; Lin Peng; Baolian Wang (2021). European Finance Review. https://doi.org/10.1093/rof/rfab032
+- R05-047. Investor sentiment and stock returns: Some international evidence. Maik Schmeling (2009). Journal of Empirical Finance. https://doi.org/10.1016/j.jempfin.2009.01.002
+- R05-048. Value Creation by Business Lawyers: Legal Skills and Asset Pricing. Ronald J. Gilson (1984). The Yale Law Journal. https://doi.org/10.2307/796226
+- R05-049. Quantifying Sentiment with News Media across Local Housing Markets. Cindy Soo (2018). Review of Financial Studies. https://doi.org/10.1093/rfs/hhy036
+- R05-050. Cryptocurrencies: market analysis and perspectives. Giancarlo Giudici; Alistair Milne; Dmitri Vinogradov (2019). Journal of Industrial and Business Economics. https://doi.org/10.1007/s40812-019-00138-6
+- R06-001. The Fall of the Labor Share and the Rise of Superstar Firms*. David Autor; David Dorn; Lawrence F. Katz; Christina Patterson; John Van Reenen (2020). The Quarterly Journal of Economics. https://doi.org/10.1093/qje/qjaa004
+- R06-002. Strategy research: governance and competence perspectives. Oliver E. Williamson (1999). Strategic Management Journal. https://doi.org/10.1002/(sici)1097-0266(199912)20:12<1087::aid-smj71>3.0.co;2-z
+- R06-003. Slicing Up Global Value Chains. Marcel P. Timmer; Abdul Azeez Erumban; Bart Los; Robert Stehrer; Gaaitzen J. de Vries (2014). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.28.2.99
+- R06-004. Declining Competition and Investment in the U.S.. Germán Gutiérrez; Thomas Philippon (2017). National Bureau of Economic Research. https://doi.org/10.3386/w23583
+- R06-005. Do Increasing Markups Matter? Lessons from Empirical Industrial Organization. Steven Berry; Martin Gaynor; Fiona Scott Morton (2019). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.33.3.44
+- R06-006. Measuring the Returns to R&amp;D. Bronwyn H. Hall; Jacques Mairesse; Pierre Mohnen (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15622
+- R06-007. Is the US Public Corporation in Trouble?. Kathleen M. Kahle; René M. Stulz (2017). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.31.3.67
+- R06-008. The Declining Worker Power Hypothesis: An explanation for the recent evolution of the American economy. Anna Stansbury; Lawrence H. Summers (2020). National Bureau of Economic Research. https://doi.org/10.3386/w27193
+- R06-009. Kaldor and Piketty’s Facts: The Rise of Monopoly Power in the United States. Gauti B. Eggertsson; Jacob A. Robbins; Ella Getz Wold (2018). National Bureau of Economic Research. https://doi.org/10.3386/w24287
+- R06-010. Increasing differences between firms: market power and the macro-economy. John Van Reenen (2018). London School of Economics and Political Science Research Online (London School of Economics and Political Science). https://orcid.org/0000-0001-9153-2907>
+- R06-011. Harnessing the digital economy for developing countries. Carl J. Dahlman; Sam Mealy; Martin Wermelinger (2016). OECD Development Centre working papers. https://doi.org/10.1787/4adffb24-en
+- R06-012. Regional income disparities, monopoly and finance. Maryann P. Feldman; Frederick Guy; Simona Iammarino (2020). Cambridge Journal of Regions Economy and Society. https://doi.org/10.1093/cjres/rsaa024
+- R06-013. Amazon's Antitrust Paradox. Lina Khan (2016). . https://digitalcommons.law.yale.edu/ylj/vol126/iss3/3
+- R06-014. Intangible Capital and Modern Economies. Carol Corrado; Jonathan Haskel; Cecilia Jona‐Lasinio; Massimiliano Iommi (2022). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.36.3.3
+- R06-015. Corporate Investment: Does Market Valuation Matter in the Aggregate?. George M. von Furstenberg; Michael C. Lovell; James Tobin (1977). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534406
+- R06-016. Accounting for Macro-Finance Trends: Market Power, Intangibles, and Risk Premia. Emmanuel Farhi; François Gourio (2018). . https://doi.org/10.21033/wp-2018-19
+- R06-017. Racialized geographies of housing financialization. Desiree Fields; Elora Lee Raymond (2021). Progress in Human Geography. https://doi.org/10.1177/03091325211009299
+- R06-018. Intellectual Property Rights, Imitation, and Foreign Direct Investment: Theory and Evidence. Lee Branstetter; Raymond Fisman; C. Fritz Foley; Kamal Saggi (2007). National Bureau of Economic Research. https://doi.org/10.3386/w13033
+- R06-019. The link between product market reform and macro-economic performance. Rachel Griffith; Rupert Harrison (2004). . https://doi.org/10.1920/re.ifs.2024.0908
+- R06-020. Growth Accounting with Misallocation: Or, Doing Less with More in Singapore. John G. Fernald; Brent Neiman (2011). American Economic Journal Macroeconomics. https://doi.org/10.1257/mac.3.2.29
+- R06-021. How EU Markets Became More Competitive Than US Markets: A Study of Institutional Drift. Germán Gutiérrez; Thomas Philippon (2018). . http://www.nber.org/papers/w24700
+- R06-022. Government Finance Statistics Manual 2014. Internationaler Währungsfonds; Internationaler Währungsfonds (2015). . https://doi.org/10.5089/9781498343763.069
+- R06-023. Accounting for Factorless Income. Loukas Karabarbounis; Brent Neiman (2018). National Bureau of Economic Research. https://doi.org/10.3386/w24404
+- R06-024. Strategy research: governance and competence perspectives. Oliver E. Williamson (1999). Strategic Management Journal. https://doi.org/10.1002/(sici)1097-0266(199912)20:12<1087::aid-smj71>3.3.co;2-q
+- R06-025. Digital Platforms and Antitrust. Geoffrey Parker; Georgios Petropoulos; Marshall Van Alstyne (2020). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3608397
+- R06-026. Accounting for Factorless Income. Loukas Karabarbounis; Brent Neiman (2018). . https://doi.org/10.21034/wp.749
+- R06-027. Do Increasing Markups Matter? Lessons from Empirical Industrial Organization. Steven Berry; Martin Gaynor; Fiona Scott Morton (2019). National Bureau of Economic Research. https://doi.org/10.3386/w26007
+- R06-028. Perspectives on the Labor Share. Loukas Karabarbounis (2024). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.38.2.107
+- R06-029. Investment, Interest Rates, and the Effects of Stabilization Policies. Robert E. Hall; Christopher A. Sims; Franco Modigliani; William C. Brainard (1977). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534257
+- R06-030. Antitrust and Innovation: Welcoming and Protecting Disruption. Giulio Federico; Fiona Scott Morton; Carl Shapiro (2019). Innovation Policy and the Economy. https://doi.org/10.1086/705642
+- R06-031. Deepening Reform for China's Long-term Growth and Development. Ross Garnaut; Cai Fang; Ligang Song (2014). ANU Press eBooks. https://doi.org/10.22459/drcltgd.07.2014
+- R06-032. A Tale of Two Networks: Common Ownership and Product Market Rivalry. Florian Ederer; Bruno Pellegrino (2022). National Bureau of Economic Research. https://doi.org/10.3386/w30004
+- R06-033. The Tax Advantage of Big Business: How the Structure of Corporate Taxation Fuels Concentration and Inequality. Sandy Brian Hager; Joseph Baines (2020). Politics & Society. https://doi.org/10.1177/0032329220911778
+- R06-034. DERIVATIVE IDEAS AND THE VALUE OF INTANGIBLE ASSETS*. John Laitner; Dmitriy Stolyarov (2013). International Economic Review. https://doi.org/10.1111/j.1468-2354.2012.00726.x
+- R06-035. Structural Transformation in South Africa. Andreoni, Antonio; Mondliwa, Pamela; Roberts, Simon; Tregenna, Fiona (2021). . https://doi.org/10.1093/oso/9780192894311.001.0001
+- R06-036. Vertical Integration and Market Structure. Timothy F. Bresnahan; Jonathan Levin (2012). National Bureau of Economic Research. https://doi.org/10.3386/w17889
+- R06-037. The value of data in digital-based business models: Measurement and economic policy implications. Carol Corrado; Jonathan Haskel; Iommi, Massimiliano; Cecilia Jona‐Lasinio (2022). OECD Economics Department working papers. https://doi.org/10.1787/d960a10c-en
+- R06-038. Digital Abundance and Scarce Genius: Implications for Wages, Interest Rates, and Growth. Seth Benzell; Erik Brynjolfsson (2019). National Bureau of Economic Research. https://doi.org/10.3386/w25585
+- R06-039. Corporate Cost and Profit Shares in the Euro Area and the US: The Same Story?. Vicente Salas Fumás; Lucio San Juan; Javier Vallés (2018). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3262520
+- R06-040. Brands as Productive Assets : Concepts, Measurement, and Global Trends. Carol Corrado; Xiaohui Hao (2023). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.4436940
+- R06-041. The Misguided Assault on the Consumer Welfare Standard in the Age of Platform Markets. A. Douglas Melamed; Nicolas Petit (2019). Review of Industrial Organization. https://doi.org/10.1007/s11151-019-09688-4
+- R06-042. Antitrust and Innovation Competition. Daniel F. Spulber (2022). Journal of Antitrust Enforcement. https://doi.org/10.1093/jaenfo/jnac013
+- R06-043. Trade in intangibles and the global trade imbalance. Xiaolan Fu; Pervez Ghauri (2020). World Economy. https://doi.org/10.1111/twec.13038
+- R06-044. Intellectual Property Rights, Imitation, and Foreign Direct Investment: Theory and Evidence. Lee Branstetter; Raymond Fisman; C. Fritz Foley; Kamal Saggi (2018). Figshare. https://doi.org/10.1184/r1/6471593
+- R06-045. Rising markups, common ownership, and technological capacities. Alexandra J. Gibbon; Jan Philip Schain (2022). International Journal of Industrial Organization. https://doi.org/10.1016/j.ijindorg.2022.102900
+- R06-046. FDI and superstar spillovers: Evidence from firm-to-firm transactions. Mary Amiti; Cédric Duprez; Jozef Konings; John Van Reenen (2024). Journal of International Economics. https://doi.org/10.1016/j.jinteco.2024.103972
+- R06-047. Corporate Discount Rates. Niels Joachim Gormsen; Kilian Huber (2023). National Bureau of Economic Research. https://doi.org/10.3386/w31329
+- R06-048. Financing Constraints and Corporate Investment. Steven M. Fazzari; Graham Hubbard; Bruce C. Petersen (1987). National Bureau of Economic Research. https://doi.org/10.3386/w2387
+- R06-049. Is the U.S. public corporation in trouble?. Kathleen M. Kahle; René M. Stulz (2016). National Bureau of Economic Research. https://doi.org/10.3386/w22857
+- R06-050. The Impact of Private Equity on Firms' Innovation Activity. Kevin Amess; Joel Stiebale; Mike Wright (2015). Econstor (Econstor). http://hdl.handle.net/10419/109639
+
+## Batch 4
+
+- R07-001. Initial Coin Offerings: Financing Growth with Cryptocurrency Token Sales. Sabrina T Howell; Marina Niessner; David Yermack (2019). Review of Financial Studies. https://doi.org/10.1093/rfs/hhz131
+- R07-002. External Adjustment, Global Imbalances, Valuation Effects. Pierre‐Olivier Gourinchas; Hélène Rey (2014). Handbook of international economics. https://doi.org/10.1016/b978-0-444-54314-1.00010-0
+- R07-003. Central banking and the infrastructural power of finance: the case of ECB support for repo and securitization markets. Benjamin Braun (2018). Socio-Economic Review. https://doi.org/10.1093/ser/mwy008
+- R07-004. The Chinese Approach to Capital Inflows: Patterns and Possible Explanations. Eswar Prasad; Shang‐Jin Wei (2005). National Bureau of Economic Research. https://doi.org/10.3386/w11306
+- R07-005. An Equilibrum Model of 'Global Imbalances' and Low Interest Rates. Ricardo J. Caballero; Emmanuel Farhi; Pierre‐Olivier Gourinchas (2006). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1012292
+- R07-006. Urban Ecosystem Services. Erik Gómez‐Baggethun; Åsa Gren; David N. Barton; Johannes Langemeyer; Timon McPhearson; Patrick O’Farrell (2013). . https://doi.org/10.1007/978-94-007-7088-1_11
+- R07-007. The ECB's non-standard monetary policy measures: the role of institutional factors and financial structure. Philippine Cour-Thimann; Bernhard Winkler (2012). Oxford Review of Economic Policy. https://doi.org/10.1093/oxrep/grs038
+- R07-008. Stranded Assets in the Transition to a Carbon-Free Economy. Frederick van der Ploeg; Armon Rezai (2020). Annual Review of Resource Economics. https://doi.org/10.1146/annurev-resource-110519-040938
+- R07-009. Islamic Finance: Opportunities, Challenges, and Policy Options. Alfred Kammer; Mohamed Norat; Marco Piñon; Ananthakrishnan Prasad; Christopher Towe; Zeine Zeidane (2015). IMF staff discussion note. https://doi.org/10.5089/9781498325035.006
+- R07-010. Between activism and science: grassroots concepts for sustainability coined by Environmental Justice Organizations. Joan Martínez Alier; Stanislav Shmelev (2014). Journal of Political Ecology. https://doi.org/10.2458/v21i1.21124
+- R07-011. ECB Policies Involving Government Bond Purchases: Impact and Channels. Arvind Krishnamurthy; Stefan Nagel; Annette Vissing‐Jørgensen (2017). National Bureau of Economic Research. https://doi.org/10.3386/w23985
+- R07-012. A New Capital Regulation for Large Financial Institutions. Oliver Hart; Luigi Zingales (2009). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1481779
+- R07-013. Regulating Capital Flows to Emerging Markets: An Externality View. Anton Korinek (2010). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1330897
+- R07-014. The International Monetary and Financial System. Pierre‐Olivier Gourinchas; Hélène Rey; Maxime Sauzet (2019). Annual Review of Economics. https://doi.org/10.1146/annurev-economics-080217-053518
+- R07-015. Diversifying away the risk of war and cross-border political crisis. Ayman Omar; Tomasz Piotr Wisniewski; Sandra Nolte (2016). Energy Economics. https://doi.org/10.1016/j.eneco.2016.02.015
+- R07-016. The Chicago Plan Revisited. Michael Kumhof; Jaromí­r Beneš; MKumhof@imf.org; JBenes@imf.org (2012). IMF Working Paper. https://doi.org/10.5089/9781475505528.001
+- R07-017. Completing a Financial Revolution: The Finance of the Dutch East India Trade and the Rise of the Amsterdam Capital Market, 1595-1612. Oscar Gelderblom; Joost Jonker (2004). The Journal of Economic History. https://doi.org/10.1017/s002205070400292x
+- R07-018. The Macroeconomics of Shadow Banking. Alan Moreira; Alexi Savov (2014). National Bureau of Economic Research. https://doi.org/10.3386/w20335
+- R07-019. THE GREAT DEPRESSION AS A CREDIT BOOM GONE WRONG. Barry Eichengreen; Kris James Mitchener (2005). Research in economic history. https://doi.org/10.1016/s0363-3268(04)22004-3
+- R07-020. The Price of Future Liquidity: Time-Varying Liquidity in the U.S. Treasury Market. David Goldreich; Bernd Hanke; Purnendu Nath (2005). European Finance Review. https://doi.org/10.1007/s10679-005-2986-x
+- R07-021. The Stock Market and Capital Accumulation. Robert Hall (1999). National Bureau of Economic Research. https://doi.org/10.3386/w7180
+- R07-022. Initial Coin Offerings: Financing Growth with Cryptocurrency Token Sales. Sabrina T Howell; Marina Niessner; David Yermack (2018). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3201259
+- R07-023. Credit migration and covered interest rate parity. Gordon Liao (2020). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2020.06.002
+- R07-024. Privatizing Social Reproduction: The Primitive Accumulation of Water in an Era of Neoliberalism. Adrienne Roberts (2008). Antipode. https://doi.org/10.1111/j.1467-8330.2008.00623.x
+- R07-025. The Politics of Government Investment. Ran Duchin; Denis Sosyura (2011). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1426219
+- R07-026. The cost of growth: small firms and the pricing of bank loans. Anoosheh Rostamkalaei; Mark Freel (2015). Small Business Economics. https://doi.org/10.1007/s11187-015-9681-x
+- R07-027. A Theory of Intergenerational Justice. Joerg Chet Tremmel (2009). . https://doi.org/10.4324/9781849774369
+- R07-028. Implementing the Macroprudential Approach to Financial Regulation and Supervision. Claudio Borio (2011). Edward Elgar Publishing eBooks. https://doi.org/10.4337/9781849808712.00017
+- R07-029. Explaining the Housing Bubble. Adam J. Levitin; Susan M. Wächter (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1669401
+- R07-030. Can the Covid Bailouts Save the Economy?. Vadim Elenev; Tim Landvoigt; Stijn Van Nieuwerburgh (2020). National Bureau of Economic Research. https://doi.org/10.3386/w27207
+- R07-031. Towards an Agenda for Post‐carbon Cities: Lessons from Lilac, the <scp>UK</scp>'s First Ecological, Affordable Cohousing Community. Paul Chatterton (2013). International Journal of Urban and Regional Research. https://doi.org/10.1111/1468-2427.12009
+- R07-032. Environmental Finance: An Interdisciplinary Review. Hu Tao; Shan Zhuang; Rui Xue; Wei Cao; Jinfang Tian; Yuli Shan (2022). Technological Forecasting and Social Change. https://doi.org/10.1016/j.techfore.2022.121639
+- R07-033. International Gambling Studies. Janice McMillen (2006). ANU Open Research (Australian National University). http://hdl.handle.net/1885/21387
+- R07-034. Sustainable Development: Challenges to Profession of Agricultural Economics. Sandra S. Batie (1989). American Journal of Agricultural Economics. https://doi.org/10.2307/1243090
+- R07-035. Real Interest Rates, Imbalances and the Curse of Regional Safe Asset Providers at the Zero Lower Bound. Pierre‐Olivier Gourinchas; Hélène Rey (2016). National Bureau of Economic Research. https://doi.org/10.3386/w22618
+- R07-036. Socio‐emotional wealth and corporate responses to environmental hostility: Are family firms more stakeholder oriented?. Isabel Sánchez; Julia Martín‐Moreno; Sana Akbar Khan; N. Hussain (2020). Business Strategy and the Environment. https://doi.org/10.1002/bse.2666
+- R07-037. External Adjustment, Global Imbalances and Valuation Effects. Pierre‐Olivier Gourinchas; Hélène Rey (2013). National Bureau of Economic Research. https://doi.org/10.3386/w19240
+- R07-038. Moneylab Reader: An Intervention in Digital Economy. Geert Lovink; Nathaniel Tkacz; Patricia de Vries (2015). Data Archiving and Networked Services (DANS). https://research.hva.nl/en/publications/699078db-4c24-4a71-b307-1ed79525340d
+- R07-039. Treasury Inconvenience Yields during the COVID-19 Crisis. Zhiguo He; Stefan Nagel; Zhaogang Song (2020). National Bureau of Economic Research. https://doi.org/10.3386/w27416
+- R07-040. Capital Regulation in a Macroeconomic Model with Three Layers of Default. Laurent Clerc; Alexis Derviz; Caterina Mendicino; Stéphane Moyen; Kalin Nikolov; Livio Stracca (2015). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2629093
+- R07-041. Global Imbalances and Policy Wars at the Zero Lower Bound. Ricardo J. Caballero; Emmanuel Farhi; Pierre‐Olivier Gourinchas (2015). National Bureau of Economic Research. https://doi.org/10.3386/w21670
+- R07-042. Comparative Economics of Conventional, Organic, and Alternative Agricultural Production Systems. Timothy C. Durham; Tamás Mizik (2021). Economies. https://doi.org/10.3390/economies9020064
+- R07-043. Financializing Desalination: Rethinking the Returns of Big Infrastructure. Alex Loftus; Hug March (2016). International Journal of Urban and Regional Research. https://doi.org/10.1111/1468-2427.12342
+- R07-044. The paradox of water pricing: dichotomies, dilemmas, and decisions. R. Quentin Grafton; Long Chu; Paul R. Wyrwoll (2019). Oxford Review of Economic Policy. https://doi.org/10.1093/oxrep/grz030
+- R07-045. Uncertainty Shocks, Asset Supply and Pricing over the Business Cycle. Francesco Bianchi; Cosmin Ilut; Martin Schneider (2014). National Bureau of Economic Research. https://doi.org/10.3386/w20081
+- R07-046. Climate Change and Sovereign Risk. Ulrich Volz (2020). SOAS Research Online (SOAS University of London). https://doi.org/10.25501/soas.00033524
+- R07-047. Global Imbalances and Policy Wars at the Zero Lower Bound. Ricardo J. Caballero; Emmanuel Farhi; Pierre‐Olivier Gourinchas (2021). The Review of Economic Studies. https://doi.org/10.1093/restud/rdab015
+- R07-048. The Treasury Market in Spring 2020 and the Response of the Federal Reserve. Annette Vissing‐Jørgensen (2021). National Bureau of Economic Research. https://doi.org/10.3386/w29128
+- R07-049. Dating the Timeline of Financial Bubbles During the Subprime Crisis. Peter C.B. Phillips; Jun Yu (2010). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1676272
+- R07-050. The Turning Point in China's Economic Development. Ligang Song; Ross Garnaut (2006). BiblioBoard Library Catalog (Open Research Library). https://doi.org/10.26530/oapen_459745
+- R08-001. The Fundamental Institutions of China's Reforms and Development. Chenggang Xu (2011). Journal of Economic Literature. https://doi.org/10.1257/jel.49.4.1076
+- R08-002. Decentralized Finance: On Blockchain- and Smart Contract-Based Financial Markets. Fabian Schär (2021). . https://doi.org/10.20955/r.103.153-74
+- R08-003. Stock Liquidity and Stock Price Crash Risk. Xin Chang; Yangyang Chen; Leon Zolotoy (2017). Journal of Financial and Quantitative Analysis. https://doi.org/10.1017/s0022109017000473
+- R08-004. Decentralized Finance: On Blockchain- and Smart Contract-based Financial Markets. Fabian Schär (2020). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3571335
+- R08-005. The Rise of Dispersed Ownership: The Roles of Law and the State in the Separation of Ownership and Control. John C. Coffee (2001). The Yale Law Journal. https://doi.org/10.2307/797515
+- R08-006. The Agency Costs of Agency Capitalism: Activist Investors and the Revaluation of Governance Rights. Ronald J. Gilson; Jeffrey N. Gordon (2013). eYLS (Yale Law School). https://doi.org/10.7916/d8tm7b5q
+- R08-007. Renewable Energy Markets in Developing Countries. Eric Martinot; Akanksha Chaurey; D. Lew; José Roberto Moreira; Njeri Wamukonya (2002). Annual Review of Energy and the Environment. https://doi.org/10.1146/annurev.energy.27.122001.083444
+- R08-008. From Cashews to Nudges: The Evolution of Behavioral Economics. Richard H. Thaler (2018). American Economic Review. https://doi.org/10.1257/aer.108.6.1265
+- R08-009. Uncovering Hedge Fund Skill from the Portfolio Holdings They Hide. Vikas Agarwal; Wei Jiang; Yuehua Tang; Baozhong Yang (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1787171
+- R08-010. Market Liquidity After the Financial Crisis. Tobias Adrian; Michael J. Fleming; Or Shachar; Erik Vogt (2017). Annual Review of Financial Economics. https://doi.org/10.1146/annurev-financial-110716-032325
+- R08-011. Privatization and Corporate Governance: The Lessons from Securities Market Failure. John C. Coffee (2000). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.215608
+- R08-012. Did the Federal Reserve's MBS purchase program lower mortgage rates?. Diana Hancock; Wayne Passmore (2011). Journal of Monetary Economics. https://doi.org/10.1016/j.jmoneco.2011.05.002
+- R08-013. Ownership, Activism and Engagement: Institutional Investors as Active Owners. Terry McNulty; Donald Nordberg (2015). Corporate Governance An International Review. https://doi.org/10.1111/corg.12143
+- R08-014. The New Titans of Wall Street: A Theoretical Framework for Passive Investors. Jill E. Fisch; Asaf Hamdani; Steven Davidoff Solomon (2019). eYLS (Yale Law School). https://scholarship.law.upenn.edu/faculty_scholarship/1983
+- R08-015. Matter of Style: The Causes and Consequences of Style Drift in Institutional Portfolios. Russ Wermers (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.2024259
+- R08-016. Business model innovation and third-party alliance on the survival of new firms. Chander Velu (2014). Technovation. https://doi.org/10.1016/j.technovation.2014.09.007
+- R08-017. Emissions Gap Report 2023: Broken Record - Temperatures hit new highs, yet world fails to cut emissions (again). United Nations Environment Programme (2023). United Nations Environment Programme eBooks. https://doi.org/10.59117/20.500.11822/43922
+- R08-018. Defining, valuing and providing ecosystem goods and services. Thomas C. Brown; John C. Bergstrom; John B. Loomis (2007). UNM’s Digital Repository (University of New Mexico). https://digitalrepository.unm.edu/nrj/vol47/iss2/4
+- R08-019. Comprehensive Control of Human Papillomavirus Infections and Related Diseases. F. Xavier Bosch; Thomas R. Broker; David Forman; Anna-Barbara Moscicki; Maura L. Gillison; John Doorbar (2013). Vaccine. https://doi.org/10.1016/j.vaccine.2013.07.026
+- R08-020. The Costs of Rejecting Universal Banking: American Finance in the German Mirror, 1870-1914. Charles W. Calomiris (1995). RePEc: Research Papers in Economics. https://openalex.org/W114007021
+- R08-021. The Globalization of Higher Education. Peter Scott; Jean-Franois Ricci; Martina Trucco; Luc Weber; James Duderstadt; Robert Berdahl (2005). . https://doi.org/10.4324/9780203984581-13
+- R08-022. Financialization, crisis and commodity correlation dynamics. Annastiina Silvennoinen; Susan Thorp (2012). Journal of International Financial Markets Institutions and Money. https://doi.org/10.1016/j.intfin.2012.11.007
+- R08-023. Information Content When Mutual Funds Deviate from Benchmarks. Hao Jiang; Marno Verbeek; Yu Wang (2014). Management Science. https://doi.org/10.1287/mnsc.2013.1847
+- R08-024. The financial economics of white precious metals - A survey. Samuel A. Vigne; Brian M. Lucey; Fergal A. O’Connor; Larisa Yarovaya (2017). International Review of Financial Analysis. https://doi.org/10.1016/j.irfa.2017.04.006
+- R08-025. Flying under the radar: The effects of short-sale disclosure rules on investor behavior and stock prices. Stephan Jank; Christoph Roling; Esad Smajlbegovic (2020). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2020.07.010
+- R08-026. Macroeconomics and Finance: The Role of the Stock Market. Stanley Fischer; Robert Merton (1984). National Bureau of Economic Research. https://doi.org/10.3386/w1291
+- R08-027. The Role of Demand and Supply in the Generation and Diffusion of Technical Change. Vernon Ruttan; Colin Thirtle (2014). . https://doi.org/10.4324/9781315014715
+- R08-028. Stock exchange virtualisation and the decline of second-tier financial centres--the cases of Amsterdam and Frankfurt. Ewald Engelen; Michael H. Grote (2009). Journal of Economic Geography. https://doi.org/10.1093/jeg/lbp027
+- R08-029. Getting Better or Feeling Better? How Equity Investors Respond to Investment Experience. John Y. Campbell; Tarun Ramadorai; Benjamin Ranish (2014). National Bureau of Economic Research. https://doi.org/10.3386/w20000
+- R08-030. Asset Pricing in Production Economies with Extrapolative Expectations. David Hirshleifer; Jianfeng Yu (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1785961
+- R08-031. Precarious Creativity: Global Media, Local Labor. Michael Curtin; Kevin Sanson (2016). . https://doi.org/10.1525/luminos.10
+- R08-032. Analyst Coverage and Corporate Environmental Policies. Chenxing Jing; Kevin Keasey; Ivan S. Lim; Bin Xu (2023). Journal of Financial and Quantitative Analysis. https://doi.org/10.1017/s0022109023000340
+- R08-033. Benchmarks and Investment Management. Laurence B. Siegel; Barclay Douglas; Clifford Asness; Mark Carhart; Thomas Coleman; Donald Galligan (2003). . https://doi.org/10.2470/rf.v2003.n1.3922
+- R08-034. Are all forms of ownership prone to tunneling? A meta‐analysis. Angelo M. Solarino; Brian Boyd (2020). Corporate Governance An International Review. https://doi.org/10.1111/corg.12344
+- R08-035. Rising China: Global Challenges and Opportunities. Ligang Song; Jane Golley (2011). ANU Press eBooks. https://doi.org/10.22459/rc.06.2011
+- R08-036. The Entrepreneurial Society. Niklas Elert; Magnus Henrekson; Mark Sanders (2019). International studies in entrepreneurship. https://doi.org/10.1007/978-3-662-59586-2
+- R08-037. Disrupting Finance. Theo Lynn; John G. Mooney; Pierangelo Rosati; Mark Cummins (2018). Palgrave studies in digital business & enabling technologies. https://doi.org/10.1007/978-3-030-02330-0
+- R08-038. Future directions in international financial integration research - A crowdsourced perspective. Brian M. Lucey; Samuel A. Vigne; Laura Ballester; Leonidas G. Barbopoulos; Janusz Brzeszczyński; Óscar Carchano (2017). International Review of Financial Analysis. https://doi.org/10.1016/j.irfa.2017.10.008
+- R08-039. Tackling Climate Change with Machine Learning. David Rolnick; Priya L. Donti; Lynn H. Kaack; Kelly Kochanski; Alexandre Lacoste; Kris Sankaran (2022). ACM Computing Surveys. https://doi.org/10.1145/3485128
+- R08-040. Friendly boards and innovation. Jun‐Koo Kang; Weilin Liu; Angie Low; Le Zhang (2017). Journal of Empirical Finance. https://doi.org/10.1016/j.jempfin.2017.09.007
+- R08-041. Does Joining the S&amp;P 500 Index Hurt Firms?. Benjamin Bennett; René M. Stulz; Zexi Wang (2020). National Bureau of Economic Research. https://doi.org/10.3386/w27593
+- R08-042. Trade, Foreign Investment, and Industrial Policy for Developing Countries. Ann Harrison; Andrés Rodrı́guez-Clare (2009). National Bureau of Economic Research. https://doi.org/10.3386/w15261
+- R08-043. Managing Climate Risk in the U.S. Financial System. U.S. Commodity Futures Trading Commission (2020). Purdue e-Pubs (Purdue University System). https://doi.org/10.5281/zenodo.5247742
+- R08-044. How Rational and Competitive Is the Market for Mutual Funds?. Markus Leippold; Roger Rueegg (2019). European Finance Review. https://doi.org/10.1093/rof/rfz011
+- R08-045. Dark pools in European equity markets: Emergence, competition and implications. Monica Petrescu; Michael Wedow (2017). Econstor (Econstor). https://doi.org/10.2866/555710
+- R08-046. Foreign Exchange Market Intervention in Emerging Markets: Motives, Techniques and Implications. Bank for International Settlements (2005). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1188513
+- R08-047. Executive Compensation: If There's A Problem, What's the Remedy? the Case for "Compensation Discussion and Analysis". Jeffrey N. Gordon (2005). eYLS (Yale Law School). https://scholarship.law.columbia.edu/faculty_scholarship/2909
+- R08-048. Information Content When Mutual Funds Deviate from Benchmarks. Hao Jiang; Marno Verbeek; Yu Wang (2011). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1782692
+- R08-049. Venture Capital Meets Contract Theory: Risky Claims or Formal Control?. Giacinta Cestone (2013). European Finance Review. https://doi.org/10.1093/rof/rft021
+- R08-050. The Shift From Active to Passive Investing: Potential Risks to Financial Stability?. Kenechukwu Anadu; Mathias S. Kruttli; Patrick E. McCabe; Emilio Osambela; Chaehee Shin (2019). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3244467
+
+## Batch 5
+
+- R09-001. The Importance of Climate Risks for Institutional Investors. Philipp Krueger; Zacharias Sautner; Laura T. Starks (2019). Review of Financial Studies. https://doi.org/10.1093/rfs/hhz137
+- R09-002. Why are foreign firms listed in the U.S. worth more?. Craig Doidge; George Andrew Karolyi; René M. Stulz (2003). Journal of Financial Economics. https://doi.org/10.1016/s0304-405x(03)00183-1
+- R09-003. Information costs and home bias: an analysis of US holdings of foreign equities. Alan Ahearne; William L. Griever; Francis E. Warnock (2004). Journal of International Economics. https://doi.org/10.1016/s0022-1996(03)00015-1
+- R09-004. Information Immobility and the Home Bias Puzzle. Stijn Van Nieuwerburgh; Laura Veldkamp (2009). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2009.01462.x
+- R09-005. New Evidence and Perspectives on Mergers. Gregor Andrade; Mark L. Mitchell; Erik Stafford (2001). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.15.2.103
+- R09-006. The Geography of Equity Listing: Why Do Companies List Abroad?. Marco Pagano; Ailsa Röell; Josef Zechner (2002). The Journal of Finance. https://doi.org/10.1111/1540-6261.00509
+- R09-007. Superstar CEOs<sup>*</sup>. Ulrike Malmendier; Geoffrey A. Tate (2009). The Quarterly Journal of Economics. https://doi.org/10.1162/qjec.2009.124.4.1593
+- R09-008. Setting the future of digital and social media marketing research: Perspectives and research propositions. Yogesh K. Dwivedi; Elvira Ismagilova; David L. Hughes; Jamie Carlson; Raffaele Filieri; Jenna Jacobson (2020). International Journal of Information Management. https://doi.org/10.1016/j.ijinfomgt.2020.102168
+- R09-009. Sports Sentiment and Stock Returns. Alex Edmans; Diego Garcı́a; Øyvind Norli (2007). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2007.01262.x
+- R09-010. International Portfolio Investments with Trade Networks. Vu Chau (2020). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3740993
+- R09-011. The Boundaries of the Firm Revisited. Bengt Holmström; John Roberts (1998). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.12.4.73
+- R09-012. The Impact of Corporate Sustainability on Organizational Processes and Performance. Robert G. Eccles; Ioannis Ioannou; George Serafeim (2012). National Bureau of Economic Research. https://doi.org/10.3386/w17950
+- R09-013. What drives capital flows? The case of cross-border M&amp;A activity and financial deepening. Julian di Giovanni (2004). Journal of International Economics. https://doi.org/10.1016/j.jinteco.2003.11.007
+- R09-014. The Economic Effects of Technological Progress: Evidence from the Banking Industry. Allen N. Berger (2003). Journal of money credit and banking. https://doi.org/10.1353/mcb.2003.0009
+- R09-015. Financial Super-Markets: Size Matters for Asset Trade. Philippe Martin; Hélène Rey (2001). National Bureau of Economic Research. https://doi.org/10.3386/w8476
+- R09-016. Globalization of Financial Institutions: Evidence from Cross-Border Banking Performance. Allen N. Berger; Robert DeYoung; Hesna Genay; Gregory F. Udell (2000). Brookings-Wharton papers on financial services. https://doi.org/10.1353/pfs.2000.0001
+- R09-017. Financial Globalization, Governance, and the Evolution of the Home Bias. Bong‐Chan Kho; René M. Stulz; Francis E. Warnock (2009). Journal of Accounting Research. https://doi.org/10.1111/j.1475-679x.2009.00323.x
+- R09-018. Home Bias in Open Economy Financial Macroeconomics. Nicolas Coeurdacier; Hélène Rey (2011). National Bureau of Economic Research. https://doi.org/10.3386/w17691
+- R09-019. Systemic Risk in the Financial Sector: An Analysis of the Subprime-Mortgage Financial Crisis. Martin Hellwig (2009). De Economist. https://doi.org/10.1007/s10645-009-9110-0
+- R09-020. The liability of foreignness in capital markets: Sources and remedies. R. Greg Bell; Igor Filatotchev; Abdul Rasheed (2011). Journal of International Business Studies. https://doi.org/10.1057/jibs.2011.55
+- R09-021. Down or Out: Assessing the Welfare Costs of Household Investment Mistakes. Laurent E. Calvet; John Y. Campbell; Paolo Sodini (2006). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.881768
+- R09-022. Financial Exchange Rates and International Currency Exposures. Philip R. Lane; Jay Shambaugh (2010). American Economic Review. https://doi.org/10.1257/aer.100.1.518
+- R09-023. Investor Sentiment and Pre‐IPO Markets. Francesca Cornelli; David Goldreich; Alexander Ljungqvist (2006). The Journal of Finance. https://doi.org/10.1111/j.1540-6261.2006.00870.x
+- R09-024. Climate Change, Firm Performance, and Investor Surprises. Nora Pankratz; Rob Bauer; Jeroen Derwall (2023). Management Science. https://doi.org/10.1287/mnsc.2023.4685
+- R09-025. Venture Capital’s Role in Financing Innovation: What We Know and How Much We Still Need to Learn. Josh Lerner; Ramana Nanda (2020). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.34.3.237
+- R09-026. From State to Market: A Survey of Empirical Studies on Privatization. William L. Megginson; Jeffry M. Netter (2001). Journal of Economic Literature. https://doi.org/10.1257/jel.39.2.321
+- R09-027. Do Local Analysts Know More? A Cross-Country Study of the Performance of Local Analysts and Foreign Analysts. Kee‐Hong Bae; René M. Stulz; Hongping Tan (2005). National Bureau of Economic Research. https://doi.org/10.3386/w11697
+- R09-028. Global Banks and International Shock Transmission: Evidence from the Crisis. Nicola Cetorelli; Linda S. Goldberg (2010). National Bureau of Economic Research. https://doi.org/10.3386/w15974
+- R09-029. An Equilibrium Model of "Global Imbalances" and Low Interest Rates. Ricardo J. Caballero; Emmanuel Farhi; Pierre‐Olivier Gourinchas (2006). National Bureau of Economic Research. https://doi.org/10.3386/w11996
+- R09-030. The Growth of Finance. Robin Greenwood; David Scharfstein (2013). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.27.2.3
+- R09-031. The geography of trade in goods and asset holdings. Antonin Aviat; Nicolas Coeurdacier (2006). Journal of International Economics. https://doi.org/10.1016/j.jinteco.2006.02.002
+- R09-032. Low‐carbon transition risks for finance. Gregor Semieniuk; Emanuele Campiglio; Jean-François Mercure; Ulrich Volz; Neil R. Edwards (2020). Wiley Interdisciplinary Reviews Climate Change. https://doi.org/10.1002/wcc.678
+- R09-033. Globalization of Financial Institutions: Evidence from Cross-Border Banking Performance. Allen N. Berger; Robert DeYoung; Hesna Genay; Gregory F. Udell (2000). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.203509
+- R09-034. Effects of Financial Globalization on Developing Countries: Some Empirical Evidence. M. Ayhan Köse; Kenneth Rogoff; Eswar Prasad; Shang‐Jin Wei; MKose@imf.org; KRogoff@imf.org (2003). Occasional paper/Occasional paper. https://doi.org/10.5089/9781589062214.084
+- R09-035. Internationalization and Stock Market Liquidity. Ross Levine; Sergio L. Schmukler (2006). European Finance Review. https://doi.org/10.1007/s10679-006-6981-7
+- R09-036. Changes in bank lending standards and the macroeconomy. William F. Bassett; Mary Beth Chosak; John C. Driscoll; Egon Zakrajšek (2014). Journal of Monetary Economics. https://doi.org/10.1016/j.jmoneco.2013.12.005
+- R09-037. The asset growth effect: Insights from international equity markets. Akiko Watanabe; Yan Xu; Tong Yao; Tong Yu (2012). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2012.12.002
+- R09-038. The Opportunity Cost of Negative Screening in Socially Responsible Investing. Pieter Jan Trinks; Bert Scholtens (2015). Journal of Business Ethics. https://doi.org/10.1007/s10551-015-2684-3
+- R09-039. Assessing the Energy-Efficiency Gap. Todd Gerarden; Richard G. Newell; Robert N. Stavins (2017). Journal of Economic Literature. https://doi.org/10.1257/jel.20161360
+- R09-040. Good, better, engaged? The effect of company-initiated customer engagement behavior on shareholder value. Sander F. M. Beckers; Jenny van Doorn; Peter C. Verhoef (2017). Journal of the Academy of Marketing Science. https://doi.org/10.1007/s11747-017-0539-4
+- R09-041. Safer Ratios, Riskier Portfolios: Banks’ Response to Government Aid. Ran Duchin; Denis Sosyura (2012). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1925710
+- R09-042. Transparency and International Investor Behavior. Gastón Gelos; Shang‐Jin Wei (2002). National Bureau of Economic Research. https://doi.org/10.3386/w9260
+- R09-043. International Currencies and Capital Allocation. Matteo Maggiori; Brent Neiman; Jesse Schreger (2018). National Bureau of Economic Research. https://doi.org/10.3386/w24673
+- R09-044. Diaspora for Development in Africa. Sonia Plaza; Plaza, Sonia (2011). The World Bank eBooks. https://doi.org/10.1596/978-0-8213-8258-5
+- R09-045. Global Currency Hedging. John Campbell; Karine Serfaty-de Medeiros; Luis M. Viceira (2007). National Bureau of Economic Research. https://doi.org/10.3386/w13088
+- R09-046. International Portfolio Choice and Asset Pricing: An Integrative Survey. René M. Stulz (1994). National Bureau of Economic Research. https://doi.org/10.3386/w4645
+- R09-047. Deposit Insurance Around the Globe: Where Does It Work?. Aslı Demirgüç; Edward J. Kane (2002). The Journal of Economic Perspectives. https://doi.org/10.1257/0895330027319
+- R09-048. Cross-country IPOs: What explains differences in underpricing?. Suman Banerjee; Lili Dai; Keshab Shrestha (2011). Journal of Corporate Finance. https://doi.org/10.1016/j.jcorpfin.2011.06.004
+- R09-049. International Asset Allocation under Regime Switching, Skew and Kurtosis Preferences. Massimo Guidolin; Allan Timmermann (2005). . https://doi.org/10.20955/wp.2005.034
+- R09-050. Determinants of Cross-Border Venture Capital Investments in Emerging and Developed Economies: The Effects of Relational and Institutional Trust. Daniel S. Hain; Sofia Johan; Daojuan Wang (2015). Journal of Business Ethics. https://doi.org/10.1007/s10551-015-2772-4
+- R10-001. Financial Development and Economic Growth: Views and Agenda. Ross Levine (1999). World Bank policy research working paper. https://doi.org/10.1596/1813-9450-1678
+- R10-002. Government Ownership of Banks. Rafael La Porta; Florencio López‐de‐Silanes; Andrei Shleifer (2002). The Journal of Finance. https://doi.org/10.1111/1540-6261.00422
+- R10-003. An institution-based view of international business strategy: a focus on emerging economies. Mike W. Peng; Denis Y. L. Wang; Yi Jiang (2008). Journal of International Business Studies. https://doi.org/10.1057/palgrave.jibs.8400377
+- R10-004. Finance and Growth: Theory and Evidence. Ross Levine (2004). National Bureau of Economic Research. https://doi.org/10.3386/w10766
+- R10-005. Social Norms and Economic Theory. Jon Elster (1989). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.3.4.99
+- R10-006. Economic Analysis of Social Interactions. Charles F. Manski (2000). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.14.3.115
+- R10-007. Mandatory CSR and sustainability reporting: economic analysis and literature review. Hans Bonde Christensen; Luzi Hail; Christian Leuz (2021). Review of Accounting Studies. https://doi.org/10.1007/s11142-021-09609-5
+- R10-008. It's Baaack: Japan's Slump and the Return of the Liquidity Trap. Paúl Krugman; Kathryn M. Dominquez; Kenneth Rogoff (1998). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534694
+- R10-009. Has Financial Development Made the World Riskier?. Raghuram G. Rajan (2005). National Bureau of Economic Research. https://doi.org/10.3386/w11728
+- R10-010. Credit Supply and Monetary Policy: Identifying the Bank Balance-Sheet Channel with Loan Applications. Gabriel Jiménez; Steven Ongena; José‐Luis Peydró; Jesús Saurina (2012). American Economic Review. https://doi.org/10.1257/aer.102.5.2301
+- R10-011. Hazardous Times for Monetary Policy: What Do Twenty-Three Million Bank Loans Say About the Effects of Monetary Policy on Credit Risk-Taking?. Gabriel Jiménez; Steven Ongena; José-Luis Peydró; Jesús Saurina (2014). Econometrica. https://doi.org/10.3982/ecta10104
+- R10-012. The Role of the State in Financial Markets. Joseph E. Stiglitz (1993). The World Bank Economic Review. https://doi.org/10.1093/wber/7.suppl_1.19
+- R10-013. Housing Market Spillovers: Evidence from an Estimated DSGE Model. Matteo Iacoviello; Stefano Neri (2010). American Economic Journal Macroeconomics. https://doi.org/10.1257/mac.2.2.125
+- R10-014. Vector Autoregressions. James H. Stock; Mark W. Watson (2001). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.15.4.101
+- R10-015. RETRACTED: Cryptocurrencies as a financial asset: A systematic analysis. Shaen Corbet; Brian M. Lucey; Andrew Urquhart; Larisa Yarovaya (2018). International Review of Financial Analysis. https://doi.org/10.1016/j.irfa.2018.09.003
+- R10-016. Federalism as a Commitment to Preserving Market Incentives. Yingyi Qian; Barry R. Weingast (1997). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.11.4.83
+- R10-017. Designing payments for environmental services in theory and practice: An overview of the issues. Stefanie Engel; Stefano Pagiola; Sven Wunder (2008). Ecological Economics. https://doi.org/10.1016/j.ecolecon.2008.03.011
+- R10-018. Corporate governance in banking: The role of the board of directors. Pablo de Andres; Eleuterio Vallelado (2008). Journal of Banking & Finance. https://doi.org/10.1016/j.jbankfin.2008.05.008
+- R10-019. The Future as History: The Prospects for Global Convergence in Corporate Governance and Its Implications. John C. Coffee (1999). SSRN Electronic Journal. https://doi.org/10.2139/ssrn.142833
+- R10-020. Regulations, Market Structure, Institutions, and the Cost of Financial Intermediation. Asli Demirgüç‐Kunt; Luc Laeven; Ross Levine (2003). National Bureau of Economic Research. https://doi.org/10.3386/w9890
+- R10-021. Industry Growth and Capital Allocation: Does Having a Market- or Bank-Based System Matter?. Thorsten Beck; Ross Levine (2002). National Bureau of Economic Research. https://doi.org/10.3386/w8982
+- R10-022. Institutions for high-quality growth: What they are and how to acquire them. Dani Rodrik (2000). Studies in Comparative International Development. https://doi.org/10.1007/bf02699764
+- R10-023. Structural causes of the global financial crisis: a critical assessment of the 'new financial architecture'. Jo Crotty (2009). Cambridge Journal of Economics. https://doi.org/10.1093/cje/bep023
+- R10-024. Intermediary asset pricing: New evidence from many asset classes. Zhiguo He; Bryan Kelly; Asaf Manela (2017). Journal of Financial Economics. https://doi.org/10.1016/j.jfineco.2017.08.002
+- R10-025. Fiscal Volatility Shocks and Economic Activity. Jesús Fernández‐Villaverde; Pablo Guerrón-Quintana; Keith Kuester; Juan Francisco Rubio-Ramı́rez (2015). American Economic Review. https://doi.org/10.1257/aer.20121236
+- R10-026. Climate Clubs: Overcoming Free-riding in International Climate Policy. William D. Nordhaus (2015). American Economic Review. https://doi.org/10.1257/aer.15000001
+- R10-027. Land grab or development opportunity? Agricultural investment and international land deals in Africa.. Lorenzo Cotula; Sonja Vermeulen; Rebeca Leonard; James F. Keeley (2009). Digital Library Of The Commons Repository (Indiana University). http://hdl.handle.net/10535/6178
+- R10-028. Theory and research in strategic management: Swings of a pendulum. Robert E. Hoskisson; Michael A. Hitt; William P. Wan; Daphne W. Yiu (1999). Journal of Management. https://doi.org/10.1177/014920639902500307
+- R10-029. Corporate Governance in China: A Survey. Fuxiu Jiang; Kenneth A. Kim (2020). European Finance Review. https://doi.org/10.1093/rof/rfaa012
+- R10-030. Reflections on Northern Rock: The Bank Run that Heralded the Global Financial Crisis. Hyun Song Shin (2009). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.23.1.101
+- R10-031. Creating a Market Economy in Eastern Europe: The Case of Poland. David Lipton; Jeffrey D. Sachs; Stanley Fischer; János Kornai (1990). Brookings Papers on Economic Activity. https://doi.org/10.2307/2534526
+- R10-032. Corporate Governance and Merger Activity in the United States: Making Sense of the 1980s and 1990s. Bengt Holmström; Steven N. Kaplan (2001). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.15.2.121
+- R10-033. More Instruments and Broader Goals: Moving toward the Post-Washington Consensus. Joseph E. Stiglitz (2005). Palgrave Macmillan UK eBooks. https://doi.org/10.1057/9780230501850_2
+- R10-034. Institutions for High-Quality Growth: What They are and How to Acquire Them. Dani Rodrik (2000). National Bureau of Economic Research. https://doi.org/10.3386/w7540
+- R10-035. Informality and Development. Rafael La Porta; Andrei Shleifer (2014). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.28.3.109
+- R10-036. Institutional change in varieties of capitalism. Peter A. Hall; Kathleen Thelen (2008). Socio-Economic Review. https://doi.org/10.1093/ser/mwn020
+- R10-037. On world development indicators. Ю.П. Лукашин; Л.И. Рахлина (2021). Vestnik MIRBIS.. https://doi.org/10.25634/mirbis.2021.2.1
+- R10-038. Some Lessons from the Financial Market Crisis<sup>*</sup>. Otmar Issing (2009). International Finance. https://doi.org/10.1111/j.1468-2362.2009.01250.x
+- R10-039. The Global Capital Market: Benefactor or Menace?. Maurice Obstfeld (1998). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.12.4.9
+- R10-040. The Unholy Trinity of Financial Contagion. Graciela Kaminsky; Carmen Reinhart; Carlos Végh (2003). The Journal of Economic Perspectives. https://doi.org/10.1257/089533003772034899
+- R10-041. Regulations, Market Structure, Institutions, and the Cost of Financial Intermediation. Asli Demirgüç‐Kunt; Luc Laeven; Ross Levine (2004). Journal of money credit and banking. https://doi.org/10.1353/mcb.2004.0045
+- R10-042. Corporate income tax reforms and international tax competition. Michael Devereux; Richard Griffith; Alexander Klemm (2002). Economic Policy. https://doi.org/10.1111/1468-0327.00094
+- R10-043. The Top 1 Percent in International and Historical Perspective. Facundo Alvaredo; Anthony B. Atkinson; Thomas Piketty; Emmanuel Saez (2013). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.27.3.3
+- R10-044. Causes and Consequences of Income Inequality. Evridiki Tsounta; Nujin Suphaphiphat; Franto Ricka; Era Dabla‐Norris; Kalpana Kochhar (2015). IMF staff discussion note. https://doi.org/10.5089/9781513555188.006
+- R10-045. Diagnostic Expectations and Credit Cycles. Pedro Bordalo; Nicola Gennaioli; Andrei Shleifer (2017). The Journal of Finance. https://doi.org/10.1111/jofi.12586
+- R10-046. Are We Consuming Too Much?. Kenneth J. Arrow; Partha Dasgupta; Lawrence H. Goulder; Gretchen C. Daily; Paul R. Ehrlich; Geoffrey Heal (2004). The Journal of Economic Perspectives. https://doi.org/10.1257/0895330042162377
+- R10-047. Markets: The Credit Rating Agencies. Lawrence J. White (2010). The Journal of Economic Perspectives. https://doi.org/10.1257/jep.24.2.211
+- R10-048. Systemic Banking Crises: A New Database. Fabián Valencia; Luc Laeven; FValencia@imf.org; LLaeven@imf.org (2008). IMF Working Paper. https://doi.org/10.5089/9781451870824.001
+- R10-049. Report of the High-Level Commission on Carbon Prices. Joseph E. Stiglitz; Nicholas Stern; Duan, Maosheng; Edenhofer, Ottmar; Giraud, Gaël; Heal, Geoffrey M. (2017). . https://doi.org/10.7916/d8-w2nc-4103
+- R10-050. Financial Liberalization and Financial Fragility. Asli Demirgüç‐Kunt; Enrica Detragiache (1999). World Bank policy research working paper. https://doi.org/10.1596/1813-9450-1917
+

@@ -1,0 +1,37 @@
+---
+name: reddit
+description: Scrape Reddit posts and comments using PRAW to gather sentiment and insights.
+---
+
+# Reddit Skill Workflow
+Use this skill whenever you need to search Reddit for specific topics, sentiments, or superlatives, or when you need to fetch all comments from specific Reddit threads for analysis. 
+
+This skill leverages the PRAW library and existing scripts like the ones in `~/CLIStore/`.
+
+### Prerequisites
+1. Ensure the following environment variables are set (usually via `.env`):
+   - `REDDIT_CLIENT_ID`
+   - `REDDIT_CLIENT_SECRET`
+   - `REDDIT_USER_AGENT`
+2. Install `praw` and `python-dotenv` if not already installed.
+
+### Workflows
+
+#### 1. Subreddit Regex/Keyword Scraping
+Use a script similar to `scraper.py` to scan a specific subreddit (e.g., `FoodNYC`) for posts and comments matching specific regex patterns (e.g., "best in the city", "mind-blowing").
+- Initialize `praw.Reddit` with your credentials.
+- Iterate through `subreddit.new(limit=None)` and check against a cutoff date.
+- Scan both `post.selftext` and `comment.body` for matches.
+- Save results to a structured JSON file for further review.
+
+#### 2. Targeted Thread Fetching
+Use a script similar to `targeted_fetch.py` when you have specific Reddit post IDs and want to extract all their comments for deep analysis.
+- Supply a list of target threads, usually formatted as `(post_id, label)`.
+- Fetch the submission via `reddit.submission(id=post_id)`.
+- Expand comment trees using `submission.comments.replace_more(limit=10)` to grab nested discussions.
+- Dump the text, author, and scores of comments into a JSON file for analysis.
+
+### Rate Limits & Best Practices
+- Always use `ratelimit_seconds=300` (or similar) in your `praw.Reddit` initialization to respect Reddit's API rate limits and automatically back off if you hit a throttle.
+- Be careful with `replace_more(limit=None)` on very large threads, as it can cause excessive API calls and take a very long time. Use a reasonable cap like `limit=10`.
+- Always filter out deleted or removed comments: `if comment.body in ("[deleted]", "[removed]"): continue`.

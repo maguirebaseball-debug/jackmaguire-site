@@ -30,14 +30,6 @@ const posts = (await getCollection('blog'))
 			<section class="recent">
 				<h2>Recent writing</h2>
 				<ul>
-					<li>
-						<a href="/ai-supply-chain-stocks.html">
-							<span class="title">Non-Obvious AI Supply Chain Stocks</span>
-							<span class="date">
-								<FormattedDate date={new Date('2026-05-26')} />
-							</span>
-						</a>
-					</li>
 					{
 						posts.map((post) => (
 							<li>

@@ -30,10 +30,11 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	width: 100%;
+	max-width: 720px;
 	margin: auto;
 	padding: 3em 1em;
+	box-sizing: border-box;
 }
 h1,
 h2,
@@ -47,13 +48,13 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: clamp(1.75em, 8vw, 3.052em);
 }
 h2 {
-	font-size: 2.441em;
+	font-size: clamp(1.5em, 6vw, 2.441em);
 }
 h3 {
-	font-size: 1.953em;
+	font-size: clamp(1.25em, 5vw, 1.953em);
 }
 h4 {
 	font-size: 1.563em;
@@ -88,6 +89,8 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	margin: 1.5rem 0;
+	display: block;
+	overflow-x: auto;
 }
 th,
 td {
@@ -139,7 +142,16 @@ hr {
 		font-size: 18px;
 	}
 	main {
-		padding: 1em;
+		padding: 2em 1.25em;
+	}
+}
+
+@media (max-width: 480px) {
+	body {
+		font-size: 17px;
+	}
+	main {
+		padding: 1.5em 1em;
 	}
 }
 
