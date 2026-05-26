@@ -9,7 +9,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     line-height: 1.6;
     color: #24292e;
-    max-width: 1012px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 32px;
     background-color: #fff;
@@ -44,25 +44,72 @@
   li + li {
     margin-top: 0.25em;
   }
+  
+  /* Table Controls */
+  .table-controls {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  #tableFilter {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dfe2e5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 32px;
+  }
   table {
     border-spacing: 0;
     border-collapse: collapse;
-    margin-top: 0;
-    margin-bottom: 16px;
     width: 100%;
-    overflow: auto;
-    display: block;
+    white-space: nowrap;
   }
   table th {
     font-weight: 600;
+    position: relative;
+    padding-right: 24px !important;
+    cursor: pointer;
+    user-select: none;
+    background-color: #f6f8fa;
+  }
+  table th::after {
+    content: '↕';
+    position: absolute;
+    right: 6px;
+    opacity: 0.3;
+    font-weight: normal;
+  }
+  table th.sort-asc::after {
+    content: '↓';
+    opacity: 1;
+  }
+  table th.sort-desc::after {
+    content: '↑';
+    opacity: 1;
+  }
+  table th:hover {
+    background-color: #eaecef;
   }
   table th, table td {
-    padding: 6px 13px;
+    padding: 8px 13px;
     border: 1px solid #dfe2e5;
+  }
+  table td:last-child {
+    white-space: normal;
+    min-width: 250px;
   }
   table tr {
     background-color: #fff;
-    border-top: 1px solid #c6cbd1;
   }
   table tr:nth-child(2n) {
     background-color: #f6f8fa;
@@ -88,6 +135,17 @@
     h1, h2 {
       border-bottom-color: #21262d;
     }
+    #tableFilter {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      border-color: #30363d;
+    }
+    table th {
+      background-color: #161b22;
+    }
+    table th:hover {
+      background-color: #21262d;
+    }
     table th, table td {
       border-color: #30363d;
     }
@@ -110,223 +168,106 @@
 
 <p>This document contains a screened list of stocks tradeable on Fidelity or Fidelity International that sit in the AI hardware/materials/infrastructure supply chain. These companies possess strong market positions (monopolies, oligopolies, or deep niches), are poised to benefit from AI buildout, and offer "non-obvious" exposure compared to mainstream darlings like NVDA or ASML.</p>
 
-<h2>Verticals 11-15: Optical, Ceramics, Metrology, Epi Wafers &amp; Gas Delivery</h2>
+<p><em>Click on any column header to sort. Use the search bar to filter by ticker, vertical, or keyword.</em></p>
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Company</th>
-      <th align="left">Ticker</th>
-      <th align="left">Exchange</th>
-      <th align="left">Vertical</th>
-      <th align="left">Moat Type</th>
-      <th align="left">Fwd PE</th>
-      <th align="left">PEG</th>
-      <th align="left">Mainstream Risk</th>
-      <th align="left">Key Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left"><strong>Coherent Corp.</strong></td>
-      <td align="left">COHR</td>
-      <td align="left">NYSE</td>
-      <td align="left">11: Optical Interconnect</td>
-      <td align="left">High qualification moats (800G/1.6T transceivers)</td>
-      <td align="left">~23x</td>
-      <td align="left">~1.3</td>
-      <td align="left">Low (Cap &lt;$20B)</td>
-      <td align="left">Critical supplier for AI optics with deep hyperscaler partnerships.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Lumentum</strong></td>
-      <td align="left">LITE</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">11: Optical Interconnect</td>
-      <td align="left">&lt;5 serious competitors in high-end EMLs</td>
-      <td align="left">~38x</td>
-      <td align="left">~2.1</td>
-      <td align="left">Low</td>
-      <td align="left">Expanding SiPh and EML capacity for AI networking.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Fabrinet</strong></td>
-      <td align="left">FN</td>
-      <td align="left">NYSE</td>
-      <td align="left">11: Optical Interconnect</td>
-      <td align="left">High qualification OEM/ODM</td>
-      <td align="left">~25x</td>
-      <td align="left">~1.6</td>
-      <td align="left">Low</td>
-      <td align="left">"Pure play" on optical manufacturing volumes; Nvidia partner.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Applied Optoelectronics</strong></td>
-      <td align="left">AAOI</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">11: Optical Interconnect</td>
-      <td align="left">Niche specialization</td>
-      <td align="left">N/A</td>
-      <td align="left">N/A</td>
-      <td align="left">Low</td>
-      <td align="left">Smaller player focusing on hyperscaler transceiver demands.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Kyocera</strong></td>
-      <td align="left">KYOCY</td>
-      <td align="left">OTC/TYO</td>
-      <td align="left">12: Advanced Ceramics</td>
-      <td align="left">Materials science complexity</td>
-      <td align="left">~18x</td>
-      <td align="left">~1.5</td>
-      <td align="left">Low</td>
-      <td align="left">Global leader in fine ceramics for semiconductor equipment.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Maruwa</strong></td>
-      <td align="left">5344</td>
-      <td align="left">TYO</td>
-      <td align="left">12: Advanced Ceramics</td>
-      <td align="left">High qualification in thermal substrates</td>
-      <td align="left">~26x</td>
-      <td align="left">~1.2</td>
-      <td align="left">Low</td>
-      <td align="left">Dominant in high thermal conductivity ceramic substrates.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>NGK Insulators</strong></td>
-      <td align="left">5333</td>
-      <td align="left">TYO</td>
-      <td align="left">12: Advanced Ceramics</td>
-      <td align="left">Niche material formulations</td>
-      <td align="left">~13x</td>
-      <td align="left">~1.1</td>
-      <td align="left">Low</td>
-      <td align="left">Strong position in industrial and semiconductor ceramics.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Onto Innovation</strong></td>
-      <td align="left">ONTO</td>
-      <td align="left">NYSE</td>
-      <td align="left">13: Metrology (Overlay/OCD)</td>
-      <td align="left">&lt;5 serious competitors (OCD/Overlay)</td>
-      <td align="left">~40x</td>
-      <td align="left">~1.9</td>
-      <td align="left">Low (Cap ~$10B)</td>
-      <td align="left">Direct competitor to KLA in specialized packaging inspection.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Nova Ltd.</strong></td>
-      <td align="left">NVMI</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">13: Metrology (Materials)</td>
-      <td align="left">High qualification in materials metrology</td>
-      <td align="left">~38x</td>
-      <td align="left">~1.8</td>
-      <td align="left">Low</td>
-      <td align="left">Highly specialized optical and X-ray metrology solutions.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Camtek</strong></td>
-      <td align="left">CAMT</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">13: Metrology (AOI)</td>
-      <td align="left">Sole/dual source in advanced packaging</td>
-      <td align="left">~32x</td>
-      <td align="left">~1.7</td>
-      <td align="left">Low</td>
-      <td align="left">Beneficiary of advanced AI packaging (e.g., CoWoS) inspection.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Lasertec</strong></td>
-      <td align="left">6920</td>
-      <td align="left">TYO</td>
-      <td align="left">13: Metrology (Mask)</td>
-      <td align="left">Sole-source dependency (EUV mask)</td>
-      <td align="left">~52x</td>
-      <td align="left">~1.5</td>
-      <td align="left">Low</td>
-      <td align="left">100% market share in actinic EUV patterned mask inspection.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>GlobalWafers</strong></td>
-      <td align="left">6488</td>
-      <td align="left">TPEX (Taiwan)</td>
-      <td align="left">14: Epitaxial Wafers</td>
-      <td align="left">Scale &amp; High qualification</td>
-      <td align="left">~16x</td>
-      <td align="left">~1.3</td>
-      <td align="left">Low</td>
-      <td align="left">Major independent wafer supplier expanding global footprint.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>SUMCO</strong></td>
-      <td align="left">3436</td>
-      <td align="left">TYO</td>
-      <td align="left">14: Epitaxial Wafers</td>
-      <td align="left">&lt;5 serious competitors</td>
-      <td align="left">~16x</td>
-      <td align="left">~1.4</td>
-      <td align="left">Low</td>
-      <td align="left">Top-tier supplier of high-purity silicon and epi wafers.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Siltronic</strong></td>
-      <td align="left">WAF</td>
-      <td align="left">XETRA</td>
-      <td align="left">14: Epitaxial Wafers</td>
-      <td align="left">Tech barrier / High capital intensity</td>
-      <td align="left">~18x</td>
-      <td align="left">~1.5</td>
-      <td align="left">Low</td>
-      <td align="left">Key European supplier of advanced epitaxial wafers.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>IQE plc</strong></td>
-      <td align="left">IQE</td>
-      <td align="left">AIM (LSE)</td>
-      <td align="left">14: Epitaxial Wafers</td>
-      <td align="left">Sole-source/Niche (Compound Semi)</td>
-      <td align="left">N/A</td>
-      <td align="left">N/A</td>
-      <td align="left">Low</td>
-      <td align="left">Pure-play epitaxy specialist for photonics and RF.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Entegris</strong></td>
-      <td align="left">ENTG</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">15: Gas Delivery &amp; Contamination</td>
-      <td align="left">High qualification moats</td>
-      <td align="left">~35x</td>
-      <td align="left">~1.9</td>
-      <td align="left">Low (Cap ~$20B)</td>
-      <td align="left">Premium valuation justified by deep fab integration and purity moats.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Ultra Clean Holdings</strong></td>
-      <td align="left">UCTT</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">15: Gas Delivery Systems</td>
-      <td align="left">Niche engineering &amp; system integration</td>
-      <td align="left">~16x</td>
-      <td align="left">~1.2</td>
-      <td align="left">Low</td>
-      <td align="left">Turnkey manufacturer of chemical and gas delivery systems.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Ichor Systems</strong></td>
-      <td align="left">ICHR</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">15: Gas Delivery Systems</td>
-      <td align="left">&lt;5 serious competitors (Fluid Mechanics)</td>
-      <td align="left">~20x</td>
-      <td align="left">~1.4</td>
-      <td align="left">Low</td>
-      <td align="left">Specialized in critical gas delivery subsystems and manifolds.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-controls">
+  <input type="text" id="tableFilter" placeholder="Filter companies, tickers, verticals..." />
+</div>
+
+<div class="table-container">
+  <table id="stocksTable">
+    <thead>
+      <tr>
+        <th align="left">Company</th>
+        <th align="left">Ticker</th>
+        <th align="left">Exchange</th>
+        <th align="left">Vertical</th>
+        <th align="left">Moat Type</th>
+        <th align="left">Fwd PE</th>
+        <th align="left">PEG</th>
+        <th align="left">Mainstream Risk</th>
+        <th align="left">Key Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td align="left"><strong>Coherent Corp.</strong></td><td align="left">COHR</td><td align="left">NYSE</td><td align="left">11: Optical Interconnect</td><td align="left">High qualification moats (800G/1.6T transceivers)</td><td align="left">~23x</td><td align="left">~1.3</td><td align="left">Low (Cap &lt;$20B)</td><td align="left">Critical supplier for AI optics with deep hyperscaler partnerships.</td></tr>
+      <tr><td align="left"><strong>Lumentum</strong></td><td align="left">LITE</td><td align="left">NASDAQ</td><td align="left">11: Optical Interconnect</td><td align="left">&lt;5 serious competitors in high-end EMLs</td><td align="left">~38x</td><td align="left">~2.1</td><td align="left">Low</td><td align="left">Expanding SiPh and EML capacity for AI networking.</td></tr>
+      <tr><td align="left"><strong>Fabrinet</strong></td><td align="left">FN</td><td align="left">NYSE</td><td align="left">11: Optical Interconnect</td><td align="left">High qualification OEM/ODM</td><td align="left">~25x</td><td align="left">~1.6</td><td align="left">Low</td><td align="left">"Pure play" on optical manufacturing volumes; Nvidia partner.</td></tr>
+      <tr><td align="left"><strong>Applied Optoelectronics</strong></td><td align="left">AAOI</td><td align="left">NASDAQ</td><td align="left">11: Optical Interconnect</td><td align="left">Niche specialization</td><td align="left">N/A</td><td align="left">N/A</td><td align="left">Low</td><td align="left">Smaller player focusing on hyperscaler transceiver demands.</td></tr>
+      <tr><td align="left"><strong>Kyocera</strong></td><td align="left">KYOCY</td><td align="left">OTC/TYO</td><td align="left">12: Advanced Ceramics</td><td align="left">Materials science complexity</td><td align="left">~18x</td><td align="left">~1.5</td><td align="left">Low</td><td align="left">Global leader in fine ceramics for semiconductor equipment.</td></tr>
+      <tr><td align="left"><strong>Maruwa</strong></td><td align="left">5344</td><td align="left">TYO</td><td align="left">12: Advanced Ceramics</td><td align="left">High qualification in thermal substrates</td><td align="left">~26x</td><td align="left">~1.2</td><td align="left">Low</td><td align="left">Dominant in high thermal conductivity ceramic substrates.</td></tr>
+      <tr><td align="left"><strong>NGK Insulators</strong></td><td align="left">5333</td><td align="left">TYO</td><td align="left">12: Advanced Ceramics</td><td align="left">Niche material formulations</td><td align="left">~13x</td><td align="left">~1.1</td><td align="left">Low</td><td align="left">Strong position in industrial and semiconductor ceramics.</td></tr>
+      <tr><td align="left"><strong>Onto Innovation</strong></td><td align="left">ONTO</td><td align="left">NYSE</td><td align="left">13: Metrology (Overlay/OCD)</td><td align="left">&lt;5 serious competitors (OCD/Overlay)</td><td align="left">~40x</td><td align="left">~1.9</td><td align="left">Low (Cap ~$10B)</td><td align="left">Direct competitor to KLA in specialized packaging inspection.</td></tr>
+      <tr><td align="left"><strong>Nova Ltd.</strong></td><td align="left">NVMI</td><td align="left">NASDAQ</td><td align="left">13: Metrology (Materials)</td><td align="left">High qualification in materials metrology</td><td align="left">~38x</td><td align="left">~1.8</td><td align="left">Low</td><td align="left">Highly specialized optical and X-ray metrology solutions.</td></tr>
+      <tr><td align="left"><strong>Camtek</strong></td><td align="left">CAMT</td><td align="left">NASDAQ</td><td align="left">13: Metrology (AOI)</td><td align="left">Sole/dual source in advanced packaging</td><td align="left">~32x</td><td align="left">~1.7</td><td align="left">Low</td><td align="left">Beneficiary of advanced AI packaging (e.g., CoWoS) inspection.</td></tr>
+      <tr><td align="left"><strong>Lasertec</strong></td><td align="left">6920</td><td align="left">TYO</td><td align="left">13: Metrology (Mask)</td><td align="left">Sole-source dependency (EUV mask)</td><td align="left">~52x</td><td align="left">~1.5</td><td align="left">Low</td><td align="left">100% market share in actinic EUV patterned mask inspection.</td></tr>
+      <tr><td align="left"><strong>GlobalWafers</strong></td><td align="left">6488</td><td align="left">TPEX (Taiwan)</td><td align="left">14: Epitaxial Wafers</td><td align="left">Scale &amp; High qualification</td><td align="left">~16x</td><td align="left">~1.3</td><td align="left">Low</td><td align="left">Major independent wafer supplier expanding global footprint.</td></tr>
+      <tr><td align="left"><strong>SUMCO</strong></td><td align="left">3436</td><td align="left">TYO</td><td align="left">14: Epitaxial Wafers</td><td align="left">&lt;5 serious competitors</td><td align="left">~16x</td><td align="left">~1.4</td><td align="left">Low</td><td align="left">Top-tier supplier of high-purity silicon and epi wafers.</td></tr>
+      <tr><td align="left"><strong>Siltronic</strong></td><td align="left">WAF</td><td align="left">XETRA</td><td align="left">14: Epitaxial Wafers</td><td align="left">Tech barrier / High capital intensity</td><td align="left">~18x</td><td align="left">~1.5</td><td align="left">Low</td><td align="left">Key European supplier of advanced epitaxial wafers.</td></tr>
+      <tr><td align="left"><strong>IQE plc</strong></td><td align="left">IQE</td><td align="left">AIM (LSE)</td><td align="left">14: Epitaxial Wafers</td><td align="left">Sole-source/Niche (Compound Semi)</td><td align="left">N/A</td><td align="left">N/A</td><td align="left">Low</td><td align="left">Pure-play epitaxy specialist for photonics and RF.</td></tr>
+      <tr><td align="left"><strong>Entegris</strong></td><td align="left">ENTG</td><td align="left">NASDAQ</td><td align="left">15: Gas Delivery &amp; Contamination</td><td align="left">High qualification moats</td><td align="left">~35x</td><td align="left">~1.9</td><td align="left">Low (Cap ~$20B)</td><td align="left">Premium valuation justified by deep fab integration and purity moats.</td></tr>
+      <tr><td align="left"><strong>Ultra Clean Holdings</strong></td><td align="left">UCTT</td><td align="left">NASDAQ</td><td align="left">15: Gas Delivery Systems</td><td align="left">Niche engineering &amp; system integration</td><td align="left">~16x</td><td align="left">~1.2</td><td align="left">Low</td><td align="left">Turnkey manufacturer of chemical and gas delivery systems.</td></tr>
+      <tr><td align="left"><strong>Ichor Systems</strong></td><td align="left">ICHR</td><td align="left">NASDAQ</td><td align="left">15: Gas Delivery Systems</td><td align="left">&lt;5 serious competitors (Fluid Mechanics)</td><td align="left">~20x</td><td align="left">~1.4</td><td align="left">Low</td><td align="left">Specialized in critical gas delivery subsystems and manifolds.</td></tr>
+      <tr><td align="left"><strong>Entegris</strong></td><td align="left">ENTG</td><td align="left">NASDAQ</td><td align="left">Specialty Fab Chemicals</td><td align="left">CMP filtration &amp; extreme purity control</td><td align="left">~37.2x</td><td align="left">~1.7</td><td align="left">Moderate (Held in SMH/SOXX)</td><td align="left">Sole-source dependencies in sub-3nm filtration.</td></tr>
+      <tr><td align="left"><strong>Tokyo Ohka Kogyo</strong></td><td align="left">4186</td><td align="left">TYO</td><td align="left">Specialty Fab Chemicals</td><td align="left">EUV Photoresist Leader</td><td align="left">~34.0x</td><td align="left">~2.0</td><td align="left">Low ($6B Cap)</td><td align="left">Critical supplier to major foundries for advanced node lithography.</td></tr>
+      <tr><td align="left"><strong>HOYA Corp</strong></td><td align="left">7741</td><td align="left">TYO</td><td align="left">Photomask Manufacturing</td><td align="left">EUV Blank Monopoly (~80% share)</td><td align="left">~33.5x</td><td align="left">~2.1</td><td align="left"><strong>High (&gt;$50B Cap)</strong></td><td align="left">Unmatched qualification moat in extreme ultraviolet blanks.</td></tr>
+      <tr><td align="left"><strong>Photronics</strong></td><td align="left">PLAB</td><td align="left">NASDAQ</td><td align="left">Photomask Manufacturing</td><td align="left">Merchant Mask Leader (&lt;5 competitors)</td><td align="left">~22.0x</td><td align="left">N/A</td><td align="left">Low ($3.2B Cap)</td><td align="left">Has ~5% short interest but no activist campaigns; value play in masks.</td></tr>
+      <tr><td align="left"><strong>Maruwa</strong></td><td align="left">5344</td><td align="left">TYO</td><td align="left">Ultra-Pure Materials</td><td align="left">Advanced Ceramic Substrates</td><td align="left">~38.0x</td><td align="left">~1.5 - 2.4</td><td align="left">Low</td><td align="left">Critical thermal management components for optical/AI transceivers.</td></tr>
+      <tr><td align="left"><strong>Ferrotec Holdings</strong></td><td align="left">6890</td><td align="left">TYO</td><td align="left">Ultra-Pure Materials</td><td align="left">High-Purity Quartz/Ceramics</td><td align="left">~20.2x</td><td align="left">~1.0</td><td align="left">Low</td><td align="left">High barrier to entry in consumable quartz for semiconductor diffusion.</td></tr>
+      <tr><td align="left"><strong>Nippon Sanso Holdings</strong></td><td align="left">4091</td><td align="left">TYO</td><td align="left">Specialty Gases</td><td align="left">Electronic Gas Oligopoly</td><td align="left">~19.5x</td><td align="left">~1.5</td><td align="left">Low</td><td align="left">Avoids the &gt;$50B cap issue of Linde/Air Liquide; massive capex moat.</td></tr>
+      <tr><td align="left"><strong>Kanto Denka Kogyo</strong></td><td align="left">4047</td><td align="left">TYO</td><td align="left">Specialty Gases</td><td align="left">Specialized Etching Gases (CF4, CHF3)</td><td align="left">~18.1x</td><td align="left">~0.4</td><td align="left">Low</td><td align="left">Highly specialized niche in fluorochemicals with a very attractive PEG ratio.</td></tr>
+      <tr><td align="left"><strong>Ajinomoto</strong></td><td align="left">2802</td><td align="left">TYO</td><td align="left">Adv. Substrate Laminates</td><td align="left">ABF Monopoly (~100% share)</td><td align="left">~36.5x</td><td align="left">~3.2</td><td align="left">Low (Not in Semi ETFs)</td><td align="left">Undisputed choke-point material (ABF) for high-end CPU/GPU packaging.</td></tr>
+      <tr><td align="left"><strong>Ibiden</strong></td><td align="left">4062</td><td align="left">TYO</td><td align="left">Adv. Substrate Laminates</td><td align="left">FC-BGA Substrate Co-development</td><td align="left">~65.0x</td><td align="left">~2.3</td><td align="left">Low</td><td align="left">Essential partner for advanced AI packaging, though valuation is currently stretched.</td></tr>
+      <tr><td align="left"><strong>Applied Materials</strong></td><td align="left">AMAT</td><td align="left">NASDAQ</td><td align="left">6: Ion Implant &amp; Etch</td><td align="left">R&amp;D Scale / Duopoly</td><td align="left">~39x</td><td align="left">~1.5</td><td align="left">Yes (&gt;$50B)</td><td align="left">Dominates both etch and ion implant, but highly mainstream.</td></tr>
+      <tr><td align="left"><strong>Lam Research</strong></td><td align="left">LRCX</td><td align="left">NASDAQ</td><td align="left">6: Ion Implant &amp; Etch</td><td align="left">Monopoly in Memory Etch</td><td align="left">~52x</td><td align="left">~2.0</td><td align="left">Yes (&gt;$50B)</td><td align="left">Undisputed leader in conductor and advanced packaging etch.</td></tr>
+      <tr><td align="left"><strong>Tokyo Electron</strong></td><td align="left">8035</td><td align="left">TSE (JP)</td><td align="left">6: Ion Implant &amp; Etch</td><td align="left">Oligopoly</td><td align="left">~25x</td><td align="left">~1.3</td><td align="left">Yes (&gt;$50B)</td><td align="left">Key competitor to AMAT/LRCX in dielectric etch.</td></tr>
+      <tr><td align="left"><strong>Axcelis Technologies</strong></td><td align="left">ACLS</td><td align="left">NASDAQ</td><td align="left">6: Ion Implant &amp; Etch</td><td align="left">Duopoly (Ion Implant)</td><td align="left">~42.5x</td><td align="left">1.25</td><td align="left">No</td><td align="left">Pure-play ion implant supplier forming a duopoly with AMAT.</td></tr>
+      <tr><td align="left"><strong>ULVAC</strong></td><td align="left">6728</td><td align="left">TSE (JP)</td><td align="left">6: Ion Implant &amp; Etch</td><td align="left">Niche Vacuum Expertise</td><td align="left">~15x</td><td align="left">~1.0</td><td align="left">No</td><td align="left">Specialized in niche flat panel and advanced packaging etch.</td></tr>
+      <tr><td align="left"><strong>Rorze Corp</strong></td><td align="left">6323</td><td align="left">TSE (JP)</td><td align="left">7: Wafer Robotics</td><td align="left">Vacuum Robotics IP</td><td align="left">~25x</td><td align="left">1.16</td><td align="left">No</td><td align="left">Dominant, highly specialized player in ultra-clean vacuum wafer transfer.</td></tr>
+      <tr><td align="left"><strong>Hirata Corp</strong></td><td align="left">6258</td><td align="left">TSE (JP)</td><td align="left">7: Wafer Robotics</td><td align="left">High Qualification Barrier</td><td align="left">~12x</td><td align="left">~1.5</td><td align="left">No</td><td align="left">Strong systems integration for EFEM and factory automation.</td></tr>
+      <tr><td align="left"><strong>Kawasaki Heavy Ind.</strong></td><td align="left">7012</td><td align="left">TSE (JP)</td><td align="left">7: Wafer Robotics</td><td align="left">Integration &amp; Scale</td><td align="left">~14x</td><td align="left">~1.2</td><td align="left">No</td><td align="left">Major provider of high-payload cleanroom robotic arms.</td></tr>
+      <tr><td align="left"><strong>Sinfonia Technology</strong></td><td align="left">6507</td><td align="left">TSE (JP)</td><td align="left">7: Wafer Robotics</td><td align="left">Specialized Cleanroom IP</td><td align="left">~11x</td><td align="left">~0.9</td><td align="left">No</td><td align="left">Niche provider of highly specialized semiconductor clean transport systems.</td></tr>
+      <tr><td align="left"><strong>Daihen Corp</strong></td><td align="left">6622</td><td align="left">TSE (JP)</td><td align="left">7: Wafer Robotics</td><td align="left">Process Reliability</td><td align="left">~14x</td><td align="left">~1.3</td><td align="left">No</td><td align="left">Significant market share in dedicated cleanroom transfer robots.</td></tr>
+      <tr><td align="left"><strong>Vicor Corp</strong></td><td align="left">VICR</td><td align="left">NASDAQ</td><td align="left">8: Precision Power</td><td align="left">Proprietary 48V IP (FPA)</td><td align="left">~37x</td><td align="left">6.1</td><td align="left">No</td><td align="left">High moat with unique Factorized Power Architecture for AI GPUs.</td></tr>
+      <tr><td align="left"><strong>Monolithic Power</strong></td><td align="left">MPWR</td><td align="left">NASDAQ</td><td align="left">8: Precision Power</td><td align="left">Digital Control IP</td><td align="left">~45x</td><td align="left">~2.5</td><td align="left">Yes (&gt;$50B)</td><td align="left">Leading digital multi-phase controller supplier for AI clusters.</td></tr>
+      <tr><td align="left"><strong>Infineon</strong></td><td align="left">IFNNY</td><td align="left">OTC/FRA</td><td align="left">8: Precision Power</td><td align="left">Scale / SiC &amp; GaN IP</td><td align="left">~15x</td><td align="left">~1.8</td><td align="left">Yes (&gt;$50B)</td><td align="left">OptiMOS power stages are ubiquitous in 48V AI servers.</td></tr>
+      <tr><td align="left"><strong>Renesas Electronics</strong></td><td align="left">6723</td><td align="left">TSE (JP)</td><td align="left">8: Precision Power</td><td align="left">Mixed-Signal IP</td><td align="left">~12x</td><td align="left">~1.1</td><td align="left">No</td><td align="left">Strong footprint in high-speed data center VRMs and PMICs.</td></tr>
+      <tr><td align="left"><strong>Delta Electronics</strong></td><td align="left">2308</td><td align="left">TWSE (TW)</td><td align="left">8: Precision Power</td><td align="left">Manufacturing Scale</td><td align="left">~22x</td><td align="left">~1.4</td><td align="left">No</td><td align="left">Leading provider of power delivery infrastructure and bus converters.</td></tr>
+      <tr><td align="left"><strong>Henkel AG</strong></td><td align="left">HEN3</td><td align="left">XETRA (EU)</td><td align="left">9: TIMs &amp; Spreaders</td><td align="left">Chemical Formulation IP</td><td align="left">~14x</td><td align="left">~1.8</td><td align="left">No</td><td align="left">Loctite/Bergquist brands dominate high-end phase-change TIMs.</td></tr>
+      <tr><td align="left"><strong>Dow Inc.</strong></td><td align="left">DOW</td><td align="left">NYSE</td><td align="left">9: TIMs &amp; Spreaders</td><td align="left">Material Science Scale</td><td align="left">~16x</td><td align="left">~2.0</td><td align="left">No</td><td align="left">Crucial supplier of base silicone polymers for thermal pads.</td></tr>
+      <tr><td align="left"><strong>Shin-Etsu Chemical</strong></td><td align="left">4063</td><td align="left">TSE (JP)</td><td align="left">9: TIMs &amp; Spreaders</td><td align="left">Pure Silicone Dominance</td><td align="left">~21x</td><td align="left">~1.9</td><td align="left">Yes (&gt;$50B)</td><td align="left">Key chemical supplier for advanced chip thermal packaging.</td></tr>
+      <tr><td align="left"><strong>Shinko Electric</strong></td><td align="left">6967</td><td align="left">TSE (JP)</td><td align="left">9: TIMs &amp; Spreaders</td><td align="left">Precision Packaging Moat</td><td align="left">~20x</td><td align="left">~1.5</td><td align="left">No</td><td align="left">Dominant in CPU/GPU integrated heat spreader lids.</td></tr>
+      <tr><td align="left"><strong>Jentech Precision</strong></td><td align="left">3653</td><td align="left">TWSE (TW)</td><td align="left">9: TIMs &amp; Spreaders</td><td align="left">High-Yield Stamping</td><td align="left">~59x</td><td align="left">1.8</td><td align="left">No</td><td align="left">Major supplier of massive heat spreaders for high-end AI accelerators.</td></tr>
+      <tr><td align="left"><strong>Vertiv</strong></td><td align="left">VRT</td><td align="left">NYSE</td><td align="left">10: Liquid Cooling</td><td align="left">Global Service Network</td><td align="left">~35x</td><td align="left">~1.2</td><td align="left">No</td><td align="left">End-to-end CDU and thermal management scale advantage.</td></tr>
+      <tr><td align="left"><strong>Modine Manufacturing</strong></td><td align="left">MOD</td><td align="left">NYSE</td><td align="left">10: Liquid Cooling</td><td align="left">High-Volume Mfg</td><td align="left">~44x</td><td align="left">1.3</td><td align="left">No</td><td align="left">Rapidly growing specialized CDU manufacturer.</td></tr>
+      <tr><td align="left"><strong>Asetek</strong></td><td align="left">ASTK</td><td align="left">OSE (EU)</td><td align="left">10: Liquid Cooling</td><td align="left">Direct-to-Chip Patents</td><td align="left">~15x</td><td align="left">~1.0</td><td align="left">No</td><td align="left">High-performance D2C liquid cooling specialist.</td></tr>
+      <tr><td align="left"><strong>Asia Vital Components</strong></td><td align="left">3017</td><td align="left">TWSE (TW)</td><td align="left">10: Liquid Cooling</td><td align="left">Integrated Thermal Scale</td><td align="left">~25x</td><td align="left">~1.5</td><td align="left">No</td><td align="left">Leading Taiwanese thermal supplier for liquid cooling cold plates.</td></tr>
+      <tr><td align="left"><strong>Auras Technology</strong></td><td align="left">3324</td><td align="left">TWSE (TW)</td><td align="left">10: Liquid Cooling</td><td align="left">Cold Plate Design IP</td><td align="left">~30x</td><td align="left">~1.6</td><td align="left">No</td><td align="left">Strong design wins in high-end server cold plates and manifolds.</td></tr>
+      <tr><td align="left"><strong>nVent Electric</strong></td><td align="left">NVT</td><td align="left">NYSE</td><td align="left">10: Liquid Cooling</td><td align="left">Leak-Free Manifold IP</td><td align="left">~20x</td><td align="left">~1.5</td><td align="left">No</td><td align="left">Leading provider of specialized rack manifolds.</td></tr>
+      <tr><td align="left"><strong>Supermicro</strong></td><td align="left">SMCI</td><td align="left">NASDAQ</td><td align="left">10: Liquid Cooling</td><td align="left">Time-to-Market</td><td align="left">~15x</td><td align="left">~0.5</td><td align="left">GOVERNANCE FLAG</td><td align="left">Aggressive in DLC racks, but faces severe scrutiny (Hindenburg short report).</td></tr>
+      <tr><td align="left"><strong>ASE Technology</strong></td><td align="left">ASX</td><td align="left">NYSE</td><td align="left">16: Adv. Pkg OSAT</td><td align="left">Massive scale in CoWoS overflow &amp; Fan-Out</td><td align="left">32.0x</td><td align="left">0.7 - 1.6</td><td align="left"><strong>Flagged</strong> (Top holding in SMH/SOXX)</td><td align="left">World's largest OSAT, critical TSMC partner.</td></tr>
+      <tr><td align="left"><strong>Amkor Technology</strong></td><td align="left">AMKR</td><td align="left">NASDAQ</td><td align="left">16: Adv. Pkg OSAT</td><td align="left">Advanced 2.5D integration, TSMC US packaging partner</td><td align="left">31.6x</td><td align="left">9.07</td><td align="left">Low (&lt;$50B, not top ETF weight)</td><td align="left">Expanding heavily into US-based advanced packaging.</td></tr>
+      <tr><td align="left"><strong>Powertech Tech</strong></td><td align="left">6239</td><td align="left">TWSE</td><td align="left">16: Adv. Pkg OSAT</td><td align="left">Advanced memory packaging &amp; panel-level packaging</td><td align="left">18.8x</td><td align="left">0.59</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">High yield, migrating to panel-level fan-out.</td></tr>
+      <tr><td align="left"><strong>King Yuan Elec (KYEC)</strong></td><td align="left">2449</td><td align="left">TWSE</td><td align="left">16: Adv. Pkg OSAT</td><td align="left">Dominant capacity for AI GPU final test handling</td><td align="left">28.5x</td><td align="left">0.84</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Heavily relied upon for Nvidia/AMD final testing.</td></tr>
+      <tr><td align="left"><strong>ChipMOS Tech</strong></td><td align="left">IMOS</td><td align="left">NASDAQ</td><td align="left">16: Adv. Pkg OSAT</td><td align="left">Specialized memory and DDIC testing</td><td align="left">12.0x</td><td align="left">N/A</td><td align="left">Low (&lt;$50B)</td><td align="left">Niche focus acts as a buffer against pure logic competition.</td></tr>
+      <tr><td align="left"><strong>Aehr Test Systems</strong></td><td align="left">AEHR</td><td align="left">NASDAQ</td><td align="left">17: Test &amp; Burn-in</td><td align="left">FOX-P wafer-level burn-in system (near sole-source)</td><td align="left">~633x</td><td align="left">~80.0</td><td align="left">Low (Small Cap, volatile)</td><td align="left">Extremely high multiples; high short interest (~18%) but no SEC flags.</td></tr>
+      <tr><td align="left"><strong>FormFactor</strong></td><td align="left">FORM</td><td align="left">NASDAQ</td><td align="left">17: Test &amp; Burn-in</td><td align="left">Advanced MEMS probe cards &amp; cryogenic testing</td><td align="left">48.0x</td><td align="left">0.60</td><td align="left">Low (&lt;$50B)</td><td align="left">Critical for testing complex multi-die chiplets.</td></tr>
+      <tr><td align="left"><strong>Leeno Industrial</strong></td><td align="left">058470</td><td align="left">KOSDAQ</td><td align="left">17: Test &amp; Burn-in</td><td align="left">Proprietary "Leeno pins" &amp; high-freq fine pitch sockets</td><td align="left">47.0x</td><td align="left">2.72</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Phenomenal margin structure and high qualification moat.</td></tr>
+      <tr><td align="left"><strong>Cohu</strong></td><td align="left">COHU</td><td align="left">NASDAQ</td><td align="left">17: Test &amp; Burn-in</td><td align="left">Thermal control handlers &amp; high-power contactors</td><td align="left">76.1x</td><td align="left">N/A</td><td align="left">Low (&lt;$50B)</td><td align="left">Essential for stress-testing AI chips at extreme temperatures.</td></tr>
+      <tr><td align="left"><strong>Yamaichi Electronics</strong></td><td align="left">6941</td><td align="left">TYO</td><td align="left">17: Test &amp; Burn-in</td><td align="left">Precision test sockets &amp; high-speed connectors</td><td align="left">22.0x</td><td align="left">1.59</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Specialized Japanese engineering moat in burn-in sockets.</td></tr>
+      <tr><td align="left"><strong>Sumitomo Bakelite</strong></td><td align="left">4203</td><td align="left">TYO</td><td align="left">18: Pkg Materials</td><td align="left">Dominant global share in epoxy molding compounds</td><td align="left">20.4x</td><td align="left">1.31</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Ubiquitous in traditional and advanced chip encapsulation.</td></tr>
+      <tr><td align="left"><strong>Laser Tek Taiwan</strong></td><td align="left">6207</td><td align="left">TPEX</td><td align="left">18: Pkg Materials</td><td align="left">Specialized embossed carrier tape for automated assembly</td><td align="left">N/A</td><td align="left">N/A</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Niche provider crucial for passive component miniaturization.</td></tr>
+      <tr><td align="left"><strong>Shin-Etsu Polymer</strong></td><td align="left">7970</td><td align="left">TYO</td><td align="left">18: Pkg Materials</td><td align="left">High-end FOUPs and carrier tape integrated with parent</td><td align="left">15.6x</td><td align="left">3.57</td><td align="left">Low (Parent is &gt;$50B, Polymer subsidiary is small)</td><td align="left">Leverages parent ecosystem for high-purity material access.</td></tr>
+      <tr><td align="left"><strong>Resonac Holdings</strong></td><td align="left">4004</td><td align="left">TYO</td><td align="left">18: Pkg Materials</td><td align="left">Broadest portfolio of advanced packaging laminates</td><td align="left">30.0x</td><td align="left">4.28</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Leader in copper-clad laminates and non-conductive films.</td></tr>
+      <tr><td align="left"><strong>Enplas Corp</strong></td><td align="left">6961</td><td align="left">TYO</td><td align="left">18: Pkg Materials</td><td align="left">Highly specialized plastic socket/packaging materials</td><td align="left">~18.0x</td><td align="left">N/A</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Micro-molding expertise difficult for competitors to replicate.</td></tr>
+      <tr><td align="left"><strong>Mitsui Chemicals</strong></td><td align="left">4183</td><td align="left">TYO</td><td align="left">19: EUV Consumables</td><td align="left">Commercializes ASML-certified CNT pellicles for High-NA</td><td align="left">13.3x</td><td align="left">0.35</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Incredible first-mover moat in next-gen EUV pellicles.</td></tr>
+      <tr><td align="left"><strong>S&amp;S Tech</strong></td><td align="left">101490</td><td align="left">KOSDAQ</td><td align="left">19: EUV Consumables</td><td align="left">Domestic pure-play EUV blank masks and pellicle dev</td><td align="left">28.2x</td><td align="left">0.32</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Backed by local foundries pushing for supply chain sovereignty.</td></tr>
+      <tr><td align="left"><strong>Fine Semitech (FST)</strong></td><td align="left">036810</td><td align="left">KOSDAQ</td><td align="left">19: EUV Consumables</td><td align="left">EUV pellicles and precision chilling equipment</td><td align="left">N/A</td><td align="left">N/A</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Duopoly player in Korean EUV ecosystem with S&amp;S Tech.</td></tr>
+      <tr><td align="left"><strong>Gudeng Precision</strong></td><td align="left">3680</td><td align="left">TPEX</td><td align="left">19: EUV Consumables</td><td align="left">Dominant supplier of EUV reticle pods (FOUPs)</td><td align="left">41.2x</td><td align="left">N/A</td><td align="left">Low (&lt;$50B, regional)</td><td align="left">Near sole-source supplier for EUV mask transport boxes.</td></tr>
+      <tr><td align="left"><strong>Entegris</strong></td><td align="left">ENTG</td><td align="left">NASDAQ</td><td align="left">19: EUV Consumables</td><td align="left">Unmatched IP in reticle handling &amp; contamination control</td><td align="left">~37.2x</td><td align="left">1.69</td><td align="left"><strong>Flagged</strong> (Held in SMH, ~$20B Cap)</td><td align="left">Critical choke-point for ultra-pure fluid and mask handling.</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <p><em>Notes:</em></p>
 <ul>
@@ -334,698 +275,8 @@
   <li>Excluded mega-caps like KLAC, AMAT, LIN, and AVGO as they violate the &lt;$50B mainstream risk threshold or are top ETF holdings.</li>
   <li>All foreign stocks listed (TYO, TPEX, XETRA, AIM) are tradeable via Fidelity International.</li>
   <li>No major governance issues or short-seller attacks were flagged for these specific mid-cap/niche players during the screen.</li>
+  <li>SMCI is flagged due to the recent Hindenburg short-seller report.</li>
 </ul>
-
-<h2>Verticals 1-5: Specialty Chemicals, Photomask, Ultra-Pure Materials, Gases &amp; Laminates</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Company</th>
-      <th align="left">Ticker</th>
-      <th align="left">Exchange</th>
-      <th align="left">Vertical</th>
-      <th align="left">Moat Type</th>
-      <th align="left">Fwd PE</th>
-      <th align="left">PEG</th>
-      <th align="left">Mainstream Risk</th>
-      <th align="left">Key Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left"><strong>Entegris</strong></td>
-      <td align="left">ENTG</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">Specialty Fab Chemicals</td>
-      <td align="left">CMP filtration &amp; extreme purity control</td>
-      <td align="left">~37.2x</td>
-      <td align="left">~1.7</td>
-      <td align="left">Moderate (Held in SMH/SOXX)</td>
-      <td align="left">Sole-source dependencies in sub-3nm filtration.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Tokyo Ohka Kogyo</strong></td>
-      <td align="left">4186</td>
-      <td align="left">TYO</td>
-      <td align="left">Specialty Fab Chemicals</td>
-      <td align="left">EUV Photoresist Leader</td>
-      <td align="left">~34.0x</td>
-      <td align="left">~2.0</td>
-      <td align="left">Low ($6B Cap)</td>
-      <td align="left">Critical supplier to major foundries for advanced node lithography.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>HOYA Corp</strong></td>
-      <td align="left">7741</td>
-      <td align="left">TYO</td>
-      <td align="left">Photomask Manufacturing</td>
-      <td align="left">EUV Blank Monopoly (~80% share)</td>
-      <td align="left">~33.5x</td>
-      <td align="left">~2.1</td>
-      <td align="left"><strong>High (&gt;$50B Cap)</strong></td>
-      <td align="left">Unmatched qualification moat in extreme ultraviolet blanks.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Photronics</strong></td>
-      <td align="left">PLAB</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">Photomask Manufacturing</td>
-      <td align="left">Merchant Mask Leader (&lt;5 competitors)</td>
-      <td align="left">~22.0x</td>
-      <td align="left">N/A</td>
-      <td align="left">Low ($3.2B Cap)</td>
-      <td align="left">Has ~5% short interest but no activist campaigns; value play in masks.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Maruwa</strong></td>
-      <td align="left">5344</td>
-      <td align="left">TYO</td>
-      <td align="left">Ultra-Pure Materials</td>
-      <td align="left">Advanced Ceramic Substrates</td>
-      <td align="left">~38.0x</td>
-      <td align="left">~1.5 - 2.4</td>
-      <td align="left">Low</td>
-      <td align="left">Critical thermal management components for optical/AI transceivers.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Ferrotec Holdings</strong></td>
-      <td align="left">6890</td>
-      <td align="left">TYO</td>
-      <td align="left">Ultra-Pure Materials</td>
-      <td align="left">High-Purity Quartz/Ceramics</td>
-      <td align="left">~20.2x</td>
-      <td align="left">~1.0</td>
-      <td align="left">Low</td>
-      <td align="left">High barrier to entry in consumable quartz for semiconductor diffusion.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Nippon Sanso Holdings</strong></td>
-      <td align="left">4091</td>
-      <td align="left">TYO</td>
-      <td align="left">Specialty Gases</td>
-      <td align="left">Electronic Gas Oligopoly</td>
-      <td align="left">~19.5x</td>
-      <td align="left">~1.5</td>
-      <td align="left">Low</td>
-      <td align="left">Avoids the &gt;$50B cap issue of Linde/Air Liquide; massive capex moat.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Kanto Denka Kogyo</strong></td>
-      <td align="left">4047</td>
-      <td align="left">TYO</td>
-      <td align="left">Specialty Gases</td>
-      <td align="left">Specialized Etching Gases (CF4, CHF3)</td>
-      <td align="left">~18.1x</td>
-      <td align="left">~0.4</td>
-      <td align="left">Low</td>
-      <td align="left">Highly specialized niche in fluorochemicals with a very attractive PEG ratio.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Ajinomoto</strong></td>
-      <td align="left">2802</td>
-      <td align="left">TYO</td>
-      <td align="left">Adv. Substrate Laminates</td>
-      <td align="left">ABF Monopoly (~100% share)</td>
-      <td align="left">~36.5x</td>
-      <td align="left">~3.2</td>
-      <td align="left">Low (Not in Semi ETFs)</td>
-      <td align="left">Undisputed choke-point material (ABF) for high-end CPU/GPU packaging.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Ibiden</strong></td>
-      <td align="left">4062</td>
-      <td align="left">TYO</td>
-      <td align="left">Adv. Substrate Laminates</td>
-      <td align="left">FC-BGA Substrate Co-development</td>
-      <td align="left">~65.0x</td>
-      <td align="left">~2.3</td>
-      <td align="left">Low</td>
-      <td align="left">Essential partner for advanced AI packaging, though valuation is currently stretched.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Verticals 6-10: Ion Implant/Etch, Wafer Robotics, Precision Power, TIMs, &amp; Liquid Cooling</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Company</th>
-      <th align="left">Ticker</th>
-      <th align="left">Exchange</th>
-      <th align="left">Vertical</th>
-      <th align="left">Moat Type</th>
-      <th align="left">Fwd PE</th>
-      <th align="left">PEG</th>
-      <th align="left">Mainstream Risk</th>
-      <th align="left">Key Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left"><strong>Applied Materials</strong></td>
-      <td align="left">AMAT</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">6: Ion Implant &amp; Etch</td>
-      <td align="left">R&amp;D Scale / Duopoly</td>
-      <td align="left">~39x</td>
-      <td align="left">~1.5</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">Dominates both etch and ion implant, but highly mainstream.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Lam Research</strong></td>
-      <td align="left">LRCX</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">6: Ion Implant &amp; Etch</td>
-      <td align="left">Monopoly in Memory Etch</td>
-      <td align="left">~52x</td>
-      <td align="left">~2.0</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">Undisputed leader in conductor and advanced packaging etch.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Tokyo Electron</strong></td>
-      <td align="left">8035</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">6: Ion Implant &amp; Etch</td>
-      <td align="left">Oligopoly</td>
-      <td align="left">~25x</td>
-      <td align="left">~1.3</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">Key competitor to AMAT/LRCX in dielectric etch.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Axcelis Technologies</strong></td>
-      <td align="left">ACLS</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">6: Ion Implant &amp; Etch</td>
-      <td align="left">Duopoly (Ion Implant)</td>
-      <td align="left">~42.5x</td>
-      <td align="left">1.25</td>
-      <td align="left">No</td>
-      <td align="left">Pure-play ion implant supplier forming a duopoly with AMAT.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>ULVAC</strong></td>
-      <td align="left">6728</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">6: Ion Implant &amp; Etch</td>
-      <td align="left">Niche Vacuum Expertise</td>
-      <td align="left">~15x</td>
-      <td align="left">~1.0</td>
-      <td align="left">No</td>
-      <td align="left">Specialized in niche flat panel and advanced packaging etch.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Rorze Corp</strong></td>
-      <td align="left">6323</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">7: Wafer Robotics</td>
-      <td align="left">Vacuum Robotics IP</td>
-      <td align="left">~25x</td>
-      <td align="left">1.16</td>
-      <td align="left">No</td>
-      <td align="left">Dominant, highly specialized player in ultra-clean vacuum wafer transfer.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Hirata Corp</strong></td>
-      <td align="left">6258</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">7: Wafer Robotics</td>
-      <td align="left">High Qualification Barrier</td>
-      <td align="left">~12x</td>
-      <td align="left">~1.5</td>
-      <td align="left">No</td>
-      <td align="left">Strong systems integration for EFEM and factory automation.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Kawasaki Heavy Ind.</strong></td>
-      <td align="left">7012</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">7: Wafer Robotics</td>
-      <td align="left">Integration &amp; Scale</td>
-      <td align="left">~14x</td>
-      <td align="left">~1.2</td>
-      <td align="left">No</td>
-      <td align="left">Major provider of high-payload cleanroom robotic arms.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Sinfonia Technology</strong></td>
-      <td align="left">6507</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">7: Wafer Robotics</td>
-      <td align="left">Specialized Cleanroom IP</td>
-      <td align="left">~11x</td>
-      <td align="left">~0.9</td>
-      <td align="left">No</td>
-      <td align="left">Niche provider of highly specialized semiconductor clean transport systems.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Daihen Corp</strong></td>
-      <td align="left">6622</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">7: Wafer Robotics</td>
-      <td align="left">Process Reliability</td>
-      <td align="left">~14x</td>
-      <td align="left">~1.3</td>
-      <td align="left">No</td>
-      <td align="left">Significant market share in dedicated cleanroom transfer robots.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Vicor Corp</strong></td>
-      <td align="left">VICR</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">8: Precision Power</td>
-      <td align="left">Proprietary 48V IP (FPA)</td>
-      <td align="left">~37x</td>
-      <td align="left">6.1</td>
-      <td align="left">No</td>
-      <td align="left">High moat with unique Factorized Power Architecture for AI GPUs.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Monolithic Power</strong></td>
-      <td align="left">MPWR</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">8: Precision Power</td>
-      <td align="left">Digital Control IP</td>
-      <td align="left">~45x</td>
-      <td align="left">~2.5</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">Leading digital multi-phase controller supplier for AI clusters.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Infineon</strong></td>
-      <td align="left">IFNNY</td>
-      <td align="left">OTC/FRA</td>
-      <td align="left">8: Precision Power</td>
-      <td align="left">Scale / SiC &amp; GaN IP</td>
-      <td align="left">~15x</td>
-      <td align="left">~1.8</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">OptiMOS power stages are ubiquitous in 48V AI servers.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Renesas Electronics</strong></td>
-      <td align="left">6723</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">8: Precision Power</td>
-      <td align="left">Mixed-Signal IP</td>
-      <td align="left">~12x</td>
-      <td align="left">~1.1</td>
-      <td align="left">No</td>
-      <td align="left">Strong footprint in high-speed data center VRMs and PMICs.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Delta Electronics</strong></td>
-      <td align="left">2308</td>
-      <td align="left">TWSE (TW)</td>
-      <td align="left">8: Precision Power</td>
-      <td align="left">Manufacturing Scale</td>
-      <td align="left">~22x</td>
-      <td align="left">~1.4</td>
-      <td align="left">No</td>
-      <td align="left">Leading provider of power delivery infrastructure and bus converters.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Henkel AG</strong></td>
-      <td align="left">HEN3</td>
-      <td align="left">XETRA (EU)</td>
-      <td align="left">9: TIMs &amp; Spreaders</td>
-      <td align="left">Chemical Formulation IP</td>
-      <td align="left">~14x</td>
-      <td align="left">~1.8</td>
-      <td align="left">No</td>
-      <td align="left">Loctite/Bergquist brands dominate high-end phase-change TIMs.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Dow Inc.</strong></td>
-      <td align="left">DOW</td>
-      <td align="left">NYSE</td>
-      <td align="left">9: TIMs &amp; Spreaders</td>
-      <td align="left">Material Science Scale</td>
-      <td align="left">~16x</td>
-      <td align="left">~2.0</td>
-      <td align="left">No</td>
-      <td align="left">Crucial supplier of base silicone polymers for thermal pads.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Shin-Etsu Chemical</strong></td>
-      <td align="left">4063</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">9: TIMs &amp; Spreaders</td>
-      <td align="left">Pure Silicone Dominance</td>
-      <td align="left">~21x</td>
-      <td align="left">~1.9</td>
-      <td align="left">Yes (&gt;$50B)</td>
-      <td align="left">Key chemical supplier for advanced chip thermal packaging.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Shinko Electric</strong></td>
-      <td align="left">6967</td>
-      <td align="left">TSE (JP)</td>
-      <td align="left">9: TIMs &amp; Spreaders</td>
-      <td align="left">Precision Packaging Moat</td>
-      <td align="left">~20x</td>
-      <td align="left">~1.5</td>
-      <td align="left">No</td>
-      <td align="left">Dominant in CPU/GPU integrated heat spreader lids.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Jentech Precision</strong></td>
-      <td align="left">3653</td>
-      <td align="left">TWSE (TW)</td>
-      <td align="left">9: TIMs &amp; Spreaders</td>
-      <td align="left">High-Yield Stamping</td>
-      <td align="left">~59x</td>
-      <td align="left">1.8</td>
-      <td align="left">No</td>
-      <td align="left">Major supplier of massive heat spreaders for high-end AI accelerators.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Vertiv</strong></td>
-      <td align="left">VRT</td>
-      <td align="left">NYSE</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Global Service Network</td>
-      <td align="left">~35x</td>
-      <td align="left">~1.2</td>
-      <td align="left">No</td>
-      <td align="left">End-to-end CDU and thermal management scale advantage.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Modine Manufacturing</strong></td>
-      <td align="left">MOD</td>
-      <td align="left">NYSE</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">High-Volume Mfg</td>
-      <td align="left">~44x</td>
-      <td align="left">1.3</td>
-      <td align="left">No</td>
-      <td align="left">Rapidly growing specialized CDU manufacturer.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Asetek</strong></td>
-      <td align="left">ASTK</td>
-      <td align="left">OSE (EU)</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Direct-to-Chip Patents</td>
-      <td align="left">~15x</td>
-      <td align="left">~1.0</td>
-      <td align="left">No</td>
-      <td align="left">High-performance D2C liquid cooling specialist.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Asia Vital Components</strong></td>
-      <td align="left">3017</td>
-      <td align="left">TWSE (TW)</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Integrated Thermal Scale</td>
-      <td align="left">~25x</td>
-      <td align="left">~1.5</td>
-      <td align="left">No</td>
-      <td align="left">Leading Taiwanese thermal supplier for liquid cooling cold plates.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Auras Technology</strong></td>
-      <td align="left">3324</td>
-      <td align="left">TWSE (TW)</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Cold Plate Design IP</td>
-      <td align="left">~30x</td>
-      <td align="left">~1.6</td>
-      <td align="left">No</td>
-      <td align="left">Strong design wins in high-end server cold plates and manifolds.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>nVent Electric</strong></td>
-      <td align="left">NVT</td>
-      <td align="left">NYSE</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Leak-Free Manifold IP</td>
-      <td align="left">~20x</td>
-      <td align="left">~1.5</td>
-      <td align="left">No</td>
-      <td align="left">Leading provider of specialized rack manifolds.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Supermicro</strong></td>
-      <td align="left">SMCI</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">10: Liquid Cooling</td>
-      <td align="left">Time-to-Market</td>
-      <td align="left">~15x</td>
-      <td align="left">~0.5</td>
-      <td align="left">GOVERNANCE FLAG</td>
-      <td align="left">Aggressive in DLC racks, but faces severe scrutiny (Hindenburg short report).</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><em>Governance Note: SMCI is flagged due to the recent Hindenburg short-seller report. No major governance flags were found for the others in this batch.</em></p>
-
-<h2>Verticals 16-19: Adv. Packaging, Test &amp; Burn-In, Materials, &amp; EUV Consumables</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Company</th>
-      <th align="left">Ticker</th>
-      <th align="left">Exchange</th>
-      <th align="left">Vertical</th>
-      <th align="left">Moat Type</th>
-      <th align="left">Fwd PE</th>
-      <th align="left">PEG</th>
-      <th align="left">Mainstream Risk</th>
-      <th align="left">Key Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="left"><strong>ASE Technology</strong></td>
-      <td align="left">ASX</td>
-      <td align="left">NYSE</td>
-      <td align="left">16: Adv. Pkg OSAT</td>
-      <td align="left">Massive scale in CoWoS overflow &amp; Fan-Out</td>
-      <td align="left">32.0x</td>
-      <td align="left">0.7 - 1.6</td>
-      <td align="left"><strong>Flagged</strong> (Top holding in SMH/SOXX)</td>
-      <td align="left">World's largest OSAT, critical TSMC partner.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Amkor Technology</strong></td>
-      <td align="left">AMKR</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">16: Adv. Pkg OSAT</td>
-      <td align="left">Advanced 2.5D integration, TSMC US packaging partner</td>
-      <td align="left">31.6x</td>
-      <td align="left">9.07</td>
-      <td align="left">Low (&lt;$50B, not top ETF weight)</td>
-      <td align="left">Expanding heavily into US-based advanced packaging.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Powertech Tech</strong></td>
-      <td align="left">6239</td>
-      <td align="left">TWSE</td>
-      <td align="left">16: Adv. Pkg OSAT</td>
-      <td align="left">Advanced memory packaging &amp; panel-level packaging</td>
-      <td align="left">18.8x</td>
-      <td align="left">0.59</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">High yield, migrating to panel-level fan-out.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>King Yuan Elec (KYEC)</strong></td>
-      <td align="left">2449</td>
-      <td align="left">TWSE</td>
-      <td align="left">16: Adv. Pkg OSAT</td>
-      <td align="left">Dominant capacity for AI GPU final test handling</td>
-      <td align="left">28.5x</td>
-      <td align="left">0.84</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Heavily relied upon for Nvidia/AMD final testing.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>ChipMOS Tech</strong></td>
-      <td align="left">IMOS</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">16: Adv. Pkg OSAT</td>
-      <td align="left">Specialized memory and DDIC testing</td>
-      <td align="left">12.0x</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B)</td>
-      <td align="left">Niche focus acts as a buffer against pure logic competition.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Aehr Test Systems</strong></td>
-      <td align="left">AEHR</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">17: Test &amp; Burn-in</td>
-      <td align="left">FOX-P wafer-level burn-in system (near sole-source)</td>
-      <td align="left">~633x</td>
-      <td align="left">~80.0</td>
-      <td align="left">Low (Small Cap, volatile)</td>
-      <td align="left">Extremely high multiples; high short interest (~18%) but no SEC flags.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>FormFactor</strong></td>
-      <td align="left">FORM</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">17: Test &amp; Burn-in</td>
-      <td align="left">Advanced MEMS probe cards &amp; cryogenic testing</td>
-      <td align="left">48.0x</td>
-      <td align="left">0.60</td>
-      <td align="left">Low (&lt;$50B)</td>
-      <td align="left">Critical for testing complex multi-die chiplets.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Leeno Industrial</strong></td>
-      <td align="left">058470</td>
-      <td align="left">KOSDAQ</td>
-      <td align="left">17: Test &amp; Burn-in</td>
-      <td align="left">Proprietary "Leeno pins" &amp; high-freq fine pitch sockets</td>
-      <td align="left">47.0x</td>
-      <td align="left">2.72</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Phenomenal margin structure and high qualification moat.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Cohu</strong></td>
-      <td align="left">COHU</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">17: Test &amp; Burn-in</td>
-      <td align="left">Thermal control handlers &amp; high-power contactors</td>
-      <td align="left">76.1x</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B)</td>
-      <td align="left">Essential for stress-testing AI chips at extreme temperatures.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Yamaichi Electronics</strong></td>
-      <td align="left">6941</td>
-      <td align="left">TYO</td>
-      <td align="left">17: Test &amp; Burn-in</td>
-      <td align="left">Precision test sockets &amp; high-speed connectors</td>
-      <td align="left">22.0x</td>
-      <td align="left">1.59</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Specialized Japanese engineering moat in burn-in sockets.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Sumitomo Bakelite</strong></td>
-      <td align="left">4203</td>
-      <td align="left">TYO</td>
-      <td align="left">18: Pkg Materials</td>
-      <td align="left">Dominant global share in epoxy molding compounds</td>
-      <td align="left">20.4x</td>
-      <td align="left">1.31</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Ubiquitous in traditional and advanced chip encapsulation.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Laser Tek Taiwan</strong></td>
-      <td align="left">6207</td>
-      <td align="left">TPEX</td>
-      <td align="left">18: Pkg Materials</td>
-      <td align="left">Specialized embossed carrier tape for automated assembly</td>
-      <td align="left">N/A</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Niche provider crucial for passive component miniaturization.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Shin-Etsu Polymer</strong></td>
-      <td align="left">7970</td>
-      <td align="left">TYO</td>
-      <td align="left">18: Pkg Materials</td>
-      <td align="left">High-end FOUPs and carrier tape integrated with parent</td>
-      <td align="left">15.6x</td>
-      <td align="left">3.57</td>
-      <td align="left">Low (Parent is &gt;$50B, Polymer subsidiary is small)</td>
-      <td align="left">Leverages parent ecosystem for high-purity material access.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Resonac Holdings</strong></td>
-      <td align="left">4004</td>
-      <td align="left">TYO</td>
-      <td align="left">18: Pkg Materials</td>
-      <td align="left">Broadest portfolio of advanced packaging laminates</td>
-      <td align="left">30.0x</td>
-      <td align="left">4.28</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Leader in copper-clad laminates and non-conductive films.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Enplas Corp</strong></td>
-      <td align="left">6961</td>
-      <td align="left">TYO</td>
-      <td align="left">18: Pkg Materials</td>
-      <td align="left">Highly specialized plastic socket/packaging materials</td>
-      <td align="left">~18.0x</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Micro-molding expertise difficult for competitors to replicate.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Mitsui Chemicals</strong></td>
-      <td align="left">4183</td>
-      <td align="left">TYO</td>
-      <td align="left">19: EUV Consumables</td>
-      <td align="left">Commercializes ASML-certified CNT pellicles for High-NA</td>
-      <td align="left">13.3x</td>
-      <td align="left">0.35</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Incredible first-mover moat in next-gen EUV pellicles.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>S&amp;S Tech</strong></td>
-      <td align="left">101490</td>
-      <td align="left">KOSDAQ</td>
-      <td align="left">19: EUV Consumables</td>
-      <td align="left">Domestic pure-play EUV blank masks and pellicle dev</td>
-      <td align="left">28.2x</td>
-      <td align="left">0.32</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Backed by local foundries pushing for supply chain sovereignty.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Fine Semitech (FST)</strong></td>
-      <td align="left">036810</td>
-      <td align="left">KOSDAQ</td>
-      <td align="left">19: EUV Consumables</td>
-      <td align="left">EUV pellicles and precision chilling equipment</td>
-      <td align="left">N/A</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Duopoly player in Korean EUV ecosystem with S&amp;S Tech.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Gudeng Precision</strong></td>
-      <td align="left">3680</td>
-      <td align="left">TPEX</td>
-      <td align="left">19: EUV Consumables</td>
-      <td align="left">Dominant supplier of EUV reticle pods (FOUPs)</td>
-      <td align="left">41.2x</td>
-      <td align="left">N/A</td>
-      <td align="left">Low (&lt;$50B, regional)</td>
-      <td align="left">Near sole-source supplier for EUV mask transport boxes.</td>
-    </tr>
-    <tr>
-      <td align="left"><strong>Entegris</strong></td>
-      <td align="left">ENTG</td>
-      <td align="left">NASDAQ</td>
-      <td align="left">19: EUV Consumables</td>
-      <td align="left">Unmatched IP in reticle handling &amp; contamination control</td>
-      <td align="left">~37.2x</td>
-      <td align="left">1.69</td>
-      <td align="left"><strong>Flagged</strong> (Held in SMH, ~$20B Cap)</td>
-      <td align="left">Critical choke-point for ultra-pure fluid and mask handling.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><em>(Note: Entegris appears in multiple verticals due to its sprawling footprint in both specialty chemicals and EUV handling. It is highly strategic but carries elevated mainstream risk).</em></p>
 
 <hr>
 
@@ -1046,5 +297,104 @@
   <li><strong>Auras Technology (3324.TW):</strong> Strong design wins in high-end server cold plates and manifolds for liquid cooling, offering exposure to the thermal management boom while avoiding SMCI's governance risks.</li>
 </ol>
 
+<hr>
+
+<h2>Vertical Definitions</h2>
+
+<p><strong>Advanced Ceramics and Ultra-Pure Materials</strong>: Semiconductor manufacturing equipment requires components capable of withstanding extreme thermal, chemical, and physical stress. Advanced ceramics and ultra-pure quartz provide the material resilience and purity necessary to prevent contamination during wafer processing.</p>
+
+<p><strong>Advanced Packaging OSAT</strong>: Outsourced Semiconductor Assembly and Test (OSAT) providers handle the final assembly of finished semiconductor wafers. Advanced packaging involves connecting multiple separate chiplets into a single high-performance package utilizing 2.5D interposers and 3D stacking techniques.</p>
+
+<p><strong>Advanced Substrate Laminates</strong>: High-performance processors require specialized organic substrates to route signals between the silicon die and the motherboard. Materials such as Ajinomoto Build-up Film provide crucial insulation and fine-pitch routing capabilities.</p>
+
+<p><strong>Epitaxial Wafers</strong>: The foundation of compound semiconductors and advanced silicon devices begins with specialized crystalline layers grown on base wafers. Epitaxial wafers determine the specific electrical and optical properties of the final integrated circuit.</p>
+
+<p><strong>EUV Consumables</strong>: Extreme ultraviolet lithography requires unique protective infrastructure, including specialized pellicles and reticle pods. These consumables protect delicate photomasks from contamination during the high-energy lithography process.</p>
+
+<p><strong>Gas Delivery and Contamination Control</strong>: Nanoscale fabrication processes depend heavily on the precise application of ultra-pure process gases. Gas delivery systems govern the flow and filtration of these chemicals, minimizing yield-destroying particulate matter.</p>
+
+<p><strong>Ion Implant and Etch</strong>: Semiconductor electrical properties are altered by embedding specific ions into the silicon lattice. Etch equipment subsequently removes material selectively to form the complex vertical structures of modern transistors and memory cells.</p>
+
+<p><strong>Liquid Cooling</strong>: Air cooling is insufficient for modern high-wattage server racks. Liquid cooling systems, including cold plates and coolant distribution units, remove heat via specialized fluids pumped directly to the compute components.</p>
+
+<p><strong>Metrology and Inspection</strong>: Advanced node geometries demand precise measurement and defect detection at the nanometer scale. Metrology tools provide continuous process control data to ensure high yield rates throughout the semiconductor fabrication lifecycle.</p>
+
+<p><strong>Optical Interconnect</strong>: High-speed network infrastructure relies on optical interconnects to transmit data between compute nodes. These components translate electronic signals into photons, enabling the massive bandwidth required for artificial intelligence cluster communication.</p>
+
+<p><strong>Packaging Materials</strong>: Encapsulating integrated circuits protects them from environmental damage and physical stress. Advanced packaging materials include specialized epoxy molding compounds and fine-pitch interconnection films.</p>
+
+<p><strong>Photomask Manufacturing</strong>: Circuit patterns are transferred onto silicon wafers using quartz plates known as photomasks. Producing blank masks and patterned reticles for extreme ultraviolet lithography requires unparalleled precision and represents a critical supply chain bottleneck.</p>
+
+<p><strong>Precision Power</strong>: Artificial intelligence accelerators draw immense electrical current, demanding highly efficient power delivery networks. Precision power components step down voltage and regulate current directly adjacent to the processor core.</p>
+
+<p><strong>Specialty Chemicals and Gases</strong>: Lithography, etching, and deposition steps consume vast quantities of highly specialized chemical compounds and fluorogases. Suppliers in this vertical maintain deep chemical formulation capabilities and strict purity standards.</p>
+
+<p><strong>Test and Burn-in</strong>: Guaranteeing the reliability of expensive processors requires rigorous final validation. Test equipment and specialized burn-in sockets subject chips to extreme electrical and thermal stress to identify early failures before deployment.</p>
+
+<p><strong>Thermal Interface Materials (TIMs) and Spreaders</strong>: High-density compute environments generate substantial localized heat. Thermal interface materials and integrated heat spreaders transfer this thermal energy efficiently from the silicon die to the cooling apparatus.</p>
+
+<p><strong>Wafer Robotics</strong>: Silicon wafers must move flawlessly through hundreds of process steps inside automated fabrication facilities. Specialized vacuum and cleanroom robotics ensure rapid, contamination-free transport of wafers between processing chambers.</p>
+
+<script>
+  // Search Filter logic
+  const filterInput = document.getElementById('tableFilter');
+  filterInput.addEventListener('input', function(e) {
+    const term = e.target.value.toLowerCase();
+    const rows = document.querySelectorAll('#stocksTable tbody tr');
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(term) ? '' : 'none';
+    });
+  });
+
+  // Table Sort logic
+  document.querySelectorAll('#stocksTable th').forEach((th, index) => {
+    th.addEventListener('click', () => {
+      const table = th.closest('table');
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const isAscending = th.classList.contains('sort-asc');
+      
+      // Clear sorting classes
+      table.querySelectorAll('th').forEach(header => {
+        header.classList.remove('sort-asc', 'sort-desc');
+      });
+      
+      // Toggle class
+      th.classList.add(isAscending ? 'sort-desc' : 'sort-asc');
+      
+      // Sort rows
+      rows.sort((a, b) => {
+        const aVal = a.cells[index].textContent.trim();
+        const bVal = b.cells[index].textContent.trim();
+        
+        // Custom parser to handle numerical columns with prefixes like ~
+        const parseNum = (val) => {
+          if (val === 'N/A') return -1;
+          // Strip non-numeric except . and -
+          const numStr = val.replace(/[^0-9.-]+/g, "");
+          const num = parseFloat(numStr);
+          return isNaN(num) ? val : num;
+        };
+        
+        const aNum = parseNum(aVal);
+        const bNum = parseNum(bVal);
+        
+        // Numerical sort if both are valid numbers
+        if (typeof aNum === 'number' && typeof bNum === 'number') {
+           return isAscending ? aNum - bNum : bNum - aNum;
+        }
+        
+        // Otherwise string sort
+        return isAscending 
+          ? aVal.localeCompare(bVal) 
+          : bVal.localeCompare(aVal);
+      });
+      
+      // Append sorted rows
+      tbody.append(...rows);
+    });
+  });
+</script>
 </body>
 </html>
