@@ -10,6 +10,7 @@ export default defineConfig({
 	redirects: {
 		'/2026/01/24/my-brother-is-building-a-data-platform-for-fishermen-and-its-exposing-how-broken-the-industry-really-is/': '/blog/my-brother-building-data-platform-fishermen',
 		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions',
+		'/all-writing/': '/blog/',
 	},
 	integrations: [mdx(), sitemap()],
 	fonts: [

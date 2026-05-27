@@ -14,6 +14,20 @@ const { title, description, pubDate, updatedDate, heroImage, ogImage } = Astro.p
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} ogImage={ogImage} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Article",
+			"headline": title,
+			"description": description,
+			"image": ogImage ? new URL(ogImage, Astro.site).toString() : new URL('/og-default.png', Astro.site).toString(),
+			"author": {
+				"@type": "Person",
+				"name": "Jack Maguire",
+				"url": Astro.site?.toString()
+			},
+			"datePublished": pubDate.toISOString(),
+			"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString()
+		})} />
 		<style>
 			.hero-image {
 				width: 100%;
