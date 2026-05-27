@@ -1,5 +1,6 @@
 ---
 const title = "Admin";
+const range = (n: number) => Array.from({ length: n }, (_, i) => i);
 ---
 
 <!doctype html>
@@ -158,7 +159,7 @@ const title = "Admin";
 
     .duration-row {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       margin-bottom: 0.8rem;
     }
 
@@ -169,10 +170,10 @@ const title = "Admin";
       flex: 1;
     }
 
-    .duration-field input[type="number"] {
+    .duration-field select {
       width: 100%;
-      padding: 0.6rem 0.3rem;
-      font-size: 1.1rem;
+      padding: 0.5rem 0.1rem;
+      font-size: 1rem;
       font-family: Georgia, serif;
       text-align: center;
       border: 1px solid #ddd;
@@ -180,20 +181,16 @@ const title = "Admin";
       outline: none;
       color: #333;
       background: #faf9f6;
-      -moz-appearance: textfield;
+      appearance: none;
+      cursor: pointer;
     }
 
-    .duration-field input[type="number"]::-webkit-outer-spin-button,
-    .duration-field input[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-
-    .duration-field input[type="number"]:focus {
+    .duration-field select:focus {
       border-color: var(--accent);
     }
 
     .duration-field .unit-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #aaa;
@@ -230,24 +227,34 @@ const title = "Admin";
       <p class="section-label">Set a custom start time</p>
       <div class="duration-row">
         <div class="duration-field">
-          <input type="number" id="dur-weeks" min="0" value="0" />
+          <select id="dur-weeks">
+            {range(53).map(n => <option value={n}>{n}</option>)}
+          </select>
           <span class="unit-label">weeks</span>
         </div>
         <div class="duration-field">
-          <input type="number" id="dur-days" min="0" value="0" />
+          <select id="dur-days">
+            {range(7).map(n => <option value={n}>{n}</option>)}
+          </select>
           <span class="unit-label">days</span>
         </div>
         <div class="duration-field">
-          <input type="number" id="dur-hours" min="0" value="0" />
+          <select id="dur-hours">
+            {range(24).map(n => <option value={n}>{n}</option>)}
+          </select>
           <span class="unit-label">hours</span>
         </div>
         <div class="duration-field">
-          <input type="number" id="dur-minutes" min="0" value="0" />
-          <span class="unit-label">minutes</span>
+          <select id="dur-minutes">
+            {range(60).map(n => <option value={n}>{n}</option>)}
+          </select>
+          <span class="unit-label">mins</span>
         </div>
         <div class="duration-field">
-          <input type="number" id="dur-seconds" min="0" value="0" />
-          <span class="unit-label">seconds</span>
+          <select id="dur-seconds">
+            {range(60).map(n => <option value={n}>{n}</option>)}
+          </select>
+          <span class="unit-label">secs</span>
         </div>
       </div>
       <button class="set-btn" onclick="setCustomTime()">Set Start Time</button>
@@ -257,7 +264,7 @@ const title = "Admin";
     </div>
   </div>
 
-  <script>
+  <script is:inline>
     const STORAGE_KEY = 'sobriety_start';
     const PIN = '3868';
 
@@ -287,11 +294,11 @@ const title = "Admin";
     }
 
     function setCustomTime() {
-      const weeks   = parseInt(document.getElementById('dur-weeks').value)   || 0;
-      const days    = parseInt(document.getElementById('dur-days').value)    || 0;
-      const hours   = parseInt(document.getElementById('dur-hours').value)   || 0;
-      const minutes = parseInt(document.getElementById('dur-minutes').value) || 0;
-      const seconds = parseInt(document.getElementById('dur-seconds').value) || 0;
+      const weeks   = parseInt(document.getElementById('dur-weeks').value,   10) || 0;
+      const days    = parseInt(document.getElementById('dur-days').value,    10) || 0;
+      const hours   = parseInt(document.getElementById('dur-hours').value,   10) || 0;
+      const minutes = parseInt(document.getElementById('dur-minutes').value, 10) || 0;
+      const seconds = parseInt(document.getElementById('dur-seconds').value, 10) || 0;
       const ms = (((weeks * 7 * 24 * 60) + (days * 24 * 60) + (hours * 60) + minutes) * 60 + seconds) * 1000;
       localStorage.setItem(STORAGE_KEY, String(Date.now() - ms));
       const msg = document.getElementById('custom-confirm-msg');
