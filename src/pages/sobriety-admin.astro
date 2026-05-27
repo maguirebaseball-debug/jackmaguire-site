@@ -1,0 +1,303 @@
+---
+const title = "Admin";
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title}</title>
+  <style>
+    :root {
+      --accent: #556B2F;
+      --accent-dark: #3A4B1C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf9f6;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-bottom: 1.8rem;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.3em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      font-family: Georgia, serif;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    input[type="password"]:focus {
+      border-color: var(--accent);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 0.9rem;
+      font-family: Georgia, serif;
+      letter-spacing: 0.08em;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: var(--accent-dark);
+    }
+
+    .error {
+      font-size: 0.8rem;
+      color: #c0392b;
+      margin-top: 0.6rem;
+      display: none;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.visible {
+      display: block;
+    }
+
+    .reset-btn {
+      background: #c0392b;
+      margin-top: 0;
+    }
+
+    .reset-btn:hover {
+      background: #a93226;
+    }
+
+    .reset-label {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 1.2rem;
+    }
+
+    .back {
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: #888;
+    }
+
+    .confirm-msg {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 0.8rem;
+      display: none;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 1.8rem 0 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .duration-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .duration-field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .duration-field input[type="number"] {
+      width: 100%;
+      padding: 0.6rem 0.3rem;
+      font-size: 1.1rem;
+      font-family: Georgia, serif;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      color: #333;
+      background: #faf9f6;
+      -moz-appearance: textfield;
+    }
+
+    .duration-field input[type="number"]::-webkit-outer-spin-button,
+    .duration-field input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .duration-field input[type="number"]:focus {
+      border-color: var(--accent);
+    }
+
+    .duration-field .unit-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      margin-top: 0.3rem;
+    }
+
+    .set-btn {
+      background: #7a6a3a;
+    }
+
+    .set-btn:hover {
+      background: #5c4f2a;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="login-view">
+      <h1>Admin Login</h1>
+      <p class="hint">4-digit PIN</p>
+      <input type="password" id="pin-input" maxlength="4" inputmode="numeric" autocomplete="off" />
+      <button onclick="checkPin()">Enter</button>
+      <p class="error" id="error-msg">Incorrect PIN.</p>
+    </div>
+
+    <div class="panel" id="admin-panel">
+      <h1>Reset Timer</h1>
+      <p class="reset-label">This will reset the counter to right now.</p>
+      <button class="reset-btn" onclick="resetTimer()">Reset to Right Now</button>
+      <p class="confirm-msg" id="confirm-msg">Counter reset.</p>
+
+      <hr class="divider" />
+
+      <p class="section-label">Set a custom start time</p>
+      <div class="duration-row">
+        <div class="duration-field">
+          <input type="number" id="dur-weeks" min="0" value="0" />
+          <span class="unit-label">weeks</span>
+        </div>
+        <div class="duration-field">
+          <input type="number" id="dur-days" min="0" value="0" />
+          <span class="unit-label">days</span>
+        </div>
+        <div class="duration-field">
+          <input type="number" id="dur-hours" min="0" value="0" />
+          <span class="unit-label">hours</span>
+        </div>
+        <div class="duration-field">
+          <input type="number" id="dur-minutes" min="0" value="0" />
+          <span class="unit-label">minutes</span>
+        </div>
+        <div class="duration-field">
+          <input type="number" id="dur-seconds" min="0" value="0" />
+          <span class="unit-label">seconds</span>
+        </div>
+      </div>
+      <button class="set-btn" onclick="setCustomTime()">Set Start Time</button>
+      <p class="confirm-msg" id="custom-confirm-msg">Start time set.</p>
+
+      <a href="/sobriety" class="back">back to timer</a>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'sobriety_start';
+    const PIN = '3868';
+
+    const pinInput = document.getElementById('pin-input');
+
+    pinInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPin();
+    });
+
+    function checkPin() {
+      const val = pinInput.value.trim();
+      if (val === PIN) {
+        document.getElementById('login-view').style.display = 'none';
+        document.getElementById('admin-panel').classList.add('visible');
+      } else {
+        document.getElementById('error-msg').style.display = 'block';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    }
+
+    function resetTimer() {
+      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+      const msg = document.getElementById('confirm-msg');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
+
+    function setCustomTime() {
+      const weeks   = parseInt(document.getElementById('dur-weeks').value)   || 0;
+      const days    = parseInt(document.getElementById('dur-days').value)    || 0;
+      const hours   = parseInt(document.getElementById('dur-hours').value)   || 0;
+      const minutes = parseInt(document.getElementById('dur-minutes').value) || 0;
+      const seconds = parseInt(document.getElementById('dur-seconds').value) || 0;
+      const ms = (((weeks * 7 * 24 * 60) + (days * 24 * 60) + (hours * 60) + minutes) * 60 + seconds) * 1000;
+      localStorage.setItem(STORAGE_KEY, String(Date.now() - ms));
+      const msg = document.getElementById('custom-confirm-msg');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
+  </script>
+</body>
+</html>

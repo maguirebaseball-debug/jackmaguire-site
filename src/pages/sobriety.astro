@@ -1,0 +1,185 @@
+---
+const title = "Counter";
+const description = "A personal count-up timer.";
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title}</title>
+  <style>
+    :root {
+      --accent: #556B2F;
+      --accent-dark: #3A4B1C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf9f6;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .timer {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 70px;
+    }
+
+    .number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #aaa;
+      margin-top: 0.4rem;
+    }
+
+    .since {
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-top: 2.5rem;
+    }
+
+    .admin-link {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.7rem;
+      color: #ccc;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .admin-link:hover {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="label">Time since last drink</p>
+
+    <div class="timer">
+      <div class="unit">
+        <span class="number" id="weeks">0</span>
+        <span class="unit-label">weeks</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="days">0</span>
+        <span class="unit-label">days</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="hours">0</span>
+        <span class="unit-label">hours</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="minutes">0</span>
+        <span class="unit-label">minutes</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="seconds">0</span>
+        <span class="unit-label">seconds</span>
+      </div>
+    </div>
+
+    <p class="since" id="since-text"></p>
+  </div>
+
+  <a href="/sobriety-admin" class="admin-link">admin login</a>
+
+  <script>
+    const STORAGE_KEY = 'sobriety_start';
+
+    function getStart() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) {
+        const now = Date.now();
+        localStorage.setItem(STORAGE_KEY, String(now));
+        return now;
+      }
+      return parseInt(stored, 10);
+    }
+
+    function pad(n) {
+      return String(n).padStart(2, '0');
+    }
+
+    function tick() {
+      const start = getStart();
+      const now = Date.now();
+      let diff = Math.floor((now - start) / 1000);
+
+      const weeks = Math.floor(diff / (7 * 24 * 3600));
+      diff -= weeks * 7 * 24 * 3600;
+      const days = Math.floor(diff / (24 * 3600));
+      diff -= days * 24 * 3600;
+      const hours = Math.floor(diff / 3600);
+      diff -= hours * 3600;
+      const minutes = Math.floor(diff / 60);
+      const seconds = diff % 60;
+
+      document.getElementById('weeks').textContent = weeks;
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+
+      const startDate = new Date(getStart());
+      const opts = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' };
+      document.getElementById('since-text').textContent =
+        'Since ' + startDate.toLocaleString('en-US', opts);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
