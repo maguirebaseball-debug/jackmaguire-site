@@ -14,6 +14,30 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 * `src/components/` : Header, Footer, shared components
 * `src/styles/global.css` : global CSS (fonts, colors, base layout)
 
+## Content format decision — run this before creating any new page or post
+
+When Jack asks for a new blog post, page, or piece of content, choose the format before writing anything. Ask yourself the three questions below in order and stop at the first match.
+
+**1. Does this post need a custom layout, per-section styling, embedded maps, interactive elements, a two-column design, city cards, a comparison grid, a sticky nav, or any visual structure that differs from a plain text article?**
+If yes: use `.astro` — create it as a standalone page in `src/pages/blog/slug.astro`. Import `BaseHead`, `Header`, `Footer`, and `FormattedDate` from components. Full CSS and HTML control. This is the right choice for destination guides, ranked lists with visual hierarchy, anything where the design IS the content.
+
+**2. Does this post need one or two reusable interactive components (a callout box, a cost card, a photo grid, a map embed) dropped inline into otherwise normal prose?**
+If yes: use `.mdx` — create it in `src/content/blog/slug.mdx`. Write prose in Markdown, import and drop in Astro components where needed. Frontmatter is identical to `.md`. MDX is already enabled in `astro.config.mjs`.
+
+**3. Is this a straight prose article — structured text, headers, blockquotes, maybe images, no custom layout needed?**
+If yes: use `.md` — create it in `src/content/blog/slug.md`. Fastest to write, easiest to edit later. Fine for essays, opinion pieces, research syntheses, and most travel writing.
+
+**Default when unsure**: start with `.md`. If layout ambitions grow during writing, convert to `.mdx` or `.astro`. Never start with `.astro` for a post that is 90% prose.
+
+**Quick reference**:
+| Need | Format |
+|------|--------|
+| Pure prose, no special layout | `.md` |
+| Prose + a component or two | `.mdx` |
+| Custom layout, grids, cards, per-post design | `.astro` |
+
+---
+
 ## Adding a blog post
 Create `src/content/blog/slug-here.md` with this frontmatter:
 ```markdown
