@@ -1,6 +1,8 @@
 ---
 const title = "Counter";
 const description = "A personal count-up timer.";
+const UPSTASH_URL = "https://still-jennet-137992.upstash.io";
+const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng";
 ---
 
 <!doctype html>
@@ -109,23 +111,23 @@ const description = "A personal count-up timer.";
 
     <div class="timer">
       <div class="unit">
-        <span class="number" id="weeks">0</span>
+        <span class="number" id="weeks">-</span>
         <span class="unit-label">weeks</span>
       </div>
       <div class="unit">
-        <span class="number" id="days">0</span>
+        <span class="number" id="days">-</span>
         <span class="unit-label">days</span>
       </div>
       <div class="unit">
-        <span class="number" id="hours">0</span>
+        <span class="number" id="hours">-</span>
         <span class="unit-label">hours</span>
       </div>
       <div class="unit">
-        <span class="number" id="minutes">0</span>
+        <span class="number" id="minutes">-</span>
         <span class="unit-label">minutes</span>
       </div>
       <div class="unit">
-        <span class="number" id="seconds">0</span>
+        <span class="number" id="seconds">-</span>
         <span class="unit-label">seconds</span>
       </div>
     </div>
@@ -135,27 +137,18 @@ const description = "A personal count-up timer.";
 
   <a href="/sobriety-admin" class="admin-link">admin login</a>
 
-  <script is:inline>
-    const STORAGE_KEY = 'sobriety_start';
-
-    function getStart() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
-        const now = Date.now();
-        localStorage.setItem(STORAGE_KEY, String(now));
-        return now;
-      }
-      return parseInt(stored, 10);
-    }
+  <script is:inline define:vars={{ UPSTASH_URL, UPSTASH_TOKEN }}>
+    const KEY = 'sobriety_start';
+    let startTime = null;
 
     function pad(n) {
       return String(n).padStart(2, '0');
     }
 
     function tick() {
-      const start = getStart();
+      if (startTime === null) return;
       const now = Date.now();
-      let diff = Math.floor((now - start) / 1000);
+      let diff = Math.floor((now - startTime) / 1000);
 
       const weeks = Math.floor(diff / (7 * 24 * 3600));
       diff -= weeks * 7 * 24 * 3600;
@@ -172,14 +165,35 @@ const description = "A personal count-up timer.";
       document.getElementById('minutes').textContent = pad(minutes);
       document.getElementById('seconds').textContent = pad(seconds);
 
-      const startDate = new Date(getStart());
+      const startDate = new Date(startTime);
       const opts = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' };
       document.getElementById('since-text').textContent =
         'Since ' + startDate.toLocaleString('en-US', opts);
     }
 
-    tick();
-    setInterval(tick, 1000);
+    async function init() {
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (data.result) {
+          startTime = parseInt(data.result, 10);
+        } else {
+          const now = Date.now();
+          startTime = now;
+          await fetch(UPSTASH_URL + '/set/' + KEY + '/' + now, {
+            headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+          });
+        }
+      } catch (e) {
+        startTime = Date.now();
+      }
+      tick();
+      setInterval(tick, 1000);
+    }
+
+    init();
   </script>
 </body>
 </html>

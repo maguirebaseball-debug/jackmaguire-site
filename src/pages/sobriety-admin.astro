@@ -1,6 +1,8 @@
 ---
 const title = "Admin";
 const range = (n: number) => Array.from({ length: n }, (_, i) => i);
+const UPSTASH_URL = "https://still-jennet-137992.upstash.io";
+const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng";
 ---
 
 <!doctype html>
@@ -264,8 +266,8 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
     </div>
   </div>
 
-  <script is:inline>
-    const STORAGE_KEY = 'sobriety_start';
+  <script is:inline define:vars={{ UPSTASH_URL, UPSTASH_TOKEN }}>
+    const KEY = 'sobriety_start';
     const PIN = '3868';
 
     const pinInput = document.getElementById('pin-input');
@@ -286,21 +288,27 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       }
     }
 
-    function resetTimer() {
-      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+    async function saveToUpstash(ts) {
+      await fetch(UPSTASH_URL + '/set/' + KEY + '/' + ts, {
+        headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+      });
+    }
+
+    async function resetTimer() {
+      await saveToUpstash(Date.now());
       const msg = document.getElementById('confirm-msg');
       msg.style.display = 'block';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);
     }
 
-    function setCustomTime() {
+    async function setCustomTime() {
       const weeks   = parseInt(document.getElementById('dur-weeks').value,   10) || 0;
       const days    = parseInt(document.getElementById('dur-days').value,    10) || 0;
       const hours   = parseInt(document.getElementById('dur-hours').value,   10) || 0;
       const minutes = parseInt(document.getElementById('dur-minutes').value, 10) || 0;
       const seconds = parseInt(document.getElementById('dur-seconds').value, 10) || 0;
       const ms = (((weeks * 7 * 24 * 60) + (days * 24 * 60) + (hours * 60) + minutes) * 60 + seconds) * 1000;
-      localStorage.setItem(STORAGE_KEY, String(Date.now() - ms));
+      await saveToUpstash(Date.now() - ms);
       const msg = document.getElementById('custom-confirm-msg');
       msg.style.display = 'block';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);
