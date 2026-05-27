@@ -1,8 +1,6 @@
 ---
 const title = "Admin";
 const range = (n: number) => Array.from({ length: n }, (_, i) => i);
-const UPSTASH_URL = "https://still-jennet-137992.upstash.io";
-const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng";
 ---
 
 <!doctype html>
@@ -266,7 +264,9 @@ const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZ
     </div>
   </div>
 
-  <script is:inline define:vars={{ UPSTASH_URL, UPSTASH_TOKEN }}>
+  <script is:inline>
+    const UPSTASH_URL = 'https://still-jennet-137992.upstash.io';
+    const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
     const KEY = 'sobriety_start';
     const PIN = '3868';
 

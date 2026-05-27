@@ -1,8 +1,6 @@
 ---
 const title = "Counter";
 const description = "A personal count-up timer.";
-const UPSTASH_URL = "https://still-jennet-137992.upstash.io";
-const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng";
 ---
 
 <!doctype html>
@@ -137,7 +135,9 @@ const UPSTASH_TOKEN = "gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZ
 
   <a href="/sobriety-admin" class="admin-link">admin login</a>
 
-  <script is:inline define:vars={{ UPSTASH_URL, UPSTASH_TOKEN }}>
+  <script is:inline>
+    const UPSTASH_URL = 'https://still-jennet-137992.upstash.io';
+    const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
     const KEY = 'sobriety_start';
     let startTime = null;
 
