@@ -1,0 +1,435 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "South America's Budget Travel Map Has Been Redrawn. Here Is What Is Actually True in 2026.";
+const description = "What the Reddit travel community is actually reporting about costs in South America right now: which cities are genuinely cheap, which ones used to be, and which ones never were.";
+const pubDate = "May 27, 2026";
+
+const cheap = [
+  {
+    slug: 'la-paz',
+    city: 'La Paz',
+    country: 'Bolivia',
+    also: 'Sucre, Cochabamba',
+    cost: '$',
+    verdict: 'The benchmark',
+    body: 'Bolivia is the clearest consensus cheap destination in South America right now. Across hundreds of threads, it functions as the reference point travelers use when they want to describe a place as genuinely inexpensive. Food, accommodation, and local transit are all priced at a level that makes neighboring countries feel expensive by comparison. La Paz comes up repeatedly as roughly on par with Cusco for cost of living, and often cheaper. If the goal is pure value, Bolivia is the answer the community keeps returning to.',
+  },
+  {
+    slug: 'lima',
+    city: 'Lima',
+    country: 'Peru',
+    also: null,
+    cost: '$',
+    verdict: 'Affordable outlier',
+    body: 'Lima gets called out specifically as the affordable exception within Peru. Rideshare options like Didi undercut Uber. Street food and sit-down meals are cheap. One traveler who spent three months in Peru put it plainly: food costs are low throughout the country, except in Cusco and the surrounding tourist area. Lima has also developed a serious food culture over the last decade, which means the value-to-quality ratio is unusually strong. You are not eating cheap because the food is bad.',
+  },
+  {
+    slug: 'arequipa',
+    city: 'Arequipa',
+    country: 'Peru',
+    also: null,
+    cost: '$',
+    verdict: 'Under the radar',
+    body: 'Less discussed than Lima or Cusco but consistently praised by travelers who make it there. Hotels run around $60 per night at a quality level that would cost considerably more elsewhere. One-on-one Spanish lessons cost around $40 per hour. One traveler who did Arequipa before Cusco reported that their Arequipa hotel was better than the comparably priced option in Cusco. It functions as the Peru that tourists have not fully priced yet.',
+  },
+  {
+    slug: 'bogota',
+    city: 'Bogota',
+    country: 'Colombia',
+    also: null,
+    cost: '$$',
+    verdict: 'Reliable gateway',
+    body: 'Bogota shows up as the reliable, affordable gateway into South America. Flights from the US are consistently cheap. City costs are lower than Medellin, a reversal that would have surprised travelers five years ago, but is now documented fact. The food is good, the city is large enough to have real neighborhoods beyond the tourist circuit, and the community consensus is positive without the asterisks that follow Medellin or Cartagena.',
+  },
+  {
+    slug: 'rio',
+    city: 'Rio de Janeiro',
+    country: 'Brazil',
+    also: null,
+    cost: '$$',
+    verdict: 'Budget window open now',
+    body: 'Rio\'s reputation as expensive is outdated. The Brazilian real has weakened significantly against the dollar. One comment from r/shoestring captures the current moment: "With the US dollar being five times stronger than the Brazilian currency, it\'s an incredible time to visit." Rio is a world-class city experiencing a budget travel window. That window will not stay open indefinitely. It also requires awareness: certain areas carry real safety risk, and that has not changed.',
+  },
+];
+
+const usedToBe = [
+  {
+    slug: 'medellin',
+    city: 'Medellin',
+    country: 'Colombia',
+    also: null,
+    cost: '$$$',
+    verdict: 'Priced out',
+    body: 'Medellin is the most discussed reversal in the dataset. Medellin now ranks as the most expensive rental market in Colombia, surpassing Bogota by 7% as of 2025. Rental prices in certain neighborhoods have increased up to 80%. A one-bedroom apartment that commands a "gringo price" of roughly $1,300 per month exists in a country where the median monthly income is $300. Airbnb listings grew 380% between 2022 and 2024. An estimated 2,000 digital nomads arrived per month in 2024. El Poblado and Parque Lleras now have prices travelers describe as comparable to the United States.',
+  },
+  {
+    slug: 'buenos-aires',
+    city: 'Buenos Aires',
+    country: 'Argentina',
+    also: null,
+    cost: '$$$',
+    verdict: 'Arbitrage gone',
+    body: 'Buenos Aires was one of the great budget travel anomalies in the world. Argentina\'s currency controls created a black market dollar rate, the "blue dollar," that gave travelers who exchanged cash informally 50 to 100 percent more pesos per dollar than the official rate. Argentina lifted currency controls in April 2025. The official rate, the blue dollar, and the MEP rate have converged to within 2-3% of each other. Current cost estimates put comfortable daily travel at $70 to $120 per day, comparable to Madrid.',
+  },
+  {
+    slug: 'cusco',
+    city: 'Cusco',
+    country: 'Peru',
+    also: null,
+    cost: '$$$',
+    verdict: 'Expensive outlier in Peru',
+    body: 'Cusco is the expensive outlier within Peru. Travelers who do Lima and Arequipa and then arrive in Cusco consistently note the price increase. Accommodation at comparable quality costs more. The area around Machu Picchu gets described as overcrowded, over-commercialized, and expensive for what it is. Cusco itself has good neighborhoods and is worth visiting, but going in expecting the same value as the rest of Peru will produce disappointment.',
+  },
+  {
+    slug: 'cartagena',
+    city: 'Cartagena',
+    country: 'Colombia',
+    also: null,
+    cost: '$$$',
+    verdict: 'Resort pricing',
+    body: 'Cartagena operates on beach-resort pricing logic. Multiple comments from people planning Colombia trips steer budget travelers toward Bogota or Medellin and away from Cartagena specifically on cost grounds. One digital nomad thread summarized it directly: "Cartagena can be pricey." It is a beautiful city, but it is not a budget destination.',
+  },
+];
+
+const expensive = [
+  {
+    slug: 'santiago',
+    city: 'Santiago',
+    country: 'Chile',
+    also: null,
+    cost: '$$$$',
+    verdict: 'Transit hub only',
+    body: 'Santiago comes up in budget travel threads primarily as a transit hub, not a destination to linger in. Travelers routing through South America consistently flag it as the expensive option and plan accordingly. It does not have the culinary or cultural reputation to justify the price premium relative to what else is available in the region.',
+  },
+  {
+    slug: 'montevideo',
+    city: 'Montevideo',
+    country: 'Uruguay',
+    also: null,
+    cost: '$$$$',
+    verdict: 'Most expensive in dataset',
+    body: 'Montevideo has a vocal defender community. One Reddit commenter described preferring it to Buenos Aires and called Uruguayans their favorite people in all of South America. But the financial reality is consistent: it is the most expensive destination in the dataset on a day-to-day basis, and budget travel threads rarely recommend it for travelers watching costs.',
+  },
+  {
+    slug: 'sao-paulo',
+    city: 'Sao Paulo',
+    country: 'Brazil',
+    also: null,
+    cost: '$$$$',
+    verdict: 'World-class costs',
+    body: 'Sao Paulo does not appear in budget travel conversations in any meaningful way. It is a world-class business and food city. It is not a cheap one. The real\'s current weakness makes Brazil more affordable broadly, but Sao Paulo\'s baseline costs put it in a different tier than Rio for travelers optimizing on value.',
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      /* ── Layout ──────────────────────────────────────── */
+      .article-wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1.25rem 4rem;
+      }
+
+      /* ── Header block ────────────────────────────────── */
+      .article-header {
+        padding: 2.5rem 0 2rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        margin-bottom: 2.5rem;
+      }
+      .article-header h1 {
+        font-size: clamp(1.6rem, 4vw, 2.6rem);
+        line-height: 1.2;
+        margin: 0 0 0.75rem;
+      }
+      .meta {
+        font-family: var(--font-lora);
+        font-size: 0.85rem;
+        color: rgb(var(--gray));
+        margin: 0 0 1.25rem;
+      }
+      .intro {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 760px;
+        margin: 0;
+      }
+      .sources {
+        font-size: 0.78rem;
+        color: rgb(var(--gray));
+        margin-top: 0.75rem;
+        font-style: italic;
+      }
+
+      /* ── Tier sections ───────────────────────────────── */
+      .tier {
+        margin-bottom: 3.5rem;
+      }
+      .tier-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-fraunces);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.75rem;
+        border-radius: 3px;
+        margin-bottom: 0.6rem;
+      }
+      .tier-cheap   .tier-label { background: #e8f0dc; color: #3a5c1a; }
+      .tier-warning .tier-label { background: #fef3dc; color: #7a4f00; }
+      .tier-pricey  .tier-label { background: #fde8e8; color: #7a1a1a; }
+
+      .tier h2 {
+        font-size: clamp(1.3rem, 3vw, 1.9rem);
+        margin: 0 0 0.3rem;
+        line-height: 1.2;
+      }
+      .tier-intro {
+        color: rgb(var(--gray));
+        font-size: 0.9rem;
+        margin: 0 0 1.5rem;
+      }
+
+      /* ── City grid ───────────────────────────────────── */
+      .city-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      /* ── City card ───────────────────────────────────── */
+      .city-card {
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(var(--gray), 0.15), 0 4px 16px rgba(var(--gray), 0.08);
+        display: flex;
+        flex-direction: column;
+      }
+      .card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+        max-height: none;
+      }
+      .card-body {
+        padding: 1rem 1.1rem 1.2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .card-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .card-city {
+        font-family: var(--font-fraunces);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: rgb(var(--black));
+        margin: 0;
+        line-height: 1.2;
+      }
+      .card-cost {
+        font-size: 0.8rem;
+        font-family: var(--font-lora);
+        color: rgb(var(--gray));
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .card-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .card-country {
+        font-size: 0.72rem;
+        font-family: var(--font-lora);
+        color: rgb(var(--gray));
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .card-verdict {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        letter-spacing: 0.04em;
+      }
+      .tier-cheap   .card-verdict { background: #e8f0dc; color: #3a5c1a; }
+      .tier-warning .card-verdict { background: #fef3dc; color: #7a4f00; }
+      .tier-pricey  .card-verdict { background: #fde8e8; color: #7a1a1a; }
+
+      .card-also {
+        font-size: 0.78rem;
+        color: rgb(var(--gray));
+        font-style: italic;
+      }
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        color: rgb(var(--gray-dark));
+        margin: 0;
+        flex: 1;
+      }
+
+      /* ── Closing note ────────────────────────────────── */
+      .closing {
+        border-top: 1px solid rgb(var(--gray-light));
+        padding-top: 2rem;
+        margin-top: 1rem;
+      }
+      .closing p {
+        font-size: 1rem;
+        line-height: 1.75;
+        max-width: 760px;
+        margin: 0;
+      }
+
+      /* ── Mobile ──────────────────────────────────────── */
+      @media (max-width: 600px) {
+        .article-wrap { padding: 0 1rem 3rem; }
+        .city-grid { grid-template-columns: 1fr; }
+        .card-img { height: 200px; }
+        .article-header h1 { font-size: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="article-wrap">
+
+        <header class="article-header">
+          <p class="meta">{pubDate}</p>
+          <h1>{title}</h1>
+          <p class="intro">
+            The economics of traveling South America have shifted significantly in the last few years, and the conventional wisdom, that certain cities are reliably cheap, is no longer reliable. Economies have stabilized, tourism has surged in specific corridors, and the arbitrage opportunities that made some destinations legendary among budget travelers have narrowed or closed entirely. This is current traveler consensus across hundreds of recent threads, not blog estimates or guidebook copy from 2019.
+          </p>
+          <p class="sources">Sources: r/solotravel, r/backpacking, r/shoestring, r/digitalnomad, r/SouthAmerica, r/Colombia, r/peru, r/argentina, r/Bolivia, r/ecuador, r/chile, r/travel (2025-2026, ~500 posts per subreddit)</p>
+        </header>
+
+        <!-- TIER 1: CHEAP -->
+        <section class="tier tier-cheap">
+          <div class="tier-label">Your money goes far</div>
+          <h2>Cities Where Your Money Still Goes Far</h2>
+          <p class="tier-intro">Consensus cheap destinations based on current traveler reports across food, accommodation, transit, and daily spending.</p>
+          <div class="city-grid">
+            {cheap.map(c => (
+              <div class="city-card">
+                <img
+                  class="card-img"
+                  src={`/images/sa-cities/${c.slug}.jpg`}
+                  alt={`${c.city}, ${c.country}`}
+                  loading="lazy"
+                  width="640"
+                  height="180"
+                />
+                <div class="card-body">
+                  <div class="card-top">
+                    <h3 class="card-city">{c.city}</h3>
+                    <span class="card-cost">{c.cost}</span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="card-country">{c.country}</span>
+                    <span class="card-verdict">{c.verdict}</span>
+                  </div>
+                  {c.also && <p class="card-also">Also: {c.also}</p>}
+                  <p class="card-text">{c.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- TIER 2: USED TO BE CHEAP -->
+        <section class="tier tier-warning">
+          <div class="tier-label">Changed significantly</div>
+          <h2>Cities That Used to Be Cheap and Are No Longer</h2>
+          <p class="tier-intro">Places where the traveler consensus has shifted in the last two to five years. The cities are real. The deals are gone.</p>
+          <div class="city-grid">
+            {usedToBe.map(c => (
+              <div class="city-card">
+                <img
+                  class="card-img"
+                  src={`/images/sa-cities/${c.slug}.jpg`}
+                  alt={`${c.city}, ${c.country}`}
+                  loading="lazy"
+                  width="640"
+                  height="180"
+                />
+                <div class="card-body">
+                  <div class="card-top">
+                    <h3 class="card-city">{c.city}</h3>
+                    <span class="card-cost">{c.cost}</span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="card-country">{c.country}</span>
+                    <span class="card-verdict">{c.verdict}</span>
+                  </div>
+                  {c.also && <p class="card-also">Also: {c.also}</p>}
+                  <p class="card-text">{c.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- TIER 3: EXPENSIVE -->
+        <section class="tier tier-pricey">
+          <div class="tier-label">Simply expensive</div>
+          <h2>Cities That Are Simply Expensive</h2>
+          <p class="tier-intro">These cities were not cheap to begin with. Budget travel threads treat them as known quantities and route around them accordingly.</p>
+          <div class="city-grid">
+            {expensive.map(c => (
+              <div class="city-card">
+                <img
+                  class="card-img"
+                  src={`/images/sa-cities/${c.slug}.jpg`}
+                  alt={`${c.city}, ${c.country}`}
+                  loading="lazy"
+                  width="640"
+                  height="180"
+                />
+                <div class="card-body">
+                  <div class="card-top">
+                    <h3 class="card-city">{c.city}</h3>
+                    <span class="card-cost">{c.cost}</span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="card-country">{c.country}</span>
+                    <span class="card-verdict">{c.verdict}</span>
+                  </div>
+                  {c.also && <p class="card-also">Also: {c.also}</p>}
+                  <p class="card-text">{c.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div class="closing">
+          <p>
+            The route that looks most compelling right now, based on the current cost data and what the community is reporting: Bogota to Lima to Bolivia. Three cities with strong value, distinct characters, and a geographic logic that makes them workable as a single trip. I have been to a lot of South America and have not made it to any of the three. That is the itinerary I am most interested in building out next.
+          </p>
+        </div>
+
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
