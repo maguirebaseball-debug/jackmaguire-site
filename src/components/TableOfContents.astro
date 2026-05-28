@@ -1,0 +1,201 @@
+---
+---
+<nav class="toc-sidebar" aria-label="Table of contents" id="tocSidebar">
+  <div class="toc-title">ON THIS PAGE</div>
+  <ul class="toc-list" id="tocList"></ul>
+</nav>
+
+<style>
+  .toc-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    width: 220px;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.85rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgb(var(--gray-light));
+    display: none;
+  }
+
+  @media (min-width: 1280px) {
+    .toc-sidebar {
+      display: block;
+    }
+  }
+
+  .toc-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgb(var(--gray));
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .toc-item {
+    line-height: 1.4;
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: rgb(var(--gray));
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: block;
+  }
+
+  .toc-link:hover {
+    color: var(--accent);
+    padding-left: 2px;
+  }
+
+  .toc-link.active {
+    color: var(--accent-dark);
+    font-weight: 600;
+    border-left: 2px solid var(--accent);
+    padding-left: 6px;
+    margin-left: -8px;
+  }
+
+  .toc-item-h3 {
+    margin-left: 0.75rem;
+    font-size: 0.8rem;
+  }
+</style>
+
+<script>
+  let observer: IntersectionObserver | null = null;
+
+  function initTOC() {
+    const tocList = document.getElementById('tocList');
+    const sidebar = document.getElementById('tocSidebar');
+    if (!tocList) return;
+
+    tocList.innerHTML = '';
+
+    // Search for articles or main content blocks
+    const article = document.querySelector('article') || document.querySelector('main');
+    if (!article) return;
+
+    const headers = Array.from(article.querySelectorAll('h2, h3'));
+    if (headers.length === 0) {
+      if (sidebar) sidebar.style.display = 'none';
+      return;
+    }
+
+    if (sidebar && window.innerWidth >= 1280) {
+      sidebar.style.display = 'block';
+    }
+
+    // Set stable IDs for heading anchoring
+    headers.forEach((header, index) => {
+      if (!header.id) {
+        const text = header.textContent || '';
+        header.id = text
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '') || `section-${index}`;
+      }
+    });
+
+    // Construct the Table of Contents item lists
+    headers.forEach((header) => {
+      const li = document.createElement('li');
+      li.className = `toc-item toc-item-${header.tagName.toLowerCase()}`;
+
+      const a = document.createElement('a');
+      a.href = `#${header.id}`;
+      a.className = 'toc-link';
+      a.textContent = header.textContent;
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    const tocLinks = Array.from(tocList.querySelectorAll('.toc-link'));
+    
+    if (observer) {
+      observer.disconnect();
+    }
+
+    const headingStates = new Map();
+    
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          headingStates.set(entry.target.id, entry.isIntersecting);
+        });
+
+        let activeId = null;
+        for (const header of headers) {
+          if (headingStates.get(header.id)) {
+            activeId = header.id;
+            break;
+          }
+        }
+
+        if (!activeId) {
+          let closestHeader = null;
+          let minDistance = Infinity;
+          headers.forEach((header) => {
+            const rect = header.getBoundingClientRect();
+            if (rect.top < 200 && rect.top > -window.innerHeight) {
+              const distance = Math.abs(rect.top - 100);
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestHeader = header;
+              }
+            }
+          });
+          if (closestHeader) {
+            activeId = (closestHeader as HTMLElement).id;
+          }
+        }
+
+        tocLinks.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (href === `#${activeId}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      },
+      {
+        rootMargin: '-100px 0px -60% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    headers.forEach((header) => observer?.observe(header));
+  }
+
+  // Bind to page-load for View Transitions compatibility
+  document.addEventListener('astro:page-load', initTOC);
+  
+  // Also run on resize to hide/show sidebar dynamically
+  window.addEventListener('resize', () => {
+    const sidebar = document.getElementById('tocSidebar');
+    if (!sidebar) return;
+    if (window.innerWidth < 1280) {
+      sidebar.style.display = 'none';
+    } else {
+      const article = document.querySelector('article') || document.querySelector('main');
+      const headers = article ? Array.from(article.querySelectorAll('h2, h3')) : [];
+      if (headers.length > 0) {
+        sidebar.style.display = 'block';
+      }
+    }
+  });
+</script>

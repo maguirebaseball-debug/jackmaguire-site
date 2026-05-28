@@ -1,0 +1,300 @@
+---
+interface BreakdownItem {
+  label: string;
+  cost: number;
+}
+
+interface Props {
+  title: string;
+  currencySymbol?: string;
+  budgetCost: number;
+  midCost: number;
+  splurgeCost: number;
+  budgetBreakdown: BreakdownItem[];
+  midBreakdown: BreakdownItem[];
+  splurgeBreakdown: BreakdownItem[];
+  verdict: string;
+}
+
+const {
+  title,
+  currencySymbol = "$",
+  budgetCost,
+  midCost,
+  splurgeCost,
+  budgetBreakdown,
+  midBreakdown,
+  splurgeBreakdown,
+  verdict
+} = Astro.props;
+
+// Generate unique ID per instance to prevent page conflicts
+const cardId = `budget-card-${Math.floor(Math.random() * 100000)}`;
+---
+
+<div class="inline-budget-card" id={cardId}>
+  <div class="card-header">
+    <div class="card-title-group">
+      <span class="card-subtitle">INTERACTIVE BUDGET CALCULATOR</span>
+      <h4 class="card-title">{title}</h4>
+    </div>
+    <div class="cost-badge">
+      <span class="currency">{currencySymbol}</span>
+      <span class="cost-value" id={`${cardId}-cost`}>{budgetCost}</span>
+      <span class="cost-period">/ day</span>
+    </div>
+  </div>
+
+  <div class="tier-selector">
+    <button class="tier-btn active" data-tier="budget" data-cost={budgetCost}>Budget</button>
+    <button class="tier-btn" data-tier="mid" data-cost={midCost}>Mid-Range</button>
+    <button class="tier-btn" data-tier="splurge" data-cost={splurgeCost}>Splurge</button>
+  </div>
+
+  <div class="card-content">
+    <div class="breakdown-list">
+      <div class="breakdown-wrapper active" id={`${cardId}-budget-breakdown`}>
+        {budgetBreakdown.map((item) => (
+          <div class="breakdown-item">
+            <span class="item-label">{item.label}</span>
+            <span class="item-cost">{currencySymbol}{item.cost}</span>
+          </div>
+        ))}
+      </div>
+      <div class="breakdown-wrapper" id={`${cardId}-mid-breakdown`}>
+        {midBreakdown.map((item) => (
+          <div class="breakdown-item">
+            <span class="item-label">{item.label}</span>
+            <span class="item-cost">{currencySymbol}{item.cost}</span>
+          </div>
+        ))}
+      </div>
+      <div class="breakdown-wrapper" id={`${cardId}-splurge-breakdown`}>
+        {splurgeBreakdown.map((item) => (
+          <div class="breakdown-item">
+            <span class="item-label">{item.label}</span>
+            <span class="item-cost">{currencySymbol}{item.cost}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="card-verdict">
+      <strong class="verdict-label">Verdict:</strong>
+      <span class="verdict-text">{verdict}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .inline-budget-card {
+    background-color: #FAF9F6;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(var(--gray), 0.05);
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-subtitle {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgb(var(--gray));
+    margin-bottom: 0.25rem;
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .cost-badge {
+    background-color: #E8F0DC;
+    color: #3A5C1A;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .currency {
+    font-size: 0.85rem;
+    margin-right: 1px;
+  }
+
+  .cost-value {
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cost-period {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 2px;
+    opacity: 0.85;
+  }
+
+  .tier-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(var(--gray-light), 0.3);
+    padding: 4px;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .tier-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(var(--gray));
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .tier-btn:hover {
+    color: var(--accent);
+  }
+
+  .tier-btn.active {
+    background-color: #FFF;
+    color: var(--accent-dark);
+    box-shadow: 0 2px 4px rgba(var(--gray), 0.08);
+  }
+
+  .breakdown-list {
+    margin-bottom: 1rem;
+    min-height: 120px;
+    position: relative;
+  }
+
+  .breakdown-wrapper {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .breakdown-wrapper.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed rgba(var(--gray-light), 0.4);
+    color: rgb(var(--gray-dark));
+  }
+
+  .breakdown-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .item-label {
+    font-weight: 500;
+  }
+
+  .item-cost {
+    font-weight: 600;
+    color: rgb(var(--black));
+  }
+
+  .card-verdict {
+    background-color: rgba(var(--gray-light), 0.15);
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .verdict-label {
+    color: var(--accent-dark);
+    margin-right: 4px;
+  }
+
+  .verdict-text {
+    color: rgb(var(--gray-dark));
+  }
+</style>
+
+<script define:vars={{ cardId }}>
+  function initCard() {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+
+    const buttons = card.querySelectorAll('.tier-btn');
+    const costValue = card.querySelector(`#${cardId}-cost`);
+    const breakdowns = {
+      budget: card.querySelector(`#${cardId}-budget-breakdown`),
+      mid: card.querySelector(`#${cardId}-mid-breakdown`),
+      splurge: card.querySelector(`#${cardId}-splurge-breakdown`)
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tier = btn.getAttribute('data-tier');
+        const cost = btn.getAttribute('data-cost');
+
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (costValue) {
+          costValue.style.opacity = '0';
+          costValue.style.transform = 'translateY(-2px)';
+          setTimeout(() => {
+            costValue.textContent = cost;
+            costValue.style.opacity = '1';
+            costValue.style.transform = 'translateY(0)';
+          }, 150);
+        }
+
+        Object.keys(breakdowns).forEach(key => {
+          const wrapper = breakdowns[key];
+          if (wrapper) {
+            if (key === tier) {
+              wrapper.style.display = 'flex';
+              setTimeout(() => {
+                wrapper.classList.add('active');
+              }, 20);
+            } else {
+              wrapper.classList.remove('active');
+              wrapper.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  }
+
+  // Trigger setup immediately and handle subsequent View Transitions navigations
+  initCard();
+  document.addEventListener('astro:page-load', initCard);
+</script>

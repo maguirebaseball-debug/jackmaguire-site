@@ -2,6 +2,9 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import InlineBudgetCard from '../../components/InlineBudgetCard.astro';
 
 const title = "South America's Budget Travel Map Has Been Redrawn. Here Is What Is Actually True in 2026.";
 const description = "What the Reddit travel community is actually reporting about costs in South America right now: which cities are genuinely cheap, which ones used to be, and which ones never were.";
@@ -129,11 +132,32 @@ const expensive = [
   <head>
     <BaseHead title={title} description={description} />
     <style>
+      .article-container {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      @media (max-width: 1280px) {
+        .article-container {
+          display: block;
+        }
+      }
       /* ── Layout ──────────────────────────────────────── */
       .article-wrap {
         max-width: 960px;
         margin: 0 auto;
         padding: 0 1.25rem 4rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      @media (min-width: 768px) {
+        .city-card.has-budget-card {
+          grid-column: span 2;
+        }
       }
 
       /* ── Header block ────────────────────────────────── */
@@ -310,9 +334,11 @@ const expensive = [
     </style>
   </head>
   <body>
+    <ReadingProgressBar />
     <Header />
     <main>
-      <div class="article-wrap">
+      <div class="article-container">
+        <div class="article-wrap">
 
         <header class="article-header">
           <p class="meta">{pubDate}</p>
@@ -330,7 +356,7 @@ const expensive = [
           <p class="tier-intro">Consensus cheap destinations based on current traveler reports across food, accommodation, transit, and daily spending.</p>
           <div class="city-grid">
             {cheap.map(c => (
-              <div class="city-card">
+              <div class={`city-card${c.slug === 'la-paz' ? ' has-budget-card' : ''}`}>
                 <img
                   class="card-img"
                   src={`/images/sa-cities/${c.slug}.jpg`}
@@ -350,6 +376,34 @@ const expensive = [
                   </div>
                   {c.also && <p class="card-also">Also: {c.also}</p>}
                   <p class="card-text">{c.body}</p>
+                  {c.slug === 'la-paz' && (
+                    <InlineBudgetCard
+                      title="La Paz Cost Breakdown"
+                      currencySymbol="$"
+                      budgetCost={25}
+                      midCost={55}
+                      splurgeCost={120}
+                      budgetBreakdown={[
+                        { label: "Hostel Dorm", cost: 10 },
+                        { label: "Local Meals & Street Food", cost: 8 },
+                        { label: "Public Transit / Teleferico", cost: 2 },
+                        { label: "Daily Activity / Essentials", cost: 5 }
+                      ]}
+                      midBreakdown={[
+                        { label: "Private Guesthouse Room", cost: 28 },
+                        { label: "Casual Sit-down Restaurants", cost: 15 },
+                        { label: "Taxis & Cable Car Passes", cost: 4 },
+                        { label: "Guided Day Excursions", cost: 8 }
+                      ]}
+                      splurgeBreakdown={[
+                        { label: "Boutique Hotel in Sopocachi", cost: 65 },
+                        { label: "Upscale Modern Dining", cost: 35 },
+                        { label: "Private Driver Hires", cost: 10 },
+                        { label: "Cholitas Wrestling & Adventure Tours", cost: 10 }
+                      ]}
+                      verdict="La Paz remains the absolute gold standard for pure travel purchasing power in South America."
+                    />
+                  )}
                 </div>
               </div>
             ))}
@@ -363,7 +417,7 @@ const expensive = [
           <p class="tier-intro">Places where the traveler consensus has shifted in the last two to five years. The cities are real. The deals are gone.</p>
           <div class="city-grid">
             {usedToBe.map(c => (
-              <div class="city-card">
+              <div class={`city-card${c.slug === 'medellin' ? ' has-budget-card' : ''}`}>
                 <img
                   class="card-img"
                   src={`/images/sa-cities/${c.slug}.jpg`}
@@ -383,6 +437,34 @@ const expensive = [
                   </div>
                   {c.also && <p class="card-also">Also: {c.also}</p>}
                   <p class="card-text">{c.body}</p>
+                  {c.slug === 'medellin' && (
+                    <InlineBudgetCard
+                      title="Medellin Cost Breakdown"
+                      currencySymbol="$"
+                      budgetCost={45}
+                      midCost={110}
+                      splurgeCost={250}
+                      budgetBreakdown={[
+                        { label: "Hostel Dorm (El Poblado)", cost: 22 },
+                        { label: "Menu del Dia & Local Eats", cost: 12 },
+                        { label: "Metro & Walking", cost: 3 },
+                        { label: "Free Walking Tour Tips", cost: 8 }
+                      ]}
+                      midBreakdown={[
+                        { label: "Airbnb Studio in Laureles", cost: 55 },
+                        { label: "Western Cafes & Diners", cost: 28 },
+                        { label: "Rideshares & Uber", cost: 12 },
+                        { label: "Guatape Day Outing", cost: 15 }
+                      ]}
+                      splurgeBreakdown={[
+                        { label: "Luxury Hotel (Poblado/Provenza)", cost: 140 },
+                        { label: "Fine Dining Tasting Menu", cost: 65 },
+                        { label: "Private Airport Transfers", cost: 25 },
+                        { label: "Paragliding & Premium Nightlife", cost: 20 }
+                      ]}
+                      verdict="Medellin has transitioned from a budget haven to an upscale hub where comfortable travel requires solid funding."
+                    />
+                  )}
                 </div>
               </div>
             ))}
@@ -427,7 +509,7 @@ const expensive = [
             The route that looks most compelling right now, based on the current cost data and what the community is reporting: Bogota to Lima to Bolivia. Three cities with strong value, distinct characters, and a geographic logic that makes them workable as a single trip. I have been to a lot of South America and have not made it to any of the three. That is the itinerary I am most interested in building out next.
           </p>
         </div>
-
+        <TableOfContents />
       </div>
     </main>
     <Footer />

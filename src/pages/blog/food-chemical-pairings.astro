@@ -3,6 +3,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import imageCredits from '../../../public/images/food-pairings/commons-sources.json';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 
 const title = "25 Ingredient Pairings That Should Exist But Don't";
 const description = "I ran 294,000 recipes and the FooDB flavor compound database through a statistical analysis to find ingredient pairs with strong chemical compatibility and near-zero co-occurrence. These are the gaps between what chemistry predicts and what cooks actually do.";
@@ -426,10 +428,25 @@ const groups = [
 <head>
   <BaseHead title={title} description={description} />
   <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    @media (max-width: 1280px) {
+      .article-container {
+        display: block;
+      }
+    }
     .wrap {
       max-width: 980px;
       margin: 0 auto;
       padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* ── Article header ─────────────────────────────────── */
@@ -769,9 +786,11 @@ const groups = [
   </style>
 </head>
 <body>
+  <ReadingProgressBar />
   <Header />
   <main>
-    <div class="wrap">
+    <div class="article-container">
+      <div class="wrap">
 
       <header class="article-header">
         <p class="meta">{pubDate} &nbsp;|&nbsp; Food Science</p>
@@ -946,7 +965,7 @@ const groups = [
           </ol>
         </details>
       </div>
-
+      <TableOfContents />
     </div>
   </main>
   <Footer />
