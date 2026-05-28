@@ -1,0 +1,371 @@
+---
+interface Props {
+  data: {
+    headers: string[];
+    keys: string[];
+    rows: Record<string, string>[];
+  };
+  tableId: string;
+}
+
+const { data, tableId } = Astro.props;
+const { headers, keys, rows } = data;
+---
+
+<div class="stocks-table-widget" id={tableId}>
+  <div class="table-controls">
+    <div class="search-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" class="table-filter-input" placeholder="Filter by company, ticker, vertical, or moat type..." aria-label="Filter stocks" />
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="interactive-stocks-table">
+      <thead>
+        <tr>
+          {headers.map((header, idx) => (
+            <th align="left" data-key={keys[idx]} class="sortable-header">
+              <span class="header-text">{header}</span>
+              <span class="sort-indicator">↕</span>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr data-score={row.aggregate_score}>
+            {keys.map((key) => {
+              const val = row[key] || "";
+              const isScore = key === "aggregate_score";
+              const isTicker = key === "ticker";
+              const isCompany = key === "company";
+              
+              let scoreClass = "";
+              if (isScore) {
+                const numScore = parseFloat(val);
+                if (numScore >= 80) {
+                  scoreClass = "score-high";
+                } else if (numScore >= 60) {
+                  scoreClass = "score-med";
+                } else {
+                  scoreClass = "score-low";
+                }
+              }
+
+              return (
+                <td align="left">
+                  {isCompany ? (
+                    <strong>{val}</strong>
+                  ) : isTicker ? (
+                    <span class="ticker-pill">{val}</span>
+                  ) : isScore ? (
+                    <span class={`score-badge ${scoreClass}`}>{val}</span>
+                  ) : (
+                    val
+                  )}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .stocks-table-widget {
+    background-color: #FAF9F6;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 20px rgba(var(--gray), 0.04);
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .table-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.25rem;
+  }
+
+  .search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: rgb(var(--gray));
+    pointer-events: none;
+  }
+
+  .table-filter-input {
+    width: 100%;
+    padding: 10px 12px 10px 40px;
+    font-size: 0.95rem;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 8px;
+    background-color: #FFF;
+    color: rgb(var(--gray-dark));
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .table-filter-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.15);
+    outline: none;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--gray-light), 0.6);
+  }
+
+  .interactive-stocks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.92rem;
+    display: table;
+  }
+
+  .interactive-stocks-table th, 
+  .interactive-stocks-table td {
+    padding: 12px 16px;
+    border: 1px solid rgba(var(--gray-light), 0.5);
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .interactive-stocks-table th {
+    background-color: rgba(var(--gray-light), 0.25);
+    font-family: var(--font-fraunces), serif;
+    font-weight: 700;
+    color: rgb(var(--black));
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .interactive-stocks-table th:hover {
+    background-color: rgba(var(--gray-light), 0.45);
+  }
+
+  .interactive-stocks-table th .header-text {
+    padding-right: 18px;
+    display: inline-block;
+  }
+
+  .sort-indicator {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.78rem;
+    color: rgb(var(--gray));
+    opacity: 0.4;
+  }
+
+  .interactive-stocks-table th.sort-asc .sort-indicator {
+    content: "↓";
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  .interactive-stocks-table th.sort-desc .sort-indicator {
+    content: "↑";
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  .interactive-stocks-table tbody tr {
+    background-color: #FFF;
+    transition: background-color 0.2s ease;
+  }
+
+  .interactive-stocks-table tbody tr:nth-child(even) {
+    background-color: #FAF9F6;
+  }
+
+  .interactive-stocks-table tbody tr:hover {
+    background-color: rgba(var(--gray-light), 0.15);
+  }
+
+  /* High score rows highlight */
+  .interactive-stocks-table tbody tr[data-score] {
+    /* Potential highlighting based on score if desired */
+  }
+
+  .ticker-pill {
+    font-family: var(--font-outfit), sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    background-color: rgba(var(--gray-light), 0.5);
+    color: rgb(var(--gray-dark));
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .score-badge {
+    display: inline-block;
+    font-family: var(--font-fraunces), serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 32px;
+  }
+
+  .score-badge.score-high {
+    background-color: #E8F0DC;
+    color: #3A5C1A;
+    border: 1px solid rgba(58, 92, 26, 0.15);
+  }
+
+  .score-badge.score-med {
+    background-color: #FAF2D8;
+    color: #8C6D1F;
+    border: 1px solid rgba(140, 109, 31, 0.15);
+  }
+
+  .score-badge.score-low {
+    background-color: #F8ECEC;
+    color: #A63F3F;
+    border: 1px solid rgba(166, 63, 63, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .stocks-table-widget {
+      padding: 1rem;
+    }
+    .interactive-stocks-table th, 
+    .interactive-stocks-table td {
+      padding: 10px 12px;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ tableId }}>
+  function initStocksTable() {
+    const container = document.getElementById(tableId);
+    if (!container) return;
+
+    const filterInput = container.querySelector('.table-filter-input');
+    const table = container.querySelector('.interactive-stocks-table');
+    if (!table || !filterInput) return;
+
+    const tbody = table.querySelector('tbody');
+    const headers = container.querySelectorAll('.interactive-stocks-table th');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    // Search filter logic
+    filterInput.addEventListener('input', function(e) {
+      const term = e.target.value.toLowerCase();
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+
+    // Parsing function for numbers
+    const parseNum = (val) => {
+      if (val === 'N/A' || val === 'Neg' || val.includes('Flagged') || val === '') return -999999;
+      // Strip non-numeric characters except dots, hyphens, and minus signs
+      const numStr = val.replace(/[^0-9.-]+/g, "");
+      const num = parseFloat(numStr);
+      return isNaN(num) ? val : num;
+    };
+
+    // Table sort logic
+    headers.forEach((th, index) => {
+      th.addEventListener('click', () => {
+        const isAscending = th.classList.contains('sort-asc');
+        
+        // Reset all indicator classes
+        headers.forEach(header => {
+          header.classList.remove('sort-asc', 'sort-desc');
+          const indicator = header.querySelector('.sort-indicator');
+          if (indicator) indicator.textContent = '↕';
+        });
+
+        // Set the active sorting direction class
+        if (isAscending) {
+          th.classList.add('sort-desc');
+          const indicator = th.querySelector('.sort-indicator');
+          if (indicator) indicator.textContent = '↑';
+        } else {
+          th.classList.add('sort-asc');
+          const indicator = th.querySelector('.sort-indicator');
+          if (indicator) indicator.textContent = '↓';
+        }
+
+        // Sort DOM rows
+        rows.sort((a, b) => {
+          const aVal = a.cells[index].textContent.trim();
+          const bVal = b.cells[index].textContent.trim();
+          
+          const aNum = parseNum(aVal);
+          const bNum = parseNum(bVal);
+
+          if (typeof aNum === 'number' && typeof bNum === 'number') {
+            return isAscending ? aNum - bNum : bNum - aNum;
+          }
+
+          return isAscending 
+            ? aVal.localeCompare(bVal) 
+            : bVal.localeCompare(aVal);
+        });
+
+        // Append sorted rows back to tbody
+        tbody.append(...rows);
+      });
+    });
+
+    // Default sorting on Aggregate Score (Descending) if it exists
+    let scoreColIndex = -1;
+    headers.forEach((th, idx) => {
+      if (th.getAttribute('data-key') === 'aggregate_score') {
+        scoreColIndex = idx;
+      }
+    });
+
+    if (scoreColIndex !== -1) {
+      const scoreTh = headers[scoreColIndex];
+      scoreTh.classList.add('sort-desc');
+      const indicator = scoreTh.querySelector('.sort-indicator');
+      if (indicator) indicator.textContent = '↑';
+
+      rows.sort((a, b) => {
+        const aVal = parseFloat(a.cells[scoreColIndex].textContent.trim());
+        const bVal = parseFloat(b.cells[scoreColIndex].textContent.trim());
+        return bVal - aVal;
+      });
+
+      tbody.append(...rows);
+    }
+  }
+
+  // Support initial load and subsequent Astro transitions
+  initStocksTable();
+  document.addEventListener('astro:page-load', initStocksTable);
+</script>

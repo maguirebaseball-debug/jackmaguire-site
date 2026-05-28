@@ -1,0 +1,185 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import StocksTable from '../../components/widgets/StocksTable.astro';
+import edgeComputingData from '../../components/widgets/edge_computing.json';
+
+const title = "Non-Obvious Edge Computing Stocks";
+const description = "Analysis of the infrastructure required to move AI from the cloud to the physical world, focusing on ruggedized networking and on-device inference.";
+const pubDate = "May 26, 2026";
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    @media (max-width: 1280px) {
+      .article-container {
+        display: block;
+      }
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 3rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-lora);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      margin: 0 0 1.2rem;
+      font-family: var(--font-fraunces), serif;
+      line-height: 1.15;
+      font-weight: 800;
+      color: rgb(var(--black));
+    }
+    .article-header .intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    .prose {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+    }
+
+    .prose p {
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.8rem;
+      color: rgb(var(--black));
+      margin: 2.5rem 0 1.25rem;
+      line-height: 1.2;
+    }
+
+    .prose h3 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.35rem;
+      color: rgb(var(--black));
+      margin: 2rem 0 1rem;
+      line-height: 1.25;
+    }
+
+    .prose hr {
+      border: 0;
+      border-top: 1px solid rgb(var(--gray-light));
+      margin: 3rem 0;
+    }
+
+    .prose ul, .prose ol {
+      margin: 0 0 1.5rem;
+      padding-left: 1.5rem;
+    }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box {
+      background-color: #FAF9F6;
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .callout-box h4 {
+      margin: 0 0 0.5rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .callout-box p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <ReadingProgressBar />
+  <Header />
+  <main>
+    <div class="article-container">
+      <div class="wrap">
+        
+        <header class="article-header">
+          <p class="meta">{pubDate} &nbsp;|&nbsp; Tech & AI Hardware</p>
+          <h1>{title}</h1>
+          <p class="intro">{description}</p>
+        </header>
+
+        <section class="prose">
+          <p>
+            This report focuses on the infrastructure required to move AI from the cloud to the physical world. The research identifies key winners in ruggedized networking, mission-critical machine-to-machine connectivity, and on-device AI inference, specifically neural processing units. The evaluation favors companies solving physical-world constraints, such as vibration, temperature, and power efficiency.
+          </p>
+
+          <div class="callout-box">
+            <h4>Interactive Edge Database Screen</h4>
+            <p>
+              Click on any column header to sort. Use the search bar to filter by ticker, vertical segment, or keyword. The list automatically defaults to sorting by aggregate score.
+            </p>
+          </div>
+
+          <!-- Reusable Interactive Table Widget -->
+          <StocksTable data={edgeComputingData} tableId="edgeComputingTable" />
+
+          <hr />
+
+          <h2>Screener Rules and Methodology</h2>
+          <p>
+            To isolate high-conviction opportunities in edge computing, our screening model applies three core criteria:
+          </p>
+          <ul>
+            <li><strong>Physical Resilience:</strong> We favor hardware designed to withstand field deployments, focusing on resistance to extreme heat, vibration, and electromagnetic noise.</li>
+            <li><strong>Edge Autonomy:</strong> We prioritize on-device inference capabilities over cloud-dependent wrappers, emphasizing localized processing efficiency.</li>
+            <li><strong>Valuation Discipline:</strong> We aggressively penalize firms where negative earnings or excessive PEG ratios create an unfavorable risk-reward profile.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Top 3 Highest-Conviction Edge Computing Picks (Audited)</h2>
+          <p>
+            Based on our strict filtering logic and valuation audit, the following three companies represent the strongest opportunities:
+          </p>
+          <ol>
+            <li><strong>Belden Inc. (BDC):</strong> The most disciplined entry in industrial networking. Hardened switches and wiring components represent the non-obvious data backbone of modern factory floors.</li>
+            <li><strong>Digi International (DGII):</strong> A high-conviction connectivity play where aggressive growth offsets a rich nominal PE. It remains essential for unbreakable remote M2M links.</li>
+            <li><strong>SiTime (SITM):</strong> Holds a dominant position in silicon MEMS timing, serving as a precision timing chokepoint. It remains a high-risk speculative play due to negative trailing earnings.</li>
+          </ol>
+        </section>
+
+      </div>
+      <TableOfContents />
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>

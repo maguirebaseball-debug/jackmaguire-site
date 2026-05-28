@@ -1,0 +1,114 @@
+{
+  "headers": [
+    "Company",
+    "Ticker",
+    "Segment",
+    "Bottleneck Role",
+    "PE (TTM)",
+    "PEG",
+    "Market Cap",
+    "Key Note",
+    "Aggregate Score"
+  ],
+  "keys": [
+    "company",
+    "ticker",
+    "segment",
+    "bottleneck_role",
+    "pe",
+    "peg",
+    "market_cap",
+    "key_note",
+    "aggregate_score"
+  ],
+  "rows": [
+    {
+      "company": "Hirata Corp.",
+      "ticker": "HRAXF",
+      "segment": "Fab Robotics",
+      "bottleneck_role": "Cleanroom wafer transfer",
+      "pe": "~17.6x",
+      "peg": "2.70",
+      "market_cap": "$3.8B",
+      "key_note": "Reasonable earnings multiples are offset by high growth-adjusted valuation. It remains the most disciplined entry in fab robotics.",
+      "aggregate_score": "75"
+    },
+    {
+      "company": "THK Co., Ltd.",
+      "ticker": "THKLY",
+      "segment": "Skeletal Motion",
+      "bottleneck_role": "Linear motion guides monopoly",
+      "pe": "~99x",
+      "peg": "N/A",
+      "market_cap": "$4.4B",
+      "key_note": "Extreme valuation saturation at 99x PE limits further upside. The mechanical moat is strong but fully priced.",
+      "aggregate_score": "64"
+    },
+    {
+      "company": "IPG Photonics",
+      "ticker": "IPGP",
+      "segment": "Laser Tools",
+      "bottleneck_role": "Fiber laser engines",
+      "pe": "~173x",
+      "peg": "1.48",
+      "market_cap": "$5.1B",
+      "key_note": "A 173 PE is fundamentally disconnected from historical growth patterns. It faces increasing competition in the fiber laser segment.",
+      "aggregate_score": "64"
+    },
+    {
+      "company": "Teradyne",
+      "ticker": "TER",
+      "segment": "Cobots",
+      "bottleneck_role": "Universal Robots dominance",
+      "pe": "~79x",
+      "peg": "N/A",
+      "market_cap": "$56.8B",
+      "key_note": "Dominates collaborative robotics but carries a heavy large-cap premium in a saturated market.",
+      "aggregate_score": "62"
+    },
+    {
+      "company": "Samsara",
+      "ticker": "IOT",
+      "segment": "Data Layer",
+      "bottleneck_role": "Fleet interoperability",
+      "pe": "Neg",
+      "peg": "1.13",
+      "market_cap": "$16.4B",
+      "key_note": "Software connectivity is essential but persistent lack of profitability increases execution risk.",
+      "aggregate_score": "60"
+    },
+    {
+      "company": "Cognex",
+      "ticker": "CGNX",
+      "segment": "Machine Vision",
+      "bottleneck_role": "Visual inspection chokepoint",
+      "pe": "~83x",
+      "peg": "0.00",
+      "market_cap": "$11.3B",
+      "key_note": "High-margin leader in vision components, yet valuation remains stretched relative to cyclical industrial demand.",
+      "aggregate_score": "58"
+    },
+    {
+      "company": "Vishay Precision",
+      "ticker": "VPG",
+      "segment": "Nervous System",
+      "bottleneck_role": "Foil strain gauges for dexterity",
+      "pe": "~168x",
+      "peg": "4.98",
+      "market_cap": "$1.5B",
+      "key_note": "A PE of 168 and PEG near 5.0 signal a severe valuation bubble. The technology moat does not justify current levels.",
+      "aggregate_score": "55"
+    },
+    {
+      "company": "Koh Young Tech",
+      "ticker": "098460.KQ",
+      "segment": "Inspection",
+      "bottleneck_role": "3D yield verification",
+      "pe": "~828x",
+      "peg": "-5.76",
+      "market_cap": "$1.5B",
+      "key_note": "A PE exceeding 800 is mathematically unsustainable. It represents an extreme speculative outlier detached from earnings reality.",
+      "aggregate_score": "41"
+    }
+  ]
+}

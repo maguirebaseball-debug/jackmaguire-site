@@ -1,0 +1,114 @@
+{
+  "headers": [
+    "Company",
+    "Ticker",
+    "Segment",
+    "Bottleneck Role",
+    "PE (TTM)",
+    "PEG",
+    "Market Cap",
+    "Key Note",
+    "Aggregate Score"
+  ],
+  "keys": [
+    "company",
+    "ticker",
+    "segment",
+    "bottleneck_role",
+    "pe",
+    "peg",
+    "market_cap",
+    "key_note",
+    "aggregate_score"
+  ],
+  "rows": [
+    {
+      "company": "Belden Inc.",
+      "ticker": "BDC",
+      "segment": "Hardened Networking",
+      "bottleneck_role": "Industrial data backbone",
+      "pe": "~17.5x",
+      "peg": "1.12",
+      "market_cap": "$4.5B",
+      "key_note": "Disciplined valuation and robust physical infrastructure moats support a high conviction score in industrial connectivity.",
+      "aggregate_score": "88"
+    },
+    {
+      "company": "Digi International",
+      "ticker": "DGII",
+      "segment": "M2M Connectivity",
+      "bottleneck_role": "Unbreakable remote links",
+      "pe": "~54.6x",
+      "peg": "0.97",
+      "market_cap": "$2.5B",
+      "key_note": "A sub-parity PEG validates growth, but the 54.6 PE represents an aggressive entry point with significant downside risk.",
+      "aggregate_score": "77"
+    },
+    {
+      "company": "SiTime",
+      "ticker": "SITM",
+      "segment": "MEMS Timing",
+      "bottleneck_role": "Precision silicon heartbeat",
+      "pe": "Neg",
+      "peg": "1.10",
+      "market_cap": "$18.8B",
+      "key_note": "Market dominance in MEMS timing is offset by a lack of current profitability and heavy reliance on speculative growth targets.",
+      "aggregate_score": "70"
+    },
+    {
+      "company": "Applied Opto",
+      "ticker": "AAOI",
+      "segment": "Edge Optical",
+      "bottleneck_role": "Localized high-speed links",
+      "pe": "Neg",
+      "peg": "0.85",
+      "market_cap": "$1.1B",
+      "key_note": "A low forward PEG suggests an earnings turnaround, though current speculative pricing remains a concern.",
+      "aggregate_score": "68"
+    },
+    {
+      "company": "BlackBerry",
+      "ticker": "BB",
+      "segment": "RTOS / Software",
+      "bottleneck_role": "Safety-critical OS chokepoint",
+      "pe": "~91.8x",
+      "peg": "1.25",
+      "market_cap": "$3.8B",
+      "key_note": "The QNX operating system remains a critical software asset, yet the 91.8 PE reflects significant optimism in current pricing.",
+      "aggregate_score": "65"
+    },
+    {
+      "company": "Silicon Labs",
+      "ticker": "SLAB",
+      "segment": "IoT Semiconductors",
+      "bottleneck_role": "Battery-powered AI",
+      "pe": "Neg",
+      "peg": "1.30",
+      "market_cap": "$7.2B",
+      "key_note": "Pure-play IoT focus is dampened by negative earnings and a lack of operational leverage in the current cycle.",
+      "aggregate_score": "62"
+    },
+    {
+      "company": "Ambarella",
+      "ticker": "AMBA",
+      "segment": "Edge AI Vision",
+      "bottleneck_role": "Pure-play NPU for vision",
+      "pe": "Neg",
+      "peg": "4.22",
+      "market_cap": "$2.6B",
+      "key_note": "A high PEG and persistent lack of profitability signal excessive optimism for this AI vision silicon provider.",
+      "aggregate_score": "60"
+    },
+    {
+      "company": "Lantronix",
+      "ticker": "LTRX",
+      "segment": "Edge Gateways",
+      "bottleneck_role": "Out-of-band management",
+      "pe": "Neg",
+      "peg": "1.45",
+      "market_cap": "$0.25B",
+      "key_note": "Small-cap volatility and speculative AI integration limit conviction in the current valuation.",
+      "aggregate_score": "58"
+    }
+  ]
+}

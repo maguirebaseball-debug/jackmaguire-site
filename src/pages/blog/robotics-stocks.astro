@@ -1,0 +1,185 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import StocksTable from '../../components/widgets/StocksTable.astro';
+import roboticsData from '../../components/widgets/robotics.json';
+
+const title = "Non-Obvious Robotics & Automation Stocks";
+const description = "A screened list of critical bottlenecks in the robotics and industrial automation supply chain, favoring skeletal motion hardware and nervous system sensors.";
+const pubDate = "May 26, 2026";
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    @media (max-width: 1280px) {
+      .article-container {
+        display: block;
+      }
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 3rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-lora);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      margin: 0 0 1.2rem;
+      font-family: var(--font-fraunces), serif;
+      line-height: 1.15;
+      font-weight: 800;
+      color: rgb(var(--black));
+    }
+    .article-header .intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    .prose {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+    }
+
+    .prose p {
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.8rem;
+      color: rgb(var(--black));
+      margin: 2.5rem 0 1.25rem;
+      line-height: 1.2;
+    }
+
+    .prose h3 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.35rem;
+      color: rgb(var(--black));
+      margin: 2rem 0 1rem;
+      line-height: 1.25;
+    }
+
+    .prose hr {
+      border: 0;
+      border-top: 1px solid rgb(var(--gray-light));
+      margin: 3rem 0;
+    }
+
+    .prose ul, .prose ol {
+      margin: 0 0 1.5rem;
+      padding-left: 1.5rem;
+    }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box {
+      background-color: #FAF9F6;
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .callout-box h4 {
+      margin: 0 0 0.5rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .callout-box p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <ReadingProgressBar />
+  <Header />
+  <main>
+    <div class="article-container">
+      <div class="wrap">
+        
+        <header class="article-header">
+          <p class="meta">{pubDate} &nbsp;|&nbsp; Tech & AI Hardware</p>
+          <h1>{title}</h1>
+          <p class="intro">{description}</p>
+        </header>
+
+        <section class="prose">
+          <p>
+            This research identifies high-conviction, non-obvious stocks tradeable on major exchanges that represent critical bottlenecks in the robotics and industrial automation supply chain. The analysis explicitly favors skeletal motion hardware, nervous system sensors, and high-precision yield verification. Generic consumer robotics and capital-intensive manufacturing that lacks proprietary software or materials moats are excluded from consideration.
+          </p>
+
+          <div class="callout-box">
+            <h4>Interactive Robotics Screen</h4>
+            <p>
+              Click on any column header to sort. Use the search bar to filter by ticker, segment, or key notes. The database dynamically sorts by aggregate score.
+            </p>
+          </div>
+
+          <!-- Reusable Interactive Table Widget -->
+          <StocksTable data={roboticsData} tableId="roboticsTable" />
+
+          <hr />
+
+          <h2>Screener Rules and Methodology</h2>
+          <p>
+            To evaluate robotics and automation companies, our model uses three strict parameters:
+          </p>
+          <ul>
+            <li><strong>Bottleneck Conviction:</strong> We prioritize companies that own a specific, non-substitutable mechanical or sensing chokepoint.</li>
+            <li><strong>Mainstream Dissemination Penalty:</strong> We favor mid-caps and regional specialists tradeable in Japan or Korea over highly covered US mega-cap consensus trades.</li>
+            <li><strong>Valuation Discipline:</strong> High scores require sustainable PE and PEG ratios. We aggressively penalize speculative multiples that exceed historical norms.</li>
+          </ul>
+
+          <hr />
+
+          <h2>Top 3 Highest-Conviction Robotics Picks (Audited)</h2>
+          <p>
+            Based on our strict filtering logic and valuation audit, the following three companies represent the strongest opportunities:
+          </p>
+          <ol>
+            <li><strong>Hirata Corporation (HRAXF):</strong> The most disciplined entry in cleanroom automation. Its dominance in wafer transfer is balanced by a defensible earnings multiple.</li>
+            <li><strong>THK Co., Ltd. (THKLY):</strong> Represents the skeletal foundation of robotics due to its global linear motion guides monopoly, though its 99x PE suggests investors must wait for valuation compression.</li>
+            <li><strong>IPG Photonics (IPGP):</strong> An essential tool provider for materials processing via high-power fiber lasers, albeit currently hampered by an excessive recovery-phase multiple.</li>
+          </ol>
+        </section>
+
+      </div>
+      <TableOfContents />
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>
