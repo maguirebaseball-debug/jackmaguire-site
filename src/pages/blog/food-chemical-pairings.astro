@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import imageCredits from '../../../public/images/food-pairings/commons-sources.json';
 
 const title = "25 Ingredient Pairings That Should Exist But Don't";
 const description = "I ran 294,000 recipes and the FooDB flavor compound database through a statistical analysis to find ingredient pairs with strong chemical compatibility and near-zero co-occurrence. These are the gaps between what chemistry predicts and what cooks actually do.";
@@ -730,6 +731,28 @@ const groups = [
       color: rgb(var(--gray-dark));
     }
     .paper-cite a { color: var(--accent); }
+    .image-credits {
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: rgb(var(--gray));
+      margin: 1.5rem 0 0;
+    }
+    .image-credits summary {
+      cursor: pointer;
+      color: rgb(var(--gray-dark));
+      font-weight: 700;
+    }
+    .image-credits ol {
+      columns: 2;
+      column-gap: 2rem;
+      padding-left: 1.2rem;
+      margin: 0.75rem 0 0;
+    }
+    .image-credits li {
+      break-inside: avoid;
+      margin: 0 0 0.45rem;
+    }
+    .image-credits a { color: var(--accent); }
 
     @media (max-width: 600px) {
       .wrap { padding: 0 1rem 3rem; }
@@ -737,6 +760,7 @@ const groups = [
       .ingredient-thumb img { width: 56px; height: 56px; }
       .card-footer { grid-template-columns: 1fr; }
       .stat-row { flex-direction: column; }
+      .image-credits ol { columns: 1; }
     }
   </style>
 </head>
@@ -907,6 +931,16 @@ const groups = [
         <p>
           Whether any of them taste good is a question that requires a kitchen, not a computer. That part I leave to you.
         </p>
+        <details class="image-credits">
+          <summary>Ingredient thumbnail credits</summary>
+          <ol>
+            {imageCredits.map((credit) => (
+              <li>
+                <a href={credit.source} target="_blank" rel="noopener">{credit.title}</a>, {credit.author}, <a href={credit.license_url} target="_blank" rel="noopener">{credit.license}</a>, via Wikimedia Commons.
+              </li>
+            ))}
+          </ol>
+        </details>
       </div>
 
     </div>
