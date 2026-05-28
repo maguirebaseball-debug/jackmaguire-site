@@ -547,11 +547,11 @@ const groups = [
       background: #fff;
     }
     .card-top {
-      display: grid;
-      grid-template-columns: 120px 1fr 120px;
+      display: flex;
+      justify-content: center;
       align-items: center;
       padding: 1.25rem 1.5rem;
-      gap: 1rem;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
       border-bottom: 1px solid rgb(var(--gray-light));
     }
     .ingredient-thumb {
@@ -559,6 +559,7 @@ const groups = [
       flex-direction: column;
       align-items: center;
       gap: 0.4rem;
+      width: 104px;
     }
     .ingredient-thumb img {
       width: 72px;
@@ -578,10 +579,12 @@ const groups = [
     .plus-connector {
       text-align: center;
       font-family: var(--font-fraunces);
-      font-size: 2rem;
+      font-size: 1.45rem;
+      line-height: 1;
       color: rgb(var(--gray));
       opacity: 0.4;
       user-select: none;
+      width: 1rem;
     }
     .card-stats {
       display: flex;
@@ -756,7 +759,8 @@ const groups = [
 
     @media (max-width: 600px) {
       .wrap { padding: 0 1rem 3rem; }
-      .card-top { grid-template-columns: 80px 1fr 80px; gap: 0.5rem; padding: 1rem; }
+      .card-top { gap: 0.55rem; padding: 1rem; }
+      .ingredient-thumb { width: 78px; }
       .ingredient-thumb img { width: 56px; height: 56px; }
       .card-footer { grid-template-columns: 1fr; }
       .stat-row { flex-direction: column; }
