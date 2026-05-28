@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { getStandaloneBlogPosts } from '../../lib/standaloneBlogPosts';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -12,36 +13,7 @@ const posts = (await getCollection('blog')).sort(
 
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 
-const astroPageSources = import.meta.glob('./*.astro', {
-	query: '?raw',
-	import: 'default',
-	eager: true,
-});
-
-function extractConst(source: string, name: string) {
-	const match = source.match(new RegExp(`const ${name} = (["'])(.*?)\\1;`, 's'));
-	return match?.[2];
-}
-
-const featurePosts = Object.entries(astroPageSources)
-	.filter(([path]) => !path.includes('/index.astro') && !path.includes('/[...slug].astro'))
-	.map(([path, source]) => {
-		const slug = path.replace('./', '').replace('.astro', '');
-		const title = extractConst(source as string, 'title');
-		const pubDate = extractConst(source as string, 'pubDate');
-
-		if (!title || !pubDate) {
-			throw new Error(`${path} must define const title and const pubDate to appear on /blog.`);
-		}
-
-		return {
-			title,
-			href: `/blog/${slug}/`,
-			pubDate: new Date(`${pubDate} 12:00:00`),
-			category: "Feature essay",
-		};
-	})
-	.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+const featurePosts = getStandaloneBlogPosts();
 ---
 
 <!doctype html>

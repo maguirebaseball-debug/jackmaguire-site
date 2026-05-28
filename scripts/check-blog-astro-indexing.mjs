@@ -3,6 +3,7 @@ import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const blogDir = join(root, 'src/pages/blog');
+const distHome = join(root, 'dist/index.html');
 const distBlogIndex = join(root, 'dist/blog/index.html');
 const distSitemap = join(root, 'dist/sitemap-0.xml');
 
@@ -29,10 +30,11 @@ function escapeHtml(value) {
 		.replace(/'/g, '&#39;');
 }
 
-if (!existsSync(distBlogIndex) || !existsSync(distSitemap)) {
+if (!existsSync(distHome) || !existsSync(distBlogIndex) || !existsSync(distSitemap)) {
 	throw new Error('Run npm run build before npm run check:indexing.');
 }
 
+const home = readFileSync(distHome, 'utf8');
 const blogIndex = readFileSync(distBlogIndex, 'utf8');
 const sitemap = readFileSync(distSitemap, 'utf8');
 
@@ -50,6 +52,8 @@ for (const filename of astroPages) {
 
 	assertContains(blogIndex, path, 'dist/blog/index.html');
 	assertContains(blogIndex, escapeHtml(title), 'dist/blog/index.html');
+	assertContains(home, path, 'dist/index.html');
+	assertContains(home, escapeHtml(title), 'dist/index.html');
 	assertContains(sitemap, absoluteUrl, 'dist/sitemap-0.xml');
 
 	if (!/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(pubDate)) {
@@ -57,4 +61,4 @@ for (const filename of astroPages) {
 	}
 }
 
-console.log(`Verified ${astroPages.length} standalone Astro blog pages on /blog and in sitemap.`);
+console.log(`Verified ${astroPages.length} standalone Astro blog pages on the homepage, on /blog, and in sitemap.`);

@@ -14,7 +14,7 @@ const description = "One sentence summary.";
 const pubDate = "May 27, 2026";
 ---
 
-If title or pubDate is missing, the build fails. New standalone Astro pages appear in the Feature Essays section on /blog after npm run build.
+If title or pubDate is missing, the build fails. New standalone Astro pages appear in the Feature Essays section on /blog and in Recent writing on the homepage after npm run build.
 
 Search Console indexing
 
@@ -29,4 +29,4 @@ After adding or changing a standalone Astro article, run:
 npm run build
 npm run check:indexing
 
-The check confirms that every standalone Astro article in this folder appears on /blog and in the generated sitemap. After pushing to main, Vercel deploys the updated sitemap. Search Console discovers the new URL through the submitted sitemap. For urgent posts, inspect the deployed URL manually in Search Console after Vercel finishes.
+The check confirms that every standalone Astro article in this folder appears on the homepage, appears on /blog, and appears in the generated sitemap. After pushing to main, Vercel deploys the updated sitemap. Search Console discovers the new URL through the submitted sitemap. For urgent posts, inspect the deployed URL manually in Search Console after Vercel finishes.
