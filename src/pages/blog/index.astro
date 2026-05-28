@@ -12,20 +12,36 @@ const posts = (await getCollection('blog')).sort(
 
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 
-const featurePosts = [
-	{
-		title: "25 Ingredient Pairings That Should Exist But Don't",
-		href: "/blog/food-chemical-pairings/",
-		pubDate: new Date("2026-05-27T12:00:00Z"),
-		category: "Feature essay",
-	},
-	{
-		title: "South America's Budget Travel Map Has Been Redrawn. Here Is What Is Actually True in 2026.",
-		href: "/blog/south-america-travel-costs-2026/",
-		pubDate: new Date("2026-05-27T12:00:00Z"),
-		category: "Feature essay",
-	},
-];
+const astroPageSources = import.meta.glob('./*.astro', {
+	query: '?raw',
+	import: 'default',
+	eager: true,
+});
+
+function extractConst(source: string, name: string) {
+	const match = source.match(new RegExp(`const ${name} = (["'])(.*?)\\1;`, 's'));
+	return match?.[2];
+}
+
+const featurePosts = Object.entries(astroPageSources)
+	.filter(([path]) => !path.includes('/index.astro') && !path.includes('/[...slug].astro'))
+	.map(([path, source]) => {
+		const slug = path.replace('./', '').replace('.astro', '');
+		const title = extractConst(source as string, 'title');
+		const pubDate = extractConst(source as string, 'pubDate');
+
+		if (!title || !pubDate) {
+			throw new Error(`${path} must define const title and const pubDate to appear on /blog.`);
+		}
+
+		return {
+			title,
+			href: `/blog/${slug}/`,
+			pubDate: new Date(`${pubDate} 12:00:00`),
+			category: "Feature essay",
+		};
+	})
+	.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 ---
 
 <!doctype html>

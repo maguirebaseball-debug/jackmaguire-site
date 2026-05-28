@@ -1,0 +1,32 @@
+Standalone Astro blog page process
+
+Use this folder for custom blog articles that need a full Astro layout instead of the Markdown content collection.
+
+Automatic listing
+
+The /blog index automatically scans src/pages/blog/*.astro, excluding index.astro and [...slug].astro.
+
+Every standalone Astro article must define these top-level constants:
+
+---
+const title = "Article Title";
+const description = "One sentence summary.";
+const pubDate = "May 27, 2026";
+---
+
+If title or pubDate is missing, the build fails. New standalone Astro pages appear in the Feature Essays section on /blog after npm run build.
+
+Search Console indexing
+
+Astro generates routes for all files in src/pages/blog/*.astro. The @astrojs/sitemap integration includes those routes in dist/sitemap-0.xml because astro.config.mjs sets site: 'https://jackmaguire.org'.
+
+Search Console already has this sitemap submitted:
+
+https://jackmaguire.org/sitemap-index.xml
+
+After adding or changing a standalone Astro article, run:
+
+npm run build
+npm run check:indexing
+
+The check confirms that every standalone Astro article in this folder appears on /blog and in the generated sitemap. After pushing to main, Vercel deploys the updated sitemap. Search Console discovers the new URL through the submitted sitemap. For urgent posts, inspect the deployed URL manually in Search Console after Vercel finishes.
