@@ -7,13 +7,27 @@ import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
 import { getStandaloneBlogPosts } from '../../lib/standaloneBlogPosts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const markdownPosts = (await getCollection('blog')).map((post) => ({
+	title: post.data.title,
+	href: `/blog/${post.id}/`,
+	pubDate: post.data.pubDate,
+	tags: post.data.tags ?? [],
+	isStandalone: false,
+}));
+
+const standalonePosts = getStandaloneBlogPosts().map((post) => ({
+	title: post.title,
+	href: post.href,
+	pubDate: post.pubDate,
+	tags: ['Interactive'],
+	isStandalone: true,
+}));
+
+const posts = [...standalonePosts, ...markdownPosts].sort(
+	(a, b) => b.pubDate.valueOf() - a.pubDate.valueOf(),
 );
 
-const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
-
-const featurePosts = getStandaloneBlogPosts();
+const allTags = [...new Set(posts.flatMap((p) => p.tags))].filter(t => t !== 'Interactive').sort();
 ---
 
 <!doctype html>
@@ -27,24 +41,26 @@ const featurePosts = getStandaloneBlogPosts();
 			<h1>Writing</h1>
 			{allTags.length > 0 && (
 				<div class="tags">
-					<span class="tag feature-tag">feature essays</span>
 					{allTags.map((tag) => (
 						<span class="tag">{tag}</span>
 					))}
 				</div>
 			)}
-			<section class="feature-section" aria-labelledby="feature-heading">
-				<h2 id="feature-heading">Feature Essays</h2>
-				<p class="section-note">Custom Astro articles with fuller layouts, data views, and visual systems.</p>
-				<ul class="feature-list">
+			<section class="archive-section">
+				<ul class="archive-list">
 					{
-						featurePosts.map((post) => (
+						posts.map((post) => (
 							<li>
 								<a href={post.href}>
-									<span class="title">{post.title}</span>
+									<span class="title">
+										{post.title}
+										{post.isStandalone && <span class="badge">Interactive</span>}
+									</span>
 									<span class="meta">
 										<FormattedDate date={post.pubDate} />
-										<span class="tag-list"> · {post.category}</span>
+										{post.tags && post.tags.length > 0 && post.tags.filter(t => t !== 'Interactive').length > 0 && (
+											<span class="tag-list"> · {post.tags.filter(t => t !== 'Interactive').join(', ')}</span>
+										)}
 									</span>
 								</a>
 							</li>
@@ -52,24 +68,6 @@ const featurePosts = getStandaloneBlogPosts();
 					}
 				</ul>
 			</section>
-			<h2 class="archive-heading">All Writing</h2>
-			<ul>
-				{
-					posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`}>
-								<span class="title">{post.data.title}</span>
-								<span class="meta">
-									<FormattedDate date={post.data.pubDate} />
-									{post.data.tags && post.data.tags.length > 0 && (
-										<span class="tag-list"> · {post.data.tags.join(', ')}</span>
-									)}
-								</span>
-							</a>
-						</li>
-					))
-				}
-			</ul>
 		</main>
 		<Footer />
 	</body>
@@ -92,31 +90,22 @@ const featurePosts = getStandaloneBlogPosts();
 		border-radius: 20px;
 		color: rgb(var(--gray-dark));
 	}
-	.feature-tag {
-		background: color-mix(in srgb, var(--accent) 14%, white);
-		color: var(--accent-dark);
-	}
-	.feature-section {
+	.archive-section {
 		margin: 0 0 2.5em;
-		padding: 1.2em 1.4em;
-		border-left: 3px solid var(--accent);
-		background: #f7f4ee;
 	}
-	h2 {
-		font-size: 1.15em;
-		margin: 0 0 0.35em;
-	}
-	.section-note {
-		margin: 0 0 1em;
-		color: rgb(var(--gray));
-		font-size: 0.9em;
-		line-height: 1.6;
-	}
-	.feature-list {
-		margin: 0;
-	}
-	.archive-heading {
-		margin: 0 0 0.4em;
+	.badge {
+		font-size: 0.72rem;
+		font-weight: 600;
+		background: #e8f0dc;
+		color: #3a5c1a;
+		padding: 0.15rem 0.45rem;
+		border-radius: 4px;
+		margin-left: 0.5rem;
+		font-family: var(--font-outfit), sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		display: inline-block;
+		vertical-align: middle;
 	}
 	ul {
 		list-style: none;
