@@ -3,18 +3,40 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+
+const lastUpdated = 'May 28, 2026';
+const recommendationHubs = [
+	{ name: 'NYC Restaurants', url: '/recommendations/nyc-restaurants/' },
+	{ name: 'Chinatown Non-Spicy Intel', url: '/recommendations/curry-house-chinatown/' },
+	{ name: 'NYC Pastrami Ranking', url: '/recommendations/nyc-pastrami/' },
+	{ name: 'Books', url: '/recommendations/books/' },
+	{ name: 'Apps', url: '/recommendations/apps/' },
+	{ name: 'Films', url: '/recommendations/films/' },
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Recommendations: ${SITE_TITLE}`} description="Books, apps, restaurants, and films I recommend." />
+		<BaseHead title={`Best Recommendations from Jack Maguire: NYC, Books, Apps, and Films`} description="A hub for Jack Maguire's restaurant, book, app, and film recommendations." />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Recommendation hubs by Jack Maguire',
+			itemListElement: recommendationHubs.map((item, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name: item.name,
+				url: new URL(item.url, Astro.site).toString(),
+			})),
+		})} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>Recommendations</h1>
 			<p class="intro">Things I consistently return to and recommend without hesitation.</p>
+			<p class="updated">Last updated: {lastUpdated}</p>
 
 			<section>
 				<h2>NYC Restaurants</h2>
@@ -59,6 +81,12 @@ import { SITE_TITLE } from '../consts';
 <style>
 	.intro {
 		color: rgb(var(--gray));
+		margin-bottom: 2.5em;
+	}
+	.updated {
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+		margin-top: -1.25em;
 		margin-bottom: 2.5em;
 	}
 	section {

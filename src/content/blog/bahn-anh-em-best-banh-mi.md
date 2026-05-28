@@ -1,6 +1,6 @@
 ---
-title: "Báhn Anh Em Has the Best Bahn Mi Bread I've Ever Eaten"
-description: "Must go. This is the best bahn mi bread I've ever had, and I'm absolutely coming back for more."
+title: "Banh Anh Em: Best Banh Mi Bread in NYC"
+description: "A direct review of Banh Anh Em in New York City, focused on the bread, texture, and overall banh mi execution."
 pubDate: 2026-01-29
 tags: ["nyc", "food"]
 ---

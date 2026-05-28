@@ -3,20 +3,53 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+
+const lastUpdated = 'May 28, 2026';
+const restaurantRecommendations = [
+	'Jakarta Munch at Hungry Pearl',
+	'Europa Bar and Grill',
+	'Greyz Bistro',
+	'390 Social',
+	'Oxford Cafe',
+	'Koju',
+	'Grand Eleven',
+	'Freak Bar',
+	"Tatanka's Tincture Bar",
+	'Wok In Duane',
+	'Alytori',
+	'Sunday C&C Bakery',
+	'Willows Tavern',
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`NYC Restaurant Recommendations: ${SITE_TITLE}`}
+			title={`Best NYC Restaurants I Recommend: ${SITE_TITLE}`}
 			description="Jack Maguire's picks for restaurants, bars, and cafes worth seeking out in New York City, verified firsthand."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'NYC restaurant recommendations by Jack Maguire',
+			itemListElement: restaurantRecommendations.map((name, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name,
+			})),
+		})} />
 		<style>
 			.intro {
 				margin-bottom: 2.5em;
 				color: rgb(var(--gray));
 				font-size: 0.95em;
+			}
+			.updated {
+				color: rgb(var(--gray));
+				font-size: 0.85em;
+				margin-top: -1.25em;
+				margin-bottom: 2.5em;
 			}
 
 			/* Interactive Filter Control Panel */
@@ -263,6 +296,7 @@ import { SITE_TITLE } from '../../consts';
 		<main>
 			<h1>NYC Restaurants</h1>
 			<p class="intro">Places worth seeking out. Honest assessments based on firsthand visits, precise addresses, and verified consensus.</p>
+			<p class="updated">Last updated: {lastUpdated}</p>
 
 			<!-- Dynamic Filtering Controls -->
 			<div class="restaurant-filter-container">

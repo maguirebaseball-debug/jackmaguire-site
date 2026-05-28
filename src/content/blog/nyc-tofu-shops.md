@@ -1,6 +1,6 @@
 ---
-title: "NYC Tofu Shops"
-description: "A curated selection of the best tofu retailers and specialty shops across New York City."
+title: "Best NYC Tofu Shops and Specialty Soy Stores"
+description: "A curated guide to tofu retailers, specialty soy shops, and local tofu makers across New York City."
 pubDate: 2026-02-26
 tags: ["nyc", "food"]
 ---

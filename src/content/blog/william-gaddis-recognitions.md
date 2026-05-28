@@ -1,6 +1,6 @@
 ---
-title: "William Gaddis' Recognitions: My Thoughts"
-description: "The Recognitions started well and then became exhausting. A note on what happened around page 100."
+title: "William Gaddis' The Recognitions: Review Notes"
+description: "A concise review of The Recognitions by William Gaddis, focused on style, difficulty, and where the reading experience changes."
 pubDate: 2026-01-10
 tags: ["books", "essays"]
 ---

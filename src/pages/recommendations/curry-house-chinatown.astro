@@ -3,15 +3,35 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+
+const lastUpdated = 'May 28, 2026';
+const curryHouseDishes = [
+	'Bah Kut Teh',
+	'Hainanese Chicken',
+	'Ipoh Chicken Noodles',
+	'Asam Laksa',
+	'Beef Rendang',
+	'Curry Chicken',
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Curry House Intel: 9 Pell St Chinatown : ${SITE_TITLE}`}
+			title={`Best Dishes at Curry House Chinatown: ${SITE_TITLE}`}
 			description="A verified firsthand guide to the best dishes at Curry House on Pell Street in Chinatown, New York City."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Best dishes at Curry House Chinatown',
+			itemListElement: curryHouseDishes.map((name, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name,
+			})),
+		})} />
 		<style>
 			:root {
 				--pop-pink: #ff2d75;
@@ -98,6 +118,13 @@ import { SITE_TITLE } from '../../consts';
 				background-color: var(--pop-yellow);
 				color: var(--pop-black);
 				border-color: var(--pop-black);
+			}
+			.updated {
+				font-size: 0.85rem;
+				font-weight: 800;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				margin: 0;
 			}
 
 			.section-title {
@@ -292,6 +319,7 @@ import { SITE_TITLE } from '../../consts';
 					<div class="logistics-item">Hours: 11:00 AM – 9:30 PM Daily</div>
 					<div class="logistics-item">Pricing: Entrees range from $12 to $25 (Cash preferred, Cards accepted)</div>
 				</div>
+				<p class="updated">Last updated: {lastUpdated}</p>
 			</section>
 
 			<h2 class="section-title">Zero Heat Favorites</h2>

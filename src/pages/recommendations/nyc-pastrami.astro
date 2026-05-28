@@ -3,20 +3,63 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+
+const lastUpdated = 'May 28, 2026';
+const pastramiRanking = [
+	'Parkview Diner',
+	"Moe's Pastrami & Burger",
+	"Katz's Delicatessen",
+	'House of Glatt',
+	'Hometown Bar-B-Que',
+	'2nd Avenue Deli',
+	'Pastrami Queen',
+	"Junior's Restaurant & Bakery",
+	'Butcher Block',
+	"Liebman's Deli",
+	"Sarge's Delicatessen",
+	'USA Brooklyn Delicatessen',
+	"Mendy's NYC",
+	"Murray's Sturgeon Shop",
+	'Mile End Delicatessen',
+	"S&P Lunch (fmr. Eisenberg's)",
+	'Majestic Delicatessen',
+	"Frankel's Delicatessen",
+	"David's Brisket House",
+	"Morgan's Brooklyn Barbecue",
+	'Essen New York Deli',
+	"Lenny's Grill and Deli",
+	'Defonte Sandwich Shop',
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`NYC Pastrami Ranking: ${SITE_TITLE}`}
+			title={`Best Pastrami in NYC: Consensus Ranking: ${SITE_TITLE}`}
 			description="We pulled 30 ranked lists of NYC pastrami sandwiches from food blogs, newsletters, and local guides, then re-ranked every spot by its average position across the lists it appeared in."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Best pastrami in NYC consensus ranking',
+			itemListElement: pastramiRanking.map((name, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name,
+			})),
+		})} />
 		<style>
 			.intro {
 				margin-bottom: 2em;
 				color: rgb(var(--gray-dark));
 				line-height: 1.7;
+			}
+			.updated {
+				color: rgb(var(--gray));
+				font-size: 0.85em;
+				margin-top: -1em;
+				margin-bottom: 2em;
 			}
 			.methodology {
 				background: rgba(var(--gray-light), 0.5);
@@ -318,6 +361,7 @@ import { SITE_TITLE } from '../../consts';
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda: a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.
 			</p>
+			<p class="updated">Last updated: {lastUpdated}</p>
 			
 			<div class="methodology">
 				<strong>How this works:</strong> For each list, we recorded where every restaurant placed: 1st, 2nd, 3rd, and so on. We then calculated each restaurant's average rank across all the lists it appeared in. Lower average rank is better. A place that tops two lists beats a place that consistently sits at #5 on seven lists. No points for just showing up. Only mainstream publications were excluded (NYT, Eater, Grubstreet, Infatuation, Thrillist, and similar). 30 sources total; 23 restaurants ranked.

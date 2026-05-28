@@ -13,7 +13,16 @@ export default defineConfig({
 		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions',
 		'/all-writing/': '/blog/',
 	},
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) =>
+				![
+					'https://jackmaguire.org/sobriety/',
+					'https://jackmaguire.org/sobriety-admin/',
+				].includes(page),
+		}),
+	],
 	fonts: [
 		{
 			provider: fontProviders.google(),

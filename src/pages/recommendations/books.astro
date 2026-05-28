@@ -3,18 +3,41 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+
+const lastUpdated = 'May 28, 2026';
+const bookRecommendations = [
+	'The Recognitions',
+	'When Things Fall Apart',
+	'Thinking in Systems: A Primer',
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Recommended Books: ${SITE_TITLE}`}
+			title={`Best Books on Systems, Philosophy, and Decision-Making: ${SITE_TITLE}`}
 			description="A curated catalog of books worth your time and focus, covering systems thinking, theology, economics, and philosophy."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Recommended books by Jack Maguire',
+			itemListElement: bookRecommendations.map((name, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name,
+			})),
+		})} />
 		<style>
 			.intro {
 				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+			}
+			.updated {
+				color: rgb(var(--gray));
+				font-size: 0.85em;
+				margin-top: -1.25em;
 				margin-bottom: 2.5em;
 			}
 			.book-grid {
@@ -86,6 +109,7 @@ import { SITE_TITLE } from '../../consts';
 		<main>
 			<h1>Recommended Books</h1>
 			<p class="intro">Evaluations of books that have significantly influenced my perspective on systems, philosophy, and practical decision-making.</p>
+			<p class="updated">Last updated: {lastUpdated}</p>
 
 			<div class="book-grid">
 				

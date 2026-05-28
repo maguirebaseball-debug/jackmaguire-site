@@ -1,6 +1,6 @@
 ---
-title: "The Theoretical Upper Limit of the US Stock Market"
-description: "An analysis of the macroeconomic bounds, equity risk premiums, and structural constraints defining the maximum theoretical valuation of American equities."
+title: "How High Can the US Stock Market Go?"
+description: "An analysis of the macroeconomic bounds, equity risk premiums, and structural constraints that define the upper valuation limit of American equities."
 pubDate: 2026-05-26
 tags: ["essays", "tech"]
 ogImage: "/images/og-market-limit.svg"
