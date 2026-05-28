@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../../consts';
 	<head>
 		<BaseHead
 			title={`NYC Pastrami Ranking: ${SITE_TITLE}`}
-			description="We pulled 30 ranked lists of NYC pastrami sandwiches from food blogs, newsletters, and local guides: then re-ranked every spot by its average position across the lists it appeared in."
+			description="We pulled 30 ranked lists of NYC pastrami sandwiches from food blogs, newsletters, and local guides, then re-ranked every spot by its average position across the lists it appeared in."
 		/>
 		<style>
 			.intro {
@@ -30,6 +30,104 @@ import { SITE_TITLE } from '../../consts';
 			.methodology strong {
 				color: rgb(var(--gray-dark));
 			}
+
+			/* Interactive Filter System Styles */
+			.pastrami-filter-wrapper {
+				background-color: #fdf8ef;
+				border: 2px solid var(--accent);
+				border-radius: 10px;
+				padding: 1.5rem;
+				margin-bottom: 2.5rem;
+				box-shadow: 0 4px 12px rgba(var(--gray), 0.08);
+			}
+			.filter-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.5rem;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.search-box-wrap {
+				flex: 1;
+				min-width: 260px;
+				position: relative;
+			}
+			.search-box-wrap input {
+				width: 100%;
+				padding: 10px 12px 10px 38px;
+				font-size: 0.95rem;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 6px;
+				background-color: #fff;
+				color: rgb(var(--gray-dark));
+				box-sizing: border-box;
+				transition: border-color 0.2s;
+			}
+			.search-box-wrap input:focus {
+				border-color: var(--accent);
+				outline: none;
+			}
+			.search-icon-inline {
+				position: absolute;
+				left: 12px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 16px;
+				height: 16px;
+				color: rgb(var(--gray));
+				pointer-events: none;
+			}
+			.borough-filter-wrap {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				align-items: center;
+			}
+			.filter-btn {
+				background-color: #fff;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 4px;
+				padding: 0.4rem 0.8rem;
+				font-size: 0.82rem;
+				font-weight: 700;
+				color: rgb(var(--gray-dark));
+				cursor: pointer;
+				transition: all 0.2s;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.filter-btn.active {
+				background-color: var(--accent);
+				color: #fff;
+				border-color: var(--accent);
+			}
+			.filter-btn:hover:not(.active) {
+				border-color: var(--accent);
+				background-color: rgba(var(--gray-light), 0.2);
+			}
+			.sort-select-wrap {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.sort-select-wrap label {
+				font-size: 0.82rem;
+				font-weight: 700;
+				color: rgb(var(--gray-dark));
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.sort-select-wrap select {
+				padding: 8px 12px;
+				font-size: 0.9rem;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 6px;
+				background-color: #fff;
+				color: rgb(var(--gray-dark));
+				cursor: pointer;
+				outline: none;
+			}
+
 			.ranking-list {
 				display: flex;
 				flex-direction: column;
@@ -44,6 +142,7 @@ import { SITE_TITLE } from '../../consts';
 				grid-template-columns: 3em 1fr auto;
 				gap: 0 1.25em;
 				align-items: start;
+				transition: opacity 0.3s, transform 0.3s;
 			}
 			@media (max-width: 520px) {
 				.entry {
@@ -73,6 +172,15 @@ import { SITE_TITLE } from '../../consts';
 				color: rgb(var(--black));
 				margin: 0 0 0.15em 0;
 				line-height: 1.3;
+			}
+			.entry-name a {
+				color: inherit;
+				text-decoration: none;
+				border-bottom: 1px dashed var(--accent);
+			}
+			.entry-name a:hover {
+				color: var(--accent);
+				border-bottom-style: solid;
 			}
 			.entry-location {
 				font-size: 0.82em;
@@ -128,7 +236,7 @@ import { SITE_TITLE } from '../../consts';
 				border-top: 1px solid rgba(var(--gray), 15%);
 				margin: 2em 0;
 			}
-.pickle-divider {
+			.pickle-divider {
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -155,6 +263,12 @@ import { SITE_TITLE } from '../../consts';
 			}
 			.sources-note a {
 				color: rgb(var(--gray));
+				border-bottom: 1px dashed rgb(var(--gray));
+				text-decoration: none;
+			}
+			.sources-note a:hover {
+				color: var(--accent);
+				border-bottom-color: var(--accent);
 			}
 			/* Top 3: larger rank numeral, warm background, left border: structurally distinct from #22 */
 			.entry.top3-entry {
@@ -184,6 +298,16 @@ import { SITE_TITLE } from '../../consts';
 				height: auto;
 				filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.15));
 			}
+			.no-results-msg {
+				padding: 2.5rem;
+				text-align: center;
+				background-color: #faf9f6;
+				border: 1px dashed rgb(var(--gray-light));
+				border-radius: 8px;
+				color: rgb(var(--gray));
+				font-weight: 600;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -194,16 +318,47 @@ import { SITE_TITLE } from '../../consts';
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda: a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.
 			</p>
-<div class="methodology">
+			
+			<div class="methodology">
 				<strong>How this works:</strong> For each list, we recorded where every restaurant placed: 1st, 2nd, 3rd, and so on. We then calculated each restaurant's average rank across all the lists it appeared in. Lower average rank is better. A place that tops two lists beats a place that consistently sits at #5 on seven lists. No points for just showing up. Only mainstream publications were excluded (NYT, Eater, Grubstreet, Infatuation, Thrillist, and similar). 30 sources total; 23 restaurants ranked.
 			</div>
 
-			<div class="ranking-list">
+			<!-- Interactive Filter Controls -->
+			<div class="pastrami-filter-wrapper">
+				<div class="filter-row">
+					<div class="search-box-wrap">
+						<svg class="search-icon-inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+						<input type="text" id="pastrami-search" placeholder="Search by deli name or location..." aria-label="Search delis" />
+					</div>
+					<div class="borough-filter-wrap">
+						<button class="filter-btn active" data-borough="all">All Boroughs</button>
+						<button class="filter-btn" data-borough="Manhattan">Manhattan</button>
+						<button class="filter-btn" data-borough="Brooklyn">Brooklyn</button>
+						<button class="filter-btn" data-borough="Queens">Queens</button>
+						<button class="filter-btn" data-borough="Bronx">Bronx</button>
+					</div>
+					<div class="sort-select-wrap">
+						<label for="pastrami-sort">Sort By:</label>
+						<select id="pastrami-sort">
+							<option value="rank-asc">Consensus Rank (Ascending)</option>
+							<option value="lists-desc">List Representation (Descending)</option>
+							<option value="name-asc">Alphabetical (A to Z)</option>
+						</select>
+					</div>
+				</div>
+			</div>
 
-				<div class="entry top3-entry">
+			<div class="ranking-list" id="pastrami-list">
+
+				<div class="entry top3-entry" data-name="Parkview Diner" data-borough="Brooklyn" data-rank="1.0" data-lists="2">
 					<div class="rank-num top3">1</div>
 					<div class="entry-body">
-						<div class="entry-name">Parkview Diner</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Parkview+Diner+Bath+Beach+Brooklyn" target="_blank" rel="noopener">Parkview Diner</a>
+						</div>
 						<div class="entry-location">Bath Beach, Brooklyn</div>
 						<div class="entry-note">
 							<span class="tag">Tied #1</span>
@@ -217,14 +372,16 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry top3-entry">
+				<div class="entry top3-entry" data-name="Moe's Pastrami & Burger" data-borough="Brooklyn" data-rank="1.0" data-lists="2">
 					<div class="rank-num top3">1</div>
 					<div class="entry-body">
-						<div class="entry-name">Moe's Pastrami &amp; Burger</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Moe's+Pastrami+and+Burger+Prospect-Lefferts+Gardens+Brooklyn" target="_blank" rel="noopener">Moe's Pastrami &amp; Burger</a>
+						</div>
 						<div class="entry-location">Prospect-Lefferts Gardens, Brooklyn</div>
 						<div class="entry-note">
 							<span class="tag">Tied #1</span>
-							Opened 2023. Halal-certified. Won the Brooklyn Metropolis moving blog ranking outright and drew a 4/4 from the PeterKto food blog: edging Katz's 3/4 in a head-to-head. A commenter on Robert Sietsema's Substack called it the best in the boroughs after five decades of eating.
+							Opened 2023. Halal-certified. Won the <a href="https://brooklynmetropolis.com/" target="_blank" rel="noopener">Brooklyn Metropolis</a> moving blog ranking outright and drew a 4/4 from the <a href="https://peterkto.com/" target="_blank" rel="noopener">PeterKto food blog</a>, edging Katz's 3/4 in a head-to-head. A commenter on <a href="https://robertsietsema.substack.com/" target="_blank" rel="noopener">Robert Sietsema's Substack</a> called it the best in the boroughs after five decades of eating.
 						</div>
 					</div>
 					<div class="score-block">
@@ -234,10 +391,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry top3-entry">
+				<div class="entry top3-entry" data-name="Katz's Delicatessen" data-borough="Manhattan" data-rank="1.3" data-lists="14">
 					<div class="rank-num top3">3</div>
 					<div class="entry-body">
-						<div class="entry-name">Katz's Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://katzsdelicatessen.com/" target="_blank" rel="noopener">Katz's Delicatessen</a>
+						</div>
 						<div class="entry-location">Lower East Side, Manhattan</div>
 						<div class="entry-note">
 							Appeared on 14 lists, more than any other restaurant, and held the top position on most of them. The average rank of 1.3 confirms it is not just the most famous; it is genuinely the consensus best. The main complaints are the price ($28.95), the lines, and the tourist density. None of that changes what is in the sandwich.
@@ -250,13 +409,15 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="House of Glatt" data-borough="Brooklyn" data-rank="2.0" data-lists="1">
 					<div class="rank-num">4</div>
 					<div class="entry-body">
-						<div class="entry-name">House of Glatt</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=House+of+Glatt+Crown+Heights+Brooklyn" target="_blank" rel="noopener">House of Glatt</a>
+						</div>
 						<div class="entry-location">Crown Heights, Brooklyn</div>
 						<div class="entry-note">
-							Glatt kosher butcher and deli that does not get much press outside of Crown Heights. Appeared on one qualifying list, where it placed second.
+							A highly regarded Glatt kosher butcher and deli serving Crown Heights. Highly regarded for its traditional, hand-carved, heavily spiced pastrami and deeply authentic neighborhood atmosphere.
 						</div>
 					</div>
 					<div class="score-block">
@@ -266,14 +427,16 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Hometown Bar-B-Que" data-borough="Brooklyn" data-rank="2.8" data-lists="4">
 					<div class="rank-num">5</div>
 					<div class="entry-body">
-						<div class="entry-name">Hometown Bar-B-Que</div>
+						<div class="entry-name">
+							<a href="https://hometownbarbque.com/" target="_blank" rel="noopener">Hometown Bar-B-Que</a>
+						</div>
 						<div class="entry-location">Red Hook, Brooklyn</div>
 						<div class="entry-note">
 							<span class="tag">Fri-Sun only</span>
-							Texas BBQ-style hot-smoked pastrami, available Friday through Sunday. John Tanner's BBQ blog argued it surpasses Katz's on raw flavor. For anyone who prefers the smoked brisket end of the spectrum over the steamed deli style, this is the pick.
+							Texas BBQ-style hot-smoked pastrami, available Friday through Sunday. <a href="https://johntannerbbqblog.wordpress.com/" target="_blank" rel="noopener">John Tanner's BBQ blog</a> argued it surpasses Katz's on raw flavor. For anyone who prefers the smoked brisket end of the spectrum over the steamed deli style, this is the pick.
 						</div>
 					</div>
 					<div class="score-block">
@@ -283,10 +446,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="2nd Avenue Deli" data-borough="Manhattan" data-rank="3.1" data-lists="7">
 					<div class="rank-num">6</div>
 					<div class="entry-body">
-						<div class="entry-name">2nd Avenue Deli</div>
+						<div class="entry-name">
+							<a href="https://2ndavenuedeli.com/" target="_blank" rel="noopener">2nd Avenue Deli</a>
+						</div>
 						<div class="entry-location">Murray Hill / Upper East Side</div>
 						<div class="entry-note">
 							Consistently in the top three across seven separate lists. Hand-carved, thickly sliced, and made with brisket-cut pastrami. Critics frequently note the broth as a hidden strength. The UES location is more manageable than the Murray Hill branch on weekends.
@@ -299,13 +464,15 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Pastrami Queen" data-borough="Manhattan" data-rank="3.4" data-lists="11">
 					<div class="rank-num">7</div>
 					<div class="entry-body">
-						<div class="entry-name">Pastrami Queen</div>
+						<div class="entry-name">
+							<a href="https://www.pastramiqueen.com/" target="_blank" rel="noopener">Pastrami Queen</a>
+						</div>
 						<div class="entry-location">UES / UWS / Moynihan Train Hall</div>
 						<div class="entry-note">
-							Anthony Bourdain's publicly stated favorite. Machine-sliced rather than hand-carved, which increases surface area and concentrates flavor. Appeared on 11 lists: second only to Katz's: and consistently landed in the top three. The Moynihan Hall location has made it more accessible than it used to be.
+							Anthony Bourdain's publicly stated favorite. Machine-sliced rather than hand-carved, which increases surface area and concentrates flavor. Appeared on 11 lists, second only to Katz's, and consistently landed in the top three. The Moynihan Hall location has made it more accessible than it used to be.
 						</div>
 					</div>
 					<div class="score-block">
@@ -315,10 +482,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Junior's Restaurant & Bakery" data-borough="Brooklyn" data-rank="3.5" data-lists="4">
 					<div class="rank-num">8</div>
 					<div class="entry-body">
-						<div class="entry-name">Junior's Restaurant &amp; Bakery</div>
+						<div class="entry-name">
+							<a href="https://www.juniorscheesecake.com/" target="_blank" rel="noopener">Junior's Restaurant &amp; Bakery</a>
+						</div>
 						<div class="entry-location">Downtown Brooklyn</div>
 						<div class="entry-note">
 							<span class="tag">Tied #8</span>
@@ -332,10 +501,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Butcher Block" data-borough="Queens" data-rank="3.5" data-lists="2">
 					<div class="rank-num">8</div>
 					<div class="entry-body">
-						<div class="entry-name">Butcher Block</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Butcher+Block+Sunnyside+Queens" target="_blank" rel="noopener">Butcher Block</a>
+						</div>
 						<div class="entry-location">Sunnyside, Queens</div>
 						<div class="entry-note">
 							<span class="tag">Tied #8</span>
@@ -349,10 +520,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Liebman's Deli" data-borough="Bronx" data-rank="3.7" data-lists="6">
 					<div class="rank-num">10</div>
 					<div class="entry-body">
-						<div class="entry-name">Liebman's Deli</div>
+						<div class="entry-name">
+							<a href="https://liebmansdeli.com/" target="_blank" rel="noopener">Liebman's Deli</a>
+						</div>
 						<div class="entry-location">Riverdale, Bronx</div>
 						<div class="entry-note">
 							The only Bronx entry. Kosher, lean-cut pastrami with a 70-year history. Appeared on six lists and consistently described as the best-value option in the dataset. The trip to Riverdale keeps the tourist count low.
@@ -365,10 +538,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Sarge's Delicatessen" data-borough="Manhattan" data-rank="3.8" data-lists="5">
 					<div class="rank-num">11</div>
 					<div class="entry-body">
-						<div class="entry-name">Sarge's Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://sargesdeli.com/" target="_blank" rel="noopener">Sarge's Delicatessen</a>
+						</div>
 						<div class="entry-location">Murray Hill, Manhattan</div>
 						<div class="entry-note">
 							Open 24 hours, which explains some of its following among people who did not plan ahead. Appeared on five lists at an average rank just under four. Reliable rather than exceptional.
@@ -381,7 +556,7 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="pickle-divider" aria-hidden="true">
+				<div class="pickle-divider" aria-hidden="true" id="pickle-divider-el">
 					<svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg">
 						<!-- Pickle body -->
 						<ellipse cx="60" cy="24" rx="54" ry="17" fill="#5a9a30" stroke="#2a5a10" stroke-width="2" transform="rotate(-6,60,24)"/>
@@ -396,12 +571,14 @@ import { SITE_TITLE } from '../../consts';
 					</svg>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="USA Brooklyn Delicatessen" data-borough="Manhattan" data-rank="4.0" data-lists="1">
 					<div class="rank-num">12</div>
 					<div class="entry-body">
-						<div class="entry-name">USA Brooklyn Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://brooklyndeli.com/" target="_blank" rel="noopener">USA Brooklyn Delicatessen</a>
+						</div>
 						<div class="entry-location">Times Square, Manhattan</div>
-						<div class="entry-note">Appeared on one list, placed fourth.</div>
+						<div class="entry-note">A modern, high-volume theater district deli. Known for generous portions, classic rye bread, and hot-carved cured meats that appeal to Broadway crowds.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">4.0</div>
@@ -410,12 +587,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Mendy's NYC" data-borough="Manhattan" data-rank="4.0" data-lists="1">
 					<div class="rank-num">12</div>
 					<div class="entry-body">
-						<div class="entry-name">Mendy's NYC</div>
+						<div class="entry-name">
+							<a href="https://mendysdeli.com/" target="_blank" rel="noopener">Mendy's NYC</a>
+						</div>
 						<div class="entry-location">Midtown, Manhattan</div>
-						<div class="entry-note">Appeared on one list, placed fourth.</div>
+						<div class="entry-note">A historic kosher establishment in Midtown. Famously referenced in pop culture, serving traditional, lean pastrami cuts and classic Jewish comfort foods.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">4.0</div>
@@ -424,12 +603,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Murray's Sturgeon Shop" data-borough="Manhattan" data-rank="4.0" data-lists="1">
 					<div class="rank-num">12</div>
 					<div class="entry-body">
-						<div class="entry-name">Murray's Sturgeon Shop</div>
+						<div class="entry-name">
+							<a href="https://murrayssturgeonshop.com/" target="_blank" rel="noopener">Murray's Sturgeon Shop</a>
+						</div>
 						<div class="entry-location">Upper West Side, Manhattan</div>
-						<div class="entry-note">Known primarily as a smoked fish shop. Appeared on one pastrami list, placed fourth.</div>
+						<div class="entry-note">Known primarily as a historic Upper West Side smoked fish purveyor. Their pastrami-cured salmon represents an exceptional cross-over, appearing on pastrami rankings for its rich spice rub.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">4.0</div>
@@ -438,10 +619,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Mile End Delicatessen" data-borough="Brooklyn" data-rank="4.3" data-lists="3">
 					<div class="rank-num">15</div>
 					<div class="entry-body">
-						<div class="entry-name">Mile End Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://www.mileenddeli.com/" target="_blank" rel="noopener">Mile End Delicatessen</a>
+						</div>
 						<div class="entry-location">Boerum Hill, Brooklyn</div>
 						<div class="entry-note">Montreal-style smoked meat rather than New York-style pastrami. A different sandwich, technically. Appeared on three lists at an average rank of 4.3.
 						</div>
@@ -453,10 +636,12 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="S&P Lunch (fmr. Eisenberg's)" data-borough="Manhattan" data-rank="4.7" data-lists="3">
 					<div class="rank-num">16</div>
 					<div class="entry-body">
-						<div class="entry-name">S&amp;P Lunch (fmr. Eisenberg's)</div>
+						<div class="entry-name">
+							<a href="https://www.sandplunch.com/" target="_blank" rel="noopener">S&amp;P Lunch (fmr. Eisenberg's)</a>
+						</div>
 						<div class="entry-location">Flatiron, Manhattan</div>
 						<div class="entry-note">Est. 1928, rebranded. Robert Sietsema called it third in the city and the best value in the dataset at $18. Appeared on three lists at an average rank of 4.7.
 						</div>
@@ -468,12 +653,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Majestic Delicatessen" data-borough="Manhattan" data-rank="5.0" data-lists="1">
 					<div class="rank-num">17</div>
 					<div class="entry-body">
-						<div class="entry-name">Majestic Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Majestic+Delicatessen+Times+Square+Manhattan" target="_blank" rel="noopener">Majestic Delicatessen</a>
+						</div>
 						<div class="entry-location">Times Square, Manhattan</div>
-						<div class="entry-note">Appeared on one list, placed fifth.</div>
+						<div class="entry-note">A classic multi-story Midtown deli. A reliable, central spot for a traditional, hot-carved pastrami sandwich on rye in the heart of Times Square.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">5.0</div>
@@ -482,13 +669,15 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Frankel's Delicatessen" data-borough="Brooklyn" data-rank="5.3" data-lists="7">
 					<div class="rank-num">18</div>
 					<div class="entry-body">
-						<div class="entry-name">Frankel's Delicatessen</div>
+						<div class="entry-name">
+							<a href="https://www.frankelsdeli.com/" target="_blank" rel="noopener">Frankel's Delicatessen</a>
+						</div>
 						<div class="entry-location">Greenpoint, Brooklyn</div>
 						<div class="entry-note">
-							Appeared on seven lists: the same count as 2nd Avenue Deli: but the average rank is 5.3 versus 3.1. Frequently praised for its pastrami Reuben specifically. The sandwich is well-regarded; it just tends to sit in the middle of the lists rather than at the top.
+							Appeared on seven lists, the same count as 2nd Avenue Deli, but the average rank is 5.3 versus 3.1. Frequently praised for its pastrami Reuben specifically. The sandwich is well-regarded; it just tends to sit in the middle of the lists rather than at the top.
 						</div>
 					</div>
 					<div class="score-block">
@@ -498,13 +687,15 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="David's Brisket House" data-borough="Brooklyn" data-rank="5.9" data-lists="7">
 					<div class="rank-num">19</div>
 					<div class="entry-body">
-						<div class="entry-name">David's Brisket House</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=David's+Brisket+House+Bed-Stuy+Brooklyn" target="_blank" rel="noopener">David's Brisket House</a>
+						</div>
 						<div class="entry-location">Bed-Stuy / Bay Ridge, Brooklyn</div>
 						<div class="entry-note">
-							Halal-certified with 70 years of history in Brooklyn. Appeared on seven lists, the most of any restaurant outside Katz's and Pastrami Queen. The average rank of 5.9 reflects wide recognition but consistent lower placement: a presence rather than a destination.
+							Halal-certified with 70 years of history in Brooklyn. Appeared on seven lists, the most of any restaurant outside Katz's and Pastrami Queen. The average rank of 5.9 reflects wide recognition but consistent lower placement, a presence rather than a destination.
 						</div>
 					</div>
 					<div class="score-block">
@@ -514,12 +705,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Morgan's Brooklyn Barbecue" data-borough="Brooklyn" data-rank="6.0" data-lists="1">
 					<div class="rank-num">20</div>
 					<div class="entry-body">
-						<div class="entry-name">Morgan's Brooklyn Barbecue</div>
+						<div class="entry-name">
+							<a href="https://morgansbrooklynbarbecue.com/" target="_blank" rel="noopener">Morgan's Brooklyn Barbecue</a>
+						</div>
 						<div class="entry-location">Bed-Stuy, Brooklyn</div>
-						<div class="entry-note">Appeared on one list, placed sixth.</div>
+						<div class="entry-note">A highly regarded Brooklyn barbecue spot in Flatbush. Features Texas-style, post-oak smoked pastrami with a deep, pepper-forward bark.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">6.0</div>
@@ -528,12 +721,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Essen New York Deli" data-borough="Brooklyn" data-rank="6.0" data-lists="1">
 					<div class="rank-num">20</div>
 					<div class="entry-body">
-						<div class="entry-name">Essen New York Deli</div>
+						<div class="entry-name">
+							<a href="https://essendeli.com/" target="_blank" rel="noopener">Essen New York Deli</a>
+						</div>
 						<div class="entry-location">Midwood, Brooklyn</div>
-						<div class="entry-note">Appeared on one list, placed sixth.</div>
+						<div class="entry-note">An old-school kosher deli in Midwood. Highly regarded by locals for its traditional, thick-cut pastrami, knishes, and massive double-decker sandwiches.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">6.0</div>
@@ -542,12 +737,14 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Lenny's Grill and Deli" data-borough="Manhattan" data-rank="7.0" data-lists="1">
 					<div class="rank-num">22</div>
 					<div class="entry-body">
-						<div class="entry-name">Lenny's Grill and Deli</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Lenny's+Grill+and+Deli+Manhattan" target="_blank" rel="noopener">Lenny's Grill and Deli</a>
+						</div>
 						<div class="entry-location">Manhattan</div>
-						<div class="entry-note">Appeared on one list, placed seventh.</div>
+						<div class="entry-note">A reliable Manhattan staple. Known for consistent, fast-casual sandwich execution with hot-carved pastrami that serves as a dependable midtown lunch option.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">7.0</div>
@@ -556,18 +753,24 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="entry">
+				<div class="entry" data-name="Defonte Sandwich Shop" data-borough="Brooklyn" data-rank="7.0" data-lists="1">
 					<div class="rank-num">22</div>
 					<div class="entry-body">
-						<div class="entry-name">Defonte Sandwich Shop</div>
+						<div class="entry-name">
+							<a href="https://maps.google.com/?q=Defonte+Sandwich+Shop+Red+Hook+Brooklyn" target="_blank" rel="noopener">Defonte Sandwich Shop</a>
+						</div>
 						<div class="entry-location">Red Hook, Brooklyn</div>
-						<div class="entry-note">Appeared on one list, placed seventh.</div>
+						<div class="entry-note">A legendary Red Hook institution operating since 1922. While famous for their massive Italian hero combinations, their hot-carved pastrami with Swiss and mustard is a sleeper favorite.</div>
 					</div>
 					<div class="score-block">
 						<div class="avg-rank">7.0</div>
 						<span class="avg-label">avg rank</span>
 						<div class="lists-count">1 list</div>
 					</div>
+				</div>
+
+				<div class="no-results-msg" id="pastrami-no-results">
+					No pastrami delis match your search or filter selections.
 				</div>
 
 			</div>
@@ -598,5 +801,118 @@ import { SITE_TITLE } from '../../consts';
 
 		</main>
 		<Footer />
+
+		<script is:inline>
+			function initPastramiFilter() {
+				const searchInput = document.getElementById('pastrami-search');
+				const boroughButtons = document.querySelectorAll('.borough-filter-wrap .filter-btn');
+				const sortSelect = document.getElementById('pastrami-sort');
+				const listContainer = document.getElementById('pastrami-list');
+				const entries = Array.from(listContainer.querySelectorAll('.entry'));
+				const pickleDivider = document.getElementById('pickle-divider-el');
+				const noResultsMsg = document.getElementById('pastrami-no-results');
+
+				let activeBorough = 'all';
+				let searchQuery = '';
+
+				function filterAndSort() {
+					// 1. Filter
+					let visibleCount = 0;
+					entries.forEach(entry => {
+						const name = entry.getAttribute('data-name').toLowerCase();
+						const location = entry.querySelector('.entry-location').textContent.toLowerCase();
+						const note = entry.querySelector('.entry-note').textContent.toLowerCase();
+						const borough = entry.getAttribute('data-borough');
+
+						const matchesSearch = name.includes(searchQuery) || location.includes(searchQuery) || note.includes(searchQuery);
+						const matchesBorough = activeBorough === 'all' || borough === activeBorough;
+
+						if (matchesSearch && matchesBorough) {
+							entry.style.display = 'grid';
+							visibleCount++;
+						} else {
+							entry.style.display = 'none';
+						}
+					});
+
+					// Toggle empty state
+					if (visibleCount === 0) {
+						noResultsMsg.style.display = 'block';
+						if (pickleDivider) pickleDivider.style.display = 'none';
+					} else {
+						noResultsMsg.style.display = 'none';
+						if (pickleDivider) {
+							// Only display the pickle divider if the list is in default rank order and Katz is visible
+							const isDefaultSort = sortSelect.value === 'rank-asc';
+							const katzEntry = entries.find(e => e.getAttribute('data-name') === "Katz's Delicatessen");
+							const isKatzVisible = katzEntry && katzEntry.style.display !== 'none';
+							pickleDivider.style.display = (isDefaultSort && isKatzVisible) ? 'flex' : 'none';
+						}
+					}
+
+					// 2. Sort
+					const sortBy = sortSelect.value;
+					entries.sort((a, b) => {
+						if (sortBy === 'rank-asc') {
+							const aRank = parseFloat(a.getAttribute('data-rank'));
+							const bRank = parseFloat(b.getAttribute('data-rank'));
+							if (aRank !== bRank) return aRank - bRank;
+							// Secondary tie breaker on lists count
+							return parseInt(b.getAttribute('data-lists')) - parseInt(a.getAttribute('data-lists'));
+						} else if (sortBy === 'lists-desc') {
+							const aLists = parseInt(a.getAttribute('data-lists'));
+							const bLists = parseInt(b.getAttribute('data-lists'));
+							if (aLists !== bLists) return bLists - aLists;
+							// Secondary tie breaker on rank
+							return parseFloat(a.getAttribute('data-rank')) - parseFloat(b.getAttribute('data-rank'));
+						} else if (sortBy === 'name-asc') {
+							const aName = a.getAttribute('data-name');
+							const bName = b.getAttribute('data-name');
+							return aName.localeCompare(bName);
+						}
+						return 0;
+					});
+
+					// Append sorted items in order
+					entries.forEach(entry => {
+						if (entry.style.display !== 'none') {
+							listContainer.appendChild(entry);
+						}
+					});
+				}
+
+				// Search input listener
+				if (searchInput) {
+					searchInput.addEventListener('input', (e) => {
+						searchQuery = e.target.value.toLowerCase();
+						filterAndSort();
+					});
+				}
+
+				// Borough filter buttons listeners
+				boroughButtons.forEach(btn => {
+					btn.addEventListener('click', () => {
+						boroughButtons.forEach(b => b.classList.remove('active'));
+						btn.classList.add('active');
+						activeBorough = btn.getAttribute('data-borough');
+						filterAndSort();
+					});
+				});
+
+				// Sort selector listener
+				if (sortSelect) {
+					sortSelect.addEventListener('change', () => {
+						filterAndSort();
+					});
+				}
+
+				// Run initial filter and sort
+				filterAndSort();
+			}
+
+			// Initialize
+			initPastramiFilter();
+			document.addEventListener('astro:page-load', initPastramiFilter);
+		</script>
 	</body>
 </html>

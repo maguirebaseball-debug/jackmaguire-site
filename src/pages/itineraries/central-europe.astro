@@ -1,0 +1,246 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Central Europe Itinerary: ${SITE_TITLE}`}
+			description="A highly structured 15-day overland itinerary traversing Switzerland, Italy, Slovenia, Austria, Slovakia, the Czech Republic, Poland, and Ireland."
+		/>
+		<style>
+			.intro {
+				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+				line-height: 1.7;
+			}
+			.overview-box {
+				background-color: #fdf8ef;
+				border: 2px solid var(--accent);
+				border-radius: 10px;
+				padding: 1.5rem;
+				margin-bottom: 3rem;
+				box-shadow: 0 4px 12px rgba(var(--gray), 0.06);
+			}
+			.overview-box h2 {
+				margin-top: 0;
+				font-size: 1.25em;
+				color: rgb(var(--black));
+				border-bottom: 1px solid var(--accent);
+				padding-bottom: 0.5rem;
+				margin-bottom: 1rem;
+			}
+			.overview-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+				font-size: 0.9rem;
+				color: rgb(var(--gray-dark));
+			}
+			.overview-item strong {
+				color: rgb(var(--black));
+			}
+
+			.timeline {
+				position: relative;
+				padding-left: 2rem;
+				border-left: 3px solid var(--accent);
+				margin-left: 1rem;
+				display: flex;
+				flex-direction: column;
+				gap: 2.5rem;
+			}
+			.timeline-item {
+				position: relative;
+			}
+			.timeline-marker {
+				position: absolute;
+				left: calc(-2rem - 9px);
+				top: 5px;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: #fff;
+				border: 4px solid var(--accent);
+			}
+			.timeline-day {
+				font-family: var(--font-fraunces), serif;
+				font-size: 0.85em;
+				font-weight: 700;
+				color: var(--accent-dark);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				margin-bottom: 0.25rem;
+				display: block;
+			}
+			.timeline-title {
+				font-size: 1.3em;
+				font-weight: 700;
+				color: rgb(var(--black));
+				margin: 0 0 0.5rem 0;
+			}
+			.timeline-content {
+				background-color: #fff;
+				border-radius: 8px;
+				padding: 1.25rem;
+				box-shadow: 0 1px 4px rgba(var(--gray), 10%), 0 4px 16px rgba(var(--gray), 6%);
+				font-size: 0.95em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.6;
+			}
+			.transit-badge {
+				background-color: rgba(var(--gray-light), 0.5);
+				color: rgb(var(--gray-dark));
+				padding: 0.15rem 0.5rem;
+				border-radius: 4px;
+				font-size: 0.75em;
+				font-weight: 700;
+				display: inline-block;
+				margin-bottom: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>A Fortnight in Central Europe</h1>
+			<p class="intro">
+				A comprehensive 15-day logistics model for overland travel across Central Europe. This route maximizes physical transit efficiency using high-speed rail systems, direct bus lines, and regional shuttles, concluding with a short-haul flight to Dublin.
+			</p>
+
+			<div class="overview-box">
+				<h2>Trip Parameters</h2>
+				<div class="overview-grid">
+					<div class="overview-item">
+						<strong>Duration:</strong> 15 Days / 14 Nights
+					</div>
+					<div class="overview-item">
+						<strong>Transit Modes:</strong> SBB Rail, Trenitalia, GoOpti Shuttle, RegioJet Bus, PKP Intercity, Aer Lingus
+					</div>
+					<div class="overview-item">
+						<strong>Route Density:</strong> 8 Countries, 9 Core Stations
+					</div>
+				</div>
+			</div>
+
+			<div class="timeline">
+				
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 1 - 2</span>
+					<h3 class="timeline-title">Geneva, Switzerland</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">Starting Point</span>
+						<p>
+							Begin in Geneva. Focus on urban walkability around Lake Geneva and the Old Town. Settle logistics, procure multi-country SIM cards, and adapt to the European timezone.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 3 - 4</span>
+					<h3 class="timeline-title">Venice, Italy</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">SBB EuroCity Train: 7 Hours</span>
+						<p>
+							Traverse the Simplon Pass by high-speed rail, entering northern Italy. Focus on navigating the Venice canal system on foot to bypass crowded vaporetto lines. Stay in the quieter Cannaregio district.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 5 - 6</span>
+					<h3 class="timeline-title">Ljubljana, Slovenia</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">GoOpti Shuttle: 3 Hours</span>
+						<p>
+							Cross the Slovenian border. Ljubljana stands out as a premier example of pedestrian-forward urban planning. The entire city center is closed to motorized traffic, optimizing walkability along the Ljubljanica River.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Day 7</span>
+					<h3 class="timeline-title">Graz, Austria</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">ÖBB Regional Train: 3.5 Hours</span>
+						<p>
+							Transit north to Austria. Graz represents a historic academic and cultural center. Climb the Schlossberg for spatial views of the red-roofed old town, and review local architectural integrations.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Day 8</span>
+					<h3 class="timeline-title">Bratislava, Slovakia</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">EuroCity Train: 3 Hours</span>
+						<p>
+							Travel through the Danube basin to Slovakia. Bratislava provides a highly compact medieval core that can be fully evaluated within a single day.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Day 9</span>
+					<h3 class="timeline-title">Brno, Czech Republic</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">RegioJet Train: 1.5 Hours</span>
+						<p>
+							Enter the Czech region of Moravia. Brno offers a vibrant student-led culture and acts as an architectural showcase for functionalism, centered around the famous Villa Tugendhat.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 10 - 11</span>
+					<h3 class="timeline-title">Prague, Czech Republic</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">RegioJet Train: 2.5 Hours</span>
+						<p>
+							Arrive in Prague. Focus on early-morning exploration of the Charles Bridge and Prague Castle to avoid peak tourist density. Evaluate the historic Jewish Quarter and the Art Nouveau architecture.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 12 - 13</span>
+					<h3 class="timeline-title">Wrocław, Poland</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">FlixBus: 4 Hours</span>
+						<p>
+							Cross the Polish border. Wrocław is built across multiple islands connected by over 100 bridges. Focus on the market square (Rynek) and the historic cathedral island (Ostrów Tumski).
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-day">Days 14 - 15</span>
+					<h3 class="timeline-title">Dublin, Ireland</h3>
+					<div class="timeline-content">
+						<span class="transit-badge">Flight: 2.5 Hours</span>
+						<p>
+							Fly from Wrocław to Dublin. Conclude the journey with a review of Dublin's historic college campuses, urban parks, and the coastal walks of Howth or Dun Laoghaire before returning home.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

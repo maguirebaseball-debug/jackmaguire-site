@@ -1,6 +1,6 @@
 ---
 title: "NYC Tofu Shops"
-description: "A ranked list of 24 tofu retailers and specialty shops across New York City."
+description: "A curated selection of the best tofu retailers and specialty shops across New York City."
 pubDate: 2026-02-26
 tags: ["nyc", "food"]
 ---

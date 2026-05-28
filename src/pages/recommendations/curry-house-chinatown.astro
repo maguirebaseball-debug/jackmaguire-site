@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../../consts';
 	<head>
 		<BaseHead
 			title={`Curry House Intel: 9 Pell St Chinatown : ${SITE_TITLE}`}
-			description="A verified guide to the best dishes at Curry House in Chinatown, New York City."
+			description="A verified firsthand guide to the best dishes at Curry House on Pell Street in Chinatown, New York City."
 		/>
 		<style>
 			:root {
@@ -41,7 +41,7 @@ import { SITE_TITLE } from '../../consts';
 				background: #fff;
 				border: 6px solid var(--pop-black);
 				padding: 2.5em 2em;
-				margin-bottom: 4em;
+				margin-bottom: 3.5rem;
 				box-shadow: 12px 12px 0px var(--pop-black);
 				text-align: center;
 				display: flex;
@@ -76,6 +76,29 @@ import { SITE_TITLE } from '../../consts';
 				letter-spacing: 1px;
 				margin: 0;
 			}
+			
+			.hero-logistics {
+				font-size: 0.95rem;
+				font-weight: 700;
+				color: var(--pop-black);
+				text-align: center;
+				line-height: 1.6;
+				margin-top: 0.5rem;
+				border-top: 3px dashed var(--pop-black);
+				padding-top: 1rem;
+				width: 100%;
+			}
+			
+			.hero-logistics a {
+				color: var(--pop-pink);
+				text-decoration: none;
+				border-bottom: 2px solid var(--pop-pink);
+			}
+			.hero-logistics a:hover {
+				background-color: var(--pop-yellow);
+				color: var(--pop-black);
+				border-color: var(--pop-black);
+			}
 
 			.section-title {
 				font-size: 2em;
@@ -104,6 +127,7 @@ import { SITE_TITLE } from '../../consts';
 				flex-direction: row;
 				align-items: stretch;
 				min-height: 200px;
+				box-shadow: 8px 8px 0px var(--pop-black);
 			}
 
 			.rank-badge {
@@ -133,15 +157,31 @@ import { SITE_TITLE } from '../../consts';
 				border-right: 5px solid var(--pop-black);
 				background: #eee;
 				position: relative;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.dish-img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				position: absolute;
-				top: 0;
-				left: 0;
+				display: block;
+			}
+			
+			.dish-img-citation {
+				font-size: 0.65rem;
+				color: #fff;
+				background-color: var(--pop-black);
+				padding: 0.25rem 0.5rem;
+				text-align: center;
+				display: block;
+				width: 100%;
+				box-sizing: border-box;
+				text-shadow: none;
+			}
+			.dish-img-citation a {
+				color: var(--pop-yellow);
+				text-decoration: none;
 			}
 
 			.dish-content {
@@ -216,6 +256,11 @@ import { SITE_TITLE } from '../../consts';
 				letter-spacing: 2px;
 				border-top: 6px dashed var(--pop-black);
 				font-size: 0.8em;
+				line-height: 1.6;
+			}
+			.intel-footer a {
+				color: var(--pop-pink);
+				text-decoration: none;
 			}
 
 			@media (max-width: 650px) {
@@ -224,9 +269,12 @@ import { SITE_TITLE } from '../../consts';
 				}
 				.dish-img-container {
 					width: 100%;
-					height: 220px;
+					height: auto;
 					border-right: none;
 					border-bottom: 5px solid var(--pop-black);
+				}
+				.dish-img {
+					height: 200px;
 				}
 				.restaurant-logo { font-size: 2.5em; }
 			}
@@ -238,14 +286,23 @@ import { SITE_TITLE } from '../../consts';
 			<section class="hero">
 				<img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png" alt="Curry House Logo" style="max-height: 80px; object-fit: contain; margin-bottom: 10px; padding: 10px; background: var(--pop-black); border: 4px solid var(--pop-yellow);" />
 				<p>Verified Rankings: 9 Pell St, Chinatown</p>
+				
+				<div class="hero-logistics">
+					<div class="logistics-item">Location: <a href="https://maps.google.com/?q=Curry+House+9+Pell+St+Chinatown+New+York" target="_blank" rel="noopener">9 Pell St, New York, NY 10013</a></div>
+					<div class="logistics-item">Hours: 11:00 AM – 9:30 PM Daily</div>
+					<div class="logistics-item">Pricing: Entrees range from $12 to $25 (Cash preferred, Cards accepted)</div>
+				</div>
 			</section>
+
 			<h2 class="section-title">Zero Heat Favorites</h2>
 			<div class="ranking-container">
+				
 				<!-- MILD #1 -->
 				<article class="dish-card">
 					<div class="rank-badge mild-badge">#1</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bak_kut_teh.jpg" alt="Bah Kut Teh" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bak_kut_teh.jpg" alt="Bak Kut Teh" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Bak_kut_teh.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -266,6 +323,7 @@ import { SITE_TITLE } from '../../consts';
 					<div class="rank-badge mild-badge">#2</div>
 					<div class="dish-img-container">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Hainanese_Chicken_Rice.jpg" alt="Hainanese Chicken" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 2.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -286,6 +344,7 @@ import { SITE_TITLE } from '../../consts';
 					<div class="rank-badge mild-badge">#3</div>
 					<div class="dish-img-container">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Ipoh_Hor_Fun.jpg" alt="Ipoh Chicken Noodles" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Ipoh_Hor_Fun.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 4.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -304,11 +363,13 @@ import { SITE_TITLE } from '../../consts';
 
 			<h2 class="section-title" style="background: var(--pop-pink);">Spicy Standouts</h2>
 			<div class="ranking-container">
+				
 				<!-- SPICY #1 -->
 				<article class="dish-card">
 					<div class="rank-badge spicy-badge">#1</div>
 					<div class="dish-img-container">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Asam_Laksa.jpg" alt="Asam Laksa" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Asam_Laksa.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 2.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -329,6 +390,7 @@ import { SITE_TITLE } from '../../consts';
 					<div class="rank-badge spicy-badge">#2</div>
 					<div class="dish-img-container">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rendang_1.JPG/1024px-Rendang_1.JPG" alt="Beef Rendang" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Rendang_1.JPG" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -349,6 +411,7 @@ import { SITE_TITLE } from '../../consts';
 					<div class="rank-badge spicy-badge">#3</div>
 					<div class="dish-img-container">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/YosriGulaiAyam.jpg" alt="Curry Chicken" class="dish-img" />
+						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:YosriGulaiAyam.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
 						<header class="dish-header">
@@ -366,7 +429,8 @@ import { SITE_TITLE } from '../../consts';
 			</div>
 
 			<div class="intel-footer">
-				Verified via Google Places API // Grubhub Live Feed // Direct Review Sentiment Analysis
+				Verified via Google Places API // Grubhub Live Feed // Direct Review Sentiment Analysis<br />
+				View the <a href="https://order.menusifu.com/curry-house-10013" target="_blank" rel="noopener">Official MenuSifu Order Page</a> or <a href="https://maps.google.com/?q=Curry+House+Chinatown+9+Pell+St" target="_blank" rel="noopener">Google Maps Profile</a>
 			</div>
 		</main>
 		<Footer />

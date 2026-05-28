@@ -1,0 +1,153 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Recommended Apps: ${SITE_TITLE}`}
+			description="A list of software applications and technical tools I consistently use for paid media management, coding, and analytics."
+		/>
+		<style>
+			.intro {
+				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+			}
+			.app-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 2.5em;
+			}
+			.app-card {
+				background: #fff;
+				border-radius: 10px;
+				padding: 1.75em;
+				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+			}
+			.app-header {
+				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+				padding-bottom: 0.75em;
+				margin-bottom: 1em;
+			}
+			.app-name {
+				font-size: 1.4em;
+				font-weight: 700;
+				color: rgb(var(--black));
+				margin: 0;
+			}
+			.app-developer {
+				font-size: 0.95em;
+				color: var(--accent-dark);
+				font-weight: 700;
+				margin-top: 0.2em;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.app-category {
+				font-size: 0.75em;
+				background-color: rgba(var(--gray-light), 0.5);
+				color: rgb(var(--gray-dark));
+				padding: 0.2rem 0.5rem;
+				border-radius: 4px;
+				display: inline-block;
+				margin-top: 0.4rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.app-review {
+				font-size: 0.95em;
+				line-height: 1.7;
+				color: rgb(var(--gray-dark));
+			}
+			.app-review p {
+				margin-bottom: 1em;
+			}
+			.app-review p:last-child {
+				margin-bottom: 0;
+			}
+			.review-highlight {
+				background-color: #fdf8ef;
+				border-left: 4px solid var(--accent);
+				padding: 0.85em 1.25em;
+				margin: 1em 0;
+				font-style: italic;
+				font-size: 0.9em;
+				color: rgb(var(--black));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Recommended Apps</h1>
+			<p class="intro">Tools and software environments that form the core of my daily analytical and media buying operations.</p>
+
+			<div class="app-grid">
+				
+				<div class="app-card">
+					<div class="app-header">
+						<h2 class="app-name">Beli</h2>
+						<div class="app-developer">Beli Technologies</div>
+						<span class="app-category">Food, Data Aggregation</span>
+					</div>
+					<div class="app-review">
+						<p>
+							A highly structured food and restaurant rating application. It enforces numerical ranking over standard star ratings, which significantly reduces positive rating bias and generates a clearer signal of quality.
+						</p>
+						<div class="review-highlight">
+							"Beli operates as a superior recommendation database because it forces users to make relative head to head comparisons rather than rating items in a vacuum."
+						</div>
+						<p>
+							This is where I maintain my master dining log for New York City, and the data remains highly consistent across hundreds of evaluations.
+						</p>
+					</div>
+				</div>
+
+				<div class="app-card">
+					<div class="app-header">
+						<h2 class="app-name">Obsidian</h2>
+						<div class="app-developer">Dynalist Inc.</div>
+						<span class="app-category">Productivity, Knowledge Graph</span>
+					</div>
+					<div class="app-review">
+						<p>
+							A local-first, markdown-based knowledge management environment. It stores files locally as plain text, eliminating institutional lock-in and ensuring long-term data security and flexibility.
+						</p>
+						<div class="review-highlight">
+							"Obsidian organizes knowledge through a bidirectional link network, allowing natural pathways to form between philosophy, marketing, and travel planning."
+						</div>
+						<p>
+							It serves as my central laboratory for drafting articles, organizing research, and tracking analytical methodologies.
+						</p>
+					</div>
+				</div>
+
+				<div class="app-card">
+					<div class="app-header">
+						<h2 class="app-name">Cursor</h2>
+						<div class="app-developer">Anysphere</div>
+						<span class="app-category">Development, AI Tool</span>
+					</div>
+					<div class="app-review">
+						<p>
+							An AI-first code editor built on top of VS Code. It integrates advanced LLM reasoning directly into the development environment, facilitating rapid prototyping, script writing, and system debugging.
+						</p>
+						<div class="review-highlight">
+							"Cursor lowers cognitive overhead during script writing, letting me focus entirely on high-level system architecture and programmatic logic."
+						</div>
+						<p>
+							This editor was the primary tool used to write the automation and data collection scripts that power the research sections of this website.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

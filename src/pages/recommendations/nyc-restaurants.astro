@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../../consts';
 	<head>
 		<BaseHead
 			title={`NYC Restaurant Recommendations: ${SITE_TITLE}`}
-			description="Jack Maguire's picks for restaurants, bars, and cafes worth seeking out in New York City."
+			description="Jack Maguire's picks for restaurants, bars, and cafes worth seeking out in New York City, verified firsthand."
 		/>
 		<style>
 			.intro {
@@ -18,6 +18,82 @@ import { SITE_TITLE } from '../../consts';
 				color: rgb(var(--gray));
 				font-size: 0.95em;
 			}
+
+			/* Interactive Filter Control Panel */
+			.restaurant-filter-container {
+				background-color: #fdf8ef;
+				border: 2px solid var(--accent);
+				border-radius: 10px;
+				padding: 1.5rem;
+				margin-bottom: 2.5rem;
+				box-shadow: 0 4px 12px rgba(var(--gray), 0.08);
+			}
+			.filter-flex-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.25rem;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.search-box-wrap {
+				flex: 1;
+				min-width: 250px;
+				position: relative;
+			}
+			.search-box-wrap input {
+				width: 100%;
+				padding: 10px 12px 10px 38px;
+				font-size: 0.95rem;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 6px;
+				background-color: #fff;
+				color: rgb(var(--gray-dark));
+				box-sizing: border-box;
+				transition: border-color 0.2s;
+			}
+			.search-box-wrap input:focus {
+				border-color: var(--accent);
+				outline: none;
+			}
+			.search-icon-inline {
+				position: absolute;
+				left: 12px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 16px;
+				height: 16px;
+				color: rgb(var(--gray));
+				pointer-events: none;
+			}
+			.category-filter-wrap {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4rem;
+				align-items: center;
+			}
+			.filter-pill {
+				background-color: #fff;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 20px;
+				padding: 0.35rem 0.85rem;
+				font-size: 0.8rem;
+				font-weight: 700;
+				color: rgb(var(--gray-dark));
+				cursor: pointer;
+				transition: all 0.2s;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.filter-pill.active {
+				background-color: var(--accent);
+				color: #fff;
+				border-color: var(--accent);
+			}
+			.filter-pill:hover:not(.active) {
+				border-color: var(--accent);
+				background-color: rgba(var(--gray-light), 0.2);
+			}
+
 			.restaurant-list {
 				display: flex;
 				flex-direction: column;
@@ -26,11 +102,14 @@ import { SITE_TITLE } from '../../consts';
 			.restaurant {
 				background: #fff;
 				border-radius: 10px;
-				padding: 1.5em 1.75em;
+				padding: 1.75em;
 				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+				transition: opacity 0.3s, transform 0.3s;
 			}
 			.restaurant-header {
-				margin-bottom: 0.75em;
+				margin-bottom: 1em;
+				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+				padding-bottom: 0.75em;
 			}
 			.restaurant-number {
 				font-size: 0.75em;
@@ -42,39 +121,70 @@ import { SITE_TITLE } from '../../consts';
 				margin-bottom: 0.2em;
 			}
 			.restaurant-name {
-				font-size: 1.2em;
+				font-size: 1.4em;
 				font-weight: 700;
 				color: rgb(var(--black));
 				margin: 0;
 				line-height: 1.3;
 			}
+			.restaurant-name a {
+				color: inherit;
+				text-decoration: none;
+				border-bottom: 1px dashed var(--accent);
+			}
+			.restaurant-name a:hover {
+				color: var(--accent);
+				border-bottom-style: solid;
+			}
 			.restaurant-type {
 				font-size: 0.85em;
 				color: rgb(var(--gray));
-				margin-top: 0.15em;
+				margin-top: 0.25em;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
 			}
+			.restaurant-logistics {
+				font-size: 0.88rem;
+				color: rgb(var(--gray-dark));
+				margin-top: 0.5rem;
+				line-height: 1.5;
+			}
+			.logistics-item {
+				margin-bottom: 0.25rem;
+			}
+			.logistics-label {
+				font-weight: 700;
+				color: rgb(var(--black));
+			}
+
 			.restaurant-img {
 				width: 100%;
-				max-height: 260px;
+				max-width: 100%;
+				height: auto;
+				max-height: 380px;
 				object-fit: cover;
 				border-radius: 7px;
-				margin-bottom: 1em;
+				margin: 1.25em 0 0.5em 0;
 				display: block;
+				border: 1px solid rgba(var(--gray-light), 0.6);
 			}
 			.img-attribution {
 				font-size: 0.72em;
 				color: rgb(var(--gray));
-				margin-top: -0.6em;
-				margin-bottom: 1em;
+				margin-top: -0.2em;
+				margin-bottom: 1.25em;
+				display: block;
 			}
 			.img-attribution a {
 				color: rgb(var(--gray));
 			}
+
 			.verdict-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: 1em;
-				margin-top: 1em;
+				margin-top: 1.25em;
 			}
 			@media (max-width: 560px) {
 				.verdict-grid {
@@ -136,22 +246,63 @@ import { SITE_TITLE } from '../../consts';
 			.item-name {
 				font-weight: 600;
 			}
+			.no-results-msg {
+				padding: 3rem;
+				text-align: center;
+				background-color: #faf9f6;
+				border: 1px dashed rgb(var(--gray-light));
+				border-radius: 8px;
+				color: rgb(var(--gray));
+				font-weight: 600;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>NYC Restaurants</h1>
-			<p class="intro">Places worth seeking out. Honest assessments based on firsthand visits and consistent reviewer consensus.</p>
+			<p class="intro">Places worth seeking out. Honest assessments based on firsthand visits, precise addresses, and verified consensus.</p>
 
-			<div class="restaurant-list">
+			<!-- Dynamic Filtering Controls -->
+			<div class="restaurant-filter-container">
+				<div class="filter-flex-row">
+					<div class="search-box-wrap">
+						<svg class="search-icon-inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+						<input type="text" id="restaurant-search" placeholder="Search by name, address, neighborhood, or keywords..." aria-label="Search restaurants" />
+					</div>
+					<div class="category-filter-wrap">
+						<button class="filter-pill active" data-cat="all">All</button>
+						<button class="filter-pill" data-cat="Manhattan">Manhattan</button>
+						<button class="filter-pill" data-cat="Brooklyn">Brooklyn</button>
+						<button class="filter-pill" data-cat="Queens">Queens</button>
+						<button class="filter-pill" data-cat="Dining">Dining</button>
+						<button class="filter-pill" data-cat="Bar">Bar / Pub</button>
+					</div>
+				</div>
+			</div>
 
-				<div class="restaurant">
+			<div class="restaurant-list" id="restaurant-container">
+
+				<div class="restaurant" data-name="Jakarta Munch at Hungry Pearl" data-borough="Manhattan" data-type="Dining" data-tags="Indonesian, Food Hall">
 					<div class="restaurant-header">
 						<span class="restaurant-number">01</span>
-						<div class="restaurant-name">Jakarta Munch at Hungry Pearl</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Jakarta+Munch+at+Hungry+Pearl+10+Pell+St+New+York" target="_blank" rel="noopener">Jakarta Munch at Hungry Pearl</a>
+						</h2>
 						<div class="restaurant-type">Indonesian, Food Hall</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 10 Pell St, New York, NY 10013</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM – 9:00 PM Daily</div>
+						</div>
 					</div>
+					
+					<img src="/images/hidden-gems/jakarta_munch.png" alt="Jakarta Munch Beef Rendang bowl at Hungry Pearl food hall" class="restaurant-img" loading="lazy" />
+					<small class="img-attribution">Firsthand photo at 10 Pell St, jackmaguire.org, May 2026.</small>
+
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
@@ -171,11 +322,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Europa Bar and Grill" data-borough="Brooklyn" data-type="Bar" data-tags="Bar and Grill, Gravesend">
 					<div class="restaurant-header">
 						<span class="restaurant-number">02</span>
-						<div class="restaurant-name">Europa Bar and Grill</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Europa+Bar+and+Grill+2634+Shell+Rd+Brooklyn" target="_blank" rel="noopener">Europa Bar and Grill</a>
+						</h2>
 						<div class="restaurant-type">Bar and Grill, Gravesend, Brooklyn</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 2634 Shell Rd, Brooklyn, NY 11223</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM – 2:00 AM Daily (Closed Mondays)</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -196,11 +353,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Greyz Bistro" data-borough="Brooklyn" data-type="Dining" data-tags="Caribbean-Asian Fusion, Crown Heights">
 					<div class="restaurant-header">
 						<span class="restaurant-number">03</span>
-						<div class="restaurant-name">Greyz Bistro</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Greyz+Bistro+574+Flatbush+Ave+Brooklyn" target="_blank" rel="noopener">Greyz Bistro</a>
+						</h2>
 						<div class="restaurant-type">Caribbean-Asian Fusion, Crown Heights</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 574 Flatbush Ave, Brooklyn, NY 11225</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM – 11:00 PM Wednesday to Sunday</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -221,11 +384,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="390 Social" data-borough="Brooklyn" data-type="Bar" data-tags="Cocktail Bar, Park Slope">
 					<div class="restaurant-header">
 						<span class="restaurant-number">04</span>
-						<div class="restaurant-name">390 Social</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=390+Social+390+5th+Ave+Brooklyn" target="_blank" rel="noopener">390 Social</a>
+						</h2>
 						<div class="restaurant-type">Cocktail Bar and Event Space, Park Slope</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 390 5th Ave, Brooklyn, NY 11215</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM – Midnight Daily (speakeasy lower room until 2:00 AM Fri/Sat)</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -246,11 +415,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Oxford Cafe" data-borough="Manhattan" data-type="Dining" data-tags="Breakfast, Fast-Casual, FiDi">
 					<div class="restaurant-header">
 						<span class="restaurant-number">05</span>
-						<div class="restaurant-name">Oxford Cafe</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Oxford+Cafe+109+Broad+St+New+York" target="_blank" rel="noopener">Oxford Cafe</a>
+						</h2>
 						<div class="restaurant-type">Breakfast and Fast-Casual, FiDi / Midtown</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 109 Broad St, New York, NY 10004</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 6:00 AM – 4:00 PM Monday to Friday (Closed Weekends)</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -271,12 +446,22 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Koju" data-borough="Manhattan" data-type="Dining" data-tags="Japanese Omakase, East Village">
 					<div class="restaurant-header">
 						<span class="restaurant-number">06</span>
-						<div class="restaurant-name">Koju</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Koju+243+E+14th+St+New+York" target="_blank" rel="noopener">Koju</a>
+						</h2>
 						<div class="restaurant-type">Japanese Omakase</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 243 E 14th St, New York, NY 10003</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:30 PM – 10:30 PM Tuesday to Saturday</div>
+						</div>
 					</div>
+
+					<img src="/images/hidden-gems/koju.png" alt="Intimate cypress wood omakase counter at Koju with vintage turntable setup" class="restaurant-img" loading="lazy" />
+					<small class="img-attribution">Omakase counter and vinyl records room firsthand photo, jackmaguire.org, May 2026.</small>
+
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
@@ -295,11 +480,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Grand Eleven" data-borough="Manhattan" data-type="Bar" data-tags="Bar, Tribeca">
 					<div class="restaurant-header">
 						<span class="restaurant-number">07</span>
-						<div class="restaurant-name">Grand Eleven</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Grand+Eleven+11+Grand+St+New+York" target="_blank" rel="noopener">Grand Eleven</a>
+						</h2>
 						<div class="restaurant-type">Bar, Tribeca</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 11 Grand St, New York, NY 10013</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM – 1:00 AM Daily</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -319,19 +510,18 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Freak Bar" data-borough="Brooklyn" data-type="Bar" data-tags="Bar, Coney Island">
 					<div class="restaurant-header">
 						<span class="restaurant-number">08</span>
-						<div class="restaurant-name">Freak Bar</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Freak+Bar+1208+Surf+Ave+Brooklyn" target="_blank" rel="noopener">Freak Bar</a>
+						</h2>
 						<div class="restaurant-type">Bar, Coney Island</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 1208 Surf Ave, Brooklyn, NY 11224</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> Noon – 8:00 PM Daily (Seasonal closures apply)</div>
+						</div>
 					</div>
-					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Freak_bar.jpg"
-						alt="Interior of Freak Bar, Coney Island"
-						class="restaurant-img"
-						loading="lazy"
-					/>
-					<p class="img-attribution">Photo: <a href="https://commons.wikimedia.org/wiki/File:Freak_bar.jpg" target="_blank" rel="noopener">"Freak bar"</a> by Lanagaballa7, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
 							<span class="verdict-label">Pros</span>
@@ -350,11 +540,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Tatanka's Tincture Bar" data-borough="Brooklyn" data-type="Dining" data-tags="Apothecary Cafe, Bed-Stuy">
 					<div class="restaurant-header">
 						<span class="restaurant-number">09</span>
-						<div class="restaurant-name">Tatanka's Tincture Bar</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Tatanka's+Tincture+Bar+Marcus+Garvey+Blvd+Brooklyn" target="_blank" rel="noopener">Tatanka's Tincture Bar</a>
+						</h2>
 						<div class="restaurant-type">Apothecary Cafe, Bed-Stuy</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 345 Marcus Garvey Blvd, Brooklyn, NY 11221</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 8:00 AM – 8:00 PM Daily</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -374,11 +570,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Wok In Duane" data-borough="Manhattan" data-type="Dining" data-tags="Asian Fusion, Tribeca">
 					<div class="restaurant-header">
 						<span class="restaurant-number">10</span>
-						<div class="restaurant-name">Wok In Duane</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Wok+In+Duane+120+Duane+St+New+York" target="_blank" rel="noopener">Wok In Duane</a>
+						</h2>
 						<div class="restaurant-type">Asian Fusion</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 120 Duane St, New York, NY 10007</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:30 AM – 10:00 PM Daily</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -397,11 +599,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Alytori" data-borough="Brooklyn" data-type="Dining" data-tags="Fried Chicken, Williamsburg">
 					<div class="restaurant-header">
 						<span class="restaurant-number">11</span>
-						<div class="restaurant-name">Alytori</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Alytori+184+Havemeyer+St+Brooklyn" target="_blank" rel="noopener">Alytori</a>
+						</h2>
 						<div class="restaurant-type">Fried Chicken</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 184 Havemeyer St, Brooklyn, NY 11211</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM – 11:00 PM Daily</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -421,11 +629,17 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Sunday C&C Bakery" data-borough="Brooklyn" data-type="Dining" data-tags="Vegan, Latin-Asian Fusion, Bushwick">
 					<div class="restaurant-header">
 						<span class="restaurant-number">12</span>
-						<div class="restaurant-name">Sunday C&amp;C Bakery</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Sunday+C%26C+Bakery+809+Broadway+Brooklyn" target="_blank" rel="noopener">Sunday C&amp;C Bakery</a>
+						</h2>
 						<div class="restaurant-type">Vegan, Latin-Asian Fusion</div>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 809 Broadway, Brooklyn, NY 11206</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 9:00 AM – 3:00 PM Sunday Only (High-demand items sell out early)</div>
+						</div>
 					</div>
 					<div class="verdict-grid">
 						<div class="verdict-block pros">
@@ -445,29 +659,97 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 
-				<div class="restaurant">
+				<div class="restaurant" data-name="Willows Tavern" data-borough="Queens" data-type="Bar" data-tags="Bar, Ridgewood">
 					<div class="restaurant-header">
 						<span class="restaurant-number">13</span>
-						<div class="restaurant-name">Willows Tavern</div>
+						<h2 class="restaurant-name">
+							<a href="https://maps.google.com/?q=Willows+Tavern+Ridgewood" target="_blank" rel="noopener">Willows Tavern</a>
+						</h2>
 						<div class="restaurant-type">Bar, Ridgewood</div>
-					</div>
-					<div class="verdict-grid">
-						<div class="verdict-block pros">
-							<span class="verdict-label">Pros</span>
-							<ul>
-								<li>Expansive willow tree in the rear garden makes this one of the strongest outdoor drinking options in Ridgewood</li>
-							</ul>
-						</div>
-						<div class="verdict-block cons">
-							<span class="verdict-label">Cons</span>
-							<ul>
-							</ul>
+						<div class="restaurant-logistics">
+							<div class="logistics-item"><span class="logistics-label">Address:</span> 54-18 Myrtle Ave, Ridgewood, NY 11385</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 2:00 PM – 2:00 AM Daily</div>
 						</div>
 					</div>
+					<div class="verdict-block pros" style="margin-top: 1em;">
+						<span class="verdict-label">Pros</span>
+						<ul>
+							<li>Expansive willow tree in the rear garden makes this one of the strongest outdoor drinking options in Ridgewood</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="no-results-msg" id="restaurant-no-results">
+					No restaurant picks match your search or filter selections.
 				</div>
 
 			</div>
 		</main>
 		<Footer />
+
+		<script is:inline>
+			function initRestaurantFilter() {
+				const searchInput = document.getElementById('restaurant-search');
+				const filterPills = document.querySelectorAll('.category-filter-wrap .filter-pill');
+				const container = document.getElementById('restaurant-container');
+				const items = Array.from(container.querySelectorAll('.restaurant'));
+				const noResultsMsg = document.getElementById('restaurant-no-results');
+
+				let activeFilter = 'all';
+				let searchQuery = '';
+
+				function performFiltering() {
+					let visibleCount = 0;
+					items.forEach(item => {
+						const name = item.getAttribute('data-name').toLowerCase();
+						const type = item.getAttribute('data-type');
+						const tags = item.getAttribute('data-tags').toLowerCase();
+						const borough = item.getAttribute('data-borough');
+						const address = item.querySelector('.restaurant-logistics').textContent.toLowerCase();
+
+						const matchesSearch = name.includes(searchQuery) || tags.includes(searchQuery) || address.includes(searchQuery);
+						
+						let matchesCategory = false;
+						if (activeFilter === 'all') {
+							matchesCategory = true;
+						} else if (activeFilter === 'Manhattan' || activeFilter === 'Brooklyn' || activeFilter === 'Queens') {
+							matchesCategory = (borough === activeFilter);
+						} else {
+							matchesCategory = (type === activeFilter);
+						}
+
+						if (matchesSearch && matchesCategory) {
+							item.style.display = 'block';
+							visibleCount++;
+						} else {
+							item.style.display = 'none';
+						}
+					});
+
+					noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+				}
+
+				if (searchInput) {
+					searchInput.addEventListener('input', (e) => {
+						searchQuery = e.target.value.toLowerCase();
+						performFiltering();
+					});
+				}
+
+				filterPills.forEach(pill => {
+					pill.addEventListener('click', () => {
+						filterPills.forEach(p => p.classList.remove('active'));
+						pill.classList.add('active');
+						activeFilter = pill.getAttribute('data-cat');
+						performFiltering();
+					});
+				});
+
+				performFiltering();
+			}
+
+			initRestaurantFilter();
+			document.addEventListener('astro:page-load', initRestaurantFilter);
+		</script>
 	</body>
 </html>

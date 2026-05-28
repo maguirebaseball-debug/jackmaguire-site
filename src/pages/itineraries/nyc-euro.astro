@@ -1,0 +1,214 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`NYC Euro-esque Day Itinerary: ${SITE_TITLE}`}
+			description="A spatial and culinary walking itinerary mapping a perfect European-inspired day through Greenwich Village and the Meatpacking District."
+		/>
+		<style>
+			.intro {
+				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+				line-height: 1.7;
+			}
+			.overview-box {
+				background-color: #fdf8ef;
+				border: 2px solid var(--accent);
+				border-radius: 10px;
+				padding: 1.5rem;
+				margin-bottom: 3rem;
+				box-shadow: 0 4px 12px rgba(var(--gray), 0.06);
+			}
+			.overview-box h2 {
+				margin-top: 0;
+				font-size: 1.25em;
+				color: rgb(var(--black));
+				border-bottom: 1px solid var(--accent);
+				padding-bottom: 0.5rem;
+				margin-bottom: 1rem;
+			}
+			.overview-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 1rem;
+				font-size: 0.9rem;
+				color: rgb(var(--gray-dark));
+			}
+			.overview-item strong {
+				color: rgb(var(--black));
+			}
+
+			.timeline {
+				position: relative;
+				padding-left: 2rem;
+				border-left: 3px solid var(--accent);
+				margin-left: 1rem;
+				display: flex;
+				flex-direction: column;
+				gap: 2.5rem;
+			}
+			.timeline-item {
+				position: relative;
+			}
+			.timeline-marker {
+				position: absolute;
+				left: calc(-2rem - 9px);
+				top: 5px;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: #fff;
+				border: 4px solid var(--accent);
+			}
+			.timeline-time {
+				font-family: var(--font-fraunces), serif;
+				font-size: 0.85em;
+				font-weight: 700;
+				color: var(--accent-dark);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				margin-bottom: 0.25rem;
+				display: block;
+			}
+			.timeline-title {
+				font-size: 1.3em;
+				font-weight: 700;
+				color: rgb(var(--black));
+				margin: 0 0 0.5rem 0;
+			}
+			.timeline-content {
+				background-color: #fff;
+				border-radius: 8px;
+				padding: 1.25rem;
+				box-shadow: 0 1px 4px rgba(var(--gray), 10%), 0 4px 16px rgba(var(--gray), 6%);
+				font-size: 0.95em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.6;
+			}
+			.activity-badge {
+				background-color: rgba(var(--gray-light), 0.5);
+				color: rgb(var(--gray-dark));
+				padding: 0.15rem 0.5rem;
+				border-radius: 4px;
+				font-size: 0.75em;
+				font-weight: 700;
+				display: inline-block;
+				margin-bottom: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.activity-badge a {
+				color: inherit;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>NYC Euro-esque Day Itinerary</h1>
+			<p class="intro">
+				A highly curated, foot-based itinerary designed to capture the spatial feel and slow pace of European neighborhoods, focused entirely on the historic grids of Greenwich Village and the Meatpacking District.
+			</p>
+
+			<div class="overview-box">
+				<h2>Route Details</h2>
+				<div class="overview-grid">
+					<div class="overview-item">
+						<strong>Total Distance:</strong> 2.8 Miles on foot
+					</div>
+					<div class="overview-item">
+						<strong>Primary Areas:</strong> West Village, Meatpacking District, Greenwich Village
+					</div>
+					<div class="overview-item">
+						<strong>Focus:</strong> Cobblestones, historical preservation, specialty coffee, and light bistro dining
+					</div>
+				</div>
+			</div>
+
+			<div class="timeline">
+				
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">08:30 AM</span>
+					<h3 class="timeline-title">Starting Point: Abingdon Square Park</h3>
+					<div class="timeline-content">
+						<span class="activity-badge">West Village</span>
+						<p>
+							Begin at Abingdon Square Park. This small, triangle-shaped park is one of New York City's oldest public spaces. Sip a light beverage and observe the quiet morning routine of the neighborhood, taking in the surrounding low-rise brick townhouse architecture.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">09:30 AM</span>
+					<h3 class="timeline-title">Specialty Roast Stop: La Cabra</h3>
+					<div class="timeline-content">
+						<span class="activity-badge">Greenwich Village</span>
+						<p>
+							Walk east along West 12th Street and make a short detour to East 9th Street. Stop at <a href="https://www.lacabra.dk/pages/new-york" target="_blank" rel="noopener">La Cabra</a>, a world-class Danish roaster. Order a cardamom bun and a single-origin filter drip coffee. The Scandinavian minimalist aesthetic and strict quality standards provide a perfect European-style morning experience.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">11:00 AM</span>
+					<h3 class="timeline-title">Architectural Stroll: The Historic Cobblestones</h3>
+					<div class="timeline-content">
+						<span class="activity-badge">West Village</span>
+						<p>
+							Wander back west, routing through St. Luke's Place and Barrow Street. These stretches host some of the most consistent federal-style townhouses and original cobblestone paving in Manhattan. Observe the deliberate density, mature trees, and lack of vertical towering buildings that characterize this protected historic district.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">01:00 PM</span>
+					<h3 class="timeline-title">Midday Bistro Halt: Buvette</h3>
+					<div class="timeline-content">
+						<span class="activity-badge"><a href="https://maps.google.com/?q=Buvette+West+Village+NYC" target="_blank" rel="noopener">Buvette at 42 Grove St</a></span>
+						<p>
+							Halt for a light lunch at Buvette on Grove Street. This intimate French-style gastro-theque serves classic croque-monsieurs, shaved jambon, and carefully curated European wines. The extremely tight seating arrangements and low-lit timber decor capture the authentic feel of a Parisian neighborhood bistro.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">03:30 PM</span>
+					<h3 class="timeline-title">Elevated Urban Walk: The High Line</h3>
+					<div class="timeline-content">
+						<span class="activity-badge">Meatpacking District</span>
+						<p>
+							Walk northwest into the Meatpacking District, climbing up onto the High Line elevated park at Gansevoort Street. Walk north along the former rail line, evaluating the architectural juxtaposition of industrial ironwork, wild landscaping, and modern glass facades designed by Renzo Piano and Zaha Hadid.
+						</p>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<span class="timeline-time">06:00 PM</span>
+					<h3 class="timeline-title">Twilight Refreshment: Waverly Inn</h3>
+					<div class="timeline-content">
+						<span class="activity-badge"><a href="https://maps.google.com/?q=The+Waverly+Inn+West+Village+NYC" target="_blank" rel="noopener">The Waverly Inn at 16 Bank St</a></span>
+						<p>
+							Conclude the evening with a twilight refreshment in the covered garden room at the Waverly Inn on Bank Street. This historic tavern dates back to the 19th century and retains its low-ceilinged, clubby, and warm fireplace-centric layout. Review your journal entries and watch the streetlamps light up the tree-lined historic West Village streets.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

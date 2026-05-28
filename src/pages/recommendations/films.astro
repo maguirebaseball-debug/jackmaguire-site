@@ -1,0 +1,153 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Recommended Films: ${SITE_TITLE}`}
+			description="A catalog of films I strongly recommend, focusing on systems complexity, gastronomy, and philosophical inquiry."
+		/>
+		<style>
+			.intro {
+				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+			}
+			.film-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 2.5em;
+			}
+			.film-card {
+				background: #fff;
+				border-radius: 10px;
+				padding: 1.75em;
+				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+			}
+			.film-header {
+				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+				padding-bottom: 0.75em;
+				margin-bottom: 1em;
+			}
+			.film-title {
+				font-size: 1.4em;
+				font-weight: 700;
+				color: rgb(var(--black));
+				margin: 0;
+			}
+			.film-director {
+				font-size: 0.95em;
+				color: var(--accent-dark);
+				font-weight: 700;
+				margin-top: 0.2em;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.film-category {
+				font-size: 0.75em;
+				background-color: rgba(var(--gray-light), 0.5);
+				color: rgb(var(--gray-dark));
+				padding: 0.2rem 0.5rem;
+				border-radius: 4px;
+				display: inline-block;
+				margin-top: 0.4rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.film-review {
+				font-size: 0.95em;
+				line-height: 1.7;
+				color: rgb(var(--gray-dark));
+			}
+			.film-review p {
+				margin-bottom: 1em;
+			}
+			.film-review p:last-child {
+				margin-bottom: 0;
+			}
+			.review-highlight {
+				background-color: #fdf8ef;
+				border-left: 4px solid var(--accent);
+				padding: 0.85em 1.25em;
+				margin: 1em 0;
+				font-style: italic;
+				font-size: 0.9em;
+				color: rgb(var(--black));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Recommended Films</h1>
+			<p class="intro">Cinematic works that deliver exceptional execution, unique perspectives, or rigorous structural themes.</p>
+
+			<div class="film-grid">
+				
+				<div class="film-card">
+					<div class="film-header">
+						<h2 class="film-title">Tampopo</h2>
+						<div class="film-director">Juzo Itami</div>
+						<span class="film-category">Gastronomy, Comedy</span>
+					</div>
+					<div class="film-review">
+						<p>
+							A masterpiece of culinary cinema. It presents the search for the perfect ramen recipe as an arduous quest, exploring the relationship between culture, food science, and physical labor.
+						</p>
+						<div class="review-highlight">
+							"Itami demonstrates that exceptional cooking requires rigorous study and extreme operational discipline, mirroring any technical craft."
+						</div>
+						<p>
+							It is highly recommended for anyone who appreciates culinary operations and narrative structure.
+						</p>
+					</div>
+				</div>
+
+				<div class="film-card">
+					<div class="film-header">
+						<h2 class="film-title">Synecdoche, New York</h2>
+						<div class="film-director">Charlie Kaufman</div>
+						<span class="film-category">Existentialism, Systems</span>
+					</div>
+					<div class="film-review">
+						<p>
+							A massive, complex film exploring simulation, systems, and identity. A theater director builds a life-size replica of New York City inside a warehouse to stage his play, until the simulation swallows the reality.
+						</p>
+						<div class="review-highlight">
+							"Kaufman captures the tragedy of hyper-optimization, showing how attempts to construct perfect models of reality ultimately induce paralysis."
+						</div>
+						<p>
+							The film serves as a powerful metaphor for systems analysis, behavioral tracking, and the search for authentic presence.
+						</p>
+					</div>
+				</div>
+
+				<div class="film-card">
+					<div class="film-header">
+						<h2 class="film-title">Margin Call</h2>
+						<div class="film-director">J.C. Chandor</div>
+						<span class="film-category">Systems, Finance</span>
+					</div>
+					<div class="film-review">
+						<p>
+							A highly realistic study of systemic risk and institutional collapse inside a Wall Street investment bank during the initial stages of a financial crisis.
+						</p>
+						<div class="review-highlight">
+							"The movie outlines how mathematical models fail when human incentives, information bottlenecks, and panic collide in real time."
+						</div>
+						<p>
+							It stands as one of the best corporate procedurals ever filmed, stripping out Hollywood drama to show the actual math and corporate dynamics of risk management.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

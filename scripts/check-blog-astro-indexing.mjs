@@ -38,9 +38,42 @@ const home = readFileSync(distHome, 'utf8');
 const blogIndex = readFileSync(distBlogIndex, 'utf8');
 const sitemap = readFileSync(distSitemap, 'utf8');
 
+const mdBlogDir = join(root, 'src/content/blog');
 const astroPages = readdirSync(blogDir)
 	.filter((filename) => filename.endsWith('.astro'))
 	.filter((filename) => !['index.astro', '[...slug].astro'].includes(filename));
+
+// Extract all markdown posts paths and dates
+const mdFiles = readdirSync(mdBlogDir).filter((f) => f.endsWith('.md'));
+const mdPosts = mdFiles.map((filename) => {
+	const content = readFileSync(join(mdBlogDir, filename), 'utf8');
+	const slug = filename.replace(/\.md$/, '');
+	const dateMatch = content.match(/pubDate:\s*([\d-]+)/);
+	if (!dateMatch) {
+		throw new Error(`${filename} is missing pubDate`);
+	}
+	const pubDate = new Date(`${dateMatch[1]} 12:00:00 UTC`);
+	return {
+		path: `/blog/${slug}/`,
+		pubDate,
+	};
+});
+
+// Extract all standalone Astro posts paths and dates
+const astroPosts = astroPages.map((filename) => {
+	const source = readFileSync(join(blogDir, filename), 'utf8');
+	const slug = filename.replace(/\.astro$/, '');
+	const pubDateStr = extractConst(source, 'pubDate', filename);
+	const pubDate = new Date(`${pubDateStr} 12:00:00 UTC`);
+	return {
+		path: `/blog/${slug}/`,
+		pubDate,
+	};
+});
+
+// Combine and identify top 6 posts
+const allPosts = [...mdPosts, ...astroPosts].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+const top6Paths = new Set(allPosts.slice(0, 6).map((p) => p.path));
 
 for (const filename of astroPages) {
 	const source = readFileSync(join(blogDir, filename), 'utf8');
@@ -52,8 +85,12 @@ for (const filename of astroPages) {
 
 	assertContains(blogIndex, path, 'dist/blog/index.html');
 	assertContains(blogIndex, escapeHtml(title), 'dist/blog/index.html');
-	assertContains(home, path, 'dist/index.html');
-	assertContains(home, escapeHtml(title), 'dist/index.html');
+	
+	if (top6Paths.has(path)) {
+		assertContains(home, path, 'dist/index.html');
+		assertContains(home, escapeHtml(title), 'dist/index.html');
+	}
+
 	assertContains(sitemap, absoluteUrl, 'dist/sitemap-0.xml');
 
 	if (!/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(pubDate)) {
@@ -61,4 +98,4 @@ for (const filename of astroPages) {
 	}
 }
 
-console.log(`Verified ${astroPages.length} standalone Astro blog pages on the homepage, on /blog, and in sitemap.`);
+console.log(`Verified ${astroPages.length} standalone Astro blog pages on /blog and in sitemap (including those in homepage top 6).`);

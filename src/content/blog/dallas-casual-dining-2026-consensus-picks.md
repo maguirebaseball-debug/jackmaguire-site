@@ -11,11 +11,11 @@ These are places representing consensus across multiple independent food sources
 
 **Cattleack Barbeque** (Farmers Branch): Salt-and-pepper rub, post oak smoke. The brisket here is the benchmark.
 
-**Vaqueros Texas Bar-B-Q**: Smoked pork belly burnt ends.
+**Vaqueros Texas Bar-B-Q**: Smoked pork belly burnt ends served with a sweet glaze and a perfect jalapeño kick.
 
-**Pecan Lodge**: Good two-meat plate. More accessible than Cattleack if you can't get to Farmers Branch.
+**Pecan Lodge**: Good two-meat plate. More accessible than Cattleack if you cannot get to Farmers Branch.
 
-**Hurtado Barbecue** (Dallas Farmers Market): Worth a visit if you're at the market.
+**Hurtado Barbecue** (Dallas Farmers Market): A pioneer of "Mexi-Cran" barbecue, blending traditional Central Texas oak-smoked brisket with Tex-Mex elements like quail eggs and elote.
 
 ## Tex-Mex and Tacos
 
@@ -23,22 +23,22 @@ These are places representing consensus across multiple independent food sources
 
 **Herrera's Oak Cliff**: Traditional combinations. Good for a sit-down Tex-Mex meal.
 
-**Mariano's Hacienda Ranch**: Fajitas.
+**Mariano's Hacienda Ranch**: Famous as the birthplace of the frozen margarita machine in 1971, serving excellent mesquite-grilled fajitas alongside history.
 
-**Las Palmas**: Garlic-herb queso.
+**Las Palmas**: A retro-themed Uptown hotspot serving outstanding garlic-herb queso and classic Tex-Mex combination plates in a high-energy dining room.
 
 ## Vietnamese
 
 **Ba Lee** (Carrollton): Unanimous agreement for the grilled pork bánh mì sandwich. Drive if you have to.
 
-**Phở Xóm**: Northern Vietnamese preparation.
+**Phở Xóm**: Serves a traditional Northern Vietnamese pho preparation featuring a lighter, more savory beef broth flavored with ginger and star anise.
 
-**Lua Kitchen** (Garland): Grilled pork noodle dishes.
+**Lua Kitchen** (Garland): Known for charcoal-grilled pork noodle bowls (bún thịt nướng) served with fresh herbs, pickled daikon, and fish sauce.
 
 ## American Classics
 
-**Keller's Drive-In**: Universal recommendation for the affordable double-meat cheeseburger. The kind of place that's been good for decades and hasn't changed.
+**Keller's Drive-In**: Universal recommendation for the affordable double-meat cheeseburger. The kind of place that has been good for decades and has not changed.
 
-**Roots Chicken Shak**: Duck-fat fried chicken.
+**Roots Chicken Shak**: Chef Tiffany Derry's modern classic, serving incredibly crispy duck-fat fried chicken and sweet potato fries.
 
-**Aunt Irene's Kitchen**: Fish sandwiches and seafood platters.
+**Aunt Irene's Kitchen**: A neighborhood favorite famous for loaded seafood platters and deeply seasoned fried fish sandwiches.

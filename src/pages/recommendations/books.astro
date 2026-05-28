@@ -1,0 +1,153 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Recommended Books: ${SITE_TITLE}`}
+			description="A curated catalog of books worth your time and focus, covering systems thinking, theology, economics, and philosophy."
+		/>
+		<style>
+			.intro {
+				color: rgb(var(--gray));
+				margin-bottom: 2.5em;
+			}
+			.book-grid {
+				display: flex;
+				flex-direction: column;
+				gap: 2.5em;
+			}
+			.book-card {
+				background: #fff;
+				border-radius: 10px;
+				padding: 1.75em;
+				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+			}
+			.book-header {
+				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+				padding-bottom: 0.75em;
+				margin-bottom: 1em;
+			}
+			.book-title {
+				font-size: 1.4em;
+				font-weight: 700;
+				color: rgb(var(--black));
+				margin: 0;
+			}
+			.book-author {
+				font-size: 0.95em;
+				color: var(--accent-dark);
+				font-weight: 700;
+				margin-top: 0.2em;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.book-category {
+				font-size: 0.75em;
+				background-color: rgba(var(--gray-light), 0.5);
+				color: rgb(var(--gray-dark));
+				padding: 0.2rem 0.5rem;
+				border-radius: 4px;
+				display: inline-block;
+				margin-top: 0.4rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.book-review {
+				font-size: 0.95em;
+				line-height: 1.7;
+				color: rgb(var(--gray-dark));
+			}
+			.book-review p {
+				margin-bottom: 1em;
+			}
+			.book-review p:last-child {
+				margin-bottom: 0;
+			}
+			.review-highlight {
+				background-color: #fdf8ef;
+				border-left: 4px solid var(--accent);
+				padding: 0.85em 1.25em;
+				margin: 1em 0;
+				font-style: italic;
+				font-size: 0.9em;
+				color: rgb(var(--black));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Recommended Books</h1>
+			<p class="intro">Evaluations of books that have significantly influenced my perspective on systems, philosophy, and practical decision-making.</p>
+
+			<div class="book-grid">
+				
+				<div class="book-card">
+					<div class="book-header">
+						<h2 class="book-title">The Recognitions</h2>
+						<div class="book-author">William Gaddis</div>
+						<span class="book-category">Fiction, Systems Thinking</span>
+					</div>
+					<div class="book-review">
+						<p>
+							A massive, complex novel that acts as a profound exploration of authenticity, systems, and social mimicry. It examines how organizations and individuals construct elaborate structures of forgery to substitute for genuine presence.
+						</p>
+						<div class="review-highlight">
+							"Gaddis exposes how institutional systems incentivize replication over creation, a lesson highly applicable to modern digital systems."
+						</div>
+						<p>
+							Reading it requires sustained focus, but it yields deep structural insights into the nature of social systems, capital markets, and corporate networks.
+						</p>
+					</div>
+				</div>
+
+				<div class="book-card">
+					<div class="book-header">
+						<h2 class="book-title">When Things Fall Apart</h2>
+						<div class="book-author">Pema Chödrön</div>
+						<span class="book-category">Philosophy, Mindfulness</span>
+					</div>
+					<div class="book-review">
+						<p>
+							A clear, unsentimental framework for navigating personal failure, grief, and institutional changes. Unlike standard self-help literature that proposes simple optimization strategies, Chödrön argues for accepting groundlessness.
+						</p>
+						<div class="review-highlight">
+							"The core thesis is that stability is a construct, and resilience occurs only when you stop fighting change."
+						</div>
+						<p>
+							This text serves as a valuable counter-balance to the optimization-driven mindset of modern marketing and engineering. It outlines a practical philosophy of presence.
+						</p>
+					</div>
+				</div>
+
+				<div class="book-card">
+					<div class="book-header">
+						<h2 class="book-title">Thinking in Systems: A Primer</h2>
+						<div class="book-author">Donella H. Meadows</div>
+						<span class="book-category">Systems Thinking</span>
+					</div>
+					<div class="book-review">
+						<p>
+							The foundational manual for understanding feedback loops, stocks, and system flows. It provides the analytical tools required to dissect complex business operations, media networks, and global supply chains.
+						</p>
+						<div class="review-highlight">
+							"Meadows teaches you to stop looking at events and start looking at the underlying feedback loops that generate them."
+						</div>
+						<p>
+							Every performance marketer, programmer, and operational manager must read this book to avoid optimization traps and understand leverage points.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
