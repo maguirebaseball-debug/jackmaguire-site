@@ -86,6 +86,12 @@ const description = "A personal count-up timer.";
       margin-top: 2.5rem;
     }
 
+    .location {
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-top: 0.4rem;
+    }
+
     .admin-link {
       position: fixed;
       bottom: 1.5rem;
@@ -131,6 +137,7 @@ const description = "A personal count-up timer.";
     </div>
 
     <p class="since" id="since-text"></p>
+    <p class="location" id="location-text"></p>
   </div>
 
   <a href="/sobriety-admin" class="admin-link">admin login</a>
@@ -139,6 +146,7 @@ const description = "A personal count-up timer.";
     const UPSTASH_URL = 'https://still-jennet-137992.upstash.io';
     const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
     const KEY = 'sobriety_start';
+    const LOCATION_KEY = 'sobriety_location';
     let startTime = null;
 
     function pad(n) {
@@ -173,18 +181,23 @@ const description = "A personal count-up timer.";
 
     async function init() {
       try {
-        const res = await fetch(UPSTASH_URL + '/get/' + KEY, {
-          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
-        });
-        const data = await res.json();
-        if (data.result) {
-          startTime = parseInt(data.result, 10);
+        const [timeRes, locRes] = await Promise.all([
+          fetch(UPSTASH_URL + '/get/' + KEY, { headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN } }),
+          fetch(UPSTASH_URL + '/get/' + LOCATION_KEY, { headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN } })
+        ]);
+        const timeData = await timeRes.json();
+        const locData = await locRes.json();
+        if (timeData.result) {
+          startTime = parseInt(timeData.result, 10);
         } else {
           const now = Date.now();
           startTime = now;
           await fetch(UPSTASH_URL + '/set/' + KEY + '/' + now, {
             headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
           });
+        }
+        if (locData.result) {
+          document.getElementById('location-text').textContent = 'location: ' + locData.result;
         }
       } catch (e) {
         startTime = Date.now();

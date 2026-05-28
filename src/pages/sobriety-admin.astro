@@ -260,6 +260,13 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       <button class="set-btn" onclick="setCustomTime()">Set Start Time</button>
       <p class="confirm-msg" id="custom-confirm-msg">Start time set.</p>
 
+      <hr class="divider" />
+
+      <p class="section-label">Location</p>
+      <input type="text" id="location-input" maxlength="25" placeholder="e.g. Chicago, IL" style="width:100%;padding:0.7rem 1rem;font-size:1rem;font-family:Georgia,serif;border:1px solid #ddd;border-radius:5px;outline:none;color:#333;background:#faf9f6;margin-bottom:0.8rem;" />
+      <button class="set-btn" onclick="saveLocation()">Save Location</button>
+      <p class="confirm-msg" id="location-confirm-msg">Location saved.</p>
+
       <a href="/sobriety" class="back">back to timer</a>
     </div>
   </div>
@@ -268,6 +275,7 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
     const UPSTASH_URL = 'https://still-jennet-137992.upstash.io';
     const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
     const KEY = 'sobriety_start';
+    const LOCATION_KEY = 'sobriety_location';
     const PIN = '3868';
 
     const pinInput = document.getElementById('pin-input');
@@ -276,11 +284,20 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       if (e.key === 'Enter') checkPin();
     });
 
-    function checkPin() {
+    async function checkPin() {
       const val = pinInput.value.trim();
       if (val === PIN) {
         document.getElementById('login-view').style.display = 'none';
         document.getElementById('admin-panel').classList.add('visible');
+        try {
+          const res = await fetch(UPSTASH_URL + '/get/' + LOCATION_KEY, {
+            headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+          });
+          const data = await res.json();
+          if (data.result) {
+            document.getElementById('location-input').value = data.result;
+          }
+        } catch (e) {}
       } else {
         document.getElementById('error-msg').style.display = 'block';
         pinInput.value = '';
@@ -297,6 +314,16 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
     async function resetTimer() {
       await saveToUpstash(Date.now());
       const msg = document.getElementById('confirm-msg');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
+
+    async function saveLocation() {
+      const val = document.getElementById('location-input').value.trim().slice(0, 25);
+      await fetch(UPSTASH_URL + '/set/' + LOCATION_KEY + '/' + encodeURIComponent(val), {
+        headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+      });
+      const msg = document.getElementById('location-confirm-msg');
       msg.style.display = 'block';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);
     }
