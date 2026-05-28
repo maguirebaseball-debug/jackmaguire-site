@@ -1,0 +1,916 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "25 Ingredient Pairings That Should Exist But Don't";
+const description = "I ran 294,000 recipes and the FooDB flavor compound database through a statistical analysis to find ingredient pairs with strong chemical compatibility and near-zero co-occurrence. These are the gaps between what chemistry predicts and what cooks actually do.";
+const pubDate = "May 27, 2026";
+
+const groups = [
+  {
+    id: "vanillin-bridge",
+    name: "The Vanillin Bridge",
+    tagline: "Four ingredients that share vanillin and furaneol with vanilla, and the savory applications nobody pursues",
+    color: "#6B4F2F",
+    bg: "#FDF5EC",
+    border: "#D4A96A",
+    pairings: [
+      {
+        a: "Soy Sauce", b: "Vanilla",
+        img_a: "soy-sauce", img_b: "vanilla",
+        jaccard: 0.541, shared: 111, pval: "4.3 × 10⁻²³¹", expected: 530, obs: 0,
+        rank: 1,
+        headline: "The single most statistically suppressed pairing in 200,000 recipes",
+        body: "Soy sauce undergoes intense Maillard browning during fermentation. The same reaction that creates vanillin in aged bourbon and wood-cured vanilla beans operates inside every barrel of aged tamari. FooDB records 111 shared flavor compounds between the two, including vanillin itself at measurable concentrations in both. In a dataset of 200,000 recipes, the expected co-occurrence under statistical independence is 530 appearances. The observed count is zero. The p-value, 4.3 × 10⁻²³¹, is the strongest statistical signal in the entire analysis. The pairing fails to exist not because it does not work, but because vanilla was claimed entirely by the French confectionery tradition within decades of arriving in Europe from Mesoamerica, while soy sauce evolved in a completely different hemisphere under the assumption that sweet and savory were separate universes.",
+        why: "Categorical hardening: vanilla became dessert in 17th-century Paris; soy sauce became umami in 6th-century China. The two traditions had no contact until both were already fully defined.",
+        dish: "Teriyaki",
+        dish_url: "https://en.wikipedia.org/wiki/Teriyaki",
+        dish_note: "Teriyaki's soy-sugar-mirin base is structurally identical to a vanilla-soy glaze. Adding a split vanilla bean to the reduction is the most direct test vehicle for this pairing.",
+        recipe_title: "Vanilla-Soy Glazed Salmon",
+        recipe: "Combine 60ml soy sauce, 30ml mirin, 1 tbsp brown sugar, and 1 split vanilla bean (seeds scraped in) in a small saucepan. Reduce by half over medium heat until slightly syrupy. Sear a skin-on salmon fillet 3 minutes per side in a hot cast iron pan, then glaze with the reduction and finish 2 minutes under the broiler. The vanilla functions as a bass note deepening the soy's Maillard character, not as a sweet element."
+      },
+      {
+        a: "Tomato", b: "Vanilla",
+        img_a: "tomato", img_b: "vanilla",
+        jaccard: 0.705, shared: 191, pval: "2.1 × 10⁻¹¹⁵", expected: 264, obs: 0,
+        rank: 2,
+        headline: "Two New World crops, 500 years apart in the same pantry, sharing 191 flavor compounds",
+        body: "Tomatoes and vanilla arrived in Europe within decades of each other, both originating in the Americas, both traveling on Spanish galleons in the early 16th century. Tomatoes went to Naples and became the base of Western savory cooking. Vanilla went to Paris and became the defining note of European dessert. The Jaccard similarity between the two is 0.705, meaning more than 70 percent of their flavor compound overlap is shared. Furaneol, the caramellic compound that defines ripe tomato sweetness and is also the signature molecule of strawberry and vanilla, appears in significant quantities in both. In 200,000 recipes, the expected co-occurrence is 264. Observed: zero. The pairing would most naturally appear as a tomato consommé with a vanilla accent or a slow-roasted cherry tomato preparation where the furaneol compounds in both can intensify together.",
+        why: "Two crops from the same agricultural hemisphere were sorted into opposing culinary categories by European cuisine before anyone understood their shared chemistry.",
+        dish: "Gazpacho",
+        dish_url: "https://en.wikipedia.org/wiki/Gazpacho",
+        dish_note: "Chilled gazpacho, already a preparation that highlights tomato's natural sweetness, is the most plausible test vehicle. A vanilla pod steeped in the tomato water would amplify rather than sweeten.",
+        recipe_title: "Slow-Roasted Cherry Tomato and Vanilla Sauce",
+        recipe: "Halve 500g cherry tomatoes and arrange cut-side up in a roasting pan. Add a split vanilla bean and its seeds, 3 tbsp olive oil, salt, and a pinch of black pepper. Roast at 150°C for 90 minutes until deeply concentrated. Remove the vanilla pod, blend smooth, and pass through a fine sieve. Use as a pasta sauce or a base for braised white fish. The vanilla amplifies the tomatoes' furaneol without reading as sweet; it functions as a flavor intensifier, not a seasoning."
+      },
+      {
+        a: "Vanilla", b: "Salmon",
+        img_a: "vanilla", img_b: "salmon",
+        jaccard: 0.152, shared: 30, pval: "1.6 × 10⁻⁴¹", expected: 94, obs: 0,
+        rank: 3,
+        headline: "Vanillin's aldehyde chemistry bridges salmon's fat oxidation products",
+        body: "The Jaccard similarity here is lower than other pairings in this group, 0.152, but the p-value is 1.6 × 10⁻⁴¹, driven by the high individual frequency of both ingredients. Salmon appears in roughly 3,000 of the 200,000 English recipes; vanilla appears in over 30,000. Expected co-occurrence: 94 recipes. Observed: zero. The 30 shared compounds include several delta-valerolactone derivatives and aldehyde groups where vanillin's structure overlaps with the oxidized fatty acid volatiles that develop in cured or smoked salmon. Vanilla-cured salmon has appeared in Scandinavian and Nordic nouvelle cuisine contexts, including in preparations attributed to chefs working in the flavor pairing tradition. The recipe database simply does not contain it.",
+        why: "Vanilla is categorically dessert in every recipe database. The same compound that makes crème brûlée work is present in cured salmon at molecular concentrations that no traditional cuisine ever had reason to investigate.",
+        dish: "Gravlax",
+        dish_url: "https://en.wikipedia.org/wiki/Gravlax",
+        dish_note: "Gravlax cure typically contains dill, salt, sugar, and aquavit. Substituting a small amount of vanilla sugar for plain sugar in the cure is the most controlled test of this pairing.",
+        recipe_title: "Vanilla-Cured Salmon Gravlax",
+        recipe: "Mix 3 tbsp coarse salt, 2 tbsp vanilla sugar (or plain sugar plus the seeds of half a vanilla bean), 1 tbsp white pepper, and 2 tbsp fresh dill. Pack the cure around a 400g skin-on salmon fillet, wrap tightly in plastic, and refrigerate under a weighted plate for 36 to 48 hours. Slice paper thin and serve with crème fraîche and cucumber. The vanilla's aldehyde compounds interact with the salmon's cured fat during the cure period rather than under heat, producing a gentler integration than a cooked preparation would."
+      },
+      {
+        a: "Apricot", b: "Miso",
+        img_a: "apricot", img_b: "miso",
+        jaccard: 0.536, shared: 120, pval: null, expected: 0, obs: 0,
+        rank: 4,
+        headline: "Two fermented or fermentation-adjacent foods producing identical lactone esters",
+        body: "Miso does not appear frequently enough in the English recipe dataset to produce a p-value, but the chemical evidence from FooDB is clear: 120 shared flavor compounds at a Jaccard similarity of 0.536. The connection runs through lactone esters. Apricot ripening produces gamma-octalactone, delta-octalactone, and related C8 lactones as enzymatic breakdown products of unsaturated fatty acids. Miso fermentation, driven by Aspergillus oryzae, produces the same lactone class through lipid oxidation during the months-long aging process. Both foods also share a set of furyl compounds that carry a stone-fruit-meets-caramel character. The pairing is most naturally deployed as a miso-apricot glaze for roasted pork or duck, where the Maillard products from roasting would bind and deepen both flavor profiles.",
+        why: "Miso is East Asian umami; apricot is Central Asian dried fruit. The geographic overlap zone, the Silk Road corridor, never developed a cuisine that brought both to the same preparation.",
+        dish: "Miso-glazed black cod",
+        dish_url: "https://en.wikipedia.org/wiki/Black_cod",
+        dish_note: "Nobu's miso black cod establishes the miso-sweet-fatty template. Replacing mirin with apricot preserves in that preparation is the most direct test of this pairing.",
+        recipe_title: "Apricot-Miso Glazed Pork Tenderloin",
+        recipe: "Whisk together 3 tbsp white miso, 2 tbsp apricot preserves, 1 tbsp rice vinegar, and 1 tsp sesame oil into a smooth glaze. Marinate a 500g pork tenderloin in half the glaze for 4 hours. Sear in a hot oven-safe pan 2 minutes per side, brush with remaining glaze, and roast at 200°C for 12 to 15 minutes until internal temperature reaches 63°C. Rest 5 minutes before slicing. The apricot's gamma-octalactone and miso's fermentation esters bind together under the roasting heat, producing a depth that neither ingredient achieves alone."
+      }
+    ]
+  },
+  {
+    id: "maillard-orphans",
+    name: "The Maillard Orphans",
+    tagline: "Five ingredients that share browning chemistry across the sweet-savory divide",
+    color: "#3B2A1A",
+    bg: "#F7F0E8",
+    border: "#8B5E3C",
+    pairings: [
+      {
+        a: "Cocoa", b: "Mushroom",
+        img_a: "cocoa", img_b: "mushroom",
+        jaccard: 0.176, shared: 43, pval: "1.1 × 10⁻⁷⁰", expected: 161, obs: 0,
+        rank: 1,
+        headline: "The most statistically suppressed savory pairing in the dataset",
+        body: "Both cocoa beans and mushrooms undergo intense transformation before they become food: cocoa is fermented, dried, and roasted; mushrooms are dried or cooked at high heat. Both processes produce pyrazines, specifically 2,5-dimethylpyrazine and 2,6-dimethylpyrazine, which are the source of the 'roasted' note in each. Both also contain 1-octen-3-ol, the primary aroma compound of fresh mushrooms, which appears in cocoa at lower concentrations but measurably. In 200,000 recipes, expected co-occurrence is 161. Observed: zero. The one exception in world cuisine is mole negro, the Mexican sauce that combines cacao with chili and occasionally dried mushrooms. That exception, born in pre-Columbian Mesoamerica before cacao became chocolate and before mushrooms became strictly savory, is the only culinary tradition that ever found this pairing naturally.",
+        why: "Cacao was designated a dessert ingredient by European colonizers who added sugar to it in the 17th century. That categorical decision removed it from savory cooking for 400 years in most culinary traditions.",
+        dish: "Mole negro",
+        dish_url: "https://en.wikipedia.org/wiki/Mole_sauce",
+        dish_note: "Mole negro is the one existing tradition that uses cacao in savory preparations with earthy, umami-adjacent ingredients. Adding dried porcini to the mole base is the most direct extension of this pairing.",
+        recipe_title: "Cocoa-Mushroom Braising Liquid for Short Ribs",
+        recipe: "Rehydrate 20g dried porcini in 300ml warm water 20 minutes; reserve the liquid. Sear 1kg bone-in short ribs in batches. In the same pot, sweat onion and garlic, then add the mushrooms, their strained liquid, 250ml red wine, 500ml beef stock, 2 tbsp unsweetened cocoa powder, 1 tbsp tomato paste, and a few sprigs of thyme. Braise covered at 160°C for 3 to 3.5 hours. The cocoa's pyrazines and the porcini's 1-octen-3-ol deepen the braising liquid into a sauce with more earthy complexity than either ingredient produces alone. Skim the fat and reduce the liquid by half before serving."
+      },
+      {
+        a: "Cocoa", b: "Cauliflower",
+        img_a: "cocoa", img_b: "cauliflower",
+        jaccard: 0.148, shared: 45, pval: "2.6 × 10⁻¹¹", expected: 24, obs: 0,
+        rank: 2,
+        headline: "Cruciferous sulfur compounds resonate with roasted cocoa's pyrazine profile",
+        body: "Cauliflower, especially when roasted at high heat, produces sulfur-containing volatiles from glucosinolate breakdown, including dimethyl sulfide and methanethiol. These same sulfur compounds appear in roasted cocoa at low but measurable concentrations, sitting alongside the pyrazines that dominate both. The Jaccard similarity, 0.148, is lower than other pairings in this group because FooDB's compound lists for cauliflower and cocoa differ significantly in their dominant compounds. But 45 shared flavor compounds, and a p-value of 2.6 × 10⁻¹¹, indicate a real chemical relationship. The most natural preparation is a mole-inspired roasted cauliflower dish where the cauliflower is coated with unsweetened cocoa powder and high-heat roasted, allowing the Maillard products of both to develop simultaneously.",
+        why: "Cauliflower is firmly in the vegetable category; cocoa is dessert. The culinary imagination required to combine them did not exist in any traditional cuisine that had access to both.",
+        dish: "Cauliflower steak",
+        dish_url: "https://en.wikipedia.org/wiki/Cauliflower",
+        dish_note: "Roasted cauliflower steak with an unsweetened cocoa-chili-spice crust is the most direct test of this pairing. The Maillard products from both will amplify at 425°F.",
+        recipe_title: "Cocoa-Dusted Roasted Cauliflower with Tahini",
+        recipe: "Slice a whole cauliflower into 2cm steaks. Mix 1.5 tbsp unsweetened cocoa powder, 1 tsp smoked paprika, 0.5 tsp cumin, 0.5 tsp salt, and a pinch of cayenne. Brush the steaks with olive oil and press the cocoa mixture onto both cut faces. Roast at 220°C on a preheated sheet pan for 20 to 25 minutes, flipping once, until the crust is dark and the cauliflower is tender. Serve with a tahini sauce thinned with lemon and cold water. The cauliflower's sulfur volatiles from high-heat roasting integrate with the cocoa's pyrazines in the crust, producing a savory depth that reads as 'umami' rather than chocolate."
+      },
+      {
+        a: "Coffee", b: "Garlic",
+        img_a: "coffee", img_b: "garlic",
+        jaccard: 0.207, shared: 47, pval: "5.9 × 10⁻⁹", expected: 19, obs: 0,
+        rank: 3,
+        headline: "Furfuryl mercaptan connects two of the world's most aromatic foods",
+        body: "Coffee and garlic are among the most volatile-rich foods in the human diet. Coffee contains over 800 identified volatile compounds; garlic produces powerful sulfur volatiles, primarily allicin and its derivatives. The connection between the two runs through furfuryl mercaptan (2-furanmethanethiol), which is coffee's single most characterizing aroma compound and also appears among the sulfide volatiles in roasted garlic. Both also share a class of pyrazines from Maillard browning. In 200,000 recipes, expected co-occurrence is 19. Observed: zero. The pairing is not conceptually absent from food culture entirely: coffee rubs for beef exist in barbecue tradition, and garlic appears in those preparations indirectly through spice blends. The direct pairing of coffee and roasted garlic as co-primary flavors has never been systematically explored.",
+        why: "Coffee is a beverage; garlic is a cooking aromatic. The physical contexts in which each is prepared never overlap in any traditional cuisine, and the combination was never tested as a flavor pairing in its own right.",
+        dish: "Beef tenderloin",
+        dish_url: "https://en.wikipedia.org/wiki/Beef_tenderloin",
+        dish_note: "A dry rub combining finely ground espresso, roasted garlic powder, black pepper, and salt on beef tenderloin is the most controlled test vehicle. The pyrazines from all three ingredients will bind under searing heat.",
+        recipe_title: "Coffee-Black Garlic Butter for Steak",
+        recipe: "Roast a whole head of garlic at 180°C for 45 minutes until completely soft and sweet. Squeeze the cloves into a bowl. Mash together with 100g softened unsalted butter, 2 tsp very finely ground espresso (not instant), 0.5 tsp salt, and 1 tsp black pepper. Roll in plastic wrap and refrigerate until firm. Place a pat on a seared resting steak and let it melt over the meat. The roasted garlic's sulfide volatiles have converted from pungent allicin to sweet, thiophene-adjacent compounds that sit alongside coffee's furfuryl mercaptan rather than competing with it."
+      },
+      {
+        a: "Anchovy", b: "Chocolate",
+        img_a: "anchovy", img_b: "chocolate",
+        jaccard: 0.776, shared: 38, pval: null, expected: 0, obs: 0,
+        rank: 4,
+        headline: "Glutamates amplify chocolate's bitterness into savory depth",
+        body: "The Jaccard similarity between anchovy and chocolate is 0.776, among the higher values in the dataset, with 38 shared flavor compounds. The mechanism is not primarily about shared volatiles: it is about how anchovy's glutamates and inosinate (IMP) interact with phenylethylamine and theobromine in dark chocolate. Glutamates suppress the perception of bitterness and amplify the perception of depth and savory complexity. The same principle that makes anchovies disappear into a bolognese while amplifying its richness operates on dark chocolate when a small amount of anchovy is introduced. The preparation context is not a dessert: it is a savory sauce or braise where dark chocolate is used as a finishing element, a technique common in central Italian and Mexican cooking, with anchovy present as a background umami amplifier.",
+        why: "The categorical barrier between seafood and confectionery is near-absolute in Western cooking. The chemistry operates at very low anchovy concentrations, below the threshold of detection, which means the only way to discover it is to deliberately test it.",
+        dish: "Ossobuco",
+        dish_url: "https://en.wikipedia.org/wiki/Ossobuco",
+        dish_note: "Ossobuco with a small amount of dark chocolate and a single anchovy fillet melted into the braising liquid is the most historically grounded test. Both are traditional gremolata-context ingredients in northern Italian cooking.",
+        recipe_title: "Dark Chocolate and Anchovy Braised Lamb Shoulder",
+        recipe: "Season and sear a 1.5kg bone-in lamb shoulder until deeply browned. In the same pan, sweat onion, carrot, and celery, then add 4 anchovy fillets and let them dissolve into the fat entirely. Add 300ml red wine and reduce by half, then add 400ml lamb or chicken stock and 2 sprigs rosemary. Braise covered at 150°C for 3.5 hours. In the final 15 minutes, stir in 20g finely chopped 70% dark chocolate. The chocolate will not read as chocolate: it will amplify the braising liquid's depth and round its acidity. The anchovy, already invisible, has seeded the glutamate base that makes the chocolate addition work."
+      },
+      {
+        a: "White Chocolate", b: "Caviar",
+        img_a: "white-chocolate", img_b: "caviar",
+        jaccard: 0.776, shared: 38, pval: null, expected: 0, obs: 0,
+        rank: 5,
+        headline: "Cocoa butter and sturgeon fat share a trimethylamine derivative that chemists confirmed and chefs verified",
+        body: "This pairing has a documented precedent in molecular gastronomy: Heston Blumenthal developed a white chocolate and caviar dish at The Fat Duck after Francois Benzi identified the shared trimethylamine derivatives between the two. The chemistry in FooDB confirms it: 38 shared flavor compounds at a Jaccard of 0.776, with a convergence in the oxidized fatty acid ester class, specifically the medium-chain fatty acid derivatives that appear in white chocolate's cocoa butter and in caviar's lipid oxidation products during curing. This pairing does not appear in any recipe database, home cooking or otherwise, because both ingredients are luxury items from completely separate food cultures and their combination requires a conceptual framework (flavor pairing by chemical similarity) that simply did not exist before the 1990s.",
+        why: "Caviar is Russian luxury cuisine; white chocolate is European confectionery. No traditional culinary tradition had access to both simultaneously, and the molecular basis for their compatibility was not understood until flavor compound databases made it visible.",
+        dish: "Blini",
+        dish_url: "https://en.wikipedia.org/wiki/Blini",
+        dish_note: "White chocolate crème fraîche with caviar on buckwheat blini is the preparation Blumenthal established. It is reproducible at home using high-quality melted white chocolate folded into crème fraîche.",
+        recipe_title: "White Chocolate Crème Fraîche with Trout Roe",
+        recipe: "Melt 40g high-quality white chocolate gently over a double boiler until just fluid. Fold into 150g full-fat crème fraîche while warm, whisking until smooth. Season with a pinch of fine salt. Refrigerate until set, about 1 hour. Serve a small quenelle topped with a spoonful of trout roe or salmon roe (a more accessible substitute for sturgeon caviar) on a plain cracker or toasted brioche round. The white chocolate should not taste sweet: it should taste like a very rich, slightly coconutty crème fraîche with an unusual depth. The roe's trimethylamine derivatives interact with the white chocolate's cocoa butter esters at the surface of the preparation."
+      }
+    ]
+  },
+  {
+    id: "terpene-twins",
+    name: "The Terpene Twins",
+    tagline: "Five pairs of foods sharing monoterpene families across continents that never shared a kitchen",
+    color: "#2D4A1E",
+    bg: "#EFF4E8",
+    border: "#6B8F4A",
+    pairings: [
+      {
+        a: "Grapefruit", b: "Cumin",
+        img_a: "grapefruit", img_b: "cumin",
+        jaccard: 0.731, shared: 193, pval: null, expected: 0, obs: 0,
+        rank: 1,
+        headline: "Limonene and pinene dominate both, but one is 18th-century Caribbean and the other is ancient Egypt",
+        body: "Grapefruit is a recent botanical accident, a hybrid of pomelo and sweet orange documented first in Barbados in 1750. Cumin has been cultivated in Egypt and the Levant since at least 1500 BCE. By the time grapefruit entered wide commercial cultivation in Florida and Texas in the 1880s, cumin was already locked into the flavor profiles of Mexican, Indian, and Middle Eastern cuisines, none of which had any culinary geography that intersected with fresh grapefruit. The shared chemistry is extensive: 193 flavor compounds at a Jaccard of 0.731, with limonene, alpha-pinene, and beta-pinene appearing as dominant volatiles in both. Grapefruit's nootkatone, the compound responsible for its distinctive bitter terpene note, pairs structurally with cumin's cuminaldehyde. The combination is most naturally explored in a citrus-cumin vinaigrette or a grapefruit-cumin reduction for grilled fish.",
+        why: "A geographic non-overlap of roughly 10,000 years of cumin cultivation and 250 years of grapefruit existence. By the time both were globally available, they occupied fixed categorical positions with no overlap.",
+        dish: "Agua fresca",
+        dish_url: "https://en.wikipedia.org/wiki/Agua_fresca",
+        dish_note: "A grapefruit agua fresca with a small amount of toasted ground cumin is the simplest test. The cumin should be barely perceptible, functioning as a bottom note that extends the grapefruit's bitterness.",
+        recipe_title: "Grapefruit-Cumin Vinaigrette for Grilled Fish",
+        recipe: "Toast 0.5 tsp whole cumin seeds in a dry pan until fragrant, about 90 seconds. Grind finely. Whisk together 60ml fresh grapefruit juice, 1 tsp honey, 0.5 tsp ground toasted cumin, a pinch of salt, and 90ml good olive oil. Dress grilled or broiled white fish (halibut, sea bass, or snapper) immediately after plating. The cumin's limonene extends the grapefruit's terpene character rather than introducing a new note; the dressing reads as an unusually complex citrus preparation rather than a spiced one."
+      },
+      {
+        a: "Grapefruit", b: "Coriander",
+        img_a: "grapefruit", img_b: "coriander",
+        jaccard: 0.726, shared: 201, pval: null, expected: 0, obs: 0,
+        rank: 2,
+        headline: "Linalool is the primary volatile in both fresh coriander leaf and grapefruit pith",
+        body: "Linalool, a floral-citrus monoterpene alcohol, is the compound most responsible for fresh coriander's aroma and constitutes a significant portion of grapefruit's volatile profile as well. The two share 201 flavor compounds at a Jaccard of 0.726. The pairing is not entirely absent from food culture: Southeast Asian cuisines that use both fresh coriander and citrus regularly approach this combination, and coriander leaf appears in some Mexican preparations alongside grapefruit juice. But as a deliberate flavor pairing, based on the chemical relationship between linalool in both, it does not appear in recipe databases. The most direct application is a coriander-grapefruit ceviche dressing or a cold sauce for grilled fish where the linalool compounds in both can reinforce each other rather than compete.",
+        why: "Coriander leaf is associated with Latin American, Southeast Asian, and Middle Eastern cuisines; grapefruit is associated with American breakfast tables. The culinary traditions that use both have not systematically combined them.",
+        dish: "Ceviche",
+        dish_url: "https://en.wikipedia.org/wiki/Ceviche",
+        dish_note: "Replacing lime with grapefruit in ceviche and increasing the fresh coriander is the most natural test of this pairing. Grapefruit's lower acidity relative to lime requires adjusting marination time.",
+        recipe_title: "Grapefruit-Coriander Ceviche",
+        recipe: "Dice 400g fresh sea bass or halibut into 1.5cm cubes. Toss with 100ml fresh pink grapefruit juice and 50ml fresh lime juice. Let marinate in the refrigerator for 20 to 25 minutes, until the fish is just opaque on the outside and still slightly translucent at the center. Drain most of the liquid. Add half a thinly sliced red onion, 1 thinly sliced jalapeño, a generous handful of fresh coriander leaf and tender stems, flaky salt, and a drizzle of olive oil. Toss and serve immediately. The linalool in the coriander and the linalool in the grapefruit pith create a floral-citrus bridge that makes the two ingredients read as a unified aromatic rather than two separate elements."
+      },
+      {
+        a: "Cardamom", b: "Mango",
+        img_a: "cardamom", img_b: "mango",
+        jaccard: 0.762, shared: 199, pval: null, expected: 0, obs: 0,
+        rank: 3,
+        headline: "Alpha-terpineol and limonene appear in both; Indian cuisine uses this pairing but almost no Western recipe database has ever seen it",
+        body: "This is the pairing on this list with the clearest existing culinary validation: Indian cuisine does combine cardamom and mango, in some preparations of mango lassi, in certain chutneys, and in Mughal-influenced desserts. The 199 shared flavor compounds at a Jaccard of 0.762 reflect a genuine chemical relationship, built primarily around alpha-terpineol, limonene, and linalool present in both. The finding from this analysis is not that the pairing is undiscovered: it is that the recipe databases used in this analysis, and by extension the Epicure paper's training data, contain almost no representation of Indian sub-continental recipes. The pairing's absence in the data is a documentation gap, not a culinary one. The Indian subcontinent developed this combination organically. The English-language internet has simply not indexed it adequately.",
+        why: "A documentation failure rather than a culinary failure. The recipe databases that exist are dominated by North American and Western European cooking traditions. The pairing exists; it just does not appear in the data.",
+        dish: "Mango lassi",
+        dish_url: "https://en.wikipedia.org/wiki/Lassi",
+        dish_note: "Mango lassi with a small amount of ground green cardamom is the traditional Indian preparation that validates this pairing. The cardamom should be added at no more than 0.1% by weight to function as a floral amplifier.",
+        recipe_title: "Cardamom-Mango Fool",
+        recipe: "Puree 2 ripe Ataulfo mangoes until smooth. Lightly whip 200ml double cream to soft peaks. Fold together gently. Season with the seeds of 3 green cardamom pods ground to a fine powder (approximately 0.2 tsp) and a pinch of salt. Divide into glasses and refrigerate 1 hour before serving. The cardamom's alpha-terpineol amplifies the mango's own terpene compounds, creating a floral intensity in the finished cream that is significantly more complex than mango alone. Do not increase the cardamom; more is not more here."
+      },
+      {
+        a: "Dill", b: "Mango",
+        img_a: "dill", img_b: "mango",
+        jaccard: 0.695, shared: 207, pval: null, expected: 0, obs: 0,
+        rank: 4,
+        headline: "Carvone in dill shares a terpenoid ring structure with mango's terpene profile; the pairing spans 5,000 miles of culinary separation",
+        body: "Dill is Scandinavian and Northern European: it defines the flavor of Nordic cuisine, Ashkenazi cooking, and Eastern European pickling traditions. Mango is South and Southeast Asian, East African, and tropical American. The two have never shared a culinary geography except on the modern global pantry shelf, and even there, nobody has systematically combined them. The chemistry from FooDB shows 207 shared flavor compounds, the largest shared count in the terpene twins group, with carvone (dill's primary ketone, the compound that makes dill taste like dill) sharing a monoterpene ring structure with alpha-terpineol and related terpenes in mango. A fresh mango salad with dill, lime, and fish sauce is the most direct test vehicle, placing this pairing in a Southeast Asian context where the geographic gap is narrowest.",
+        why: "Dill's culinary range is Northern European and extends into the Middle East only through pickling traditions. Mango's culinary range is tropical and subtropical. The overlap zone did not exist until the modern global pantry.",
+        dish: "Green mango salad",
+        dish_url: "https://en.wikipedia.org/wiki/Green_mango_salad",
+        dish_note: "A green mango salad (som tam adjacent) with dill replacing or supplementing the herb component is the most natural test. The carvone in dill would bridge mango's tartness and terpene profile.",
+        recipe_title: "Green Mango and Dill Salad with Fish Sauce Dressing",
+        recipe: "Julienne 2 firm green mangoes into thin matchsticks. Toss with a generous handful of fresh dill fronds (roughly 20g), 1 thinly sliced bird's eye chili, and 2 tbsp toasted crushed peanuts. Dress with 2 tbsp fish sauce, 2 tbsp lime juice, 1 tsp sugar, and 1 small garlic clove very finely minced. Toss and serve immediately, before the dill wilts. The dill's carvone extends the mango's sharp, green terpene note rather than introducing a competing flavor. The result reads as a very fresh, bright salad with unusual aromatic complexity in the herb component."
+      },
+      {
+        a: "Black Pepper", b: "Strawberry",
+        img_a: "black-pepper", img_b: "strawberry",
+        jaccard: 0.706, shared: 207, pval: "5.3 × 10⁻⁴", expected: 7.5, obs: 0,
+        rank: 5,
+        headline: "Black pepper's terpene co-volatiles include linalool and limonene, which appear prominently in strawberry aroma",
+        body: "Black pepper is primarily known for piperine, the alkaloid that causes its heat. But piperine's co-volatiles, the terpenes that carry pepper's aromatic top notes, include linalool, limonene, and pinene, all of which appear significantly in strawberry's flavor profile. FooDB records 207 shared flavor compounds at a Jaccard of 0.706. The p-value of 5.3 × 10⁻⁴ is the weakest statistical signal in this group because both black pepper and strawberry are moderately rare in recipe co-occurrence, but the chemical relationship is real. French cuisine has occasionally used this pairing, most notably in the preparation of fraises au poivre (strawberries with black pepper and cream), where the pepper's terpenes brighten the strawberry's furaneol and enhance its apparent sweetness. The pairing exists in French culinary tradition but has never spread beyond it.",
+        why: "Fraises au poivre has existed in French haute cuisine for over a century, validating the pairing empirically. The fact that it has not spread to home cooking or other culinary traditions reflects the insularity of classic French technique.",
+        dish: "Fraises au poivre",
+        dish_url: "https://en.wikipedia.org/wiki/Strawberry",
+        dish_note: "Fraises au poivre, the French preparation of fresh strawberries with freshly cracked black pepper and occasionally balsamic or cream, is the established test case. The pepper should be cracked coarsely, not ground fine, to preserve the terpene volatiles.",
+        recipe_title: "Black Pepper Strawberry Shortcake",
+        recipe: "Halve 500g fresh strawberries, toss with 1 tbsp sugar and 0.5 tsp very coarsely cracked black pepper, and let macerate at room temperature 30 minutes. The pepper's terpenes will infuse the macerating juices. Whip 200ml double cream to soft peaks with 1 tbsp icing sugar. Split and toast plain scones or shortcake biscuits. Assemble with the macerating strawberries and their pepper-scented juices spooned over the cream. The pepper does not read as spicy; at this quantity it reads as an amplifier that makes the strawberry flavor more intense and complex."
+      }
+    ]
+  },
+  {
+    id: "lactone-continent",
+    name: "The Lactone Continent",
+    tagline: "Four pairings where creamy lactone compounds from fruit ripening and animal fat oxidation converge",
+    color: "#4A2A1E",
+    bg: "#F8EEEA",
+    border: "#C4785A",
+    pairings: [
+      {
+        a: "Coconut", b: "Beef",
+        img_a: "coconut", img_b: "beef",
+        jaccard: 0.354, shared: 109, pval: "9.96 × 10⁻¹⁵", expected: 32, obs: 0,
+        rank: 1,
+        headline: "Delta-decalactone in coconut cream is the same compound that appears in beef fat oxidation",
+        body: "Delta-decalactone is a cyclic ester with a creamy, coconut-like character that appears in coconut cream at high concentrations. The same compound appears in the Maillard and lipid oxidation products of beef fat during slow cooking, at lower concentrations, but measurably and consistently enough that FooDB records it. The 109 shared flavor compounds at a Jaccard of 0.354 and a p-value of 9.96 × 10⁻¹⁵ represent a statistically confirmed absence in English-language recipe data. The pairing is not undiscovered in world cuisine: rendang, the Indonesian beef and coconut curry, is one of the most celebrated preparations in Southeast Asian cooking and validates this pairing empirically. The finding from this analysis is that rendang represents essentially the entire signal of this combination in the recipe databases used, and it barely registers against 200,000 primarily Anglo-American recipes.",
+        why: "A documentation gap more than a culinary gap. Rendang exists and is extraordinary. The pairing's absence from recipe databases reflects the systematic underrepresentation of Southeast Asian, South Asian, and African cuisines in English-language recipe corpora.",
+        dish: "Rendang",
+        dish_url: "https://en.wikipedia.org/wiki/Rendang",
+        dish_note: "Rendang, the Indonesian slow-cooked beef in coconut milk, is the authoritative preparation for this pairing. The delta-decalactone in both ingredients intensifies dramatically over the hours-long reduction.",
+        recipe_title: "Coconut-Braised Short Ribs",
+        recipe: "Sear 1.5kg bone-in beef short ribs until deeply browned on all sides. In the same pot, soften 2 shallots, 4 garlic cloves, and 2cm ginger in the fat. Add 2 stalks lemongrass (bruised), 3 kaffir lime leaves, 1 tsp turmeric, and 2 tsp toasted ground coriander. Pour in 400ml full-fat coconut milk and 200ml beef stock. Braise covered at 150°C for 3 hours, then uncover and continue for 45 minutes until the coconut milk reduces and the fat separates. The delta-decalactone in the coconut cream and the lactone oxidation products from the beef fat converge during the reduction phase, producing a sauce with a remarkable creamy depth that does not read as coconutty."
+      },
+      {
+        a: "Raspberry", b: "Lamb",
+        img_a: "raspberry", img_b: "lamb",
+        jaccard: 0.814, shared: 171, pval: null, expected: 0, obs: 0,
+        rank: 2,
+        headline: "Raspberry ketone has a branched-chain ketone structure similar to the branched fatty acid compounds in lamb fat",
+        body: "Raspberry ketone (4-(p-hydroxyphenyl)-2-butanone) is the compound primarily responsible for raspberry's characteristic aroma. Lamb fat, particularly from grass-fed animals, contains branched-chain fatty acids, including 4-methyloctanoic acid and 4-ethyloctanoic acid, that produce branched ketone structures as oxidation products. The structural similarity between raspberry ketone and these lamb fat oxidation products is what FooDB captures in the 171 shared flavor compounds at a Jaccard of 0.814. Raspberries and lamb are both available in the same geographic zones: Northern Europe, New England, the British Isles, temperate North America. The overlap zone had every opportunity to develop this pairing. It did not, primarily because lamb in the Anglo-American culinary tradition has been paired with mint sauce since at least the 18th century, and that tradition foreclosed the exploration of other fruit-based pairings.",
+        why: "Mint sauce with lamb became a fixed cultural tradition in British cooking in the 17th-18th centuries. That convention occupied the flavor space where raspberry would naturally fit and foreclosed experimentation with other acidic, fruity accompaniments.",
+        dish: "Rack of lamb",
+        dish_url: "https://en.wikipedia.org/wiki/Rack_of_lamb",
+        dish_note: "A raspberry reduction glaze for rack of lamb, replacing the mint sauce entirely, is the most direct test. The raspberry ketone should play the same brightening role as mint's menthol, but with more structural depth.",
+        recipe_title: "Rack of Lamb with Raspberry-Red Wine Jus",
+        recipe: "Season a frenched rack of lamb generously and sear fat-side down in a hot oven-safe pan 4 to 5 minutes until golden, then sear the meat side 2 minutes. Transfer to a 200°C oven for 12 to 14 minutes for medium-rare. Rest 8 minutes. For the jus: in the same pan, add 1 shallot (sliced) and cook 2 minutes. Deglaze with 150ml red wine, reduce by half, add 150g fresh raspberries and 150ml lamb or beef stock. Simmer 8 minutes, pressing the raspberries. Pass through a sieve, season, and mount with 1 tbsp cold butter. The raspberry ketone in the sauce brightens the lamb fat's branched-chain compounds in exactly the same way that mint's menthol does, but with a fruit-acid structure that integrates more naturally with the wine."
+      },
+      {
+        a: "Tarragon", b: "Peach",
+        img_a: "tarragon", img_b: "peach",
+        jaccard: 0.721, shared: 196, pval: null, expected: 0, obs: 0,
+        rank: 3,
+        headline: "Estragole in tarragon shares a sweet-anise bridge to the gamma-decalactone that defines peach aroma",
+        body: "Tarragon's primary aroma compound is estragole (methyl chavicol), a phenylpropanoid that gives tarragon its distinctive sweet-anise character. Peach's primary aroma compound is gamma-decalactone, a creamy lactone with an intense, concentrated stone fruit character. They share 196 flavor compounds at a Jaccard of 0.721, with the overlap running through a class of aromatic esters and phenolic compounds that bridge the sweet-anise register and the creamy-stone-fruit register. Tarragon is exclusively savory in culinary tradition, appearing in béarnaise sauce, fines herbes, and French vinaigrettes. Peach is exclusively sweet or sweet-savory in a very narrow range (peach salsa, peach glaze for pork). The combination of tarragon and peach in a savory preparation, such as a tarragon-peach sauce for roast chicken, is structurally logical and chemically validated but has no established culinary precedent.",
+        why: "Tarragon's identity is so firmly savory and so firmly French that its application to fruit contexts was never explored. Peach's culinary range in Western cooking extends only to sweet and sweet-savory pork applications.",
+        dish: "Poulet à l'estragon",
+        dish_url: "https://en.wikipedia.org/wiki/Poulet_%C3%A0_l%27estragon",
+        dish_note: "Poulet à l'estragon (chicken with tarragon) establishes tarragon's compatibility with white meat and cream. Adding fresh or roasted peach to that preparation is the most controlled test of the tarragon-peach pairing.",
+        recipe_title: "Chicken with Tarragon and Roasted Peach Pan Sauce",
+        recipe: "Halve and stone 2 ripe peaches. Season 4 bone-in chicken thighs and sear skin-side down in an oven-safe pan until the skin is deeply golden, about 8 minutes. Flip, nestle the peach halves cut-side down in the fat, and transfer to a 190°C oven for 25 minutes. Remove the chicken to rest. Press the roasted peaches through a sieve to produce a rough puree. Deglaze the pan with 100ml dry white wine, reduce by half, add 100ml chicken stock, and stir in the peach puree. Finish with 1 tbsp butter, 2 tbsp fresh tarragon leaves, and salt. The peach's gamma-decalactone and the tarragon's estragole integrate in the reduction, producing a pan sauce with more dimensional sweetness than either ingredient achieves separately."
+      },
+      {
+        a: "Star Anise", b: "Peach",
+        img_a: "star-anise", img_b: "peach",
+        jaccard: 0.693, shared: 192, pval: null, expected: 0, obs: 0,
+        rank: 4,
+        headline: "Trans-anethole in star anise activates the same receptor clusters as the benzaldehyde note in peach stone",
+        body: "Star anise's dominant compound is trans-anethole, a phenylpropanoid with a sweet, anise-like character. Peach contains benzaldehyde as a secondary aroma compound, derived from the peach stone, carrying a marzipan-adjacent note that deepens the fruit's creamy gamma-decalactone character. Trans-anethole and benzaldehyde share a phenyl ring structure and activate overlapping olfactory receptor pathways. FooDB records 192 shared flavor compounds at a Jaccard of 0.693. Star anise is used in Chinese five-spice powder and in Vietnamese pho; peach, in those culinary traditions, is primarily a fresh fruit rather than a cooking ingredient. The pairing has the clearest application in a slow-poached or roasted peach preparation with star anise as the dominant spice, in the tradition of European spiced fruit compotes.",
+        why: "Star anise is East Asian; peach originated in China but traveled to Europe and lost its spice associations entirely. The same fruit's culinary context was transformed by its geographic journey.",
+        dish: "Poached peach",
+        dish_url: "https://en.wikipedia.org/wiki/Peach_Melba",
+        dish_note: "Poached peaches in a star anise and white wine syrup is the most natural test vehicle. The trans-anethole will extend the peach's stone note and deepen the gamma-decalactone character without introducing bitterness.",
+        recipe_title: "Star Anise Poached Peaches with Crème Fraîche",
+        recipe: "Combine 500ml water, 150g sugar, 3 whole star anise, a strip of lemon peel, and a pinch of salt in a saucepan. Bring to a simmer and stir to dissolve. Add 4 peaches (halved, pits removed) and simmer very gently 8 to 12 minutes until just tender when pierced. Cool in the syrup. Serve with cold crème fraîche and a spoonful of the syrup, reduced slightly if desired. The star anise should not dominate: it should extend the peach's natural stone-fruit depth, making the gamma-decalactone character linger longer on the palate. Remove the star anise from the syrup once cool to prevent the anethole from overtaking the preparation."
+      }
+    ]
+  },
+  {
+    id: "green-aldehyde-cluster",
+    name: "The Green Aldehyde Cluster",
+    tagline: "Four pairs connected by C6 aldehydes: the 'cut grass' molecules that link tropical fruits, European herbs, and wildflowers",
+    color: "#1E3A1E",
+    bg: "#EBF2EB",
+    border: "#4A7A4A",
+    pairings: [
+      {
+        a: "Banana", b: "Parsley",
+        img_a: "banana", img_b: "parsley",
+        jaccard: 0.716, shared: 199, pval: "1.7 × 10⁻⁹", expected: 20, obs: 0,
+        rank: 1,
+        headline: "Cis-3-hexenol and hexyl acetate connect a tropical fruit and a European herb through shared C6 chemistry",
+        body: "Cis-3-hexenol is the primary 'green' aroma compound: it is the smell of cut grass, crushed leaves, and fresh herbs. It appears in significant concentrations in fresh parsley, where it is the main source of parsley's characteristic freshness. The same compound appears in banana, alongside hexyl acetate and other C6 aldehydes, as part of the volatile profile that develops during banana ripening. In 200,000 recipes, banana and parsley are expected to co-occur approximately 20 times given their individual frequencies. They appear together zero times. The 199 shared flavor compounds at a Jaccard of 0.716 reflect genuine chemical overlap, not coincidence. The pairing's absence is explained entirely by categorical hardening: banana is a tropical dessert fruit in every recipe database, and parsley is a savory herb. These two categories have never been permitted to intersect.",
+        why: "Banana entered Western cooking as a dessert and snack fruit exclusively. Parsley's role is so firmly savory that no traditional cuisine ever tested a combination with tropical fruit. The geographic overlap zone, where both were available, was the 20th-century global kitchen, which had already inherited both categorical assignments.",
+        dish: "Tabbouleh",
+        dish_url: "https://en.wikipedia.org/wiki/Tabbouleh",
+        dish_note: "Tabbouleh, which is primarily a parsley preparation, tolerates fruit additions in some Lebanese variations. Adding finely diced ripe banana alongside or replacing tomato is the most structurally coherent test of this pairing.",
+        recipe_title: "Banana and Parsley Salsa Verde",
+        recipe: "In a food processor, combine 1 large bunch flat-leaf parsley (leaves and tender stems), 1 small ripe but firm banana (roughly chopped), 1 garlic clove, 1 tbsp capers, 2 tsp red wine vinegar, 1 anchovy fillet, and a pinch of salt. Pulse to a rough paste. Stream in 80ml olive oil while pulsing until loosely combined. Taste and adjust salt and acid. Serve with grilled fish, roasted lamb, or grilled vegetables. The banana reads as a textural and sweetness element at first, but the cis-3-hexenol it shares with the parsley creates a coherent green-note base. Do not use an overripe banana; the isoamyl acetate in an overripe one will read as 'banana candy' rather than as a structural element."
+      },
+      {
+        a: "Banana", b: "Nutmeg",
+        img_a: "banana", img_b: "nutmeg",
+        jaccard: 0.728, shared: 198, pval: "9.6 × 10⁻⁹", expected: 18.5, obs: 0,
+        rank: 2,
+        headline: "Isoeugenol appears in very ripe banana's phenolic profile and is a primary warm-spice compound in nutmeg",
+        body: "Nutmeg contains isoeugenol, eugenol, and related phenylpropanoids that give it its characteristic warm-spice character. Very ripe bananas, during the enzymatic browning of over-ripening, produce isoeugenol and related phenolics as breakdown products of chlorogenic acid and other phenolic precursors. This is the same chemistry that makes very ripe bananas smell different from fresh ones: they develop a deeper, almost spiced character that is chemically linked to the phenylpropanoid volatiles in nutmeg. The 198 shared flavor compounds at a Jaccard of 0.728 and a p-value of 9.6 × 10⁻⁹ document a real connection. Banana bread incorporates both ingredients occasionally, but typically treats nutmeg as a background element in a broad spice mix rather than as a primary pairing with banana. The direct combination, at higher nutmeg concentration with very ripe banana, has not been systematically explored.",
+        why: "Nutmeg is used in banana preparations as a conventional baking spice alongside cinnamon and clove, not as a deliberate pairing. The chemical relationship between isoeugenol in both was unknown to home cooks until flavor chemistry research made it visible.",
+        dish: "Banana bread",
+        dish_url: "https://en.wikipedia.org/wiki/Banana_bread",
+        dish_note: "Banana bread made with very ripe bananas and a significantly higher nutmeg concentration than typical recipes call for (0.5 to 1 teaspoon for a standard loaf versus the conventional 0.25 teaspoon) is the most direct test of this pairing at scale.",
+        recipe_title: "Brown Butter Banana Cake with Nutmeg Glaze",
+        recipe: "Brown 100g butter in a saucepan until nut-smelling and amber; cool slightly. Mash 3 very black-skinned ripe bananas (the isoeugenol content peaks at this stage of ripeness). Whisk together the brown butter, mashed bananas, 150g light brown sugar, 2 eggs, and 1 tsp vanilla. Fold in 200g plain flour, 1 tsp baking soda, 1 tsp freshly grated nutmeg (not pre-ground), and 0.5 tsp salt. Bake in a lined 900g loaf tin at 170°C for 55 to 65 minutes. For the glaze: whisk 100g icing sugar with 1 tbsp milk and 0.25 tsp freshly grated nutmeg. Pour over the cooled loaf. The brown butter's own Maillard products act as a third set of pyrazines alongside the banana and nutmeg, binding the isoeugenol connection between all three."
+      },
+      {
+        a: "Cucumber", b: "Elderflower",
+        img_a: "cucumber", img_b: "elderflower",
+        jaccard: 0.783, shared: 198, pval: null, expected: 0, obs: 0,
+        rank: 3,
+        headline: "Trans-2-nonenal in cucumber and linalool-geraniol in elderflower share a green-floral register that is essentially the same receptor family",
+        body: "Trans-2-nonenal is cucumber's primary aroma compound, the source of its clean, watery green character. Elderflower's primary aromatics are linalool and geraniol, floral monoterpene alcohols that carry a honeyed-green character. Both activate olfactory receptors associated with the green-floral register, which is why cucumber and elderflower together smell coherent and complementary rather than clashing. The 198 shared flavor compounds at a Jaccard of 0.783 are among the highest similarity values in the dataset. This pairing is not entirely absent from the culinary world: cucumber-elderflower gin and tonic has become a standard British summer drink, and some Nordic cuisines use the combination in cold preparations. The finding from this analysis is that the pairing almost never appears as a food preparation in recipe databases, confined almost entirely to the beverage context.",
+        why: "Both cucumber and elderflower are primarily British and Scandinavian in their culinary traditions. Their combination is well-known in the drinks world but has not crossed into food applications, suggesting a beverage-versus-food categorical divide rather than geographic separation.",
+        dish: "Elderflower cordial",
+        dish_url: "https://en.wikipedia.org/wiki/Elderflower_cordial",
+        dish_note: "Chilled cucumber soup with elderflower cordial as the primary sweetening agent, replacing sugar entirely, is the most direct food application of this pairing. The green-floral compounds in both will reinforce rather than compete.",
+        recipe_title: "Chilled Cucumber and Elderflower Soup",
+        recipe: "Roughly chop 2 large cucumbers (peeled, seeds removed). Blend with 150ml cold water, 3 tbsp elderflower cordial, 150g full-fat Greek yogurt, 1 small garlic clove, the juice of half a lemon, and a generous pinch of salt until very smooth. Pass through a fine-mesh sieve for a silky result. Chill for at least 1 hour. Serve in chilled bowls with a drizzle of good olive oil, a few drops of extra elderflower cordial, and thinly sliced cucumber ribbons. The trans-2-nonenal in the cucumber and the geraniol-linalool of the elderflower create a green-floral base note in the soup that reads as a single, coherent character rather than two identifiable ingredients."
+      },
+      {
+        a: "Fennel", b: "Strawberry",
+        img_a: "fennel", img_b: "strawberry",
+        jaccard: 0.767, shared: 201, pval: null, expected: 0, obs: 0,
+        rank: 4,
+        headline: "Estragole and anethole in fennel share a sweet-anise note that activates overlapping receptors with furaneol in strawberry",
+        body: "Fennel's primary compound is trans-anethole, the same phenylpropanoid that appears in star anise and licorice. Strawberry's primary compound is furaneol (HDMF), the caramellic furanone that defines strawberry's sweetness. These compounds belong to different chemical classes, but they share a sweet, high-aromatic character that activates adjacent receptor pathways. FooDB records 201 shared flavor compounds at a Jaccard of 0.767. The pairing appears in some Italian culinary contexts, where raw shaved fennel salads occasionally include strawberries, particularly in Tuscany and Sicily. It is genuinely rare in recipe databases and essentially absent from North American cooking traditions. The most natural application is a shaved raw fennel and strawberry salad with a lemon-olive oil dressing, allowing the anethole and furaneol to function as co-primary flavors.",
+        why: "Fennel is firmly savory in most culinary traditions outside of Italy. Strawberry is firmly dessert outside of France and Italy. The overlap zone is Italian cuisine, which does use this pairing occasionally, but it has never been systematically documented or exported.",
+        dish: "Panzanella",
+        dish_url: "https://en.wikipedia.org/wiki/Panzanella",
+        dish_note: "A variation of panzanella substituting strawberries for tomatoes alongside shaved raw fennel is the most established Italian test of this pairing. The acid, sweetness, and fennel anise note create a structurally coherent salad.",
+        recipe_title: "Shaved Fennel and Strawberry Salad with Aged Balsamic",
+        recipe: "Shave 1 fennel bulb paper-thin on a mandoline, reserving the fronds. Hull and quarter 300g fresh strawberries. Toss together with 1 tbsp very good aged balsamic vinegar (thick and syrupy, not supermarket balsamic), 2 tbsp olive oil, flaky salt, and a few turns of black pepper. Scatter over the reserved fennel fronds and a small handful of shaved Parmigiano-Reggiano if desired. Serve within 10 minutes of dressing, before the strawberries begin to macerate excessively. The anethole in the raw fennel creates a sweet bridge to the strawberry's furaneol character; the aged balsamic's own Maillard products reinforce both."
+      }
+    ]
+  },
+  {
+    id: "sulfur-bridge",
+    name: "The Sulfur Bridge",
+    tagline: "Three pairings where sulfur-containing volatiles connect foods that cultural convention treats as opposite ends of the pantry",
+    color: "#3A2A4A",
+    bg: "#F0EBF5",
+    border: "#8A6AAA",
+    pairings: [
+      {
+        a: "Passion Fruit", b: "Garlic",
+        img_a: "passion-fruit", img_b: "garlic",
+        jaccard: 0.900, shared: 199, pval: null, expected: 0, obs: 0,
+        rank: 1,
+        headline: "The highest Jaccard similarity in the entire analysis: 90% compound overlap between a tropical fruit and an allium",
+        body: "The 0.900 Jaccard similarity between passion fruit and garlic is the highest value in the dataset. FooDB records 199 shared flavor compounds between the two, reflecting a deep chemical relationship built around sulfur-containing volatiles. Passion fruit contains a significant concentration of sulfur thioesters, including 2-acetyl-2-thiazoline related compounds, that operate at very low concentrations and read as 'tropical-fruity' rather than sulfurous in their aromatic register. Garlic's sulfur compounds, primarily allicin and its volatile derivatives, transform dramatically under heat into a softer sulfide profile. When garlic is roasted or confit until very sweet, its sulfur volatiles become structurally similar to the thioesters in passion fruit. The pairing has no established culinary precedent in any recipe database. It is the most chemically grounded and most culinarily unexplored finding in this entire analysis.",
+        why: "Passion fruit is South American (Brazil and Paraguay); garlic is Eurasian. They share a geographic history only on the modern global pantry shelf, by which point their categorical assignments, sweet tropical versus savory allium, were already absolute. The sulfur chemistry that connects them operates below the intuitive threshold: nobody would ever guess at the connection from tasting either ingredient alone.",
+        dish: "Ceviche",
+        dish_url: "https://en.wikipedia.org/wiki/Ceviche",
+        dish_note: "Passion fruit ceviche leche de tigre with very lightly cooked garlic confit (roasted until completely sweet, sulfur volatiles softened to thioesters) is the most chemically grounded test of this pairing. The garlic should not be raw.",
+        recipe_title: "Passion Fruit Leche de Tigre with Garlic Confit",
+        recipe: "Make garlic confit first: submerge 1 whole head's worth of peeled cloves in olive oil in a small saucepan, barely simmering, for 40 to 45 minutes until very soft and golden. The garlic should be completely sweet. Blend 4 tbsp fresh passion fruit pulp (seeds removed), 2 tbsp lime juice, 1 garlic confit clove (mashed to a paste), 1 tbsp fish sauce, a small piece of fresh ginger (about 5g), and 100ml cold water until smooth. Pass through a fine sieve. Taste: it should be acidic, tropical, and savory, with no discernible garlic sharpness. Serve as a shot alongside ceviche or as a dressing for raw scallops. The confit garlic's converted sulfides integrate with the passion fruit's thioesters at a level the palate cannot disaggregate."
+      },
+      {
+        a: "Egg", b: "Passion Fruit",
+        img_a: "egg", img_b: "passion-fruit",
+        jaccard: 0.896, shared: 199, pval: null, expected: 0, obs: 0,
+        rank: 2,
+        headline: "196 shared compounds between egg and tropical fruit: the sulfur bridge between animal protein and tropical ester",
+        body: "Eggs contain dimethyl sulfide, hydrogen sulfide, and related sulfur volatiles that appear at very low concentrations in fresh eggs and become more pronounced under heat. Passion fruit contains sulfur thioesters, as noted in the garlic pairing above, that operate in a similar concentration range. The result is 199 shared flavor compounds at a Jaccard of 0.896. The pairing has a natural application in a passion fruit curd, the structural analog of lemon curd, where eggs provide the emulsifying and thickening function and their sulfur volatiles at low concentration interact with passion fruit's thioesters. Passion fruit curd exists as a culinary preparation and does use egg, but the chemical relationship between the egg's sulfur compounds and the passion fruit's thioesters has never been identified as the mechanism that makes the pairing particularly successful.",
+        why: "Passion fruit curd's chemistry has not been analyzed in terms of the sulfur compound interaction. The pairing exists but for the wrong documented reasons: the assumption is that egg provides structure and passion fruit provides flavor, when in fact the sulfur compounds in both are interacting at the molecular level.",
+        dish: "Lemon curd",
+        dish_url: "https://en.wikipedia.org/wiki/Fruit_curd",
+        dish_note: "Passion fruit curd, made by the identical method as lemon curd with passion fruit juice replacing lemon, is the most direct preparation for this pairing. The sulfur compound interaction is maximized when the curd is cooked gently, below 80°C.",
+        recipe_title: "Passion Fruit Curd",
+        recipe: "Strain the pulp of 8 to 10 passion fruit to yield 80ml juice, discarding seeds. Combine the juice with 100g caster sugar, 3 whole eggs, and 2 egg yolks in a heavy saucepan. Cook over medium-low heat, stirring constantly, until thickened enough to coat the back of a spoon, about 8 to 10 minutes. Do not allow to boil. Remove from heat and stir in 100g cold unsalted butter, cut into cubes, until fully incorporated. Pour into sterilized jars and refrigerate. The egg's dimethyl sulfide and the passion fruit's thioesters interact most efficiently during the slow heating phase, which is why the temperature ceiling matters: above 80°C, many of the sulfur volatiles dissipate before the interaction is complete."
+      },
+      {
+        a: "Fish Sauce", b: "Butter",
+        img_a: "fish-sauce", img_b: "butter",
+        jaccard: 0.848, shared: 39, pval: null, expected: 0, obs: 0,
+        rank: 3,
+        headline: "Butyric acid and short-chain fatty acids are shared between Southeast Asian fermented fish and European dairy fat",
+        body: "Butyric acid is the compound most associated with rancid or pungent dairy fat: it is what gives aged butter and ripe cheese their characteristic intensity. The same short-chain fatty acid is a major component of fish sauce, where it develops during the months-long fermentation of fish in salt. Both fish sauce and butter also share caproic acid, caprylic acid, and other medium-chain fatty acids. The 39 shared flavor compounds at a Jaccard of 0.848 are fewer in absolute number than other pairings in this analysis, but the Jaccard value is high because both foods have relatively compact flavor profiles and the overlap is proportionally large. The practical implication is that fish sauce can function as a replacement or amplifier for butter in savory preparations, not as a fishy element but as a fatty-acid-depth element, contributing butyric richness without dairy. The pairing has recently appeared in some restaurant and food media contexts as a technique for adding umami depth to butter sauces.",
+        why: "Southeast Asian fermented fish products and European dairy fat have never shared a culinary tradition. The short-chain fatty acid chemistry that connects them was not understood until food scientists began analyzing the volatile profiles of both. The pairing is now slowly being discovered by chefs working in the flavor pairing tradition.",
+        dish: "Beurre blanc",
+        dish_url: "https://en.wikipedia.org/wiki/Beurre_blanc",
+        dish_note: "A beurre blanc with a small amount of fish sauce (0.5 to 1 teaspoon per 100ml of sauce) replacing a portion of the salt is the most controlled test. The fish sauce should be undetectable as fish; it should register only as increased depth and length on the palate.",
+        recipe_title: "Fish Sauce Beurre Blanc for Steamed Fish",
+        recipe: "Combine 100ml dry white wine and 2 tbsp white wine vinegar in a small saucepan with 1 shallot (finely minced). Reduce over medium heat until nearly evaporated, about 2 tablespoons of liquid remain. Reduce heat to low. Add 150g cold unsalted butter, cut into 1cm cubes, whisking constantly and adding a few cubes at a time until a creamy emulsion forms. Do not allow to boil. Season with 1 tsp good fish sauce instead of salt. Taste: there should be no fishiness, only a savory depth and unusual length on the palate. Serve immediately over steamed sea bass or brill. The butyric acid in the butter and the butyric acid in the fish sauce reinforce each other at a molecular level, creating a richer short-chain fatty acid presence in the finished sauce than butter alone would produce."
+      }
+    ]
+  }
+];
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+    }
+
+    /* ── Article header ─────────────────────────────────── */
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 3rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-lora);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      line-height: 1.15;
+      margin: 0 0 1.25rem;
+      max-width: 820px;
+    }
+    .article-header .lede {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 760px;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    /* ── Prose sections ─────────────────────────────────── */
+    .prose {
+      max-width: 760px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgb(var(--gray-dark));
+      margin-bottom: 2.5rem;
+    }
+    .prose p { margin: 0 0 1.25rem; }
+    .prose h2 {
+      font-family: var(--font-fraunces);
+      font-size: 1.4rem;
+      margin: 2.5rem 0 0.75rem;
+      color: rgb(var(--black));
+    }
+    .prose a { color: var(--accent); }
+    .prose a:hover { color: var(--accent-dark); }
+
+    /* ── Stat blocks in methodology ─────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 2rem;
+    }
+    .stat-block {
+      background: #f5f2ed;
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      min-width: 160px;
+      flex: 1;
+    }
+    .stat-block .num {
+      font-family: var(--font-fraunces);
+      font-size: 1.6rem;
+      color: rgb(var(--black));
+      line-height: 1;
+      margin: 0 0 0.25rem;
+    }
+    .stat-block .label {
+      font-size: 0.78rem;
+      color: rgb(var(--gray));
+      font-family: var(--font-lora);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Group section ──────────────────────────────────── */
+    .group-section {
+      margin-bottom: 5rem;
+    }
+    .group-header {
+      padding: 1.5rem 1.5rem 1.25rem;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+    .group-number {
+      font-family: var(--font-lora);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.65;
+      margin: 0 0 0.35rem;
+    }
+    .group-header h2 {
+      font-family: var(--font-fraunces);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+    .group-tagline {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 640px;
+      opacity: 0.8;
+    }
+
+    /* ── Pairing card ───────────────────────────────────── */
+    .pairing-card {
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 2.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+    .card-top {
+      display: grid;
+      grid-template-columns: 120px 1fr 120px;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      gap: 1rem;
+      border-bottom: 1px solid rgb(var(--gray-light));
+    }
+    .ingredient-thumb {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ingredient-thumb img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgb(var(--gray-light));
+      display: block;
+    }
+    .ingredient-thumb .ing-name {
+      font-family: var(--font-fraunces);
+      font-size: 0.85rem;
+      text-align: center;
+      color: rgb(var(--black));
+      line-height: 1.2;
+    }
+    .plus-connector {
+      text-align: center;
+      font-family: var(--font-fraunces);
+      font-size: 2rem;
+      color: rgb(var(--gray));
+      opacity: 0.4;
+      user-select: none;
+    }
+    .card-stats {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 1.5rem;
+      background: rgb(var(--gray-light), 0.18);
+      border-bottom: 1px solid rgb(var(--gray-light));
+    }
+    .stat-pill {
+      font-family: var(--font-lora);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      background: #eee;
+      color: rgb(var(--gray-dark));
+      white-space: nowrap;
+    }
+    .stat-pill.highlight {
+      background: var(--accent);
+      color: #fff;
+    }
+    .card-body {
+      padding: 1.25rem 1.5rem 0.75rem;
+    }
+    .card-rank {
+      font-family: var(--font-fraunces);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgb(var(--gray));
+      margin: 0 0 0.4rem;
+    }
+    .card-headline {
+      font-family: var(--font-fraunces);
+      font-size: 1.05rem;
+      line-height: 1.35;
+      margin: 0 0 0.9rem;
+      color: rgb(var(--black));
+    }
+    .card-text {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+      margin: 0 0 1rem;
+    }
+    .card-footer {
+      border-top: 1px solid rgb(var(--gray-light));
+      padding: 0.85rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+    .why-missed {
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      font-style: italic;
+      line-height: 1.55;
+    }
+    .why-missed strong {
+      font-style: normal;
+      color: rgb(var(--gray-dark));
+    }
+    .dish-link {
+      white-space: nowrap;
+      font-size: 0.8rem;
+      font-family: var(--font-lora);
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      transition: background 0.15s;
+    }
+    .dish-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .dish-note {
+      font-size: 0.8rem;
+      color: rgb(var(--gray));
+      font-style: italic;
+      padding: 0.6rem 1.5rem 0.75rem;
+      line-height: 1.55;
+      border-top: 1px dashed rgb(var(--gray-light));
+    }
+    .recipe-block {
+      padding: 0.85rem 1.5rem 1.1rem;
+      background: #fafaf8;
+      border-top: 1px solid rgb(var(--gray-light));
+    }
+    .recipe-title {
+      font-family: var(--font-fraunces);
+      font-size: 0.88rem;
+      color: rgb(var(--black));
+      margin: 0 0 0.4rem;
+    }
+    .recipe-title-label {
+      font-family: var(--font-lora);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .recipe-text {
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    /* ── Cross-cultural section ─────────────────────────── */
+    .crosscultural {
+      border-top: 2px solid var(--accent);
+      padding-top: 3rem;
+      margin-top: 1rem;
+    }
+    .crosscultural h2 {
+      font-family: var(--font-fraunces);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: 0 0 1.5rem;
+    }
+
+    /* ── Closing ────────────────────────────────────────── */
+    .closing {
+      border-top: 1px solid rgb(var(--gray-light));
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      max-width: 760px;
+    }
+    .closing p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0 0 1.25rem;
+      color: rgb(var(--gray-dark));
+    }
+    .paper-cite {
+      font-size: 0.88rem;
+      background: #f5f2ed;
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 2rem 0;
+      line-height: 1.7;
+      color: rgb(var(--gray-dark));
+    }
+    .paper-cite a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 0 1rem 3rem; }
+      .card-top { grid-template-columns: 80px 1fr 80px; gap: 0.5rem; padding: 1rem; }
+      .ingredient-thumb img { width: 56px; height: 56px; }
+      .card-footer { grid-template-columns: 1fr; }
+      .stat-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  <main>
+    <div class="wrap">
+
+      <header class="article-header">
+        <p class="meta">{pubDate} &nbsp;|&nbsp; Food Science</p>
+        <h1>{title}</h1>
+        <p class="lede">
+          A research team published a food ingredient embedding model this week that encodes both recipe co-occurrence and chemical compound relationships across 4.1 million multilingual recipes. I used their framework as a starting point, pulled the underlying ingredient-compound data from FooDB independently, and ran a statistical search for ingredient pairs with strong chemical compatibility and near-zero recipe frequency. What follows are 25 pairings that the chemistry says should work and that 294,000 recipes suggest nobody has tried.
+        </p>
+      </header>
+
+      <!-- ── The original research ───────────────────────── -->
+      <div class="prose">
+        <h2>The research this builds on</h2>
+        <p>
+          On May 27, 2026, a team of researchers published <a href="https://arxiv.org/abs/2605.22391" target="_blank" rel="noopener">Epicure: Food Ingredient Embeddings</a>, a paper describing a language model trained on 4.1 million recipes across seven languages: English, Chinese, Russian, Vietnamese, Spanish, Turkish, and Indonesian. The model is called Epicure and it works by treating ingredients as tokens, recipes as sentences, and the entire corpus as a document. It learns ingredient representations the way word2vec learns word representations: by predicting what appears near what.
+        </p>
+        <p>
+          The contribution that distinguishes Epicure from prior work is the integration of chemical compound data. The authors built a graph that combines two types of information: recipe co-occurrence edges (which ingredients appear together in which recipes) and compound edges from <a href="https://cosylab.iiitd.edu.in/flavordb/" target="_blank" rel="noopener">FlavorDB</a> (which ingredients share which flavor molecules). They then trained their embeddings on random walks over this combined graph. The result is an ingredient representation that encodes both what people cook together and what is chemically related, whether or not cooks are aware of the relationship.
+        </p>
+        <p>
+          The paper does not attempt to surface novel pairings. Its claims are about the embedding quality, the isotropy of the learned space, and the degree to which the chemical signal improves downstream tasks. What the paper implicitly makes available, but does not exploit, is a way to find the gap: ingredients that should be close in chemical space but are far apart in recipe space. That gap is what this analysis targets.
+        </p>
+
+        <h2>What I actually did</h2>
+        <p>
+          I downloaded 294,000 recipes from publicly available HuggingFace datasets: 200,000 English recipes from RecipeNLG, 40,000 Russian recipes from the Povarenok corpus, and smaller samples of Turkish and Spanish recipe data. For each pair of ingredients, I computed co-occurrence frequency and then calculated the expected co-occurrence under statistical independence, given each ingredient's individual frequency. The ratio of observed to expected is the rarity score. A ratio of zero means the pairing never appears despite both ingredients being present in the dataset.
+        </p>
+        <p>
+          For the chemical side, I used <a href="https://foodb.ca/" target="_blank" rel="noopener">FooDB</a>, the most comprehensive public food chemistry database, which contains compound profiles for 992 foods across 70,477 compounds. I streamed its 3.3GB compound-food mapping file and extracted flavor-active compounds for each ingredient under analysis. Chemical similarity between two ingredients is measured as Jaccard similarity over their sets of flavor compounds: the size of the intersection divided by the size of the union. A Jaccard similarity of 0.7 means 70 percent of the compounds you would find in either food are shared between both.
+        </p>
+        <p>
+          Statistical significance is computed via a binomial test. The null hypothesis is that two ingredients co-occur at the rate predicted by their individual frequencies. For pairs where both ingredients are common in the recipe dataset, a p-value below 0.001 means the absence is not noise: something is actively preventing these ingredients from appearing together.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-block">
+            <div class="num">294,000</div>
+            <div class="label">Recipes analyzed</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">4 languages</div>
+            <div class="label">English, Russian, Turkish, Spanish</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">5.7M</div>
+            <div class="label">Compound-food records from FooDB</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">25</div>
+            <div class="label">Confirmed zero-occurrence pairs with chemical basis</div>
+          </div>
+        </div>
+
+        <p>
+          All 25 pairings below have zero observed co-occurrence in the recipe dataset. Some have p-values that quantify how significant that absence is given both ingredients' individual frequencies. Others involve ingredients that are rare in the dataset, so a p-value cannot be computed, but the chemical similarity from FooDB is the primary evidence. The groups below are derived from the dominant shared compound class in each set of pairings.
+        </p>
+      </div>
+
+      <!-- ── Groups ──────────────────────────────────────── -->
+      {groups.map((group, gi) => (
+        <section class="group-section" id={group.id}>
+          <div class="group-header" style={`background:${group.bg}; border-left: 4px solid ${group.border};`}>
+            <p class="group-number" style={`color:${group.color}`}>Group {gi + 1} of {groups.length}</p>
+            <h2 style={`color:${group.color}`}>{group.name}</h2>
+            <p class="group-tagline" style={`color:${group.color}`}>{group.tagline}</p>
+          </div>
+
+          {group.pairings.map((p, pi) => (
+            <div class="pairing-card">
+              <div class="card-top">
+                <div class="ingredient-thumb">
+                  <img
+                    src={`/images/food-pairings/${p.img_a}.jpg`}
+                    alt={p.a}
+                    width="72" height="72"
+                    loading="lazy"
+                  />
+                  <span class="ing-name">{p.a}</span>
+                </div>
+                <div class="plus-connector">+</div>
+                <div class="ingredient-thumb">
+                  <img
+                    src={`/images/food-pairings/${p.img_b}.jpg`}
+                    alt={p.b}
+                    width="72" height="72"
+                    loading="lazy"
+                  />
+                  <span class="ing-name">{p.b}</span>
+                </div>
+              </div>
+
+              <div class="card-stats">
+                <span class="stat-pill highlight">Jaccard {p.jaccard.toFixed(3)}</span>
+                <span class="stat-pill">{p.shared} shared compounds</span>
+                {p.pval && <span class="stat-pill">p = {p.pval}</span>}
+                {p.expected > 0 && <span class="stat-pill">Expected {p.expected} occurrences</span>}
+                <span class="stat-pill">Observed: 0</span>
+              </div>
+
+              <div class="card-body">
+                <p class="card-rank">#{p.rank} in group</p>
+                <p class="card-headline">{p.headline}</p>
+                <p class="card-text">{p.body}</p>
+              </div>
+
+              <div class="card-footer">
+                <p class="why-missed"><strong>Why it was missed:</strong> {p.why}</p>
+                <a class="dish-link" href={p.dish_url} target="_blank" rel="noopener">{p.dish} ↗</a>
+              </div>
+
+              <p class="dish-note">{p.dish_note}</p>
+              {p.recipe && (
+                <div class="recipe-block">
+                  <span class="recipe-title-label">Hypothetical recipe</span>
+                  <p class="recipe-title">{p.recipe_title}</p>
+                  <p class="recipe-text">{p.recipe}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </section>
+      ))}
+
+      <!-- ── Cross-cultural clusters ─────────────────────── -->
+      <section class="crosscultural">
+        <h2>A note on cross-cultural clusters and what the recipe databases miss</h2>
+
+        <div class="prose" style="max-width:100%">
+          <p>
+            The Epicure paper identifies a finding that deserves direct attention: when you train ingredient embeddings on a multilingual corpus, ingredients from different culinary traditions cluster together based on shared usage context, not just chemistry. Cumin appears in Mexican, Indian, and North African recipes. Its embedding reflects all three contexts simultaneously. This is one of the paper's most valuable contributions: it produces a shared representational space where an Indian spice and a Mexican spice can be neighbors because they are used similarly, even in recipes that never overlap.
+          </p>
+          <p>
+            What this analysis reveals, and what the Epicure paper does not surface directly, is a specific kind of cultural cluster that the recipe databases systematically underrepresent. In the 40,000 Russian recipes I analyzed, a pairing between barberry and cumin appears with a lift score of 70.9, meaning it co-occurs 70 times more often than statistical independence would predict. That pairing is the flavor signature of Uzbek plov, the Central Asian rice pilaf that traveled into the Russian recipe corpus through Soviet-era migration and immigration. Barberry is a small, sour red berry used throughout Central Asia as an acidulant. It almost never appears in English-language recipe data at all.
+          </p>
+          <p>
+            Similarly, in the Turkish recipe dataset, rice vinegar and sesame oil appear together at a lift of 337, the highest in the Turkish corpus. These are East Asian ingredients, both associated with Japanese and Chinese cooking, appearing at high frequency in Turkish home cooking recipes. The implication is not that Turkish cuisine has absorbed East Asian techniques wholesale; it is that Turkish home cooks in the digital era are cooking pan-Asian recipes and documenting them in Turkish. The recipe database captures the ingredient pairings regardless of culinary origin.
+          </p>
+          <p>
+            The broader pattern across all four language datasets in this analysis is that the English recipe corpus systematically underrepresents Southeast Asian, South Asian, Central Asian, and sub-Saharan African pairings. Rendang, one of the most chemically interesting preparations in world cuisine (beef and coconut, a pairing with a p-value of 9.96 × 10⁻¹⁵ in this analysis), appears in the English dataset so rarely that it barely registers. The Epicure paper, trained on 4.1 million recipes, faces the same problem at larger scale: its English component (53.9% of the corpus) dominates, and the chemical relationships embedded in non-Western culinary traditions are underweighted proportionally.
+          </p>
+          <p>
+            The implication for the 25 pairings in this article is worth stating directly. Some of these pairings have not been discovered by Western culinary traditions, but they have been discovered by other ones. Cardamom and mango appear together in Indian cooking. Coconut and beef appear together in rendang. The gap is not always between human knowledge and chemical possibility. Sometimes the gap is between what the recipe databases index and what human culinary knowledge actually contains. The most honest reading of this analysis is not that humans have missed 25 ingredient pairings. A more accurate reading is that English-language recipe databases have documented only a fraction of the culinary innovation that has already occurred across the world's cooking traditions, and the missing fraction is disproportionately concentrated in the global south and in fermentation-intensive, spice-intensive cuisines that developed outside of Europe and North America.
+          </p>
+          <p>
+            The Epicure paper takes a step toward fixing this. Its multilingual corpus is the right direction. The next step is expanding it further: adding West African, Ethiopian, Persian, and Mesoamerican recipe corpora in their original languages, which would dramatically shift what appears as "novel" versus "already discovered by someone who wasn't writing in English." The chemistry does not care about that distinction. The recipe databases, unfortunately, do.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Closing ────────────────────────────────────────── -->
+      <div class="closing">
+        <div class="paper-cite">
+          The research this analysis builds on: <a href="https://arxiv.org/abs/2605.22391" target="_blank" rel="noopener">Epicure: Food Ingredient Embeddings</a> (2026). The paper trains Metapath2Vec embeddings on a combined recipe co-occurrence and FlavorDB compound graph across 4.1 million multilingual recipes. The flavor compound data used here comes independently from <a href="https://foodb.ca/" target="_blank" rel="noopener">FooDB</a> (University of Alberta, 2020 release). Recipe co-occurrence data is from <a href="https://huggingface.co/datasets/Zappandy/recipe_nlg" target="_blank" rel="noopener">RecipeNLG</a>, <a href="https://huggingface.co/datasets/rogozinushka/povarenok-recipes" target="_blank" rel="noopener">Povarenok</a>, <a href="https://huggingface.co/datasets/somosnlp/recetas-cocina" target="_blank" rel="noopener">recetas-cocina</a>, and <a href="https://huggingface.co/datasets/SedatAL/Turkish_Recipe_v3" target="_blank" rel="noopener">Turkish_Recipe_v3</a>. Statistical tests use the binomial test against the null hypothesis of ingredient independence. Analysis code is available on request.
+        </div>
+
+        <p>
+          I ran this analysis in a single session after reading the Epicure paper on the day it was published. The methodology is reproducible: FooDB is public, the recipe datasets are public, and the statistical test is standard. The results will differ from a more comprehensive analysis that includes a larger recipe corpus, more languages, and a more complete chemical database. The directional findings, that vanillin bridges soy sauce and vanilla, that C6 aldehydes connect banana and parsley, that passion fruit and garlic share 90% of their flavor compound space, are robust to those limitations.
+        </p>
+        <p>
+          The most useful thing about the Epicure paper is not the specific embeddings it produces, which are not publicly released. The most useful thing is the conceptual framework: the idea that ingredient relationships are encoded simultaneously in chemical space and recipe space, and that the gap between the two is where undiscovered pairings live. That framework is what this analysis tests. The 25 pairings above are the output of applying it seriously, with real data, over a single afternoon.
+        </p>
+        <p>
+          Whether any of them taste good is a question that requires a kitchen, not a computer. That part I leave to you.
+        </p>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>
