@@ -11,6 +11,21 @@ const posts = (await getCollection('blog')).sort(
 );
 
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
+
+const featurePosts = [
+	{
+		title: "25 Ingredient Pairings That Should Exist But Don't",
+		href: "/blog/food-chemical-pairings/",
+		pubDate: new Date("2026-05-27T12:00:00Z"),
+		category: "Feature essay",
+	},
+	{
+		title: "South America's Budget Travel Map Has Been Redrawn. Here Is What Is Actually True in 2026.",
+		href: "/blog/south-america-travel-costs-2026/",
+		pubDate: new Date("2026-05-27T12:00:00Z"),
+		category: "Feature essay",
+	},
+];
 ---
 
 <!doctype html>
@@ -24,11 +39,32 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 			<h1>Writing</h1>
 			{allTags.length > 0 && (
 				<div class="tags">
+					<span class="tag feature-tag">feature essays</span>
 					{allTags.map((tag) => (
 						<span class="tag">{tag}</span>
 					))}
 				</div>
 			)}
+			<section class="feature-section" aria-labelledby="feature-heading">
+				<h2 id="feature-heading">Feature Essays</h2>
+				<p class="section-note">Custom Astro articles with fuller layouts, data views, and visual systems.</p>
+				<ul class="feature-list">
+					{
+						featurePosts.map((post) => (
+							<li>
+								<a href={post.href}>
+									<span class="title">{post.title}</span>
+									<span class="meta">
+										<FormattedDate date={post.pubDate} />
+										<span class="tag-list"> · {post.category}</span>
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<h2 class="archive-heading">All Writing</h2>
 			<ul>
 				{
 					posts.map((post) => (
@@ -67,6 +103,32 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		background: rgb(var(--gray-light));
 		border-radius: 20px;
 		color: rgb(var(--gray-dark));
+	}
+	.feature-tag {
+		background: color-mix(in srgb, var(--accent) 14%, white);
+		color: var(--accent-dark);
+	}
+	.feature-section {
+		margin: 0 0 2.5em;
+		padding: 1.2em 1.4em;
+		border-left: 3px solid var(--accent);
+		background: #f7f4ee;
+	}
+	h2 {
+		font-size: 1.15em;
+		margin: 0 0 0.35em;
+	}
+	.section-note {
+		margin: 0 0 1em;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+		line-height: 1.6;
+	}
+	.feature-list {
+		margin: 0;
+	}
+	.archive-heading {
+		margin: 0 0 0.4em;
 	}
 	ul {
 		list-style: none;
