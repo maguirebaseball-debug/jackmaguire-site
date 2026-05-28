@@ -1,0 +1,193 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import CocktailDatabase from '../../components/widgets/CocktailDatabase.astro';
+
+const title = "The Definitive Top 1000 Cocktails Ranked";
+const description = "A data-driven statistical ranking of the world's 1000 most important cocktails, based on aggregate expert lists.";
+const pubDate = "May 26, 2026";
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    @media (max-width: 1280px) {
+      .article-container {
+        display: block;
+      }
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ── Article header ─────────────────────────────────── */
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 3rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-lora);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      margin: 0 0 1.2rem;
+      font-family: var(--font-fraunces), serif;
+      line-height: 1.15;
+      font-weight: 800;
+      color: rgb(var(--black));
+    }
+    .article-header .intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    .prose {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+    }
+
+    .prose p {
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.8rem;
+      color: rgb(var(--black));
+      margin: 2.5rem 0 1.25rem;
+      line-height: 1.2;
+    }
+
+    .prose h3 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.35rem;
+      color: rgb(var(--black));
+      margin: 2rem 0 1rem;
+      line-height: 1.25;
+    }
+
+    .prose hr {
+      border: 0;
+      border-top: 1px solid rgb(var(--gray-light));
+      margin: 3rem 0;
+    }
+
+    /* Tier Callout cards */
+    .tier-summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .tier-summary-card {
+      background: #FAF9F6;
+      border: 1px solid rgb(var(--gray-light));
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .summary-card-title {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: rgb(var(--black));
+    }
+  </style>
+</head>
+<body>
+  <ReadingProgressBar />
+  <Header />
+  <main>
+    <div class="article-container">
+      <div class="wrap">
+        
+        <header class="article-header">
+          <p class="meta">{pubDate} &nbsp;|&nbsp; Quantitative Libations</p>
+          <h1>{title}</h1>
+          <p class="intro">{description}</p>
+        </header>
+
+        <section class="prose">
+          <p>
+            The cocktail canon consists of hundreds of historical formulas, modern classics, and geographic variations. Determining the relative importance of these recipes requires a statistical approach rather than relying on individual anecdotes. 
+          </p>
+          <p>
+            This data-driven project compiles and normalizes expert lists, international bartender surveys, and aggregate recipe frequencies to rank the world's most significant cocktails. The resulting score represents each drink's statistical dominance in global bar culture.
+          </p>
+
+          <hr />
+
+          <h2>Understanding the Canon Tiers</h2>
+          <p>
+            To categorize this extensive data library, the ranking structures recipes into five distinct tiers based on their normalized market scores:
+          </p>
+
+          <div class="tier-summary-grid">
+            <div class="tier-summary-card">
+              <h4 class="summary-card-title">S-Tier (Essential Canon)</h4>
+              <p style="font-size: 0.88rem; margin: 0; line-height: 1.4;">The fifteen foundational pillars of global mixology, including the Manhattan, Old Fashioned, and Negroni. Unquestioned, permanent classics.</p>
+            </div>
+            <div class="tier-summary-card">
+              <h4 class="summary-card-title">A-Tier (Global Staples)</h4>
+              <p style="font-size: 0.88rem; margin: 0; line-height: 1.4;">Twenty-four major staples that populate standard menu layouts across all hemispheres, such as the Martini, Mai Tai, and Whiskey Sour.</p>
+            </div>
+            <div class="tier-summary-card">
+              <h4 class="summary-card-title">B-Tier (Standard Repertoire)</h4>
+              <p style="font-size: 0.88rem; margin: 0; line-height: 1.4;">Thirty-nine standard recipes expected of any competent professional bartender, spanning from the Tequila Sunrise to the Ramos Gin Fizz.</p>
+            </div>
+            <div class="tier-summary-card">
+              <h4 class="summary-card-title">C &amp; D-Tiers (Regional &amp; Fringe)</h4>
+              <p style="font-size: 0.88rem; margin: 0; line-height: 1.4;">Over three thousand niche variations, historic oddities, and emerging modern classics that populate local bar menus worldwide.</p>
+            </div>
+          </div>
+
+          <hr />
+
+          <h2>Interactive Database Portal</h2>
+          <p>
+            Rather than navigating through a passive text wall of three thousand entries, use the search portal below to filter by name or tier instantly. Adjust the sorting controls to analyze the rankings by score or rank.
+          </p>
+
+          <!-- Interactive Cocktail Database Widget -->
+          <CocktailDatabase />
+
+          <hr />
+
+          <h2>Statistical Observations</h2>
+          <p>
+            The ranking demonstrates a strict power-law distribution. The top fifty cocktails represent over seventy percent of total recipe references. This confirms that while the global library is vast, the practical canon remains exceptionally concentrated around historical formulas developed between 1880 and 1920, and the mid-century tropical tiki era.
+          </p>
+        </section>
+
+      </div>
+      <TableOfContents />
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>

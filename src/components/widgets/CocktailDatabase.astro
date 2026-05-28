@@ -1,0 +1,564 @@
+---
+import cocktails from './cocktails.json';
+---
+<div class="cocktail-database-widget" id="cocktailWidget">
+  <div class="db-header">
+    <span class="widget-subtitle">DATA VIEWER</span>
+    <h3 class="db-title">The Complete Ranked Cocktail Database</h3>
+    <p class="db-intro">Search through the comprehensive quantitative database of 3,768 ranked cocktails. Filter by Tier or type a name to search instantly.</p>
+  </div>
+
+  <!-- Search & Filter Controls -->
+  <div class="db-controls">
+    <div class="search-box">
+      <label for="cocktailSearch" class="sr-only">Search Cocktails</label>
+      <input type="text" id="cocktailSearch" class="search-input" placeholder="Search by cocktail name..." autocomplete="off" />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="tier-tabs-container">
+      <span class="tier-label">Filter by Tier:</span>
+      <div class="tier-tabs">
+        <button class="tier-tab active" data-tier="all">All ({cocktails.length})</button>
+        <button class="tier-tab" data-tier="S">S-Tier (15)</button>
+        <button class="tier-tab" data-tier="A">A-Tier (24)</button>
+        <button class="tier-tab" data-tier="B">B-Tier (39)</button>
+        <button class="tier-tab" data-tier="C">C-Tier (54)</button>
+        <button class="tier-tab" data-tier="D">D-Tier (3,636)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Summary -->
+  <div class="db-meta-row">
+    <div class="results-count" id="resultsCount">Showing 1 to 25 of 3,768 entries</div>
+    <div class="sort-controls">
+      <span class="sort-label">Sort:</span>
+      <button class="sort-btn active" id="sortRankBtn" data-order="asc">Rank Asc</button>
+      <button class="sort-btn" id="sortScoreBtn" data-order="desc">Score Desc</button>
+    </div>
+  </div>
+
+  <!-- Data Table Container -->
+  <div class="table-scroll-container">
+    <table class="db-table">
+      <thead>
+        <tr>
+          <th style="width: 80px;">Rank</th>
+          <th>Cocktail Name</th>
+          <th style="width: 100px; text-align: right;">Score</th>
+          <th style="width: 120px; text-align: center;">Tier</th>
+        </tr>
+      </thead>
+      <tbody id="dbTableBody">
+        <!-- Rendered dynamically by client JS for instant performance -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-panel">
+    <button class="pager-btn" id="prevPageBtn" disabled>Previous</button>
+    <span class="page-indicator" id="pageIndicator">Page 1 of 151</span>
+    <button class="pager-btn" id="nextPageBtn">Next</button>
+  </div>
+</div>
+
+<style>
+  .cocktail-database-widget {
+    background-color: #FAF9F6;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 4px 20px rgba(var(--gray), 0.05);
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .db-header {
+    border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .db-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .db-intro {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgb(var(--gray-dark));
+  }
+
+  /* Search & Filter Controls */
+  .db-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-color: rgba(var(--gray-light), 0.15);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-box {
+    position: relative;
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    font-size: 0.95rem;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 6px;
+    background-color: #FFF;
+    color: rgb(var(--black));
+    font-family: var(--font-outfit), sans-serif;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .search-input:focus {
+    border-color: var(--accent);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .tier-tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tier-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: rgb(var(--gray-dark));
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tier-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tier-tab {
+    background: #FFF;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(var(--gray-dark));
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tier-tab:hover {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+
+  .tier-tab.active {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #FFF;
+  }
+
+  /* Meta Row */
+  .db-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: rgb(var(--gray));
+    font-weight: 600;
+  }
+
+  .sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sort-label {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .sort-btn {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(var(--gray));
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .sort-btn:hover {
+    color: var(--accent);
+  }
+
+  .sort-btn.active {
+    color: var(--accent-dark);
+    background-color: rgba(var(--gray-light), 0.3);
+  }
+
+  /* Table Styles */
+  .table-scroll-container {
+    overflow-x: auto;
+    border: 1px solid rgba(var(--gray-light), 0.6);
+    border-radius: 8px;
+    background: #FFF;
+    margin-bottom: 1.5rem;
+  }
+
+  .db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: left;
+  }
+
+  .db-table th {
+    background-color: #FAF9F6;
+    border-bottom: 2px solid rgb(var(--gray-light));
+    color: rgb(var(--black));
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .db-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(var(--gray-light), 0.4);
+    color: rgb(var(--gray-dark));
+  }
+
+  .db-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .db-table tr:hover td {
+    background-color: rgba(var(--gray-light), 0.1);
+  }
+
+  /* Score alignment */
+  .score-cell {
+    text-align: right;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  /* Tier Badges */
+  .tier-cell {
+    text-align: center;
+  }
+
+  .tier-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+  }
+
+  .badge-S { background-color: #FDE8E8; color: #7A1A1A; }
+  .badge-A { background-color: #FEF3DC; color: #7A4F00; }
+  .badge-B { background-color: #E8F0DC; color: #3A5C1A; }
+  .badge-C { background-color: #E6F0FA; color: #1B4F72; }
+  .badge-D { background-color: rgba(var(--gray-light), 0.5); color: rgb(var(--gray-dark)); }
+
+  /* Pagination Panel */
+  .pagination-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(var(--gray-light), 0.6);
+    padding-top: 1.25rem;
+  }
+
+  .pager-btn {
+    background-color: #FFF;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(var(--gray-dark));
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pager-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+
+  .pager-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .page-indicator {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(var(--gray));
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 600px) {
+    .cocktail-database-widget {
+      padding: 1.25rem;
+    }
+    .db-controls {
+      padding: 1rem;
+    }
+    .db-meta-row {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .pagination-panel {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script define:vars={{ cocktails }}>
+  function initCocktails() {
+    const container = document.getElementById('cocktailWidget');
+    if (!container) return;
+
+    const searchInput = container.querySelector('#cocktailSearch');
+    const tierTabs = container.querySelectorAll('.tier-tab');
+    const tableBody = container.querySelector('#dbTableBody');
+    const prevBtn = container.querySelector('#prevPageBtn');
+    const nextBtn = container.querySelector('#nextPageBtn');
+    const pagerIndicator = container.querySelector('#pageIndicator');
+    const countDisplay = container.querySelector('#resultsCount');
+    const sortRankBtn = container.querySelector('#sortRankBtn');
+    const sortScoreBtn = container.querySelector('#sortScoreBtn');
+
+    // Tier mapping names
+    const tierLabels = {
+      'S': 'S-Tier (Essential)',
+      'A': 'A-Tier (Staple)',
+      'B': 'B-Tier (Standard)',
+      'C': 'C-Tier (Regional)',
+      'D': 'D-Tier (Fringe)'
+    };
+
+    // Client state
+    let filteredList = [...cocktails];
+    let currentPage = 1;
+    const itemsPerPage = 25;
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let sortColumn = 'rank'; // 'rank' or 'score'
+    let sortDirection = 'asc'; // 'asc' or 'desc'
+
+    function filterAndSort() {
+      // 1. Filter
+      filteredList = cocktails.filter(item => {
+        // [rank, name, score, tier_code]
+        const name = item[1];
+        const tier = item[3];
+
+        const matchesSearch = name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesTier = currentFilter === 'all' || tier === currentFilter;
+
+        return matchesSearch && matchesTier;
+      });
+
+      // 2. Sort
+      filteredList.sort((a, b) => {
+        // Rank sort
+        if (sortColumn === 'rank') {
+          return sortDirection === 'asc' ? a[0] - b[0] : b[0] - a[0];
+        }
+        // Score sort
+        if (sortColumn === 'score') {
+          return sortDirection === 'asc' ? a[2] - b[2] : b[2] - a[2];
+        }
+        return 0;
+      });
+
+      // 3. Reset to page 1 on new queries
+      currentPage = 1;
+      renderTable();
+    }
+
+    function renderTable() {
+      if (!tableBody) return;
+      tableBody.innerHTML = '';
+
+      const totalItems = filteredList.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+
+      if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+
+      // Calculate slices
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+      const paginatedItems = filteredList.slice(startIndex, endIndex);
+
+      // Render rows
+      if (paginatedItems.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 2rem; color: rgb(var(--gray));">No matching cocktails found. Adjust your search or filters.</td></tr>';
+      } else {
+        paginatedItems.forEach(item => {
+          const [rank, name, score, tier] = item;
+          const tr = document.createElement('tr');
+          
+          tr.innerHTML = `
+            <td style="font-weight: 700; color: rgb(var(--gray-dark));">${rank}</td>
+            <td style="font-weight: 600; color: rgb(var(--black));">${name}</td>
+            <td class="score-cell">${score.toFixed(2)}</td>
+            <td class="tier-cell">
+              <span class="tier-badge badge-${tier}">${tierLabels[tier]}</span>
+            </td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+
+      // Update counters
+      if (countDisplay) {
+        if (totalItems === 0) {
+          countDisplay.textContent = 'Showing 0 of 0 entries';
+        } else {
+          countDisplay.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalItems.toLocaleString()} entries`;
+        }
+      }
+
+      // Update pagers
+      if (pagerIndicator) {
+        pagerIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+      }
+
+      if (prevBtn) prevBtn.disabled = currentPage === 1;
+      if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+    }
+
+    // Set up listeners
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchQuery = searchInput.value;
+        filterAndSort();
+      });
+    }
+
+    tierTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tierTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentFilter = tab.getAttribute('data-tier') || 'all';
+        filterAndSort();
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderTable();
+          container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredList.length / itemsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderTable();
+          container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+
+    // Sorting buttons
+    if (sortRankBtn) {
+      sortRankBtn.addEventListener('click', () => {
+        sortScoreBtn.classList.remove('active');
+        sortRankBtn.classList.add('active');
+        sortColumn = 'rank';
+        
+        // Toggle direction
+        const order = sortRankBtn.getAttribute('data-order') === 'asc' ? 'desc' : 'asc';
+        sortRankBtn.setAttribute('data-order', order);
+        sortRankBtn.textContent = order === 'asc' ? 'Rank Asc' : 'Rank Desc';
+        sortDirection = order;
+        
+        filterAndSort();
+      });
+    }
+
+    if (sortScoreBtn) {
+      sortScoreBtn.addEventListener('click', () => {
+        sortRankBtn.classList.remove('active');
+        sortScoreBtn.classList.add('active');
+        sortColumn = 'score';
+
+        // Toggle direction
+        const order = sortScoreBtn.getAttribute('data-order') === 'desc' ? 'asc' : 'desc';
+        sortScoreBtn.setAttribute('data-order', order);
+        sortScoreBtn.textContent = order === 'desc' ? 'Score Desc' : 'Score Asc';
+        sortDirection = order;
+
+        filterAndSort();
+      });
+    }
+
+    // Initial draw
+    filterAndSort();
+  }
+
+  // Bind immediately and for subsequent View Transitions navigations
+  initCocktails();
+  document.addEventListener('astro:page-load', initCocktails);
+</script>

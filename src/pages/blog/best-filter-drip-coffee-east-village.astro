@@ -1,0 +1,178 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import CoffeeScorecard from '../../components/widgets/CoffeeScorecard.astro';
+
+const title = "Best Filter Drip Coffee in the East Village";
+const description = "Seven East Village coffee shops evaluated exclusively on the quality of their plain brewed drip coffee.";
+const pubDate = "March 06, 2026";
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    @media (max-width: 1280px) {
+      .article-container {
+        display: block;
+      }
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ── Article header ─────────────────────────────────── */
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 3rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-lora);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.7rem, 4.5vw, 2.9rem);
+      margin: 0 0 1.2rem;
+      font-family: var(--font-fraunces), serif;
+      line-height: 1.15;
+      font-weight: 800;
+      color: rgb(var(--black));
+    }
+    .article-header .intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    .prose {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+    }
+
+    .prose p {
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.8rem;
+      color: rgb(var(--black));
+      margin: 2.5rem 0 1.25rem;
+      line-height: 1.2;
+    }
+
+    .prose h3 {
+      font-family: var(--font-fraunces), serif;
+      font-size: 1.35rem;
+      color: rgb(var(--black));
+      margin: 2rem 0 1rem;
+      line-height: 1.25;
+    }
+
+    .prose hr {
+      border: 0;
+      border-top: 1px solid rgb(var(--gray-light));
+      margin: 3rem 0;
+    }
+
+    .prose ul {
+      margin: 0 0 1.5rem;
+      padding-left: 1.5rem;
+    }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <ReadingProgressBar />
+  <Header />
+  <main>
+    <div class="article-container">
+      <div class="wrap">
+        
+        <header class="article-header">
+          <p class="meta">{pubDate} &nbsp;|&nbsp; NYC Coffee Guide</p>
+          <h1>{title}</h1>
+          <p class="intro">{description}</p>
+        </header>
+
+        <section class="prose">
+          <p>
+            Coffee reviews on the internet are overwhelmingly focused on espresso-based beverages, specialty pour-overs, complex milk drinks, or aesthetic interior design. For travelers and remote workers who rely on plain, brewed batch drip coffee to sustain focus during a quiet weekday morning, these reviews fail to carry meaningful signal.
+          </p>
+          <p>
+            This systematic ranking evaluates seven prominent East Village coffee shops exclusively on the quality of their plain, black brewed drip coffee. No lattes, no pour-overs, no custom espresso blends. Just the simple house drip.
+          </p>
+
+          <hr />
+
+          <h2>Scoring Methodology</h2>
+          <p>
+            To eliminate subjective outlier bias and establish a quantitative ranking model, each establishment is graded based on two primary indices averaged together:
+          </p>
+          <ul>
+            <li><strong>Google Score:</strong> The Google Maps public rating multiplied by two to normalize the metric on a ten-point scale.</li>
+            <li><strong>Drip Sentiment Score:</strong> A curated 0 to 10 rating derived from sentiment analysis of public reviews focusing exclusively on plain, brewed batch filter coffee.</li>
+          </ul>
+
+          <h3>The Played-Out Penalty Concept</h3>
+          <p>
+            A major challenge in neighborhood evaluations is the structural skew introduced by celebrity venues. Shops with massive volumes of tourist reviews tend to be crowded, noisy, and less focused on product standards during peak morning traffic.
+          </p>
+          <p>
+            To adjust for this phenomenon, the scoring model applies a <strong>"Played-Out Penalty" coefficient</strong> (historically set at <strong>0.67</strong>) to any shop exceeding 500 total Google reviews. This penalty accounts for the reality that a venue's internet fame does not equate to it being a peaceful, reliable choice for a morning workspace.
+          </p>
+
+          <hr />
+
+          <h2>Interactive Ranking Scorecard</h2>
+          <p>
+            Use the optimizer below to adjust the Played-Out Penalty weight in real time. Sliding the coefficient to 1.0 removes the penalty entirely, allowing raw review numbers to dominate. Toggling the scenario filters highlights the best shops based on specific needs such as speed or operating hours.
+          </p>
+
+          <!-- Interactive Coffee Scorecard Widget -->
+          <CoffeeScorecard />
+
+          <hr />
+
+          <h2>The Practical Recommendation</h2>
+          <p>
+            The optimal selection depends entirely on your specific context and schedule:
+          </p>
+          <ul>
+            <li><strong>The Quality Pick:</strong> If you seek the highest-quality drip coffee and are not in a rush, <strong>Everyman Espresso</strong> represents the best choice.</li>
+            <li><strong>The Early and Late Hours Fallbacks:</strong> If you require coffee prior to 7:30 AM or after 5:30 PM, <strong>The Bean</strong> or <strong>Ninth Street Espresso</strong> are the only reliable options on the list.</li>
+            <li><strong>The Progressive Specialty Drip:</strong> If you seek lighter, more acidic single-origin filter coffees, <strong>La Cabra</strong> or <strong>Coffee Project New York</strong> are worth exploring.</li>
+          </ul>
+        </section>
+
+      </div>
+      <TableOfContents />
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>

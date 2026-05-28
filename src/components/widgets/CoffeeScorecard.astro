@@ -1,0 +1,613 @@
+---
+// Interactive Coffee Scorecard Widget
+---
+<div class="coffee-scorecard-widget" id="coffeeScorecard">
+  <div class="scorecard-header">
+    <span class="widget-subtitle">DECISION OPTIMIZER</span>
+    <h3 class="scorecard-title">East Village Filter Drip Matrix</h3>
+    <p class="scorecard-intro">Adjust the slider below to control the "Played-Out Penalty" coefficient. Increasing the coefficient reduces the penalty applied to heavily-reviewed shops. Toggling context filters highlights options based on your schedule.</p>
+  </div>
+
+  <!-- Interactive Controls Section -->
+  <div class="controls-panel">
+    <div class="slider-control">
+      <div class="control-label-row">
+        <label for="penaltySlider" class="control-label">Played-Out Penalty Coefficient</label>
+        <span class="slider-value-display" id="penaltyValue">0.67</span>
+      </div>
+      <input type="range" min="0.0" max="1.0" value="0.67" step="0.05" class="penalty-slider" id="penaltySlider" aria-label="Played-Out Penalty Slider" />
+      <div class="slider-limits">
+        <span>Maximum Penalty (0.0)</span>
+        <span>Standard (0.67)</span>
+        <span>No Penalty (1.0)</span>
+      </div>
+    </div>
+
+    <div class="filter-control">
+      <span class="filter-label">Quick Scenario Filters:</span>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">Default View</button>
+        <button class="filter-btn" data-filter="speed">In a Rush (Speed Focus)</button>
+        <button class="filter-btn" data-filter="early">Early Morning (Before 7:30 AM)</button>
+        <button class="filter-btn" data-filter="specialty">Specialty Focus</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Rankings Grid -->
+  <div class="rankings-container" id="rankingsGrid">
+    
+    <!-- Everyman Espresso -->
+    <div class="coffee-card" data-slug="everyman" data-reviews="480" data-google="4.5" data-sentiment="9.0" data-speed="true" data-early="false" data-specialty="true">
+      <div class="card-rank">#<span class="rank-num">1</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">Everyman Espresso</h4>
+            <span class="card-address">136 E 13th St</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="everyman-score">9.0</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Just under 500 reviews, successfully avoiding the penalty. This shop represents the strongest public evidence for plain filter coffee quality in the neighborhood.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 480</span>
+          <span class="meta-item">Google: 4.5 ★</span>
+          <span class="meta-item">Sentiment: 9.0/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Mon-Fri 7:30 AM - 5:30 PM, Sat-Sun 8:00 AM - 5:30 PM</div>
+      </div>
+    </div>
+
+    <!-- Ninth Street Espresso -->
+    <div class="coffee-card" data-slug="ninth-street" data-reviews="720" data-google="4.6" data-sentiment="8.5" data-speed="true" data-early="true" data-specialty="false">
+      <div class="card-rank">#<span class="rank-num">2</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">Ninth Street Espresso</h4>
+            <span class="card-address">700 E 9th St</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="ninth-street-score">6.0</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Exceeding 700 reviews triggers the penalty, which costs it the top slot. Carries a strong Google rating and a solid drip coffee reputation. The 7:00 PM close is highly useful.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 720 (Penalized)</span>
+          <span class="meta-item">Google: 4.6 ★</span>
+          <span class="meta-item">Sentiment: 8.5/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Daily 7:00 AM - 7:00 PM</div>
+      </div>
+    </div>
+
+    <!-- La Cabra -->
+    <div class="coffee-card" data-slug="la-cabra" data-reviews="650" data-google="4.7" data-sentiment="8.0" data-speed="false" data-early="false" data-specialty="true">
+      <div class="card-rank">#<span class="rank-num">3</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">La Cabra</h4>
+            <span class="card-address">152 2nd Ave</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="la-cabra-score">6.0</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Highest Google rating of any shop on this list. Medium confidence for plain drip specifically, as the emphasis here sits on specialty brewing methods. Worth trying if you are already there.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 650 (Penalized)</span>
+          <span class="meta-item">Google: 4.7 ★</span>
+          <span class="meta-item">Sentiment: 8.0/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Mon-Fri 8:00 AM - 6:00 PM, Sat-Sun 8:30 AM - 6:00 PM</div>
+      </div>
+    </div>
+
+    <!-- Abraço -->
+    <div class="coffee-card" data-slug="abraco" data-reviews="1150" data-google="4.6" data-sentiment="8.2" data-speed="false" data-early="false" data-specialty="false">
+      <div class="card-rank">#<span class="rank-num">4</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">Abraço</h4>
+            <span class="card-address">81 E 7th St</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="abraco-score">5.9</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Over 1,100 reviews triggers the heaviest penalty. Famous, old-school Italian cafe reputation that is genuinely deserved, but the crowds are substantial on weekends.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 1,150 (Penalized)</span>
+          <span class="meta-item">Google: 4.6 ★</span>
+          <span class="meta-item">Sentiment: 8.2/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Tue-Sun 8:00 AM - 6:00 PM (Closed Monday)</div>
+      </div>
+    </div>
+
+    <!-- Coffee Project New York -->
+    <div class="coffee-card" data-slug="coffee-project" data-reviews="580" data-google="4.7" data-sentiment="7.5" data-speed="false" data-early="false" data-specialty="true">
+      <div class="card-rank">#<span class="rank-num">5</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">Coffee Project New York</h4>
+            <span class="card-address">239 E 5th St</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="coffee-project-score">5.6</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">High Google rating. The setup is highly specialty-focused, indicating medium confidence for plain batch drip specifically.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 580 (Penalized)</span>
+          <span class="meta-item">Google: 4.7 ★</span>
+          <span class="meta-item">Sentiment: 7.5/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Mon-Fri 8:00 AM - 4:00 PM, Sat-Sun 8:00 AM - 5:00 PM</div>
+      </div>
+    </div>
+
+    <!-- The Bean Astor -->
+    <div class="coffee-card" data-slug="bean-astor" data-reviews="850" data-google="4.3" data-sentiment="6.8" data-speed="true" data-early="true" data-specialty="false">
+      <div class="card-rank">#<span class="rank-num">6</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">The Bean (Astor Place)</h4>
+            <span class="card-address">824 Broadway</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="bean-astor-score">5.0</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Reliable grab-and-go option. Decent plain drip, rapid service, and hours that are exceptionally hard to beat for late afternoon work sessions.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 850 (Penalized)</span>
+          <span class="meta-item">Google: 4.3 ★</span>
+          <span class="meta-item">Sentiment: 6.8/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Daily 7:00 AM - 9:00 PM</div>
+      </div>
+    </div>
+
+    <!-- The Bean 2nd Ave -->
+    <div class="coffee-card" data-slug="bean-2nd" data-reviews="920" data-google="4.2" data-sentiment="6.5" data-speed="true" data-early="true" data-specialty="false">
+      <div class="card-rank">#<span class="rank-num">7</span></div>
+      <div class="card-main">
+        <div class="card-header-row">
+          <div class="card-brand-group">
+            <h4 class="card-brand-name">The Bean (2nd Ave)</h4>
+            <span class="card-address">147 2nd Ave</span>
+          </div>
+          <div class="card-score-badge">
+            <span class="score-num" id="bean-2nd-score">4.7</span>
+            <span class="score-max">/ 10</span>
+          </div>
+        </div>
+        <p class="card-description">Matches the Broadway sibling for hours and speed. A highly reliable daily fallback with spacious seating.</p>
+        <div class="card-meta-row">
+          <span class="meta-item">Reviews: 920 (Penalized)</span>
+          <span class="meta-item">Google: 4.2 ★</span>
+          <span class="meta-item">Sentiment: 6.5/10</span>
+        </div>
+        <div class="card-hours"><strong>Hours:</strong> Daily 7:00 AM - 9:00 PM</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .coffee-scorecard-widget {
+    background-color: #FAF9F6;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 4px 20px rgba(var(--gray), 0.05);
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .scorecard-header {
+    border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .scorecard-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .scorecard-intro {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgb(var(--gray-dark));
+  }
+
+  /* Controls Panel */
+  .controls-panel {
+    background-color: rgba(var(--gray-light), 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .slider-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .control-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+  }
+
+  .slider-value-display {
+    font-family: var(--font-fraunces), serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    background-color: #E8F0DC;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .penalty-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: rgb(var(--gray-light));
+    outline: none;
+    margin: 0.5rem 0;
+  }
+
+  .penalty-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(var(--gray), 0.2);
+    transition: transform 0.15s ease;
+  }
+
+  .penalty-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+
+  .slider-limits {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: rgb(var(--gray));
+    font-weight: 600;
+  }
+
+  /* Filter Controls */
+  .filter-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgb(var(--gray-dark));
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    background: #FFF;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgb(var(--gray-dark));
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+
+  .filter-btn.active {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #FFF;
+  }
+
+  /* Rankings Grid */
+  .rankings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+  }
+
+  .coffee-card {
+    background: #FFF;
+    border: 1px solid rgba(var(--gray-light), 0.6);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .coffee-card.faded {
+    opacity: 0.35;
+    border-color: rgba(var(--gray-light), 0.3);
+  }
+
+  .coffee-card.highlighted {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(var(--accent), 0.08);
+  }
+
+  .card-rank {
+    font-family: var(--font-fraunces), serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgb(var(--gray-light));
+    line-height: 1;
+    width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+  }
+
+  .coffee-card.highlighted .card-rank {
+    color: var(--accent);
+  }
+
+  .card-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-brand-name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .card-address {
+    font-size: 0.75rem;
+    color: rgb(var(--gray));
+    font-weight: 600;
+  }
+
+  .card-score-badge {
+    background-color: #E8F0DC;
+    color: #3A5C1A;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .score-max {
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-left: 1px;
+  }
+
+  .card-description {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgb(var(--gray-dark));
+  }
+
+  .card-meta-row {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: rgb(var(--gray));
+    font-weight: 600;
+    border-top: 1px dashed rgba(var(--gray-light), 0.6);
+    border-bottom: 1px dashed rgba(var(--gray-light), 0.6);
+    padding: 0.4rem 0;
+  }
+
+  .card-hours {
+    font-size: 0.78rem;
+    color: rgb(var(--gray-dark));
+  }
+
+  @media (max-width: 600px) {
+    .coffee-card {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.25rem;
+    }
+    .card-rank {
+      width: auto;
+      text-align: left;
+    }
+  }
+</style>
+
+<script>
+  function initCoffeeScorecard() {
+    const container = document.getElementById('coffeeScorecard');
+    if (!container) return;
+
+    const slider = container.querySelector('#penaltySlider') as HTMLInputElement | null;
+    const valueDisplay = container.querySelector('#penaltyValue');
+    const filterButtons = container.querySelectorAll('.filter-btn');
+    const grid = container.querySelector('#rankingsGrid');
+    const cards = Array.from(container.querySelectorAll('.coffee-card'));
+
+    // Cache initial data values
+    const cardData = cards.map((card) => {
+      const el = card as HTMLElement;
+      return {
+        element: el,
+        slug: el.getAttribute('data-slug'),
+        reviews: parseInt(el.getAttribute('data-reviews') || '0'),
+        google: parseFloat(el.getAttribute('data-google') || '0.0'),
+        sentiment: parseFloat(el.getAttribute('data-sentiment') || '0.0'),
+        speed: el.getAttribute('data-speed') === 'true',
+        early: el.getAttribute('data-early') === 'true',
+        specialty: el.getAttribute('data-specialty') === 'true'
+      };
+    });
+
+    function calculateAndSort(penalty: number) {
+      if (valueDisplay) {
+        valueDisplay.textContent = penalty.toFixed(2);
+      }
+
+      // Calculate scores
+      cardData.forEach(card => {
+        // Average Google score (multiplied by 2 for parity) and drip sentiment
+        const baseScore = (card.google * 2 + card.sentiment) / 2;
+        let finalScore = baseScore;
+
+        // Apply penalty if reviews exceed 500
+        if (card.reviews > 500) {
+          finalScore = baseScore * penalty;
+        }
+
+        // Round to 1 decimal place
+        finalScore = Math.round(finalScore * 10) / 10;
+        
+        const scoreEl = card.element.querySelector(`#${card.slug}-score`);
+        if (scoreEl) {
+          scoreEl.textContent = finalScore.toFixed(1);
+        }
+
+        // Save on data object for sorting
+        (card as any).currentScore = finalScore;
+      });
+
+      // Sort data
+      cardData.sort((a, b) => (b as any).currentScore - (a as any).currentScore);
+
+      // Re-order DOM elements
+      if (grid) {
+        // Apply smooth fade-out
+        cards.forEach(c => c.style.opacity = '0.35');
+        
+        setTimeout(() => {
+          cardData.forEach((card, index) => {
+            const rankEl = card.element.querySelector('.rank-num');
+            if (rankEl) {
+              rankEl.textContent = (index + 1).toString();
+            }
+            grid.appendChild(card.element);
+          });
+          
+          // Fade back in
+          cards.forEach(c => {
+            if (!c.classList.contains('faded')) {
+              c.style.opacity = '1';
+            }
+          });
+        }, 150);
+      }
+    }
+
+    function applyFilter(filter: string) {
+      cards.forEach(card => {
+        const el = card as HTMLElement;
+        el.classList.remove('highlighted', 'faded');
+        el.style.opacity = '1';
+
+        if (filter === 'all') {
+          return;
+        }
+
+        const isMatch = el.getAttribute(`data-${filter}`) === 'true';
+        if (isMatch) {
+          el.classList.add('highlighted');
+        } else {
+          el.classList.add('faded');
+          el.style.opacity = '0.35';
+        }
+      });
+    }
+
+    if (slider) {
+      slider.addEventListener('input', () => {
+        calculateAndSort(parseFloat(slider.value));
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.getAttribute('data-filter') || 'all');
+      });
+    });
+
+    // Run baseline calculation
+    if (slider) {
+      calculateAndSort(parseFloat(slider.value));
+    }
+  }
+
+  // Trigger setup immediately and handle subsequent View Transitions navigations
+  initCoffeeScorecard();
+  document.addEventListener('astro:page-load', initCoffeeScorecard);
+</script>

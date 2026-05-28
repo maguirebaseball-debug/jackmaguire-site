@@ -1,0 +1,767 @@
+---
+// Interactive Skincare Routine & Timeline Widget
+---
+<div class="skincare-routine-widget" id="skincareWidget">
+  <div class="widget-header">
+    <span class="widget-subtitle">INTERACTIVE SKINCARE UTILITY</span>
+    <h3 class="widget-title">Clinical Routine Optimizer</h3>
+    <p class="widget-intro">Select a daily regimen phase or adjust the timeline slider to project targeted skin physiological adaptations over a sixteen-week cycle.</p>
+  </div>
+
+  <!-- Section 1: Routine Toggles -->
+  <div class="routine-tabs-container">
+    <div class="tab-selectors">
+      <button class="tab-btn active" data-tab="am">Morning Regimen (AM)</button>
+      <button class="tab-btn" data-tab="pm">Evening Regimen (PM)</button>
+    </div>
+
+    <!-- AM Routine -->
+    <div class="routine-panel active" id="am-panel">
+      <div class="panel-meta">AM / Barrier Support & Protection</div>
+      <div class="checklist">
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 1</span>
+              <span class="step-title">Cleanser</span>
+              <p class="step-text">Remove overnight cellular debris and residual sebum using a non-stripping, pH-balanced cleanser.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 2</span>
+              <span class="step-title">Hyaluronic Acid (HA) Serum</span>
+              <p class="step-text">Apply to damp skin. Hyaluronic acid requires ambient moisture to pull into the stratum corneum; application to dry skin can pull water from the deeper dermis.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item highlight-step">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 3 (Core Active)</span>
+              <span class="step-title">10% Niacinamide Booster</span>
+              <p class="step-text">Press and pat 2 to 3 drops into the skin. Niacinamide inhibits melanosome transfer, regulates sebum secretion, and accelerates ceramide synthesis to reinforce the epidermal barrier.</p>
+              <div class="synergy-tag">Synergy: Panthenol + Ascorbyl Glucoside in formula reinforce brightening</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 4</span>
+              <span class="step-title">Ceramide Moisturizer</span>
+              <p class="step-text">Lock in hydration with a barrier-repairing formula. Ceramide application directly supports the lipid barrier pathway upregulated by niacinamide.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 5</span>
+              <span class="step-title">Broad-Spectrum SPF</span>
+              <p class="step-text">Crucial morning step. UV radiation triggers melanogenesis and reverses pigmentation improvements. Use a minimum of SPF 30 daily.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PM Routine -->
+    <div class="routine-panel" id="pm-panel">
+      <div class="panel-meta">PM / Exfoliation, Brightening & Cellular Turnover</div>
+      <div class="checklist">
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 1</span>
+              <span class="step-title">Gentle Cleanser</span>
+              <p class="step-text">Cleanse away daily airborne pollutants, dirt, and SPF accumulations.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 2 (Exfoliation)</span>
+              <span class="step-title">2% BHA Salicylic Acid</span>
+              <p class="step-text">Apply and wait 15 minutes. BHA is lipophilic and exfoliates inside the pore lining. This clears blockages while niacinamide regulates the sebum that refuels them.</p>
+              <div class="synergy-tag">Synergy: BHA clears pores; Niacinamide maintains pore structure</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 3 (Brightening Stack)</span>
+              <span class="step-title">2% Alpha Arbutin Serum</span>
+              <p class="step-text">Apply to target melanogenesis. Alpha arbutin inhibits tyrosinase activity (melanin creation), which directly stacks with niacinamide blocking melanosome transfer.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item highlight-step">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 4 (Core Active)</span>
+              <span class="step-title">10% Niacinamide Booster</span>
+              <p class="step-text">Pat 2 to 3 drops in. Supports skin structure, prevents trans-epidermal water loss, and primes the barrier for retinoid exposure.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 5 (Cellular Turnover)</span>
+              <span class="step-title">Retinol or Tretinoin</span>
+              <p class="step-text">Apply after niacinamide absorbs. Retinoids accelerate epidermal cell replacement to shed pigmented cells. Niacinamide buffers irritation by reinforcing lipids beforehand.</p>
+              <div class="synergy-tag">Synergy: Niacinamide reduces retinoid-induced epidermal flaking</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="check-item">
+          <label class="check-label">
+            <input type="checkbox" class="check-input" />
+            <span class="check-custom"></span>
+            <div class="step-details">
+              <span class="step-num">Step 6</span>
+              <span class="step-title">Ceramide Moisturizer</span>
+              <p class="step-text">Final lock. Reinforces lipid structures overnight during the natural cellular recovery phase.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Interactive Timeline Slider -->
+  <div class="timeline-container">
+    <div class="timeline-header">
+      <span class="widget-subtitle">BIOLOGICAL TIMELINE MAP</span>
+      <h4 class="timeline-title">Epidermal Results Projection</h4>
+      <p class="timeline-intro">Drag the slider below to project physiological changes in pores, hyperpigmentation, and skin hydration over sixteen weeks.</p>
+    </div>
+
+    <div class="slider-wrapper">
+      <input type="range" min="1" max="4" value="1" step="1" class="timeline-slider" id="timelineSlider" aria-label="Routine week selection" />
+      <div class="slider-labels">
+        <span class="label-tick active" data-step="1">Week 2</span>
+        <span class="label-tick" data-step="2">Week 6</span>
+        <span class="label-tick" data-step="3">Week 12</span>
+        <span class="label-tick" data-step="4">Week 16</span>
+      </div>
+    </div>
+
+    <div class="projection-cards">
+      <!-- Week 2 Data -->
+      <div class="projection-card active" id="proj-step-1">
+        <div class="proj-title">Week 2: Barrier Stabilization</div>
+        <div class="proj-grid">
+          <div class="proj-metric">
+            <span class="metric-name">Pores &amp; Sebum</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 15%"></span></span>
+            <span class="metric-desc">Sebum rate unaffected. Initial adaptation phase.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Pigmentation</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 10%"></span></span>
+            <span class="metric-desc">Melanosome transfer inhibition begins at cellular level. No surface visible change.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Texture &amp; Hydration</span>
+            <span class="metric-bar"><span class="bar-fill" style="style-placeholder: width; width: 45%"></span></span>
+            <span class="metric-desc">Transepidermal water loss decreases. Skin feels softer and holds ambient moisture.</span>
+          </div>
+        </div>
+        <div class="proj-verdict">Early hydration and subtle softening. The baseline skin barrier is stabilizing.</div>
+      </div>
+
+      <!-- Week 6 Data -->
+      <div class="projection-card" id="proj-step-2">
+        <div class="proj-title">Week 6: Sebum Normalization</div>
+        <div class="proj-grid">
+          <div class="proj-metric">
+            <span class="metric-name">Pores &amp; Sebum</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 55%"></span></span>
+            <span class="metric-desc">Measurable reduction in sebum excretion rate. Pores look less engorged.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Pigmentation</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 40%"></span></span>
+            <span class="metric-desc">Fading of recent post-inflammatory marks (PIH) becomes visible.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Texture &amp; Hydration</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 75%"></span></span>
+            <span class="metric-desc">Ceramide synthesis increases. Surface flakiness resolves. Glow becomes clear.</span>
+          </div>
+        </div>
+        <div class="proj-verdict">Significant sebum balance and visible fading of recent red/brown post-acne marks.</div>
+      </div>
+
+      <!-- Week 12 Data -->
+      <div class="projection-card" id="proj-step-3">
+        <div class="proj-title">Week 12: Structural Refinement</div>
+        <div class="proj-grid">
+          <div class="proj-metric">
+            <span class="metric-name">Pores &amp; Sebum</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 85%"></span></span>
+            <span class="metric-desc">Tissue laxity around pore lining improves. Pores look significantly smaller.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Pigmentation</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 75%"></span></span>
+            <span class="metric-desc">Deep melanosome transfer blocks show clear results. Older hyperpigmentation fades.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Texture &amp; Hydration</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 90%"></span></span>
+            <span class="metric-desc">Stronger epidermal barrier structure. Skin reflects light smoothly.</span>
+          </div>
+        </div>
+        <div class="proj-verdict">Optimal structural balance. Pores appear refined and skin tone is visually unified.</div>
+      </div>
+
+      <!-- Week 16 Data -->
+      <div class="projection-card" id="proj-step-4">
+        <div class="proj-title">Week 16: Optimal Integration</div>
+        <div class="proj-grid">
+          <div class="proj-metric">
+            <span class="metric-name">Pores &amp; Sebum</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 95%"></span></span>
+            <span class="metric-desc">Sebum production is fully normalized. Refined skin texture persists.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Pigmentation</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 90%"></span></span>
+            <span class="metric-desc">Lentigines (sun-spots) show noticeable lightening and margin softening.</span>
+          </div>
+          <div class="proj-metric">
+            <span class="metric-name">Texture &amp; Hydration</span>
+            <span class="metric-bar"><span class="bar-fill" style="width: 98%"></span></span>
+            <span class="metric-desc">Stratum corneum structure is optimally hydrated. Healthy, glowing surface.</span>
+          </div>
+        </div>
+        <div class="proj-verdict">Maximum structural recovery. Chronic sun spots are faded and skin laxity is minimized.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .skincare-routine-widget {
+    background-color: #FAF9F6;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 4px 20px rgba(var(--gray), 0.05);
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .widget-header {
+    border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .widget-subtitle {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .widget-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .widget-intro {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgb(var(--gray-dark));
+  }
+
+  /* Exfoliation Synergy Tags */
+  .synergy-tag {
+    display: inline-block;
+    background-color: #E8F0DC;
+    color: #3A5C1A;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+  }
+
+  /* Regimen Selection Tabs */
+  .tab-selectors {
+    display: flex;
+    background-color: rgba(var(--gray-light), 0.3);
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(var(--gray));
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tab-btn:hover {
+    color: var(--accent);
+  }
+
+  .tab-btn.active {
+    background-color: #FFF;
+    color: var(--accent-dark);
+    box-shadow: 0 2px 8px rgba(var(--gray), 0.08);
+  }
+
+  /* Routine Panel Content */
+  .routine-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .routine-panel.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .panel-meta {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(var(--gray));
+    margin-bottom: 1.25rem;
+  }
+
+  /* Regis Checklist */
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .check-item {
+    background: #FFF;
+    border: 1px solid rgba(var(--gray-light), 0.6);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .check-item:hover {
+    border-color: rgba(var(--accent), 0.4);
+    box-shadow: 0 4px 12px rgba(var(--gray), 0.03);
+  }
+
+  .check-item.highlight-step {
+    border-left: 4px solid var(--accent);
+  }
+
+  .check-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .check-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .check-custom {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #FFF;
+    border: 2px solid rgb(var(--gray-light));
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .check-input:checked ~ .check-custom {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .check-custom::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .check-input:checked ~ .check-custom::after {
+    display: block;
+  }
+
+  /* Checked Item Animations */
+  .check-input:checked ~ .step-details .step-title {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  .check-input:checked ~ .step-details .step-text,
+  .check-input:checked ~ .step-details .synergy-tag {
+    opacity: 0.4;
+  }
+
+  .step-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.25s ease;
+  }
+
+  .step-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgb(var(--gray));
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .step-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    transition: text-decoration 0.2s ease, opacity 0.2s ease;
+  }
+
+  .step-text {
+    margin: 0.4rem 0 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgb(var(--gray-dark));
+  }
+
+  /* Timeline Projection Styles */
+  .timeline-container {
+    background-color: rgba(var(--gray-light), 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .timeline-header {
+    border-bottom: 1px solid rgba(var(--gray-light), 0.4);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-title {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+  }
+
+  .timeline-intro {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgb(var(--gray-dark));
+  }
+
+  .slider-wrapper {
+    margin: 2rem 0;
+    position: relative;
+  }
+
+  .timeline-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: rgb(var(--gray-light));
+    outline: none;
+    margin: 0;
+  }
+
+  .timeline-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(var(--gray), 0.2);
+    transition: transform 0.15s ease;
+  }
+
+  .timeline-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.2rem 0;
+  }
+
+  .label-tick {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgb(var(--gray));
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .label-tick.active {
+    color: var(--accent-dark);
+    font-weight: 700;
+  }
+
+  .projection-cards {
+    position: relative;
+    min-height: 250px;
+  }
+
+  .projection-card {
+    display: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .projection-card.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .proj-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-fraunces), serif;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px dashed rgba(var(--gray-light), 0.6);
+    padding-bottom: 0.5rem;
+  }
+
+  .proj-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .proj-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .metric-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+  }
+
+  .metric-bar {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(var(--gray-light), 0.4);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    display: block;
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .metric-desc {
+    font-size: 0.82rem;
+    color: rgb(var(--gray-dark));
+    line-height: 1.4;
+  }
+
+  .proj-verdict {
+    background-color: rgba(var(--accent), 0.08);
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--accent-dark);
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .skincare-routine-widget {
+      padding: 1.25rem;
+    }
+    .check-label {
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  function initSkincareWidget() {
+    const widget = document.getElementById('skincareWidget');
+    if (!widget) return;
+
+    // Routine Tabs
+    const buttons = widget.querySelectorAll('.tab-btn');
+    const panels = {
+      am: widget.querySelector('#am-panel'),
+      pm: widget.querySelector('#pm-panel')
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        Object.keys(panels).forEach(key => {
+          const panel = panels[key as 'am' | 'pm'];
+          if (panel) {
+            if (key === tab) {
+              panel.style.display = 'block';
+              setTimeout(() => {
+                panel.classList.add('active');
+              }, 20);
+            } else {
+              panel.classList.remove('active');
+              panel.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Timeline Slider
+    const slider = widget.querySelector('#timelineSlider') as HTMLInputElement | null;
+    const ticks = widget.querySelectorAll('.label-tick');
+    const cards = {
+      1: widget.querySelector('#proj-step-1'),
+      2: widget.querySelector('#proj-step-2'),
+      3: widget.querySelector('#proj-step-3'),
+      4: widget.querySelector('#proj-step-4')
+    };
+
+    function updateTimeline(val: number) {
+      // Update label highlight
+      ticks.forEach(t => {
+        const step = parseInt(t.getAttribute('data-step') || '1');
+        if (step === val) {
+          t.classList.add('active');
+        } else {
+          t.classList.remove('active');
+        }
+      });
+
+      // Update active data card
+      Object.keys(cards).forEach(key => {
+        const cardVal = parseInt(key);
+        const card = cards[cardVal as 1 | 2 | 3 | 4];
+        if (card) {
+          if (cardVal === val) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.classList.add('active');
+            }, 20);
+          } else {
+            card.classList.remove('active');
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    if (slider) {
+      slider.addEventListener('input', () => {
+        updateTimeline(parseInt(slider.value));
+      });
+    }
+
+    ticks.forEach(tick => {
+      tick.addEventListener('click', () => {
+        const val = parseInt(tick.getAttribute('data-step') || '1');
+        if (slider) {
+          slider.value = val.toString();
+        }
+        updateTimeline(val);
+      });
+    });
+  }
+
+  // Trigger setup immediately and handle subsequent View Transitions navigations
+  initSkincareWidget();
+  document.addEventListener('astro:page-load', initSkincareWidget);
+</script>
