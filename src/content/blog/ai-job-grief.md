@@ -2,6 +2,7 @@
 title: "AI Job Grief: The Unnamed Psychological Crisis Hitting Tech Workers"
 description: "Across hundreds of Reddit threads and a small body of clinical literature, AI-driven displacement is producing an emotional category that most closely resembles grief, and the institutions causing it have no language for it."
 pubDate: 2026-05-29
+ogImage: "/og-ai-job-grief.png"
 tags: ["tech", "ai", "essays"]
 ---
 

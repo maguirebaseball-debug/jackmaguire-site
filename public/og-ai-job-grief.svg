@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <!-- paper background -->
+  <rect width="1200" height="630" fill="#F2ECDD"/>
+  <!-- subtle film grain to match site texture -->
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.05"/>
+
+  <!-- inner frame -->
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#556B2F" stroke-width="2" opacity="0.55"/>
+
+  <!-- eyebrow label -->
+  <text x="96" y="148" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700"
+        fill="#556B2F" letter-spacing="6">ESSAY  ·  AI  ·  WORK</text>
+
+  <!-- title -->
+  <text x="94" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="124" font-weight="700"
+        fill="#23231F" letter-spacing="-2">AI Job Grief</text>
+
+  <!-- subtitle, two lines -->
+  <text x="98" y="372" font-family="Georgia, serif" font-size="40" font-weight="400" fill="#3A4B1C">The unnamed psychological crisis</text>
+  <text x="98" y="424" font-family="Georgia, serif" font-size="40" font-weight="400" fill="#3A4B1C">hitting tech workers</text>
+
+  <!-- bottom rule -->
+  <rect x="96" y="520" width="1008" height="3" fill="#556B2F" opacity="0.6"/>
+  <text x="96" y="558" font-family="Georgia, serif" font-size="30" font-weight="400" fill="#23231F">jackmaguire.org</text>
+  <text x="1104" y="558" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#556B2F" letter-spacing="2">Jack Maguire</text>
+</svg>
