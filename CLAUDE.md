@@ -61,12 +61,27 @@ Vercel redeploys automatically. Live in ~60 seconds.
 
 Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` on this repo without additional confirmation. Deployments to main are expected and approved.
 
+### Before every publish, run in order
+1. **Build locally and confirm the specific new page generated.** Run `NPM_CONFIG_CACHE=/tmp/npm-jack-cache npx astro build`, then confirm `dist/<path>/index.html` exists. Do not trust that the Markdown compiles; build it.
+2. **Grep the file for em/en dashes** (see Writing style) and confirm zero.
+3. **For cited content, confirm every external link resolves and every claim is grounded** (see Fact-checking and verification).
+4. **After pushing, spot-check the live page.** Confirm HTTP 200 at the canonical URL, and that the GA4 tag (`G-1697T7D92W`), canonical link, OG/Twitter tags, and the sitemap entry are all present.
+
 ## Writing style
 * **Harvard Business Review (HBR) Professional Tone**: The writing must be entirely declarative, objective, active, and highly professional. It should read like an authoritative executive summary rather than a dramatic or poetic blog post.
-* **Citations and Links**: Whenever providing academic or external citations, you MUST include direct hyperlinks to the source material. Format citations professionally, adhering to a Harvard Business Review (HBR) appropriate style, embedding the link gracefully within the citation.
-* **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence.
+* **Citations and Links**: Whenever providing academic or external citations, you MUST include direct hyperlinks to the source material. Format citations professionally, adhering to a Harvard Business Review (HBR) appropriate style, embedding the link gracefully within the citation. Link every named place, community, or source the first time it appears (for example, link a subreddit to its home URL, `https://www.reddit.com/r/<name>/`).
+* **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence. This applies to post titles and to HN/social submission titles too, even when an inbound brief or outline supplies a title containing a dash: replace it. Before publishing, grep the file for the dash characters to confirm none slipped in.
+* **Entity-neutral language for sourced research**: When content draws on aggregated online discussion, describe it in reader-facing, entity-neutral terms ("you will see this across these communities") and link the communities. Do not use words that imply bots or harvesting ("scrape," "scraped," "dataset," "N-thread dataset," "180-day pull"). State the observation, not the collection method.
+* **Domain-accurate terminology**: Use the correct native metric for each platform. Reddit threads have "upvotes," not "points" or a "score."
 * **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
 * **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
+
+## Fact-checking and verification (required for any cited or research-based content)
+* **Treat every citation in an inbound brief or outline as an unverified claim, not a fact.** Supplied outlines have contained fabricated sources, misattributions, and distorted numbers. Verify each against a primary source before writing.
+* **Verify the owner's own supplied data against the raw source**, not a summary of it. Example: before citing a Reddit thread, confirm its real title, id, and upvote count in the underlying data.
+* **When a popular framing diverges from the underlying source, publish the source's version**, and disclose the correction in the piece. Example: label an analyst projection as an estimate, not a company-confirmed figure.
+* **Never fabricate quotes.** Only quote text you can locate verbatim in the source. Drop any quote you cannot ground.
+* **Link to the real, working primary source.** Never invent or guess a URL.
 
 ## Design philosophy & Aesthetics
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
@@ -96,6 +111,10 @@ NPM_CONFIG_CACHE=/tmp/npm-jack-cache
 * Property: jackmaguire.org (domain-level)
 * Sitemap submitted: https://jackmaguire.org/sitemap-index.xml
 * TODO: turn off WordPress.com auto-renew (plan paid through Jan 2029, next charge Dec 2028)
+
+## Analytics
+* GA4 property: 530019465
+* Measurement ID: G-1697T7D92W
 
 ## About the site owner
 Jack Maguire, Senior Paid Social Media Director at National Debt Relief. East Village, NYC.
