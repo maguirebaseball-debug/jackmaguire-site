@@ -66,6 +66,9 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 2. **Grep the file for em/en dashes** (see Writing style) and confirm zero.
 3. **For cited content, confirm every external link resolves and every claim is grounded** (see Fact-checking and verification).
 4. **After pushing, spot-check the live page.** Confirm HTTP 200 at the canonical URL, and that the GA4 tag (`G-1697T7D92W`), canonical link, OG/Twitter tags, and the sitemap entry are all present.
+5. **Humanity check** (essays and research posts only). See step 5 in Credibility and humanity protocol.
+6. **Evidence tier audit** (essays and research posts only). See step 6 in Credibility and humanity protocol.
+7. **Credibility disclosure check** (any post making claims outside Jack's direct professional domain). See step 7 in Credibility and humanity protocol.
 
 ## Writing style
 * **Harvard Business Review (HBR) Professional Tone**: The writing must be entirely declarative, objective, active, and highly professional. It should read like an authoritative executive summary rather than a dramatic or poetic blog post.
@@ -83,12 +86,91 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 * **Never fabricate quotes.** Only quote text you can locate verbatim in the source. Drop any quote you cannot ground.
 * **Link to the real, working primary source.** Never invent or guess a URL.
 
+## Credibility and humanity protocol (required for every essay or research-backed post)
+
+This section exists because the AI Job Grief essay hit HN front page at 190 points and 185 comments, and the loudest sustained criticism was: (1) the writing reads like AI-generated content with nothing specific behind it, (2) Reddit upvotes are not evidence, and (3) a performance marketing director writing about developer psychology has a credibility gap that went unaddressed. These rules are designed to prevent those three failure modes in every future piece.
+
+### Before writing begins: four gates, two require Jack's answer
+
+Do not start drafting until all four gates are cleared. Gates Q1 and Q4 require Jack's explicit response. Gates Q2 and Q3 are agent-resolved, but Jack must confirm or correct before writing begins.
+
+---
+
+**Q1. [ASK JACK — cannot proceed without his answer]**
+Ask Jack this question verbatim before doing anything else:
+
+> "Before I write this, I need one thing from you: what is your direct personal connection to this topic? Have you experienced it yourself, observed it closely, or are you working entirely from secondary sources? A sentence or two is enough."
+
+Wait for his response. Do not infer or assume. If he says he has no direct experience, the author's lens statement in the opening paragraph must reflect that accurately. If he has direct experience, his answer becomes the Tier 1 anchor for the piece and must appear in the draft in his words, not paraphrased into generic prose.
+
+---
+
+**Q2. [Agent-resolved — present findings to Jack for confirmation]**
+Research and answer this yourself: what is the strongest available evidence for the central claim, and what tier does it fall into?
+
+Tier 1: Jack's direct named personal observation (hardest to dismiss as AI output).
+Tier 2: Named, linkable publication, study, or expert with credentials.
+Tier 3: Observable qualitative pattern across named communities.
+Tier 4: Forum upvote counts or aggregated sentiment.
+
+Present your tier assessment to Jack before drafting. If the strongest evidence is Tier 4, tell him explicitly: "The best evidence I have for this claim is Tier 4 (forum sentiment). That means the article can illustrate the claim but cannot prove it. Do you want to source this up, soften the conclusion, or proceed knowing the limitation?" Do not make that call yourself.
+
+---
+
+**Q3. [Agent-resolved — present findings to Jack for confirmation]**
+Research and answer this yourself: what is the most obvious objection a skeptical HN reader would raise in the first 10 comments? Look at how similar articles have been received on HN if relevant data is available.
+
+Present the top one or two objections to Jack before drafting, with a proposed response for each. Ask: "Here is the sharpest objection I expect. Here is how I plan to address it in the article. Does that response hold, or should we adjust the claim?" Do not bury the objection in a footnote or hedge the title to avoid it. The response must appear in the body.
+
+---
+
+**Q4. [ASK JACK — cannot proceed without his answer]**
+Ask Jack this question verbatim before drafting:
+
+> "I need at least one specific detail for this piece that only you could supply. It can be a named person you spoke to and what they said, a specific moment you observed with a date or place attached, or a first-person experience that grounds the central argument. What do you have?"
+
+Wait for his response. If he says he has nothing specific, do not invent a substitute and do not proceed as if the gap does not exist. Instead, surface the problem: "Without a Tier 1 anchor, this piece will read as AI-generated regardless of how well it is written. Options: (a) we add a named interview or cited expert as a Tier 2 anchor, (b) we frame the piece explicitly as pattern observation rather than reported fact, or (c) we hold it until you have a specific." Let Jack decide.
+
+### Structural requirements for essays
+
+* **Author's lens in the opening section.** For any essay where Jack is writing about a professional domain he does not work in (engineering, medicine, academia, law), one sentence in the first two paragraphs must establish his actual vantage point. It does not need to be self-deprecating. It needs to be accurate and visible before the first contested claim appears.
+
+* **Forum discussion illustrates; it does not prove.** When drawing on Reddit, HN, or any online community as evidence, the sentence structure must be: "You see this pattern across [linked communities]: [specific example]." The structure must never be: "[X upvotes/comments] demonstrates [conclusion]." Upvote counts are a measure of engagement, not correctness. HN readers will call this out. Do not give them the opening.
+
+* **One Tier 1 or Tier 2 anchor per major section.** If a section contains multiple paragraphs making a unified argument, at least one claim in that section must be grounded at Tier 1 or Tier 2. A section that runs on Tier 3-4 evidence for every sentence will be the section quoted as "AI slop" in the comments.
+
+### Pre-publish credibility checklist (run after the existing steps 1-4)
+
+These extend the "Before every publish" list above. Run them in order after steps 1-4 pass.
+
+**Step 5: Humanity check.**
+Read the draft and mark every sentence that could plausibly have been written by an LLM with zero personal knowledge of the topic. For each marked sentence: either delete it, replace it with a sentence tied to a specific source or observation, or confirm it is doing necessary connective work and accept it knowingly. The goal is not zero-LLM prose. The goal is that every central claim is anchored to something a machine could not have invented.
+
+**Step 6: Evidence tier audit.**
+For each claim that is doing argumentative work (not scene-setting, not transitions), write the tier next to it in a scratch note. If the majority of load-bearing claims are Tier 3-4, either upgrade the sourcing or downgrade the certainty of the conclusion before publishing.
+
+**Step 7: Credibility disclosure check.**
+Does the article make assertions about a professional domain Jack does not work in? If yes: confirm the author's lens statement is present and appears before the first such assertion. If the lens statement is absent, add it. This step takes 30 seconds and prevents the most common credibility attack.
+
 ## Design philosophy & Aesthetics
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
 * **Colors**: The primary accent color is Olive Green (#556B2F), with darker moss greens for hover states. No standard web blues.
 * **Texture**: Maintain the subtle SVG noise/film-grain overlay on the body to give the screen a physical, paper-like texture.
 * **Visual hierarchy must match content importance**: The #1 entry on a ranking page should look structurally different from the #22 entry. Break the grid for what matters.
 * **Idiosyncratic over polished**: Personal sites accrue personality over time. Include elements that signal a real person built this. Prose can be direct and first-person.
+
+### Typography
+The site uses three fonts, one role each. Never add a fourth; never swap to the banned list below.
+
+| Role | Font | CSS variable | Why |
+|------|------|-------------|-----|
+| Headings (h1-h6) | **Newsreader** | `--font-newsreader` | Purpose-built editorial serif. Authority without ornament. Reads professional, not personal. |
+| Body prose | **Source Serif 4** | `--font-source-serif` | Clean, screen-optimized serif. Publication-grade readability, quieter than the heading font. |
+| Metadata / accent / tables | **Figtree** | `--font-figtree` | Humanist sans with personality. Used for dates, table cells, and UI labels. Not a default. |
+
+**Banned fonts** (AI-slop defaults — never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans.
+
+When prompting image generators or design tools for typography, always specify the exact font name and weight (e.g. "headings in Newsreader 700, body in Source Serif 4 400 at 20px, metadata in Figtree 600"). Never say "clean serif" or "clean sans-serif" without a named font.
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.

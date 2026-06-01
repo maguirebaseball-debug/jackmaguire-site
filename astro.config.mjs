@@ -26,20 +26,20 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Fraunces',
-			cssVariable: '--font-fraunces',
+			name: 'Newsreader',
+			cssVariable: '--font-newsreader',
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Lora',
-			cssVariable: '--font-lora',
+			name: 'Source Serif 4',
+			cssVariable: '--font-source-serif',
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Outfit',
-			cssVariable: '--font-outfit',
+			name: 'Figtree',
+			cssVariable: '--font-figtree',
 			fallbacks: ['sans-serif'],
 		},
 	],
