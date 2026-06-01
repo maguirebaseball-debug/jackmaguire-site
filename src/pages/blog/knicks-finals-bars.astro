@@ -5,8 +5,8 @@ import Footer from '../../components/Footer.astro';
 import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 
-const title = "Where to Watch the Knicks Finals: Researched from Reddit, Organized by Neighborhood and Vibe";
-const description = "248 Reddit posts, 260 Google Places venues, and a lot of reading. Here is what the city is actually saying about where to watch the Knicks.";
+const title = "Where to Watch the Knicks Finals: Every Borough, Every Vibe";
+const description = "The city's best bars for watching the Knicks Finals, organized by neighborhood and vibe. No press lists, no sponsorships.";
 const pubDate = "June 1, 2026";
 
   const high_energy = [
@@ -46,7 +46,7 @@ const pubDate = "June 1, 2026";
     {name:`White Horse Tavern - Financial District`,address:`25 Bridge St, New York, NY 10004, USA`,neighborhood:`Financial District`,area:`Manhattan - Downtown`,why:`The FiDi location, not the West Village original. Standard pub with screens.`,reservation:`Unknown`,screens:`Unknown (implied to have screens for games but not explicit)`,crowd:`Very low key place. Smooth atmosphere; music was loud`,caveats:`Very small space.`,quotes:[{q:`Very low key place. Smooth atmosphere. Good food and service.`,url:"https://maps.google.com/?cid=13667632660558289698",src:"places"},{q:`The people were sweet as hell, the music was loud, the burgers were great, and the price was perfect for this part of Manhattan. What else could I ask for?`,url:"https://maps.google.com/?cid=13667632660558289698",src:"places"}],website:`https://www.whitehorsetavernfidi.com/`,maps_url:`https://maps.google.com/?cid=13667632660558289698`}
   ];
   const gold_coast = [
-    {name:`Mulligan's Pub`,address:`159 1st St, Hoboken, NJ 07030, USA`,neighborhood:`Hoboken`,area:`Gold Coast NJ`,why:`Hoboken's most-mentioned sports bar for game nights, consistently across Reddit threads and reviews.`,reservation:`Walk-in recommended (no explicit reservation info)`,screens:`Evidence implies good viewing for games: "great soccer game", "watch the football"`,crowd:`Always packed with people, amazing atmosphere. If you don’t just watch a game but CELEBRATE IT. This is the place for th`,caveats:``,quotes:[{q:`I would any day go to Mulligan’s for a great soccer game. Always packed with people, amazing atmosphere. If you don’t just watch a game but CELEBRATE IT. This i`,url:"https://maps.google.com/?cid=2538444316803810481",src:"Google Maps"},{q:`Great pub to watch the football and great full Irish breakfast`,url:"https://maps.google.com/?cid=2538444316803810481",src:"Google Maps"}],website:`https://mulligansonfirst.net/`,maps_url:`https://maps.google.com/?cid=2538444316803810481`},
+    {name:`Mulligan's Pub`,address:`159 1st St, Hoboken, NJ 07030, USA`,neighborhood:`Hoboken`,area:`Gold Coast NJ`,why:`The standout sports bar in Hoboken for game nights. Packed, loud, and everyone is there to watch.`,reservation:`Walk-in recommended (no explicit reservation info)`,screens:`Evidence implies good viewing for games: "great soccer game", "watch the football"`,crowd:`Always packed with people, amazing atmosphere. If you don’t just watch a game but CELEBRATE IT. This is the place for th`,caveats:``,quotes:[{q:`I would any day go to Mulligan’s for a great soccer game. Always packed with people, amazing atmosphere. If you don’t just watch a game but CELEBRATE IT. This i`,url:"https://maps.google.com/?cid=2538444316803810481",src:"Google Maps"},{q:`Great pub to watch the football and great full Irish breakfast`,url:"https://maps.google.com/?cid=2538444316803810481",src:"Google Maps"}],website:`https://mulligansonfirst.net/`,maps_url:`https://maps.google.com/?cid=2538444316803810481`},
     {name:`Willie McBride’s`,address:`616 Grand St, Hoboken, NJ 07030, USA`,neighborhood:`Hoboken`,area:`Gold Coast NJ`,why:`Strong local reputation for game days. Can fill up.`,reservation:`Can get very busy (no explicit reservation info)`,screens:`Plenty of TV’s showing the games with sound`,crowd:`Good atmosphere, friendly service and cold beer. Plenty of TV’s showing the games with sound and a lively ambiance.`,caveats:`Can get very busy, but staff is always fast and friendly.`,quotes:[{q:`This has become my go to bar every time I’m in town. Good atmosphere, friendly service and cold beer. Plenty of TV’s showing the games with sound and a lively a`,url:"https://maps.google.com/?cid=8162576473449026667",src:"Google Maps"}],website:`https://williemcbrides.com/`,maps_url:`https://maps.google.com/?cid=8162576473449026667`},
     {name:`Farside Tavern`,address:`531 Washington St, Hoboken, NJ 07030, USA`,neighborhood:`Hoboken`,area:`Gold Coast NJ`,why:`Hoboken. On the main corridor, solid option.`,reservation:`Walk-in recommended (no explicit reservation info)`,screens:`perfect vibe for any sports game`,crowd:`fantastic food and the perfect vibe for any sports game or just hanging with friends. when you walk in you feel like fam`,caveats:``,quotes:[{q:`fantastic food and the perfect vibe for any sports game or just hanging with friends. when you walk in you feel like family, it’s so welcoming.`,url:"https://maps.google.com/?cid=619045914231467158",src:"Google Maps"}],website:`https://www.farsidetavern.com/`,maps_url:`https://maps.google.com/?cid=619045914231467158`},
     {name:`Texas Arizona`,address:`76 River St, Hoboken, NJ 07030, USA`,neighborhood:`Hoboken`,area:`Gold Coast NJ`,why:`Bigger space than most of the Hoboken options. Good if you need room for a group.`,reservation:`Walk-in recommended (no explicit reservation info)`,screens:`Great sports bar. Stopped in on a college football Saturday to catch some game action.`,crowd:`Place gets a good late crowd as well. Fun atmosphere and great.`,caveats:`Some reviews mention rude or distracted bartenders, and issues with billing.`,quotes:[{q:`Great sports bar. Stopped in on a college football Saturday to catch some game action and a couple drinks. Place gets a good late crowd as well.`,url:"https://maps.google.com/?cid=1001516047230675544",src:"Google Maps"},{q:`If you want to have fun night out on the weekend you must go to Texas Arizona. Fun atmosphere and great.`,url:"https://maps.google.com/?cid=1001516047230675544",src:"Google Maps"}],website:`https://www.texasarizona.com/`,maps_url:`https://maps.google.com/?cid=1001516047230675544`}
@@ -380,16 +380,6 @@ const pubDate = "June 1, 2026";
         font-size: 0.82rem;
       }
 
-      /* ── Methodology note ────────────────────────────────────── */
-      .methodology {
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgb(var(--gray-light));
-        font-size: 0.82rem;
-        color: rgb(var(--gray));
-        line-height: 1.65;
-      }
-
       /* ── Mobile ──────────────────────────────────────────────── */
       @media (max-width: 720px) {
         .venue-grid { grid-template-columns: 1fr; }
@@ -414,17 +404,7 @@ const pubDate = "June 1, 2026";
             <p class="meta">{pubDate}</p>
             <h1>{title}</h1>
             <p class="intro">
-              The Knicks are in the Finals. This is 248 Reddit posts and 260 Google Places venues worth of data, organized by what you actually want from a game night bar. No press lists, no editorial sponsorships.
-            </p>
-            <p class="sources">
-              Sources: <a href="https://reddit.com/r/NYKnicks" target="_blank" rel="noopener">r/NYKnicks</a>,
-              <a href="https://reddit.com/r/AskNYC" target="_blank" rel="noopener">r/AskNYC</a>,
-              <a href="https://reddit.com/r/nyc" target="_blank" rel="noopener">r/nyc</a>,
-              <a href="https://reddit.com/r/brooklyn" target="_blank" rel="noopener">r/brooklyn</a>,
-              <a href="https://reddit.com/r/Astoria" target="_blank" rel="noopener">r/Astoria</a>,
-              <a href="https://reddit.com/r/HobokenNJ" target="_blank" rel="noopener">r/HobokenNJ</a>,
-              <a href="https://reddit.com/r/jerseycity" target="_blank" rel="noopener">r/jerseycity</a>
-              + Google Places (260 venues, scraped June 2026)
+              I live in the East Village and I put this together for my own use. The Knicks are in the Finals, and I hate watching games at bars so packed you cannot get a seat or hear what is happening. Every bar here is organized by vibe so you can find the right match, whether you want to be in the middle of the chaos or actually follow the game. No press lists, no sponsorships.
             </p>
           </header>
 
@@ -749,9 +729,6 @@ const pubDate = "June 1, 2026";
             </table>
           </section>
 
-          <div class="methodology">
-            Data from Reddit (248 posts, past 7 days) and Google Places (260 venues across NYC and NJ). No venues paid for placement.
-          </div>
 
         </div>
       </div>
