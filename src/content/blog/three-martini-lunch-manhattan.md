@@ -7,7 +7,10 @@ tags: ["nyc", "food"]
 
 What matters in a three martini lunch spot:
 
-You need to be able to get in early. You need to be near transit. You need a martini program that takes itself seriously. And you need a room that signals this is a real meal.
+- Get in early. Most places don't open until noon; the good ones open at 11.
+- Near transit. You're working a lunch, not taking an afternoon off.
+- A martini program that takes itself seriously.
+- A room that signals this is a real meal.
 
 After comparing research from multiple sources, I kept coming back to five places.
 

@@ -78,6 +78,7 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 * **Domain-accurate terminology**: Use the correct native metric for each platform. Reddit threads have "upvotes," not "points" or a "score."
 * **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
 * **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
+* **Structure over punctuation**: When punctuation is doing organizational work, replace it with layout. Use a bullet list instead of comma-separated inline items. Use a table or definition list instead of repeating `**Label:** description` lines. Use a subheading or a new paragraph instead of a colon introducing an explanation that spans multiple sentences. Punctuation governs sentence rhythm. Layout governs organization. These are not interchangeable. Colons used rhetorically in prose (e.g. "Not the original wound: the escaping") are intentional and should be kept. Parenthetical citations in academic posts are correct attribution format and should be kept.
 
 ## Fact-checking and verification (required for any cited or research-based content)
 * **Treat every citation in an inbound brief or outline as an unverified claim, not a fact.** Supplied outlines have contained fabricated sources, misattributions, and distorted numbers. Verify each against a primary source before writing.

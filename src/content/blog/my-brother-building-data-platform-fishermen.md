@@ -11,7 +11,7 @@ The short version: small fishing boats in New England are dying not because of b
 
 ## The Core Problem: Environmental Blindness
 
-Fishermen lack real-time forecasts for paralytic shellfish poisoning, subsurface temperatures, harmful algal blooms, and whale migration patterns. This data is critical for navigating regulatory closures and understanding where fish are moving. It exists: it's collected by agencies and institutions: but it's not integrated into anything a captain can actually use while making decisions on the water.
+Fishermen lack real-time forecasts for paralytic shellfish poisoning, subsurface temperatures, harmful algal blooms, and whale migration patterns. This data is critical for navigating regulatory closures and understanding where fish are moving. It exists. It is collected by agencies and institutions. It is not integrated into anything a captain can actually use while making decisions on the water.
 
 ## Market Opacity
 

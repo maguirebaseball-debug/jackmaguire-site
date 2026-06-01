@@ -25,15 +25,21 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>About</h1>
+			<section class="page-lede">
+				<p class="kicker">East Village, paid social, long walks</p>
+				<h1>About</h1>
+				<p>
+					I work at the intersection of paid social media, analytical systems, and ordinary city life.
+					The site records the work questions and personal obsessions that keep recurring.
+				</p>
+			</section>
 			<div class="prose">
 				<p>
 					I'm Jack Maguire, a performance marketing and paid social media director based in
 					New York City. Over the past 12 years I've built and led advertising programs for
 					large organizations across Meta, TikTok, Instagram, Facebook, and Snapchat, working
 					at the intersection of creative strategy, data analysis, and media buying. This site
-					is where I write about what I'm paying attention to: NYC food, travel, philosophy,
-					AI, and occasionally work.
+					covers NYC food, travel, philosophy, AI, and occasionally work.
 				</p>
 
 				<h2>Work</h2>
@@ -95,6 +101,27 @@ import { SITE_TITLE } from '../consts';
 <style>
 	.prose {
 		max-width: 600px;
+	}
+	.page-lede {
+		max-width: 680px;
+		margin-bottom: 2rem;
+		padding-bottom: 1.35rem;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+	}
+	.kicker {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.page-lede p:last-child {
+		margin: 0;
+		max-width: 620px;
+		color: rgb(var(--gray-dark));
+		font-size: 1.05em;
 	}
 	.prose h2 {
 		font-size: 1.2em;
