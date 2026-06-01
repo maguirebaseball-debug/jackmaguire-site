@@ -164,15 +164,15 @@ The site uses three fonts, one role each. Never add a fourth; never swap to the 
 
 | Role | Font | CSS variable | Why |
 |------|------|-------------|-----|
-| Headings (h1-h6) | **Libre Baskerville** | `--font-heading` | Classic Baskerville revival. Serious, authoritative, zero quirk. Reads like a law firm or policy journal. |
-| Body prose | **Merriweather** | `--font-body` | Purpose-built for screen readability. No personality, just clarity. |
-| Metadata / accent / tables | **IBM Plex Sans** | `--font-ui` | IBM's corporate sans. Professional authority, no friendliness baked in. |
+| Headings (h1-h6) | **Plus Jakarta Sans** 700 | `--font-heading` | Clean grotesque sans. Contemporary professional, zero ornament. |
+| Body prose | **Plus Jakarta Sans** 400 | `--font-body` | Same family, lighter weight. Functional and readable. |
+| Metadata / accent / tables | **Plus Jakarta Sans** 600 | `--font-ui` | Same family, medium weight for dates, labels, UI. |
 
-CSS variables are role-based, not font-name-based, so they survive future swaps without a find-and-replace.
+Single-family sans stack. No serifs anywhere. Hierarchy through weight only. CSS variables are role-based so a future font swap only touches astro.config.mjs.
 
-**Banned fonts** (AI-slop defaults and previously rejected fonts — never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans, Newsreader, Source Serif 4, Figtree.
+**Banned fonts** (rejected at least once -- never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans, Newsreader, Source Serif 4, Figtree, Libre Baskerville, Merriweather, IBM Plex Sans. All serif fonts are banned: the user found every serif tried too "artistic/hokey." Stick to clean grotesque sans.
 
-When prompting image generators or design tools for typography, always specify the exact font name and weight (e.g. "headings in Libre Baskerville 700, body in Merriweather 400 at 20px, metadata in IBM Plex Sans 600"). Never say "clean serif" or "clean sans-serif" without a named font.
+When prompting image generators or design tools for typography, specify "Plus Jakarta Sans 700 headings, Plus Jakarta Sans 400 body." Never say "clean serif" or suggest a serif alternative.
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.

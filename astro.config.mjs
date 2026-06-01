@@ -26,21 +26,21 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Libre Baskerville',
+			name: 'Plus Jakarta Sans',
 			cssVariable: '--font-heading',
-			fallbacks: ['Georgia', 'serif'],
+			fallbacks: ['system-ui', 'sans-serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Merriweather',
+			name: 'Plus Jakarta Sans',
 			cssVariable: '--font-body',
-			fallbacks: ['Georgia', 'serif'],
+			fallbacks: ['system-ui', 'sans-serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'IBM Plex Sans',
+			name: 'Plus Jakarta Sans',
 			cssVariable: '--font-ui',
-			fallbacks: ['sans-serif'],
+			fallbacks: ['system-ui', 'sans-serif'],
 		},
 	],
 });
