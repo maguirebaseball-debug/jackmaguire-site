@@ -164,13 +164,15 @@ The site uses three fonts, one role each. Never add a fourth; never swap to the 
 
 | Role | Font | CSS variable | Why |
 |------|------|-------------|-----|
-| Headings (h1-h6) | **Newsreader** | `--font-newsreader` | Purpose-built editorial serif. Authority without ornament. Reads professional, not personal. |
-| Body prose | **Source Serif 4** | `--font-source-serif` | Clean, screen-optimized serif. Publication-grade readability, quieter than the heading font. |
-| Metadata / accent / tables | **Figtree** | `--font-figtree` | Humanist sans with personality. Used for dates, table cells, and UI labels. Not a default. |
+| Headings (h1-h6) | **Libre Baskerville** | `--font-heading` | Classic Baskerville revival. Serious, authoritative, zero quirk. Reads like a law firm or policy journal. |
+| Body prose | **Merriweather** | `--font-body` | Purpose-built for screen readability. No personality, just clarity. |
+| Metadata / accent / tables | **IBM Plex Sans** | `--font-ui` | IBM's corporate sans. Professional authority, no friendliness baked in. |
 
-**Banned fonts** (AI-slop defaults — never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans.
+CSS variables are role-based, not font-name-based, so they survive future swaps without a find-and-replace.
 
-When prompting image generators or design tools for typography, always specify the exact font name and weight (e.g. "headings in Newsreader 700, body in Source Serif 4 400 at 20px, metadata in Figtree 600"). Never say "clean serif" or "clean sans-serif" without a named font.
+**Banned fonts** (AI-slop defaults and previously rejected fonts — never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans, Newsreader, Source Serif 4, Figtree.
+
+When prompting image generators or design tools for typography, always specify the exact font name and weight (e.g. "headings in Libre Baskerville 700, body in Merriweather 400 at 20px, metadata in IBM Plex Sans 600"). Never say "clean serif" or "clean sans-serif" without a named font.
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.

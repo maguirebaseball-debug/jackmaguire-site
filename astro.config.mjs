@@ -26,20 +26,20 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: 'Newsreader',
-			cssVariable: '--font-newsreader',
+			name: 'Libre Baskerville',
+			cssVariable: '--font-heading',
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Source Serif 4',
-			cssVariable: '--font-source-serif',
+			name: 'Merriweather',
+			cssVariable: '--font-body',
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
 			provider: fontProviders.google(),
-			name: 'Figtree',
-			cssVariable: '--font-figtree',
+			name: 'IBM Plex Sans',
+			cssVariable: '--font-ui',
 			fallbacks: ['sans-serif'],
 		},
 	],
