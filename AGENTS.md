@@ -73,6 +73,10 @@ NPM_CONFIG_CACHE=/tmp/npm-jack-cache
 * Sitemap submitted: https://jackmaguire.org/sitemap-index.xml
 * TODO: turn off WordPress.com auto-renew (plan paid through Jan 2029, next charge Dec 2028)
 
+## Analytics
+* GA4 property: 530019465
+* Measurement ID: G-1697T7D92W
+
 ## About the site owner
 Jack Maguire, Senior Paid Social Media Director at National Debt Relief. East Village, NYC.
 Topics: performance marketing, NYC food, travel, philosophy, AI tools.
@@ -81,3 +85,6 @@ Contact: maguirebaseball@gmail.com
 ## Agent Workflows & Text Generation
 * **True Blinded Variations**: When the user asks for multiple "blinded" variations of a text, you MUST NOT simulate this in a single response or a single LLM pass. You MUST actually invoke separate sub-agents (using the `invoke_agent` tool or similar delegation mechanisms) to generate each variation entirely independently. This is strictly required to maximize perplexity and capture a full universe of diverse possible answers.
 * **Copy-Paste Workflows**: Whenever you generate text that the user is intended to paste somewhere else (like a social media post, external email, or forum submission), you MUST automatically copy it directly to their clipboard using `pbcopy` (e.g., via `run_shell_command` with `echo "text" | pbcopy` or piping a heredoc) AND output the text inside a markdown code block so it avoids terminal visual line-break formatting issues.
+
+## Token Efficiency & Agent Discipline (Universal — injected from ~/.grok/AGENTS.md + template; customize or remove per-project overrides)
+See full details and copy-paste base in ~/.grok/UNIVERSAL_TOKEN_EFFICIENCY_SECTION.md and ~/.grok/AGENTS.md (native). The detailed 7-section version is also in ~/.claude/UNIVERSAL_TOKEN_EFFICIENCY_SECTION.md and ~/.claude/AGENTS.md (loaded via default Claude compatibility). Core: leverage first-turn memory injection + /flush + /dream, externalize to files + targeted tools (read_file limits, grep, selective monitor filters, never full cats or raw long logs), proactive /compact (auto at 85%), subagents only for real independence (cheapest/fast models, spawn_subagent returns ONLY concise high-signal summary + file pointers), skills and personas over re-instruction, run `grok inspect` to verify loaded rules + token counts. Read AGENTS.md + memory context first on startup.
