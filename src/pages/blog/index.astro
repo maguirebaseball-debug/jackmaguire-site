@@ -49,22 +49,31 @@ const allTags = [...new Set(posts.flatMap((p) => p.tags))].filter(t => t !== 'In
 			<section class="archive-section">
 				<ul class="archive-list">
 					{
-						posts.map((post) => (
-							<li>
-								<a href={post.href}>
-									<span class="title">
-										{post.title}
-										{post.isStandalone && <span class="badge">Interactive</span>}
-									</span>
-									<span class="meta">
-										<FormattedDate date={post.pubDate} />
-										{post.tags && post.tags.length > 0 && post.tags.filter(t => t !== 'Interactive').length > 0 && (
-											<span class="tag-list"> · {post.tags.filter(t => t !== 'Interactive').join(', ')}</span>
-										)}
-									</span>
-								</a>
-							</li>
-						))
+						(() => {
+							let prevYear = null;
+							return posts.map((post) => {
+								const y = post.pubDate.getFullYear();
+								const isNew = y !== prevYear;
+								prevYear = y;
+								return (
+									<>
+										{isNew && <li class="year-header"><h2>{y}</h2></li>}
+										<li>
+											<a href={post.href}>
+												<span class="meta">
+													<FormattedDate date={post.pubDate} />
+													{post.tags && post.tags.length > 0 && post.tags.filter(t => t !== 'Interactive').length > 0 && (
+														<span class="tag-list"> · {post.tags.filter(t => t !== 'Interactive').join(', ')}</span>
+													)}
+													{post.isStandalone && <span class="interactive"> (interactive)</span>}
+												</span>
+												<span class="title">{post.title}</span>
+											</a>
+										</li>
+									</>
+								);
+							});
+						})()
 					}
 				</ul>
 			</section>
@@ -85,27 +94,21 @@ const allTags = [...new Set(posts.flatMap((p) => p.tags))].filter(t => t !== 'In
 	}
 	.tag {
 		font-size: 0.8em;
-		padding: 0.2em 0.7em;
-		background: rgb(var(--gray-light));
-		border-radius: 20px;
 		color: rgb(var(--gray-dark));
 	}
 	.archive-section {
 		margin: 0 0 2.5em;
 	}
-	.badge {
-		font-size: 0.72rem;
+	.year-header {
+		list-style: none;
+		margin-top: 1.2em;
+	}
+	.year-header h2 {
+		font-size: 1em;
+		margin: 0 0 0.3em;
+		color: rgb(var(--gray));
 		font-weight: 600;
-		background: #e8f0dc;
-		color: #3a5c1a;
-		padding: 0.15rem 0.45rem;
-		border-radius: 4px;
-		margin-left: 0.5rem;
-		font-family: var(--font-outfit), sans-serif;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		display: inline-block;
-		vertical-align: middle;
+		letter-spacing: 0;
 	}
 	ul {
 		list-style: none;
@@ -114,6 +117,9 @@ const allTags = [...new Set(posts.flatMap((p) => p.tags))].filter(t => t !== 'In
 	}
 	ul li {
 		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	ul li.year-header {
+		border-bottom: none;
 	}
 	ul li a {
 		display: flex;
@@ -132,6 +138,10 @@ const allTags = [...new Set(posts.flatMap((p) => p.tags))].filter(t => t !== 'In
 		color: rgb(var(--gray));
 		white-space: nowrap;
 		flex-shrink: 0;
+	}
+	.interactive {
+		font-size: 0.7em;
+		opacity: 0.7;
 	}
 	.tag-list {
 		font-style: italic;

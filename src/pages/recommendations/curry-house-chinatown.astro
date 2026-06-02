@@ -33,159 +33,134 @@ const curryHouseDishes = [
 			})),
 		})} />
 		<style>
-			:root {
-				--pop-pink: #ff2d75;
-				--pop-yellow: #fff200;
-				--pop-blue: #00d2ff;
-				--pop-green: #39ff14;
-				--pop-black: #1a1a1a;
-				--card-bg: #ffffff;
-			}
-
 			body {
-				background-color: #fff9e6;
-				background-image: 
-					radial-gradient(rgba(255, 45, 117, 0.1) 1px, transparent 1px);
-				background-size: 30px 30px;
-				font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
-				color: var(--pop-black);
+				background-color: var(--paper);
 			}
 
 			main {
-				max-width: 850px;
+				max-width: 820px;
 				margin: 0 auto;
-				padding: 2em 1.25em;
+				padding: 2.5em 1.25em;
 			}
 
 			.hero {
-				background: #fff;
-				border: 6px solid var(--pop-black);
-				padding: 2.5em 2em;
-				margin-bottom: 3.5rem;
-				box-shadow: 12px 12px 0px var(--pop-black);
-				text-align: center;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 1em;
+				border-top: 2px solid rgba(85, 107, 47, 0.35);
+				border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+				padding: 1.5em 0 1.7em;
+				margin-bottom: 3rem;
 			}
 
-			.restaurant-logo {
-				font-size: 3.5em;
-				font-weight: 900;
+			.hero h1 {
+				font-size: clamp(1.8rem, 8vw, 3.2rem);
+				font-family: var(--font-heading);
+				font-weight: 620;
+				line-height: 1.05;
+				color: rgb(var(--black));
+				margin: 0 0 1rem;
+			}
+
+			.hero-kicker {
+				margin: 0 0 0.6rem;
+				font-family: var(--font-ui), sans-serif;
+				font-size: 0.72rem;
+				font-weight: 700;
+				color: var(--accent-dark);
 				text-transform: uppercase;
-				line-height: 1;
-				color: var(--pop-black);
-				border: 8px solid var(--pop-black);
-				padding: 0.2em 0.4em;
-				display: inline-block;
-				background: var(--pop-yellow);
+				letter-spacing: 0.05em;
 			}
 
-			.logo-chinese {
-				display: block;
-				font-size: 0.6em;
-				letter-spacing: 0.2em;
-			}
-
-			.hero p {
-				font-size: 1.2em;
-				font-weight: 800;
-				color: var(--pop-black);
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				margin: 0;
-			}
-			
 			.hero-logistics {
 				font-size: 0.95rem;
-				font-weight: 700;
-				color: var(--pop-black);
-				text-align: center;
+				color: rgb(var(--gray-dark));
 				line-height: 1.6;
-				margin-top: 0.5rem;
-				border-top: 3px dashed var(--pop-black);
-				padding-top: 1rem;
-				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1rem;
 			}
-			
+
 			.hero-logistics a {
-				color: var(--pop-pink);
+				color: var(--accent-dark);
 				text-decoration: none;
-				border-bottom: 2px solid var(--pop-pink);
+				border-bottom: 1px solid rgba(85, 107, 47, 0.45);
 			}
 			.hero-logistics a:hover {
-				background-color: var(--pop-yellow);
-				color: var(--pop-black);
-				border-color: var(--pop-black);
+				color: var(--accent);
 			}
-			.updated {
-				font-size: 0.85rem;
-				font-weight: 800;
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				margin: 0;
+			.hero .updated {
+				font-size: 0.82rem;
+				font-family: var(--font-ui), sans-serif;
+				color: rgb(var(--gray));
+				margin: 1rem 0 0;
 			}
 
 			.section-title {
-				font-size: 2em;
-				font-weight: 900;
-				text-transform: uppercase;
-				background: var(--pop-black);
-				color: #fff;
-				display: inline-block;
-				padding: 0.3em 0.8em;
-				margin-bottom: 1.5em;
-				transform: rotate(-1deg);
+				font-size: 1.2em;
+				font-weight: 620;
+				color: rgb(var(--black));
+				margin: 2.8em 0 1em;
+				padding-bottom: 0.35rem;
+				border-bottom: 1px solid rgba(85, 107, 47, 0.28);
 			}
 
 			.ranking-container {
 				display: flex;
 				flex-direction: column;
-				gap: 3em;
-				margin-bottom: 6em;
+				gap: 1.1em;
+				margin-bottom: 3.5em;
 			}
 
 			.dish-card {
-				background: var(--card-bg);
-				border: 5px solid var(--pop-black);
 				position: relative;
-				display: flex;
-				flex-direction: row;
-				align-items: stretch;
-				min-height: 200px;
-				box-shadow: 8px 8px 0px var(--pop-black);
+				display: grid;
+				grid-template-columns: 12rem 1fr;
+				background: rgba(255, 255, 255, 0.62);
+				border-top: 1px solid rgba(var(--gray-light), 0.9);
+				min-height: 180px;
+			}
+			.dish-card.image-missing {
+				grid-template-columns: 1fr;
+			}
+			.dish-card.image-missing .dish-img-container {
+				display: none;
+			}
+			.dish-card.image-missing .rank-badge {
+				position: static;
+				justify-self: start;
+				margin: 1rem 1.25rem 0;
 			}
 
 			.rank-badge {
 				position: absolute;
-				top: -15px;
-				left: -15px;
-				width: 50px;
-				height: 50px;
-				border: 4px solid var(--pop-black);
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size: 1.5em;
-				font-weight: 900;
-				color: #fff;
+				top: 0.75rem;
+				left: 0.75rem;
+				font-family: var(--font-ui), sans-serif;
+				font-size: 0.78rem;
+				font-weight: 700;
+				color: var(--accent-dark);
 				z-index: 10;
-				box-shadow: 3px 3px 0px var(--pop-black);
+				background: rgba(245, 239, 227, 0.9);
+				padding: 0.2rem 0.45rem;
 			}
 
-			.mild-badge { background: var(--pop-blue); }
-			.spicy-badge { background: var(--pop-pink); }
-
 			.dish-img-container {
-				width: 250px;
-				flex-shrink: 0;
-				border-right: 5px solid var(--pop-black);
-				background: #eee;
+				width: 100%;
+				border-right: 1px solid rgba(var(--gray-light), 0.85);
+				background: rgba(var(--gray-light), 0.28);
 				position: relative;
 				display: flex;
 				flex-direction: column;
+			}
+			.dish-img-container::before {
+				content: "reference image";
+				position: absolute;
+				inset: 0;
+				display: grid;
+				place-items: center;
+				font-family: var(--font-ui), sans-serif;
+				font-size: 0.72rem;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				color: rgba(var(--gray), 0.72);
 			}
 
 			.dish-img {
@@ -193,21 +168,26 @@ const curryHouseDishes = [
 				height: 100%;
 				object-fit: cover;
 				display: block;
+				border-radius: 0;
+				position: relative;
+				z-index: 1;
 			}
-			
+
 			.dish-img-citation {
 				font-size: 0.65rem;
-				color: #fff;
-				background-color: var(--pop-black);
+				color: rgb(var(--gray));
+				background-color: rgba(255, 255, 255, 0.86);
 				padding: 0.25rem 0.5rem;
 				text-align: center;
 				display: block;
 				width: 100%;
 				box-sizing: border-box;
 				text-shadow: none;
+				position: relative;
+				z-index: 2;
 			}
 			.dish-img-citation a {
-				color: var(--pop-yellow);
+				color: rgb(var(--gray));
 				text-decoration: none;
 			}
 
@@ -219,33 +199,29 @@ const curryHouseDishes = [
 			}
 
 			.dish-header {
-				background: var(--pop-black);
-				color: #fff;
-				padding: 1em 1.5em;
+				color: rgb(var(--black));
+				padding: 1.1em 1.25em 0.4em;
 			}
 
 			.dish-name {
-				font-size: 1.5em;
-				font-weight: 900;
+				font-size: 1.32em;
+				font-weight: 620;
 				margin: 0;
-				text-transform: uppercase;
-				color: #ffffff !important;
-				text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+				color: rgb(var(--black));
 			}
 
 			.dish-origin {
 				font-size: 0.75em;
-				background: var(--pop-yellow);
-				color: var(--pop-black);
-				padding: 0.1em 0.4em;
-				font-weight: 900;
+				color: var(--accent-dark);
+				font-family: var(--font-ui), sans-serif;
+				font-weight: 700;
 				text-transform: uppercase;
 				margin-top: 0.3em;
 				display: inline-block;
 			}
 
 			.dish-body {
-				padding: 1.2em 1.5em;
+				padding: 0.4em 1.25em 1.15em;
 				flex-grow: 1;
 				display: flex;
 				flex-direction: column;
@@ -254,56 +230,53 @@ const curryHouseDishes = [
 			}
 
 			.dish-desc {
-				font-size: 1.05em;
-				line-height: 1.5;
-				font-weight: 600;
+				font-size: 0.98em;
+				line-height: 1.58;
 				margin: 0;
 			}
 
 			.tag {
 				display: inline-block;
-				margin-top: 1em;
-				border: 2px solid var(--pop-black);
-				padding: 0.2em 0.6em;
-				font-weight: 900;
+				margin-top: 0.85em;
+				border-top: 1px solid rgba(85, 107, 47, 0.28);
+				padding-top: 0.35em;
+				font-family: var(--font-ui), sans-serif;
+				font-weight: 700;
 				text-transform: uppercase;
 				font-size: 0.75em;
+				color: var(--accent-dark);
 			}
 
-			.tag-mild { background: var(--pop-green); }
-			.tag-spicy { background: var(--pop-pink); color: #fff; }
-
 			.intel-footer {
-				margin-top: 4em;
-				padding: 3em 1em;
-				text-align: center;
-				font-weight: 900;
-				color: var(--pop-black);
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				border-top: 6px dashed var(--pop-black);
-				font-size: 0.8em;
+				margin-top: 3em;
+				padding-top: 1.25em;
+				color: rgb(var(--gray));
+				border-top: 1px solid rgba(85, 107, 47, 0.22);
+				font-size: 0.82em;
 				line-height: 1.6;
 			}
 			.intel-footer a {
-				color: var(--pop-pink);
+				color: var(--accent-dark);
 				text-decoration: none;
 			}
 
 			@media (max-width: 650px) {
+				.hero-logistics {
+					grid-template-columns: 1fr;
+					gap: 0.35rem;
+				}
 				.dish-card {
-					flex-direction: column;
+					grid-template-columns: 1fr;
 				}
 				.dish-img-container {
 					width: 100%;
 					height: auto;
 					border-right: none;
-					border-bottom: 5px solid var(--pop-black);
+					border-bottom: 1px solid rgba(var(--gray-light), 0.85);
 				}
 				.dish-img {
 					height: 200px;
 				}
-				.restaurant-logo { font-size: 2.5em; }
 			}
 		</style>
 	</head>
@@ -311,25 +284,25 @@ const curryHouseDishes = [
 		<Header />
 		<main>
 			<section class="hero">
-				<img src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png" alt="Curry House Logo" style="max-height: 80px; object-fit: contain; margin-bottom: 10px; padding: 10px; background: var(--pop-black); border: 4px solid var(--pop-yellow);" />
-				<p>Verified Rankings: 9 Pell St, Chinatown</p>
+				<p class="hero-kicker">9 Pell Street, Chinatown</p>
+				<h1>Mild Orders at Curry House</h1>
 				
 				<div class="hero-logistics">
 					<div class="logistics-item">Location: <a href="https://maps.google.com/?q=Curry+House+9+Pell+St+Chinatown+New+York" target="_blank" rel="noopener">9 Pell St, New York, NY 10013</a></div>
-					<div class="logistics-item">Hours: 11:00 AM – 9:30 PM Daily</div>
+					<div class="logistics-item">Hours: 11:00 AM to 9:30 PM Daily</div>
 					<div class="logistics-item">Pricing: Entrees range from $12 to $25 (Cash preferred, Cards accepted)</div>
 				</div>
 				<p class="updated">Last updated: {lastUpdated}</p>
 			</section>
 
-			<h2 class="section-title">Zero Heat Favorites</h2>
+			<h2 class="section-title">Low-heat orders</h2>
 			<div class="ranking-container">
 				
 				<!-- MILD #1 -->
 				<article class="dish-card">
 					<div class="rank-badge mild-badge">#1</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bak_kut_teh.jpg" alt="Bak Kut Teh" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bak_kut_teh.jpg" alt="Bak Kut Teh" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Bak_kut_teh.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -341,7 +314,7 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Savory, complex herbal pork rib soup. The owners are from Ipoh, and this is their masterwork. Zero chili, 100% herbal umami.
 							</p>
-							<span class="tag tag-mild">Zero Heat</span>
+							<span class="tag tag-mild">Mild order</span>
 						</div>
 					</div>
 				</article>
@@ -350,7 +323,7 @@ const curryHouseDishes = [
 				<article class="dish-card">
 					<div class="rank-badge mild-badge">#2</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Hainanese_Chicken_Rice.jpg" alt="Hainanese Chicken" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Hainanese_Chicken_Rice.jpg" alt="Hainanese Chicken" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 2.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -362,7 +335,7 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Poached chicken served with fragrant rice. Consistently cited as one of their most popular, entry-level dishes.
 							</p>
-							<span class="tag tag-mild">Zero Heat</span>
+							<span class="tag tag-mild">Mild order</span>
 						</div>
 					</div>
 				</article>
@@ -371,7 +344,7 @@ const curryHouseDishes = [
 				<article class="dish-card">
 					<div class="rank-badge mild-badge">#3</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Ipoh_Hor_Fun.jpg" alt="Ipoh Chicken Noodles" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Ipoh_Hor_Fun.jpg" alt="Ipoh Chicken Noodles" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Ipoh_Hor_Fun.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 4.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -383,20 +356,20 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Light, savory broth with shredded chicken. An umami-rich, soothing dish that avoids heavy spices.
 							</p>
-							<span class="tag tag-mild">Zero Heat</span>
+							<span class="tag tag-mild">Mild order</span>
 						</div>
 					</div>
 				</article>
 			</div>
 
-			<h2 class="section-title" style="background: var(--pop-pink);">Spicy Standouts</h2>
+			<h2 class="section-title">Spicier orders</h2>
 			<div class="ranking-container">
 				
 				<!-- SPICY #1 -->
 				<article class="dish-card">
 					<div class="rank-badge spicy-badge">#1</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Asam_Laksa.jpg" alt="Asam Laksa" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Asam_Laksa.jpg" alt="Asam Laksa" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Asam_Laksa.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 2.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -408,7 +381,7 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Sour and spicy fish-based noodle soup. An explosion of tamarind, mackerel, and bird's eye chili.
 							</p>
-							<span class="tag tag-spicy">High Heat</span>
+							<span class="tag tag-spicy">High heat</span>
 						</div>
 					</div>
 				</article>
@@ -417,7 +390,7 @@ const curryHouseDishes = [
 				<article class="dish-card">
 					<div class="rank-badge spicy-badge">#2</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rendang_1.JPG/1024px-Rendang_1.JPG" alt="Beef Rendang" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rendang_1.JPG/1024px-Rendang_1.JPG" alt="Beef Rendang" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:Rendang_1.JPG" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -429,7 +402,7 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Dry beef curry slow-braised in coconut milk. Intense, spicy, and incredibly tender.
 							</p>
-							<span class="tag tag-spicy">Medium-High Heat</span>
+							<span class="tag tag-spicy">Medium-high heat</span>
 						</div>
 					</div>
 				</article>
@@ -438,7 +411,7 @@ const curryHouseDishes = [
 				<article class="dish-card">
 					<div class="rank-badge spicy-badge">#3</div>
 					<div class="dish-img-container">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/YosriGulaiAyam.jpg" alt="Curry Chicken" class="dish-img" />
+						<img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/YosriGulaiAyam.jpg" alt="Curry Chicken" class="dish-img" onerror="this.closest('.dish-card').classList.add('image-missing'); this.style.display='none'" />
 						<span class="dish-img-citation">Image: <a href="https://commons.wikimedia.org/wiki/File:YosriGulaiAyam.jpg" target="_blank" rel="noopener">Wikimedia CC BY-SA 3.0</a></span>
 					</div>
 					<div class="dish-content">
@@ -450,15 +423,15 @@ const curryHouseDishes = [
 							<p class="dish-desc">
 								Rich, aromatic curry with bone-in chicken and potatoes. Carries a persistent, building warmth.
 							</p>
-							<span class="tag tag-spicy">Warm Heat</span>
+							<span class="tag tag-spicy">Warm heat</span>
 						</div>
 					</div>
 				</article>
 			</div>
 
 			<div class="intel-footer">
-				Verified via Google Places API // Grubhub Live Feed // Direct Review Sentiment Analysis<br />
-				View the <a href="https://order.menusifu.com/curry-house-10013" target="_blank" rel="noopener">Official MenuSifu Order Page</a> or <a href="https://maps.google.com/?q=Curry+House+Chinatown+9+Pell+St" target="_blank" rel="noopener">Google Maps Profile</a>
+				Notes checked against the official menu, public listing details, and review patterns.<br />
+				View the <a href="https://order.menusifu.com/curry-house-10013" target="_blank" rel="noopener">official MenuSifu order page</a> or <a href="https://maps.google.com/?q=Curry+House+Chinatown+9+Pell+St" target="_blank" rel="noopener">Google Maps profile</a>.
 			</div>
 		</main>
 		<Footer />

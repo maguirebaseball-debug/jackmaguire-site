@@ -43,18 +43,19 @@ const bookRecommendations = [
 			.book-grid {
 				display: flex;
 				flex-direction: column;
-				gap: 2.5em;
+				gap: 1.1em;
 			}
 			.book-card {
-				background: #fff;
-				border-radius: 10px;
-				padding: 1.75em;
-				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+				display: grid;
+				grid-template-columns: 14rem 1fr;
+				gap: 1.4rem;
+				padding: 1.2em 0;
+				border-top: 1px solid rgba(var(--gray-light), 0.9);
 			}
 			.book-header {
-				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
-				padding-bottom: 0.75em;
-				margin-bottom: 1em;
+				border-bottom: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
 			}
 			.book-title {
 				font-size: 1.4em;
@@ -72,7 +73,7 @@ const bookRecommendations = [
 			}
 			.book-category {
 				font-size: 0.75em;
-				background-color: rgba(var(--gray-light), 0.5);
+				background-color: rgba(245, 239, 227, 0.8);
 				color: rgb(var(--gray-dark));
 				padding: 0.2rem 0.5rem;
 				border-radius: 4px;
@@ -94,13 +95,29 @@ const bookRecommendations = [
 				margin-bottom: 0;
 			}
 			.review-highlight {
-				background-color: #fdf8ef;
-				border-left: 4px solid var(--accent);
-				padding: 0.85em 1.25em;
+				border-left: 2px solid rgba(85, 107, 47, 0.45);
+				padding: 0.35em 0 0.35em 1em;
 				margin: 1em 0;
 				font-style: italic;
 				font-size: 0.9em;
 				color: rgb(var(--black));
+			}
+			.feature-card {
+				padding: 1.45em 1em;
+				margin-left: -1em;
+				margin-right: -1em;
+				border-left: 3px solid rgba(85, 107, 47, 0.5);
+				background: linear-gradient(90deg, rgba(245, 239, 227, 0.56), transparent 76%);
+			}
+			@media (max-width: 680px) {
+				.book-card {
+					grid-template-columns: 1fr;
+					gap: 0.65rem;
+				}
+				.feature-card {
+					margin-left: 0;
+					margin-right: 0;
+				}
 			}
 		</style>
 	</head>
@@ -113,7 +130,7 @@ const bookRecommendations = [
 
 			<div class="book-grid">
 				
-				<div class="book-card">
+				<div class="book-card feature-card">
 					<div class="book-header">
 						<h2 class="book-title">The Recognitions</h2>
 						<div class="book-author">William Gaddis</div>

@@ -52,14 +52,12 @@ const restaurantRecommendations = [
 				margin-bottom: 2.5em;
 			}
 
-			/* Interactive Filter Control Panel */
 			.restaurant-filter-container {
-				background-color: #fdf8ef;
-				border: 2px solid var(--accent);
-				border-radius: 10px;
-				padding: 1.5rem;
+				background-color: transparent;
+				border-top: 1px solid rgba(85, 107, 47, 0.35);
+				border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+				padding: 1rem 0;
 				margin-bottom: 2.5rem;
-				box-shadow: 0 4px 12px rgba(var(--gray), 0.08);
 			}
 			.filter-flex-row {
 				display: flex;
@@ -77,9 +75,9 @@ const restaurantRecommendations = [
 				width: 100%;
 				padding: 10px 12px 10px 38px;
 				font-size: 0.95rem;
-				border: 1px solid rgb(var(--gray-light));
-				border-radius: 6px;
-				background-color: #fff;
+				border: 1px solid rgba(85, 107, 47, 0.22);
+				border-radius: 0;
+				background-color: rgba(255, 255, 255, 0.64);
 				color: rgb(var(--gray-dark));
 				box-sizing: border-box;
 				transition: border-color 0.2s;
@@ -105,9 +103,10 @@ const restaurantRecommendations = [
 				align-items: center;
 			}
 			.filter-pill {
-				background-color: #fff;
-				border: 1px solid rgb(var(--gray-light));
-				border-radius: 20px;
+				background-color: transparent;
+				border: 0;
+				border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+				border-radius: 0;
 				padding: 0.35rem 0.85rem;
 				font-size: 0.8rem;
 				font-weight: 700;
@@ -118,8 +117,8 @@ const restaurantRecommendations = [
 				letter-spacing: 0.04em;
 			}
 			.filter-pill.active {
-				background-color: var(--accent);
-				color: #fff;
+				background-color: rgba(245, 239, 227, 0.84);
+				color: var(--accent-dark);
 				border-color: var(--accent);
 			}
 			.filter-pill:hover:not(.active) {
@@ -130,18 +129,30 @@ const restaurantRecommendations = [
 			.restaurant-list {
 				display: flex;
 				flex-direction: column;
-				gap: 2.5em;
+				gap: 1.35em;
 			}
 			.restaurant {
-				background: #fff;
-				border-radius: 10px;
-				padding: 1.75em;
-				box-shadow: 0 1px 4px rgba(var(--gray), 18%), 0 4px 16px rgba(var(--gray), 12%);
+				background: rgba(255, 255, 255, 0.58);
+				border-top: 1px solid rgba(var(--gray-light), 0.9);
+				padding: 1.35em 0;
 				transition: opacity 0.3s, transform 0.3s;
+			}
+			.restaurant.featured-restaurant {
+				padding: 1.5em 1em;
+				margin-left: -1em;
+				margin-right: -1em;
+				border-left: 3px solid rgba(85, 107, 47, 0.5);
+				background: linear-gradient(90deg, rgba(245, 239, 227, 0.64), rgba(255, 255, 255, 0.42));
+			}
+			.featured-restaurant .restaurant-name {
+				font-size: 1.72em;
+			}
+			.featured-restaurant .restaurant-img {
+				max-height: 460px;
 			}
 			.restaurant-header {
 				margin-bottom: 1em;
-				border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+				border-bottom: 1px solid rgba(var(--gray-light), 0.7);
 				padding-bottom: 0.75em;
 			}
 			.restaurant-number {
@@ -225,15 +236,15 @@ const restaurantRecommendations = [
 				}
 			}
 			.verdict-block {
-				background: rgba(var(--gray-light), 0.45);
-				border-radius: 7px;
+				background: rgba(var(--gray-light), 0.24);
+				border-radius: 0;
 				padding: 0.85em 1em;
 			}
 			.verdict-block.pros {
-				background: rgba(220, 240, 220, 0.5);
+				background: rgba(225, 236, 215, 0.5);
 			}
 			.verdict-block.cons {
-				background: rgba(240, 220, 220, 0.4);
+				background: rgba(238, 225, 218, 0.5);
 			}
 			.verdict-label {
 				font-size: 0.7em;
@@ -321,7 +332,7 @@ const restaurantRecommendations = [
 
 			<div class="restaurant-list" id="restaurant-container">
 
-				<div class="restaurant" data-name="Jakarta Munch at Hungry Pearl" data-borough="Manhattan" data-type="Dining" data-tags="Indonesian, Food Hall">
+				<div class="restaurant featured-restaurant" data-name="Jakarta Munch at Hungry Pearl" data-borough="Manhattan" data-type="Dining" data-tags="Indonesian, Food Hall">
 					<div class="restaurant-header">
 						<span class="restaurant-number">01</span>
 						<h2 class="restaurant-name">
@@ -330,7 +341,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Indonesian, Food Hall</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 10 Pell St, New York, NY 10013</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM – 9:00 PM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM to 9:00 PM Daily</div>
 						</div>
 					</div>
 					
@@ -365,7 +376,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Bar and Grill, Gravesend, Brooklyn</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 2634 Shell Rd, Brooklyn, NY 11223</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM – 2:00 AM Daily (Closed Mondays)</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM to 2:00 AM Daily (Closed Mondays)</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -396,7 +407,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Caribbean-Asian Fusion, Crown Heights</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 574 Flatbush Ave, Brooklyn, NY 11225</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM – 11:00 PM Wednesday to Sunday</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM to 11:00 PM Wednesday to Sunday</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -427,7 +438,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Cocktail Bar and Event Space, Park Slope</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 390 5th Ave, Brooklyn, NY 11215</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM – Midnight Daily (speakeasy lower room until 2:00 AM Fri/Sat)</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 4:00 PM to Midnight Daily (speakeasy lower room until 2:00 AM Fri/Sat)</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -458,7 +469,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Breakfast and Fast-Casual, FiDi / Midtown</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 109 Broad St, New York, NY 10004</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 6:00 AM – 4:00 PM Monday to Friday (Closed Weekends)</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 6:00 AM to 4:00 PM Monday to Friday (Closed Weekends)</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -489,7 +500,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Japanese Omakase</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 243 E 14th St, New York, NY 10003</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:30 PM – 10:30 PM Tuesday to Saturday</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:30 PM to 10:30 PM Tuesday to Saturday</div>
 						</div>
 					</div>
 
@@ -523,7 +534,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Bar, Tribeca</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 11 Grand St, New York, NY 10013</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM – 1:00 AM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 5:00 PM to 1:00 AM Daily</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -553,7 +564,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Bar, Coney Island</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 1208 Surf Ave, Brooklyn, NY 11224</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> Noon – 8:00 PM Daily (Seasonal closures apply)</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> Noon to 8:00 PM Daily (Seasonal closures apply)</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -583,7 +594,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Apothecary Cafe, Bed-Stuy</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 345 Marcus Garvey Blvd, Brooklyn, NY 11221</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 8:00 AM – 8:00 PM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 8:00 AM to 8:00 PM Daily</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -613,7 +624,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Asian Fusion</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 120 Duane St, New York, NY 10007</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:30 AM – 10:00 PM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:30 AM to 10:00 PM Daily</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -642,7 +653,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Fried Chicken</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 184 Havemeyer St, Brooklyn, NY 11211</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM – 11:00 PM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 11:00 AM to 11:00 PM Daily</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -672,7 +683,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Vegan, Latin-Asian Fusion</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 809 Broadway, Brooklyn, NY 11206</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 9:00 AM – 3:00 PM Sunday Only (High-demand items sell out early)</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 9:00 AM to 3:00 PM Sunday Only (High-demand items sell out early)</div>
 						</div>
 					</div>
 					<div class="verdict-grid">
@@ -702,7 +713,7 @@ const restaurantRecommendations = [
 						<div class="restaurant-type">Bar, Ridgewood</div>
 						<div class="restaurant-logistics">
 							<div class="logistics-item"><span class="logistics-label">Address:</span> 54-18 Myrtle Ave, Ridgewood, NY 11385</div>
-							<div class="logistics-item"><span class="logistics-label">Hours:</span> 2:00 PM – 2:00 AM Daily</div>
+							<div class="logistics-item"><span class="logistics-label">Hours:</span> 2:00 PM to 2:00 AM Daily</div>
 						</div>
 					</div>
 					<div class="verdict-block pros" style="margin-top: 1em;">

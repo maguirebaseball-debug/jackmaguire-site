@@ -1,7 +1,7 @@
 ---
 ---
 <nav class="toc-sidebar" aria-label="Table of contents" id="tocSidebar">
-  <div class="toc-title">ON THIS PAGE</div>
+  <div class="toc-title">Margin notes</div>
   <ul class="toc-list" id="tocList"></ul>
 </nav>
 
@@ -10,13 +10,13 @@
     position: sticky;
     top: 6rem;
     align-self: start;
-    width: 220px;
+    width: 190px;
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
-    font-family: var(--font-outfit), sans-serif;
-    font-size: 0.85rem;
-    padding-left: 1rem;
-    border-left: 1px solid rgb(var(--gray-light));
+    font-family: var(--font-ui), sans-serif;
+    font-size: 0.78rem;
+    padding-left: 0.85rem;
+    border-left: 1px solid rgba(85, 107, 47, 0.18);
     display: none;
   }
 
@@ -27,12 +27,13 @@
   }
 
   .toc-title {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     color: rgb(var(--gray));
     margin-bottom: 0.75rem;
-    text-transform: uppercase;
+    text-transform: none;
+    font-style: italic;
   }
 
   .toc-list {
@@ -41,7 +42,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.38rem;
   }
 
   .toc-item {
@@ -50,7 +51,7 @@
 
   .toc-link {
     text-decoration: none;
-    color: rgb(var(--gray));
+    color: rgba(var(--gray-dark), 0.72);
     transition: color 0.2s ease, padding-left 0.2s ease;
     display: block;
   }
@@ -89,7 +90,7 @@
     if (!article) return;
 
     const headers = Array.from(article.querySelectorAll('h2, h3'));
-    if (headers.length === 0) {
+    if (headers.length < 4) {
       if (sidebar) sidebar.style.display = 'none';
       return;
     }

@@ -33,12 +33,6 @@ export default defineConfig({
 		{
 			provider: fontProviders.google(),
 			name: 'Plus Jakarta Sans',
-			cssVariable: '--font-body',
-			fallbacks: ['system-ui', 'sans-serif'],
-		},
-		{
-			provider: fontProviders.google(),
-			name: 'Plus Jakarta Sans',
 			cssVariable: '--font-ui',
 			fallbacks: ['system-ui', 'sans-serif'],
 		},

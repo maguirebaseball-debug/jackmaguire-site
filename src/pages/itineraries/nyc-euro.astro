@@ -14,14 +14,29 @@ import { SITE_TITLE } from '../../consts';
 		/>
 		<style>
 			.intro {
-				color: rgb(var(--gray));
+				color: rgb(var(--gray-dark));
 				margin-bottom: 2.5em;
 				line-height: 1.7;
 			}
+			.route-strip {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				margin: -0.8rem 0 2rem;
+				font-family: var(--font-ui), sans-serif;
+				font-size: 0.72rem;
+				color: var(--accent-dark);
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.route-strip span {
+				border-top: 1px solid rgba(85, 107, 47, 0.32);
+				padding: 0.35rem 0.75rem 0 0;
+			}
 			.overview-box {
-				background-color: #fdf8ef;
-				border: 2px solid var(--accent);
-				border-radius: 10px;
+				background-color: rgba(245, 239, 227, 0.54);
+				border: 1px solid rgba(85, 107, 47, 0.32);
+				border-radius: 0;
 				padding: 1.5rem;
 				margin-bottom: 3rem;
 				box-shadow: 0 4px 12px rgba(var(--gray), 0.06);
@@ -47,28 +62,28 @@ import { SITE_TITLE } from '../../consts';
 
 			.timeline {
 				position: relative;
-				padding-left: 2rem;
-				border-left: 3px solid var(--accent);
-				margin-left: 1rem;
+				padding-left: 0;
+				border-left: 0;
+				margin-left: 0;
 				display: flex;
 				flex-direction: column;
-				gap: 2.5rem;
+				gap: 0;
 			}
 			.timeline-item {
 				position: relative;
+				display: grid;
+				grid-template-columns: 10rem 1fr;
+				gap: 1.25rem;
+				padding: 1.35rem 0;
+				border-top: 1px solid rgba(var(--gray-light), 0.92);
 			}
 			.timeline-marker {
-				position: absolute;
-				left: calc(-2rem - 9px);
-				top: 5px;
-				width: 15px;
-				height: 15px;
-				border-radius: 50%;
-				background-color: #fff;
-				border: 4px solid var(--accent);
+				display: none;
 			}
 			.timeline-time {
-				font-family: var(--font-fraunces), serif;
+				grid-column: 1;
+				grid-row: 1 / span 2;
+				font-family: var(--font-heading);
 				font-size: 0.85em;
 				font-weight: 700;
 				color: var(--accent-dark);
@@ -78,25 +93,29 @@ import { SITE_TITLE } from '../../consts';
 				display: block;
 			}
 			.timeline-title {
+				grid-column: 2;
+				grid-row: 1;
 				font-size: 1.3em;
 				font-weight: 700;
 				color: rgb(var(--black));
 				margin: 0 0 0.5rem 0;
 			}
 			.timeline-content {
-				background-color: #fff;
-				border-radius: 8px;
-				padding: 1.25rem;
-				box-shadow: 0 1px 4px rgba(var(--gray), 10%), 0 4px 16px rgba(var(--gray), 6%);
+				grid-column: 2;
+				grid-row: 2;
+				background-color: transparent;
+				border-radius: 0;
+				padding: 0;
+				box-shadow: none;
 				font-size: 0.95em;
 				color: rgb(var(--gray-dark));
 				line-height: 1.6;
 			}
 			.activity-badge {
-				background-color: rgba(var(--gray-light), 0.5);
-				color: rgb(var(--gray-dark));
-				padding: 0.15rem 0.5rem;
-				border-radius: 4px;
+				background-color: transparent;
+				color: var(--accent-dark);
+				padding: 0;
+				border-radius: 0;
 				font-size: 0.75em;
 				font-weight: 700;
 				display: inline-block;
@@ -108,6 +127,18 @@ import { SITE_TITLE } from '../../consts';
 				color: inherit;
 				text-decoration: none;
 			}
+			@media (max-width: 680px) {
+				.timeline-item {
+					grid-template-columns: 1fr;
+					gap: 0.35rem;
+				}
+				.timeline-time,
+				.timeline-title,
+				.timeline-content {
+					grid-column: auto;
+					grid-row: auto;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -115,11 +146,20 @@ import { SITE_TITLE } from '../../consts';
 		<main>
 			<h1>NYC Euro-esque Day Itinerary</h1>
 			<p class="intro">
-				A highly curated, foot-based itinerary designed to capture the spatial feel and slow pace of European neighborhoods, focused entirely on the historic grids of Greenwich Village and the Meatpacking District.
+				A Greenwich Village day built for walking, lingering, coffee, old brick, and one good table. The route borrows the pace of a European city without pretending Manhattan has stopped being Manhattan.
 			</p>
+			<div class="route-strip" aria-label="Route sequence">
+				<span>Abingdon Square</span>
+				<span>West 12th</span>
+				<span>La Cabra</span>
+				<span>Barrow Street</span>
+				<span>Buvette</span>
+				<span>High Line</span>
+				<span>Waverly Inn</span>
+			</div>
 
 			<div class="overview-box">
-				<h2>Route Details</h2>
+				<h2>Walking ledger</h2>
 				<div class="overview-grid">
 					<div class="overview-item">
 						<strong>Total Distance:</strong> 2.8 Miles on foot

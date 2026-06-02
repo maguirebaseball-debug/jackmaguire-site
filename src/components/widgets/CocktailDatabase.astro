@@ -3,9 +3,9 @@ import cocktails from './cocktails.json';
 ---
 <div class="cocktail-database-widget" id="cocktailWidget">
   <div class="db-header">
-    <span class="widget-subtitle">DATA VIEWER</span>
-    <h3 class="db-title">The Complete Ranked Cocktail Database</h3>
-    <p class="db-intro">Search through the comprehensive quantitative database of 3,768 ranked cocktails. Filter by Tier or type a name to search instantly.</p>
+    <span class="widget-subtitle">Reference table</span>
+    <h3 class="db-title">Ranked Cocktail Database</h3>
+    <p class="db-intro">Use this as a working index of 3,768 cocktails. Filter by tier or type a name to inspect the canon without scrolling through the full list.</p>
   </div>
 
   <!-- Search & Filter Controls -->
@@ -66,13 +66,16 @@ import cocktails from './cocktails.json';
 
 <style>
   .cocktail-database-widget {
-    background-color: #FAF9F6;
-    border: 1px solid rgb(var(--gray-light));
-    border-radius: 12px;
-    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.52);
+    border-top: 2px solid rgba(85, 107, 47, 0.32);
+    border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 1.35rem 0;
     margin: 3rem 0;
-    box-shadow: 0 4px 20px rgba(var(--gray), 0.05);
-    font-family: var(--font-outfit), sans-serif;
+    box-shadow: none;
+    font-family: var(--font-ui), sans-serif;
   }
 
   .db-header {
@@ -86,7 +89,7 @@ import cocktails from './cocktails.json';
     font-size: 1.5rem;
     font-weight: 700;
     color: rgb(var(--black));
-    font-family: var(--font-fraunces), serif;
+    font-family: var(--font-heading);
   }
 
   .db-intro {
@@ -101,9 +104,9 @@ import cocktails from './cocktails.json';
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    background-color: rgba(var(--gray-light), 0.15);
-    border-radius: 8px;
-    padding: 1.25rem;
+    background-color: rgba(245, 239, 227, 0.42);
+    border-radius: 0;
+    padding: 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -116,11 +119,11 @@ import cocktails from './cocktails.json';
     width: 100%;
     padding: 0.75rem 1rem 0.75rem 2.5rem;
     font-size: 0.95rem;
-    border: 1px solid rgb(var(--gray-light));
-    border-radius: 6px;
-    background-color: #FFF;
+    border: 1px solid rgba(85, 107, 47, 0.24);
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.74);
     color: rgb(var(--black));
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-ui), sans-serif;
     outline: none;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
     transition: border-color 0.2s ease;
@@ -162,9 +165,10 @@ import cocktails from './cocktails.json';
   }
 
   .tier-tab {
-    background: #FFF;
-    border: 1px solid rgb(var(--gray-light));
-    border-radius: 6px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+    border-radius: 0;
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
     font-weight: 600;
@@ -179,9 +183,9 @@ import cocktails from './cocktails.json';
   }
 
   .tier-tab.active {
-    background-color: var(--accent-dark);
-    border-color: var(--accent-dark);
-    color: #FFF;
+    background-color: rgba(245, 239, 227, 0.9);
+    border-color: var(--accent);
+    color: var(--accent-dark);
   }
 
   /* Meta Row */
@@ -231,9 +235,9 @@ import cocktails from './cocktails.json';
   /* Table Styles */
   .table-scroll-container {
     overflow-x: auto;
-    border: 1px solid rgba(var(--gray-light), 0.6);
-    border-radius: 8px;
-    background: #FFF;
+    border: 1px solid rgba(var(--gray-light), 0.78);
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.72);
     margin-bottom: 1.5rem;
   }
 
@@ -245,7 +249,7 @@ import cocktails from './cocktails.json';
   }
 
   .db-table th {
-    background-color: #FAF9F6;
+    background-color: rgba(245, 239, 227, 0.78);
     border-bottom: 2px solid rgb(var(--gray-light));
     color: rgb(var(--black));
     font-weight: 700;
@@ -274,7 +278,7 @@ import cocktails from './cocktails.json';
     text-align: right;
     font-weight: 700;
     color: rgb(var(--black));
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-ui), sans-serif;
   }
 
   /* Tier Badges */

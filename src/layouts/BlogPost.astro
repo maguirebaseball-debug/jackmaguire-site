@@ -118,7 +118,7 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				font-size: clamp(1.4rem, 4.5vw, 3rem);
 				font-weight: 700;
 				line-height: 1.05;
-				letter-spacing: -0.01em;
+				letter-spacing: 0;
 				text-wrap: pretty;
 			}
 			.date {
@@ -131,11 +131,6 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 			}
 			.last-updated-on {
 				font-style: italic;
-			}
-			.title hr {
-				width: 7rem;
-				margin: 0;
-				border-top-color: rgba(85, 107, 47, 0.35);
 			}
 			@media (max-width: 480px) {
 				.title h1 {
@@ -161,48 +156,6 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 			.prose :global(p + table) {
 				margin-top: 0.75rem;
 			}
-			.related-recommendations {
-				margin-top: 3.5rem;
-				padding: 1.25rem 1.35rem;
-				border-top: 2px solid rgba(85, 107, 47, 0.30);
-				background: rgba(85, 107, 47, 0.05);
-				border-radius: 4px;
-			}
-			.related-recommendations h2 {
-				margin: 0 0 0.8rem 0;
-				font-size: 0.68rem;
-				font-style: normal;
-				font-weight: 700;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				color: var(--accent-dark);
-			}
-			.related-recommendations ul {
-				display: flex;
-				flex-direction: column;
-				gap: 0;
-				margin: 0 0 0.9rem 0;
-				padding: 0;
-				list-style: none;
-			}
-			.related-recommendations li {
-				border-bottom: 1px solid rgba(85, 107, 47, 0.10);
-			}
-			.related-recommendations li:last-child {
-				border-bottom: none;
-			}
-			.related-recommendations li a {
-				display: flex;
-				align-items: center;
-				padding: 0.55rem 0;
-				font-size: 0.92rem;
-				color: rgb(var(--gray-dark));
-				text-decoration: none;
-				transition: color 0.15s;
-			}
-			.related-recommendations li a:hover {
-				color: var(--accent);
-			}
 			.rss-cta {
 				margin: 0;
 				font-size: 0.76rem;
@@ -211,16 +164,6 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 			.rss-cta a {
 				color: rgba(var(--gray-dark), 0.6);
 				text-underline-offset: 0.15em;
-			}
-			@media (max-width: 720px) {
-				.related-recommendations {
-					padding: 1rem 1rem;
-				}
-				.related-recommendations li a {
-					padding: 0.7rem 0;
-					font-size: 1rem;
-					min-height: 2.75rem;
-				}
 			}
 		</style>
 	</head>
@@ -247,13 +190,13 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 								}
 							</div>
 							<h1>{title}</h1>
-							<hr />
 						</div>
 						<slot />
 						{
 							relatedRecommendationLinks.length > 0 && (
-								<section class="related-recommendations" aria-labelledby="related-recommendations-title">
-									<h2 id="related-recommendations-title">Read next</h2>
+								<>
+									<hr />
+									<p>Further reading:</p>
 									<ul>
 										{relatedRecommendationLinks.map((link) => (
 											<li>
@@ -262,7 +205,7 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 										))}
 									</ul>
 									<p class="rss-cta">New posts occasionally. <a href="/rss.xml">Subscribe via RSS</a> to follow along.</p>
-								</section>
+								</>
 							)
 						}
 					</div>

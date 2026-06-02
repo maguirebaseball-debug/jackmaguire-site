@@ -35,18 +35,18 @@ const recommendationHubs = [
 		<Header />
 		<main>
 			<h1>Recommendations</h1>
-			<p class="intro">Things I consistently return to and recommend without hesitation.</p>
+			<p class="intro">Things I return to after actual use: places, books, tools, and films with enough signal to recommend directly.</p>
 			<p class="updated">Last updated: {lastUpdated}</p>
 
-			<section>
+			<section class="feature">
 				<h2>NYC Restaurants</h2>
-				<p>Practical dining picks across New York City. Updated as I eat.</p>
+				<p>Practical dining picks across New York City, with firsthand notes and clear tradeoffs.</p>
 				<a href="/recommendations/nyc-restaurants" class="section-link">View list →</a>
 			</section>
 
 			<section>
 				<h2>Chinatown Non-Spicy Intel</h2>
-				<p>A high-energy, pop-style guide to the best mild Malay dishes at Curry House on Pell Street.</p>
+				<p>A restrained field guide to mild Malaysian orders at Curry House on Pell Street.</p>
 				<a href="/recommendations/curry-house-chinatown" class="section-link">View guide →</a>
 			</section>
 
@@ -90,22 +90,44 @@ const recommendationHubs = [
 		margin-bottom: 2.5em;
 	}
 	section {
-		border-bottom: 1px solid rgb(var(--gray-light));
-		padding: 1.5em 0;
+		display: grid;
+		grid-template-columns: 14rem 1fr auto;
+		gap: 1rem;
+		align-items: baseline;
+		border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+		padding: 1.35em 0;
 	}
 	section:last-child {
 		border-bottom: none;
 	}
 	section h2 {
 		font-size: 1.2em;
-		margin-bottom: 0.4em;
+		margin: 0;
 	}
 	section p {
-		margin: 0 0 0.5em 0;
+		margin: 0;
 		color: rgb(var(--gray));
 		font-size: 0.95em;
 	}
 	.section-link {
 		font-size: 0.9em;
+		white-space: nowrap;
+	}
+	.feature {
+		padding: 1.6em 1em;
+		margin-left: -1em;
+		margin-right: -1em;
+		border-left: 3px solid rgba(85, 107, 47, 0.45);
+		background: linear-gradient(90deg, rgba(245, 239, 227, 0.55), transparent 72%);
+	}
+	@media (max-width: 720px) {
+		section {
+			grid-template-columns: 1fr;
+			gap: 0.35rem;
+		}
+		.feature {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 </style>
