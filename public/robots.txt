@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /x/peak/
 
 Sitemap: https://jackmaguire.org/sitemap-index.xml
