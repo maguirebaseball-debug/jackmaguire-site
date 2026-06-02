@@ -1,0 +1,242 @@
+---
+const title = "Sobriety Log";
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title}</title>
+  <style>
+    :root {
+      --accent: #556B2F;
+      --accent-dark: #3A4B1C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #faf9f6;
+      color: #222;
+      min-height: 100vh;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .back {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #bbb;
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .back:hover { color: #888; }
+
+    h1 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      font-weight: normal;
+      margin-bottom: 2.5rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1px;
+      background: #eee;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-cell {
+      background: #faf9f6;
+      padding: 1rem 1.2rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #bbb;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+      color: #555;
+    }
+
+    thead th {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #bbb;
+      font-weight: normal;
+      padding-bottom: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    thead th:last-child { text-align: right; }
+
+    tbody td {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #f3f3f3;
+      vertical-align: middle;
+    }
+
+    tbody td:last-child { text-align: right; color: #888; }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    .run-num {
+      font-size: 0.65rem;
+      color: #ccc;
+      margin-right: 0.5rem;
+    }
+
+    .empty {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.85rem;
+      padding: 3rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/sobriety" class="back">← back to timer</a>
+    <h1>Full log</h1>
+
+    <div class="stats-grid" id="stats-grid" style="display:none;"></div>
+
+    <table id="log-table" style="display:none;">
+      <thead>
+        <tr>
+          <th>Started</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody id="log-body"></tbody>
+    </table>
+
+    <p class="empty" id="empty-msg">No history yet.</p>
+  </div>
+
+  <script is:inline>
+    const UPSTASH_URL = 'https://still-jennet-137992.upstash.io';
+    const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
+    const HISTORY_KEY = 'sobriety_history';
+
+    function formatDuration(ms) {
+      let s = Math.floor(ms / 1000);
+      const weeks = Math.floor(s / (7 * 24 * 3600));
+      s -= weeks * 7 * 24 * 3600;
+      const days = Math.floor(s / (24 * 3600));
+      s -= days * 24 * 3600;
+      const hours = Math.floor(s / 3600);
+      const parts = [];
+      if (weeks > 0) parts.push(weeks + (weeks === 1 ? ' week' : ' weeks'));
+      if (days > 0) parts.push(days + (days === 1 ? ' day' : ' days'));
+      if (hours > 0 && weeks === 0) parts.push(hours + (hours === 1 ? ' hour' : ' hours'));
+      return parts.length > 0 ? parts.join(', ') : 'less than an hour';
+    }
+
+    function median(sorted) {
+      const n = sorted.length;
+      return n % 2 === 0
+        ? (sorted[n / 2 - 1] + sorted[n / 2]) / 2
+        : sorted[Math.floor(n / 2)];
+    }
+
+    async function init() {
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + HISTORY_KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (!data.result) return;
+        const history = JSON.parse(data.result);
+        if (!history || history.length === 0) return;
+
+        document.getElementById('empty-msg').style.display = 'none';
+
+        // Stats
+        const durations = history.map(e => e.duration);
+        const n = durations.length;
+        const total = durations.reduce((a, b) => a + b, 0);
+        const avg = total / n;
+        const sorted = [...durations].sort((a, b) => a - b);
+        const med = median(sorted);
+        const minD = sorted[0];
+        const maxD = sorted[sorted.length - 1];
+
+        const stats = [
+          { label: 'Total runs', value: n },
+          { label: 'Shortest', value: formatDuration(minD) },
+          { label: 'Longest', value: formatDuration(maxD) },
+          { label: 'Average', value: formatDuration(avg) },
+          { label: 'Median', value: n >= 2 ? formatDuration(med) : 'n/a' },
+          { label: 'Total time', value: formatDuration(total) },
+        ];
+
+        const grid = document.getElementById('stats-grid');
+        grid.style.display = 'grid';
+        stats.forEach(s => {
+          const cell = document.createElement('div');
+          cell.className = 'stat-cell';
+          cell.innerHTML = '<div class="stat-value">' + s.value + '</div><div class="stat-label">' + s.label + '</div>';
+          grid.appendChild(cell);
+        });
+
+        // Table (newest first)
+        const table = document.getElementById('log-table');
+        table.style.display = 'table';
+        const tbody = document.getElementById('log-body');
+        const reversed = [...history].reverse();
+        reversed.forEach((entry, i) => {
+          const tr = document.createElement('tr');
+          const dateStr = new Date(entry.start).toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric'
+          });
+          const runNum = history.length - i;
+          tr.innerHTML =
+            '<td><span class="run-num">#' + runNum + '</span>' + dateStr + '</td>' +
+            '<td>' + formatDuration(entry.duration) + '</td>';
+          tbody.appendChild(tr);
+        });
+      } catch (e) {}
+    }
+
+    init();
+  </script>
+</body>
+</html>

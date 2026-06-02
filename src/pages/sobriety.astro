@@ -196,7 +196,7 @@ const description = "A personal count-up timer.";
     <p class="location" id="location-text"></p>
 
     <div class="history-section" id="history-section" style="display:none;">
-      <p class="history-title">Previous runs</p>
+      <p class="history-title">Previous runs &nbsp;<a href="/sobriety/log" style="font-size:0.6rem;color:#ccc;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;">full log</a></p>
       <table class="history-table">
         <thead>
           <tr>
@@ -277,7 +277,7 @@ const description = "A personal count-up timer.";
         document.getElementById('history-section').style.display = 'block';
 
         const tbody = document.getElementById('history-body');
-        const reversed = [...history].reverse();
+        const reversed = [...history].reverse().slice(0, 7);
         reversed.forEach(entry => {
           const tr = document.createElement('tr');
           const dateStr = new Date(entry.start).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });

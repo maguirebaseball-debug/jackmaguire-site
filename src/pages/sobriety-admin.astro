@@ -329,11 +329,10 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       if (duration < 60000) return; // skip runs under a minute
       const history = await getHistory();
       history.push({ start: startTs, duration });
-      const trimmed = history.slice(-7);
       await fetch(UPSTASH_URL + '/pipeline', {
         method: 'POST',
         headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN, 'Content-Type': 'application/json' },
-        body: JSON.stringify([['SET', HISTORY_KEY, JSON.stringify(trimmed)]])
+        body: JSON.stringify([['SET', HISTORY_KEY, JSON.stringify(history)]])
       });
     }
 
