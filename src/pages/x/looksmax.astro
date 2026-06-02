@@ -119,26 +119,73 @@ const faces = [{"name": "Alain Delon", "seed": 100}, {"name": "Marlon Brando", "
                 text-align: center;
                 background: #fdfdfc;
             }
+            .game-hud {
+                display: flex;
+                justify-content: space-between;
+                font-family: monospace;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: var(--accent-dark);
+                margin-bottom: 1rem;
+                padding: 0 1rem;
+            }
             .game-canvas {
-                width: 200px;
-                height: 250px;
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
                 margin: 0 auto;
                 position: relative;
-                border: 1px dashed #ccc;
-                margin-bottom: 1rem;
+                border: 2px dashed #ccc;
+                background: #fff;
+                overflow: hidden;
+            }
+            #target-btn {
+                position: absolute;
+                background: var(--accent-dark);
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                font-family: var(--font-ui), sans-serif;
+                font-size: 0.8rem;
+                cursor: pointer;
+                border-radius: 4px;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+            #start-screen {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(255,255,255,0.9);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 20;
+            }
+            #start-btn, #restart-btn {
+                background: var(--accent-dark);
+                color: white;
+                border: none;
+                padding: 0.8rem 1.5rem;
+                font-family: var(--font-ui), sans-serif;
+                font-size: 1rem;
+                cursor: pointer;
+                margin-top: 1rem;
             }
             .dude-part {
                 position: absolute;
-                transition: all 0.5s ease;
+                transition: all 0.3s ease;
             }
             #dude-head {
                 width: 60px;
                 height: 70px;
                 border: 2px solid black;
                 border-radius: 50%;
-                top: 20px;
-                left: 70px;
+                top: 40px;
+                left: 170px;
                 background: white;
+                z-index: 1;
             }
             #dude-jaw {
                 width: 40px;
@@ -156,17 +203,17 @@ const faces = [{"name": "Alain Delon", "seed": 100}, {"name": "Marlon Brando", "
             }
             #dude-body {
                 width: 4px;
-                height: 80px;
+                height: 100px;
                 background: black;
-                top: 90px;
-                left: 98px;
+                top: 110px;
+                left: 198px;
             }
             #dude-shoulders {
                 width: 40px;
                 height: 4px;
                 background: black;
-                top: 110px;
-                left: 80px;
+                top: 130px;
+                left: 180px;
             }
             #dude-hair {
                 width: 60px;
@@ -178,25 +225,6 @@ const faces = [{"name": "Alain Delon", "seed": 100}, {"name": "Marlon Brando", "
                 top: -5px;
                 left: -2px;
                 opacity: 0;
-            }
-            .game-controls button {
-                background: white;
-                border: 1px solid var(--accent-dark);
-                padding: 0.5rem 1rem;
-                margin: 0.2rem;
-                cursor: pointer;
-                font-family: var(--font-ui), sans-serif;
-            }
-            .game-controls button:hover {
-                background: var(--accent-dark);
-                color: white;
-            }
-            .score-display {
-                font-family: monospace;
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: var(--accent-dark);
-                margin-bottom: 1rem;
             }
         </style>
     </head>
@@ -224,22 +252,31 @@ const faces = [{"name": "Alain Delon", "seed": 100}, {"name": "Marlon Brando", "
                 </div>
 
                 <div class="minigame">
-                    <h3>Ascension Simulator</h3>
-                    <p>Allocate effort to optimize the subject.</p>
-                    <div class="score-display">SMV Score: <span id="smv-score">3.0</span>/10</div>
-                    <div class="game-canvas">
+                    <h3>30-Second Ascension Simulator</h3>
+                    <p>Click the looksmaxing protocols as fast as possible before time runs out!</p>
+                    <div class="game-hud">
+                        <div>SMV Score: <span id="smv-score">3.0</span>/10</div>
+                        <div>Time: <span id="time-left">30</span>s</div>
+                    </div>
+                    <div class="game-canvas" id="game-arena">
                         <div id="dude-head" class="dude-part">
                             <div id="dude-hair"></div>
                             <div id="dude-jaw"></div>
                         </div>
                         <div id="dude-shoulders" class="dude-part"></div>
                         <div id="dude-body" class="dude-part"></div>
-                    </div>
-                    <div class="game-controls">
-                        <button onclick="applyMewing()">Orthotropics (Mew)</button>
-                        <button onclick="applyLifting()">Hypertrophy (Lift)</button>
-                        <button onclick="applyFinasteride()">Finasteride (Hair)</button>
-                        <button onclick="applyLeaning()">Caloric Deficit (Cut)</button>
+                        
+                        <div id="start-screen">
+                            <h4>Ready to Ascend?</h4>
+                            <button id="start-btn">Start 30s Timer</button>
+                        </div>
+                        
+                        <div id="game-over" style="display: none;">
+                            <h4 id="final-rank"></h4>
+                            <button id="restart-btn">Try Again</button>
+                        </div>
+                        
+                        <button id="target-btn" style="display: none;">Apply</button>
                     </div>
                 </div>
 
@@ -298,58 +335,147 @@ const faces = [{"name": "Alain Delon", "seed": 100}, {"name": "Marlon Brando", "
             });
             
             // Minigame logic
+            const tactics = ["Mewing", "Lifting", "Finasteride", "Caloric Deficit", "Skincare", "Posture", "Wardrobe", "Fragrance", "Sleep", "Orthotropics"];
             let score = 3.0;
-            let mewed = false;
-            let lifted = false;
-            let haired = false;
-            let leaned = false;
+            let clicks = 0;
+            let timeLeft = 30;
+            let timerInterval;
             
-            function updateScore() {
-                document.getElementById('smv-score').innerText = score.toFixed(1);
-                if (score >= 8.0) {
-                    document.getElementById('smv-score').style.color = '#ff4500';
-                    document.getElementById('smv-score').innerText += ' (Chadlite)';
+            const scoreEl = document.getElementById('smv-score');
+            const timeEl = document.getElementById('time-left');
+            const targetBtn = document.getElementById('target-btn');
+            const startScreen = document.getElementById('start-screen');
+            const startBtn = document.getElementById('start-btn');
+            const gameOverScreen = document.getElementById('game-over');
+            const finalRank = document.getElementById('final-rank');
+            const restartBtn = document.getElementById('restart-btn');
+            const arena = document.getElementById('game-arena');
+            
+            const dudeHead = document.getElementById('dude-head');
+            const dudeJaw = document.getElementById('dude-jaw');
+            const dudeShoulders = document.getElementById('dude-shoulders');
+            const dudeHair = document.getElementById('dude-hair');
+            
+            function updateDude() {
+                if (clicks > 2) dudeHair.style.opacity = '1';
+                if (clicks > 5) {
+                    dudeHead.style.width = '50px';
+                    dudeHead.style.left = '175px';
+                }
+                if (clicks > 8) {
+                    dudeJaw.style.opacity = '1';
+                    dudeJaw.style.width = '46px';
+                    dudeJaw.style.left = '0px';
+                }
+                if (clicks > 12) {
+                    dudeShoulders.style.width = '100px';
+                    dudeShoulders.style.left = '150px';
+                    dudeShoulders.style.height = '12px';
+                }
+                if (clicks > 18) {
+                    dudeJaw.style.width = '54px';
+                    dudeJaw.style.left = '-4px';
+                    dudeJaw.style.borderBottomLeftRadius = '5px';
+                    dudeJaw.style.borderBottomRightRadius = '5px';
+                    dudeShoulders.style.width = '140px';
+                    dudeShoulders.style.left = '130px';
+                    dudeShoulders.style.height = '20px';
                 }
             }
             
-            window.applyMewing = () => {
-                if(mewed) return;
-                mewed = true;
-                score += 1.5;
-                document.getElementById('dude-jaw').style.opacity = '1';
-                document.getElementById('dude-jaw').style.width = '50px';
-                document.getElementById('dude-jaw').style.left = '3px';
-                document.getElementById('dude-jaw').style.borderBottomLeftRadius = '5px';
-                document.getElementById('dude-jaw').style.borderBottomRightRadius = '5px';
-                updateScore();
-            };
+            function resetDude() {
+                dudeHair.style.opacity = '0';
+                dudeHead.style.width = '60px';
+                dudeHead.style.left = '170px';
+                dudeJaw.style.opacity = '0';
+                dudeJaw.style.width = '40px';
+                dudeJaw.style.left = '8px';
+                dudeJaw.style.borderBottomLeftRadius = '20px';
+                dudeJaw.style.borderBottomRightRadius = '20px';
+                dudeShoulders.style.width = '40px';
+                dudeShoulders.style.left = '180px';
+                dudeShoulders.style.height = '4px';
+            }
             
-            window.applyLifting = () => {
-                if(lifted) return;
-                lifted = true;
-                score += 1.0;
-                document.getElementById('dude-shoulders').style.width = '80px';
-                document.getElementById('dude-shoulders').style.left = '60px';
-                document.getElementById('dude-shoulders').style.height = '15px';
-                updateScore();
-            };
+            function moveTarget() {
+                const arenaRect = arena.getBoundingClientRect();
+                const btnWidth = 100;
+                const btnHeight = 30;
+                const padding = 10;
+                
+                const maxX = arenaRect.width - btnWidth - padding * 2;
+                const maxY = arenaRect.height - btnHeight - padding * 2;
+                
+                const x = padding + btnWidth/2 + Math.floor(Math.random() * maxX);
+                const y = padding + btnHeight/2 + Math.floor(Math.random() * maxY);
+                
+                targetBtn.style.left = x + 'px';
+                targetBtn.style.top = y + 'px';
+                targetBtn.innerText = tactics[Math.floor(Math.random() * tactics.length)];
+            }
             
-            window.applyFinasteride = () => {
-                if(haired) return;
-                haired = true;
-                score += 1.2;
-                document.getElementById('dude-hair').style.opacity = '1';
-                updateScore();
-            };
+            function startGame() {
+                score = 3.0;
+                clicks = 0;
+                timeLeft = 30;
+                scoreEl.innerText = score.toFixed(1);
+                scoreEl.style.color = 'var(--accent-dark)';
+                timeEl.innerText = timeLeft;
+                
+                resetDude();
+                startScreen.style.display = 'none';
+                gameOverScreen.style.display = 'none';
+                targetBtn.style.display = 'block';
+                
+                moveTarget();
+                
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    timeEl.innerText = timeLeft;
+                    if (timeLeft <= 0) {
+                        endGame();
+                    }
+                }, 1000);
+            }
             
-            window.applyLeaning = () => {
-                if(leaned) return;
-                leaned = true;
-                score += 1.3;
-                document.getElementById('dude-head').style.width = '45px';
-                document.getElementById('dude-head').style.left = '77.5px';
-                updateScore();
-            };
+            function endGame() {
+                clearInterval(timerInterval);
+                targetBtn.style.display = 'none';
+                gameOverScreen.style.display = 'flex';
+                gameOverScreen.style.flexDirection = 'column';
+                gameOverScreen.style.alignItems = 'center';
+                gameOverScreen.style.position = 'absolute';
+                gameOverScreen.style.top = '0';
+                gameOverScreen.style.left = '0';
+                gameOverScreen.style.right = '0';
+                gameOverScreen.style.bottom = '0';
+                gameOverScreen.style.background = 'rgba(255,255,255,0.9)';
+                gameOverScreen.style.justifyContent = 'center';
+                gameOverScreen.style.zIndex = '20';
+                
+                let rank = "Incel";
+                if (score >= 4.0) rank = "Normie";
+                if (score >= 6.0) rank = "High Tier Normie";
+                if (score >= 7.5) rank = "Chadlite";
+                if (score >= 9.0) rank = "Chad";
+                if (score >= 10.0) rank = "Giga Chad";
+                
+                finalRank.innerText = `Final SMV: ${score.toFixed(1)}/10\nRank: ${rank}`;
+            }
+            
+            targetBtn.addEventListener('click', () => {
+                clicks++;
+                score += 0.2;
+                if (score > 10) score = 10.0;
+                scoreEl.innerText = score.toFixed(1);
+                if (score >= 8.0) scoreEl.style.color = '#ff4500';
+                
+                updateDude();
+                moveTarget();
+            });
+            
+            startBtn.addEventListener('click', startGame);
+            restartBtn.addEventListener('click', startGame);
         </script>
     </body>
 </html>
