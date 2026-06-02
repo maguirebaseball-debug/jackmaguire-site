@@ -8,10 +8,29 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
         <head>
-                <BaseHead title={`Start Here | ${SITE_TITLE}`} description="An introduction to Jack Maguire, his philosophy, and his work." />
+                <BaseHead title={`Start Here | ${SITE_TITLE}`} description="Jack Maguire writes about performance marketing, NYC food, AI tools, and philosophy. Start here for an introduction to his work and how to navigate the site." />
                 <style>
+                        .start-lede {
+                                margin-bottom: 2rem;
+                                padding-bottom: 1.3rem;
+                                border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+                        }
+                        .kicker {
+                                margin: 0 0 0.45rem;
+                                font-family: var(--font-outfit), sans-serif;
+                                font-size: 0.72rem;
+                                font-weight: 700;
+                                color: var(--accent-dark);
+                                text-transform: uppercase;
+                                letter-spacing: 0.05em;
+                        }
+                        .start-lede p:last-child {
+                                margin: 0;
+                                color: rgb(var(--gray-dark));
+                                font-size: 1.05em;
+                        }
                         .prose h2 {
-                                font-size: 1.8em;
+                                font-size: 1.35em;
                                 margin-top: 2em;
                                 margin-bottom: 0.5em;
                                 color: rgb(var(--black));
@@ -36,37 +55,41 @@ import { SITE_TITLE } from '../consts';
         <body>
                 <Header />
                 <main>
-                        <h1>Start Here</h1>
+                        <section class="start-lede">
+                                <p class="kicker">Site orientation</p>
+                                <h1>Start Here</h1>
+                                <p>Start with the recurring threads: paid social systems, East Village life, food as fieldwork, travel by constraint, and presence as a practical discipline.</p>
+                        </section>
                         <div class="prose">
-                                				<p>Welcome to this digital archive. I am Jack Maguire, a performance marketer and writer based in the East Village of New York City. This site is a repository for my writing, technical projects, and firsthand evaluations across paid social media, urbanism, long-distance travel, and gastronomy.</p>
+				<p>I am Jack Maguire, a performance marketer and writer based in the East Village of New York City. This site collects essays, route plans, rankings, and firsthand evaluations across paid social media, urbanism, long-distance travel, restaurants, books, and AI tools.</p>
 
 				<h2>Performance Marketing</h2>
 
-				<p>My work as a Senior Paid Social Media Director focuses on scaling campaign structures across Meta, TikTok, and Snapchat. The advertising industry is flooded with noise and vanity metrics. My approach requires deterministic measurement, incrementality testing, and direct attribution. Managing high-volume restaurant operations early in my career taught me how systems function under operational friction. In media buying, I apply these principles by treating creative testing as the primary lever for capital allocation and letting real customer lifetime value dictate budget growth.</p>
+				<p>My work as a Senior Paid Social Media Director focuses on scaling campaign structures across Meta, TikTok, and Snapchat. The advertising industry rewards noise, so I care about measurement, incrementality, creative testing, and the operational details that reveal where growth actually comes from.</p>
 
 				<h2>Urbanism and the East Village</h2>
 
-				<p>Living in the East Village is an active choice driven by an interest in urban planning and spatial economics. Cities thrive when they optimize for density, walkability, and strong local gathering places. Exploring the streets of Manhattan allows me to observe the micro-economies, zoning laws, and daily routines that shape urban life. The constant movement of New York provides a baseline of challenge that encourages resilience and continuous adaptation.</p>
+				<p>Living in the East Village gives the site a practical geography. Restaurants, coffee shops, sidewalk routines, transit friction, and small neighborhood economies all become observable systems. I write about cities through what I can actually walk, eat, notice, and test.</p>
 
 				<h2>Long-Distance Travel</h2>
 
-				<p>Travel functions as a project in logistics and calculated risk. Navigating remote four-wheel-drive tracks in the Australian Outback or planning complex overland routes through South America requires analytical preparation. I design itineraries using minimalist principles to reduce friction and increase focus. Thru-hiking the Appalachian Trail in ninety-nine days established a high benchmark for physical endurance. Solo travel requires intentional structure, where shared accommodations and local transport operate as tools to balance personal autonomy with deep community immersion.</p>
+				<p>Travel functions as logistics under pressure. I care about train stations, border crossings, lodging friction, walking distance, and the point where a route becomes elegant rather than merely efficient. Thru-hiking the Appalachian Trail in ninety-nine days still shapes how I think about endurance, constraints, and attention.</p>
 
 				<h2>Gastronomy</h2>
 
-				<p>Food represents a intersection of local culture, agriculture, and culinary science. My interest covers everything from the chemistry of high-heat cooking to the logistics of fast-casual operations. Evaluating a high-end tasting menu or a local pizza slice requires the same standard: clean execution, high-quality ingredients, and a clear point of view from the kitchen.</p>
+				<p>Food gives the site its most concrete research subject. I care about the chemistry of cooking, the logistics of restaurant operations, and the difference between a place with real point of view and a place with merely competent execution.</p>
 
 				<h2>Philosophy of Presence</h2>
 
-				<p>My intellectual interests focus on existentialism and phenomenology. Attempting to treat grief or personal setbacks as simple optimization problems fails. Meaning does not occur through automated systems; it accumulates through small, authentic experiences: a quiet conversation, a shared meal, or a demanding text. I focus on being present rather than hyper-optimizing every hour, maintaining an honest assessment of both my setbacks and my structural achievements in statistics, philosophy, and modern software tools.</p>
+				<p>My intellectual interests focus on existentialism, phenomenology, and the limits of optimization. Meaning accumulates through ordinary experience: a quiet conversation, a shared meal, a demanding text, a walk that changes the day. The site keeps that tension visible.</p>
 
 				<h2>Social Connection</h2>
 
-				<p>Hosting, connecting, and bringing people together form the core of my social life. I value the energy of live music and electronic music culture, but I recognize that social utility differs from genuine connection. I prioritize friendships built on shared vulnerability, intellectual honesty, and mutual respect, which require a life that is fully inhabited and engaged.</p>
+				<p>Hosting, connecting, and bringing people together form the core of my social life. I value friendships built on shared vulnerability, intellectual honesty, and mutual respect, because a life organized only around output becomes too thin.</p>
 
 				<h2>Synthesis</h2>
 
-				<p>The essays on this site aim to clarify complex topics through direct, objective prose. By understanding how incentives, networks, and physical realities function, we can build cleaner models of the world. This page is an active document tracking my research on media measurement, urban geography, and the search for authentic experience.</p>
+				<p>The essays on this site aim to clarify complex topics through direct prose. The method stays consistent: inspect incentives, compare real examples, notice physical constraints, and prefer firsthand evidence when possible.</p>
                         </div>
                 </main>
                 <Footer />

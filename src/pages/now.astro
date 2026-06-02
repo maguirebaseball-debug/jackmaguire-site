@@ -10,13 +10,16 @@ const lastUpdated = 'May 2026';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Now: ${SITE_TITLE}`} description="What I'm up to right now." />
+		<BaseHead title={`Now: ${SITE_TITLE}`} description="Jack Maguire is a performance marketing consultant based in East Village, NYC. Current work, reading, and travel notes updated regularly." />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Now</h1>
-			<p class="updated">Last updated: {lastUpdated}</p>
+			<section class="now-lede">
+				<p class="kicker">Current coordinates</p>
+				<h1>Now</h1>
+				<p>East Village work, reading, and travel notes as of {lastUpdated}.</p>
+			</section>
 
 			<div class="prose">
 				<h2>Location</h2>
@@ -29,7 +32,7 @@ const lastUpdated = 'May 2026';
                                 <p>Revisiting existentialist philosophy and theology. Exploring texts that focus on narrative history, behavioral economics, and how humans construct meaning when old centers of gravity shift.</p>
 
                                 <h2>Thinking about</h2>
-                                <p><strong>Presence over optimization.</strong> I've spent years researching, building systems, and optimizing outcomes,even attempting to process grief that way. Right now, I'm learning that the best parts of life aren't optimized into existence; they are encountered. I'm focusing on meaning as an accumulation (in a conversation, a meal, a single paragraph) rather than orbiting a single center.</p>
+                                <p><strong>Presence over optimization.</strong> I've spent years researching, building systems, and optimizing outcomes, even attempting to process grief that way. Right now, I am learning that the best parts of life are encountered rather than optimized into existence. I am focusing on meaning as an accumulation in conversation, a meal, or a single paragraph.</p>
 
 				<h2>Travel</h2>
 				<p>Central Europe, April-May 2026. Geneva → Venice → Ljubljana → Graz → Bratislava → Brno → Prague → Wrocław → Dublin.</p>
@@ -47,6 +50,24 @@ const lastUpdated = 'May 2026';
 		color: rgb(var(--gray));
 		margin-top: -0.5em;
 		margin-bottom: 2em;
+	}
+	.now-lede {
+		margin-bottom: 2rem;
+		padding: 1.25rem 0 1.5rem;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+	}
+	.kicker {
+		margin: 0 0 0.45rem;
+		font-family: var(--font-outfit), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.now-lede p:last-child {
+		margin: 0;
+		color: rgb(var(--gray-dark));
 	}
 	.prose h2 {
 		font-size: 1.1em;

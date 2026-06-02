@@ -4,6 +4,13 @@ description: "Across hundreds of Reddit threads and a small body of clinical lit
 pubDate: 2026-05-29
 ogImage: "/og-ai-job-grief.png"
 tags: ["tech", "ai", "essays"]
+relatedLinks:
+  - href: "/blog/mutual-parasociality-friendships-digital-world/"
+    label: "mutual parasociality and digital relationships"
+  - href: "/blog/how-i-use-ai-to-solve-everyday-problems/"
+    label: "using AI as a daily problem-solving tool"
+  - href: "/blog/my-brother-building-data-platform-fishermen/"
+    label: "a data platform built for New England fishing boats"
 ---
 
 In the summer of 2025, an Epic Games layoff cut a worker who was a terminally ill father. According to the most-discussed account of the episode, his family lost his life insurance along with the job. The Reddit thread documenting it reached 36,687 upvotes on [r/technology](https://www.reddit.com/r/technology/comments/1s6vuih/). The comments contain shock, anger, and a great deal of helplessness. What they do not contain is a settled vocabulary for the thing that happened. The closest the discussion gets is a recurring sense that something has been taken that goes beyond a paycheck.

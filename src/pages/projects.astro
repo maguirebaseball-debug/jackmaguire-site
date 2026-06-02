@@ -8,19 +8,22 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Projects: ${SITE_TITLE}`} description="Tools, experiments, and other things I've built or written." />
+		<BaseHead title={`Projects: ${SITE_TITLE}`} description="A collection of tools, data experiments, and projects from Jack Maguire, including cocktail databases, ingredient pairing analysis, and structured travel itineraries." />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Projects</h1>
-			<p class="intro">Tools, experiments, and other things I've built or written.</p>
+			<section class="project-lede">
+				<p class="kicker">Small systems and route plans</p>
+				<h1>Projects</h1>
+				<p class="intro">Tools, itineraries, and structured notes built around questions I wanted answered cleanly.</p>
+			</section>
 
 			<ul class="project-list">
 				<li>
 					<a href="/itineraries/central-europe">
 						<span class="title">A Fortnight in Central Europe</span>
-						<span class="desc">15-day itinerary: Geneva → Venice → Ljubljana → Graz → Bratislava → Brno → Prague → Wrocław → Dublin</span>
+						<span class="desc">Fifteen days by rail, bus, shuttle, and one short flight from Geneva to Dublin.</span>
 					</a>
 				</li>
 				<li>
@@ -38,7 +41,21 @@ import { SITE_TITLE } from '../consts';
 <style>
 	.intro {
 		color: rgb(var(--gray));
-		margin-bottom: 2.5em;
+		margin: 0;
+	}
+	.project-lede {
+		margin-bottom: 2.4rem;
+		padding-bottom: 1.2rem;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+	}
+	.kicker {
+		margin: 0 0 0.45rem;
+		font-family: var(--font-outfit), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 	}
 	.project-list {
 		list-style: none;
@@ -46,10 +63,13 @@ import { SITE_TITLE } from '../consts';
 		margin: 0;
 	}
 	.project-list li {
-		border-bottom: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid rgba(var(--gray-light), 0.9);
 	}
 	.project-list li a {
 		display: block;
+		display: grid;
+		grid-template-columns: 15rem 1fr;
+		gap: 1.2rem;
 		padding: 1.25em 0;
 		text-decoration: none;
 		color: inherit;
@@ -63,6 +83,12 @@ import { SITE_TITLE } from '../consts';
 		font-weight: 600;
 		color: rgb(var(--black));
 		margin-bottom: 0.3em;
+	}
+	@media (max-width: 620px) {
+		.project-list li a {
+			grid-template-columns: 1fr;
+			gap: 0.2rem;
+		}
 	}
 	.desc {
 		display: block;
