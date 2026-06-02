@@ -305,14 +305,48 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       }
     }
 
+    const HISTORY_KEY = 'sobriety_history';
+
     async function saveToUpstash(ts) {
       await fetch(UPSTASH_URL + '/set/' + KEY + '/' + ts, {
         headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
       });
     }
 
+    async function getHistory() {
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + HISTORY_KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (data.result) return JSON.parse(data.result);
+      } catch (e) {}
+      return [];
+    }
+
+    async function appendHistory(startTs, endTs) {
+      const duration = endTs - startTs;
+      if (duration < 60000) return; // skip runs under a minute
+      const history = await getHistory();
+      history.push({ start: startTs, duration });
+      const trimmed = history.slice(-7);
+      await fetch(UPSTASH_URL + '/pipeline', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN, 'Content-Type': 'application/json' },
+        body: JSON.stringify([['SET', HISTORY_KEY, JSON.stringify(trimmed)]])
+      });
+    }
+
     async function resetTimer() {
-      await saveToUpstash(Date.now());
+      const now = Date.now();
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (data.result) await appendHistory(parseInt(data.result, 10), now);
+      } catch (e) {}
+      await saveToUpstash(now);
       const msg = document.getElementById('confirm-msg');
       msg.style.display = 'block';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);
@@ -335,7 +369,15 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
       const minutes = parseInt(document.getElementById('dur-minutes').value, 10) || 0;
       const seconds = parseInt(document.getElementById('dur-seconds').value, 10) || 0;
       const ms = (((weeks * 7 * 24 * 60) + (days * 24 * 60) + (hours * 60) + minutes) * 60 + seconds) * 1000;
-      await saveToUpstash(Date.now() - ms);
+      const now = Date.now();
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (data.result) await appendHistory(parseInt(data.result, 10), now);
+      } catch (e) {}
+      await saveToUpstash(now - ms);
       const msg = document.getElementById('custom-confirm-msg');
       msg.style.display = 'block';
       setTimeout(() => { msg.style.display = 'none'; }, 3000);

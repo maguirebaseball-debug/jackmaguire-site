@@ -92,6 +92,62 @@ const description = "A personal count-up timer.";
       margin-top: 0.4rem;
     }
 
+    .history-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+      width: 100%;
+    }
+
+    .history-title {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #ccc;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .history-table th {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ccc;
+      padding-bottom: 0.5rem;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    .history-table td {
+      padding: 0.35rem 0;
+      text-align: center;
+    }
+
+    .history-table tr:not(:last-child) td {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .history-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+      font-size: 0.7rem;
+      color: #bbb;
+    }
+
+    .history-stats span {
+      white-space: nowrap;
+    }
+
     .admin-link {
       position: fixed;
       bottom: 1.5rem;
@@ -138,6 +194,20 @@ const description = "A personal count-up timer.";
 
     <p class="since" id="since-text"></p>
     <p class="location" id="location-text"></p>
+
+    <div class="history-section" id="history-section" style="display:none;">
+      <p class="history-title">Previous runs</p>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Started</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody id="history-body"></tbody>
+      </table>
+      <div class="history-stats" id="history-stats"></div>
+    </div>
   </div>
 
   <a href="/sobriety-admin" class="admin-link">admin login</a>
@@ -147,6 +217,7 @@ const description = "A personal count-up timer.";
     const UPSTASH_TOKEN = 'gQAAAAAAAhsIAAIgcDIwNDlmNDdiZjQ0YWI0ZTRiOTgyN2VhZGIzODYxZDg1Ng';
     const KEY = 'sobriety_start';
     const LOCATION_KEY = 'sobriety_location';
+    const HISTORY_KEY = 'sobriety_history';
     let startTime = null;
 
     function pad(n) {
@@ -179,6 +250,58 @@ const description = "A personal count-up timer.";
         'Since ' + startDate.toLocaleString('en-US', opts);
     }
 
+    function formatDuration(ms) {
+      let s = Math.floor(ms / 1000);
+      const weeks = Math.floor(s / (7 * 24 * 3600));
+      s -= weeks * 7 * 24 * 3600;
+      const days = Math.floor(s / (24 * 3600));
+      s -= days * 24 * 3600;
+      const hours = Math.floor(s / 3600);
+      const parts = [];
+      if (weeks > 0) parts.push(weeks + (weeks === 1 ? ' week' : ' weeks'));
+      if (days > 0) parts.push(days + (days === 1 ? ' day' : ' days'));
+      if (hours > 0 && weeks === 0) parts.push(hours + (hours === 1 ? ' hour' : ' hours'));
+      return parts.length > 0 ? parts.join(', ') : 'less than an hour';
+    }
+
+    async function loadHistory() {
+      try {
+        const res = await fetch(UPSTASH_URL + '/get/' + HISTORY_KEY, {
+          headers: { Authorization: 'Bearer ' + UPSTASH_TOKEN }
+        });
+        const data = await res.json();
+        if (!data.result) return;
+        const history = JSON.parse(data.result);
+        if (!history || history.length === 0) return;
+
+        document.getElementById('history-section').style.display = 'block';
+
+        const tbody = document.getElementById('history-body');
+        const reversed = [...history].reverse();
+        reversed.forEach(entry => {
+          const tr = document.createElement('tr');
+          const dateStr = new Date(entry.start).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          tr.innerHTML = '<td>' + dateStr + '</td><td>' + formatDuration(entry.duration) + '</td>';
+          tbody.appendChild(tr);
+        });
+
+        const durations = history.map(e => e.duration);
+        const n = durations.length;
+        const minD = Math.min(...durations);
+        const maxD = Math.max(...durations);
+        const avgD = durations.reduce((a, b) => a + b, 0) / n;
+        const sorted = [...durations].sort((a, b) => a - b);
+        const medD = n % 2 === 0 ? (sorted[n/2-1] + sorted[n/2]) / 2 : sorted[Math.floor(n/2)];
+
+        const statsEl = document.getElementById('history-stats');
+        let statsHtml = '<span>shortest: ' + formatDuration(minD) + '</span>'
+          + '<span>longest: ' + formatDuration(maxD) + '</span>'
+          + '<span>avg: ' + formatDuration(avgD) + '</span>';
+        if (n >= 3) statsHtml += '<span>median: ' + formatDuration(medD) + '</span>';
+        statsEl.innerHTML = statsHtml;
+      } catch (e) {}
+    }
+
     async function init() {
       try {
         const [timeRes, locRes] = await Promise.all([
@@ -204,6 +327,7 @@ const description = "A personal count-up timer.";
       }
       tick();
       setInterval(tick, 1000);
+      loadHistory();
     }
 
     init();
