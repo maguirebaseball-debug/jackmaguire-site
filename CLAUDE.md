@@ -19,7 +19,10 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 When Jack asks for a new blog post, page, or piece of content, choose the format before writing anything. Ask yourself the three questions below in order and stop at the first match.
 
 **1. Does this post need a custom layout, per-section styling, embedded maps, interactive elements, a two-column design, city cards, a comparison grid, a sticky nav, or any visual structure that differs from a plain text article?**
-If yes: use `.astro` — create it as a standalone page in `src/pages/blog/slug.astro`. Import `BaseHead`, `Header`, `Footer`, and `FormattedDate` from components. Full CSS and HTML control. This is the right choice for destination guides, ranked lists with visual hierarchy, anything where the design IS the content.
+If yes: 
+- For pure-prose essays or research posts (even with custom header styling, slightly wider column, or idiosyncratic title treatment): prefer writing the body as Markdown. Create the standalone `src/pages/blog/slug.astro` for the shell only (consts + custom styles + chrome), and a sibling `slug.content.md` with the full prose in real Markdown (use `[text](https://url)` for every citation/link). In the .astro use `marked` + `set:html` to inject (see PROCESS.txt for the exact 5-line import+parse pattern). This guarantees hyperlinks and prevents bare URL text.
+- For true widgets, rankings, or heavy astro expressions/components inside the flow: use `.astro` — create it as a standalone page in `src/pages/blog/slug.astro`. Import `BaseHead`, `Header`, `Footer`, and `FormattedDate` from components. Full CSS and HTML control. This is the right choice for destination guides, ranked lists with visual hierarchy, anything where the design IS the content or the JS is the content.
+- Never paste a long citation list or prose body as raw HTML `<p>`s with bare `https://` urls into a .astro.
 
 **2. Does this post need one or two reusable interactive components (a callout box, a cost card, a photo grid, a map embed) dropped inline into otherwise normal prose?**
 If yes: use `.mdx` — create it in `src/content/blog/slug.mdx`. Write prose in Markdown, import and drop in Astro components where needed. Frontmatter is identical to `.md`. MDX is already enabled in `astro.config.mjs`.
@@ -27,12 +30,14 @@ If yes: use `.mdx` — create it in `src/content/blog/slug.mdx`. Write prose in 
 **3. Is this a straight prose article — structured text, headers, blockquotes, maybe images, no custom layout needed?**
 If yes: use `.md` — create it in `src/content/blog/slug.md`. Fastest to write, easiest to edit later. Fine for essays, opinion pieces, research syntheses, and most travel writing.
 
-**Default when unsure**: start with `.md`. If layout ambitions grow during writing, convert to `.mdx` or `.astro`. Never start with `.astro` for a post that is 90% prose.
+**Default when unsure**: start with `.md`. If layout ambitions grow during writing, convert to `.mdx` or the .content.md + thin .astro shell pattern. Never start with a giant raw-HTML body in .astro for a post that is 90% prose + citations.
 
 **Quick reference**:
 | Need | Format |
 |------|--------|
 | Pure prose, no special layout | `.md` |
+| Pure prose essay + citations, custom header/width styling wanted | `.astro` shell + sibling `slug.content.md` (Markdown body) + marked injection (see PROCESS.txt) |
+| Prose + 1-2 components | `.mdx` |
 | Prose + a component or two | `.mdx` |
 | Custom layout, grids, cards, per-post design | `.astro` |
 
@@ -64,7 +69,7 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 ### Before every publish, run in order
 1. **Build locally and confirm the specific new page generated.** Run `NPM_CONFIG_CACHE=/tmp/npm-jack-cache npx astro build`, then confirm `dist/<path>/index.html` exists. Do not trust that the Markdown compiles; build it.
 2. **Grep the file for em/en dashes** (see Writing style) and confirm zero.
-3. **For cited content, confirm every external link resolves and every claim is grounded** (see Fact-checking and verification).
+3. **For cited content, confirm every external link resolves and every claim is grounded** (see Fact-checking and verification). Additionally: grep the source (the .md/.content.md or the .astro) for bare `https?://` strings that are not inside `href=` / `src=` attributes or inside Markdown `[text](...)` links; there must be zero in prose. The `npm run check:indexing` script now fails on bare URLs in standalone .astro files. Bare URLs render as unlinked text and violate the "MUST include direct hyperlinks" rule.
 4. **After pushing, spot-check the live page.** Confirm HTTP 200 at the canonical URL, and that the GA4 tag (`G-1697T7D92W`), canonical link, OG/Twitter tags, and the sitemap entry are all present.
 5. **Humanity check** (essays and research posts only). See step 5 in Credibility and humanity protocol.
 6. **Evidence tier audit** (essays and research posts only). See step 6 in Credibility and humanity protocol.
@@ -209,3 +214,6 @@ Contact: maguirebaseball@gmail.com
 ## Agent Workflows & Text Generation
 * **True Blinded Variations**: When the user asks for multiple "blinded" variations of a text, you MUST NOT simulate this in a single response or a single LLM pass. You MUST actually invoke separate sub-agents (using the `invoke_agent` tool or similar delegation mechanisms) to generate each variation entirely independently. This is strictly required to maximize perplexity and capture a full universe of diverse possible answers.
 * **Copy-Paste Workflows**: Whenever you generate text that the user is intended to paste somewhere else (like a social media post, external email, or forum submission), you MUST automatically copy it directly to their clipboard using `pbcopy` (e.g., via `run_shell_command` with `echo "text" | pbcopy` or piping a heredoc) AND output the text inside a markdown code block so it avoids terminal visual line-break formatting issues.
+
+## Token Efficiency & Agent Discipline (Universal — injected from ~/.claude/AGENTS.md + template; customize or remove per-project overrides)
+See full details and copy-paste base in ~/.claude/UNIVERSAL_TOKEN_EFFICIENCY_SECTION.md and ~/.claude/AGENTS.md. Core: memory first + update, externalize to files + targeted tools (never full reads/rely on history), proactive /compact with pre-flush, subagents only for real independence (cheapest model, summary return only), bash redirects for output, skills over re-instruction, read CLAUDE+memory first.

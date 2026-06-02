@@ -30,6 +30,34 @@ function escapeHtml(value) {
 		.replace(/'/g, '&#39;');
 }
 
+function assertNoBareUrls(source, filename) {
+	// Only enforce for essay / citation-heavy standalones (the ones that were bitten by raw HTML pastes of sources lists).
+	// Widget/ranking pages legitimately hold bare URLs inside data objects (dish_url, maps urls, etc.).
+	const isEssayPage = filename.includes('subagents') || filename.includes('ai-coding-agents') || /Primary Sources|class=\\"prose\\"/.test(source);
+	if (!isEssayPage) return;
+
+	// Find http(s)://... that are NOT inside href="..." or src="..." attributes.
+	// Ignores safe ones inside our JSON-LD schema blocks.
+	const bare = [];
+	const re = /https?:\/\/[^\s"'<>`)]+/g;
+	let m;
+	while ((m = re.exec(source)) !== null) {
+		const match = m[0];
+		const idx = m.index;
+		const preceding = source.slice(Math.max(0, idx - 40), idx);
+		if (/href\s*=\s*["']/.test(preceding) || /src\s*=\s*["']/.test(preceding)) continue;
+		if (match.includes('schema.org') || match.includes('jackmaguire.org')) continue;
+		bare.push(match);
+	}
+	if (bare.length > 0) {
+		throw new Error(
+			`${filename} contains bare URL(s) appearing as plain text (not hyperlinked via href or markdown): ${bare.slice(0, 3).join(', ')}${bare.length > 3 ? '...' : ''}. ` +
+			`All external URLs in article prose must be proper <a href="..."> or written in a .content.md as [text](url) so marked converts them. ` +
+			`Fix the source (or the .content.md) and re-run.`
+		);
+	}
+}
+
 if (!existsSync(distHome) || !existsSync(distBlogIndex) || !existsSync(distSitemap)) {
 	throw new Error('Run npm run build before npm run check:indexing.');
 }
@@ -83,6 +111,8 @@ for (const filename of astroPages) {
 	const path = `/blog/${slug}/`;
 	const absoluteUrl = `https://jackmaguire.org${path}`;
 
+	assertNoBareUrls(source, filename);
+
 	assertContains(blogIndex, path, 'dist/blog/index.html');
 	assertContains(blogIndex, escapeHtml(title), 'dist/blog/index.html');
 	
@@ -98,4 +128,4 @@ for (const filename of astroPages) {
 	}
 }
 
-console.log(`Verified ${astroPages.length} standalone Astro blog pages on /blog and in sitemap (including those in homepage top 6).`);
+console.log(`Verified ${astroPages.length} standalone Astro blog pages on /blog and in sitemap (including those in homepage top 6). No bare URLs in prose.`);

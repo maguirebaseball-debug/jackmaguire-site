@@ -30,3 +30,19 @@ npm run build
 npm run check:indexing
 
 The check confirms that every standalone Astro article in this folder appears on the homepage, appears on /blog, and appears in the generated sitemap. After pushing to main, Vercel deploys the updated sitemap. Search Console discovers the new URL through the submitted sitemap. For urgent posts, inspect the deployed URL manually in Search Console after Vercel finishes.
+
+Essay-style standalone pages (pure prose + citations, no widgets)
+Use the .content.md + marked workflow so that long bodies stay in Markdown (with real [text](https://url) links that become <a> on render). 
+
+- Create slug.astro for the shell only (const title/description/pubDate, full <html> chrome with custom <style> for header/prose width if needed, <header class="article-header">, the <div class="wrap"> etc., import and use ReadingProgressBar + Header + Footer, and the <section class="prose" set:html={bodyHtml} />). TableOfContents is OPTIONAL: include it only for long reference or technical articles where section navigation adds real value. For prose essays, omit it and center .wrap directly inside <main> without a flex sidebar wrapper.
+- Next to it, create slug.content.md containing the article body written in Markdown (## headings, - lists, [descriptive](https://full-url) for every citation and internal link, **bold** etc.).
+- In the .astro (after the consts):
+  import { readFileSync } from 'node:fs';
+  import { marked } from 'marked';
+  const bodyMd = readFileSync(new URL('./slug.content.md', import.meta.url), 'utf8');
+  const bodyHtml = marked.parse(bodyMd);
+- Then use <section class="prose" set:html={bodyHtml} /> in the markup.
+- Widget/ranking pages (those with {data.map}, imported <StocksTable />, <CocktailDatabase /> etc.) continue to author HTML/JSX directly in the .astro; they do not use .content.md.
+- This pattern guarantees hyperlinks (no loose URL text) and makes editing long citation sections easy. The check:indexing script now fails the build if it finds bare https?:// in any standalone .astro prose outside href/src.
+
+After changes, always: build + npm run check:indexing (the latter now also enforces no bare URLs).

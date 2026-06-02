@@ -15,15 +15,12 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 * `src/styles/global.css` : global CSS (fonts, colors, base layout)
 
 ## Adding a blog post
-Create `src/content/blog/slug-here.md` with this frontmatter:
-```markdown
----
-title: "Post Title"
-description: "One sentence summary."
-pubDate: YYYY-MM-DD
-tags: ["tag1", "tag2"]
----
-```
+See the full decision tree in Claude.md / CLAUDE.md (and src/pages/blog/PROCESS.txt for standalone details). 
+
+Default for straight prose (essays, research, travel): `src/content/blog/slug-here.md` with the standard frontmatter above. Use `[text](https://url)` for every citation and named source the first time it appears.
+
+For custom-layout or widget-heavy pages: `src/pages/blog/slug.astro` (full shell) + for pure-prose essays among them, a sibling `slug.content.md` written in Markdown (links as `[text](url)`). The .astro imports `marked` and does `set:html={bodyHtml}` (see PROCESS.txt for the pattern). Never paste long prose or citation lists as raw HTML with bare `https://` strings into a .astro — that produces unlinked text and fails the updated check:indexing + pre-publish rules.
+
 Available tags: nyc, food, books, essays, philosophy, tech, ai, travel
 
 ## Deploying
@@ -43,6 +40,8 @@ Codex and Gemini are authorized to run `git add`, `git commit`, and `git push` o
 * **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence.
 * **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
 * **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
+* **NO Hedge Phrases or Tidy Summaries**: Ban phrases like "in the end," "ultimately," "it is important to note," or "while X is true, Y is also true." Articles must end with a specific grounded fact or observation, never a thematic wrap-up or "conclusion" paragraph.
+* **NO AI Phrasing 'Tells'**: Explicitly avoid "it's not just X, it's Y," "delve," "unlock," "tapestry," "comprehensive," or "game-changer."
 
 ## Design philosophy & Aesthetics
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
