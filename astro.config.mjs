@@ -18,9 +18,10 @@ export default defineConfig({
 		sitemap({
 			filter: (page) =>
 				![
-					'https://jackmaguire.org/sobriety/',
-					'https://jackmaguire.org/sobriety-admin/',
-					'https://jackmaguire.org/x/peak/',
+				        'https://jackmaguire.org/sobriety/',
+				        'https://jackmaguire.org/sobriety-admin/',
+				        'https://jackmaguire.org/x/peak/',
+				        'https://jackmaguire.org/x/looksmax/',
 				].includes(page),
 		}),
 	],
