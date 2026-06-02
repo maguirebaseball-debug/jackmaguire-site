@@ -391,22 +391,22 @@ const faces = [{"name": "Alain Delon", "url": "https://upload.wikimedia.org/wiki
             const dudeHair = document.getElementById('dude-hair');
             
             function updateDude() {
-                if (clicks > 2) dudeHair.style.opacity = '1';
-                if (clicks > 5) {
+                if (clicks > 3) dudeHair.style.opacity = '1';
+                if (clicks > 7) {
                     dudeHead.style.width = '50px';
                     dudeHead.style.left = '175px';
                 }
-                if (clicks > 8) {
+                if (clicks > 11) {
                     dudeJaw.style.opacity = '1';
                     dudeJaw.style.width = '46px';
                     dudeJaw.style.left = '0px';
                 }
-                if (clicks > 12) {
+                if (clicks > 17) {
                     dudeShoulders.style.width = '100px';
                     dudeShoulders.style.left = '150px';
                     dudeShoulders.style.height = '12px';
                 }
-                if (clicks > 18) {
+                if (clicks > 25) {
                     dudeJaw.style.width = '54px';
                     dudeJaw.style.left = '-4px';
                     dudeJaw.style.borderBottomLeftRadius = '5px';
@@ -499,7 +499,7 @@ const faces = [{"name": "Alain Delon", "url": "https://upload.wikimedia.org/wiki
             
             targetBtn.addEventListener('click', () => {
                 clicks++;
-                score += 0.2;
+                score = 3.0 + (clicks * (7.0 / 49)); // 40% more clicks (from 35 to 49)
                 if (score > 10) score = 10.0;
                 scoreEl.innerText = score.toFixed(1);
                 if (score >= 8.0) scoreEl.style.color = '#ff4500';
