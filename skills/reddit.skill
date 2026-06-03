@@ -35,3 +35,25 @@ Use a script similar to `targeted_fetch.py` when you have specific Reddit post I
 - Always use `ratelimit_seconds=300` (or similar) in your `praw.Reddit` initialization to respect Reddit's API rate limits and automatically back off if you hit a throttle.
 - Be careful with `replace_more(limit=None)` on very large threads, as it can cause excessive API calls and take a very long time. Use a reasonable cap like `limit=10`.
 - Always filter out deleted or removed comments: `if comment.body in ("[deleted]", "[removed]"): continue`.
+
+---
+
+## How Reddit data may appear in published articles
+
+Reddit data gathered through this skill is Tier 3 evidence at best and Tier 4 at worst. These rules govern how it must be characterized when it flows into a published piece on jackmaguire.org. Violating them is the specific failure that generated the loudest HN criticism on the AI Job Grief post.
+
+**Upvote counts are illustration. They are not data.**
+Never write a sentence structured as: "X upvotes show that..." or "the top-voted comment proves...". Upvote counts measure engagement, not correctness or prevalence. The correct structure is: "Across [linked community], a recurring pattern appears: [specific example with author and approximate framing]." Show the pattern through representative examples, not through vote tallies.
+
+**Name the community, link it, and call it a community.**
+Every subreddit referenced in an article must be linked to its URL on first mention. Use entity-neutral language: "you see this across r/[name]" not "data from r/[name] shows". Do not use words that imply systematic collection ("dataset", "scrape", "N-thread pull", "180-day window").
+
+**Tier 3 evidence requires a Tier 1 or Tier 2 anchor in the same section.**
+If a section of an article relies on Reddit discussion as its primary evidence, that section must also contain at least one Tier 1 (Jack's direct personal observation) or Tier 2 (named publication, expert, or study) anchor. A section built entirely on forum patterns will be flagged as AI-generated content by technically literate readers, because it is exactly the kind of content an LLM produces when it has no grounding.
+
+**Before surfacing Reddit findings to Jack for use in an article, label each finding.**
+When presenting what you found, prepend each item with its evidence tier. Example:
+- [Tier 3 — qualitative pattern] Multiple threads in r/cscareerquestions describe the same emotional sequence...
+- [Tier 4 — engagement signal only] The top-voted comment (score: 847) on this thread reads...
+
+This lets Jack decide how to weight each piece before it enters the draft.

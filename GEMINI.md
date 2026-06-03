@@ -44,6 +44,8 @@ Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` 
 * **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence.
 * **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
 * **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
+* **NO Hedge Phrases or Tidy Summaries**: Ban phrases like "in the end," "ultimately," "it is important to note," or "while X is true, Y is also true." Articles must end with a specific grounded fact or observation, never a thematic wrap-up or "conclusion" paragraph.
+* **NO AI Phrasing 'Tells'**: Explicitly avoid "it's not just X, it's Y," "delve," "unlock," "tapestry," "comprehensive," or "game-changer."
 
 ## Design philosophy & Aesthetics
 * **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
@@ -74,6 +76,10 @@ NPM_CONFIG_CACHE=/tmp/npm-jack-cache
 * Sitemap submitted: https://jackmaguire.org/sitemap-index.xml
 * TODO: turn off WordPress.com auto-renew (plan paid through Jan 2029, next charge Dec 2028)
 
+## Analytics
+* GA4 property: 530019465
+* Measurement ID: G-1697T7D92W
+
 ## About the site owner
 Jack Maguire, Senior Paid Social Media Director at National Debt Relief. East Village, NYC.
 Topics: performance marketing, NYC food, travel, philosophy, AI tools.
@@ -82,3 +88,6 @@ Contact: maguirebaseball@gmail.com
 ## Agent Workflows & Text Generation
 * **True Blinded Variations**: When the user asks for multiple "blinded" variations of a text, you MUST NOT simulate this in a single response or a single LLM pass. You MUST actually invoke separate sub-agents (using the `invoke_agent` tool or similar delegation mechanisms) to generate each variation entirely independently. This is strictly required to maximize perplexity and capture a full universe of diverse possible answers.
 * **Copy-Paste Workflows**: Whenever you generate text that the user is intended to paste somewhere else (like a social media post, external email, or forum submission), you MUST automatically copy it directly to their clipboard using `pbcopy` (e.g., via `run_shell_command` with `echo "text" | pbcopy` or piping a heredoc) AND output the text inside a markdown code block so it avoids terminal visual line-break formatting issues.
+
+## Token Efficiency & Agent Discipline (Universal — injected)
+See ~/.gemini/GEMINI.md and ~/.gemini/UNIVERSAL_TOKEN_EFFICIENCY.md. Use skills for workflows; read global+project GEMINI first; externalize; cheapest subs; follow exact skill/project formats.
