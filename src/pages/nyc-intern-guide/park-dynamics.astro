@@ -1,0 +1,25 @@
+---
+import InternWiki from '../../layouts/InternWiki.astro';
+
+export const title = "Park Dynamics";
+export const description = "Understanding the distinct utility of Manhattan's green spaces.";
+export const category = "Lifestyle & Culture";
+export const order = 14;
+---
+
+<InternWiki title={title} description={description} category={category} order={order}>
+	<h2>Macro vs. Micro Parks</h2>
+	<p>Manhattan parks serve different functional purposes depending on their scale and location. Selecting the correct park dictates the type of leisure experience you will have.</p>
+	
+	<h3>Central Park</h3>
+	<p>Central Park operates as the macro-level escape from the city grid. It provides the scale necessary for long-distance running, cycling, and isolated sunbathing in the Sheep Meadow. Due to its size, meeting groups here requires precise geographic coordinates. "Meet me in Central Park" is not a functional instruction.</p>
+
+	<h2>Downtown Parks</h2>
+	<p>Downtown parks function as hyper-dense social hubs rather than natural escapes.</p>
+	
+	<ul>
+		<li><strong>Washington Square Park:</strong> Located in Greenwich Village, it serves as the cultural center of NYU and Downtown Manhattan. It is loud, chaotic, and heavily populated with musicians, chess players, and students. It is optimal for people-watching but suboptimal for reading or quiet relaxation.</li>
+		<li><strong>Tompkins Square Park:</strong> The anchor of the East Village. It retains a grittier, local aesthetic compared to Washington Square Park. It features a massive dog run and serves as the primary outdoor aggregation point for East Village interns and residents on weekends.</li>
+		<li><strong>Hudson River Park:</strong> Runs along the West Side Highway. It provides the best infrastructure for sunset viewing and dedicated running paths physically separated from vehicular traffic.</li>
+	</ul>
+</InternWiki>

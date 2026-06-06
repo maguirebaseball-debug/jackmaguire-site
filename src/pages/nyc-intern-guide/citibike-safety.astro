@@ -1,0 +1,25 @@
+---
+import InternWiki from '../../layouts/InternWiki.astro';
+
+export const title = "CitiBike Safety";
+export const description = "Navigating Manhattan traffic on two wheels.";
+export const category = "Transportation";
+export const order = 7;
+---
+
+<InternWiki title={title} description={description} category={category} order={order}>
+	<h2>Equipment and Operation</h2>
+	<p>CitiBike is a highly efficient transportation method for cross-town transit where the subway fails. Download the Lyft or CitiBike app to unlock bikes. Ensure the seat is adjusted to your hip height before leaving the docking station. Inspect the tires and squeeze both brakes to verify functionality before you undock.</p>
+	
+	<h3>Traffic Dynamics</h3>
+	<p>Manhattan traffic follows an aggressive flow. Never assume a car sees you. Always assume car doors will open directly into the bike lane. Ride at least three feet away from parked cars to avoid "dooring," a common and severe cycling accident.</p>
+
+	<h2>Infrastructure Hierarchy</h2>
+	<p>Prioritize routes with physically protected bike lanes. 1st Avenue and 2nd Avenue feature parking-protected lanes that shield cyclists from moving traffic. Avoid major commercial arteries like 5th Avenue or Broadway in Midtown, where commercial trucks and pedestrians create unpredictable hazards.</p>
+	
+	<ul>
+		<li><strong>Electric Bikes (E-Bikes):</strong> The white e-bikes accelerate rapidly. Use them strictly if you possess high-level cycling experience. They require significant braking distance.</li>
+		<li><strong>Pedestrian Right-of-Way:</strong> Pedestrians ALWAYS have the right-of-way, even if they are jaywalking. Yield immediately.</li>
+		<li><strong>Salmoning:</strong> Never ride against the flow of traffic on a one-way street. This is called "salmoning" and is exceptionally dangerous to yourself and other cyclists.</li>
+	</ul>
+</InternWiki>

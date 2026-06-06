@@ -1,0 +1,26 @@
+---
+import InternWiki from '../../layouts/InternWiki.astro';
+
+export const title = "Subway Etiquette";
+export const description = "The unspoken operational rules of the MTA.";
+export const category = "Transportation";
+export const order = 5;
+---
+
+<InternWiki title={title} description={description} category={category} order={order}>
+	<h2>Platform Logistics</h2>
+	<p>The Metropolitan Transportation Authority (MTA) relies on continuous operational flow. Passengers must clear paths for boarding and exiting.</p>
+	
+	<h3>Entering and Exiting</h3>
+	<p>Always allow passengers to fully exit the train car before you attempt to board. Stand to the side of the doors rather than directly in front of them. When the doors open, step back. Once the exit flow stops, proceed inside and immediately move toward the center of the car to clear the doorway.</p>
+
+	<h2>In-Transit Rules</h2>
+	<p>Behavior inside the car dictates the comfort of the commute for everyone.</p>
+	
+	<ul>
+		<li><strong>Spatial Awareness:</strong> Remove your backpack and hold it by your feet during rush hour. A backpack worn on the shoulders takes up the space of a second person.</li>
+		<li><strong>Auditory Control:</strong> Never play music or videos through a device speaker. Use headphones at all times. Keep phone conversations brief and quiet.</li>
+		<li><strong>Seating Hierarchy:</strong> Surrender your seat immediately to elderly passengers, pregnant women, or individuals with visible mobility challenges. Do not wait to be asked.</li>
+		<li><strong>The Empty Car Trap:</strong> If an arriving train is entirely full except for one empty car, do not enter the empty car. It is empty because the air conditioning is broken or an extreme biohazard is present.</li>
+	</ul>
+</InternWiki>

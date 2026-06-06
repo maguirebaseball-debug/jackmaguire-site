@@ -1,0 +1,26 @@
+---
+import InternWiki from '../../layouts/InternWiki.astro';
+
+export const title = "Neighborhood Vibes";
+export const description = "Evaluating the cultural and economic profiles of popular intern neighborhoods.";
+export const category = "Lifestyle & Culture";
+export const order = 8;
+---
+
+<InternWiki title={title} description={description} category={category} order={order}>
+	<h2>Downtown Manhattan</h2>
+	<p>Downtown neighborhoods offer the highest concentration of nightlife and youth culture, matched by peak rental prices.</p>
+	
+	<ul>
+		<li><strong>East Village:</strong> The epicenter of recent graduates and interns. It features a dense concentration of affordable restaurants, dive bars, and Tompkins Square Park. Housing stock is generally older and lacks elevators (walk-ups).</li>
+		<li><strong>West Village:</strong> Architecturally distinct with tree-lined, winding streets. It operates as a luxury residential area with high-end dining and retail. Sublets here are rare and command a significant premium.</li>
+		<li><strong>Financial District (FiDi):</strong> Offers modern luxury high-rises at prices slightly lower than the Villages. It empties out on weekends but provides immediate walking access to Wall Street internships.</li>
+	</ul>
+
+	<h2>Midtown and Uptown</h2>
+	<p>These areas prioritize convenience and institutional stability over nightlife.</p>
+	<ul>
+		<li><strong>Murray Hill / Kips Bay:</strong> Popular with interns working in Midtown. It offers slightly lower rents than Downtown, large sports bars, and easy access to Grand Central Terminal.</li>
+		<li><strong>Upper East Side (UES):</strong> The area East of Lexington Avenue (Yorkville) provides the most affordable rent in Manhattan below 96th Street. It operates as a quiet, residential neighborhood. Commutes rely on the Q train.</li>
+	</ul>
+</InternWiki>

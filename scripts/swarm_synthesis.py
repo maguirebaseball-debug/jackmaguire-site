@@ -75,6 +75,10 @@ out_dir = "/Users/jackmaguire/Developer/jackmaguire-site/src/pages/nyc-intern-gu
 os.makedirs(out_dir, exist_ok=True)
 
 for filename, title, desc, cat, order in pages:
+    if os.path.exists(os.path.join(out_dir, filename)):
+        print(f"Skipping {filename}, already exists.", flush=True)
+        continue
+        
     print(f"Generating {filename}...", flush=True)
     prompt = f"""
 {base_instructions}
@@ -85,7 +89,7 @@ Category: {cat}
 --- DATA ---
 {dataset_summary[:800000]}
 """
-    for attempt in range(3):
+    for attempt in range(10):
         try:
             response = client.models.generate_content(
                 model='gemini-2.5-flash',
@@ -116,8 +120,8 @@ export const order = {order};
                 print("  Service unavailable, waiting 10s...")
                 time.sleep(10)
             elif "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                print("  Rate limit hit (429). Waiting 60s...")
-                time.sleep(60)
+                print(f"  Rate limit hit (429) on attempt {attempt+1}. Waiting 10 minutes (600s)...", flush=True)
+                time.sleep(600)
             else:
                 print(f"  Error: {e}")
                 break

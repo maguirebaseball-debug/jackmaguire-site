@@ -1,0 +1,24 @@
+---
+import InternWiki from '../../layouts/InternWiki.astro';
+
+export const title = "The Grid System";
+export const description = "Understanding Manhattan's geographic framework.";
+export const category = "Transportation";
+export const order = 6;
+---
+
+<InternWiki title={title} description={description} category={category} order={order}>
+	<h2>Avenues vs. Streets</h2>
+	<p>Manhattan operates on a strict Cartesian grid north of 14th Street. Understanding this framework allows you to calculate walking distances instantly.</p>
+	
+	<ul>
+		<li><strong>Avenues:</strong> Avenues run North to South. 1st Avenue is on the East Side; 12th Avenue is on the West Side. Walking one avenue block takes approximately three minutes.</li>
+		<li><strong>Streets:</strong> Streets run East to West. Street numbers increase as you move North. 14th Street is South of 42nd Street. Walking one street block takes approximately one minute. Twenty street blocks equal one mile.</li>
+	</ul>
+
+	<h2>Directional Orientation</h2>
+	<p>Traffic flow provides a reliable compass. Odd-numbered streets run West. Even-numbered streets run East. This rule holds true for nearly all cross-town streets, except major two-way thoroughfares like 14th, 23rd, 34th, and 42nd Streets.</p>
+
+	<h3>Downtown Geography</h3>
+	<p>The grid dissolves completely South of 14th Street. Neighborhoods like the West Village, Financial District, and Chinatown feature winding, named streets that intersect at irregular angles. West 4th Street notoriously intersects with West 10th Street in the West Village. Rely heavily on GPS applications when navigating Downtown Manhattan.</p>
+</InternWiki>
