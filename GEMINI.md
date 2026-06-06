@@ -14,17 +14,10 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 * `src/components/` : Header, Footer, shared components
 * `src/styles/global.css` : global CSS (fonts, colors, base layout)
 
-## Adding a blog post
-Create `src/content/blog/slug-here.md` with this frontmatter:
-```markdown
----
-title: "Post Title"
-description: "One sentence summary."
-pubDate: YYYY-MM-DD
-tags: ["tag1", "tag2"]
----
-```
-Available tags: nyc, food, books, essays, philosophy, tech, ai, travel
+## Adding a new page or blog post
+* **NO MARKDOWN FILES**: Everything on this site must be built as an Astro-native (`.astro`) file moving forward. Do not use `.md` or `.mdx` files unless a hyper-complex external requirement demands it.
+* Create standalone pages or blog posts in `src/pages/` as `.astro` files.
+* If migrating old content or creating new collections, use `Astro.glob()` to query local `.astro` files.
 
 ## Deploying
 ```bash

@@ -1,0 +1,127 @@
+---
+name: write-article
+description: Interactive pre-draft dialogue for any new jackmaguire.org essay or research post. Runs the four credibility gates (Q1-Q4) before a single word of the article is written. Use this skill at the start of every new piece — especially essays, opinion posts, and any content that makes claims about a field Jack does not work in directly.
+---
+
+# Write Article Skill
+
+This skill exists because the AI Job Grief essay received 190 HN points and 185 comments, and the loudest sustained criticism was: the writing reads like AI output with nothing specific behind it, Reddit upvotes were presented as evidence, and the author's credibility gap went unaddressed. This skill runs before the draft begins so those failure modes are caught before they are published, not after.
+
+---
+
+## Step 0: Establish the piece
+
+Before running the gates, confirm two things with Jack:
+
+1. What is the working title or central argument?
+2. What format does this piece need? (See the format decision tree in CLAUDE.md: `.md` for pure prose, `.mdx` for prose with one or two components, `.astro` for custom layout.)
+
+Do not assume the format. Ask if it is not obvious.
+
+---
+
+## Step 1: Gate Q1 — Jack's direct relationship to the topic [BLOCKING]
+
+Ask Jack this question verbatim. Do not proceed to Step 2 until he answers.
+
+> "Before I write anything: what is your direct personal connection to this topic? Have you experienced it yourself, observed it closely, or are you working from secondary sources? A sentence or two is enough."
+
+**How to handle each possible answer:**
+
+- **He has direct experience**: His answer becomes the Tier 1 anchor. It must appear in the article in a form close to his own words, attributed to a specific context (time, place, or relationship to the event). Do not paraphrase it into generic prose — that is how Tier 1 evidence gets laundered into Tier 3.
+
+- **He is an informed observer**: Note this. The author's lens statement in the opening two paragraphs must reflect it accurately. Example framing: "I approach this from outside the field. What follows is what I noticed as someone who works in performance marketing, not as a practitioner." This is not a weakness to hide. It is the honest position that makes the piece defensible.
+
+- **He has no personal connection**: Surface this explicitly before proceeding: "This piece will rely entirely on secondary sources. Without a Tier 1 anchor, it will read as AI-generated to technically literate readers. Do you want to find a named interview subject, add an explicit 'I am reporting this from the outside' frame, or hold the piece until you have a personal connection to offer?" Let Jack decide. Do not paper over the gap.
+
+---
+
+## Step 2: Gate Q2 — Evidence tier assessment [AGENT-RESOLVED, CONFIRM WITH JACK]
+
+Research the available evidence for the central claim yourself. Do not ask Jack to do this. Present your findings before any drafting begins.
+
+**Evidence tiers:**
+- Tier 1: Jack's direct named personal observation. Hardest to dismiss as AI output.
+- Tier 2: Named, linkable publication, academic study, or expert with verifiable credentials.
+- Tier 3: Observable qualitative pattern across named online communities.
+- Tier 4: Forum upvote counts, aggregated sentiment, engagement signals.
+
+Present your assessment in this format:
+
+> "Here is the strongest evidence I have found for each major claim in this piece:
+> [Claim 1]: [evidence] — Tier [X]
+> [Claim 2]: [evidence] — Tier [X]
+> The weakest section is [X], where the best I have is Tier [Y].
+> Do you want me to source this up, soften the conclusion to match the evidence level, or proceed knowing the limitation?"
+
+Do not make that call yourself. Do not begin drafting if Jack has not confirmed the evidence tier assessment.
+
+**If the strongest evidence for any central claim is Tier 4**, tell Jack explicitly: "The claim that [X] is supported only by forum engagement signals. That is illustration, not proof. The article can show the pattern, but the conclusion must be framed as an observed tendency, not a demonstrated fact." Give Jack the choice: upgrade the sourcing, reframe the conclusion, or hold the piece.
+
+---
+
+## Step 3: Gate Q3 — Anticipated HN objections [AGENT-RESOLVED, CONFIRM WITH JACK]
+
+Identify the one or two most likely objections a skeptical HN reader would raise in the first 10 comments. If similar articles have HN threads available, read them. If not, reason from the argument structure.
+
+Present your findings in this format:
+
+> "Here are the sharpest objections I expect from HN readers:
+> 1. [Objection]: [One sentence summary of the attack]
+>    Proposed response inside the article: [How I plan to address it in the body]
+> 2. [Objection]: [One sentence summary]
+>    Proposed response: [How I plan to address it]
+> Do these responses hold, or should we adjust the claims?"
+
+The responses must appear in the article body, not in a footnote and not by softening the title to avoid the question. If a response does not hold, the claim must be adjusted before drafting begins.
+
+---
+
+## Step 4: Gate Q4 — The unfakeable specific [BLOCKING]
+
+Ask Jack this question verbatim. Do not proceed to drafting until he answers.
+
+> "I need at least one specific detail for this piece that only you could supply. It can be a named person you spoke to and what they said, a specific moment you observed with a date or place attached, or a first-person experience that grounds the central argument. What do you have?"
+
+**How to handle each possible answer:**
+
+- **He has a specific**: This becomes the anchor for the most important section of the article. It must appear early — ideally in the first third — not buried at the end as a late validation. Do not let it get edited into a generic paraphrase during drafting.
+
+- **He has nothing specific**: Do not invent a substitute. Surface the options: "(a) We add a named interview or cited expert as a Tier 2 anchor. (b) We frame the piece explicitly as pattern observation rather than reported experience, with that framing visible in the first paragraph. (c) We hold it until you have a specific." Let Jack decide.
+
+---
+
+## Step 5: Confirm and draft
+
+Before writing the first sentence, confirm all four gates:
+
+> "Here is what I have going into the draft:
+> Q1 (your relationship to topic): [Jack's answer]
+> Q2 (evidence tiers): [summary] — confirmed by you
+> Q3 (HN objections addressed): [summary] — confirmed by you
+> Q4 (unfakeable specific): [Jack's answer]
+> Ready to draft?"
+
+Only begin drafting after Jack says yes or equivalent.
+
+---
+
+## During drafting: three rules that do not get skipped
+
+1. **Author's lens appears in paragraphs 1 or 2.** If Jack is writing about a field he does not work in, his vantage point must be stated before the first contested claim. Not in a footnote. Not implied. Stated.
+
+2. **Forum discussion illustrates; it does not prove.** The sentence structure for any Reddit or HN reference must be: "Across [linked community], a recurring pattern appears: [specific example]." Never: "[X upvotes] demonstrates [conclusion]."
+
+3. **One Tier 1 or Tier 2 anchor per major section.** If a section contains a unified argument across multiple paragraphs, at least one claim must be grounded at Tier 1 or 2. A section that runs on Tier 3-4 evidence for every sentence is the section that gets quoted as AI output in the comments.
+
+---
+
+## After drafting: the three pre-publish credibility checks
+
+Run these after the standard pre-publish steps in CLAUDE.md (build, dash grep, link check, live spot-check).
+
+**Humanity check**: Read the draft and mark every sentence that could plausibly have been written by an LLM with zero personal knowledge. For each marked sentence: delete it, replace it with something tied to a specific source or observation, or consciously accept it as connective tissue. Every load-bearing claim must be anchored to something a machine could not have generated alone.
+
+**Evidence tier audit**: For each claim doing argumentative work (not scene-setting, not transitions), note its tier. If the majority of load-bearing claims are Tier 3-4, either upgrade the sourcing or downgrade the certainty of the conclusion before publishing.
+
+**Credibility disclosure check**: Does the article make assertions about a professional domain Jack does not work in? If yes: confirm the author's lens statement is present and appears before the first such assertion. This check takes 30 seconds.

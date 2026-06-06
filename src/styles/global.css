@@ -70,11 +70,11 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: clamp(1.5em, 6vw, 2.5em);
+	font-size: clamp(1.125em, 4.5vw, 1.875em);
 	letter-spacing: 0;
 }
 h2 {
-	font-size: clamp(1.25em, 5vw, 1.9em);
+	font-size: clamp(0.9375em, 3.75vw, 1.425em);
 	letter-spacing: 0;
 }
 h3 {

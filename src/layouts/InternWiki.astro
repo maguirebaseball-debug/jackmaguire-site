@@ -1,0 +1,238 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	category: string;
+	order: number;
+}
+
+const { title, description, category, order } = Astro.props;
+
+// Static navigation array to prevent Astro.glob circular dependencies
+const guidePages = [
+	{ url: '/nyc-intern-guide/finding-sublets', title: 'Finding Sublets', description: 'How to secure short-term summer housing in NYC.', category: 'Housing & Logistics', order: 1 },
+	{ url: '/nyc-intern-guide/broker-fees', title: 'Understanding Broker Fees', description: 'Navigating the brutal reality of NYC broker fees.', category: 'Housing & Logistics', order: 2 },
+	{ url: '/nyc-intern-guide/university-dorms', title: 'University Dorms', description: 'Pros and cons of NYU and Columbia summer housing.', category: 'Housing & Logistics', order: 3 },
+	{ url: '/nyc-intern-guide/laundry-and-groceries', title: 'Laundry & Groceries', description: 'Mastering drop-off laundry and tight grocery budgets.', category: 'Housing & Logistics', order: 4 },
+	{ url: '/nyc-intern-guide/subway-etiquette', title: 'Subway Etiquette', description: 'Unwritten rules of the MTA.', category: 'Transit & Geography', order: 5 },
+	{ url: '/nyc-intern-guide/the-grid-system', title: 'The Grid System', description: 'Understanding avenues, streets, and borough geography.', category: 'Transit & Geography', order: 6 },
+	{ url: '/nyc-intern-guide/citibike-safety', title: 'CitiBike Safety', description: 'How to survive biking in Manhattan traffic.', category: 'Transit & Geography', order: 7 },
+	{ url: '/nyc-intern-guide/neighborhood-vibes', title: 'Neighborhood Vibes', description: 'East Village vs West Village vs Brooklyn for interns.', category: 'Transit & Geography', order: 8 },
+	{ url: '/nyc-intern-guide/dollar-slices', title: 'Dollar Slices & Cheap Eats', description: 'Finding genuinely cheap food without getting scammed.', category: 'Food & Drink', order: 9 },
+	{ url: '/nyc-intern-guide/networking-coffee', title: 'Networking Coffee Spots', description: 'Quiet coffee shops in Downtown Manhattan.', category: 'Food & Drink', order: 10 },
+	{ url: '/nyc-intern-guide/grocery-hacks', title: 'Grocery Shopping Hacks', description: 'Trader Joe\'s lines and bodega dynamics.', category: 'Food & Drink', order: 11 },
+	{ url: '/nyc-intern-guide/meeting-interns', title: 'Meeting Other Interns', description: 'How to socialize outside of your specific company.', category: 'Social & Nightlife', order: 12 },
+	{ url: '/nyc-intern-guide/free-summer-events', title: 'Free Summer Events', description: 'Outdoor movies, concerts, and free museum days.', category: 'Social & Nightlife', order: 13 },
+	{ url: '/nyc-intern-guide/park-dynamics', title: 'Park Dynamics', description: 'Central Park vs Washington Square Park vs Tompkins.', category: 'Social & Nightlife', order: 14 },
+	{ url: '/nyc-intern-guide/coffee-chats', title: 'Coffee Chat Etiquette', description: 'How to ask for and conduct a successful coffee chat.', category: 'Professional & Office Life', order: 15 },
+	{ url: '/nyc-intern-guide/corporate-dress', title: 'Corporate Dress Code', description: 'Dressing professionally during a humid NYC summer.', category: 'Professional & Office Life', order: 16 }
+];
+
+const categories = ["Housing & Logistics", "Transit & Geography", "Food & Drink", "Social & Nightlife", "Professional & Office Life"];
+const groupedGuides = categories.reduce((acc, cat) => {
+	acc[cat] = guidePages.filter(g => g.category === cat).sort((a, b) => a.order - b.order);
+	return acc;
+}, {} as Record<string, typeof guidePages>);
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | NYC Intern Guide`} description={description} />
+		<style>
+			.noise-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				pointer-events: none;
+				z-index: 9999;
+				opacity: 0.04;
+				background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+			}
+			.wiki-layout {
+				display: flex;
+				max-width: 1300px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
+				gap: 4rem;
+				position: relative;
+			}
+			
+			/* Sidebar Styles */
+			aside {
+				width: 280px;
+				flex-shrink: 0;
+				position: sticky;
+				top: 2rem;
+				height: max-content;
+				max-height: calc(100vh - 4rem);
+				overflow-y: auto;
+				padding-right: 1rem;
+				border-right: 1px solid rgba(85, 107, 47, 0.2);
+			}
+			aside::-webkit-scrollbar {
+				width: 4px;
+			}
+			aside::-webkit-scrollbar-thumb {
+				background: rgba(85, 107, 47, 0.3);
+				border-radius: 4px;
+			}
+			.back-link {
+				display: inline-block;
+				margin-bottom: 2rem;
+				font-weight: 600;
+				color: var(--gray-dark);
+				text-decoration: none;
+			}
+			.back-link:hover {
+				color: var(--accent);
+			}
+			.sidebar-category {
+				font-size: 0.85rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: var(--gray);
+				margin: 1.5rem 0 0.5rem 0;
+			}
+			.sidebar-category:first-of-type {
+				margin-top: 0;
+			}
+			.sidebar-nav {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.sidebar-nav li {
+				margin: 0.25rem 0;
+			}
+			.sidebar-nav a {
+				display: block;
+				font-size: 0.95rem;
+				color: var(--gray-dark);
+				text-decoration: none;
+				padding: 0.25rem 0;
+				line-height: 1.4;
+				border-left: 2px solid transparent;
+				padding-left: 0.75rem;
+				margin-left: -0.75rem;
+				transition: all 0.2s;
+			}
+			.sidebar-nav a:hover {
+				color: var(--accent);
+			}
+			.sidebar-nav a.active {
+				color: var(--accent);
+				font-weight: 600;
+				border-left-color: var(--accent);
+			}
+
+			/* Content Styles */
+			article {
+				flex: 1;
+				max-width: var(--width-prose);
+			}
+			.breadcrumb {
+				font-size: 0.9rem;
+				color: var(--gray);
+				margin-bottom: 1rem;
+			}
+			.wiki-title {
+				color: var(--black);
+				font-size: clamp(1.8rem, 4vw, 2.5rem);
+				margin-bottom: 2rem;
+				line-height: 1.1;
+			}
+			
+			/* Prose overrides for HBR aesthetics */
+			.prose {
+				font-size: 17px;
+				line-height: 1.7;
+				color: rgb(var(--gray-dark));
+			}
+			.prose p {
+				margin-bottom: 1.5rem;
+			}
+			.prose h2 {
+				color: var(--accent-dark);
+				margin-top: 2.5rem;
+				margin-bottom: 1rem;
+				border-bottom: 1px solid rgba(85, 107, 47, 0.15);
+				padding-bottom: 0.25rem;
+			}
+			.prose h3 {
+				margin-top: 2rem;
+				color: rgb(var(--black));
+			}
+			.prose ul, .prose ol {
+				margin-bottom: 1.5rem;
+				padding-left: 1.5rem;
+			}
+			.prose li {
+				margin-bottom: 0.5rem;
+			}
+			
+			@media (max-width: 900px) {
+				.wiki-layout {
+					flex-direction: column;
+					gap: 2rem;
+				}
+				aside {
+					width: 100%;
+					position: static;
+					border-right: none;
+					border-bottom: 1px solid rgba(85, 107, 47, 0.2);
+					padding-bottom: 2rem;
+					max-height: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="noise-overlay"></div>
+		<Header />
+		<main>
+			<div class="wiki-layout">
+				<aside>
+					<a href="/nyc-intern-guide/" class="back-link">← Guide Home</a>
+					<nav>
+						{categories.map(cat => (
+							groupedGuides[cat] && groupedGuides[cat].length > 0 && (
+								<div class="sidebar-group">
+									<div class="sidebar-category">{cat}</div>
+									<ul class="sidebar-nav">
+										{groupedGuides[cat].map(post => (
+											<li>
+												<a 
+													href={post.url}
+													class={post.title === title ? 'active' : ''}
+												>
+													{post.title}
+												</a>
+											</li>
+										))}
+									</ul>
+								</div>
+							)
+						))}
+					</nav>
+				</aside>
+				<article>
+					<div class="breadcrumb">{category}</div>
+					<h1 class="wiki-title">{title}</h1>
+					<div class="prose">
+						<slot />
+					</div>
+				</article>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

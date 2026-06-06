@@ -1,0 +1,160 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Static navigation array to prevent Astro.glob circular dependencies
+const guidePages = [
+	{ url: '/nyc-intern-guide/finding-sublets', title: 'Finding Sublets', description: 'How to secure short-term summer housing in NYC.', category: 'Housing & Logistics', order: 1 },
+	{ url: '/nyc-intern-guide/broker-fees', title: 'Understanding Broker Fees', description: 'Navigating the brutal reality of NYC broker fees.', category: 'Housing & Logistics', order: 2 },
+	{ url: '/nyc-intern-guide/university-dorms', title: 'University Dorms', description: 'Pros and cons of NYU and Columbia summer housing.', category: 'Housing & Logistics', order: 3 },
+	{ url: '/nyc-intern-guide/laundry-and-groceries', title: 'Laundry & Groceries', description: 'Mastering drop-off laundry and tight grocery budgets.', category: 'Housing & Logistics', order: 4 },
+	{ url: '/nyc-intern-guide/subway-etiquette', title: 'Subway Etiquette', description: 'Unwritten rules of the MTA.', category: 'Transit & Geography', order: 5 },
+	{ url: '/nyc-intern-guide/the-grid-system', title: 'The Grid System', description: 'Understanding avenues, streets, and borough geography.', category: 'Transit & Geography', order: 6 },
+	{ url: '/nyc-intern-guide/citibike-safety', title: 'CitiBike Safety', description: 'How to survive biking in Manhattan traffic.', category: 'Transit & Geography', order: 7 },
+	{ url: '/nyc-intern-guide/neighborhood-vibes', title: 'Neighborhood Vibes', description: 'East Village vs West Village vs Brooklyn for interns.', category: 'Transit & Geography', order: 8 },
+	{ url: '/nyc-intern-guide/dollar-slices', title: 'Dollar Slices & Cheap Eats', description: 'Finding genuinely cheap food without getting scammed.', category: 'Food & Drink', order: 9 },
+	{ url: '/nyc-intern-guide/networking-coffee', title: 'Networking Coffee Spots', description: 'Quiet coffee shops in Downtown Manhattan.', category: 'Food & Drink', order: 10 },
+	{ url: '/nyc-intern-guide/grocery-hacks', title: 'Grocery Shopping Hacks', description: 'Trader Joe\'s lines and bodega dynamics.', category: 'Food & Drink', order: 11 },
+	{ url: '/nyc-intern-guide/meeting-interns', title: 'Meeting Other Interns', description: 'How to socialize outside of your specific company.', category: 'Social & Nightlife', order: 12 },
+	{ url: '/nyc-intern-guide/free-summer-events', title: 'Free Summer Events', description: 'Outdoor movies, concerts, and free museum days.', category: 'Social & Nightlife', order: 13 },
+	{ url: '/nyc-intern-guide/park-dynamics', title: 'Park Dynamics', description: 'Central Park vs Washington Square Park vs Tompkins.', category: 'Social & Nightlife', order: 14 },
+	{ url: '/nyc-intern-guide/coffee-chats', title: 'Coffee Chat Etiquette', description: 'How to ask for and conduct a successful coffee chat.', category: 'Professional & Office Life', order: 15 },
+	{ url: '/nyc-intern-guide/corporate-dress', title: 'Corporate Dress Code', description: 'Dressing professionally during a humid NYC summer.', category: 'Professional & Office Life', order: 16 }
+];
+
+// Group guides by category
+const categories = ["Housing & Logistics", "Transit & Geography", "Food & Drink", "Social & Nightlife", "Professional & Office Life"];
+const groupedGuides = categories.reduce((acc, cat) => {
+	acc[cat] = guidePages.filter(g => g.category === cat).sort((a, b) => a.order - b.order);
+	return acc;
+}, {} as Record<string, typeof guidePages>);
+
+const title = "2026 NYC Summer Intern Guide";
+const description = "A comprehensive, resident-verified wiki for thriving during your New York City summer internship.";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			.noise-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				pointer-events: none;
+				z-index: 9999;
+				opacity: 0.04;
+				background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+			}
+			.wiki-container {
+				display: flex;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
+				gap: 3rem;
+			}
+			.content {
+				flex: 1;
+				max-width: 800px;
+			}
+			h1 {
+				color: var(--accent);
+				font-size: 2.5rem;
+				margin-bottom: 0.5rem;
+			}
+			.lead {
+				font-size: 1.2rem;
+				color: var(--gray-dark);
+				margin-bottom: 3rem;
+				border-left: 4px solid var(--accent);
+				padding-left: 1rem;
+			}
+			.category-section {
+				margin-bottom: 3rem;
+			}
+			.category-title {
+				font-size: 1.8rem;
+				color: var(--accent-dark);
+				border-bottom: 2px solid rgba(85, 107, 47, 0.2);
+				padding-bottom: 0.5rem;
+				margin-bottom: 1.5rem;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 1.5rem;
+			}
+			.card {
+				background: rgba(255, 255, 255, 0.5);
+				border: 1px solid rgba(85, 107, 47, 0.2);
+				padding: 1.5rem;
+				border-radius: 4px;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+			.card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(85, 107, 47, 0.1);
+				border-color: var(--accent);
+			}
+			.card h3 {
+				color: var(--accent);
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+				text-decoration: underline;
+				text-decoration-color: transparent;
+				transition: text-decoration-color 0.2s;
+			}
+			.card:hover h3 {
+				text-decoration-color: var(--accent);
+			}
+			.card p {
+				font-size: 0.95rem;
+				margin: 0;
+				color: rgba(var(--gray-dark), 0.8);
+			}
+			@media (max-width: 768px) {
+				.grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="noise-overlay"></div>
+		<Header />
+		<main>
+			<div class="wiki-container">
+				<div class="content">
+					<h1>{title}</h1>
+					<p class="lead">Navigating the city requires more than just an offer letter. This wiki contains unfiltered, highly-grounded insights sourced from long-time residents and recent interns. Choose a topic below to begin.</p>
+					
+					{categories.map(cat => (
+						<section class="category-section" id={cat.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and')}>
+							<h2 class="category-title">{cat}</h2>
+							{groupedGuides[cat] && groupedGuides[cat].length > 0 ? (
+								<div class="grid">
+									{groupedGuides[cat].map(post => (
+										<a href={post.url} class="card">
+											<h3>{post.title}</h3>
+											<p>{post.description}</p>
+										</a>
+									))}
+								</div>
+							) : (
+								<p><em>Content generating soon...</em></p>
+							)}
+						</section>
+					))}
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

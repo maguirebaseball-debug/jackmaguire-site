@@ -24,4 +24,15 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const internGuide = defineCollection({
+	loader: glob({ base: './src/content/intern-guide', pattern: '**/*.{md,mdx}' }),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			category: z.string(),
+			order: z.number(),
+		}),
+});
+
+export const collections = { blog, internGuide };

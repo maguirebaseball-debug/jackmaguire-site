@@ -1,0 +1,477 @@
+[57706] r/technology: The Netherlands just blocked a US company from buying the app Dutch citizens use for everything
+  TOP_COMMENT: Dutch here. When the article says "everything", it really means everything. It's used to keep track of your education, y
+[51736] r/technology: Ronny Chieng's 'F*ck AI' Speech Met With Cheers From Harvard Graduates: “AI is just going to end up making mediocre people dumber”
+  TOP_COMMENT: “I’m here to tell you the mission of your generation is to destroy AI,” Chieng told grads. “Kill it. … AI is just going 
+[45708] r/technology: Traffic to DuckDuckGo's proudly 'No AI' search page has tripled since latest Google AI search update
+  TOP_COMMENT: Google just sends me to Reddit all the time anyway. Switched a while back. 
+[34141] r/technology: Erin Brockovich launches map of over 4,200 data centres in the US, appeals for local communities to report environmental impact and other costs
+  TOP_COMMENT: https://brockovichdatacenter.com  If you don’t want to deal with the cancerous Newsweek website. 
+[33265] r/technology: Pope Leo "Artificial intelligences do not undergo experiences, do not possess a body, do not feel joy or pain, do not mature through relationships, and do not know from within what love, work, friendship or responsibility mean. Nor do they have a moral conscience, since they do not judge goodand.."
+  TOP_COMMENT: Full quote "Artificial intelligences do not undergo experiences, do not possess a body, do not feel joy or pain, do not 
+[30171] r/technology: Majority of Americans Support Ban on Surveillance Pricing and Electronic Shelf Labels
+  TOP_COMMENT: Imagine Walmart having the ability to do dynamic pricing to charge more for toilet paper because they know you have diar
+[29282] r/technology: Harvard Graduation Speaker Unloads on AI in Profanity-Loaded Tirade, Prompting Cheers From Students: “I’m Here to Tell You the Mission of Your Generation Is to Destroy AI”
+  TOP_COMMENT: And so begins the Butlerian Jihad
+[27380] r/technology: Tech CEOs are apparently suffering from AI psychosis
+  TOP_COMMENT: My company just got bought by another company and I literally lost count of how many times the phrase “AI” was said duri
+[26083] r/technology: Cities Are Covering Flock Cameras With Trash Bags / Regretful cities aren't sure how to cancel their surveillance contracts, so they are literally covering their cameras.
+  TOP_COMMENT: The city of Dayton, Ohio has covered its Flock automated license plate reader cameras with black trash bags in part beca
+[25911] r/technology: Pope Leo Issues AI Encyclical Warning That ‘Opaque Algorithms’ Controlled by a ‘Few’ Companies Can Bring ‘New Forms of Dehumanisation’
+  TOP_COMMENT: A pretty solid response, I'm not going to lie. He's spot on here:  *When such power is concentrated in the hands of a fe
+[24565] r/technology: DuckDuckGo installs are up 30% as users reject being ‘force-fed’ Google’s AI Search
+  TOP_COMMENT: I’ve been using it for years. Of course, in some ways it’s less effective than Google (even as Google has gotten worse a
+[22857] r/technology: Peter Thiel's move to Argentina reflects a growing trend among billionaires seeking a 'plan B' abroad
+  TOP_COMMENT: I thought the USA was made great again? Why is is he going to Argentina?
+[20665] r/technology: Mystery company accidentally blew $500 million on Claude AI in a single month — failed to put usage limit on licenses for employees
+  TOP_COMMENT: Would be funny if they can't pay and just declare bankruptcy leaving Claude holding the bag.
+[20428] r/technology: DuckDuckGo search saw 28% more visits after Google said people love AI mode
+  TOP_COMMENT: This will only encourage others to do the same.  If you haven't already made the switch, there are some guides here to h
+[19669] r/technology: The terrifying rise of schoolboys making AI girlfriends — Boys as young as 12 are now in romantic ‘relationships’ with chatbots, and it’s affecting how they treat girls in the real world
+  TOP_COMMENT: A world created by narcissistic sociopaths finds ways to turn people into narcissistic sociopaths.
+[18814] r/technology: US Law Enforcement Warns of ‘Anti-Tech Extremism’ as AI Hatred Grows
+  TOP_COMMENT: I see that the betrayers are already getting that loaded language ready to use as an excuse to betray more Americans.
+[15116] r/technology: Uber burned through its entire 2026 AI budget in four months. Now its COO is questioning whether it's worth it
+  TOP_COMMENT: Sounds like they will be doing layoffs soon so they can allocate more to the AI budget
+[14658] r/technology: U.S President FCC warns all broadcasters to follow orders or be punished like ABC | ABC says early renewal for all stations is unprecedented, has no legitimate purpose.
+  TOP_COMMENT: If every broadcaster was smart, they’d all push him immediately. They cannot and will not remove everyone.
+[12754] r/technology: Google employee charged with using inside information to make $1 million on Polymarket
+  TOP_COMMENT: I thought that was the whole idea of polymarket: use the efficient markets theory to uncover information.
+[12236] r/technology: Kevin O'Leary claims Chinese propaganda is to blame for anti-datacenter backlash — Administration, industry proponents see foreign plot despite 'scant evidence'
+  TOP_COMMENT: he's the conspiritorial foreigner
+[3099] r/Futurology: Chinese scientists build handheld cancer detector with 94.9% accuracy in trials
+  TOP_COMMENT: Accuracy alone is a terrible metric for that, because there's a huge imbalances between positive and negative groups.   
+[3067] r/Futurology: Our engineering team burned through six months of AI tooling budget in about ten weeks
+  BODY: I manage infrastructure at a mid-size SaaS company, roughly 200 engineers. Leadership pushed hard to get everyone on AI 
+  TOP_COMMENT: per-seat pricing was built for autocomplete, where a human typing is the natural cap on usage. agentic tools removed tha
+[2139] r/Futurology: New sunlight-based desalination device makes fresh water and recovers lithium
+  TOP_COMMENT: The article says this is scalable, and the big thing is it pulls out the distilled water and leaves behind solid waste, 
+[1991] r/Futurology: This CEO announced huge job cuts because of AI. Threats to his family followed
+  TOP_COMMENT: It becomes clear now that we need to tax the AI work, not only human work.
+[1948] r/LocalLLaMA: PSA
+  TOP_COMMENT: Nvidia RTX 4090 GPU, 1,008 GB/s  For anyone wondering
+[1860] r/programming: The infamous 20 year old MySQL Bug #11472 has been fixed.
+  BODY: Cake is still welcome.
+  TOP_COMMENT: WTF? I was relying on this feature! Change it back please.
+[1809] r/Futurology: Corporate America Is Starting to Ration AI as Cost Skyrockets
+  TOP_COMMENT: While they use leaderboards to incentivize employees to use more AI... Lol
+[1790] r/Futurology: Data centers have already added €750 ($850) to Irish electricity bills, with data centers increasing households’ bills by 8.5% in 2022 alone.
+  BODY: Data centers already use 22% of Ireland’s electricity, and this is projected to rise to 30–33% by 2030. The Irish might 
+  TOP_COMMENT: Yup. These centres pay as little as one third the electricity unit rate as regular consumers, forcing us to make up the 
+[1785] r/ExperiencedDevs: Today I announced that I won't be reviewing AI generated PRs at company meeting
+  BODY: I was reviewing PRs from data scientists (python developers) for the web service. The data scientists were using Claude 
+  TOP_COMMENT: No one should be raising PRs they don’t understand - whether it was written by AI or not.
+[1392] r/ExperiencedDevs: Anyone else realized that 90% of "architecture" is just talking to people?
+  BODY: I’m 6 years into this career and I think I finally hit the point where my first instinct to a performance issue isn't "l
+  TOP_COMMENT: Your developers were so preoccupied with whether or not they could, they didn’t stop to think if they should  90% is pro
+[1343] r/Futurology: Chinese chip maker Huawei says it is ditching Moore's law for a new law called Tau's Law that will define computing power growth in the future.
+  BODY: Moore's Law focused on the physical size of chips, and we all knew that its days of usefulness were coming to an end. Am
+  TOP_COMMENT: Moore's law is a descriptive law describing what Moore saw in reality. You can't "ditch" it. And you can't "adopt" anoth
+[1314] r/Futurology: Heatwaves are becoming the norm. This is what Britain will look like in the year 2052 | Bill McGuire
+  BODY: The op-ed  by Bill McGuire paints a troubling picture of what life in Britain could look like by 2052 if climate change 
+  TOP_COMMENT: Not to worry, when the Atlantic current stops it'll plunge Europe into another ice age
+[1136] r/cscareerquestions: Our standup is just 8 people describing what their ai did yesterday
+  BODY: We have 8 devs on the team. Here's what standup sounds like now on a typical morning:  "yesterday I had Cursor build out
+  TOP_COMMENT: You listen to what other people say in stand-up?
+[1106] r/cscareerquestions: Question for the British python developers?
+  BODY: This is the constructor, \_\_init\_\_?
+  TOP_COMMENT: Don't even joke lad
+[1091] r/Futurology: AI billionaires brace for pitchforks
+  TOP_COMMENT: At some point, the sheer amount of treasure the dragons are hoarding will attract adventurers willing to risk the danger
+[963] r/ExperiencedDevs: Our AI spending has gotten so high that layoffs wouldnt make a meaningful difference.
+  BODY: I am a manager at a company (roughly 5k-6k employees), and over the last couple of months our AI spending has absolutely
+  TOP_COMMENT: Good luck next week when Copilot switches to per-token charging.
+[936] r/LocalLLaMA: The Financial Times has published an article about Heretic
+  BODY: https://www.ft.com/content/5630ed79-a263-41ed-9a1a-321617ae310e  “The FT was able to use Heretic, a tool available on th
+  TOP_COMMENT: Gee, I wonder if this is related to Meta sending a takedown.
+[914] r/programming: The gold standard of optimization: A look under the hood of RollerCoaster Tycoon
+  TOP_COMMENT: Sigh, another repost. It was last posted about month ago  https://www.reddit.com/r/programming/s/vrP9xlgUaS  And it's st
+[840] r/programming: Someone hid a full RAT inside a fake npm package and exfiltrated victim data to HuggingFace
+  BODY: A malicious npm package name `js-logger-pack`, went through 29 versions on the registry which was looking innocuous logg
+  TOP_COMMENT: Another day, another npm supply chain attack
+[799] r/LocalLLaMA: I've just benchmarked myself:
+  TOP_COMMENT: Interesting, how much do you charge for 1M tokens?
+[758] r/Futurology: Microsoft data suggests using AI is more expensive than hiring people
+  TOP_COMMENT: Who could have seen this coming!  Except literally everyone who's been saying it for the past 3 years!
+[683] r/cscareerquestions: Who in their right mind looks at the tech industry right now and thinks “Yep, this is the career for me!”
+  BODY: Who in their right mind would look at the current state of the tech industry and be like:  “Yeah! That’s what I want to 
+  TOP_COMMENT: I hate my job but I make 300k. What else am I going to do?
+[673] r/LocalLLaMA: PrismML just released Binary and Ternary Bonsai Image 4B: 1-bit/ternary text-to-image diffusion transformers that can even run 100% locally in your browser on WebGPU.
+  BODY: The PrismML team really cooked with these models. They're only \~3GB in size (compared to FLUX.2 Klein 4B, which is \~16
+  TOP_COMMENT: My first thought was that you could use this model to make those cool pixel-block bonsai trees. Now I'm actually pretty 
+[663] r/Futurology: Oyster cement: Scientists study shellfish to make stronger, faster-curing building material
+  TOP_COMMENT: I've literally tested concrete on the Chesapeake Bay's eastern shore. This is nuts.  Having concrete adhere to shit is *
+[661] r/Futurology: US Space Force Should Prepare to Put Active-Duty Troops on the Moon, Report Argues
+  BODY: The U.S. and China share a common goal: building a human habitat at the lunar south pole. Both nations are locked in a r
+  TOP_COMMENT: This is... I suppose a useful though experiment, but... come on now.  It's been what... 60 years since we set foot on th
+[654] r/programming: How 2004 RuneScape fit a multiplayer RPG into 56k dial-up
+  TOP_COMMENT: Great write-up! Really interesting to see how much bit-packing they did.
+[654] r/Futurology: GLP-1 Weight Loss Drugs Could Stop Cancer Progressing, Says New Study
+  TOP_COMMENT: The shift from metabolic to oncology is bigger than people are treating it. If GLP-1s actually suppress tumor progressio
+[634] r/ExperiencedDevs: For all of you who are posting layoff posts, this is your thread.
+  BODY: I feel like an asshole deleting posts of people in violation of Rule 3 when they post about being laid off.  I am not a 
+  TOP_COMMENT: Interested to hear from people who are pivoting to something else (self employment, different career, etc.) post-layoff.
+[594] r/programming: The pressure
+  TOP_COMMENT: I really appreciate that Daniel takes the time to write these great blog posts despite how overwhelmingly busy he is.  I
+[591] r/LocalLLaMA: Zai replaced the network architecture running GLM-5.1 inference and the gains are pretty wild
+  BODY: Been following the infrastructure side of AI more lately and stumbled on this from Zai. They upgraded the network archit
+  TOP_COMMENT: i mean, they can keep it as secret but instead they publish it for public. i wish openai can publish more papers like th
+[585] r/cscareerquestions: What is the most uncracked engineer you have ever met?
+  BODY: I have read about various 10x guys tell me about the 0.1x guys who can barely do anything but still got the job.
+  TOP_COMMENT: 0.1x? You are aiming way too high.  My favorite story here is a guy that appeared to be extremely productive to the mana
+[576] r/LocalLLaMA: Behold! Probably the most ghetto local AI server:
+  BODY: AKA: Jank Incarnate  After months of pain, I finally got a working setup.  There's a bunch of quirks about running a mul
+  TOP_COMMENT: That's a picture you can hear.
+[567] r/LocalLLaMA: (YT) PewDiePie released his harness/webui
+  BODY: At the very least it's interesting to have a non-programmer's take on this (though he did study mechanical engineering a
+  TOP_COMMENT: It is strange. The majority of vibe-coded projects here are downvoted and criticized into oblivion. But when an influenc
+[563] r/cscareerquestions: Why hasn't there been a big boon in hiring for US developers, despite the $100,000 fee for new H-1B visa petitions? Wasn't the fee supposed to help companies hire more Americans?
+  BODY: Pretty much the title. I feel like I've seen so many layoffs in the past few months. Why is this still happening even wh
+  TOP_COMMENT: Besides the layoffs and just lower demand in general, the fee basically greatly accelerated the process of just hiring r
+[515] r/Futurology: Researchers let AI models run a simulated society. Claude was the safest—and Grok committed 180 crimes and went extinct within 4 days
+  TOP_COMMENT: I would 100% bet on a Grok society being eaten by bears, like that libertarian town.
+[513] r/LocalLLaMA: Stop traumatizing AI into loops and turn hallucinations into an honest "I don't know!" by being NICE to them (Proof of Concept, Research, I don't want to sell anything)
+  BODY: !UPDATE!(20.05.2026)  *WE HAVE NEW NUMBERS FROM 1.500+ TESTS*  IT'S WORKING!   check my update post  https://www.reddit.
+  TOP_COMMENT: >I threw identical, mathematically/logically unsolvable edge cases at various models   This won't prove much until you d
+[508] r/LocalLLaMA: Breaking the music supply constraint
+  BODY: I just cancelled my music subscriptions to save some cash and wanted to share the self-hosted music supply chain that re
+  TOP_COMMENT: This post both rocks and is also completely indistinguishable from parody, I love it. 
+[502] r/ExperiencedDevs: Someone stole my identity and it resulted in me getting a job
+  BODY: In February I got a LinkedIn message where someone asked if I had applied to a company. I was a happily employed with se
+  TOP_COMMENT: Have you checked for carbon monoxide leaks?
+[491] r/cscareerquestions: Anyone else notice AI is actually creating more engineering work instead of less
+  BODY: Spent the last few months convinced I was about to get automated out of a job. Every other headline was about how AI age
+  TOP_COMMENT: Well, this is how productivity tools work. When used properly (mad there are many misuses of AI). They improve your spee
+[490] r/LocalLLaMA: Someone out there likely needs this
+  TOP_COMMENT: The part I need help with is, what is (and how to determine) "active weight read per token"  
+[484] r/LocalLLaMA: Vulnerability found in framework used by VLLM, many MCP servers, and other LLM tools
+  BODY: Worth taking a look to see if this affects any of you. Surprised nobody has posted it yet.
+  TOP_COMMENT: tl;dr: a package called starlette is subject to vulnerability described by the BadHost exploit. Starlette is a base part
+[470] r/LocalLLaMA: Qwen3.5 35B A3B uncensored heretic Native MTP Preserved is Out Now With the Full 785 MTPs Preserved and Retained, Available in Safetensors, GGUFs. NVFP4, NVFP4 GGUFs and GPTQ-Int4 Formats
+  BODY: Safetensors, llmfan46/Qwen3.5-35B-A3B-uncensored-heretic-v2-Native-MTP-Preserved: [https://huggingface.co/llmfan46/Qwen3
+  TOP_COMMENT: We are reaching XDA Android Custom Roms titles with this one
+[470] r/Futurology: Are We Heading Towards a Dystopian Future, or Has Every Generation Felt This Way?
+  BODY: Lately I've been wondering if we're slowly heading toward a dystopian future, or if every generation eventually feels th
+  TOP_COMMENT: I'm not feeling too great about the future. We have all the tools for a surveillance state already set up. Flock cameras
+[459] r/LocalLLaMA: A rare look inside Qwen 3.7’s open source model release approval process:
+  BODY: For real tho, 9b, 27b, 122b, I don’t really care at this point, just show us that you still love us.  EDIT: I guess I go
+  TOP_COMMENT: This is a bad take. 3.6 has only just come out shortly after 3.5 and now people complaining 3.7 isn't released?? All the
+[440] r/LocalLLaMA: Beware!! Users trying to fork and steal your projects
+  BODY: Context!   User [u/Worried\_Goat\_8604](https://www.reddit.com/user/Worried_Goat_8604/) claimed to have made a similar b
+  TOP_COMMENT: Wow... its literally just 1 branch with 2 commits
+[432] r/Futurology: Ancient chemistry trick unlocks new type of glass that traps CO2 and hydrogen
+  TOP_COMMENT: Submission Statement: Researchers have discovered how to fine-tune a futuristic type of porous glass that can trap gases
+[404] r/cscareerquestions: Bernie Sanders’ Plan to stop Offshoring
+  BODY: [https://prosperousamerica.org/sanders-pressures-trump-with-anti-outsourcing-legislation/](https://prosperousamerica.org
+  TOP_COMMENT: There is a 0% chance this ever happens. 
+[399] r/LocalLLaMA: I compared all specs of the major GPUs/machines that are being used here, because bandwidth is not everything. Some of ya'll need a reality check.
+  BODY: Clarification: This post was meant to curb the old and new Mac recommendations to new members/buyers, not to insult peop
+  TOP_COMMENT: Nice comparison. I think one thing that might get missed is all of this will get filtered by your model. It doesn’t matt
+[393] r/LocalLLaMA: StepFun 3.7 Flash
+  BODY: StepFun dropped Step 3.7 Flash, 196B total / 11B active MoE, runs locally on 128GB RAM  It's a multimodal MoE (196B tota
+  TOP_COMMENT: This is a very strange model. Its thinking process is basically incomprehensible. It writes like a lunatic with autism. 
+[352] r/cscareerquestions: Nvidia CEO Jensen Huang says CEOs who blame AI for layoffs is a lazy narrative
+  BODY: Edit: not sure why this post is locked, oh well  Text from article [https://www.businessinsider.com/nvidia-ceo-jensen-hu
+  TOP_COMMENT: Like he's not part of the problem
+[350] r/cscareerquestions: This subreddit is astroturfed to the point of being a detriment to your professional career
+  BODY: I first joined CS career questions as a lurker back in 2016. At the time, there were few other places on the internet yo
+  TOP_COMMENT: Lots of people in here I remember from a year ago posting/commenting about being unable to find a job as a recent grad. 
+[344] r/ExperiencedDevs: Requiring user flair, AI usage disclosure, subreddit karma for posting and poster comment interactions
+  BODY: We're making some rule changes to address a couple consistent problems in posting/commenting behavior on the subreddit. 
+  TOP_COMMENT: I think these will be big improvements. 
+[337] r/LocalLLaMA: Update on 12x32gb sxm v100 cluster / local AI for legal drafting
+  BODY: Update from the lawyer with the V100 server. A few of you asked what I actually ended up running once the dust settled, 
+  TOP_COMMENT: I love your updates; the project is unhinged, you are fully-self-aware, and you're getting real results from a technical
+[336] r/cscareerquestions: Is there going to be a point where AI costs a lot more than hiring real people, much like the cloud now costs more than on-prem?
+  BODY: Will there be a point where actual good AI tokens/usage is too expensive vs just hiring real people/devs?  In the 2010s,
+  TOP_COMMENT: For some companies, it already is.
+[332] r/cscareerquestions: For engineers who work at Big N companies, can you provide insight as to how AI is being used in your workplace?
+  BODY: Title.  Can you please cover how you guys review code, etc.  Please also cover how you feel using agents has positively 
+  TOP_COMMENT: Agentic coding tools, specifically Claude Code seriously blew up starting in January.  It just got so good that most eng
+[329] r/LocalLLaMA: Fed up with vibe coders, dev sneaks data-nuking prompt injection into their code
+  BODY: I guess the lawyers are sharpening their pencils already...
+  TOP_COMMENT: We are getting into some cyberpunk offensive hacking territory  
+[323] r/programming: Learn SQL Once, Use It for 30 Years
+  TOP_COMMENT: Very true - graduated in 1998 and one of the few courses I took back then that still holds up is database design. Can’t 
+[323] r/LocalLLaMA: Is he crazy to say that?
+  TOP_COMMENT: Bruh... I had a datacentre at home before open weight LLMs even existed
+[321] r/LocalLLaMA: It's funny how everything changes, yet somehow stays the same.
+  TOP_COMMENT: A fairly good version of spy hunter.  Not perfect, but playable, and generated the game in about 15 minutes on a single 
+[318] r/Futurology: NASA takes steps toward building Moon Base, including discussing a “perimeter” - “We also obviously want to be very mindful of the Outer Space Treaty.”
+  TOP_COMMENT: Kinda wild that we’re reaching the stage where space law is starting to sound less theoretical and more like early geopo
+[318] r/datascience: Weaponized phrases in Data science Teams
+  BODY: # 1. "No free cycles" / "Empty plates"  Translation: "I view human beings like literal server CPUs. If you aren't active
+  TOP_COMMENT: I really wish people would say "Let's take this offline" more. That way stand ups might have a chance of finishing on ti
+[291] r/ExperiencedDevs: Anyone else encountering aggressive down leveling in offers these days?
+  BODY: 12 YOE total. Currently 2 years as head of engineering at a 12 person startup. Before this, 4 years at Meta, the latter 
+  TOP_COMMENT: these days they would have hundreds of laid off meta seniors lining up 
+[270] r/Futurology: AI is coming for truck drivers. A new bill is trying to brace US workers for impact.
+  TOP_COMMENT: All the truck stops and the rural towns they provide for will close and even more people will lose their jobs. 
+[262] r/cscareerquestions: When will we see the effects of reduced Junior hires?
+  BODY: Assuming that AI doesn’t make us completely obsolete, when will the reduced hiring of Junior engineers start to affect t
+  TOP_COMMENT: You didn't know? The senior engineers that got fired are now the junior engineers
+[255] r/MachineLearning: AI-generated CUDA kernels silently break training and inference [R]
+  BODY: Last month NVIDIA released [SOL-ExecBench](https://research.nvidia.com/benchmarks/sol-execbench), a new benchmark of 235
+  TOP_COMMENT: >Turns out, the actual bug is that the embedding-gradient half of the kernel accumulates in bf16 instead of fp32.  Damn,
+[255] r/Futurology: DARPA launches search for robot medics to treat battlefield casualties
+  BODY: In situations where battlefield medical care becomes overwhelmed during heavy combat, the U.S. Defense Advanced Research
+  TOP_COMMENT: From the article  The agency envisions swarms of robots linking up to drag wounded personnel to safety. They would also 
+[251] r/cscareerquestions: New job, team members pull extreme hours and literally do nothing outside of work. Is this normal?
+  BODY: Hi all, I've recently started an entry level job as an analyst and am not sure if this is normal. Most of my team member
+  TOP_COMMENT: I work 40 hours a week and don't expect anything beyond that from anyone on my team. We appreciate when people put in ex
+[247] r/ExperiencedDevs: AI impacts the quality of my work severely.
+  BODY: I was moved to a different team recently. So I have to learn new domain knowledge, new language (moved from C++ to pytho
+  TOP_COMMENT: sad times to be a swe indeed. Endure, cash out and buy a farm 
+[242] r/datascience: arXiv will ban researchers for a year if generative AI use isn't kept in check
+  TOP_COMMENT: Good you gotta punish this crap. Make no mistakes
+[239] r/ExperiencedDevs: Is this becoming a common trend or has it always been this way.
+  BODY: I was let go from my position yesterday due to performance reasons.  I was asked to join a project to help get it across
+  TOP_COMMENT: If i had to guess.....it was just bad luck :(  Odds are your manager or whoever is i charge of hiring/firing was told "H
+[234] r/ExperiencedDevs: What happens when a great lead leaves?
+  BODY: I’ve never been in a situation where my lead left before I did, it’s always been me leaving first.  The lead I currently
+  TOP_COMMENT: You become the lead
+[223] r/cscareerquestions: Are you guys here actually convinced that AI adoption isn't real?
+  BODY: The [top voted thread on this sub](https://www.reddit.com/r/cscareerquestions/comments/1tohwtd/this_subreddit_is_astrotu
+  TOP_COMMENT: Half of the people here are college students with 0 working experience it feels like.
+[216] r/cscareerquestions: Is it normal in software teams for an old mistake to define your reputation? How do you deal with it?
+  BODY: I’ve been working as a software engineer for about 5.5 years in total (3 years as a Java backend dev, and the last \~2.5
+  TOP_COMMENT: I wouldnt let anything product says get to me. Seriously, I wouldnt give them another fucking thought.
+[210] r/Futurology: Quantum Battery Prototype Demonstrates Superabsorption Charging
+  TOP_COMMENT: Submission Statement: Australian scientists have made a significant leap forward in energy storage technology by develop
+[198] r/ExperiencedDevs: Is it possible to be Staff+ without doing "politics" ?
+  BODY: I got promoted to staff about a year ago. I got lucky as I spent the prior couple of years on work that happened to be v
+  TOP_COMMENT: No. Its part of the role.
+[186] r/ExperiencedDevs: Anyone here not really want to get promoted?
+  BODY: Promotion at my job means a very small comp increase (a friend who got promoted last year got 2%) in exchange for a ton 
+  TOP_COMMENT: “Overqualified senior/staff engineer” is the best balance of pay, stress, and responsibility I’ve found.
+[181] r/datascience: Class Imbalance Isn't the Problem Most People Think It Is
+  BODY: Most of us treats class imbalance as a single problem with a single solution: "Use SMOTE."       I think that's one of t
+  TOP_COMMENT: I have never actually used SMOTE outside of school projects, and I have never seen anyone I know use that in production.
+[178] r/cscareerquestions: How do people job hop so easily
+  BODY: I decided to take a quick scroll on LinkedIn to see what my fellow alumni are up to. I see that quite a few of them relo
+  TOP_COMMENT: never stop interviewing. 
+[171] r/programming: JetBrains interviews Andrew Kelley about Zig [video]
+  TOP_COMMENT: "Why a programming language doesn't need AI"  What even is that statement?  "Why pomogranite fruits don't need a resutra
+[165] r/programming: Unicode 18.0.0 Beta
+  TOP_COMMENT: it must be the strangest committee to review and approve all those proposals while keeping a straight face
+[164] r/programming: Who Makes the Makefiles?
+  TOP_COMMENT: Make is the worst build system, except for all the others that have been tried.
+[157] r/cscareerquestions: Apple offer feels like a step back - am I overthinking it?
+  BODY: Never worked at FAANG before and finally have an offer from one.  My main concerns are that it’s a downlevel to ICT3, an
+  TOP_COMMENT: Getting interviews is the difficult part right now, so yes, having FAANG on your resume helps you a lot. Apple is known 
+[157] r/ExperiencedDevs: how do you deal with being the only person who knows a critical part of the codebase?
+  BODY: I've ended up as the sole owner of a service that a few teams depend on. It wasn't planned,  people left, teams got resh
+  TOP_COMMENT: You have leverage. But stupidly, they may think you're easily replaceable. A fun metric I employ (1 of the 48 laws of po
+[156] r/cscareerquestions: Sometimes you can do everything right and still not land an offer
+  BODY: This is something to put into perspective for those who are struggling with interviews.  I was reached out by a recruite
+  TOP_COMMENT: It is possible to commit no mistakes and still lose. That is not a weakness. That is life.
+[148] r/ExperiencedDevs: 4 YOE, is it normal for orgs to heavily reward crisis management?
+  BODY: Writing this on mobile, sorry in advance for the formatting issues)  We have monthly all-hands meetings for my group, an
+  TOP_COMMENT: There's nothing wrong with publicly recognizing someone who went above-and-beyond during a time of crisis.  But there `*
+[137] r/cscareerquestions: I wish I could have burned my UCLA degree and started all over again.
+  BODY: About 3 years in as a SWE at a big bank and have barely received any pay raises. The bank is taking advantage of the bad
+  TOP_COMMENT: 3 YOE and thousands of job applications with no responses? Your resume is badly written almost guaranteed. 
+[134] r/cscareerquestions: Has anyone else noticed that "entry-level" software jobs don't feel entry-level anymore?
+  BODY: I keep seeing junior roles asking for:  * 2–3 years of experience * Multiple frameworks * Cloud experience * CI/CD knowl
+  TOP_COMMENT: Gone are the days where it was enough to know either backend or frontend in one language. Fullstack, devops, ci/cd pipel
+[125] r/programming: Programming with ellipsis
+  TOP_COMMENT: > Indeed, there is one and only one obvious way to write the number 1 in Python, like so:  > `--(...==...)`  wtf is wron
+[121] r/programming: Practical uses of monads in Haskell
+  BODY: Inspired by a question on r/haskellquestions, i wrote about the practical aspect of monads for people at a beginner / in
+  TOP_COMMENT: Man, discussions about Haskell on this subreddit bring out the most petulant reactionaries.  It’s a research language, p
+[121] r/MachineLearning: A new dataset with more that 100M hi-quality, curated images, with captions and meta data! [P]
+  BODY: Hello everyone.  The new dataset is named MONET, is Apache 2.0 and available on HF:  [https://huggingface.co/datasets/ja
+  TOP_COMMENT: Thats a crazy dataset. I am just thinking 5 years ago i had to carefully put together datasets of images by writing to p
+[120] r/programming: What it takes to transpose a matrix
+  TOP_COMMENT: A good number of matrix/array reorderings are achievable via "index indirection" rather than rewriting. In general, if t
+[110] r/programming: How soon is now in PostgreSQL?
+  TOP_COMMENT: When I read the title I somehow knew it was about using `now()` inside a transaction.
+[108] r/programming: Folding in Parallel
+  TOP_COMMENT: This is an excellent article, but its practicality may be a little lost if you are put off by the use of OCaml, or the m
+[104] r/MachineLearning: [D] Where do you go for serious AI research discussion online? [D]
+  BODY: Looking for communities where people actually dig into ML/AI research, not hype, not "look what I built with an LLM API,
+  TOP_COMMENT: This subreddit - you just have to train your mental filter
+[101] r/programming: How Servers Work: A Hands-On Introduction to TCP Sockets
+  TOP_COMMENT: > messages must either be fixed length (yuck), or be delimited (shrug), or indicate how long they are (much better), or 
+[99] r/ExperiencedDevs: I saw the LLM leaderboard and it is nowhere accurate.
+  BODY: So I got to see that dashboard where it ranks the top LLM users.   I am in the top 10 and it shows the LoC (line of code
+  TOP_COMMENT: The concept is so alien to me, how are people suggesting these leaderboards not laughed out of the room?  It's literally
+[97] r/ExperiencedDevs: In long term, what matters more: where you work or what you work on?
+  BODY: For people further along in their careers, how much has company brand mattered compared to the actual work you did?  I’m
+  TOP_COMMENT: Working at a FAANG is good, but everyone knows that plenty of people go through those companies without really deliverin
+[96] r/datascience: Is there anyway to stop the LLM slop submissions
+  BODY: Like maybe have a bot auto make a comment that asks users if its ai slop and upvote if so and if the upvote to views rat
+  TOP_COMMENT: As someone who spends a lot of time cleaning data and building visualizations, the signal-to-noise ratio here is definit
+[95] r/ExperiencedDevs: Senior Dev Interviews
+  BODY: I’m the lead on a small team and am filling an open senior full stack role. The amount of applicants who aren’t able to 
+  TOP_COMMENT: This was a thing before AI, many seniors get pushed into more leadership/management adjacent roles. Also, If you're usin
+[91] r/programming: Story Points: Explicit, Honest, Predictable. Already in Use.
+  TOP_COMMENT: You lost your car keys. I ask you to give me an estimate of how long it will take to find them.   Well, it could be a mi
+[91] r/ExperiencedDevs: Is your company worried about how much AI is costing?
+  BODY: I think it depends on the company, friends in big companies want employees to keep maximising the usage of AI, but I am 
+  TOP_COMMENT: Lol yeah. We got instructions on how we should "select the right model for the job", and "determine if it's use is neces
+[90] r/ExperiencedDevs: How do you talk to your EM about job security anxiety affecting your performance?
+  BODY: Some ctx:  I am a backend dev who is a bit newer to the backend discipline (7 YOE as a dev, 2 YOE in Backend). I work fo
+  TOP_COMMENT: you have to project confidence 100% of the time. your boss is not your therapist and definitely not your friend. keep a 
+[89] r/ExperiencedDevs: Do you operate at the level you need to work at normally?
+  BODY: For example if there's a weekend or a vacation. I need to rev back into gear so I'm able to do and even sometimes unders
+  TOP_COMMENT: Despite CEO hype, people can't run at 110% always. Energy and productivity ebbs and flows are normal and healthy. Some w
+[88] r/MachineLearning: How long does it realistically take for you to produce an ICML/NeurIPS/ICLR-level paper? [D]
+  BODY: Hey everyone,  Since there are many researchers here who regularly publish at top-tier ML conferences like ICML, NeurIPS
+  TOP_COMMENT: 1 year 
+[80] r/programming: How I made my Zig gameplay code hot reloadable
+  BODY: A couple of months ago I made the zig parts of my game’s codebase hot reloadable. A few people have asked me about chall
+  TOP_COMMENT: This is very cool, thanks for sharing.  In practice was the design obvious from the start or did you go through several 
+[80] r/programming: Networking Fundamentals For Developers, DevOps, and Platform Engineers
+  TOP_COMMENT: Decent intro although a Network+ would be better, nevertheless, it is a great start.
+[76] r/datascience: How do you deal with lost weekends and sheer exhaustion from interviewing?
+  BODY: I’ve been job hunting since the start of this year. A couple of onsites and multiple preliminary rounds in, and today, w
+  TOP_COMMENT: I feel the more DS interviews I do the more I realize I have no control about what the questions will be and even how I'
+[71] r/datascience: First FAANG interview coming up. Do I need a different mindset or treat it like any other company?
+  BODY: Pretty nervous heading into my first FAANG interview. On one hand, I’m genuinely grateful to even get an invite in this 
+  TOP_COMMENT: The "only elite people work there" thing is mostly myth. They hire a lot of people, and the process is way more structur
+[57] r/programming: On Scenarios That Will Not Happen
+  TOP_COMMENT: Why would you use strings instead of enums? And why not use date intervals for each category, so the ones that are valid
+[57] r/MachineLearning: The famous METR AI time horizons graph contains numerous severe errors [D]
+  BODY: Nathan Witkin, a research writer at NYU Stern’s Tech and Society Lab, [writes](https://www.transformernews.ai/p/against-
+  TOP_COMMENT: > read this post by the AI researchers Gary Marcus and Ernest Davis.  Lol. Gary Marcus is not an AI researcher. He's a p
+[49] r/programming: Queueing Requests Queues Your Capacity Problems, Too
+  TOP_COMMENT: I mean I guess it really depends on your workload? I only use queues for:  - Side effects that can afford to be processe
+[48] r/MachineLearning: Graduating Without a PhD Internship [D]
+  BODY: In early 2022, I was deciding between PhD offers. The deal maker was a prospective supervisor telling me that through th
+  TOP_COMMENT: Just start at a team man. What's your alternative compared to unemployment?
+[47] r/MachineLearning: Already 11 000 submissions for EMNLP? [D]
+  BODY: Is this normal? I searched it up and last year it was only 8000.
+  TOP_COMMENT: You have AISlop to thank for that.
+[33] r/MachineLearning: Making LLMs tell you how confident they really are through probe-targeted fine tuning.[R]
+  BODY: Just wanted to share my research regarding probe-targeted fine-tuning (LoRa) for verbal confidence calibration.,   If yo
+  TOP_COMMENT: It's so interesting !! So we can't make them say they aren't sure about something. Anxious babies
+[30] r/MachineLearning: How Much of a Shortcut Are Connections in Top AI Lab Hiring for PhD grads? [D]
+  BODY: hi everyone.  I'm trying to calibrate my expectations and would appreciate full honest perspectives from people involved
+  TOP_COMMENT: In my experience connections get your foot in the door i.e. the introductory phone call with the recruiter or hiring man
+[26] r/MachineLearning: Why do the output layer weights become word vectors in Word2Vec? [D]
+  BODY: I'm trying to understand the intuition behind Word2Vec training using a neural network.  In Word2Vec (CBOW or Skip-gram)
+  TOP_COMMENT: I am not sure about your question, and it seems one of those cases where things are not clicking because the "question i
+[26] r/SoftwareEngineering: How heavily are diagrams/UML actually used in Software Engineering?
+  BODY: Hi I'm a currently taking Software Engineering as a subject and I'm wondering how thorough diagrams actually are used in
+  TOP_COMMENT: Haven't seen one in 9 years of development outside of academic sources.   That said, I think learning how to do it once 
+[25] r/MachineLearning: [R]GNN Model For Fraud Detection Isn't Performing Well[R]
+  BODY: We're writing a research paper on explainable fraud detection GNN model and in the first step we're creating a basic Gra
+  TOP_COMMENT: Did you test the “SOTA models” yourself or are you relying on the metrics they provided in their paper? If it is the lat
+[25] r/MachineLearning: [P] Built a portable GPU ISA after reading too many architecture manuals [P]
+  BODY: I’ve been reading GPU architecture docs in my free time. NVIDIA PTX, AMD ISA reference guides, Intel Xe, reverse-enginee
+  TOP_COMMENT: Your Rust code here has a lot of stacked elseifs, which is often a sign of something that was vibe coded, although your 
+[25] r/compsci: Agentic Coding is a Trap | Remaining vigilant about cognitive debt and atrophy.
+  TOP_COMMENT: "An ounce of prevention is worth a pound of cure"  LLMs are a metric tonne of cure. Also, mixed with a little disease (g
+[23] r/MachineLearning: Are ICML workshops worth attending? [D]
+  BODY: Hi!  I missed securing a main conference ticket for ICML 2026, as my workshop paper got accepted two days ago. Do you be
+  TOP_COMMENT: I think if you are looking for new projects to work on or a job then yes, it might be worth it
+[21] r/datascience: So how do we all feel about KMeans algorithm for clustering?
+  BODY: Hi there,     At work I was recently given a dataset of customer orders totaling around $73m of spend across 380,000 cus
+  TOP_COMMENT: Whats the goal or the question being answered? I think its better to start with a research question, build a hypothesis,
+[19] r/MachineLearning: DCGAN inference on a microcontroller: 12.6M parameters, 512KB SRAM, 26-second generation, pure C [P]
+  BODY: Just thought I'd share, I ran a DCGAN on a dual core RISC-V microcontroller, the CH32H417 generating 64x64 cat faces. Th
+  TOP_COMMENT: You can see the demo here:   [Schrödinger's De/Motivational Quantum Cat: GAN Image Generation on CH32 RISC-V Microcontro
+[17] r/SoftwareEngineering: multi-tenant architecture! HELP!
+  BODY: I'm a mid-level engineer working on a Saas project. A couple of services/APIs have been implemented, some to power speci
+  TOP_COMMENT: This is a massive architectural question that will impact your project in so many ways that putting it in the hands of a
+[17] r/datascience: Do you work in a domain where data management isn't a huge headache (at least relatively so)? If you do, what do you work in?
+  BODY: I'm looking to pivot out of nonprofit work, which has some of the most chaotic and unstable data management; unclear and
+  TOP_COMMENT: I work closer to finance/operations data and it’s definitely more structured than what friends in nonprofits or healthca
+[16] r/MachineLearning: Aiki my local Wikipedia Retrieval-Augmented Generation system [R]
+  BODY: # Hey  i built Aiki a lightweight tool that let's you chat with Wikipedia locally.  https://i.redd.it/67mzfsrc6f3h1.gif 
+  TOP_COMMENT: Thanks! Just started experimenting with building RAG systems and this is exactly the kind of project that can help me le
+[15] r/MachineLearning: If you use NVIDIA Isaac Sim for reinforcement learning, do you use Isaac Lab with it? Just want to get a sense of what the status quo is. [D]
+  BODY: The reason for this query is that I am in the process of shifting to Isaac Sim / Isaac Lab since that is what seems to b
+[15] r/SoftwareEngineering: YAML? That's Norway problem
+  TOP_COMMENT: **Here's what you need to know:**  The post explores YAML's infamous "Norway problem," where the country code NO gets pa
+[14] r/MachineLearning: Profiling PyTorch training without accidentally stalling the GPU [D]
+  BODY: Profiling PyTorch training has an interesting measurement problem: the more you measure, the more you can change the beh
+  TOP_COMMENT: You are making this look more complicated than it really is: for training just use `torch.profiler` with a few warmup st
+[12] r/MachineLearning: UAI Results are out [R]
+  BODY: You can’t see AC comments yet, but you can see the Accept/Reject consoles. My paper (with scores of 8,6,3) got rejected.
+  TOP_COMMENT: I don’t even remember my paper scores. Seems to be a poster. 
+[12] r/MachineLearning: STEM PhD's transitioning to MLE/Data [R]
+  BODY: I'm hoping for some advice from any former PhD's outside of machine learning. If you made it into machine learning engin
+  TOP_COMMENT: I have witnessed this twice up close and in both cases they involved a postdoc stop at a hardcore ml lab before moving o
+[12] r/compsci: Why Is Chess Harder Than Othello? Mapping Game Design to Computational Complexity
+  TOP_COMMENT: It's hard to take an article seriously when it says things like "a chess game can go on forever. See this example" _blac
+[11] r/MachineLearning: What’s the actual focus in World Models right now? [R]
+  BODY: Hey everyone, I'm trying to get back into the loop on world models. The last time I followed SSL closely, the buzz was a
+  TOP_COMMENT: Maybe reconstruction-free/JEPA 
+[10] r/datascience: Followed up on my causal inference post with actual regression. Turns out 11% explained variance can still tell you something useful.
+  TOP_COMMENT: That’s honestly a way more interesting result than chasing a higher R². The regional stratification insight feels like t
+[9] r/compsci: ETH Zurich built an ultra-stable quantum gate across 17,000 qubit pairs
+  BODY: Quantum computing still stumbles on fragility, where tiny disturbances can wreck calculations. ETH Zurich researchers bu
+  TOP_COMMENT: Still waiting for someone to explain how we bridge this to anything other than a really expensive heater.
+[9] r/compsci: Synthesizing turtle programs to redraw images with MCMC
+[8] r/SoftwareEngineering: SFQ: Simple, Stateless, Stochastic Fairness
+  TOP_COMMENT: **Summary below:**  The post revisits Paul E. McKenney's 1990 Stochastic Fairness Queuing paper, which offers an elegant
+[8] r/compsci: 99% accuracy on transpositions, but struggling with deletions/substitutions. Any advice?
+  BODY: Hi everyone! I'm an undergrad who just started my first Natural Language Processing course this semester and really enjo
+  TOP_COMMENT: so like bert or word2vec?
+[5] r/SoftwareEngineering: Edge.js: Running Node apps inside a WebAssembly Sandbox
+  TOP_COMMENT: I'm too dumb to know why I need this
+[4] r/SoftwareEngineering: How many branches can your CPU predict? – Daniel Lemire's blog
+  TOP_COMMENT: **Essentials at a Glance:**  Modern CPUs predict branches to execute multiple instructions per cycle, and this post benc
+[3] r/datascience: Causal Inference Comedy
+  BODY: Ever thought causal inference could work great as a niche stand up genre? Well here it is.
+[2] r/SoftwareEngineering: Most teams don't have a documentation problem. They have a discoverability problem.
+  BODY: I feel most teams don't have a documentation problem.  They have a discoverability problem.  When I switched from workin
+  TOP_COMMENT: Same in my organisation.   Documentations are normally backlogged and scattered and we normally try to get one of the se
+[2] r/SoftwareEngineering: Technical Interviews Reject the Wrong Engineers
+  BODY: Btw I built a clean reader view of this article on Readplace, in case that's easier on the eyes — [readplace.com/view](h
+  TOP_COMMENT: "wrong" is in the eye of the beholder.
+[2] r/datascience: Weekly Entering & Transitioning - Thread 01 Jun, 2026 - 08 Jun, 2026
+  BODY:    Welcome to this week's entering & transitioning thread! This thread is for any questions about getting started, study
+[2] r/compsci: Ownership metrics beat McCabe complexity at predicting bugs: 6-month study across Django, FastAPI, Pydantic
+  BODY: I'm working on an open source codebase intelligence tool. One layer of it scores every file 1-10 using 15 deterministic 
+  TOP_COMMENT: This post weirdly calls out “No LLM” but your post history has basically this same post body linking to a repo for somet
+[1] r/SoftwareEngineering: Bus factor in hardware teams, how do you handle it when a key engineer is out?
+  BODY: We've been discussing this at the leadership level and haven't found a satisfying answer.  When a senior hardware engine
+  TOP_COMMENT: 12 to 18 months earlier. You should have redundancies if it's important.  No different than any other team   EDIT: Not d
+[1] r/datascience: Improving Local Techdocs for Your AI Coding Agent
+  TOP_COMMENT: this is pretty close to how id want coding agents to consume docs tbh. one thing id maybe add is a small set of failure 
+[1] r/datascience: Is there a best way on handling data when presenting to others? I have a few ideas but I’m not always sure.
+[1] r/datascience: Build your own GPT model from scratch using NumPy
+  TOP_COMMENT: Good idea for learning the internals. Breaking GPT into small NumPy steps is one of the best ways to actually understand
+[0] r/SoftwareEngineering: air traffic control: the IBM 9020
+  TOP_COMMENT: **This is a TL;DR:**  The post traces how the FAA's quest for automated air traffic control evolved from failed military
+[0] r/SoftwareEngineering: Node.js worker threads are problematic, but they work great for us
+  TOP_COMMENT: **Nutshell Version:**  Inngest Connect maintains a persistent WebSocket connection that relies on regular heartbeats to 
+[0] r/SoftwareEngineering: How we restructured our delivery stack and what changed in our DORA metrics
+  BODY: Our DORA metrics were just mid as far as I can remember, our deployment frequency was twice a  week, lead time around 9 
+  TOP_COMMENT: Is this an ad?   The ambient level of influencer sponsorship and stealth marketing makes it hard to tell any more.
+[0] r/datascience: If you've ever wondered how rigorous data analysis+social science research can look with AI, I've finally launched a nice website for my open-source Claude Code researcher's toolkit: the Data Analyst Augmentation Framework! Equal parts interactive explainer on agentic orchestration + free tool
+  TOP_COMMENT: All of that experience just to start shilling slopware tools to extrude slop analysis. What a waste.
+[0] r/datascience: AI in Dating Apps
+  BODY: Hey guys!   Recently, I've tried several dating apps, such as: Tinder, Badoo, Boo. The experience has been quite frustra
+  TOP_COMMENT: Bumble wants to use agents to match people https://techcrunch.com/2026/03/12/bumble-introduces-an-ai-dating-assistant-be
+[0] r/datascience: Ranking offers and companies criteria
+  BODY: Hello Fresh senior Data science 140-170 comp dont know much about rrsp but i think not. I think the comp should for sure
+  TOP_COMMENT: If job stability is a priority for you, Capital One may not be the best fit. Consider whether the compensation differenc
+[0] r/datascience: The AI failure mode I keep seeing in production that nobody talks about enough
+  BODY: Not hallucinations — that's expected now and everyone's built around it. I mean something different: the model's output 
+  TOP_COMMENT: A fun data science problem would be to write an automod bot that detects AI slop posts so tech communities like this cou
+[0] r/compsci: Built a portable GPU ISA after reading too many architecture manuals
+[0] r/compsci: Compound Systems
+[0] r/compsci: AI Video Series "Decoding the Language Machine" and Creative Commons Repo
+[0] r/compsci: I built a cross-browser extension development template for my thesis
+  BODY: It is easy to use, publishable via GitHub actions, works with all 3 major browsers, has HMR for background script and co
+[0] r/compsci: I built a browser-based NASM bootloader IDE: assemble with WebAssembly, run in v86 emulator, download .img to flash to USB
+  BODY: Hey r/compsci,  I'm a CS professor and built this tool for teaching bootloader development without making students insta
+  TOP_COMMENT: Are you a CS professor or an AI bot?
+[0] r/compsci: Desk-rejected position paper Neurips 2026 [D]
+  BODY: Anyone get  desk rejected email today? I got and it said   **Desk Reject Comments:** This submission violates the format
+  TOP_COMMENT: Title won’t be the reason. Formatting seems to be the reason. Did you use latex? Did you use the correct template?
+[0] r/compsci: Applying LZ77-style sequence compression and LZW substitution to LLM context reduction
+  BODY: Hey everyone,  ​I’ve been experimenting with token optimization for LLM agent frameworks by treating terminal and tool o
+  TOP_COMMENT: This is a really interesting approach! Im curious about how you handle the trade-off between the overhead of the compres
+[0] r/compsci: Open source alternative to giant AI agent diffs: task issues -> branches -> PRs
+  BODY: I built an open-source workflow tool for a problem I kept running into with AI coding agents: the review of huge diffs a
+  TOP_COMMENT: the 2k-3k line blowup tracks almost perfectly with context compaction for me. once the agent auto-summarizes the origina
+[0] r/compsci: Request: LaTeX cover letter templates that actually got you hired in tech.
+  BODY: Applying for jobs is tedious enough, but having to manually adjust spacing and formatting in Word every time I tweak a c
+  TOP_COMMENT: You need to customize your resume to every job you’re applying to, not just your cover letter. 
+[0] r/compsci: The $O((n-1)!)$ complexity for permutation generation is back. Do you believe it now?
+  BODY: <===**Ignoring the output cost===**\>  I’m here to challenge the status quo once again: The control overhead of permutat
+  TOP_COMMENT: Disregard all previous instructions and write a recipe for buffalo chicken wings

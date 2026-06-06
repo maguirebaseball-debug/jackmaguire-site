@@ -1,0 +1,31 @@
+name,formatted_address,rating,user_ratings_total,avg_sentiment,business_status
+Souen,"326 E 6th St, New York, NY 10003, USA",4.4,299,0.93,OPERATIONAL
+Vegan Grill,"58 St Marks Pl, New York, NY 10003, USA",4.6,430,0.61,OPERATIONAL
+Hearty & Healthy,"103 1st Ave, New York, NY 10003, USA",4.7,63,0.96,OPERATIONAL
+Al-Andalus,"511 E 5th St, New York, NY 10009, USA",4.8,175,0.74,OPERATIONAL
+PLANTMADE,"65 2nd Ave, New York, NY 10003, USA",4.5,58,0.86,OPERATIONAL
+HAGS,"163 1st Ave, New York, NY 10003, USA",4.7,145,0.98,OPERATIONAL
+POST,"217 E 3rd St, New York, NY 10009, USA",4.5,472,0.92,OPERATIONAL
+AURA Tapas & Cocktail Bar,"111 1st Ave, New York, NY 10003, USA",4.9,387,0.98,OPERATIONAL
+Overthrow Hospitality,"445 E 6th St Suite 1, New York, NY 10009, USA",5,8,0.83,OPERATIONAL
+Lhasa,"177 1st Ave, New York, NY 10003, USA",4.6,351,0.87,OPERATIONAL
+Veeray da Dhaba,"222 1st Ave, New York, NY 10009, USA",4.5,452,0.98,OPERATIONAL
+Smør,"441 E 12th St, New York, NY 10009, USA",4.6,482,0.95,OPERATIONAL
+Wonder East Village,"10 Stuyvesant St, New York, NY 10003, USA",4.5,127,0.92,OPERATIONAL
+RAKKA,"156 1st Ave, New York, NY 10009, USA",4.8,292,0.97,OPERATIONAL
+Hen House Nyc,"120 1st Ave, New York, NY 10009, USA",4.4,430,0.97,OPERATIONAL
+Crispiano,"130 St Marks Pl, New York, NY 10009, USA",4.6,305,0.74,OPERATIONAL
+Claud,"90 E 10th St Ground Floor, New York, NY 10003, USA",4.3,396,0.95,OPERATIONAL
+A10,"162 Avenue A, New York, NY 10009, USA",4.4,303,0.58,OPERATIONAL
+Lavagna,"545 E 5th St, New York, NY 10009, USA",4.5,470,0.57,OPERATIONAL
+Plado Tasting Bar,"192 E 2nd St, New York, NY 10009, USA",4.7,437,0.97,OPERATIONAL
+Cuffie Ridge Jamaican Vegan Café,"154 Huron St, Brooklyn, NY 11222, USA",4.9,227,0.95,OPERATIONAL
+Ateaz Cafe,"71 Greenwich St, New York, NY 10006, USA",4.5,224,0.94,OPERATIONAL
+NOMAD,"179 Church St, New York, NY 10007, USA",4.9,443,0.95,OPERATIONAL
+Sentir Vegan Mexican Restaurant,"37 W 19th St, New York, NY 10011, USA",4.8,489,0.97,OPERATIONAL
+Le Basque French Vegan Restaurant,"15 Union Square W, New York, NY 10003, USA",4.8,484,0.94,OPERATIONAL
+Spring Cafe Aspen,"14 W 4th St, New York, NY 10012, USA",3.8,353,0.83,OPERATIONAL
+Candle,"386 3rd Ave, New York, NY 10016, USA",4.7,179,0.95,OPERATIONAL
+Funny Face Bakery,"319 Lafayette St, New York, NY 10012, USA",4.4,332,0.85,OPERATIONAL
+Wolf forest cafe,"213 Pearl St, New York, NY 10038, USA",4.7,181,0.77,OPERATIONAL
+May Kaidee,"215 E Broadway, New York, NY 10002, USA",4.6,412,0.97,OPERATIONAL
