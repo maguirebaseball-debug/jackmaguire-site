@@ -1,0 +1,1326 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Where to Watch the 2026 World Cup in NYC, by Supporter Bar";
+const description = "A complete guide to watching every 2026 FIFA World Cup group stage match in New York City alongside real supporters of each country. 39 verified venues, full schedules.";
+const pubDate = "June 9, 2026";
+
+const teams = [
+  // ---- UEFA ----
+  {
+    id: "england", team: "England", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", confederation: "UEFA", group: "L",
+    venue: "Banter", neighborhood: "Williamsburg, Brooklyn",
+    address: "132 Havemeyer St, Brooklyn, NY 11211",
+    phone: "(718) 384-8838", website: "https://banterbrooklyn.com",
+    mapsLink: "https://maps.google.com/?q=Banter+132+Havemeyer+St+Brooklyn+NY+11211",
+    lat: 40.7119, lng: -73.9531,
+    matches: [
+      { date: "Jun 17", time: "4 PM ET", opponent: "Croatia" },
+      { date: "Jun 23", time: "4 PM ET", opponent: "Ghana" },
+      { date: "Jun 27", time: "5 PM ET", opponent: "Panama" }
+    ]
+  },
+  {
+    id: "scotland", team: "Scotland", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", confederation: "UEFA", group: "C",
+    venue: "Iona", neighborhood: "Williamsburg, Brooklyn",
+    address: "180 Grand St, Brooklyn, NY 11211",
+    phone: "(718) 384-5008", website: "https://www.ionabrooklyn.com",
+    mapsLink: "https://maps.google.com/?q=Iona+180+Grand+St+Brooklyn+NY+11211",
+    lat: 40.7161, lng: -73.9581,
+    matches: [
+      { date: "Jun 13", time: "9 PM ET", opponent: "Haiti" },
+      { date: "Jun 19", time: "6 PM ET", opponent: "Morocco" },
+      { date: "Jun 24", time: "6 PM ET", opponent: "Brazil" }
+    ]
+  },
+  {
+    id: "germany", team: "Germany", flag: "🇩🇪", confederation: "UEFA", group: "E",
+    venue: "Zum Schneider World Cup Pop-Up", neighborhood: "Greenpoint, Brooklyn",
+    address: "12 Franklin St, Brooklyn, NY 11222",
+    phone: "(917) 748-9400", website: "https://nyc.zumschneider.com",
+    mapsLink: "https://maps.google.com/?q=Zum+Schneider+12+Franklin+St+Brooklyn+NY+11222",
+    lat: 40.7296, lng: -73.9567,
+    matches: [
+      { date: "Jun 14", time: "1 PM ET", opponent: "Curazao" },
+      { date: "Jun 20", time: "4 PM ET", opponent: "Ivory Coast" },
+      { date: "Jun 25", time: "4 PM ET", opponent: "Ecuador" }
+    ]
+  },
+  {
+    id: "france", team: "France", flag: "🇫🇷", confederation: "UEFA", group: "I",
+    venue: "Felix", neighborhood: "Soho, Manhattan",
+    address: "340 W Broadway, New York, NY 10013",
+    phone: "(212) 431-0021", website: "https://felixnyc.com",
+    mapsLink: "https://maps.google.com/?q=Felix+340+W+Broadway+New+York+NY+10013",
+    lat: 40.7248, lng: -74.0040,
+    matches: [
+      { date: "Jun 16", time: "3 PM ET", opponent: "Senegal" },
+      { date: "Jun 22", time: "5 PM ET", opponent: "Iraq" },
+      { date: "Jun 26", time: "3 PM ET", opponent: "Norway" }
+    ]
+  },
+  {
+    id: "netherlands", team: "Netherlands", flag: "🇳🇱", confederation: "UEFA", group: "F",
+    venue: "Hurley's Saloon", neighborhood: "Theater District, Manhattan",
+    address: "232 W 48th St, New York, NY 10036",
+    phone: "(212) 765-8981", website: "https://www.hurleysnyc.com",
+    mapsLink: "https://maps.google.com/?q=Hurley%27s+Saloon+232+W+48th+St+New+York+NY+10036",
+    lat: 40.7614, lng: -73.9872,
+    matches: [
+      { date: "Jun 14", time: "4 PM ET", opponent: "Japan" },
+      { date: "Jun 20", time: "1 PM ET", opponent: "Sweden" },
+      { date: "Jun 25", time: "7 PM ET", opponent: "Tunisia" }
+    ]
+  },
+  {
+    id: "spain", team: "Spain", flag: "🇪🇸", confederation: "UEFA", group: "H",
+    venue: "Mercado Little Spain", neighborhood: "Hudson Yards, Manhattan",
+    address: "10 Hudson Yards, New York, NY 10001",
+    phone: "(646) 657-0090", website: "https://mercadolittlespain.com",
+    mapsLink: "https://maps.google.com/?q=Mercado+Little+Spain+10+Hudson+Yards+New+York+NY",
+    lat: 40.7535, lng: -74.0038,
+    matches: [
+      { date: "Jun 15", time: "1 PM ET", opponent: "Cape Verde" },
+      { date: "Jun 21", time: "12 PM ET", opponent: "Saudi Arabia" },
+      { date: "Jun 26", time: "8 PM ET", opponent: "Uruguay" }
+    ]
+  },
+  {
+    id: "portugal", team: "Portugal", flag: "🇵🇹", confederation: "UEFA", group: "K",
+    venue: "Raizes Churrascaria", neighborhood: "Greenpoint, Brooklyn",
+    address: "139 Nassau Ave, Brooklyn, NY 11222",
+    phone: "(718) 389-3557", website: "https://raizesgreenpoint.com",
+    mapsLink: "https://maps.google.com/?q=Raizes+Churrascaria+139+Nassau+Ave+Brooklyn+NY+11222",
+    lat: 40.7302, lng: -73.9478,
+    matches: [
+      { date: "Jun 17", time: "1 PM ET", opponent: "DR Congo" },
+      { date: "Jun 23", time: "1 PM ET", opponent: "Uzbekistan" },
+      { date: "Jun 27", time: "7:30 PM ET", opponent: "Colombia" }
+    ]
+  },
+  {
+    id: "belgium", team: "Belgium", flag: "🇧🇪", confederation: "UEFA", group: "G",
+    venue: "BXL Cafe", neighborhood: "Times Square, Manhattan",
+    address: "125 W 43rd St, New York, NY 10036",
+    phone: "(212) 768-0200", website: "https://bxlnyc.com",
+    mapsLink: "https://maps.google.com/?q=BXL+Cafe+125+W+43rd+St+New+York+NY+10036",
+    lat: 40.7556, lng: -73.9891,
+    matches: [
+      { date: "Jun 15", time: "6 PM ET", opponent: "Egypt" },
+      { date: "Jun 21", time: "3 PM ET", opponent: "Iran" },
+      { date: "Jun 26", time: "11 PM ET", opponent: "New Zealand" }
+    ]
+  },
+  {
+    id: "switzerland", team: "Switzerland", flag: "🇨🇭", confederation: "UEFA", group: "B",
+    venue: "The Lavaux", neighborhood: "West Village, Manhattan",
+    address: "630 Hudson St, New York, NY 10014",
+    phone: "(212) 627-8897", website: "https://thelavauxwinebar.com",
+    mapsLink: "https://maps.google.com/?q=The+Lavaux+630+Hudson+St+New+York+NY+10014",
+    lat: 40.7344, lng: -74.0064,
+    matches: [
+      { date: "Jun 13", time: "3 PM ET", opponent: "Qatar" },
+      { date: "Jun 18", time: "3 PM ET", opponent: "Bosnia-Herzegovina" },
+      { date: "Jun 24", time: "3 PM ET", opponent: "Canada" }
+    ]
+  },
+  {
+    id: "austria", team: "Austria", flag: "🇦🇹", confederation: "UEFA", group: "J",
+    venue: "Werkstatt", neighborhood: "Flatbush, Brooklyn",
+    address: "509 Coney Island Ave, Brooklyn, NY 11218",
+    phone: "(718) 284-5800", website: "https://werkstattkitchen.com",
+    mapsLink: "https://maps.google.com/?q=Werkstatt+509+Coney+Island+Ave+Brooklyn+NY+11218",
+    lat: 40.6385, lng: -73.9666,
+    note: "Shows Austria matches on screen. Closes before the Jun 27 late kickoff.",
+    matches: [
+      { date: "Jun 17", time: "12 AM ET", opponent: "Jordan" },
+      { date: "Jun 22", time: "1 PM ET", opponent: "Argentina" },
+      { date: "Jun 27", time: "10 PM ET", opponent: "Algeria" }
+    ]
+  },
+  {
+    id: "croatia", team: "Croatia", flag: "🇭🇷", confederation: "UEFA", group: "L",
+    venue: "Rudar Club", neighborhood: "Astoria, Queens",
+    address: "34-01 45th St, Astoria, NY 11101",
+    phone: "(718) 786-5833", website: "https://www.facebook.com/RudarClubNewYork",
+    mapsLink: "https://maps.google.com/?q=Rudar+Club+34-01+45th+St+Astoria+NY+11101",
+    lat: 40.7483, lng: -73.9205,
+    matches: [
+      { date: "Jun 17", time: "4 PM ET", opponent: "England" },
+      { date: "Jun 23", time: "7 PM ET", opponent: "Panama" },
+      { date: "Jun 27", time: "5 PM ET", opponent: "Ghana" }
+    ]
+  },
+  {
+    id: "bosnia", team: "Bosnia-Herzegovina", flag: "🇧🇦", confederation: "UEFA", group: "B",
+    venue: "Mimoza", neighborhood: "Astoria, Queens",
+    address: "36-05 30th Ave, Astoria, NY 11103",
+    phone: "(718) 673-6360", website: "https://mimoza.nyc",
+    mapsLink: "https://maps.google.com/?q=Mimoza+36-05+30th+Ave+Astoria+NY+11103",
+    lat: 40.7741, lng: -73.9311,
+    matches: [
+      { date: "Jun 12", time: "3 PM ET", opponent: "Canada" },
+      { date: "Jun 18", time: "3 PM ET", opponent: "Switzerland" },
+      { date: "Jun 24", time: "3 PM ET", opponent: "Qatar" }
+    ]
+  },
+  {
+    id: "sweden", team: "Sweden", flag: "🇸🇪", confederation: "UEFA", group: "F",
+    venue: "Kabin", neighborhood: "West Village, Manhattan",
+    address: "91 Christopher St, New York, NY 10014",
+    phone: "(212) 367-8949", website: "https://kabinnyc.com",
+    mapsLink: "https://maps.google.com/?q=Kabin+91+Christopher+St+New+York+NY+10014",
+    lat: 40.7338, lng: -74.0042,
+    matches: [
+      { date: "Jun 14", time: "10 PM ET", opponent: "Tunisia" },
+      { date: "Jun 20", time: "1 PM ET", opponent: "Netherlands" },
+      { date: "Jun 25", time: "7 PM ET", opponent: "Japan" }
+    ]
+  },
+  {
+    id: "norway", team: "Norway", flag: "🇳🇴", confederation: "UEFA", group: "I",
+    venue: "Kabin", neighborhood: "West Village, Manhattan",
+    address: "91 Christopher St, New York, NY 10014",
+    phone: "(212) 367-8949", website: "https://kabinnyc.com",
+    mapsLink: "https://maps.google.com/?q=Kabin+91+Christopher+St+New+York+NY+10014",
+    lat: 40.7339, lng: -74.0041,
+    matches: [
+      { date: "Jun 16", time: "6 PM ET", opponent: "Iraq" },
+      { date: "Jun 22", time: "8 PM ET", opponent: "Senegal" },
+      { date: "Jun 26", time: "3 PM ET", opponent: "France" }
+    ]
+  },
+  {
+    id: "czechia", team: "Czech Republic", flag: "🇨🇿", confederation: "UEFA", group: "A",
+    venue: "Bohemian Hall and Beer Garden", neighborhood: "Astoria, Queens",
+    address: "29-19 24th Ave, Astoria, NY 11102",
+    phone: "(718) 274-4925", website: "https://www.bohemianhall.com",
+    mapsLink: "https://maps.google.com/?q=Bohemian+Hall+Beer+Garden+29-19+24th+Ave+Astoria+NY+11102",
+    lat: 40.7717, lng: -73.9289,
+    matches: [
+      { date: "Jun 11", time: "10 PM ET", opponent: "South Korea" },
+      { date: "Jun 18", time: "12 PM ET", opponent: "South Africa" },
+      { date: "Jun 24", time: "9 PM ET", opponent: "Mexico" }
+    ]
+  },
+  {
+    id: "turkey", team: "Turkiye", flag: "🇹🇷", confederation: "UEFA", group: "D",
+    venue: "Istanbul Bay", neighborhood: "Hell's Kitchen, Manhattan",
+    address: "578 9th Ave, New York, NY 10036",
+    phone: "(646) 559-3068", website: "https://istanbulbaynyc.com",
+    mapsLink: "https://maps.google.com/?q=Istanbul+Bay+578+9th+Ave+New+York+NY+10036",
+    lat: 40.7536, lng: -73.9917,
+    matches: [
+      { date: "Jun 14", time: "12 AM ET", opponent: "Australia" },
+      { date: "Jun 20", time: "12 AM ET", opponent: "Paraguay" },
+      { date: "Jun 25", time: "10 PM ET", opponent: "United States" }
+    ]
+  },
+  // ---- CONMEBOL ----
+  {
+    id: "brazil", team: "Brazil", flag: "🇧🇷", confederation: "CONMEBOL", group: "C",
+    venue: "Beija Flor", neighborhood: "Long Island City, Queens",
+    address: "38-02 29th St, Long Island City, NY 11101",
+    phone: "(718) 606-2468", website: "https://www.beijaflor.nyc",
+    mapsLink: "https://maps.google.com/?q=Beija+Flor+38-02+29th+St+Long+Island+City+NY+11101",
+    lat: 40.7533, lng: -73.9385,
+    matches: [
+      { date: "Jun 13", time: "6 PM ET", opponent: "Morocco" },
+      { date: "Jun 19", time: "9 PM ET", opponent: "Haiti" },
+      { date: "Jun 24", time: "6 PM ET", opponent: "Scotland" }
+    ]
+  },
+  {
+    id: "argentina", team: "Argentina", flag: "🇦🇷", confederation: "CONMEBOL", group: "J",
+    venue: "Boca Juniors Argentine Steakhouse", neighborhood: "Elmhurst, Queens",
+    address: "8108 Queens Blvd, Elmhurst, NY 11373",
+    phone: "(718) 429-2077", website: "https://www.bocajuniorsnyc.com",
+    mapsLink: "https://maps.google.com/?q=Boca+Juniors+Restaurant+8108+Queens+Blvd+Elmhurst+NY+11373",
+    lat: 40.7377, lng: -73.8828,
+    matches: [
+      { date: "Jun 16", time: "9 PM ET", opponent: "Algeria" },
+      { date: "Jun 22", time: "1 PM ET", opponent: "Austria" },
+      { date: "Jun 27", time: "10 PM ET", opponent: "Jordan" }
+    ]
+  },
+  {
+    id: "ecuador", team: "Ecuador", flag: "🇪🇨", confederation: "CONMEBOL", group: "E",
+    venue: "Barzola", neighborhood: "Jackson Heights, Queens",
+    address: "92-12 37th Ave, Jackson Heights, NY 11372",
+    phone: "(718) 205-2020", website: "https://www.barzola.com",
+    mapsLink: "https://maps.google.com/?q=Barzola+92-12+37th+Ave+Jackson+Heights+NY+11372",
+    lat: 40.7490, lng: -73.8920,
+    matches: [
+      { date: "Jun 14", time: "7 PM ET", opponent: "Ivory Coast" },
+      { date: "Jun 20", time: "8 PM ET", opponent: "Curazao" },
+      { date: "Jun 25", time: "4 PM ET", opponent: "Germany" }
+    ]
+  },
+  {
+    id: "uruguay", team: "Uruguay", flag: "🇺🇾", confederation: "CONMEBOL", group: "H",
+    venue: "El Chivito d'Oro", neighborhood: "Jackson Heights, Queens",
+    address: "8402 37th Ave, Jackson Heights, NY 11372",
+    phone: "(718) 424-0600", website: "https://www.elchivitodoro.com",
+    mapsLink: "https://maps.google.com/?q=El+Chivito+D%27Oro+8402+37th+Ave+Jackson+Heights+NY+11372",
+    lat: 40.7453, lng: -73.8830,
+    matches: [
+      { date: "Jun 15", time: "6 PM ET", opponent: "Saudi Arabia" },
+      { date: "Jun 21", time: "6 PM ET", opponent: "Cape Verde" },
+      { date: "Jun 26", time: "8 PM ET", opponent: "Spain" }
+    ]
+  },
+  {
+    id: "colombia", team: "Colombia", flag: "🇨🇴", confederation: "CONMEBOL", group: "K",
+    venue: "Mis Tierras Colombianas", neighborhood: "Woodside, Queens",
+    address: "54-08 Roosevelt Ave, Woodside, NY 11377",
+    phone: "(718) 672-7272", website: "https://mistierrascolombianaswoodside.com",
+    mapsLink: "https://maps.google.com/?q=Mis+Tierras+Colombianas+54-08+Roosevelt+Ave+Woodside+NY+11377",
+    lat: 40.7451, lng: -73.9031,
+    matches: [
+      { date: "Jun 17", time: "10 PM ET", opponent: "Uzbekistan" },
+      { date: "Jun 23", time: "10 PM ET", opponent: "DR Congo" },
+      { date: "Jun 27", time: "7:30 PM ET", opponent: "Portugal" }
+    ]
+  },
+  {
+    id: "paraguay", team: "Paraguay", flag: "🇵🇾", confederation: "CONMEBOL", group: "D",
+    venue: "I Love Paraguay", neighborhood: "Sunnyside, Queens",
+    address: "43-16 Greenpoint Ave, Sunnyside, NY 11104",
+    phone: "(718) 786-5534", website: "https://www.ilovepy.com",
+    mapsLink: "https://maps.google.com/?q=I+Love+Paraguay+43-16+Greenpoint+Ave+Sunnyside+NY+11104",
+    lat: 40.7427, lng: -73.9122,
+    matches: [
+      { date: "Jun 12", time: "9 PM ET", opponent: "United States" },
+      { date: "Jun 20", time: "12 AM ET", opponent: "Turkiye" },
+      { date: "Jun 25", time: "10 PM ET", opponent: "Australia" }
+    ]
+  },
+  // ---- CONCACAF ----
+  {
+    id: "mexico", team: "Mexico", flag: "🇲🇽", confederation: "CONCACAF", group: "A",
+    venue: "Mariscos El Submarino", neighborhood: "Clinton Hill, Brooklyn",
+    address: "507 Myrtle Ave, Brooklyn, NY 11205",
+    phone: "(347) 799-2370", website: "https://mariscoselsubmarinonyc.com",
+    mapsLink: "https://maps.google.com/?q=Mariscos+El+Submarino+507+Myrtle+Ave+Brooklyn+NY+11205",
+    lat: 40.6955, lng: -73.9556,
+    matches: [
+      { date: "Jun 11", time: "3 PM ET", opponent: "South Africa" },
+      { date: "Jun 18", time: "11 PM ET", opponent: "South Korea" },
+      { date: "Jun 24", time: "9 PM ET", opponent: "Czech Republic" }
+    ]
+  },
+  {
+    id: "canada", team: "Canada", flag: "🇨🇦", confederation: "CONCACAF", group: "B",
+    venue: "The Canuck", neighborhood: "Chelsea, Manhattan",
+    address: "202 9th Ave, New York, NY 10011",
+    phone: "(212) 255-2400", website: "https://www.thecanucknyc.com",
+    mapsLink: "https://maps.google.com/?q=The+Canuck+202+9th+Ave+New+York+NY+10011",
+    lat: 40.7487, lng: -74.0008,
+    matches: [
+      { date: "Jun 12", time: "3 PM ET", opponent: "Bosnia-Herzegovina" },
+      { date: "Jun 18", time: "6 PM ET", opponent: "Qatar" },
+      { date: "Jun 24", time: "3 PM ET", opponent: "Switzerland" }
+    ]
+  },
+  {
+    id: "usa", team: "United States", flag: "🇺🇸", confederation: "CONCACAF", group: "D",
+    venue: "Smithfield Hall", neighborhood: "Chelsea, Manhattan",
+    address: "138 W 25th St, New York, NY 10001",
+    phone: "(212) 929-9677", website: "https://smithfieldhall.com",
+    mapsLink: "https://maps.google.com/?q=Smithfield+Hall+138+W+25th+St+New+York+NY+10001",
+    lat: 40.7459, lng: -73.9998,
+    matches: [
+      { date: "Jun 12", time: "9 PM ET", opponent: "Paraguay" },
+      { date: "Jun 19", time: "3 PM ET", opponent: "Australia" },
+      { date: "Jun 25", time: "10 PM ET", opponent: "Turkiye" }
+    ]
+  },
+  {
+    id: "panama", team: "Panama", flag: "🇵🇦", confederation: "CONCACAF", group: "L",
+    venue: "Michelle's Cocktail Lounge", neighborhood: "Flatbush, Brooklyn",
+    address: "2294 Bedford Ave, Brooklyn, NY 11226",
+    phone: "(718) 284-1185", website: "https://www.nyctourism.com/nightlife/michelles-cocktail-lounge/",
+    mapsLink: "https://maps.google.com/?q=Michelle%27s+Cocktail+Lounge+2294+Bedford+Ave+Brooklyn+NY+11226",
+    lat: 40.6421, lng: -73.9540,
+    matches: [
+      { date: "Jun 17", time: "7 PM ET", opponent: "Ghana" },
+      { date: "Jun 23", time: "7 PM ET", opponent: "Croatia" },
+      { date: "Jun 27", time: "5 PM ET", opponent: "England" }
+    ]
+  },
+  {
+    id: "haiti", team: "Haiti", flag: "🇭🇹", confederation: "CONCACAF", group: "C",
+    venue: "Djon Djon", neighborhood: "Prospect Lefferts Gardens, Brooklyn",
+    address: "1206 Nostrand Ave, Brooklyn, NY 11225",
+    phone: "(347) 750-2285", website: "https://www.djondjonbk.com",
+    mapsLink: "https://maps.google.com/?q=Djon+Djon+1206+Nostrand+Ave+Brooklyn+NY+11225",
+    lat: 40.6585, lng: -73.9498,
+    matches: [
+      { date: "Jun 13", time: "9 PM ET", opponent: "Scotland" },
+      { date: "Jun 19", time: "9 PM ET", opponent: "Brazil" },
+      { date: "Jun 24", time: "6 PM ET", opponent: "Morocco" }
+    ]
+  },
+  // ---- CAF ----
+  {
+    id: "morocco", team: "Morocco", flag: "🇲🇦", confederation: "CAF", group: "C",
+    venue: "Dar Lbahja", neighborhood: "Astoria, Queens",
+    address: "47-12 30th Ave, Astoria, NY 11103",
+    phone: "(347) 242-3702", website: "https://darlbahjanyc.com",
+    mapsLink: "https://maps.google.com/?q=Dar+Lbahja+47-12+30th+Ave+Astoria+NY+11103",
+    lat: 40.7726, lng: -73.9316,
+    matches: [
+      { date: "Jun 13", time: "6 PM ET", opponent: "Brazil" },
+      { date: "Jun 19", time: "6 PM ET", opponent: "Scotland" },
+      { date: "Jun 24", time: "6 PM ET", opponent: "Haiti" }
+    ]
+  },
+  {
+    id: "senegal", team: "Senegal", flag: "🇸🇳", confederation: "CAF", group: "I",
+    venue: "Keur Coumba", neighborhood: "Harlem, Manhattan",
+    address: "125 W 116th St, New York, NY 10026",
+    phone: "(212) 666-0197", website: "https://www.facebook.com/keurcoumba",
+    mapsLink: "https://maps.google.com/?q=Keur+Coumba+125+W+116th+St+New+York+NY+10026",
+    lat: 40.8049, lng: -73.9537,
+    matches: [
+      { date: "Jun 16", time: "3 PM ET", opponent: "France" },
+      { date: "Jun 22", time: "8 PM ET", opponent: "Norway" },
+      { date: "Jun 26", time: "3 PM ET", opponent: "Iraq" }
+    ]
+  },
+  {
+    id: "ivorycoast", team: "Ivory Coast", flag: "🇨🇮", confederation: "CAF", group: "E",
+    venue: "Yop City", neighborhood: "Belmont, Bronx",
+    address: "2324 Arthur Ave, Bronx, NY 10458",
+    phone: "(347) 590-4040", website: "https://yopcityusa.com",
+    mapsLink: "https://maps.google.com/?q=Yop+City+2324+Arthur+Ave+Bronx+NY+10458",
+    lat: 40.8555, lng: -73.8846,
+    matches: [
+      { date: "Jun 14", time: "7 PM ET", opponent: "Ecuador" },
+      { date: "Jun 20", time: "4 PM ET", opponent: "Germany" },
+      { date: "Jun 25", time: "4 PM ET", opponent: "Curazao" }
+    ]
+  },
+  {
+    id: "egypt", team: "Egypt", flag: "🇪🇬", confederation: "CAF", group: "G",
+    venue: "Sabry's Seafood", neighborhood: "Astoria, Queens",
+    address: "2425 Steinway St, Astoria, NY 11103",
+    phone: "(718) 721-9010", website: "https://sabrys-seafood.com",
+    mapsLink: "https://maps.google.com/?q=Sabry%27s+Seafood+2425+Steinway+St+Astoria+NY+11103",
+    lat: 40.7745, lng: -73.9093,
+    matches: [
+      { date: "Jun 15", time: "6 PM ET", opponent: "Belgium" },
+      { date: "Jun 21", time: "9 PM ET", opponent: "New Zealand" },
+      { date: "Jun 26", time: "11 PM ET", opponent: "Iran" }
+    ]
+  },
+  {
+    id: "ghana", team: "Ghana", flag: "🇬🇭", confederation: "CAF", group: "L",
+    venue: "Accra Restaurant", neighborhood: "University Heights, Bronx",
+    address: "2041 Davidson Ave, Bronx, NY 10453",
+    phone: "(718) 299-4660", website: "https://accra.locallya.com",
+    mapsLink: "https://maps.google.com/?q=Accra+Restaurant+2041+Davidson+Ave+Bronx+NY+10453",
+    lat: 40.8509, lng: -73.9141,
+    matches: [
+      { date: "Jun 17", time: "7 PM ET", opponent: "Panama" },
+      { date: "Jun 23", time: "4 PM ET", opponent: "England" },
+      { date: "Jun 27", time: "5 PM ET", opponent: "Croatia" }
+    ]
+  },
+  {
+    id: "algeria", team: "Algeria", flag: "🇩🇿", confederation: "CAF", group: "J",
+    venue: "Le Petit Pecheur", neighborhood: "Astoria, Queens",
+    address: "40-17 30th Ave, Astoria, NY 11103",
+    phone: "(718) 777-6660", website: "https://lepetitpecheurnyc.com",
+    mapsLink: "https://maps.google.com/?q=Le+Petit+Pecheur+40-17+30th+Ave+Astoria+NY+11103",
+    lat: 40.7738, lng: -73.9319,
+    matches: [
+      { date: "Jun 16", time: "9 PM ET", opponent: "Argentina" },
+      { date: "Jun 22", time: "11 PM ET", opponent: "Jordan" },
+      { date: "Jun 27", time: "10 PM ET", opponent: "Austria" }
+    ]
+  },
+  {
+    id: "southafrica", team: "South Africa", flag: "🇿🇦", confederation: "CAF", group: "A",
+    venue: "Kaia Wine Bar", neighborhood: "Upper East Side, Manhattan",
+    address: "1614 3rd Ave, New York, NY 10128",
+    phone: "(212) 988-0052", website: "https://www.kaiawinebar.com",
+    note: "Call or check their website to verify current address before visiting. They recently relocated to a new UES location.",
+    mapsLink: "https://maps.google.com/?q=Kaia+Wine+Bar+New+York+NY",
+    lat: 40.7811, lng: -73.9511,
+    matches: [
+      { date: "Jun 11", time: "3 PM ET", opponent: "Mexico" },
+      { date: "Jun 18", time: "12 PM ET", opponent: "Czech Republic" },
+      { date: "Jun 24", time: "9 PM ET", opponent: "South Korea" }
+    ]
+  },
+  // ---- AFC ----
+  {
+    id: "southkorea", team: "South Korea", flag: "🇰🇷", confederation: "AFC", group: "A",
+    venue: "K-Town Pocha", neighborhood: "Koreatown, Manhattan",
+    address: "34 W 32nd St, New York, NY 10001",
+    phone: "(212) 643-2603", website: "https://www.ktownpocha.com",
+    mapsLink: "https://maps.google.com/?q=K-Town+Pocha+34+W+32nd+St+New+York+NY+10001",
+    lat: 40.7484, lng: -73.9876,
+    matches: [
+      { date: "Jun 11", time: "10 PM ET", opponent: "Czech Republic" },
+      { date: "Jun 18", time: "11 PM ET", opponent: "Mexico" },
+      { date: "Jun 24", time: "9 PM ET", opponent: "South Africa" }
+    ]
+  },
+  {
+    id: "japan", team: "Japan", flag: "🇯🇵", confederation: "AFC", group: "F",
+    venue: "Dark Bullet Sake and Oyster Bar", neighborhood: "Upper West Side, Manhattan",
+    address: "154 W 72nd St, New York, NY 10023",
+    phone: "(212) 787-4555", website: "https://darkbullet.bar",
+    mapsLink: "https://maps.google.com/?q=Dark+Bullet+154+W+72nd+St+New+York+NY+10023",
+    lat: 40.7793, lng: -73.9829,
+    matches: [
+      { date: "Jun 14", time: "4 PM ET", opponent: "Netherlands" },
+      { date: "Jun 21", time: "12 AM ET", opponent: "Tunisia" },
+      { date: "Jun 25", time: "7 PM ET", opponent: "Sweden" }
+    ]
+  },
+  {
+    id: "australia", team: "Australia", flag: "🇦🇺", confederation: "AFC", group: "D",
+    venue: "Old Mates Pub", neighborhood: "Seaport, Manhattan",
+    address: "170 John St, New York, NY 10038",
+    phone: "(212) 233-0327", website: "https://www.oldmates.com",
+    mapsLink: "https://maps.google.com/?q=Old+Mates+Pub+170+John+St+New+York+NY+10038",
+    lat: 40.7069, lng: -74.0079,
+    matches: [
+      { date: "Jun 14", time: "12 AM ET", opponent: "Turkiye" },
+      { date: "Jun 19", time: "3 PM ET", opponent: "United States" },
+      { date: "Jun 25", time: "10 PM ET", opponent: "Paraguay" }
+    ]
+  },
+  {
+    id: "iran", team: "Iran", flag: "🇮🇷", confederation: "AFC", group: "G",
+    venue: "Persepolis", neighborhood: "Upper East Side, Manhattan",
+    address: "1407 2nd Ave, New York, NY 10021",
+    phone: "(212) 535-1100", website: "https://www.persepolisnewyork.com",
+    mapsLink: "https://maps.google.com/?q=Persepolis+1407+2nd+Ave+New+York+NY+10021",
+    lat: 40.7727, lng: -73.9576,
+    matches: [
+      { date: "Jun 16", time: "12 AM ET", opponent: "New Zealand" },
+      { date: "Jun 21", time: "3 PM ET", opponent: "Belgium" },
+      { date: "Jun 26", time: "11 PM ET", opponent: "Egypt" }
+    ]
+  },
+  {
+    id: "uzbekistan", team: "Uzbekistan", flag: "🇺🇿", confederation: "AFC", group: "K",
+    venue: "Uma's", neighborhood: "Rockaway Beach, Queens",
+    address: "92-07 Rockaway Beach Blvd, Rockaway Beach, NY 11693",
+    phone: "(718) 945-7200", website: "https://umasrockaway.com",
+    mapsLink: "https://maps.google.com/?q=Uma%27s+92-07+Rockaway+Beach+Blvd+Rockaway+Beach+NY+11693",
+    lat: 40.5864, lng: -73.8142,
+    matches: [
+      { date: "Jun 17", time: "10 PM ET", opponent: "Colombia" },
+      { date: "Jun 23", time: "1 PM ET", opponent: "Portugal" },
+      { date: "Jun 27", time: "7:30 PM ET", opponent: "DR Congo" }
+    ]
+  }
+];
+
+const excludedTeams = [
+  { team: "Qatar", flag: "🇶🇦", confederation: "AFC", group: "B" },
+  { team: "Saudi Arabia", flag: "🇸🇦", confederation: "AFC", group: "H" },
+  { team: "Iraq", flag: "🇮🇶", confederation: "AFC", group: "I" },
+  { team: "Jordan", flag: "🇯🇴", confederation: "AFC", group: "J" },
+  { team: "New Zealand", flag: "🇳🇿", confederation: "OFC", group: "G" },
+  { team: "Tunisia", flag: "🇹🇳", confederation: "CAF", group: "F" },
+  { team: "Cape Verde", flag: "🇨🇻", confederation: "CAF", group: "H" },
+  { team: "DR Congo", flag: "🇨🇩", confederation: "CAF", group: "K" },
+  { team: "Curazao", flag: "🇨🇼", confederation: "CONCACAF", group: "E" }
+];
+
+const confederationOrder = ["UEFA", "CONMEBOL", "CONCACAF", "CAF", "AFC"];
+const confederationColors = {
+  UEFA: "#003399",
+  CONMEBOL: "#ffd700",
+  CONCACAF: "#cc0000",
+  CAF: "#ff7300",
+  AFC: "#009966",
+  OFC: "#0099cc"
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <style>
+    :root {
+      --bg-primary: #060a14;
+      --bg-card: #0f1929;
+      --bg-card-hover: #162238;
+      --accent: #eafc26;
+      --accent-dark: #c8d900;
+      --text-primary: #f0f4ff;
+      --text-muted: #8899bb;
+      --border: rgba(234, 252, 38, 0.12);
+      --border-active: rgba(234, 252, 38, 0.5);
+      --red: #e62027;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+      line-height: 1.6;
+    }
+
+    .wc-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ---- HERO ---- */
+    .wc-hero {
+      background: linear-gradient(180deg, #000d1f 0%, #060a14 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 1.25rem 2.5rem;
+      text-align: center;
+    }
+
+    .wc-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    .wc-title {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+
+    .wc-title span { color: var(--accent); }
+
+    .wc-intro {
+      max-width: 660px;
+      margin: 0 auto 1rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .wc-intro p + p { margin-top: 0.85rem; }
+
+    .wc-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- MAP ---- */
+    .map-section {
+      padding: 2rem 0 0;
+    }
+
+    .section-label {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    #wc-map {
+      width: 100%;
+      height: 480px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 0.75rem;
+    }
+
+    /* ---- CONFEDERATION TABS ---- */
+    .conf-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 2rem 0 0;
+    }
+
+    .conf-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-ui, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .conf-btn:hover, .conf-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    /* ---- CONFEDERATION SECTION ---- */
+    .confederation-section {
+      margin-top: 2.5rem;
+    }
+
+    .conf-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .conf-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .conf-name {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+
+    .conf-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ---- TEAM GRID ---- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1rem;
+    }
+
+    /* ---- TEAM CARD ---- */
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      position: relative;
+    }
+
+    .team-card:hover {
+      border-color: var(--border-active);
+      background: var(--bg-card-hover);
+    }
+
+    .team-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), 0 4px 24px rgba(234,252,38,0.1);
+    }
+
+    .team-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .team-flag {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .team-info { flex: 1; min-width: 0; }
+
+    .group-badge {
+      display: inline-block;
+      background: rgba(234, 252, 38, 0.1);
+      color: var(--accent);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-name {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .venue-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      margin-top: 0.15rem;
+    }
+
+    .venue-neighborhood {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .venue-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 0.75rem 0;
+    }
+
+    .venue-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      transition: all 0.12s;
+      white-space: nowrap;
+    }
+
+    .venue-link:hover {
+      background: rgba(234,252,38,0.08);
+      border-color: var(--accent);
+    }
+
+    .venue-phone {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-note {
+      font-size: 0.72rem;
+      color: #f5a623;
+      background: rgba(245, 166, 35, 0.08);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      border-radius: 4px;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ---- SCHEDULE ---- */
+    .schedule-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .match-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .match-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .match-date {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 44px;
+      font-size: 0.72rem;
+    }
+
+    .match-time {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      min-width: 70px;
+    }
+
+    .match-vs {
+      color: var(--text-muted);
+      font-size: 0.65rem;
+    }
+
+    .match-opponent {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .map-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(234,252,38,0.08);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+
+    .map-btn:hover {
+      background: rgba(234,252,38,0.15);
+      border-color: var(--accent);
+    }
+
+    /* ---- EXCLUDED SECTION ---- */
+    .excluded-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .excluded-title {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .excluded-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .excluded-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .excluded-card {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      min-width: 200px;
+    }
+
+    .excluded-flag { font-size: 1.5rem; }
+
+    .excluded-info { flex: 1; }
+
+    .excluded-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+
+    .excluded-tag {
+      font-size: 0.68rem;
+      color: #cc6666;
+      margin-top: 0.1rem;
+    }
+
+    /* ---- CTA ---- */
+    .cta-box {
+      background: linear-gradient(135deg, #0f1929, #162238);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .cta-box h3 {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .cta-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-link {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: opacity 0.12s;
+    }
+
+    .cta-link:hover { opacity: 0.85; }
+
+    .cta-link.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    /* ---- STATS BAR ---- */
+    .stats-bar {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .stat-item { text-align: center; flex: 1; min-width: 80px; }
+
+    .stat-num {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .wc-hero { padding: 2rem 1rem 1.5rem; }
+      #wc-map { height: 320px; }
+      .conf-nav { gap: 0.35rem; }
+      .conf-btn { font-size: 0.65rem; padding: 0.4rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <main>
+    <div class="wc-hero">
+      <div class="wc-container">
+        <div class="wc-badge">FIFA World Cup 2026 NYC Guide</div>
+        <h1 class="wc-title">Where to Watch the <span>World Cup</span> in NYC, by Country</h1>
+        <div class="wc-intro">
+          <p>
+            I put this together because I am currently unemployed and I want to watch as many
+            2026 World Cup matches as possible. New York has so many diverse neighborhoods and bars
+            that I thought it would be worth having one place where every supporter can find where
+            their country gathers. There is no atmosphere quite like watching a match inside a room
+            full of people rooting for the same country.
+          </p>
+          <p>
+            Every venue on this page has been verified through at least two independent sources as
+            currently open and active as a supporter destination for that country. Nine teams did not
+            have two-source verified supporter pubs in NYC and are listed at the bottom.
+          </p>
+        </div>
+        <div class="wc-meta">All kickoff times Eastern Time (ET). Group stage runs June 11 to June 27, 2026.</div>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">39</div>
+            <div class="stat-label">Verified Venues</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">48</div>
+            <div class="stat-label">Teams</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Boroughs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">104</div>
+            <div class="stat-label">Total Matches</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wc-container">
+      <!-- MAP SECTION -->
+      <div class="map-section">
+        <div class="section-label">Interactive Map</div>
+        <div>Click any marker to jump to that team. Click a team card to pin it on the map.</div>
+        <div id="wc-map"></div>
+      </div>
+
+      <!-- CONFEDERATION NAV -->
+      <div class="conf-nav" id="conf-nav">
+        <button class="conf-btn active" data-conf="all">All Teams</button>
+        {confederationOrder.map(conf => (
+          <button class="conf-btn" data-conf={conf}>{conf}</button>
+        ))}
+      </div>
+
+      <!-- TEAM SECTIONS BY CONFEDERATION -->
+      {confederationOrder.map(conf => {
+        const confTeams = teams.filter(t => t.confederation === conf);
+        if (confTeams.length === 0) return null;
+        const color = confederationColors[conf];
+        return (
+          <div class="confederation-section" data-conf-section={conf} id={`conf-${conf}`}>
+            <div class="conf-header">
+              <div class="conf-dot" style={`background: ${color}`}></div>
+              <div class="conf-name">{conf}</div>
+              <div class="conf-count">{confTeams.length} teams verified</div>
+            </div>
+            <div class="team-grid">
+              {confTeams.map(team => (
+                <div
+                  class="team-card"
+                  id={`card-${team.id}`}
+                  data-id={team.id}
+                  data-lat={team.lat}
+                  data-lng={team.lng}
+                >
+                  <button class="map-btn" data-id={team.id}>Pin on map</button>
+                  <div class="team-card-header">
+                    <div class="team-flag">{team.flag}</div>
+                    <div class="team-info">
+                      <div class="group-badge">Group {team.group}</div>
+                      <div class="team-name">{team.team}</div>
+                      <div class="venue-name">{team.venue}</div>
+                      <div class="venue-neighborhood">{team.neighborhood}</div>
+                    </div>
+                  </div>
+
+                  {team.note && <div class="card-note">{team.note}</div>}
+
+                  <div class="venue-phone">{team.address} &bull; {team.phone}</div>
+
+                  <div class="venue-links">
+                    <a href={team.mapsLink} target="_blank" rel="noopener" class="venue-link">
+                      View on Google Maps
+                    </a>
+                    {team.website && (
+                      <a href={team.website} target="_blank" rel="noopener" class="venue-link">
+                        Website
+                      </a>
+                    )}
+                  </div>
+
+                  <div class="schedule-label">Group Stage Matches</div>
+                  <div class="match-list">
+                    {team.matches.map(m => (
+                      <div class="match-row">
+                        <span class="match-date">{m.date}</span>
+                        <span class="match-time">{m.time}</span>
+                        <span class="match-vs">vs</span>
+                        <span class="match-opponent">{m.opponent}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      <!-- EXCLUDED TEAMS -->
+      <div class="excluded-section">
+        <div class="excluded-title">No Verified Supporter Pub Found</div>
+        <p class="excluded-intro">
+          These nine teams did not have a New York City bar or restaurant that could be confirmed
+          through two independent sources as a dedicated supporter destination for that country.
+          Know of one? Please get in touch.
+        </p>
+        <div class="excluded-grid">
+          {excludedTeams.map(t => (
+            <div class="excluded-card">
+              <div class="excluded-flag">{t.flag}</div>
+              <div class="excluded-info">
+                <div class="excluded-name">{t.team}</div>
+                <div class="excluded-tag">Group {t.group} &bull; No verified pub found</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="cta-box">
+          <h3>Know a Venue for One of These Countries?</h3>
+          <p>
+            If you know of a bar or restaurant in NYC where supporters of one of these countries
+            gather to watch their national team, with the match on TV and audio, please reach out.
+            I will verify it and add it to this guide.
+          </p>
+          <div class="cta-links">
+            <a href="mailto:maguirebaseball@gmail.com?subject=World+Cup+NYC+Venue+Tip" class="cta-link">
+              Email me a tip
+            </a>
+            <a href="/about" class="cta-link secondary">Contact page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPeE=" crossorigin=""></script>
+  <script define:vars={{ teams }}>
+    // Initialize Leaflet map
+    const map = L.map('wc-map', {
+      center: [40.73, -73.94],
+      zoom: 11,
+      scrollWheelZoom: false
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const confColors = {
+      UEFA: '#4477ff',
+      CONMEBOL: '#ffcc00',
+      CONCACAF: '#ff4444',
+      CAF: '#ff8800',
+      AFC: '#22cc88',
+      OFC: '#00aacc'
+    };
+
+    const markers = {};
+
+    function makeIcon(conf) {
+      const color = confColors[conf] || '#eafc26';
+      return L.divIcon({
+        className: '',
+        html: `<div style="
+          width: 28px; height: 28px;
+          background: ${color};
+          border: 2px solid #fff;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        "></div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 28],
+        popupAnchor: [0, -30]
+      });
+    }
+
+    teams.forEach(team => {
+      const marker = L.marker([team.lat, team.lng], { icon: makeIcon(team.confederation) })
+        .addTo(map)
+        .bindPopup(`
+          <div style="font-family: sans-serif; min-width: 160px;">
+            <div style="font-size: 1.4rem; margin-bottom: 4px;">${team.flag}</div>
+            <strong style="font-size: 0.9rem;">${team.team}</strong><br>
+            <span style="font-size: 0.78rem; color: #666;">${team.venue}</span><br>
+            <span style="font-size: 0.73rem; color: #999;">${team.neighborhood}</span>
+          </div>
+        `);
+
+      marker.on('click', () => {
+        const card = document.getElementById('card-' + team.id);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.querySelectorAll('.team-card').forEach(c => c.classList.remove('highlighted'));
+          card.classList.add('highlighted');
+          setTimeout(() => card.classList.remove('highlighted'), 3000);
+        }
+      });
+
+      markers[team.id] = marker;
+    });
+
+    // Pin on map buttons
+    document.querySelectorAll('.map-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        const marker = markers[id];
+        if (marker) {
+          map.setView(marker.getLatLng(), 14, { animate: true });
+          marker.openPopup();
+          document.getElementById('wc-map').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Confederation filter buttons
+    const confNav = document.getElementById('conf-nav');
+    confNav.addEventListener('click', e => {
+      const btn = e.target.closest('.conf-btn');
+      if (!btn) return;
+      document.querySelectorAll('.conf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const conf = btn.dataset.conf;
+      document.querySelectorAll('[data-conf-section]').forEach(section => {
+        section.style.display = (conf === 'all' || section.dataset.confSection === conf) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
