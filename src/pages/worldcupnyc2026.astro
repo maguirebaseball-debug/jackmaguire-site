@@ -541,9 +541,9 @@ const regionColors = {
     }
 
     .wc-container {
-      max-width: 1200px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 2rem;
     }
 
     /* ---- HERO ---- */
@@ -552,6 +552,14 @@ const regionColors = {
       border-bottom: 1px solid var(--border);
       padding: 3rem 1.25rem 2.5rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wc-hero > * {
+      width: 100%;
+      max-width: 960px;
     }
 
     .wc-badge {
@@ -575,14 +583,14 @@ const regionColors = {
       line-height: 1.1;
       letter-spacing: -0.02em;
       color: #fff;
-      max-width: 800px;
+      max-width: 720px;
       margin: 0 auto 1rem;
     }
 
     .wc-title span { color: var(--accent); }
 
     .wc-intro {
-      max-width: 660px;
+      max-width: 600px;
       margin: 0 auto 1rem;
       color: var(--text-muted);
       font-size: 1rem;
