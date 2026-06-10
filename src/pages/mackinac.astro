@@ -11,6 +11,9 @@ import Footer from '../components/Footer.astro';
     title="Mackinac 2026 — Trip Guide"
     description="Four days at the top of Michigan. Free swimming holes, the car-free island, laborers' bars, and the history underneath all of it."
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -34,8 +37,8 @@ import Footer from '../components/Footer.astro';
       --dark-text: #F0EBE0;
       --dark-muted:#B8B0A0;
 
-      --serif: Georgia, 'Times New Roman', serif;
-      --sans:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --sans:  'Inter', system-ui, -apple-system, sans-serif;
+      --mono:  'IBM Plex Mono', 'Fira Code', monospace;
 
       --tab-h:  56px;
       --radius: 6px;
@@ -44,9 +47,10 @@ import Footer from '../components/Footer.astro';
     html, body {
       background: var(--cream);
       margin: 0;
-      font-family: var(--serif);
+      font-family: var(--sans);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ═══ APP SHELL ═════════════════════════════════════════════ */
@@ -66,14 +70,14 @@ import Footer from '../components/Footer.astro';
     }
 
     .am-title {
-      font-family: var(--serif);
+      font-family: var(--sans);
       font-size: clamp(1.6rem, 7vw, 2.2rem);
-      font-style: italic;
-      font-weight: 400;
+      font-style: normal;
+      font-weight: 700;
       color: #fff;
       line-height: 1.08;
       margin: 0 0 0.7rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
     .am-meta {
@@ -117,11 +121,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .sc-n {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.35rem;
+      font-family: var(--mono);
+      font-size: 1.2rem;
+      font-weight: 500;
       color: var(--gold);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
     }
 
     .sc-l {
@@ -222,13 +228,14 @@ import Footer from '../components/Footer.astro';
     }
 
     .sec-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 400;
+      font-family: var(--sans);
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 700;
       color: var(--ink);
       margin: 0;
       line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
     /* ═══ CARDS ═════════════════════════════════════════════════ */
@@ -274,13 +281,15 @@ import Footer from '../components/Footer.astro';
     }
 
     .act-name {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.05rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.95rem;
       color: var(--ink);
       margin: 0;
       line-height: 1.25;
       flex: 1;
+      letter-spacing: -0.01em;
     }
 
     .badge {
@@ -364,8 +373,8 @@ import Footer from '../components/Footer.astro';
       margin: 0;
     }
 
-    .tip-body strong,
-    .tip-body em { color: var(--dark-text); font-style: italic; font-weight: 400; }
+    .tip-body strong { color: var(--dark-text); font-style: normal; font-weight: 600; }
+    .tip-body em { color: var(--gold-lt); font-style: normal; font-weight: 400; }
 
     /* ═══ PULL QUOTE ════════════════════════════════════════════ */
     .pq {
@@ -376,12 +385,14 @@ import Footer from '../components/Footer.astro';
     }
 
     .pq p {
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 4.5vw, 1.45rem);
-      font-style: italic;
-      line-height: 1.35;
+      font-family: var(--sans);
+      font-size: clamp(1rem, 4vw, 1.25rem);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.45;
       color: var(--ink);
       margin: 0;
+      letter-spacing: -0.01em;
     }
 
     /* ═══ PROPERTY CARD ═════════════════════════════════════════ */
@@ -407,11 +418,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .pc-name {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.15rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.05rem;
       color: #fff;
       margin: 0 0 0.3rem;
+      letter-spacing: -0.02em;
     }
 
     .pc-sub {
@@ -476,10 +489,11 @@ import Footer from '../components/Footer.astro';
     }
 
     .fc-price {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.1rem;
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--gold-dk);
+      letter-spacing: -0.01em;
     }
 
     .fc-body {
@@ -542,9 +556,10 @@ import Footer from '../components/Footer.astro';
     }
 
     .dc-title {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.95rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.9rem;
       color: var(--dark-text);
       flex: 1;
     }
@@ -590,7 +605,7 @@ import Footer from '../components/Footer.astro';
       color: var(--muted);
     }
 
-    .sv strong { color: var(--ink); font-style: italic; font-weight: 400; }
+    .sv strong { color: var(--ink); font-style: normal; font-weight: 600; }
 
     /* ═══ FOOD CARDS ════════════════════════════════════════════ */
     .food-card {
@@ -610,11 +625,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .food-name {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.93rem;
       color: var(--ink);
       margin: 0;
+      letter-spacing: -0.01em;
     }
 
     .food-price {
@@ -678,11 +695,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .hist-hed {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.93rem;
       color: var(--ink);
-      line-height: 1.3;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
     }
 
     .hist-body {
@@ -732,7 +751,7 @@ import Footer from '../components/Footer.astro';
     }
 
     .crow .cl { color: rgba(255,255,255,0.6); flex: 1; }
-    .crow .cv { color: var(--gold-lt); font-style: italic; font-family: var(--serif); white-space: nowrap; }
+    .crow .cv { color: var(--gold-lt); font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
     .crow:last-child .cl { color: #fff; }
     .crow:last-child .cv { color: #fff; }
 
@@ -754,11 +773,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .swim-name {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.93rem;
       color: var(--ink);
       margin: 0;
+      letter-spacing: -0.01em;
     }
 
     .swim-desc {
@@ -844,11 +865,13 @@ import Footer from '../components/Footer.astro';
     .grungy-card:first-child { border-top: 1px solid var(--rule); }
 
     .gr-name {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.93rem;
       color: var(--ink);
       margin: 0 0 0.35rem;
+      letter-spacing: -0.01em;
     }
 
     .gr-body {
@@ -869,9 +892,10 @@ import Footer from '../components/Footer.astro';
     }
 
     .closing-card p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.95rem;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.9rem;
       line-height: 1.72;
       color: var(--dark-muted);
       margin: 0;
