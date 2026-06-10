@@ -1,0 +1,996 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead
+    title="The Perfect Long Weekend at Mackinac — A Budget Guide"
+    description="A Condé Nast–style guide to Mackinac Island and St. Ignace, Michigan. Ferries, free hikes, the best cheap food, and four days of genuine Upper Peninsula magic."
+  />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+    .cnt-page {
+      width: 75%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 0 6rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #1a1a18;
+    }
+
+    @media (max-width: 900px) { .cnt-page { width: 90%; } }
+    @media (max-width: 600px) { .cnt-page { width: 95%; padding: 0 0 4rem; } }
+
+    /* ── MASTHEAD ────────────────────────────────────────────────── */
+    .masthead {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid #1a1a18;
+    }
+
+    .kicker {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #556B2F;
+      margin-bottom: 1.1rem;
+    }
+
+    .kicker span {
+      display: inline-block;
+      margin: 0 0.6rem;
+      opacity: 0.4;
+    }
+
+    .display-hed {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: #1a1a18;
+      margin: 0 0 1.2rem;
+      max-width: 820px;
+    }
+
+    .display-hed em { font-style: normal; }
+
+    .deck {
+      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+      line-height: 1.65;
+      color: #3a3a36;
+      max-width: 620px;
+      margin: 0 0 1.8rem;
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    .byline-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: #777;
+      text-transform: uppercase;
+      flex-wrap: wrap;
+    }
+
+    .byline-row .divider { opacity: 0.35; }
+
+    /* ── FACT BAR ────────────────────────────────────────────────── */
+    .fact-bar {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin: 2.5rem 0;
+      overflow-x: auto;
+    }
+
+    .fact-item {
+      flex: 1;
+      min-width: 120px;
+      padding: 1.1rem 1.2rem;
+      border-right: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .fact-item:last-child { border-right: none; }
+
+    .fact-num {
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #556B2F;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .fact-label {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      margin-top: 0.3rem;
+    }
+
+    /* ── SECTION HEADERS ─────────────────────────────────────────── */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 4rem 0 1.8rem;
+    }
+
+    .section-rule::before,
+    .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+    }
+
+    .section-label {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #556B2F;
+      white-space: nowrap;
+    }
+
+    /* ── LEAD TEXT ───────────────────────────────────────────────── */
+    .lead-graf {
+      font-size: 1.1rem;
+      line-height: 1.72;
+      color: #2a2a26;
+      margin: 0 0 1.8rem;
+    }
+
+    .lead-graf + .lead-graf { margin-top: -0.5rem; }
+
+    /* ── PULL QUOTE ──────────────────────────────────────────────── */
+    .pull-quote {
+      border-top: 3px solid #1a1a18;
+      border-bottom: 1px solid #ccc;
+      padding: 1.4rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .pull-quote p {
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-style: italic;
+      line-height: 1.35;
+      color: #1a1a18;
+      margin: 0;
+      font-family: Georgia, serif;
+    }
+
+    /* ── PROPERTY BOX ────────────────────────────────────────────── */
+    .property-box {
+      background: #f9f7f2;
+      border: 1px solid #ddd;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0;
+    }
+
+    .property-box-hed {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 0.8rem;
+    }
+
+    .property-name {
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0 0 1.2rem;
+      color: #1a1a18;
+    }
+
+    .property-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.8rem 1.5rem;
+    }
+
+    .spec-item { }
+
+    .spec-label {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      margin-bottom: 0.2rem;
+    }
+
+    .spec-val {
+      font-size: 0.9rem;
+      color: #2a2a26;
+      line-height: 1.4;
+    }
+
+    /* ── ACTIVITY LIST (editorial) ────────────────────────────────── */
+    .activity-list { margin: 0; padding: 0; list-style: none; }
+
+    .activity-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid #e8e8e4;
+      align-items: start;
+    }
+
+    .activity-entry:first-child { border-top: 1px solid #e8e8e4; }
+
+    .activity-head {
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      margin: 0 0 0.35rem;
+      color: #1a1a18;
+      font-family: Georgia, serif;
+    }
+
+    .activity-body {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: #4a4a44;
+      margin: 0;
+      grid-column: 1;
+    }
+
+    .activity-meta-col {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+
+    .price-tag {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .price-free { color: #3a6b1a; }
+    .price-cheap { color: #7a5a00; }
+    .price-moderate { color: #8a2020; }
+
+    .activity-note {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.68rem;
+      color: #999;
+      margin-top: 0.3rem;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    /* ── FERRY TABLE ─────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+    }
+
+    .data-table th {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      text-align: left;
+      padding: 0 1rem 0.7rem 0;
+      border-bottom: 1px solid #1a1a18;
+    }
+
+    .data-table td {
+      padding: 0.8rem 1rem 0.8rem 0;
+      border-bottom: 1px solid #e8e8e4;
+      color: #2a2a26;
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    .data-table td:last-child { color: #777; font-size: 0.82rem; }
+
+    /* ── ITINERARY ───────────────────────────────────────────────── */
+    .day-block { margin-bottom: 2.5rem; }
+
+    .day-hed {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #e8e8e4;
+    }
+
+    .day-num {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #556B2F;
+    }
+
+    .day-title-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      font-family: Georgia, serif;
+      color: #1a1a18;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0.2rem 1.2rem;
+      margin-bottom: 0.9rem;
+      align-items: start;
+    }
+
+    .sched-time {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      padding-top: 0.22rem;
+    }
+
+    .sched-text {
+      font-size: 0.9rem;
+      line-height: 1.58;
+      color: #2a2a26;
+    }
+
+    .sched-text strong { color: #1a1a18; font-style: italic; font-weight: 400; }
+
+    /* ── FOOD ENTRIES ────────────────────────────────────────────── */
+    .food-entry {
+      padding: 1.3rem 0;
+      border-bottom: 1px solid #e8e8e4;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.4rem 1.5rem;
+    }
+
+    .food-entry:first-child { border-top: 1px solid #e8e8e4; }
+
+    .food-name-text {
+      font-size: 1rem;
+      font-style: italic;
+      font-family: Georgia, serif;
+      color: #1a1a18;
+      margin: 0 0 0.3rem;
+    }
+
+    .food-desc-text {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: #4a4a44;
+      margin: 0;
+    }
+
+    .food-price-col {
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+
+    .food-price-text {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #3a6b1a;
+      white-space: nowrap;
+    }
+
+    /* ── TIPS (two-col prose) ────────────────────────────────────── */
+    .tips-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2.5rem;
+    }
+
+    @media (max-width: 640px) { .tips-cols { grid-template-columns: 1fr; } }
+
+    .tip-entry { margin-bottom: 1.5rem; }
+
+    .tip-title {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1a1a18;
+      margin: 0 0 0.3rem;
+    }
+
+    .tip-body {
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: #4a4a44;
+      margin: 0;
+    }
+
+    /* ── COST TABLE ──────────────────────────────────────────────── */
+    .cost-block {
+      background: #1a1a18;
+      color: #f4f2ec;
+      padding: 2.2rem 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .cost-block-hed {
+      font-family: var(--font-ui, sans-serif);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8a9a7a;
+      margin: 0 0 1.3rem;
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+    }
+
+    .cost-row:last-child {
+      border-bottom: none;
+      padding-top: 0.9rem;
+      margin-top: 0.3rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 1rem;
+    }
+
+    .cost-row .c-label { color: rgba(255,255,255,0.7); }
+    .cost-row .c-val { color: #a3d977; font-style: italic; font-family: Georgia, serif; }
+    .cost-row:last-child .c-label { color: #f4f2ec; }
+    .cost-row:last-child .c-val { color: #fff; }
+
+    /* ── CLOSING ─────────────────────────────────────────────────── */
+    .closing-graf {
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: #2a2a26;
+      font-style: italic;
+      border-top: 3px solid #1a1a18;
+      padding-top: 1.5rem;
+      margin-top: 3.5rem;
+    }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <main>
+    <div class="cnt-page">
+
+      <!-- MASTHEAD -->
+      <div class="masthead">
+        <div class="kicker">
+          Upper Peninsula, Michigan<span>·</span>June 2026<span>·</span>Travel Guide
+        </div>
+        <h1 class="display-hed">
+          Four Days on the <em>Straits of Mackinac</em>,<br>for the Price of a Tank of Gas
+        </h1>
+        <p class="deck">
+          A log cabin on Lake Michigan, a fifteen-minute ferry to the most car-free island in the
+          Midwest, miles of limestone bluffs, and the best fudge in the country — almost all of it free.
+        </p>
+        <div class="byline-row">
+          <span>St. Ignace, MI</span>
+          <span class="divider">·</span>
+          <span>June 13–17, 2026</span>
+          <span class="divider">·</span>
+          <span>6 travelers</span>
+          <span class="divider">·</span>
+          <span>Budget guide</span>
+        </div>
+      </div>
+
+      <!-- FACT BAR -->
+      <div class="fact-bar">
+        <div class="fact-item">
+          <div class="fact-num">4</div>
+          <div class="fact-label">Nights</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-num">~$30</div>
+          <div class="fact-label">Ferry, round trip</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-num">80%</div>
+          <div class="fact-label">Of island is free state park</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-num">8 mi</div>
+          <div class="fact-label">Car-free perimeter ride</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-num">65°F</div>
+          <div class="fact-label">Average June high</div>
+        </div>
+      </div>
+
+      <!-- INTRO -->
+      <p class="lead-graf">
+        The Upper Peninsula of Michigan is one of the most underrated stretches of shoreline in
+        North America. St. Ignace sits at the northern foot of the Mackinac Bridge — five miles of
+        suspension steel connecting two peninsulas over a channel where Lake Huron meets Lake
+        Michigan — and from there, Mackinac Island is a fifteen-minute ferry ride into a world
+        that banned automobiles in 1898 and never changed its mind.
+      </p>
+      <p class="lead-graf">
+        Your cabin sits directly on Lake Michigan, with a firepit at the water's edge, kayaks on
+        the shore, and a view of St. Helena Island's lighthouse on clear days. It is the rare kind
+        of place where the best things to do are also the cheapest.
+      </p>
+
+      <div class="pull-quote">
+        <p>"Mackinac Island banned cars in 1898 and never changed its mind. The island smells like fudge and horse. It is perfect."</p>
+      </div>
+
+      <!-- THE CABIN -->
+      <div class="section-rule"><span class="section-label">Your base</span></div>
+
+      <div class="property-box">
+        <div class="property-box-hed">VRBO #1104745 — Premier Host · 9.8/10 · 158 Reviews</div>
+        <div class="property-name">Log Cabin on Lake Michigan, St. Ignace</div>
+        <div class="property-specs">
+          <div class="spec-item">
+            <div class="spec-label">Bedrooms</div>
+            <div class="spec-val">2 BR + living room daybed<br>Sleeps 6</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Beds</div>
+            <div class="spec-val">1 King · 1 Queen · 1 Double daybed</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Waterfront</div>
+            <div class="spec-val">Direct Lake Michigan access, on the beach</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Outdoor</div>
+            <div class="spec-val">Firepit at water's edge · swing · kayaks</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Kitchen</div>
+            <div class="spec-val">Full kitchen · charcoal BBQ grill</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">View</div>
+            <div class="spec-val">St. Helena Island lighthouse · freighters</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Extras</div>
+            <div class="spec-val">Outdoor heated shower · WiFi · TV</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Check-in / out</div>
+            <div class="spec-val">After 4pm / Before 10:30am</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="lead-graf">
+        The cabin is a ten-second walk from the water. Use the kayaks, use the firepit, buy groceries
+        and cook in. The kitchen is full. Every dollar you don't spend at a St. Ignace restaurant is
+        a dollar saved for the ferry and the fudge.
+      </p>
+
+      <!-- GETTING THERE / FERRY -->
+      <div class="section-rule"><span class="section-label">Getting to Mackinac Island</span></div>
+
+      <p class="lead-graf">
+        The Arnold Line departs from St. Ignace — you can walk to the dock from downtown.
+        The crossing takes about fifteen minutes each way, and the boats run frequently enough
+        that you set your own schedule. Buy tickets online the night before, especially on weekends.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Ferry Operator</th>
+            <th>Adult R/T</th>
+            <th>Departs from</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Arnold Line</strong></td>
+            <td>~$30</td>
+            <td>St. Ignace dock</td>
+            <td>Closest to your cabin. Walk to it.</td>
+          </tr>
+          <tr>
+            <td><strong>Star Line</strong></td>
+            <td>~$30</td>
+            <td>St. Ignace</td>
+            <td>Hydro-jet; slightly faster crossing.</td>
+          </tr>
+          <tr>
+            <td><strong>Shepler's</strong></td>
+            <td>~$32</td>
+            <td>Mackinaw City</td>
+            <td>South of the bridge — skip unless passing through.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="lead-graf">
+        For six people, round-trip ferry costs roughly $180 total. That is your single largest
+        expense of the trip, and it is worth every cent. Most operators let you return on any
+        departure the same day — take a morning boat, stay until sunset.
+      </p>
+
+      <!-- MACKINAC ISLAND -->
+      <div class="section-rule"><span class="section-label">Mackinac Island — Free &amp; nearly free</span></div>
+
+      <p class="lead-graf">
+        Once you have paid the ferry, Mackinac Island is almost entirely free. Eighty percent of
+        the island is a state park. There are no cars, no traffic lights, no parking lots. The only
+        sounds are hooves, bicycle wheels, and the lake.
+      </p>
+
+      <ul class="activity-list">
+        <li class="activity-entry">
+          <h3 class="activity-head">The Perimeter Ride — M-185</h3>
+          <p class="activity-body">Eight miles of flat, car-free road circling the island's entire shoreline. The most scenic bike ride in the Midwest. Take the morning ferry, rent bikes at the dock, and be on the road before the second wave of tourists arrives. Allow 1.5–2 hours, stopping at British Landing for a picnic halfway around.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-cheap">Bike rental ~$45/day</div>
+            <div class="activity-note">Free on foot</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Arch Rock</h3>
+          <p class="activity-body">A natural limestone arch rising 146 feet above Lake Huron. The single most iconic image of Mackinac Island. A short, steep trail connects the shore road to the overlook — plan twenty minutes from the ferry dock on foot, five by bike. Go in the morning before the crowds.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">~1 mile from dock</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Sugar Loaf Rock &amp; Skull Cave</h3>
+          <p class="activity-body">The interior trails of the state park are almost entirely overlooked by tourists. Sugar Loaf is a 75-foot freestanding limestone pillar rising from the cedar forest. Skull Cave, a hundred yards away, has a genuinely dark history — fur traders sheltered here during the 1763 Pontiac War. Both are free, both are unsigned by most visitors.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">Interior trail, Garrison Rd</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">British Landing Nature Center</h3>
+          <p class="activity-body">The north-shore beach where British troops landed in 1812, taking the fort before American soldiers even knew war had been declared. Quiet, shaded, completely free, and ideal for a picnic lunch mid-ride. The free nature center explains the ecology of the island's limestone formation.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">4 miles from ferry dock</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Fudge Sampling on Market Street</h3>
+          <p class="activity-body">Every fudge shop on the island offers free samples at the window — Murdick's, Ryba's, and Joann's are the three worth walking. Walk the entire strip before committing to a purchase. The fudge is stirred on marble slabs in the window while you watch. If you love one, a half-pound slice runs about eight dollars and splits six ways.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free to sample</div>
+            <div class="activity-note">~$8 a slice if you buy</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Fort Mackinac</h3>
+          <p class="activity-body">A working British fort from 1780, with cannon firings on the hour, costumed soldiers, and the best elevated view of the Straits on the island. Optional — not free — but if you go on one day on the island, this is worth the admission. The cannon fire is legitimately startling.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-moderate">$14 adult · $8 ages 5–17</div>
+            <div class="activity-note">On the bluff above downtown</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Mackinac Island Butterfly House</h3>
+          <p class="activity-body">A greenhouse of free-flying tropical butterflies. Takes about forty minutes. Genuinely beautiful, and a good option for anyone who needs a break from the trails. McGulpin Street, behind downtown.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-cheap">~$8 adult · ~$6 child</div>
+            <div class="activity-note">McGulpin St</div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- ST. IGNACE AREA -->
+      <div class="section-rule"><span class="section-label">St. Ignace &amp; the Surrounding U.P.</span></div>
+
+      <ul class="activity-list">
+        <li class="activity-entry">
+          <h3 class="activity-head">Kayak from the Cabin Shore</h3>
+          <p class="activity-body">Kayaks are included with the VRBO. Push off the beach directly in front of the cabin and paddle east toward Point aux Chenes Bay or west along the rocky shoreline. On calm mornings the water is glass-flat. Watch for freighters entering the Straits — they are enormous and close.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free — at the cabin</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Mackinac Bridge Views</h3>
+          <p class="activity-body">Drive south to the Straits State Park shoreline for the best ground-level view of the bridge from the St. Ignace side. Five miles of suspension cable, two hundred feet above the water. The bridge lit at dusk is one of the best free sights in Michigan. Walking the bridge is only permitted on Labor Day.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">$9/vehicle for the state park</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Castle Rock</h3>
+          <p class="activity-body">A 200-foot limestone outcropping three miles north of St. Ignace. Fifteen-minute round-trip climb to the top. The view covers the Straits, the bridge, and the island. Michigan's oldest tourist attraction. They charge exactly one dollar.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">$1 per person</div>
+            <div class="activity-note">N State St, 3 miles north</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Mystery Spot</h3>
+          <p class="activity-body">Pure Michigan roadside science illusion — a tilted cabin where water appears to roll uphill and people look like they're standing at impossible angles. One minute from the cabin by car. The teenagers will enjoy debunking it, and then feel slightly unsettled that it still looks wrong even after they have figured it out.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-cheap">~$10 per person</div>
+            <div class="activity-note">150 Martin Lake Rd</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Father Marquette National Memorial</h3>
+          <p class="activity-body">A free National Memorial along the waterfront honoring the French Jesuit explorer Jacques Marquette, who founded St. Ignace in 1671. Short walk with interpretive panels, excellent bridge view. Good first stop on arrival day.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">1 mile west of downtown</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">The Tunnel of Trees — M-119</h3>
+          <p class="activity-body">Drive thirty minutes west on US-2 to Cross Village, then south on M-119 — an old-growth hardwood canopy arches entirely over the road along Lake Michigan bluffs for twenty miles. The most beautiful drive in the Lower Peninsula, rivaling the Upper. Go in both directions: different light each way.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">45 min west via US-2</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Headlands International Dark Sky Park</h3>
+          <p class="activity-body">Forty-five minutes west near Petoskey, one of the darkest sky preserves in the Midwest. No light pollution, no entrance fee. On a clear night the Milky Way is visible with the naked eye and the aurora borealis is occasionally possible at this latitude in June. Bring blankets.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-free">Free</div>
+            <div class="activity-note">15675 Headlands Rd · 45 min</div>
+          </div>
+        </li>
+        <li class="activity-entry">
+          <h3 class="activity-head">Deer Ranch</h3>
+          <p class="activity-body">A small whitetail deer farm fifteen minutes' walk from the cabin. Feed deer by hand from cups of grain. Genuinely charming, especially if anyone in your group has younger sensibilities. On the cheap end.</p>
+          <div class="activity-meta-col">
+            <div class="price-tag price-cheap">~$6 per person</div>
+            <div class="activity-note">15 min walk from cabin</div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- FOOD -->
+      <div class="section-rule"><span class="section-label">Where &amp; What to Eat</span></div>
+
+      <p class="lead-graf">
+        The cardinal rule: never eat a full meal on Mackinac Island. Prices are tourist-resort
+        caliber. Pack lunches, eat on the island's park benches, return to St. Ignace for dinner.
+        The U.P. has its own food culture and it is genuinely worth seeking out.
+      </p>
+
+      <div>
+        <div class="food-entry">
+          <div>
+            <div class="food-name-text">Clyde's Drive-In — St. Ignace</div>
+            <p class="food-desc-text">The local institution, open since 1949. Burgers, hot dogs, and soft-serve in a roadside setting with zero pretension. Cash-friendly and fast. The right dinner after a long island day.</p>
+          </div>
+          <div class="food-price-col"><div class="food-price-text">~$8–12/person</div></div>
+        </div>
+        <div class="food-entry">
+          <div>
+            <div class="food-name-text">The U.P. Pasty</div>
+            <p class="food-desc-text">The signature food of the Upper Peninsula — a hand-crimped pastry of beef, potato, onion, and rutabaga, brought over by Finnish and Cornish miners in the 1800s and never left. Every bakery in St. Ignace sells them. Perfect picnic food for the island. Pronounced <em>PASS-tee</em>. Do not leave without trying one.</p>
+          </div>
+          <div class="food-price-col"><div class="food-price-text">~$6–8 each</div></div>
+        </div>
+        <div class="food-entry">
+          <div>
+            <div class="food-name-text">Picnic Strategy</div>
+            <p class="food-desc-text">Stop at the grocery in St. Ignace before ferry days. Pack sandwiches, chips, fruit, and cold drinks in a bag. Eat at the picnic tables at British Landing on the island's north shore — Lake Huron view, no crowds, no $22 burgers. Saves fifteen to twenty dollars per person per day.</p>
+          </div>
+          <div class="food-price-col"><div class="food-price-text">Saves ~$100 for 6</div></div>
+        </div>
+        <div class="food-entry">
+          <div>
+            <div class="food-name-text">Legs Inn — Cross Village</div>
+            <p class="food-desc-text">A Polish-American roadhouse on a bluff above Lake Michigan, built entirely from driftwood and found stones by a Polish immigrant in the 1920s. Cheap pierogies, cold beer, and an interior that looks like a fever dream carved from the forest. Worth the forty-five minute drive on one evening. Pair it with the Tunnel of Trees.</p>
+          </div>
+          <div class="food-price-col"><div class="food-price-text">~$14–18/person</div></div>
+        </div>
+        <div class="food-entry">
+          <div>
+            <div class="food-name-text">Cook at the Cabin</div>
+            <p class="food-desc-text">The cabin has a full kitchen and a charcoal grill. One dinner grilled at the water's edge — watching freighters pass while the coals burn down — is worth more than any restaurant in the area. Stock up on arrival.</p>
+          </div>
+          <div class="food-price-col"><div class="food-price-text">~$10–12/person</div></div>
+        </div>
+      </div>
+
+      <!-- ITINERARY -->
+      <div class="section-rule"><span class="section-label">Four Days, Planned</span></div>
+
+      <div class="day-block">
+        <div class="day-hed">
+          <div class="day-num">Day One · Sat Jun 13</div>
+          <div class="day-title-text">Arrival on the Straits</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Afternoon</div>
+          <div class="sched-text">Arrive and check in after 4pm. Walk the sixty feet to the water. You will immediately understand why 158 reviewers gave this place a 9.8. Note the freighters — they run through the night.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Late afternoon</div>
+          <div class="sched-text">Drive three miles north to <strong>Castle Rock</strong> ($1 each). Fifteen-minute climb, full Straits panorama. Then down to the <strong>Father Marquette Memorial</strong> waterfront walk for the bridge at sunset.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Evening</div>
+          <div class="sched-text">Dinner at <strong>Clyde's Drive-In</strong> or pasties from a local bakery. Light the cabin firepit as it gets dark. Sleep early — island day tomorrow.</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-hed">
+          <div class="day-num">Day Two · Sun Jun 14</div>
+          <div class="day-title-text">Full Day on Mackinac Island</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Morning</div>
+          <div class="sched-text">Pack a picnic the night before. Walk to the <strong>Arnold Line dock</strong> and take the first or second ferry (9–10am). Buy tickets online the evening before.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Mid-morning</div>
+          <div class="sched-text">Rent bikes at the dock immediately. Ride <strong>M-185</strong> — the full 8-mile perimeter. Stop at <strong>British Landing</strong> for the picnic lunch on the north shore beach.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Afternoon</div>
+          <div class="sched-text">Return bikes. Walk the interior to <strong>Arch Rock</strong>, then <strong>Sugar Loaf</strong>, then <strong>Skull Cave</strong>. Two hours, completely free, completely empty compared to the downtown.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Late afternoon</div>
+          <div class="sched-text">Return to <strong>Market Street</strong> for the fudge sampling circuit. Take the 5 or 6pm ferry back. Sit on the back deck and watch the island recede.</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-hed">
+          <div class="day-num">Day Three · Mon Jun 15</div>
+          <div class="day-title-text">The Tunnel of Trees &amp; Cross Village</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Morning</div>
+          <div class="sched-text"><strong>Mystery Spot</strong> one minute from the cabin — get it over with, the teens will love it. Then kayak from the cabin beach for an hour before the day heats up.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Midday</div>
+          <div class="sched-text">Drive US-2 west past the bridge view, then south on <strong>M-119</strong> through the Tunnel of Trees. Twenty miles of old-growth canopy arching over Lake Michigan bluffs. Stop anywhere to walk down to the water.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Evening</div>
+          <div class="sched-text">Dinner at <strong>Legs Inn</strong> in Cross Village. Pierogies and perch on a bluff above Lake Michigan. Drive home through the Tunnel of Trees in reverse — the afternoon light going east is different and equally good.</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-hed">
+          <div class="day-num">Day Four · Tue Jun 16</div>
+          <div class="day-title-text">Second Island Day or Beach Day</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Option A</div>
+          <div class="sched-text"><strong>Return to Mackinac Island</strong> for everything left undone: <strong>Fort Mackinac</strong>, the Butterfly House, slower interior hiking. The second visit is more relaxed — you know where everything is.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Option B</div>
+          <div class="sched-text"><strong>Beach day at the cabin.</strong> Swim off the shoreline (Lake Michigan runs ~58°F in mid-June — cold but doable), grill on the BBQ, sit in the Adirondack chairs and watch freighters. Nearly free and deeply restorative.</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Night</div>
+          <div class="sched-text">If it's clear, drive forty-five minutes west to <strong>Headlands Dark Sky Park</strong>. Bring blankets and lie on the hood of the car. The Milky Way at this latitude in June is something the teenagers will remember when they are forty.</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-hed">
+          <div class="day-num">Day Five · Wed Jun 17</div>
+          <div class="day-title-text">Checkout &amp; the Drive Home</div>
+        </div>
+        <div class="schedule-row">
+          <div class="sched-time">Morning</div>
+          <div class="sched-text">One last walk to the water. Coffee on the shore. Check out by 10:30am. Drive south across the Mackinac Bridge (~$4 toll) — the full five-mile crossing with the island visible to the east on a clear day.</div>
+        </div>
+      </div>
+
+      <!-- COST -->
+      <div class="cost-block">
+        <div class="cost-block-hed">Estimated Out-of-Pocket Per Person · Excluding VRBO</div>
+        <div class="cost-row"><span class="c-label">Ferry to Mackinac Island (1 day, round trip)</span><span class="c-val">~$30</span></div>
+        <div class="cost-row"><span class="c-label">Bike rental on island (half day)</span><span class="c-val">~$22</span></div>
+        <div class="cost-row"><span class="c-label">Mystery Spot</span><span class="c-val">~$10</span></div>
+        <div class="cost-row"><span class="c-label">Castle Rock</span><span class="c-val">$1</span></div>
+        <div class="cost-row"><span class="c-label">Deer Ranch (optional)</span><span class="c-val">~$6</span></div>
+        <div class="cost-row"><span class="c-label">Food, 4 days (picnic-heavy, one restaurant dinner)</span><span class="c-val">~$65–85</span></div>
+        <div class="cost-row"><span class="c-label">Mackinac Bridge toll (split 6 ways)</span><span class="c-val">&lt;$1</span></div>
+        <div class="cost-row"><span class="c-label"><strong>Total per person</strong></span><span class="c-val"><strong>~$135–155</strong></span></div>
+      </div>
+
+      <!-- TIPS -->
+      <div class="section-rule"><span class="section-label">Before You Go</span></div>
+
+      <div class="tips-cols">
+        <div class="tip-entry">
+          <div class="tip-title">Buy ferry tickets online</div>
+          <p class="tip-body">Arnold Line, Star Line, and Shepler's all sell advance tickets. Weekend morning departures can have long walk-up lines. Book the night before, arrive fifteen minutes early.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">Pack real layers</div>
+          <p class="tip-body">June on the Straits is beautiful but not warm. Highs reach the mid-60s, but wind off the lake drops the feels-like to 50. You need a fleece or light jacket every single day — not just at night.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">Pack picnic food for island days</div>
+          <p class="tip-body">A sandwich from the cabin cooler is $0 versus $18–22 at a Market Street restaurant. The benches at British Landing on the north shore are the best free lunch spot in northern Michigan.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">Get off Main Street</div>
+          <p class="tip-body">Most visitors never leave the half-mile downtown strip. Arch Rock, Sugar Loaf, Skull Cave, and the full perimeter road are all either empty or lightly trafficked. The best parts of the island cost nothing.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">Bring $40–60 cash per person</div>
+          <p class="tip-body">Most shops accept cards, but some smaller island vendors are cash-only. Useful for fudge, snacks, and tips if you take a horse-drawn carriage around the fort district.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">Eat the pasty</div>
+          <p class="tip-body">If you leave the Upper Peninsula without trying a U.P. pasty, you have made a serious mistake. Every bakery in St. Ignace sells them. Beef, potato, and rutabaga in a hand-crimped pastry crust. It is the whole culture of this place in one food.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">The freighters run all night</div>
+          <p class="tip-body">The cabin has a view of St. Helena Island lighthouse and the Straits shipping lane. Leave the window cracked. The fog horns and running lights of a 700-foot freighter passing in the dark at 2am are legitimately something to hear.</p>
+        </div>
+        <div class="tip-entry">
+          <div class="tip-title">The kayaks are the secret weapon</div>
+          <p class="tip-body">Free, included with the cabin, and the best way to understand the shoreline. Go early morning before any wind. The water is cold enough that wetsuits would be advisable for a capsize — stay close to shore.</p>
+        </div>
+      </div>
+
+      <p class="closing-graf">
+        The Upper Peninsula has been unfairly overlooked for most of its history, which is perhaps
+        why it has stayed so intact. The limestone bluffs, the car-free island, the absurdly dark
+        skies, the pasties — none of it has been optimized for tourism in the way that would ruin it.
+        Go before that changes.
+      </p>
+
+    </div>
+  </main>
+
+  <Footer />
+</body>
+</html>
