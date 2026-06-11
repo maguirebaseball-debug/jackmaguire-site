@@ -497,21 +497,46 @@ const excludedTeams = [
   { team: "Curazao", flag: "🇨🇼", region: "North & Central America", group: "E" }
 ];
 
-const regionOrder = [
-  "Europe",
-  "South America",
-  "North & Central America",
-  "Africa",
-  "Asia, Middle East & Pacific"
-];
+function timeToMinutes(t) {
+  const m = t.match(/(\d+)(?::(\d+))?\s*(AM|PM)/i);
+  if (!m) return 0;
+  let h = parseInt(m[1]);
+  const min = parseInt(m[2] ?? '0');
+  const ampm = m[3].toUpperCase();
+  if (ampm === 'PM' && h !== 12) h += 12;
+  if (ampm === 'AM' && h === 12) h = 0;
+  return h * 60 + min;
+}
 
-const regionColors = {
-  "Europe": "#4477ff",
-  "South America": "#e8c24a",
-  "North & Central America": "#cc3333",
-  "Africa": "#ff7722",
-  "Asia, Middle East & Pacific": "#22aa66"
-};
+const DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+function fmtDate(d) {
+  const day = parseInt(d.split(' ')[1]);
+  return `${DOW[new Date(2026, 5, day).getDay()]}, June ${day}`;
+}
+
+const allEntries = teams.flatMap(team => team.matches.map(match => ({ team, match })));
+allEntries.sort((a, b) => {
+  const da = parseInt(a.match.date.split(' ')[1]);
+  const db = parseInt(b.match.date.split(' ')[1]);
+  if (da !== db) return da - db;
+  return timeToMinutes(a.match.time) - timeToMinutes(b.match.time);
+});
+
+const matchDays = [];
+for (const entry of allEntries) {
+  let day = matchDays.find(d => d.date === entry.match.date);
+  if (!day) {
+    day = { date: entry.match.date, label: fmtDate(entry.match.date), slots: [] };
+    matchDays.push(day);
+  }
+  let slot = day.slots.find(s => s.time === entry.match.time);
+  if (!slot) {
+    slot = { time: entry.match.time, entries: [] };
+    day.slots.push(slot);
+  }
+  slot.entries.push(entry);
+}
 ---
 
 <!DOCTYPE html>
@@ -635,68 +660,49 @@ const regionColors = {
       margin-top: 0.2rem;
     }
 
-    /* ---- REGION TABS ---- */
-    .region-nav {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      padding: 2rem 0 0;
-    }
-
-    .region-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-family: var(--font-ui, 'Plus Jakarta Sans', sans-serif);
-      font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .region-btn:hover, .region-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000;
-    }
-
-    /* ---- REGION SECTION ---- */
-    .region-section {
+    /* ---- DATE SECTIONS ---- */
+    .date-section {
       margin-top: 2.5rem;
     }
 
-    .region-header {
+    .date-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--accent);
     }
 
-    .region-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .region-name {
+    .date-label {
       font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
       font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.03em;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
       color: #fff;
     }
 
-    .region-count {
-      margin-left: auto;
-      font-size: 0.75rem;
+    /* ---- TIME SLOTS ---- */
+    .time-slot {
+      margin-bottom: 1.75rem;
+    }
+
+    .time-label {
+      font-family: var(--font-ui, 'Plus Jakarta Sans', sans-serif);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      padding-left: 0.1rem;
+    }
+
+    /* ---- MATCH CONTEXT ---- */
+    .match-context {
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--text-muted);
+      margin-top: 0.1rem;
     }
 
     /* ---- TEAM GRID ---- */
@@ -811,54 +817,6 @@ const regionColors = {
       margin-bottom: 0.75rem;
     }
 
-    /* ---- SCHEDULE ---- */
-    .schedule-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .match-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .match-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      padding: 0.3rem 0.5rem;
-      border-radius: 3px;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .match-date {
-      font-weight: 700;
-      color: var(--accent);
-      min-width: 44px;
-      font-size: 0.72rem;
-    }
-
-    .match-time {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      min-width: 70px;
-    }
-
-    .match-vs {
-      color: var(--text-muted);
-      font-size: 0.65rem;
-    }
-
-    .match-opponent {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
 
     /* ---- EXCLUDED SECTION ---- */
     .excluded-section {
@@ -973,8 +931,7 @@ const regionColors = {
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
       .wc-hero { padding: 2rem 1rem 1.5rem; }
-      .region-nav { gap: 0.35rem; }
-      .region-btn { font-size: 0.65rem; padding: 0.4rem 0.7rem; }
+      .date-label { font-size: 1rem; }
     }
   </style>
 </head>
@@ -1024,71 +981,50 @@ const regionColors = {
     </div>
 
     <div class="wc-container">
-      <!-- REGION NAV -->
-      <div class="region-nav" id="region-nav">
-        <button class="region-btn active" data-region="all">All Regions</button>
-        {regionOrder.map(region => (
-          <button class="region-btn" data-region={region}>{region}</button>
-        ))}
-      </div>
+      <!-- CHRONOLOGICAL MATCH SCHEDULE -->
+      {matchDays.map(day => (
+        <div class="date-section">
+          <div class="date-header">
+            <span class="date-label">{day.label}</span>
+          </div>
+          {day.slots.map(slot => (
+            <div class="time-slot">
+              <div class="time-label">{slot.time}</div>
+              <div class="team-grid">
+                {slot.entries.map(({team, match}) => (
+                  <div class="team-card">
+                    <div class="team-card-header">
+                      <div class="team-flag">{team.flag}</div>
+                      <div class="team-info">
+                        <div class="group-badge">Group {team.group}</div>
+                        <div class="team-name">{team.team}</div>
+                        <div class="match-context">vs {match.opponent}</div>
+                        <div class="venue-name">{team.venue}</div>
+                        <div class="venue-neighborhood">{team.neighborhood}</div>
+                      </div>
+                    </div>
 
-      <!-- TEAM SECTIONS BY REGION -->
-      {regionOrder.map(region => {
-        const regionTeams = teams.filter(t => t.region === region);
-        if (regionTeams.length === 0) return null;
-        const color = regionColors[region];
-        return (
-          <div class="region-section" data-region-section={region} id={`region-${region.replace(/[^a-z]/gi, '-')}`}>
-            <div class="region-header">
-              <div class="region-dot" style={`background: ${color}`}></div>
-              <div class="region-name">{region}</div>
-              <div class="region-count">{regionTeams.length} verified</div>
-            </div>
-            <div class="team-grid">
-              {regionTeams.map(team => (
-                <div class="team-card" id={`card-${team.id}`}>
-                  <div class="team-card-header">
-                    <div class="team-flag">{team.flag}</div>
-                    <div class="team-info">
-                      <div class="group-badge">Group {team.group}</div>
-                      <div class="team-name">{team.team}</div>
-                      <div class="venue-name">{team.venue}</div>
-                      <div class="venue-neighborhood">{team.neighborhood}</div>
+                    {team.note && <div class="card-note">{team.note}</div>}
+
+                    <div class="venue-phone">{team.address} &bull; {team.phone}</div>
+
+                    <div class="venue-links">
+                      <a href={team.mapsLink} target="_blank" rel="noopener" class="venue-link">
+                        Google Maps
+                      </a>
+                      {team.website && (
+                        <a href={team.website} target="_blank" rel="noopener" class="venue-link">
+                          Website
+                        </a>
+                      )}
                     </div>
                   </div>
-
-                  {team.note && <div class="card-note">{team.note}</div>}
-
-                  <div class="venue-phone">{team.address} &bull; {team.phone}</div>
-
-                  <div class="venue-links">
-                    <a href={team.mapsLink} target="_blank" rel="noopener" class="venue-link">
-                      Google Maps
-                    </a>
-                    {team.website && (
-                      <a href={team.website} target="_blank" rel="noopener" class="venue-link">
-                        Website
-                      </a>
-                    )}
-                  </div>
-
-                  <div class="schedule-label">Group Stage Matches</div>
-                  <div class="match-list">
-                    {team.matches.map(m => (
-                      <div class="match-row">
-                        <span class="match-date">{m.date}</span>
-                        <span class="match-time">{m.time}</span>
-                        <span class="match-vs">vs</span>
-                        <span class="match-opponent">{m.opponent}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          ))}
+        </div>
+      ))}
 
       <!-- EXCLUDED TEAMS -->
       <div class="excluded-section">
@@ -1130,18 +1066,5 @@ const regionColors = {
 
   <Footer />
 
-  <script>
-    const nav = document.getElementById('region-nav');
-    nav?.addEventListener('click', e => {
-      const btn = (e.target as HTMLElement).closest('.region-btn') as HTMLButtonElement | null;
-      if (!btn) return;
-      document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const region = btn.dataset.region;
-      document.querySelectorAll<HTMLElement>('[data-region-section]').forEach(section => {
-        section.style.display = (region === 'all' || section.dataset.regionSection === region) ? '' : 'none';
-      });
-    });
-  </script>
 </body>
 </html>
