@@ -2,108 +2,10 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import venues from '../data/worldcup_venues.json';
 
-const title = "NYC Watch Parties: FIFA World Cup 2026 Opening Match";
-const description = "Verified venues and fan zones for Mexico vs. South Africa in New York City. Kickoff Thursday, June 11, 2026, at 3:00 PM ET.";
-const pubDate = "June 10, 2026";
-
-const venues = [
-  {
-    name: "Socceria NYC (at former Nura space)",
-    location: "46 Norman Ave, Brooklyn",
-    vibe: "Street Food Pop-up",
-    description: "A collaboration between the legendary Taqueria Ramirez and local soccer fans. Taking over the massive former Nura space for a high-energy, food-focused watch party.",
-    details: "Authentic CDMX-style tacos. High-energy supporter crowd. Doors at 1:00 PM.",
-    link: "https://www.instagram.com/socceria.nyc"
-  },
-  {
-    name: "Test Brewery",
-    location: "808 Driggs Ave, Brooklyn",
-    vibe: "Outdoor Projector",
-    description: "A Williamsburg favorite that just installed a massive outdoor projector specifically for the World Cup. Craft beer, fresh air, and an electric local crowd.",
-    details: "Outdoor seating is first-come, first-served. Dog friendly.",
-    link: "https://www.testbrewery.com"
-  },
-  {
-    name: "LandShark Bar & Grill (Times Square)",
-    location: "560 7th Ave, Manhattan",
-    vibe: "Mexico Supporter HQ",
-    description: "Located within Margaritaville Resort, this has been designated as a primary gathering point for Mexico fans. Expect a sea of green jerseys and resort-style atmosphere.",
-    details: "Reservations highly recommended for match time. 50+ screens throughout the venue.",
-    link: "https://www.margaritavilleresorts.com"
-  },
-  {
-    name: "The Paley Museum",
-    location: "25 W 52nd St, Manhattan",
-    vibe: "Elite Screening",
-    description: "For those looking for the highest quality broadcast. The Paley is hosting free screenings in their state-of-the-art theater with expert commentary during halftime.",
-    details: "Free with RSVP. Screenings in the Bennack Theater.",
-    link: "https://www.paleycenter.org"
-  },
-  {
-    name: "Berry Park",
-    location: "4 Berry St, Brooklyn",
-    vibe: "Rooftop & Massive Screens",
-    description: "The gold standard for soccer in North Brooklyn. A 3,000 sq ft roof deck plus an indoor projector. The vibe here for opening matches is historically unrivaled.",
-    details: "No cover. Arrive very early for a spot on the roof. Full sound on for the match.",
-    link: "https://www.berryparkbk.com"
-  },
-  {
-    name: "NYNJ World Cup 26 Group Stage HQ",
-    location: "USTA Billie Jean King National Tennis Center, Queens",
-    vibe: "Stadium Atmosphere",
-    description: "The official flagship fan destination for the group stage. Live match broadcasts in a stadium setting with local food vendors and family-friendly entertainment.",
-    details: "Free admission with online registration. Louis Armstrong Stadium.",
-    link: "https://www.nyctourism.com/world-cup-2026"
-  },
-  {
-    name: "SOB’s (Sounds of Brazil)",
-    location: "204 Varick St, Manhattan",
-    vibe: "High Energy & LED Tech",
-    description: "Celebrated for high-energy soccer atmospheres. Features a massive 16' x 18' LED wall with 4K HDR quality and a specialized World Cup menu.",
-    details: "Free entry with RSVP. USD 30 minimum for table seating. Doors open at 2:00 PM.",
-    link: "https://sobs.com"
-  },
-  {
-    name: "The Africa Center & El Museo del Barrio",
-    location: "1280 Fifth Ave, Manhattan",
-    vibe: "Cultural Hub",
-    description: "A collaborative event highlighting cultural ties between Africa and Latin America. Located at the edge of Central Park in East Harlem.",
-    details: "2:00 PM – 5:00 PM. Free with registration. Early arrival is required for entry.",
-    link: "https://www.theafricacenter.org"
-  },
-  {
-    name: "Brooklyn Army Terminal (BAT)",
-    location: "Sunset Park, Brooklyn",
-    vibe: "Waterfront Community",
-    description: "Free outdoor watch party at BAT Ferry Plaza Park. Features a large waterfront screen and a family-friendly community atmosphere.",
-    details: "2:00 PM – 7:00 PM. Free and open to the public.",
-    link: "https://edc.nyc/brooklyn-army-terminal"
-  },
-  {
-    name: "Paseo Park / 34th Avenue Plaza",
-    location: "Jackson Heights, Queens",
-    vibe: "Street Festival",
-    description: "One of the city's premier soccer hubs. Part of the Soccer Streets initiative, featuring a local festival atmosphere and a community bike ride arrival.",
-    details: "Kickoff at 3:00 PM. Bike ride arrival via Black Girls Do Bike at 2:00 PM.",
-    link: "https://www.nyc.gov/html/dot/html/pedestrians/open-streets.shtml"
-  },
-  {
-    name: "The Football Factory at Legends",
-    location: "6 W 33rd St, Manhattan",
-    vibe: "Purist Soccer Bar",
-    description: "Located across from the Empire State Building. One of the primary hubs for hardcore soccer fans in the city. Expect maximum capacity and high sound levels.",
-    details: "First-come, first-served. Arrive at least 90 minutes before kickoff.",
-    link: "https://www.legendsff.com"
-  }
-];
-
-const insights = [
-  "New York City has designated June 11 as a Gridlock Alert Day. Avoid driving in Midtown and use the subway or bike.",
-  "Supporter bars for Mexico like Mariscos El Submarino (Clinton Hill) and South Africa like Kaia Wine Bar (Upper East Side) offer the most authentic atmosphere but will reach capacity early.",
-  "Public fan zones such as the Intrepid Museum (Pier 86) provide free screenings on the waterfront with multiple HD screens.",
-  "The match will be broadcast on FOX and Telemundo, and is available for free streaming on Tubi."
-];
+const title = "NYC Watch Parties: FIFA World Cup 2026";
+const description = "Verified venues and fan zones for the 2026 World Cup in New York City.";
 ---
 
 <!DOCTYPE html>
@@ -112,11 +14,9 @@ const insights = [
   <BaseHead title={title} description={description} />
   <style>
     :root {
-      --fifa-blue: #004682;
-      --fifa-red: #e4002b;
-      --fifa-yellow: #ffcd00;
+      --fifa-green: #556B2F; /* Olive Green as per site guidelines */
+      --fifa-dark-green: #3A4B1F;
       --text-dark: #111;
-      --text-light: #555;
       --bg-white: #ffffff;
       --bg-gray: #f9f9f9;
       --border-gray: #ececec;
@@ -125,218 +25,226 @@ const insights = [
     body {
       background-color: var(--bg-white);
       color: var(--text-dark);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
 
     .fifa-header {
-      background: var(--bg-white);
-      border-bottom: 4px solid var(--fifa-blue);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .fifa-logo {
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: -1px;
-      color: var(--fifa-blue);
-      text-transform: uppercase;
-    }
-
-    .match-banner {
-      background: linear-gradient(135deg, var(--fifa-blue) 0%, #002d54 100%);
+      background: var(--fifa-green);
       color: white;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
       text-align: center;
+      border-bottom: 8px solid var(--fifa-dark-green);
     }
 
-    .match-banner h1 {
-      font-size: 3rem;
+    .fifa-header h1 {
+      font-size: 2.5rem;
       margin: 0;
       font-weight: 800;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .match-banner .match-time {
-      font-size: 1.25rem;
+    .fifa-header p {
+      font-size: 1.2rem;
       margin-top: 1rem;
-      color: var(--fifa-yellow);
-      font-weight: 700;
+      opacity: 0.9;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
     }
 
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      border-left: 6px solid var(--fifa-red);
-      padding-left: 1rem;
-      margin-bottom: 3rem;
-      text-transform: uppercase;
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
-    .venue-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .venue-card {
-      background: var(--bg-white);
+    .controls input, .controls select {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
       border: 1px solid var(--border-gray);
-      border-radius: 0;
-      overflow: hidden;
-      transition: transform 0.2s ease-in-out;
+      border-radius: 4px;
+      flex: 1;
+      min-width: 250px;
+      font-family: inherit;
     }
 
-    .venue-card:hover {
-      transform: translateY(-5px);
+    .controls input:focus, .controls select:focus {
+      outline: none;
+      border-color: var(--fifa-green);
     }
 
-    .venue-content {
-      padding: 1.5rem;
+    .table-responsive {
+      overflow-x: auto;
     }
 
-    .venue-vibe {
-      font-size: 0.75rem;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    th {
+      background-color: var(--bg-gray);
       font-weight: 700;
-      color: var(--fifa-red);
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      display: block;
+      font-size: 0.85rem;
+      color: var(--fifa-dark-green);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    th:hover {
+      background-color: #eee;
+    }
+
+    tr:hover {
+      background-color: #fafafa;
     }
 
     .venue-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin: 0.5rem 0;
+      font-weight: 700;
+      color: var(--fifa-dark-green);
     }
 
-    .venue-location {
-      font-size: 0.875rem;
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .venue-description {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-dark);
-      margin-bottom: 1rem;
-    }
-
-    .venue-details {
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--text-light);
-      padding: 0.75rem;
-      background: var(--bg-gray);
-      border-left: 3px solid var(--fifa-blue);
-    }
-
-    .insights-box {
-      background: var(--bg-gray);
-      border-radius: 0;
-      padding: 3rem;
-      margin-top: 5rem;
-    }
-
-    .insights-box h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      color: var(--fifa-blue);
-    }
-
-    .insights-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .insights-list li {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      padding-left: 2rem;
-      position: relative;
-    }
-
-    .insights-list li::before {
-      content: "•";
-      color: var(--fifa-yellow);
-      font-size: 2rem;
-      position: absolute;
-      left: 0;
-      top: -0.5rem;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 5rem;
-      font-size: 0.875rem;
-      color: var(--text-light);
-    }
-
-    @media (max-width: 768px) {
-      .match-banner h1 { font-size: 2rem; }
-      .venue-grid { grid-template-columns: 1fr; }
+    .description-cell {
+      min-width: 300px;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="fifa-header">
-    <div class="fifa-logo">FIFA World Cup 2026</div>
-    <div style="font-weight: 700;">Host City: New York New Jersey</div>
-  </div>
+  <Header />
 
-  <div class="match-banner">
-    <div class="match-badge" style="background: var(--fifa-yellow); color: black; display: inline-block; padding: 0.25rem 1rem; font-weight: 800; margin-bottom: 1.5rem;">OPENING MATCH</div>
-    <h1>Mexico vs. South Africa</h1>
-    <div class="match-time">Thursday, June 11, 2026 • 3:00 PM ET</div>
-    <div style="margin-top: 1rem; font-size: 1rem; opacity: 0.9;">Estadio Azteca, Mexico City</div>
+  <div class="fifa-header">
+    <h1>World Cup '26 Venues</h1>
+    <p>Find the perfect neighborhood spot for the opening matches</p>
   </div>
 
   <div class="container">
-    <div class="section-title">Where to Watch in NYC</div>
-    
-    <div class="venue-grid">
-      {venues.map(venue => (
-        <div class="venue-card">
-          <div class="venue-content">
-            <span class="venue-vibe">{venue.vibe}</span>
-            <h3 class="venue-name">{venue.name}</h3>
-            <span class="venue-location">{venue.location}</span>
-            <p class="venue-description">{venue.description}</p>
-            <div class="venue-details">{venue.details}</div>
-          </div>
-        </div>
-      ))}
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search venues, vibes, or descriptions...">
+      <select id="neighborhoodFilter">
+        <option value="">All Neighborhoods</option>
+      </select>
     </div>
 
-    <div class="insights-box">
-      <h2>Insider Logistics & Strategy</h2>
-      <ul class="insights-list">
-        {insights.map(insight => (
-          <li>{insight}</li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="footer-note">
-      <p>Data compiled via community research, Reddit scraping, and official NYC Host Committee reports.</p>
-      <p>&copy; 2026 Jack Maguire. Built for the New York soccer community.</p>
+    <div class="table-responsive">
+      <table id="venueTable">
+        <thead>
+          <tr>
+            <th data-sort="venue_name">Venue Name ⇕</th>
+            <th data-sort="neighborhood">Neighborhood ⇕</th>
+            <th data-sort="featured_match">Featured Match ⇕</th>
+            <th data-sort="event_vibe">Vibe ⇕</th>
+            <th data-sort="specials">Specials ⇕</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows rendered by JS -->
+        </tbody>
+      </table>
     </div>
   </div>
 
   <Footer />
+
+  <script id="venue-data" type="application/json" set:html={JSON.stringify(venues)}></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dataScript = document.getElementById("venue-data");
+      if (!dataScript) return;
+      
+      const venues = JSON.parse(dataScript.textContent);
+      const tableBody = document.getElementById("tableBody");
+      const searchInput = document.getElementById("searchInput");
+      const neighborhoodFilter = document.getElementById("neighborhoodFilter");
+      const headers = document.querySelectorAll("th[data-sort]");
+
+      let currentSort = { column: null, asc: true };
+
+      // Populate neighborhood dropdown
+      const neighborhoods = [...new Set(venues.map(v => v.neighborhood).filter(Boolean))].sort();
+      neighborhoods.forEach(hood => {
+        const option = document.createElement("option");
+        option.value = hood;
+        option.textContent = hood;
+        neighborhoodFilter.appendChild(option);
+      });
+
+      function renderTable(data) {
+        tableBody.innerHTML = "";
+        data.forEach(venue => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="venue-name">${venue.venue_name || ''}</td>
+            <td>${venue.neighborhood || ''}</td>
+            <td>${venue.featured_match || ''}</td>
+            <td>${venue.event_vibe || ''}</td>
+            <td>${venue.specials || ''}</td>
+            <td class="description-cell">${venue.description || ''}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+
+      function filterAndSort() {
+        const query = searchInput.value.toLowerCase();
+        const hood = neighborhoodFilter.value;
+
+        let filtered = venues.filter(v => {
+          const matchesSearch = Object.values(v).some(val => 
+            String(val).toLowerCase().includes(query)
+          );
+          const matchesHood = hood === "" || v.neighborhood === hood;
+          return matchesSearch && matchesHood;
+        });
+
+        if (currentSort.column) {
+          filtered.sort((a, b) => {
+            const valA = String(a[currentSort.column] || '').toLowerCase();
+            const valB = String(b[currentSort.column] || '').toLowerCase();
+            if (valA < valB) return currentSort.asc ? -1 : 1;
+            if (valA > valB) return currentSort.asc ? 1 : -1;
+            return 0;
+          });
+        }
+
+        renderTable(filtered);
+      }
+
+      searchInput.addEventListener("input", filterAndSort);
+      neighborhoodFilter.addEventListener("change", filterAndSort);
+
+      headers.forEach(th => {
+        th.addEventListener("click", () => {
+          const col = th.getAttribute("data-sort");
+          if (currentSort.column === col) {
+            currentSort.asc = !currentSort.asc;
+          } else {
+            currentSort.column = col;
+            currentSort.asc = true;
+          }
+          filterAndSort();
+        });
+      });
+
+      // Initial render
+      filterAndSort();
+    });
+  </script>
 </body>
 </html>

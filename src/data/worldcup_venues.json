@@ -1,0 +1,226 @@
+[
+  {
+    "venue_name": "Bar 13",
+    "neighborhood": "Union Square",
+    "featured_match": "South Africa vs Mexico",
+    "event_vibe": "DJ & Afterparty",
+    "description": "Lively watch party with post-game entertainment and music.",
+    "specials": "Drink deals mentioned"
+  },
+  {
+    "venue_name": "Smithfield Hall",
+    "neighborhood": "Chelsea",
+    "featured_match": "All World Cup Matches",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "A premier NYC soccer destination showing every match live with sound.",
+    "specials": "Full food and drink menu available"
+  },
+  {
+    "venue_name": "The Soccer Club",
+    "neighborhood": "Williamsburg",
+    "featured_match": "Group Stage Highlights",
+    "event_vibe": "Community Watch Party",
+    "description": "A dedicated space for local fans to gather and celebrate the tournament.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Berry Park",
+    "neighborhood": "Williamsburg",
+    "featured_match": "Key Tournament Matches",
+    "event_vibe": "Rooftop Viewing",
+    "description": "Spacious rooftop bar featuring large projector screens and Manhattan views.",
+    "specials": "Beer pitcher specials"
+  },
+  {
+    "venue_name": "Legends NYC",
+    "neighborhood": "Midtown",
+    "featured_match": "Major International Matches",
+    "event_vibe": "Irish Pub Atmosphere",
+    "description": "Classic Midtown Irish pub known for its passionate soccer fan base.",
+    "specials": "Brunch and drink specials"
+  },
+  {
+    "venue_name": "The Monro Pub",
+    "neighborhood": "Park Slope",
+    "featured_match": "England vs Opponents",
+    "event_vibe": "Authentic Pub Experience",
+    "description": "British-style pub offering a cozy environment for match viewing.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Banter",
+    "neighborhood": "Williamsburg",
+    "featured_match": "Full Tournament Schedule",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "Popular soccer hub with a wide selection of craft beers.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Iona",
+    "neighborhood": "Williamsburg",
+    "featured_match": "Scotland and General Matches",
+    "event_vibe": "Garden Viewing",
+    "description": "Cozy bar featuring a large outdoor garden for match screenings.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Kinsale",
+    "neighborhood": "Upper East Side",
+    "featured_match": "Various Matches",
+    "event_vibe": "Neighborhood Pub",
+    "description": "A local favorite on the Upper East Side for viewing international sports.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Kelly's Sports Bar",
+    "neighborhood": "East Village",
+    "featured_match": "Every Game Live",
+    "event_vibe": "Sports Bar",
+    "description": "Unpretentious East Village spot dedicated to sports broadcasting.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Mullanes 124 Lafayette",
+    "neighborhood": "Fort Greene",
+    "featured_match": "Select Matches",
+    "event_vibe": "Neighborhood Hub",
+    "description": "Community-focused bar in Fort Greene with a great atmosphere for games.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Highbury Pub",
+    "neighborhood": "Ditmas Park",
+    "featured_match": "Full Tournament Coverage",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "A destination for Brooklyn soccer fans in the Ditmas Park area.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Football Factory at Legends",
+    "neighborhood": "Midtown",
+    "featured_match": "All 64 Matches",
+    "event_vibe": "Dedicated Soccer Space",
+    "description": "A venue specifically designed for the ultimate soccer viewing experience.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Black Horse Pub",
+    "neighborhood": "Park Slope",
+    "featured_match": "Various Group Matches",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "Traditional English pub atmosphere in the heart of Park Slope.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Red Lion",
+    "neighborhood": "Greenwich Village",
+    "featured_match": "High-Profile Matches",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "Iconic Bleecker Street venue hosting fans for major soccer events.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Paddy's of Park Slope",
+    "neighborhood": "Park Slope",
+    "featured_match": "General Tournament Action",
+    "event_vibe": "Irish Sports Pub",
+    "description": "Friendly neighborhood Irish pub with multiple screens for viewing.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Slainte",
+    "neighborhood": "East Village",
+    "featured_match": "All Matches",
+    "event_vibe": "Casual Pub Viewing",
+    "description": "East Village spot offering a relaxed environment for soccer fans.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Churchill",
+    "neighborhood": "NoMad",
+    "featured_match": "England National Team Games",
+    "event_vibe": "British Gastropub",
+    "description": "Upscale British pub experience with a focus on match day excitement.",
+    "specials": "Full dining menu"
+  },
+  {
+    "venue_name": "O'Hanlon's",
+    "neighborhood": "East Village",
+    "featured_match": "Key Matchups",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "Classic East Village establishment known for its sports coverage.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Winslow",
+    "neighborhood": "Union Square",
+    "featured_match": "Various Teams",
+    "event_vibe": "Eatery & Bar",
+    "description": "Gin-focused bar offering a sophisticated atmosphere for sports fans.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Stout NYC",
+    "neighborhood": "Midtown / Various",
+    "featured_match": "Full Tournament Schedule",
+    "event_vibe": "Large Venue Viewing",
+    "description": "Massive Midtown location capable of hosting large crowds of fans.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Grafton",
+    "neighborhood": "East Village",
+    "featured_match": "General Match Coverage",
+    "event_vibe": "Neighborhood Irish Bar",
+    "description": "Welcoming East Village spot for local soccer enthusiasts.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Jones Wood Garden",
+    "neighborhood": "Upper East Side",
+    "featured_match": "Select High-Interest Games",
+    "event_vibe": "Gastropub",
+    "description": "British food-focused venue with a dedicated following for sports.",
+    "specials": "Food specials"
+  },
+  {
+    "venue_name": "Kent Ale House",
+    "neighborhood": "Williamsburg",
+    "featured_match": "Major Tournament Games",
+    "event_vibe": "Craft Beer Pub",
+    "description": "Williamsburg waterfront spot combining craft beer and soccer.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Long Hall",
+    "neighborhood": "Midtown",
+    "featured_match": "Every Live Match",
+    "event_vibe": "Traditional Irish Pub",
+    "description": "Authentic Irish pub experience in Midtown for all soccer fans.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "11th St Bar",
+    "neighborhood": "East Village",
+    "featured_match": "Liverpool FC & International",
+    "event_vibe": "Dedicated Soccer Hub",
+    "description": "Historic East Village bar with a deep connection to the soccer community.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "Fiddlesticks",
+    "neighborhood": "West Village",
+    "featured_match": "General Tournament Coverage",
+    "event_vibe": "Standard Bar Viewing",
+    "description": "Lively West Village venue perfect for watching matches with a group.",
+    "specials": "Not specified"
+  },
+  {
+    "venue_name": "The Wheelhouse",
+    "neighborhood": "Bushwick",
+    "featured_match": "Local Favorites",
+    "event_vibe": "Casual Neighborhood Spot",
+    "description": "Bushwick destination for fans looking for a local match day experience.",
+    "specials": "Not specified"
+  }
+]
