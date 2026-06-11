@@ -1,0 +1,315 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "NYC Watch Parties: FIFA World Cup 2026 Opening Match";
+const description = "Verified venues and fan zones for Mexico vs. South Africa in New York City. Kickoff Thursday, June 11, 2026, at 3:00 PM ET.";
+const pubDate = "June 10, 2026";
+
+const venues = [
+  {
+    name: "NYNJ World Cup 26 Group Stage HQ",
+    location: "USTA Billie Jean King National Tennis Center, Queens",
+    vibe: "Stadium Atmosphere",
+    description: "The official flagship fan destination for the group stage. Live match broadcasts in a stadium setting with local food vendors and family-friendly entertainment.",
+    details: "Free admission with online registration. Louis Armstrong Stadium.",
+    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800", // Generic stadium placeholder since Places API failed
+    link: "https://www.nyctourism.com/world-cup-2026"
+  },
+  {
+    name: "SOB’s (Sounds of Brazil)",
+    location: "204 Varick St, Manhattan",
+    vibe: "High Energy & LED Tech",
+    description: "Celebrated for high-energy soccer atmospheres. Features a massive 16' x 18' LED wall with 4K HDR quality and a specialized World Cup menu.",
+    details: "Free entry with RSVP. USD 30 minimum for table seating. Doors open at 2:00 PM.",
+    image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=800",
+    link: "https://sobs.com"
+  },
+  {
+    name: "The Africa Center & El Museo del Barrio",
+    location: "1280 Fifth Ave, Manhattan",
+    vibe: "Cultural Hub",
+    description: "A collaborative event highlighting cultural ties between Africa and Latin America. Located at the edge of Central Park in East Harlem.",
+    details: "2:00 PM – 5:00 PM. Free with registration. Early arrival is required for entry.",
+    image: "https://images.unsplash.com/photo-1518005020250-eca29754e995?auto=format&fit=crop&q=80&w=800",
+    link: "https://www.theafricacenter.org"
+  },
+  {
+    name: "Brooklyn Army Terminal (BAT)",
+    location: "Sunset Park, Brooklyn",
+    vibe: "Waterfront Community",
+    description: "Free outdoor watch party at BAT Ferry Plaza Park. Features a large waterfront screen and a family-friendly community atmosphere.",
+    details: "2:00 PM – 7:00 PM. Free and open to the public.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+    link: "https://edc.nyc/brooklyn-army-terminal"
+  },
+  {
+    name: "Paseo Park / 34th Avenue Plaza",
+    location: "Jackson Heights, Queens",
+    vibe: "Street Festival",
+    description: "One of the city's premier soccer hubs. Part of the Soccer Streets initiative, featuring a local festival atmosphere and a community bike ride arrival.",
+    details: "Kickoff at 3:00 PM. Bike ride arrival via Black Girls Do Bike at 2:00 PM.",
+    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
+    link: "https://www.nyc.gov/html/dot/html/pedestrians/open-streets.shtml"
+  },
+  {
+    name: "The Football Factory at Legends",
+    location: "6 W 33rd St, Manhattan",
+    vibe: "Purist Soccer Bar",
+    description: "Located across from the Empire State Building. One of the primary hubs for hardcore soccer fans in the city. Expect maximum capacity and high sound levels.",
+    details: "First-come, first-served. Arrive at least 90 minutes before kickoff.",
+    image: "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&q=80&w=800",
+    link: "https://www.legendsff.com"
+  }
+];
+
+const insights = [
+  "New York City has designated June 11 as a Gridlock Alert Day. Avoid driving in Midtown and use the subway or bike.",
+  "Supporter bars for Mexico like Mariscos El Submarino (Clinton Hill) and South Africa like Kaia Wine Bar (Upper East Side) offer the most authentic atmosphere but will reach capacity early.",
+  "Public fan zones such as the Intrepid Museum (Pier 86) provide free screenings on the waterfront with multiple HD screens.",
+  "The match will be broadcast on FOX and Telemundo, and is available for free streaming on Tubi."
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    :root {
+      --fifa-blue: #004682;
+      --fifa-red: #e4002b;
+      --fifa-yellow: #ffcd00;
+      --text-dark: #111;
+      --text-light: #555;
+      --bg-white: #ffffff;
+      --bg-gray: #f9f9f9;
+      --border-gray: #ececec;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fifa-header {
+      background: var(--bg-white);
+      border-bottom: 4px solid var(--fifa-blue);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fifa-logo {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
+      color: var(--fifa-blue);
+      text-transform: uppercase;
+    }
+
+    .match-banner {
+      background: linear-gradient(135deg, var(--fifa-blue) 0%, #002d54 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .match-banner h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .match-banner .match-time {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: var(--fifa-yellow);
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      border-left: 6px solid var(--fifa-red);
+      padding-left: 1rem;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .venue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .venue-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-gray);
+      border-radius: 0;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .venue-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .venue-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .venue-content {
+      padding: 1.5rem;
+    }
+
+    .venue-vibe {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--fifa-red);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .venue-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+
+    .venue-location {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .venue-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .venue-details {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-light);
+      padding: 0.75rem;
+      background: var(--bg-gray);
+      border-left: 3px solid var(--fifa-blue);
+    }
+
+    .insights-box {
+      background: var(--bg-gray);
+      border-radius: 0;
+      padding: 3rem;
+      margin-top: 5rem;
+    }
+
+    .insights-box h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      color: var(--fifa-blue);
+    }
+
+    .insights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .insights-list li {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .insights-list li::before {
+      content: "•";
+      color: var(--fifa-yellow);
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      top: -0.5rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .match-banner h1 { font-size: 2rem; }
+      .venue-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fifa-header">
+    <div class="fifa-logo">FIFA World Cup 2026</div>
+    <div style="font-weight: 700;">Host City: New York New Jersey</div>
+  </div>
+
+  <div class="match-banner">
+    <div class="match-badge" style="background: var(--fifa-yellow); color: black; display: inline-block; padding: 0.25rem 1rem; font-weight: 800; margin-bottom: 1.5rem;">OPENING MATCH</div>
+    <h1>Mexico vs. South Africa</h1>
+    <div class="match-time">Thursday, June 11, 2026 • 3:00 PM ET</div>
+    <div style="margin-top: 1rem; font-size: 1rem; opacity: 0.9;">Estadio Azteca, Mexico City</div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">Where to Watch in NYC</div>
+    
+    <div class="venue-grid">
+      {venues.map(venue => (
+        <div class="venue-card">
+          <img src={venue.image} alt={venue.name} class="venue-image" />
+          <div class="venue-content">
+            <span class="venue-vibe">{venue.vibe}</span>
+            <h3 class="venue-name">{venue.name}</h3>
+            <span class="venue-location">{venue.location}</span>
+            <p class="venue-description">{venue.description}</p>
+            <div class="venue-details">{venue.details}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="insights-box">
+      <h2>Insider Logistics & Strategy</h2>
+      <ul class="insights-list">
+        {insights.map(insight => (
+          <li>{insight}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-note">
+      <p>Data compiled via community research, Reddit scraping, and official NYC Host Committee reports.</p>
+      <p>&copy; 2026 Jack Maguire. Built for the New York soccer community.</p>
+    </div>
+  </div>
+
+  <Footer />
+</body>
+</html>
