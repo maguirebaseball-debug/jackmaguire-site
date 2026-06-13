@@ -12,6 +12,7 @@ const recommendationHubs = [
 	{ name: 'Books', url: '/recommendations/books/' },
 	{ name: 'Apps', url: '/recommendations/apps/' },
 	{ name: 'Films', url: '/recommendations/films/' },
+	{ name: 'Tex-Mex and Suburban Mexican in NYC', url: '/recommendations/tex-mex-nyc/' },
 ];
 ---
 
@@ -73,6 +74,12 @@ const recommendationHubs = [
 				<p>Films I strongly recommend watching.</p>
 				<a href="/recommendations/films" class="section-link">View list →</a>
 			</section>
+
+			<section>
+				<h2>Tex-Mex and Suburban Mexican in NYC</h2>
+				<p>Where to find the chips-salsa-margaritas-rice-and-beans vibe in New York.</p>
+				<a href="/recommendations/tex-mex-nyc" class="section-link">View guide →</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
@@ -94,11 +101,7 @@ const recommendationHubs = [
 		grid-template-columns: 14rem 1fr auto;
 		gap: 1rem;
 		align-items: baseline;
-		border-bottom: 1px solid rgba(var(--gray-light), 0.9);
 		padding: 1.35em 0;
-	}
-	section:last-child {
-		border-bottom: none;
 	}
 	section h2 {
 		font-size: 1.2em;
