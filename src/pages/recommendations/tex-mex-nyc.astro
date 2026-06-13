@@ -1,0 +1,217 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Tex-Mex and Suburban Mexican in NYC | ${SITE_TITLE}`}
+			description="Where to find the suburban Mexican restaurant vibe in New York City: chips and salsa on the table, margaritas on the menu, and a full rice-and-beans platter."
+		/>
+		<style>
+			.page-wrap {
+				width: 75%;
+				margin: 0 auto;
+				line-height: 1.75;
+				color: rgb(var(--gray-dark));
+			}
+			h1 {
+				font-size: 1.6em;
+				font-weight: 700;
+				margin-bottom: 0.25em;
+			}
+			.intro {
+				margin: 1.5em 0 2em;
+				font-size: 1em;
+			}
+			.restaurant-list {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 2.5em;
+			}
+			.restaurant-list li {
+				padding: 0.85em 0;
+				border-top: 1px solid rgba(var(--gray), 0.15);
+				font-size: 0.97em;
+			}
+			.restaurant-list li:last-child {
+				border-bottom: 1px solid rgba(var(--gray), 0.15);
+			}
+			.restaurant-name {
+				font-weight: 700;
+				color: rgb(var(--black));
+			}
+			.restaurant-meta {
+				color: rgb(var(--gray));
+				font-size: 0.88em;
+				margin: 0.1em 0 0.2em;
+			}
+			.restaurant-links {
+				font-size: 0.82em;
+				margin-bottom: 0.35em;
+			}
+			.restaurant-links a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+				border-bottom: 1px solid rgba(var(--gray), 0.3);
+			}
+			.restaurant-links a:hover {
+				color: var(--accent);
+				border-bottom-color: var(--accent);
+			}
+			.restaurant-links span {
+				color: rgba(var(--gray), 0.4);
+				margin: 0 0.35em;
+			}
+			.restaurant-note {
+				color: rgb(var(--gray-dark));
+				font-size: 0.92em;
+			}
+			.conclusion {
+				margin: 2em 0 3em;
+				font-size: 1em;
+			}
+			@media (max-width: 700px) {
+				.page-wrap {
+					width: 92%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-wrap">
+				<h1>Where to Find That Tex-Mex Cantina Vibe in NYC</h1>
+
+				<p class="intro">
+					If you grew up anywhere from Southern California to Texas to suburban Ohio, you know this restaurant. Chips and salsa hit the table before you even look at the menu. The margaritas are cold. Your entree arrives on a platter big enough that you're already planning tomorrow's lunch. It's not a taco stand, and it's not trying to be anything other than what it is. This style, call it Tex-Mex, Cal-Mex, or just suburban Mexican, is hard to find in New York, because the city's Mexican immigrant community skews Poblano, which pulled the local restaurant scene in a different direction. But it does exist here, if you know where to look.
+				</p>
+
+				<ul class="restaurant-list">
+					<li>
+						<div class="restaurant-name">5 Burro Cafe</div>
+						<div class="restaurant-meta">Forest Hills, Queens</div>
+						<div class="restaurant-links">
+							<a href="https://5burrocafe.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/5burrocafe/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=72-05+Austin+St+Forest+Hills+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">The closest to the full vibe in the city: chips and salsa on arrival, frozen margaritas, and every entree comes as a platter.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Taqueria St. Marks</div>
+						<div class="restaurant-meta">East Village, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://www.instagram.com/taqueria.stmarksplace/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=79+St+Marks+Pl+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">They refill your chips without being asked, which in NYC passes for a miracle.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">El Parador</div>
+						<div class="restaurant-meta">Murray Hill, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://www.elparadorcafe.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/ElParadorCafe/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=325+E+34th+St+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">The city's oldest Mexican restaurant. House-made salsa, platters, and a frozen margarita you should not turn down.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Javelina</div>
+						<div class="restaurant-meta">Union Square, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://www.javelinatexmex.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/javelinatexmex/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=119+E+18th+St+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">The go-to for Texan transplants; closest to the Tex-Mex experience Manhattan has, with queso on the menu.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Santa Fe</div>
+						<div class="restaurant-meta">Williamsburg, Brooklyn</div>
+						<div class="restaurant-links">
+							<a href="https://santafebk.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/SantaFeBK/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=178+N+8th+St+Brooklyn+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">New Mexican-style cooking with portions that are hard to finish.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Castro's</div>
+						<div class="restaurant-meta">Clinton Hill, Brooklyn</div>
+						<div class="restaurant-links">
+							<a href="https://www.instagram.com/castros_restaurant/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=511+Myrtle+Ave+Brooklyn+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Most entrees come with rice and beans, the enchiladas are the move, and the feel is neighborhood cantina.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Lobo</div>
+						<div class="restaurant-meta">Cobble Hill, Brooklyn</div>
+						<div class="restaurant-links">
+							<a href="https://lobonyc.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/lobobrooklyn/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=218+Court+St+Brooklyn+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Margaritas, platters, and nothing pretentious about it.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">The Red Grill</div>
+						<div class="restaurant-meta">Upper East Side, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://theredgrillmx.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/theredgrillnyc/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=1701+2nd+Ave+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Frozen margs at prices that won't hurt; the chorizo nachos are worth ordering.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Lupe's East LA Kitchen</div>
+						<div class="restaurant-meta">SoHo, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://lupeskitchen.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/lupes.nyc/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=110+6th+Ave+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">California-style Mexican, closer to the West Coast template than most anything else in Manhattan.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Tulcingo del Valle</div>
+						<div class="restaurant-meta">Hell's Kitchen, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://www.tulcingorestaurant.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/tulcingodelvallerestaurant/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=665+10th+Ave+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Platters with refried beans; more neighborhood spot than a scene.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Pablito's</div>
+						<div class="restaurant-meta">South Slope, Brooklyn</div>
+						<div class="restaurant-links">
+							<a href="https://www.instagram.com/pablitos_restaurant/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=723+5th+Ave+Brooklyn+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Family-owned, with portions that don't disappoint.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Canyon Road</div>
+						<div class="restaurant-meta">Upper East Side, Manhattan</div>
+						<div class="restaurant-links">
+							<a href="https://www.canyonroadny.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/canyonroadgrillnyc/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=1470+1st+Ave+New+York+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Multiple margarita options and a menu built around this style of eating.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Chavela's</div>
+						<div class="restaurant-meta">Crown Heights, Brooklyn</div>
+						<div class="restaurant-links">
+							<a href="https://chavelasnyc.com/" target="_blank" rel="noopener">Website</a><span>·</span><a href="https://www.instagram.com/chavelasnyc/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=736+Franklin+Ave+Brooklyn+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">Margaritas, rice and beans, neighborhood spot.</div>
+					</li>
+					<li>
+						<div class="restaurant-name">Taqueria Coatzingo</div>
+						<div class="restaurant-meta">Jackson Heights, Queens</div>
+						<div class="restaurant-links">
+							<a href="https://www.instagram.com/coatzingotaqueria/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://maps.google.com/?q=7605+Roosevelt+Ave+Jackson+Heights+NY" target="_blank" rel="noopener">Map</a>
+						</div>
+						<div class="restaurant-note">More counter-service than cantina, but the rice and beans are on point and portions are large.</div>
+					</li>
+				</ul>
+
+				<p class="conclusion">
+					Finding all three under one roof, complimentary chips, a margarita program, and entrees as full platters, is rare here. Most of these spots hit two out of three. Queens, and Forest Hills in particular, comes closest to what you'd find out west. If you're willing to travel a borough for it, you'll be rewarded.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
