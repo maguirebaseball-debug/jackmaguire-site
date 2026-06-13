@@ -168,19 +168,11 @@ Does the article make assertions about a professional domain Jack does not work 
 * **Idiosyncratic over polished**: Personal sites accrue personality over time. Include elements that signal a real person built this. Prose can be direct and first-person.
 
 ### Typography
-The site uses three fonts, one role each. Never add a fourth; never swap to the banned list below.
+The site uses a single system font stack site-wide: **Verdana, Tahoma, Geneva, sans-serif**. Set this in `global.css` on the `body` rule. No web fonts are loaded. No custom font variables. Hierarchy through weight and size only.
 
-| Role | Font | CSS variable | Why |
-|------|------|-------------|-----|
-| Headings (h1-h6) | **Plus Jakarta Sans** 700 | `--font-heading` | Clean grotesque sans. Contemporary professional, zero ornament. |
-| Body prose | **Plus Jakarta Sans** 400 | `--font-body` | Same family, lighter weight. Functional and readable. |
-| Metadata / accent / tables | **Plus Jakarta Sans** 600 | `--font-ui` | Same family, medium weight for dates, labels, UI. |
+**Banned fonts** (rejected at least once — never use these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans, Newsreader, Source Serif 4, Figtree, Libre Baskerville, Merriweather, IBM Plex Sans, Plus Jakarta Sans, Atkinson Hyperlegible. All serif fonts are banned.
 
-Single-family sans stack. No serifs anywhere. Hierarchy through weight only. CSS variables are role-based so a future font swap only touches astro.config.mjs.
-
-**Banned fonts** (rejected at least once -- never revert to these): Inter, Geist, Space Grotesk, Instrument Serif, Roboto, Arial, Outfit, Lora, Fraunces, Playfair Display, EB Garamond, DM Sans, Newsreader, Source Serif 4, Figtree, Libre Baskerville, Merriweather, IBM Plex Sans. All serif fonts are banned: the user found every serif tried too "artistic/hokey." Stick to clean grotesque sans.
-
-When prompting image generators or design tools for typography, specify "Plus Jakarta Sans 700 headings, Plus Jakarta Sans 400 body." Never say "clean serif" or suggest a serif alternative.
+When prompting image generators or design tools for typography, specify "Verdana, system sans-serif." Never suggest a serif alternative.
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.
