@@ -13,29 +13,33 @@ import { SITE_TITLE } from '../../consts';
 			description="Where to find the suburban Mexican restaurant vibe in New York City: chips and salsa on the table, margaritas on the menu, and a full rice-and-beans platter."
 		/>
 		<style>
+			main {
+				max-width: 100%;
+			}
 			.page-wrap {
 				width: 75%;
 				margin: 0 auto;
+				font-family: Verdana, Tahoma, Geneva, sans-serif;
+				font-size: 0.88em;
 				line-height: 1.75;
 				color: rgb(var(--gray-dark));
 			}
 			h1 {
-				font-size: 1.6em;
+				font-family: Verdana, Tahoma, Geneva, sans-serif;
+				font-size: 1.4em;
 				font-weight: 700;
 				margin-bottom: 0.25em;
 			}
 			.intro {
 				margin: 1.5em 0 2em;
-				font-size: 1em;
 			}
 			.restaurant-list {
 				list-style: none;
 				padding: 0;
 				margin: 0 0 2.5em;
-			}
-			.restaurant-list li {
-				padding: 0.85em 0;
-				font-size: 0.97em;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2em 3em;
 			}
 			.restaurant-name {
 				font-weight: 700;
@@ -69,20 +73,19 @@ import { SITE_TITLE } from '../../consts';
 				margin-bottom: 0.75em;
 			}
 			.instagram-embed {
-				max-width: 400px;
+				zoom: 0.7;
 				margin-top: 0.75em;
-			}
-			.instagram-embed .instagram-media {
-				min-width: 0 !important;
-				width: 100% !important;
+				max-width: 100%;
 			}
 			.conclusion {
 				margin: 2em 0 3em;
-				font-size: 1em;
 			}
-			@media (max-width: 700px) {
+			@media (max-width: 900px) {
 				.page-wrap {
 					width: 92%;
+				}
+				.restaurant-list {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>
