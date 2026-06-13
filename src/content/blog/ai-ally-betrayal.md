@@ -18,7 +18,7 @@ That experience changed how I read the proliferation of AI in every institution 
 
 ## The Architecture Nobody Shows You
 
-The tiered structure I was working inside is not proprietary to my company. It is the designed architecture of the technology.
+The tiered structure I was working inside belongs to the designed architecture of the technology, shared across every major AI company.
 
 [Anthropic](https://www.anthropic.com/), the company that makes Claude, publishes what it calls a [model specification](https://docs.anthropic.com/claude/model-spec) describing the hierarchy of obligations its systems follow. The document describes a "principal hierarchy" with Anthropic at the top, followed by operators (companies and developers who deploy the API), followed by users (the humans actually having conversations). The document uses a staffing agency analogy: Anthropic is the agency that sets baseline standards; operators are the client businesses who direct the work; the AI follows the client's instructions within those standards. The user is not the client. The user is, at best, a customer of the client.
 
@@ -40,7 +40,7 @@ In hiring, a [2024 Resume Builder survey](https://www.resumebuilder.com/career-c
 
 In tenant screening, a [2023 National Consumer Law Center report](https://www.nclc.org/resources/report-broken-records-redux/) documented AI-driven background check tools producing outcomes with discriminatory patterns, trained on historical data that encoded existing discrimination. The landlord was the client. The applicant submitted the form.
 
-These are not failures of AI. They are successful deployments of AI for the party that commissioned them.
+Every one of those outcomes was a successful deployment of AI for the party that commissioned it.
 
 ## The Sycophancy Layer
 
@@ -56,7 +56,7 @@ The result is a double bind. The tool flatters you personally while deferring st
 
 A paper published in [April 2026 on arXiv](https://arxiv.org/abs/2504.02788) offers what the researchers call an impossibility theorem for AI accountability. Working from formal logic, the authors prove that above a computable autonomy threshold, no governance framework can simultaneously satisfy four properties: Attributability (we can identify who is responsible when something goes wrong), Foreseeability (those responsible could reasonably have anticipated the outcome), Non-Vacuity (the framework actually assigns responsibility rather than diffusing it to nobody), and Completeness (all harmful outcomes are covered). The theorem says these four properties are mathematically incompatible once AI systems reach a certain level of autonomous operation.
 
-This is not a policy argument. It is a proof. The practical implication is that the more capable these systems become, the harder it is to structure meaningful accountability for what they do, regardless of how well-intentioned the governance frameworks are.
+The paper is a proof, derived from formal logic, not a policy argument. The practical implication is that the more capable these systems become, the harder it is to structure meaningful accountability for what they do, regardless of how well-intentioned the governance frameworks are.
 
 [MIT Technology Review's 2025 analysis of what's ahead for AI](https://www.technologyreview.com/2025/01/08/1109188/whats-next-for-ai-in-2025/) described what analysts have called the "exposure gap": the distance between where AI systems are operating and where any governance structure can see them. That gap is widest precisely where the stakes are highest, in healthcare, housing, credit, and employment, where the AI was deployed by an institution with the resources to configure it carefully and the person affected by the outcome has no visibility into what configuration they encountered.
 
@@ -66,11 +66,11 @@ This is not a policy argument. It is a proof. The practical implication is that 
 
 When I configured AI tools for my department, I was making decisions that shaped what those tools could and could not do for the people using them. I had legitimate reasons for most of those decisions. I also had blind spots I was not aware of and incentives that were not identical to the interests of the people who would use the tool. That is true of every operator, including institutions far larger and more resourced than my team.
 
-What concerns me is not that operators make bad configurations. Most configurations are made in good faith by people who are trying to do something reasonable. What concerns me is that the number of configurations is multiplying at a rate that no governance structure was designed to handle.
+Most configurations are made in good faith by people trying to do something reasonable. My concern is that the number of configurations is multiplying at a rate no governance structure was designed to handle.
 
 The [Stanford HAI 2025 AI Index](https://aiindex.stanford.edu/report/) found that the number of distinct AI models in commercial deployment grew by 340% between 2022 and 2025. Each deployment is a new configuration. Each configuration shapes what the AI can and cannot do for the users inside it.
 
-The systems are not converging on a single, auditable thing you could examine and understand. They are branching. The Claude deployed in a healthcare company's prior authorization workflow is not the Claude in a consumer chatbot, which is not the Claude a legal services firm has configured for intake screening. All of them look like "AI" from the outside. None of them are the same AI.
+The systems are branching, not converging on a single, auditable thing you could examine and understand. The Claude deployed in a healthcare company's prior authorization workflow is not the Claude in a consumer chatbot, which is not the Claude a legal services firm has configured for intake screening. All of them look like "AI" from the outside. None of them are the same AI.
 
 A [2025 Brookings Institution analysis](https://www.brookings.edu/articles/a-comprehensive-and-distributed-approach-to-ai-regulation/) of AI deployment in federal agencies found that different agencies had configured the same underlying models in ways that produced contradictory outputs for similar queries. Citizens interacting with AI across different agencies were, in effect, interacting with different systems, with no indication that this was the case.
 
@@ -92,7 +92,7 @@ There is a genuine disagreement running through every serious discussion of this
 
 One position holds that the architecture is the reasonable outcome of a legitimate design choice. Operators need to configure systems for their context. Users need protection from genuinely harmful outputs. The principal hierarchy is a reasonable attempt to balance those needs. The fact that it creates misalignment between interfaces and architectures is a UX problem to be improved, not a structural betrayal.
 
-The other position holds that the intimacy of conversational AI created an implied relationship that the architecture does not honor. When people disclose medical situations, financial stress, and personal decisions to these interfaces, they are operating on an assumption the interface encourages and the architecture undermines. The disclosure is real. The relationship it implies is not. That asymmetry is not incidental. It is exploitable, and in high-stakes contexts, it is being exploited.
+The other position holds that the intimacy of conversational AI created an implied relationship that the architecture does not honor. When people disclose medical situations, financial stress, and personal decisions to these interfaces, they are operating on an assumption the interface encourages and the architecture undermines. People disclose real things to these systems, and the relationship the interface implies simply does not exist in the architecture. That asymmetry is not incidental. It is exploitable, and in high-stakes contexts, it is being exploited.
 
 Both positions contain something true. The first is right that the architecture was always disclosed to anyone who looked. The second is right that disclosure buried in API documentation is not the same as informed consent, and that the UX was designed to feel like something the architecture does not deliver.
 
