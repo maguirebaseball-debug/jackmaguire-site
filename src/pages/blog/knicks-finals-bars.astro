@@ -8,6 +8,8 @@ import TableOfContents from '../../components/TableOfContents.astro';
 const title = "Where to Watch the Knicks Finals: Every Borough, Every Vibe";
 const description = "The city's best bars for watching the Knicks Finals, organized by neighborhood and vibe. No press lists, no sponsorships.";
 const pubDate = "Jun 1, 2026";
+const author = "Jack Maguire";
+const authorBio = "Performance marketing strategist and paid social media director. Based in East Village, NYC.";
 
   const high_energy = [
     {name:`Blue Haven`,address:`108 W Houston St, New York, NY 10012, USA`,neighborhood:`West Village`,area:`Manhattan - Downtown`,why:`Takes reservations, which matters on a game night because it fills up before tip-off. Rows of screens, loud crowd.`,reservation:`Recommend taking reservations in advance for a table because it gets really crowded if you want a seat.`,screens:`Tons of screens`,crowd:`One of the rowdiest sports bars in the city; gets really crowded; if you want a party at a sports bar this is your spot;`,caveats:`Can be too busy to truly enjoy watching for some; gets very crowded.`,quotes:[{q:`One of the rowdiest sports bars in the city.`,url:"https://maps.google.com/?cid=15554478528040671835",src:"places"},{q:`Tons of screens, beers on draft, and a stacked menu full of the classic wings and burgers.`,url:"https://maps.google.com/?cid=15554478528040671835",src:"places"}],website:`https://westvillage.bluehavennyc.com/`,maps_url:`https://maps.google.com/?cid=15554478528040671835`},
@@ -427,6 +429,10 @@ const pubDate = "Jun 1, 2026";
             </ul>
             <p class="intro-note">Every listing is flagged walk-in or reservable and has a Google Maps link. Covers Manhattan, Brooklyn, Queens, and Hoboken. No paid placements, no sponsorships.</p>
           </header>
+
+          <div style="background: #f5f5f5; border-left: 4px solid #556B2F; padding: 1.25rem; margin: 2rem 0; font-size: 0.95rem; line-height: 1.6;">
+            <p style="margin: 0 0 0.5rem 0;"><strong>{author}</strong> is a {authorBio} <a href="/about/" style="color: #556B2F;">Read more</a></p>
+          </div>
 
           {/* ── HIGH ENERGY ────────────────────────────────────── */}
           <section class="cat-section cat-energy" id="high-energy">
