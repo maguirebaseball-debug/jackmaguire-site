@@ -13,6 +13,7 @@ export default defineConfig({
 		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions',
 		'/all-writing/': '/blog/',
 		'/blog/ai-ally-betrayal/': '/blog/we-are-all-inside-different-machines/',
+		'/nycworldcupopenervenues/': '/worldcupnyc2026/',
 	},
 	integrations: [
 		mdx(),
