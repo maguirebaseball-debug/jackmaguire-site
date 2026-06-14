@@ -1,0 +1,1074 @@
+---
+// jenny-100k.astro — Y2K girlie pop microsite: Jenny Chang 100k strategy pitch
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenny Chang x 100K — Your Roadmap ✦</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+    :root {
+      --hot-pink: #FF2D78;
+      --baby-pink: #FFB3D1;
+      --electric-blue: #00C2FF;
+      --lime: #C8FF57;
+      --chrome: #E8E8F0;
+      --deep-purple: #1A0533;
+      --mid-purple: #2D0A52;
+      --soft-purple: #4A1A7A;
+      --gold: #FFD700;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--deep-purple);
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(255,45,120,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(0,194,255,0.12) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      color: var(--white);
+      font-family: 'Arial', 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* SPARKLE DECORATIONS */
+    .sparkle {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 1.1em;
+      animation: sparkle-pulse 2s ease-in-out infinite;
+    }
+    .sparkle:nth-child(2) { animation-delay: 0.4s; }
+    .sparkle:nth-child(3) { animation-delay: 0.8s; }
+
+    @keyframes sparkle-pulse {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { opacity: 0.6; transform: scale(1.3) rotate(20deg); }
+    }
+
+    /* HEADER */
+    .site-header {
+      text-align: center;
+      padding: 60px 24px 40px;
+      position: relative;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(255,45,120,0.08) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--baby-pink);
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 8vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #FF2D78 0%, #FF8DC7 35%, #FFFFFF 55%, #00C2FF 80%, #C8FF57 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .pill-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--hot-pink), #B026FF);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(255,45,120,0.5);
+    }
+
+    /* STATS STRIP */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 150px;
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--lime);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .section-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--hot-pink), #B026FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(255,45,120,0.4);
+    }
+
+    .section-title {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+
+    .section-title span {
+      color: var(--hot-pink);
+    }
+
+    /* CARDS */
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(255,45,120,0.3);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--hot-pink), #B026FF);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-icon {
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .card ul li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--hot-pink);
+      font-size: 12px;
+      top: 6px;
+    }
+
+    /* PINK ACCENT CARD */
+    .card-accent {
+      background: linear-gradient(135deg, rgba(255,45,120,0.12), rgba(176,38,255,0.08));
+      border-color: rgba(255,45,120,0.25);
+    }
+    .card-accent::before {
+      background: linear-gradient(180deg, var(--lime), var(--electric-blue));
+    }
+
+    /* BLUE ACCENT CARD */
+    .card-blue {
+      background: linear-gradient(135deg, rgba(0,194,255,0.08), rgba(176,38,255,0.06));
+      border-color: rgba(0,194,255,0.2);
+    }
+    .card-blue::before {
+      background: linear-gradient(180deg, var(--electric-blue), var(--lime));
+    }
+
+    /* LIME ACCENT CARD */
+    .card-lime {
+      background: linear-gradient(135deg, rgba(200,255,87,0.08), rgba(0,194,255,0.06));
+      border-color: rgba(200,255,87,0.2);
+    }
+    .card-lime::before {
+      background: linear-gradient(180deg, var(--lime), var(--electric-blue));
+    }
+
+    /* SECTION DIVIDER */
+    .section {
+      margin-bottom: 72px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,45,120,0.4), rgba(0,194,255,0.4), transparent);
+      margin: 60px 0;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--hot-pink), var(--electric-blue), var(--lime));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--hot-pink);
+      box-shadow: 0 0 12px rgba(255,45,120,0.6);
+    }
+
+    .timeline-phase {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--baby-pink);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .timeline-body {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* TAG CHIPS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .tag-pink { border-color: rgba(255,45,120,0.4); color: var(--baby-pink); background: rgba(255,45,120,0.08); }
+    .tag-blue { border-color: rgba(0,194,255,0.4); color: #80E8FF; background: rgba(0,194,255,0.08); }
+    .tag-lime { border-color: rgba(200,255,87,0.4); color: var(--lime); background: rgba(200,255,87,0.08); }
+
+    /* LOOP DIAGRAM */
+    .loop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .loop-step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+      position: relative;
+    }
+
+    .loop-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--hot-pink), #B026FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 900;
+      margin: 0 auto 12px;
+      box-shadow: 0 0 16px rgba(255,45,120,0.4);
+    }
+
+    .loop-step-title {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    .loop-step-body {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* GLOW TEXT */
+    .glow-text {
+      color: var(--hot-pink);
+      text-shadow: 0 0 20px rgba(255,45,120,0.5);
+    }
+
+    .glow-text-blue {
+      color: var(--electric-blue);
+      text-shadow: 0 0 20px rgba(0,194,255,0.5);
+    }
+
+    .glow-text-lime {
+      color: var(--lime);
+      text-shadow: 0 0 20px rgba(200,255,87,0.4);
+    }
+
+    /* MUST-DO GRID */
+    .mustdo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .mustdo-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mustdo-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(255,45,120,0.08), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .mustdo-emoji {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .mustdo-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .mustdo-body {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* PARTNERSHIP TABLE */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .partner-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .partner-tier {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .tier-now { background: rgba(200,255,87,0.15); color: var(--lime); border: 1px solid rgba(200,255,87,0.3); }
+    .tier-mid { background: rgba(0,194,255,0.1); color: #80E8FF; border: 1px solid rgba(0,194,255,0.25); }
+    .tier-late { background: rgba(255,45,120,0.1); color: var(--baby-pink); border: 1px solid rgba(255,45,120,0.25); }
+
+    .partner-name {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    .partner-why {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .partner-rate {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--lime);
+    }
+
+    /* EMAIL SECTION */
+    .email-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-box::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255,45,120,0.12), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .email-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .email-from {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .email-from strong {
+      color: rgba(255,255,255,0.8);
+      display: block;
+      font-size: 14px;
+    }
+
+    .email-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--hot-pink), #B026FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .email-subject {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .email-subject strong {
+      color: white;
+      font-size: 18px;
+      display: block;
+      margin-top: 4px;
+      font-weight: 800;
+    }
+
+    .email-body {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .email-body .highlight {
+      color: var(--baby-pink);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      text-align: center;
+      padding: 60px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 80px;
+    }
+
+    .site-footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* GLOW DIVIDER */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--hot-pink), var(--electric-blue), transparent);
+      margin: 48px 0;
+      opacity: 0.5;
+    }
+
+    /* HIGHLIGHT QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--hot-pink);
+      padding: 20px 24px;
+      margin: 24px 0;
+      background: rgba(255,45,120,0.06);
+      border-radius: 0 12px 12px 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .stats-strip { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .stat:last-child { border-bottom: none; }
+      .email-box { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <p class="eyebrow"><span class="sparkle">✦</span> Prepared for @imjennychang <span class="sparkle">✦</span></p>
+    <h1 class="hero-title">Jenny Chang<br>100K Playbook</h1>
+    <p class="hero-sub">A full strategy to take you from where you are to 100,000 followers. Content loops, brand deals, lead gen, and the exact moves that will compound.</p>
+    <div class="pill-badge">✦ Custom Growth Blueprint ✦</div>
+  </header>
+
+  <!-- STATS STRIP -->
+  <div class="container">
+    <div class="stats-strip">
+      <div class="stat">
+        <span class="stat-number">30</span>
+        <span class="stat-label">Videos Analyzed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Content Pillars Mapped</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Phases to 100K</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">$0</span>
+        <span class="stat-label">Cost Until Results</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- SECTION 1: WHO YOU ARE -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">01</div>
+        <h2 class="section-title">What <span>your content</span> actually is</h2>
+      </div>
+
+      <div class="pull-quote">
+        You are not a "NYC lifestyle creator." You are a <strong>smart woman's survival guide to New York City</strong>. That is the gap you fill, and it is a real one.
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title"><span class="card-icon">🗺️</span> Your 5 Content Pillars (Identified from 30 videos)</div>
+        <ul>
+          <li><strong>NYC Money Hacks</strong>: broker fees, lease renewal tricks, HSA gym hack, BYOB restaurants, library card perks. Your most viral category.</li>
+          <li><strong>Neighborhood Guides</strong>: Vintage shopping on Orchard St (4-part series), brunch wait strategies, "how to wait" at popular spots. Evergreen and shareable.</li>
+          <li><strong>Cheap Eats & Finds</strong>: Sub-$10 meals, Too Good To Go, Asian fusion ratings. You're an ABC with receipts. That angle is underused.</li>
+          <li><strong>Real Adulting in NYC</strong>: apartment hunting, summer housing, Facebook Marketplace moves, Bumble BFF. The "I went to a good college and figured it out" voice.</li>
+          <li><strong>Travel with a POV</strong>: El Salvador (El Zolo, oyster shack). You travel like a local everywhere you go. This category needs more volume.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">⚡</span> Your unfair advantages</div>
+        <ul>
+          <li>You fact-check your own takes (broker fee math, tenant protection law specifics, HSA tax calculation). That builds trust fast.</li>
+          <li>You give the unpopular opinion (Clinton Street Baking not worth the hype, Windsong Bakery 4/10). Creators with opinions retain followers. Creators without them don't.</li>
+          <li>You live in LES, which is the content goldmine of NYC. Walk-and-talk format is extremely low production cost.</li>
+          <li>You are ABC and you call it out directly. There are very few creators owning that lens on NYC food. It's a wedge.</li>
+        </ul>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-title"><span class="card-icon">🔍</span> The gap your competitors are missing</div>
+        <p>Every NYC creator either does "luxury NYC" or "budget NYC." You do something harder: <strong>smart NYC</strong>. You know the real rent laws. You run the HSA math. You rate Asian fusion with cultural authority. That is a defensible position.</p>
+        <div class="tags">
+          <span class="tag tag-pink">Anti-Influencer Voice</span>
+          <span class="tag tag-blue">Information Dense</span>
+          <span class="tag tag-lime">Real Math, Real Opinions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+
+    <!-- SECTION 2: CONTENT LOOPS -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">02</div>
+        <h2 class="section-title">Content <span>Research + Creation</span> Loops</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">🔁</span> The Weekly Production Loop</div>
+        <p>Run this every week. It takes about 3 hours total and produces 3 to 4 posts.</p>
+      </div>
+
+      <div class="loop-grid">
+        <div class="loop-step">
+          <div class="loop-step-num">1</div>
+          <div class="loop-step-title">Monday: Mine</div>
+          <div class="loop-step-body">Scan Reddit (r/AskNYC, r/NYCFoodDeals, r/NYCapartments) for the week's top questions. Screenshot the 5 that feel like "I wish someone told me this." These are your scripts.</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-step-num">2</div>
+          <div class="loop-step-title">Tuesday: Script</div>
+          <div class="loop-step-body">Write the hook first ("Street Easy is not gonna find you an apartment" is a perfect hook format). Three sentences max per video. Your format is already tight. Keep it.</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-step-num">3</div>
+          <div class="loop-step-title">Wed / Thu: Shoot</div>
+          <div class="loop-step-body">Film 3 to 4 in one session. Walk-and-talk format, no tripod needed. One outfit, batch it. If it's a guide, shoot the location B-roll on the same walk.</div>
+        </div>
+        <div class="loop-step">
+          <div class="loop-step-num">4</div>
+          <div class="loop-step-title">Fri: Post + Seed</div>
+          <div class="loop-step-body">Post the best piece, then drop the TikTok link in the Reddit thread where you found the question. Free distribution to exact-intent audience.</div>
+        </div>
+      </div>
+
+      <div class="card card-lime" style="margin-top: 20px;">
+        <div class="card-title"><span class="card-icon">📊</span> The Series Loop (Your best growth lever)</div>
+        <p>Your vintage LES series, "how to wait" series, and apartment hunting series all outperform one-off videos. The mechanism: each video seeds the next with "follow for part 2." This compounds your follow rate.</p>
+        <ul>
+          <li>Every series should have at least 4 parts planned before part 1 goes live.</li>
+          <li>Title cards on screen: "Part 1 of 4" signals the value of following now vs. seeing it in the FYP later.</li>
+          <li>Pin the first video in each active series to your profile while the series is running.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">🗂️</span> Evergreen vs. Timely Content Ratio</div>
+        <p>Right now your mix skews heavily toward timely (World Cup venues, lease ending PSAs). Those get initial spikes. Evergreen gets compounding views for months.</p>
+        <ul>
+          <li><strong>Target ratio</strong>: 70% evergreen (vintage guides, money hacks, apartment tips) / 30% timely (current events, seasonal PSAs).</li>
+          <li><strong>Your best evergreen formats</strong>: "X things your NYC library card gets you for free," "real tenant rights you don't know," "how to apartment hunt in NYC" (step by step).</li>
+          <li><strong>Repost rule</strong>: 6 months after any evergreen video, repost it with one updated detail. New shelf life, same production cost.</li>
+        </ul>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title"><span class="card-icon">🎯</span> The ABC NYC Food Angle (underutilized series)</div>
+        <p>Your Asian fusion ratings video is one of your sharpest pieces of content. "Reading NYC Asian fusion spots as an ABC" with a numerical rating is a format that builds a sub-audience fast.</p>
+        <ul>
+          <li>Name the series: <strong>"ABC Eats"</strong> or <strong>"Rating NYC Asian Fusion as an ABC"</strong>. Run it as a recurring format.</li>
+          <li>Expand it to Chinese-American comfort food, Taiwanese spots, Japanese NYC. You have the cultural authority others don't.</li>
+          <li>This series is also your strongest pitch to food and hospitality sponsors later.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+
+    <!-- SECTION 3: MUST DOs -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">03</div>
+        <h2 class="section-title">The <span>Non-Negotiables</span></h2>
+      </div>
+
+      <div class="mustdo-grid">
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">📌</span>
+          <div class="mustdo-title">Pin 3 videos that explain who you are</div>
+          <div class="mustdo-body">New profile visitors decide in 8 seconds. The "I live in a $2,000 one-bedroom in LES and I'm going to teach you how to apartment hunt" video is a perfect intro. Pin it. Add one money hack video and one neighborhood guide. That's your profile pitch.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">🪝</span>
+          <div class="mustdo-title">Your hook formula is already working. Double down.</div>
+          <div class="mustdo-body">"Street Easy is not gonna find you your dream apartment" works because it's a direct challenge to a belief the viewer holds. Replicate this structure across all five pillars. One contrarian statement, then deliver the receipts.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">⏱️</span>
+          <div class="mustdo-title">Post consistently, not frequently</div>
+          <div class="mustdo-body">4 videos per week is sustainable for your format. But consistency at 3 per week beats sporadic bursts of 7. The algorithm rewards accounts that signal they won't abandon it. Pick a cadence and hold it for 90 days.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">💬</span>
+          <div class="mustdo-title">Reply to every comment in the first 2 hours</div>
+          <div class="mustdo-body">TikTok's distribution algorithm weights early engagement rate. Replying to comments drives replies back to your replies, which drives the number up. Your comment sections already have people asking follow-up questions. That's signal.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">🔗</span>
+          <div class="mustdo-title">Build an email list now, not later</div>
+          <div class="mustdo-body">A creator with 100k followers and no email list is renting their audience from TikTok. A "NYC Life Hacks" monthly email with 5 things you've personally tried that week is 10-minute work and platform-independent. Beehiiv is free up to 2,500 subscribers.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">🎬</span>
+          <div class="mustdo-title">Cross-post to YouTube Shorts</div>
+          <div class="mustdo-body">Zero extra production. Same videos, watermark-removed (use SnapTik), posted to YouTube Shorts. YouTube's search algorithm surfaces "NYC apartment hunting tips" months after posting. TikTok's does not. This is compounding reach for free.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">🗣️</span>
+          <div class="mustdo-title">Name yourself in the first video of every series</div>
+          <div class="mustdo-body">You do this already ("My name is Jenny, I live in a $2,000 one bedroom in LES"). This is smart. It anchors new viewers to a real person fast. Keep doing it in every first entry of any new series.</div>
+        </div>
+        <div class="mustdo-item">
+          <span class="mustdo-emoji">📍</span>
+          <div class="mustdo-title">Tag every NYC-specific location on screen and in caption</div>
+          <div class="mustdo-body">TikTok's local search is growing. "Vintage shops LES NYC," "cheap eats Lower East Side," "NYC apartment tips" are real search queries. Your captions should match them exactly. Think: Google, not just algorithm.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+
+    <!-- SECTION 4: LEAD GEN RUNWAY -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Lead Gen <span>Runway Plan</span></h2>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">💡</span> The Framework: Build the Asset Before You Need It</div>
+        <p>Most creators wait until 50k to think about monetization. The ones who build income at 10k do it by creating assets (email lists, lead magnets, guides) that grow in value as the follower count climbs. You have content density that can fuel this right now.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 1 (Now, 0 to 10K)</div>
+          <div class="timeline-title">Build the Email List and the Signature Resource</div>
+          <div class="timeline-body">
+            Create one lead magnet that is genuinely useful: <strong>"The Honest NYC Apartment Hunting Playbook"</strong>. Google Doc or Notion template. 5 to 7 pages. Covers: sites beyond StreetEasy, how to find lease breaks, tenant rights cheat sheet, broker fee math, when to sublet vs. sign. This is your best-performing content topic consolidated into one shareable document.
+            <br><br>
+            Link it in bio ("Free NYC apartment guide"). Mention it at the end of any apartment video. This converts viewers to email subscribers. Even 300 subscribers right now is worth more than 5,000 followers who forget you exist between posts.
+          </div>
+          <div class="tags">
+            <span class="tag tag-lime">Email list (Beehiiv)</span>
+            <span class="tag tag-lime">Free PDF / Notion guide</span>
+            <span class="tag tag-lime">0 cost to build</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 2 (10K to 40K)</div>
+          <div class="timeline-title">NYC Insider Newsletter + Paid Sponsorship Ready</div>
+          <div class="timeline-body">
+            Launch a monthly "Jenny's NYC Intel" newsletter. 5 things she's personally tried that month: one cheap eat, one neighborhood tip, one money hack, one vintage find, one event or experience. 300-word max, very casual, very high value-per-word.
+            <br><br>
+            At 1,000+ email subscribers, this newsletter becomes a sponsorship channel. A local restaurant, a Too Good To Go competitor, a co-working space can sponsor one section of a monthly email for $200 to $500. Lower barrier than a TikTok integration but still real revenue.
+            <br><br>
+            Also at this stage: set up a Linktree or equivalent with the apartment guide, the newsletter signup, and one "hire me" page for any consulting or local event hosting interest.
+          </div>
+          <div class="tags">
+            <span class="tag tag-blue">Newsletter monetization</span>
+            <span class="tag tag-blue">Local brand deals</span>
+            <span class="tag tag-blue">Consulting signal</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 3 (40K to 100K)</div>
+          <div class="timeline-title">Digital Products + Platform Diversification</div>
+          <div class="timeline-body">
+            By 40K you have enough data to know which content your audience pays attention to most. Launch one paid resource in that category. Examples based on your content pillars:
+            <br><br>
+            <strong>Option A</strong>: "NYC on a Budget: The Master Guide" (paid Notion or PDF, $12 to $25). Apartment hunting, money hacks, cheap eats, vintage shopping, library benefits. All your best content in one document.
+            <br><br>
+            <strong>Option B</strong>: Paid "NYC Relocation Consult" call. 45 minutes with you, covering apartment strategy for someone moving to NYC. $75 to $150 per call. You charge 3 calls per month at 40K followers, that's $225 to $450 per month with almost zero additional work.
+            <br><br>
+            This is also the stage where YouTube becomes important as a full channel, not just Shorts. Longer-form "I spent 30 days testing every cheap eat in LES" does well at this stage when you have a built-in audience already primed.
+          </div>
+          <div class="tags">
+            <span class="tag tag-pink">Digital products</span>
+            <span class="tag tag-pink">Consulting / calls</span>
+            <span class="tag tag-pink">YouTube long-form</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+
+    <!-- SECTION 5: PARTNERSHIPS + SPONSORS -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Partnerships <span>+ Sponsors</span> Plan</h2>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-title"><span class="card-icon">📋</span> The Pitch Philosophy</div>
+        <p>You are not selling impressions. You are selling <strong>trust and specificity</strong>. Your audience follows you because you give real opinions and real math. A sponsor placement that violates that will cost you far more in audience trust than it pays. The brands that belong in your content are the ones you would mention anyway.</p>
+      </div>
+
+      <h3 style="font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; margin-top: 28px;">Tier 1: Partner Now (500 to 5K followers)</h3>
+
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="partner-tier tier-now">Right Now</div>
+          <div class="partner-name">Too Good To Go</div>
+          <div class="partner-why">You have already made organic content about this app twice. You have a quote ready: "this is not sponsored, I'm just personally invested in more people using it." That is your pitch to them in one sentence. Convert organic enthusiasm to a paid relationship.</div>
+          <div class="partner-rate">Est. rate at 5K: $100 to $300 per integration</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-now">Right Now</div>
+          <div class="partner-name">Beehiiv or Substack</div>
+          <div class="partner-why">Newsletter platforms actively sponsor creators who talk about newsletters. You are building one. This is a natural fit and they run creator ambassador programs with free plans and rev-share. Apply now at any follower count.</div>
+          <div class="partner-rate">Ambassador programs: usually product + commission</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-now">Right Now</div>
+          <div class="partner-name">Teva</div>
+          <div class="partner-why">You already posted an organic endorsement: "they are Mary Kate Olsen approved," "rappelled up a waterfall in these," "$50." That is a better ad than most brands write themselves. Email their influencer team with the video link. This is a warm outreach, not a cold pitch.</div>
+          <div class="partner-rate">Est. rate at 5K: product + $150 to $400</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; margin-top: 32px;">Tier 2: Target at 10K to 30K</h3>
+
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="partner-tier tier-mid">10K to 30K</div>
+          <div class="partner-name">NYC Co-Working Spaces</div>
+          <div class="partner-why">You said you want to do a "co-working spots in NYC" video. That video, plus a partner tag from a co-working space, is a natural content-first deal. Industrious, Spaces, WeWork all have creator programs. Mullen Chelsea is already on your list.</div>
+          <div class="partner-rate">Est. rate: free membership + $300 to $800</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-mid">10K to 30K</div>
+          <div class="partner-name">Ness (HSA card) or Lively</div>
+          <div class="partner-why">Your HSA gym hack video is the exact use case these fintech HSA companies market around. A "how I paid for Equinox with pre-tax dollars" integration is plug-and-play for them. Your audience skews exactly right: post-grad NYC, financially aware, earning real income.</div>
+          <div class="partner-rate">Est. rate: $500 to $1,200 per video</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-mid">10K to 30K</div>
+          <div class="partner-name">Blueground or June Homes</div>
+          <div class="partner-why">You already name-dropped both of these as summer housing options. They run creator affiliate programs. At 10K with an apartment-focused audience they will pay for a dedicated segment. Frame it as "here's when managed housing actually makes sense" to keep it honest.</div>
+          <div class="partner-rate">Est. rate: $400 to $1,000 + affiliate commission</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; margin-top: 32px;">Tier 3: At Scale (40K to 100K)</h3>
+
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="partner-tier tier-late">40K+</div>
+          <div class="partner-name">NYC Restaurants + Hospitality</div>
+          <div class="partner-why">Once your "ABC Eats" series has history and your food content is established, NYC restaurants will pay for your opinion. Not just a free meal, an actual fee. You have the cultural credibility to charge for placement in your ratings series because your reviews have teeth.</div>
+          <div class="partner-rate">Est. rate: $800 to $2,500 per integration</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-late">40K+</div>
+          <div class="partner-name">Airbnb / Travel</div>
+          <div class="partner-why">Your El Salvador content shows you travel with a strong editorial voice. Airbnb and boutique travel brands (Elsewhere, Selina, Secret Escapes) sponsor creators at this tier when the content style matches. Your "accidentally found top 100 restaurant" format is their exact desired outcome.</div>
+          <div class="partner-rate">Est. rate: $1,500 to $4,000 + trip coverage</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-tier tier-late">40K+</div>
+          <div class="partner-name">Fintech / FIRE adjacent (Credit Karma, Monarch Money)</div>
+          <div class="partner-why">Your money hack content positions you well for fintech partnerships. Broker fee math, HSA optimization, library card ROI. Creators who make personal finance feel casual and human are extremely valuable to financial brands that need to not seem boring.</div>
+          <div class="partner-rate">Est. rate: $1,200 to $3,500 per video</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 24px;">
+        <div class="card-title"><span class="card-icon">📩</span> Outreach Template Formula</div>
+        <p>Keep all cold outreach to under 5 sentences. Formula:</p>
+        <ul>
+          <li>Sentence 1: What you already made about them (with the link).</li>
+          <li>Sentence 2: Your audience profile in one specific data point (e.g., "primarily women 23 to 32, post-grad NYC, financially engaged").</li>
+          <li>Sentence 3: What you are proposing specifically.</li>
+          <li>Sentence 4: What it costs. Or "open to discussing."</li>
+          <li>Sentence 5: A single question to prompt a reply.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="glow-line"></div>
+
+    <!-- SECTION 6: PITCH EMAIL -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-num">06</div>
+        <h2 class="section-title">The <span>Pitch Email</span></h2>
+      </div>
+
+      <div class="email-box">
+        <div class="email-header">
+          <div class="email-avatar">✉️</div>
+          <div>
+            <div class="email-from"><strong>Jack Maguire</strong>maguirebaseball@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="email-subject">
+          Subject: <strong>I mapped out your path to 100K (and built a microsite for it)</strong>
+        </div>
+
+        <div class="email-body">Hi Jenny,
+
+My name is Jack. I work in performance marketing in NYC (National Debt Relief, Senior Paid Social Director). I was watching your TikToks and something clicked: you are doing the right things, but the compounding hasn't kicked in yet. I think I know why.
+
+I spent a few hours analyzing your last 30 videos, mapped your five content pillars, and built you a full 100K strategy. Content loops, partnership targets by tier, a lead gen runway, and the non-negotiables that will change your retention rate. I put it all in a standalone site so it's easy to share or reference:
+
+<span class="highlight">jackmaguire.org/jenny-100k</span>
+
+A few things I flagged specifically:
+
+The "ABC Eats" angle from your Asian fusion ratings video is your biggest underused series. Your vintage LES guide series format is already your best growth mechanic and you should systematize it across all five pillars. Your HSA gym hack and tenant rights videos are exactly the kind of content that fintech brands pay $1,000+ to be adjacent to. And you have two already-organic endorsements (Too Good To Go, Teva) that you haven't converted to paid relationships yet.
+
+Here's my offer: I help you for free until you see results. No retainer, no contract. I do performance marketing for a living. I know what a compounding content engine looks like and I can see you're close. If the strategy works and you hit meaningful milestones (10K, 25K, 50K), we can talk about whether it makes sense to formalize anything. If it doesn't work, you've lost nothing except an hour reading a free strategy doc.
+
+The full plan, the brand partnership targets, and the content loop blueprint are all at the link above.
+
+Worth a look?
+
+Jack
+</div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <footer class="site-footer">
+    <p>✦ jackmaguire.org/jenny-100k ✦ prepared June 2026 ✦</p>
+  </footer>
+
+</body>
+</html>
