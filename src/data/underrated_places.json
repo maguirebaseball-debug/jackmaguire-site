@@ -300,18 +300,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Moon Coffee Lab",
-    "rating": 5.0,
-    "reviews": 159,
-    "address": "45 E 1st St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=13397189496096481252",
-    "reddit_quote": "Looking for Coffee Recommendations in Manhattan",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_524`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Squarena",
     "rating": 5.0,
     "reviews": 350,
@@ -816,18 +804,6 @@
     "neighborhood": "Financial District"
   },
   {
-    "name": "The Municipal Art Society of NY",
-    "rating": 5.0,
-    "reviews": 6,
-    "address": "115 Broadway Suite 1603, New York, NY 10006, USA",
-    "maps_link": "https://maps.google.com/?cid=11062982735013489959",
-    "reddit_quote": "Best walking tours in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1233`)",
-    "category": "Other",
-    "borough": "Manhattan",
-    "neighborhood": "Financial District"
-  },
-  {
     "name": "Astoria Coffee Shop",
     "rating": 5.0,
     "reviews": 5,
@@ -1044,18 +1020,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Museum of Nostalgia",
-    "rating": 5.0,
-    "reviews": 100,
-    "address": "31-27 31st St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=6864730255839253985",
-    "reddit_quote": "The Museum of Nostalgia in Astoria is my favorite",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1512`)",
-    "category": "Museum",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Astoria Market",
     "rating": 5.0,
     "reviews": 1,
@@ -1104,18 +1068,6 @@
     "neighborhood": "Long Island City"
   },
   {
-    "name": "Astoria Market",
-    "rating": 5.0,
-    "reviews": 1,
-    "address": "29-19 24th Ave, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=380990822509899311",
-    "reddit_quote": "🎄 Holiday Markets in Astoria — Shop Local Artists",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1595`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Amadeus Coffee",
     "rating": 5.0,
     "reviews": 86,
@@ -1152,18 +1104,6 @@
     "neighborhood": "NoHo"
   },
   {
-    "name": "Paanmasti",
-    "rating": 5.0,
-    "reviews": 2,
-    "address": "1234 Broadway store # 8, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=18014991600431007010",
-    "reddit_quote": "Suggestions for a 7 train ... snacks crawl?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1733`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
-  },
-  {
     "name": "Super Chori NY",
     "rating": 5.0,
     "reviews": 62,
@@ -1196,18 +1136,6 @@
     "reddit_quote": "Looking for a baker in Queens/Forest Hills area!",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1842`)",
     "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "SoHo"
-  },
-  {
-    "name": "Tacos Morelos",
-    "rating": 5.0,
-    "reviews": 2,
-    "address": "65 Crosby St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=1891946782504028588",
-    "reddit_quote": "Brooklyn Catering for Bar Event",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1879`)",
-    "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "SoHo"
   },
@@ -1368,18 +1296,6 @@
     "neighborhood": "Midtown East"
   },
   {
-    "name": "Beto’s Carnitas & Guisados",
-    "rating": 5.0,
-    "reviews": 85,
-    "address": "69 Clinton St Store front A, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=3775496345574360221",
-    "reddit_quote": "Local NY Birthday Food Crawl: East Village and Chi",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2197`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Upper Ditmars Dental PLLC",
     "rating": 5.0,
     "reviews": 17,
@@ -1536,18 +1452,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "The Gecko Gallery NYC",
-    "rating": 5.0,
-    "reviews": 169,
-    "address": "255 McKibbin St Studio 0019, Brooklyn, NY 11206, USA",
-    "maps_link": "https://maps.google.com/?cid=10187377788826342305",
-    "reddit_quote": "Any cool events or clubs that focus on learning th",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2368`)",
-    "category": "Museum",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
     "name": "Dukan SYKO Marketplace",
     "rating": 5.0,
     "reviews": 57,
@@ -1656,18 +1560,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Non-Americans of NYC, what NYC restaurant is most",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_95`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Awesome",
     "rating": 4.9,
     "reviews": 10,
@@ -1750,18 +1642,6 @@
     "category": "Bakery",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "What are the best \"bang for your buck\" restaurants",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_207`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Sol Delish",
@@ -1980,18 +1860,6 @@
     "neighborhood": "Long Island City"
   },
   {
-    "name": "Rialto Ristorante",
-    "rating": 4.9,
-    "reviews": 141,
-    "address": "28-11 Astoria Blvd, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=17225687498536855422",
-    "reddit_quote": "Where can my friend of Croatian extraction meet a",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_392`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "The Twisted Spine",
     "rating": 4.9,
     "reviews": 214,
@@ -2002,18 +1870,6 @@
     "category": "Bar",
     "borough": "Brooklyn",
     "neighborhood": "Williamsburg"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Visiting NYC for 4 days from Toronto and looking f",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_409`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Stellar Pokhara NYC",
@@ -2038,18 +1894,6 @@
     "category": "Retail",
     "borough": "Brooklyn",
     "neighborhood": "Carroll Gardens"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "What is Currently the Best Restaurant in NYC Right",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_439`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Accidental Bar",
@@ -2268,18 +2112,6 @@
     "neighborhood": "Bushwick"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Help: Times Square",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_685`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "St. Mark's Burgers and Dogs",
     "rating": 4.9,
     "reviews": 359,
@@ -2302,18 +2134,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Sunset Park"
-  },
-  {
-    "name": "Accidental Bar",
-    "rating": 4.9,
-    "reviews": 156,
-    "address": "98 Loisaida Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=7582956954985181325",
-    "reddit_quote": "Honeymoon Trip",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_744`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Motek West Village",
@@ -2484,18 +2304,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "HEE-space Thrift Shop",
-    "rating": 4.9,
-    "reviews": 348,
-    "address": "461 Rogers Ave, Brooklyn, NY 11225, USA",
-    "maps_link": "https://maps.google.com/?cid=13523767199757691423",
-    "reddit_quote": "What's your favorite thrift store in NYC to use?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_919`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
     "name": "Liz's Book Bar",
     "rating": 4.9,
     "reviews": 226,
@@ -2568,30 +2376,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "The Rat NYC",
-    "rating": 4.9,
-    "reviews": 52,
-    "address": "68-117 Jay St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=9364634525282002008",
-    "reddit_quote": "comedy show in dumbo tomorrow featuring devon walk",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1036`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Dumbo"
-  },
-  {
-    "name": "Sonbobs",
-    "rating": 4.9,
-    "reviews": 147,
-    "address": "34-15 28th Ave, Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=9507270387961313072",
-    "reddit_quote": "Affordable coffee shop",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1047`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Astoria Coworking",
     "rating": 4.9,
     "reviews": 26,
@@ -2640,18 +2424,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "I need help narrowing down my list of restaurants!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1079`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Blazers Sports Bar",
     "rating": 4.9,
     "reviews": 61,
@@ -2676,18 +2448,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Best value than Chipotle",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1173`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Pastitalia",
     "rating": 4.9,
     "reviews": 290,
@@ -2698,18 +2458,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Harlem"
-  },
-  {
-    "name": "Grand Street Skewer Cart",
-    "rating": 4.9,
-    "reviews": 304,
-    "address": "246 Grand St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=1136850988547250033",
-    "reddit_quote": "What’re the best restaurants in East Village, NOHO",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1196`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "AURA Tapas & Cocktail Bar",
@@ -2734,18 +2482,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "NoMad"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "DIY LES & Chinatown Food Tour",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1230`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Big Onion Walking Tours",
@@ -2832,18 +2568,6 @@
     "neighborhood": "Lower East Side"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Have you ever tried a dish at a restaurant in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1277`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Edith’s Sandwich Counter",
     "rating": 4.9,
     "reviews": 8,
@@ -2928,18 +2652,6 @@
     "neighborhood": "Bay Ridge"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Cheap eats in Upper Midtown?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1468`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "ARVACI coffee",
     "rating": 4.9,
     "reviews": 29,
@@ -2974,18 +2686,6 @@
     "category": "Retail",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Grand Street Skewer Cart",
-    "rating": 4.9,
-    "reviews": 304,
-    "address": "246 Grand St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=1136850988547250033",
-    "reddit_quote": "A week of dining out in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1487`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Café at Pop Up Grocer",
@@ -3034,30 +2734,6 @@
     "category": "Retail",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Broad Nosh Bagels Deli & Catering 52nd Street",
-    "rating": 4.9,
-    "reviews": 455,
-    "address": "877 8th Ave, New York, NY 10019, USA",
-    "maps_link": "https://maps.google.com/?cid=16568728216970196021",
-    "reddit_quote": "10 days in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1602`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "What are the best value meals you have had in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1609`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Ziyan Chicken 紫燕百味鸡 (Manhattan)",
@@ -3192,18 +2868,6 @@
     "neighborhood": "Lower East Side"
   },
   {
-    "name": "Caputo's Fine Foods",
-    "rating": 4.9,
-    "reviews": 176,
-    "address": "460 Court St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=11771632669395379772",
-    "reddit_quote": "Where’s your favorite Tiramisu spot?  Preferably i",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1828`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
     "name": "Bar Miller",
     "rating": 4.9,
     "reviews": 59,
@@ -3223,18 +2887,6 @@
     "maps_link": "https://maps.google.com/?cid=18102008471769965920",
     "reddit_quote": "requesting your weirdest restaurant recs",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1857`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Corona"
-  },
-  {
-    "name": "Tlayuda Oaxaqueña SR San Pablo",
-    "rating": 4.9,
-    "reviews": 43,
-    "address": "102-25 Roosevelt Ave, Corona, NY 11368, USA",
-    "maps_link": "https://maps.google.com/?cid=18102008471769965920",
-    "reddit_quote": "Best *REAL* Mexican/Salvadoran Spots in Manhattan?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1864`)",
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Corona"
@@ -3262,18 +2914,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Williamsburg"
-  },
-  {
-    "name": "Fuchkart food cart",
-    "rating": 4.9,
-    "reviews": 23,
-    "address": "1514 W 44th St, New York, NY 10036, USA",
-    "maps_link": "https://maps.google.com/?cid=15268718777206566119",
-    "reddit_quote": "2 Months left in NYC with of spare time, looking f",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1894`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
   },
   {
     "name": "Pasta Lab NYC",
@@ -3310,18 +2950,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Financial District"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Cheap lunch spots near World Trade Center",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1952`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Handy & Dandy",
@@ -3420,18 +3048,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "21st Street Marketplace",
-    "rating": 4.9,
-    "reviews": 70,
-    "address": "28-16 21st St, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=14938477866050770381",
-    "reddit_quote": "Sat  6/14 Dairy/Gluten-Free baked goods popup Asto",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2096`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Seed Library NYC",
     "rating": 4.9,
     "reviews": 69,
@@ -3456,18 +3072,6 @@
     "neighborhood": "Sunset Park"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Moving to the UES - looking for your favorite rest",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2118`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Kazumi Omakase",
     "rating": 4.9,
     "reviews": 352,
@@ -3480,42 +3084,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Visiting Chicagoan Seeking Recs",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2128`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Xi'an Famous Foods 西安名吃 | East Village",
-    "rating": 4.9,
-    "reviews": 76,
-    "address": "129 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1109426352742846248",
-    "reddit_quote": "Recommendations?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2129`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "David's Bar",
-    "rating": 4.9,
-    "reviews": 143,
-    "address": "76 Forsyth St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=11951095035259713178",
-    "reddit_quote": "Looking for girl-friends",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2167`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Classic Barbershop 6 NYC",
     "rating": 4.9,
     "reviews": 227,
@@ -3526,18 +3094,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Rialto Ristorante",
-    "rating": 4.9,
-    "reviews": 141,
-    "address": "28-11 Astoria Blvd, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=17225687498536855422",
-    "reddit_quote": "Rialto in Astoria",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2195`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Unearth Vintage",
@@ -3562,18 +3118,6 @@
     "category": "Retail",
     "borough": "Brooklyn",
     "neighborhood": "Bushwick"
-  },
-  {
-    "name": "The Rat NYC",
-    "rating": 4.9,
-    "reviews": 52,
-    "address": "68-117 Jay St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=9364634525282002008",
-    "reddit_quote": "New weekly Comedy Show \"Comedy Down Under (Manhatt",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2227`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Dumbo"
   },
   {
     "name": "by & by",
@@ -3936,30 +3480,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Santa Halal Food",
-    "rating": 4.8,
-    "reviews": 166,
-    "address": "124 E 14th St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=13604030097071688125",
-    "reddit_quote": "What’s your favorite NYC restaurant?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_194`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "31st Avenue Open Street",
-    "rating": 4.8,
-    "reviews": 14,
-    "address": "34-02 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=2042940740647726024",
-    "reddit_quote": "Finding free events in Astoria & rest of NYC (filt",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_202`)",
-    "category": "Park",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Pino's Prime Meat Market",
     "rating": 4.8,
     "reviews": 104,
@@ -4044,18 +3564,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "LIC Tonsorial Barber Shop & Shaving Parlor",
-    "rating": 4.8,
-    "reviews": 277,
-    "address": "32-86 Steinway St, Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=15324495893577031597",
-    "reddit_quote": "Speakeasy Comedy Shows This Weekend! Free Cocktail",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_256`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Darjeeling Kitchen & Café",
     "rating": 4.8,
     "reviews": 408,
@@ -4078,18 +3586,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Liberty Bagels NOHO SOHO",
-    "rating": 4.8,
-    "reviews": 110,
-    "address": "650 Broadway, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=16246849476446357911",
-    "reddit_quote": "Everything I ate in 3 days + reviews",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_309`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
   },
   {
     "name": "Gino's Pastry Shop & Cafe",
@@ -4126,18 +3622,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "L’industrie Pizzeria - Little Italy",
-    "rating": 4.8,
-    "reviews": 220,
-    "address": "197 Grand St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=16293312791889188766",
-    "reddit_quote": "What are the atmospheric $$ restaurants in the vil",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_323`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Little Italy"
   },
   {
     "name": "Ferdi",
@@ -4344,18 +3828,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Wylie's Astoria",
-    "rating": 4.8,
-    "reviews": 41,
-    "address": "24-01 29th St, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=6518935309485417423",
-    "reddit_quote": "Beer and a burger",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_475`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Essential by Christophe",
     "rating": 4.8,
     "reviews": 441,
@@ -4390,18 +3862,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Essential by Christophe",
-    "rating": 4.8,
-    "reviews": 441,
-    "address": "103 W 77th St, New York, NY 10024, USA",
-    "maps_link": "https://maps.google.com/?cid=12963295223993426654",
-    "reddit_quote": "Where is the best French food in Manhattan?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_497`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
   },
   {
     "name": "BASHIR HALAL FOOD",
@@ -4500,18 +3960,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Ten Ichi Mart",
-    "rating": 4.8,
-    "reviews": 48,
-    "address": "239 Bleecker St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=8830389079657715980",
-    "reddit_quote": "Negi-goma and spicy miso ramen from Ramen Danbo in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_572`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Hudson River Community Sailing",
     "rating": 4.8,
     "reviews": 65,
@@ -4608,18 +4056,6 @@
     "neighborhood": "Lower East Side"
   },
   {
-    "name": "390 Social",
-    "rating": 4.8,
-    "reviews": 169,
-    "address": "390 5th Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=6510250741186804795",
-    "reddit_quote": "Restaurant/Venue Recommendations for a holiday par",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_621`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
-  },
-  {
     "name": "Penny Jo's",
     "rating": 4.8,
     "reviews": 142,
@@ -4630,30 +4066,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Washington Heights"
-  },
-  {
-    "name": "Birria-Landia NYC",
-    "rating": 4.8,
-    "reviews": 366,
-    "address": "Bowery, E Houston St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=13164375820057997280",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Williamsburg",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_642`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "L’industrie Pizzeria - Little Italy",
-    "rating": 4.8,
-    "reviews": 220,
-    "address": "197 Grand St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=16293312791889188766",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Williamsburg",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_642`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Little Italy"
   },
   {
     "name": "Pomp and Circumstance",
@@ -4678,18 +4090,6 @@
     "category": "Entertainment",
     "borough": "Brooklyn",
     "neighborhood": "Bushwick"
-  },
-  {
-    "name": "Young Xinjiang BBQ cart",
-    "rating": 4.8,
-    "reviews": 101,
-    "address": "246 Grand St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=2508933759658260747",
-    "reddit_quote": "What are your top want-to-go spots in NYC, where t",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_652`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Waterfront",
@@ -4740,18 +4140,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "Patsy's",
-    "rating": 4.8,
-    "reviews": 126,
-    "address": "23 Lexington Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=11872735225234460400",
-    "reddit_quote": "3.5 days in NYC food options! please critique my l",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1428`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Gramercy"
-  },
-  {
     "name": "DiVin Wine Bar",
     "rating": 4.8,
     "reviews": 47,
@@ -4800,18 +4188,6 @@
     "neighborhood": "West Village"
   },
   {
-    "name": "Ten Ichi Mart",
-    "rating": 4.8,
-    "reviews": 48,
-    "address": "239 Bleecker St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=8830389079657715980",
-    "reddit_quote": "Favorite Japanese black curry in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_743`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Desert Island",
     "rating": 4.8,
     "reviews": 322,
@@ -4846,18 +4222,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "JOJU - East Village",
-    "rating": 4.8,
-    "reviews": 17,
-    "address": "33 St Marks Pl, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=8920238962930311055",
-    "reddit_quote": "What's the new coolest fast casual restaurant in N",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_773`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Grandma’s Dumpling House",
@@ -4918,18 +4282,6 @@
     "category": "Bakery",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Patsy's",
-    "rating": 4.8,
-    "reviews": 126,
-    "address": "23 Lexington Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=11872735225234460400",
-    "reddit_quote": "A Week of Eating",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_810`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Gramercy"
   },
   {
     "name": "Soul of Palestine NYC",
@@ -5052,18 +4404,6 @@
     "neighborhood": "Iselin"
   },
   {
-    "name": "Anyone Comics",
-    "rating": 4.8,
-    "reviews": 385,
-    "address": "831 Nostrand Ave # A, Brooklyn, NY 11225, USA",
-    "maps_link": "https://maps.google.com/?cid=14692891266251158525",
-    "reddit_quote": "Game/Card shops to make nerdy friends?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1051`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
     "name": "Simply Noodles & Dim Sum Bryant Park",
     "rating": 4.8,
     "reviews": 378,
@@ -5086,18 +4426,6 @@
     "category": "Entertainment",
     "borough": "Brooklyn",
     "neighborhood": "Downtown Brooklyn"
-  },
-  {
-    "name": "31st Avenue Open Street",
-    "rating": 4.8,
-    "reviews": 14,
-    "address": "34-02 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=2042940740647726024",
-    "reddit_quote": "Moving to Astoria in a few months, open to any tip",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_903`)",
-    "category": "Park",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Ziggle Tofu & Grill",
@@ -5170,18 +4498,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Kips Bay"
-  },
-  {
-    "name": "Janie's Life Changing Baked Goods",
-    "rating": 4.8,
-    "reviews": 295,
-    "address": "82 Christopher St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=4947300939426164626",
-    "reddit_quote": "Lets talk NYC Cookie Shops",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1018`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Museum of Urban Arts | MOUA",
@@ -5376,54 +4692,6 @@
     "neighborhood": "Murray Hill"
   },
   {
-    "name": "Liberty Bagels NOHO SOHO",
-    "rating": 4.8,
-    "reviews": 110,
-    "address": "650 Broadway, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=16246849476446357911",
-    "reddit_quote": "Itinerary review for 4-day birthday visit",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1155`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
-  },
-  {
-    "name": "Kissa Kissa",
-    "rating": 4.8,
-    "reviews": 191,
-    "address": "667 Franklin Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4320781961886772911",
-    "reddit_quote": "Recommendations for bars/lounges with good music (",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1159`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
-    "name": "Copper & Oak",
-    "rating": 4.8,
-    "reviews": 367,
-    "address": "157 Allen St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=2124561251439010763",
-    "reddit_quote": "Anniversary Dinner Ideas",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1190`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Carnitas Ramirez",
-    "rating": 4.8,
-    "reviews": 476,
-    "address": "210 E 3rd St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=15033723137313912197",
-    "reddit_quote": "What’re the best restaurants in East Village, NOHO",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1196`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "El Charro Espanol",
     "rating": 4.8,
     "reviews": 6,
@@ -5532,30 +4800,6 @@
     "neighborhood": "Bushwick"
   },
   {
-    "name": "Mary's",
-    "rating": 4.8,
-    "reviews": 165,
-    "address": "146 Orchard St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=517965586512070061",
-    "reddit_quote": "Advice for food crawl in Queens",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1291`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Janie's Life Changing Baked Goods",
-    "rating": 4.8,
-    "reviews": 295,
-    "address": "82 Christopher St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=4947300939426164626",
-    "reddit_quote": "Roast my itinerary- 2.5 days in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1317`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Our Lady of Lebanon Maronite Cathedral",
     "rating": 4.8,
     "reviews": 102,
@@ -5614,18 +4858,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Wild East Brewing Co.",
-    "rating": 4.8,
-    "reviews": 315,
-    "address": "623 Sackett St, Brooklyn, NY 11217, USA",
-    "maps_link": "https://maps.google.com/?cid=9904973447660003909",
-    "reddit_quote": "Best places to hang flyers for an event in Gowanus",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1891`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Gowanus"
   },
   {
     "name": "Masquerade",
@@ -5707,18 +4939,6 @@
     "maps_link": "https://maps.google.com/?cid=16873340471054665135",
     "reddit_quote": "Good thai recommendation in Greenwich Village, Eas",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1390`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Carnitas Ramirez",
-    "rating": 4.8,
-    "reviews": 476,
-    "address": "210 E 3rd St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=15033723137313912197",
-    "reddit_quote": "East Village/Bowery post-hype spots",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1393`)",
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
@@ -5820,18 +5040,6 @@
     "neighborhood": "Flatiron District"
   },
   {
-    "name": "Ruhani Cafe",
-    "rating": 4.8,
-    "reviews": 267,
-    "address": "519 Atlantic Ave, Brooklyn, NY 11217, USA",
-    "maps_link": "https://maps.google.com/?cid=7693030903476519858",
-    "reddit_quote": "Good study spots in this area?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1445`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Boerum Hill"
-  },
-  {
     "name": "Just Salad",
     "rating": 4.8,
     "reviews": 179,
@@ -5904,18 +5112,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "31st Avenue Open Street",
-    "rating": 4.8,
-    "reviews": 14,
-    "address": "34-02 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=2042940740647726024",
-    "reddit_quote": "Where are people getting their fresh/organic produ",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1525`)",
-    "category": "Other",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Farm To People",
     "rating": 4.8,
     "reviews": 368,
@@ -5938,30 +5134,6 @@
     "category": "Cafe",
     "borough": "Brooklyn",
     "neighborhood": "Crown Heights"
-  },
-  {
-    "name": "L’industrie Pizzeria - Little Italy",
-    "rating": 4.8,
-    "reviews": 220,
-    "address": "197 Grand St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=16293312791889188766",
-    "reddit_quote": "Solo traveler staying in the Lower Manhattan area",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1546`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Little Italy"
-  },
-  {
-    "name": "Patsy's",
-    "rating": 4.8,
-    "reviews": 126,
-    "address": "23 Lexington Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=11872735225234460400",
-    "reddit_quote": "Bunch/Lunch spots near Barclays",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1560`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Gramercy Park"
   },
   {
     "name": "Farm.One",
@@ -6204,18 +5376,6 @@
     "neighborhood": "Midtown East"
   },
   {
-    "name": "Eat it",
-    "rating": 4.8,
-    "reviews": 423,
-    "address": "33-01 30th Ave., Queens, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=12536379779976427086",
-    "reddit_quote": "Shah's Halal Food on 30th Ave any good? Other reco",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1774`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Minnie's Bar",
     "rating": 4.8,
     "reviews": 246,
@@ -6286,18 +5446,6 @@
     "category": "Entertainment",
     "borough": "Brooklyn",
     "neighborhood": "Gowanus"
-  },
-  {
-    "name": "JOJU - East Village",
-    "rating": 4.8,
-    "reviews": 17,
-    "address": "33 St Marks Pl, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=8920238962930311055",
-    "reddit_quote": "Saturday Afternoon Jackson Heights or Flushing Foo",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1858`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Stuart Cinema & Cafe",
@@ -6396,54 +5544,6 @@
     "neighborhood": "Greenpoint"
   },
   {
-    "name": "Birria-Landia NYC",
-    "rating": 4.8,
-    "reviews": 366,
-    "address": "Bowery, E Houston St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=13164375820057997280",
-    "reddit_quote": "If I'm getting street food, is there a good spot t",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1930`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "31st Avenue Open Street",
-    "rating": 4.8,
-    "reviews": 14,
-    "address": "34-02 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=2042940740647726024",
-    "reddit_quote": "If I'm getting street food, is there a good spot t",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1930`)",
-    "category": "Park",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Young Xinjiang BBQ cart",
-    "rating": 4.8,
-    "reviews": 101,
-    "address": "246 Grand St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=2508933759658260747",
-    "reddit_quote": "What are your favorite food carts in Queens?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1931`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Birria-Landia NYC",
-    "rating": 4.8,
-    "reviews": 366,
-    "address": "Bowery, E Houston St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=13164375820057997280",
-    "reddit_quote": "What are your favorite food carts in Queens?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1931`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Hướng Xuân",
     "rating": 4.8,
     "reviews": 73,
@@ -6454,30 +5554,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Elmhurst"
-  },
-  {
-    "name": "Zhego NYC",
-    "rating": 4.8,
-    "reviews": 117,
-    "address": "38-04 61st St, Woodside, NY 11377, USA",
-    "maps_link": "https://maps.google.com/?cid=5194849604376290946",
-    "reddit_quote": "Jackson Heights Food Crawl Recs - Best Dishes?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1936`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Woodside"
-  },
-  {
-    "name": "31st Avenue Open Street",
-    "rating": 4.8,
-    "reviews": 14,
-    "address": "34-02 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=2042940740647726024",
-    "reddit_quote": "Announcing the Astoria Stoop Swap & Sale on the 31",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1949`)",
-    "category": "Park",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "11th Street Community Garden",
@@ -6504,18 +5580,6 @@
     "neighborhood": "Upper East Side"
   },
   {
-    "name": "Liberty Bagels NOHO SOHO",
-    "rating": 4.8,
-    "reviews": 110,
-    "address": "650 Broadway, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=16246849476446357911",
-    "reddit_quote": "Dishes Invented In NYC Restaurants?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1975`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
-  },
-  {
     "name": "Ambrosia Garden",
     "rating": 4.8,
     "reviews": 407,
@@ -6538,18 +5602,6 @@
     "category": "Cafe",
     "borough": "Brooklyn",
     "neighborhood": "Williamsburg"
-  },
-  {
-    "name": "Bill's Place",
-    "rating": 4.8,
-    "reviews": 390,
-    "address": "148 W 133rd St, New York, NY 10030, USA",
-    "maps_link": "https://maps.google.com/?cid=4334022211101416054",
-    "reddit_quote": "Cozy old school jazz bar recs?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2026`)",
-    "category": "Entertainment",
-    "borough": "Manhattan",
-    "neighborhood": "Harlem"
   },
   {
     "name": "The BookMark Shoppe",
@@ -6612,18 +5664,6 @@
     "neighborhood": "Flatbush"
   },
   {
-    "name": "ruth",
-    "rating": 4.8,
-    "reviews": 129,
-    "address": "665 Flatbush Ave, Brooklyn, NY 11225, USA",
-    "maps_link": "https://maps.google.com/?cid=2542444754674109089",
-    "reddit_quote": "Book Clubs in Brooklyn",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2078`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Flatbush"
-  },
-  {
     "name": "niconeco zakkaya",
     "rating": 4.8,
     "reviews": 285,
@@ -6672,18 +5712,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "ME CHICKEN RICE",
-    "rating": 4.8,
-    "reviews": 490,
-    "address": "120 W 3rd St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=11545884385542694681",
-    "reddit_quote": "Fast Lunch in Greenwich Village",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2158`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Yemeni Socotra Restaurant",
     "rating": 4.8,
     "reviews": 126,
@@ -6718,18 +5746,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Birria-Landia NYC",
-    "rating": 4.8,
-    "reviews": 366,
-    "address": "Bowery, E Houston St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=13164375820057997280",
-    "reddit_quote": "Mexican Food in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2184`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Best Sicily Bottega",
@@ -6778,30 +5794,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Harlem"
-  },
-  {
-    "name": "Janie's Life Changing Baked Goods",
-    "rating": 4.8,
-    "reviews": 295,
-    "address": "82 Christopher St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=4947300939426164626",
-    "reddit_quote": "Just moved to East Harlem, any favorites or gems?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2203`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Brancaccio's Food Shop",
-    "rating": 4.8,
-    "reviews": 340,
-    "address": "3011 Fort Hamilton Pkwy, Brooklyn, NY 11218, USA",
-    "maps_link": "https://maps.google.com/?cid=13402551082345443771",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Windsor Terrace",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2208`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Kensington"
   },
   {
     "name": "Happy Buds Brooklyn",
@@ -6900,18 +5892,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Darjeeling Kitchen & Café",
-    "rating": 4.8,
-    "reviews": 408,
-    "address": "31-12 36th Ave, Long Island City, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=8020148946502516491",
-    "reddit_quote": "Excellent opening night meal at Ambassador's Clubh",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2318`)",
-    "category": "Cafe",
-    "borough": "Queens",
-    "neighborhood": "Long Island City"
-  },
-  {
     "name": "Record City",
     "rating": 4.8,
     "reviews": 146,
@@ -6924,18 +5904,6 @@
     "neighborhood": "Flatbush"
   },
   {
-    "name": "Birria-Landia NYC",
-    "rating": 4.8,
-    "reviews": 366,
-    "address": "Bowery, E Houston St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=13164375820057997280",
-    "reddit_quote": "Food near the angelika on the east side",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2344`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "The Astarita",
     "rating": 4.8,
     "reviews": 223,
@@ -6946,18 +5914,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Sunset Park"
-  },
-  {
-    "name": "Museum of Reclaimed Urban Space (MoRUS)",
-    "rating": 4.8,
-    "reviews": 119,
-    "address": "155 Loisaida Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=16933396824387230082",
-    "reddit_quote": "Alternative / underground scene cultural spaces NY",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2360`)",
-    "category": "Museum",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Museum of Reclaimed Urban Space (MoRUS)",
@@ -6994,18 +5950,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Chelsea"
-  },
-  {
-    "name": "Ten Ichi Mart",
-    "rating": 4.8,
-    "reviews": 48,
-    "address": "239 Bleecker St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=8830389079657715980",
-    "reddit_quote": "Are there any grocery stores or marts in Brooklyn",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2384`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Trimworld Inc. New York Embroidery & Pleating",
@@ -7078,30 +6022,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Clinton Hill"
-  },
-  {
-    "name": "Arthur Avenue",
-    "rating": 4.7,
-    "reviews": 194,
-    "address": "Arthur Ave, Bronx, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=14002003959478145795",
-    "reddit_quote": "My favorite spots after a week in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_197`)",
-    "category": "Other",
-    "borough": "Bronx",
-    "neighborhood": "Belmont"
-  },
-  {
-    "name": "Arthur Avenue",
-    "rating": 4.7,
-    "reviews": 194,
-    "address": "Arthur Ave, Bronx, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=14002003959478145795",
-    "reddit_quote": "NYC's Real Little Italy - Belmont in the Bronx",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_318`)",
-    "category": "Other",
-    "borough": "Bronx",
-    "neighborhood": "Belmont"
   },
   {
     "name": "La Bicyclette Bakery",
@@ -7260,18 +6180,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Nate’s Detroit Pizza",
-    "rating": 4.7,
-    "reviews": 152,
-    "address": "244 E 13th St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=6580738879083157773",
-    "reddit_quote": "Best Detroit Style pizza in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_64`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "LTD Pizza and Bar",
     "rating": 4.7,
     "reviews": 480,
@@ -7400,18 +6308,6 @@
     "reddit_quote": "Bar Crawl: Drinking around the world in Astoria!",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_145`)",
     "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Chela & Garnacha",
-    "rating": 4.7,
-    "reviews": 464,
-    "address": "33-09 36th Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=9548029359120087310",
-    "reddit_quote": "Your top 3 go to restos in the neighborhood?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_146`)",
-    "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Astoria"
   },
@@ -7632,18 +6528,6 @@
     "neighborhood": "Midtown East"
   },
   {
-    "name": "The Bushwick Collective",
-    "rating": 4.7,
-    "reviews": 260,
-    "address": "427 Troutman St, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=16878924649239712893",
-    "reddit_quote": "Brooklyn date night recs?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_250`)",
-    "category": "Entertainment",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
     "name": "Forest Cafe",
     "rating": 4.7,
     "reviews": 485,
@@ -7711,18 +6595,6 @@
     "maps_link": "https://maps.google.com/?cid=1680141925238226340",
     "reddit_quote": "Best non alcohol focused spots in Astoria?",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_282`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "QED Astoria",
-    "rating": 4.7,
-    "reviews": 239,
-    "address": "27-16 23rd Ave, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=1680141925238226340",
-    "reddit_quote": "Events this weekend in Astoria (10/13/25-10/16/25)",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_284`)",
     "category": "Entertainment",
     "borough": "Queens",
     "neighborhood": "Astoria"
@@ -7798,18 +6670,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Ayy Chihuahua",
-    "rating": 4.7,
-    "reviews": 257,
-    "address": "36-16 Ditmars Blvd, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=2327246663736476506",
-    "reddit_quote": "Looking for Restaurant Recs That Can Host a Group",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_333`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Tone House",
@@ -8002,18 +6862,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Rockaway Park"
-  },
-  {
-    "name": "Joo Ok",
-    "rating": 4.7,
-    "reviews": 193,
-    "address": "22 W 32nd St 16th flr, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=5625786540486314423",
-    "reddit_quote": "Food - Two Travelers from Afar",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_378`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Koreatown"
   },
   {
     "name": "Mr. Throwback",
@@ -8256,18 +7104,6 @@
     "neighborhood": "Upper West Side"
   },
   {
-    "name": "Mido’s",
-    "rating": 4.7,
-    "reviews": 342,
-    "address": "631-615 6th Ave, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=15981359477183687513",
-    "reddit_quote": "The best halal cart is in Queens and it's not Samm",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_500`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chelsea"
-  },
-  {
     "name": "Hue House",
     "rating": 4.7,
     "reviews": 280,
@@ -8338,18 +7174,6 @@
     "category": "Bar",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "QED Astoria",
-    "rating": 4.7,
-    "reviews": 239,
-    "address": "27-16 23rd Ave, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=1680141925238226340",
-    "reddit_quote": "Booze and Build is back in Queens!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_537`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "John Derian Company Inc",
@@ -8448,18 +7272,6 @@
     "neighborhood": "Mott Haven"
   },
   {
-    "name": "Clemente Bar",
-    "rating": 4.7,
-    "reviews": 222,
-    "address": "11 Madison Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=9467858993782844996",
-    "reddit_quote": "Bars/restaurants w good drinks in South/SE Brookly",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_593`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
-  },
-  {
     "name": "Sweet Habit",
     "rating": 4.7,
     "reviews": 318,
@@ -8532,18 +7344,6 @@
     "neighborhood": "Cobble Hill"
   },
   {
-    "name": "Baker Falls",
-    "rating": 4.7,
-    "reviews": 67,
-    "address": "192 Allen St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15065043338889684815",
-    "reddit_quote": "Name of a local venue that I can’t remember and it",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_609`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Gaia Restaurant",
     "rating": 4.7,
     "reviews": 275,
@@ -8566,18 +7366,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "The Wallace",
-    "rating": 4.7,
-    "reviews": 452,
-    "address": "242 W 76th St, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=3580173611334714656",
-    "reddit_quote": "Any sports bars with bleacher or stadium type seat",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_622`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
   },
   {
     "name": "Five Iron Golf",
@@ -8616,18 +7404,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "La Bicyclette Bakery",
-    "rating": 4.7,
-    "reviews": 486,
-    "address": "667 Driggs Ave, Brooklyn, NY 11211, USA",
-    "maps_link": "https://maps.google.com/?cid=8453765897576684353",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Williamsburg",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_642`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Williamsburg"
-  },
-  {
     "name": "Etrusca",
     "rating": 4.7,
     "reviews": 37,
@@ -8638,18 +7414,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Financial District"
-  },
-  {
-    "name": "Bread Story",
-    "rating": 4.7,
-    "reviews": 368,
-    "address": "264 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=5136490165225061015",
-    "reddit_quote": "Killer pizza spots that’ll take a reservation for",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_650`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Travel Bar",
@@ -8770,18 +7534,6 @@
     "category": "Museum",
     "borough": "Queens",
     "neighborhood": "Ridgewood"
-  },
-  {
-    "name": "QED Astoria",
-    "rating": 4.7,
-    "reviews": 239,
-    "address": "27-16 23rd Ave, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=1680141925238226340",
-    "reddit_quote": "Weekly Astoria Bar Events (Jazz, Trivia..)",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_716`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Irish Whiskey Bar",
@@ -8964,42 +7716,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "Clemente Bar",
-    "rating": 4.7,
-    "reviews": 222,
-    "address": "11 Madison Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=9467858993782844996",
-    "reddit_quote": "Best lobster spots in Brooklyn/Manhattan (with non",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_812`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
-  },
-  {
-    "name": "Kings County Brewers Collective",
-    "rating": 4.7,
-    "reviews": 465,
-    "address": "381 Troutman St, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=13651971898945041",
-    "reddit_quote": "February recommendations for a Brit who loves NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_819`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
-    "name": "The Bier & Cheese Collective",
-    "rating": 4.7,
-    "reviews": 371,
-    "address": "35-11 Ditmars Blvd, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=16708621294305018237",
-    "reddit_quote": "Wedding celebration",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_831`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "The Hidden Pearl",
     "rating": 4.7,
     "reviews": 174,
@@ -9084,18 +7800,6 @@
     "neighborhood": "Hell's Kitchen"
   },
   {
-    "name": "Pasticceria Monteleone BK",
-    "rating": 4.7,
-    "reviews": 489,
-    "address": "355 Court St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=8936409419478076950",
-    "reddit_quote": "Best panettone in Brooklyn?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_844`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
     "name": "Pecoraro Latteria",
     "rating": 4.7,
     "reviews": 411,
@@ -9144,30 +7848,6 @@
     "neighborhood": "Flatiron District"
   },
   {
-    "name": "Brooklyn French Bakers",
-    "rating": 4.7,
-    "reviews": 25,
-    "address": "47 Flatbush Ave, Brooklyn, NY 11217, USA",
-    "maps_link": "https://maps.google.com/?cid=17632057222592347788",
-    "reddit_quote": "I hear a lot about good Italian in Brooklyn but no",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_873`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Fort Greene"
-  },
-  {
-    "name": "La Bicyclette Bakery",
-    "rating": 4.7,
-    "reviews": 486,
-    "address": "667 Driggs Ave, Brooklyn, NY 11211, USA",
-    "maps_link": "https://maps.google.com/?cid=8453765897576684353",
-    "reddit_quote": "I hear a lot about good Italian in Brooklyn but no",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_873`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Williamsburg"
-  },
-  {
     "name": "Chen's Watch Inc",
     "rating": 4.7,
     "reviews": 144,
@@ -9178,18 +7858,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Sorriso Italian Salumeria",
-    "rating": 4.7,
-    "reviews": 279,
-    "address": "44-16 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=2642232296654229898",
-    "reddit_quote": "Best Italian restaurants / grocery / places in Ast",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_879`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Il Nonno",
@@ -9288,42 +7956,6 @@
     "neighborhood": "Long Island City"
   },
   {
-    "name": "Clemente Bar",
-    "rating": 4.7,
-    "reviews": 222,
-    "address": "11 Madison Ave, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=9467858993782844996",
-    "reddit_quote": "Vegetarian friendly quiet spot for out of town VIP",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_936`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
-  },
-  {
-    "name": "Saint Julivert",
-    "rating": 4.7,
-    "reviews": 367,
-    "address": "264 Clinton St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=6949175682215640248",
-    "reddit_quote": "DEINFLUENCE ME...Brooklyn restaurant edition",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_939`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Brooklyn Heights"
-  },
-  {
-    "name": "Sunken Harbor Club",
-    "rating": 4.7,
-    "reviews": 363,
-    "address": "372 Fulton St 2nd Floor, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=12693291890544447958",
-    "reddit_quote": "The Loft Steakhouse -- Is it good?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_947`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Downtown Brooklyn"
-  },
-  {
     "name": "ANTOJITOS CHARLY",
     "rating": 4.7,
     "reviews": 106,
@@ -9368,18 +8000,6 @@
     "reddit_quote": "Broadway closures?",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1008`)",
     "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "The Bier & Cheese Collective",
-    "rating": 4.7,
-    "reviews": 371,
-    "address": "35-11 Ditmars Blvd, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=16708621294305018237",
-    "reddit_quote": "Astoria Beir & Cheese  becoming a Paint Cafe",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1010`)",
-    "category": "Retail",
     "borough": "Queens",
     "neighborhood": "Astoria"
   },
@@ -9576,18 +8196,6 @@
     "neighborhood": "Financial District"
   },
   {
-    "name": "Nudibranch",
-    "rating": 4.7,
-    "reviews": 479,
-    "address": "125 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=919400322395941667",
-    "reddit_quote": "Holiday Dining not-not reviews",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1119`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Yours Truly, Brooklyn",
     "rating": 4.7,
     "reviews": 62,
@@ -9608,18 +8216,6 @@
     "reddit_quote": "Asian/Indian food in lower Manhattan - date night",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1142`)",
     "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Chen's Watch Inc",
-    "rating": 4.7,
-    "reviews": 144,
-    "address": "42C Mott St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=8821496647750201237",
-    "reddit_quote": "Mama Lee - Bayside",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1154`)",
-    "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Chinatown"
   },
@@ -9720,18 +8316,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Deux Chats",
-    "rating": 4.7,
-    "reviews": 190,
-    "address": "27 Broadway, Brooklyn, NY 11249, USA",
-    "maps_link": "https://maps.google.com/?cid=12102960809532913273",
-    "reddit_quote": "Looking for some sexy/intimate cocktail bars for d",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1204`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Williamsburg"
-  },
-  {
     "name": "Sleight Family Graveyard",
     "rating": 4.7,
     "reviews": 7,
@@ -9804,30 +8388,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Athena Gourmet Market",
-    "rating": 4.7,
-    "reviews": 121,
-    "address": "23-38 31st St, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=9682750828756617802",
-    "reddit_quote": "Looking for Cypriot (Cyprus) food anywhere in NYC.",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1260`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Loveless Coffees",
-    "rating": 4.7,
-    "reviews": 184,
-    "address": "86 Central Ave, Brooklyn, NY 11206, USA",
-    "maps_link": "https://maps.google.com/?cid=6092798844515364804",
-    "reddit_quote": "Coffee beans: best affordable, third-wavey (light/",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1262`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
     "name": "Eight of Swords Tattoo",
     "rating": 4.7,
     "reviews": 91,
@@ -9838,18 +8398,6 @@
     "category": "Retail",
     "borough": "Brooklyn",
     "neighborhood": "Williamsburg"
-  },
-  {
-    "name": "Zabb PuTawn",
-    "rating": 4.7,
-    "reviews": 443,
-    "address": "1584 1st Ave, New York, NY 10028, USA",
-    "maps_link": "https://maps.google.com/?cid=17018893744887030363",
-    "reddit_quote": "Thai food in Brooklyn recs? most recs have gotten",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1293`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper East Side"
   },
   {
     "name": "Little Tiffin",
@@ -9924,18 +8472,6 @@
     "neighborhood": "Gowanus"
   },
   {
-    "name": "Steinway Hall",
-    "rating": 4.7,
-    "reviews": 388,
-    "address": "1133 6th Ave, New York, NY 10036, USA",
-    "maps_link": "https://maps.google.com/?cid=510371559755517575",
-    "reddit_quote": "Restore the Steinway Theatre: A Pitch!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1314`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
-  },
-  {
     "name": "Bar Snack",
     "rating": 4.7,
     "reviews": 158,
@@ -9972,18 +8508,6 @@
     "neighborhood": "Lincoln Square"
   },
   {
-    "name": "Grove 34 Comedy Club",
-    "rating": 4.7,
-    "reviews": 120,
-    "address": "31-83 34th St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=14896148734725655809",
-    "reddit_quote": "Event space for cookbook club?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1653`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Mama's Noodle House",
     "rating": 4.7,
     "reviews": 120,
@@ -9994,18 +8518,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Bensonhurst"
-  },
-  {
-    "name": "Film at Lincoln Center",
-    "rating": 4.7,
-    "reviews": 324,
-    "address": "70 Lincoln Center Plaza #4, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=15400583498333428531",
-    "reddit_quote": "Romantic couples trip in May",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1385`)",
-    "category": "Entertainment",
-    "borough": "Manhattan",
-    "neighborhood": "Lincoln Square"
   },
   {
     "name": "El Rey Tacos",
@@ -10032,18 +8544,6 @@
     "neighborhood": "Lower East Side"
   },
   {
-    "name": "El Rey Tacos",
-    "rating": 4.7,
-    "reviews": 120,
-    "address": "1450 Broadway, New York, NY 10018, USA",
-    "maps_link": "https://maps.google.com/?cid=14101333111268310585",
-    "reddit_quote": "Best high food in Astoria",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1403`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
-  },
-  {
     "name": "Noona's Ice Cream",
     "rating": 4.7,
     "reviews": 157,
@@ -10054,18 +8554,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "MOGMOG",
-    "rating": 4.7,
-    "reviews": 378,
-    "address": "5-35 51st Ave, Long Island City, NY 11101, USA",
-    "maps_link": "https://maps.google.com/?cid=1066399155649409780",
-    "reddit_quote": "Shaved ice in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1408`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Long Island City"
   },
   {
     "name": "KABIN",
@@ -10150,18 +8638,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Joo Ok",
-    "rating": 4.7,
-    "reviews": 193,
-    "address": "22 W 32nd St 16th flr, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=5625786540486314423",
-    "reddit_quote": "A week of dining out in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1487`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Koreatown"
   },
   {
     "name": "Ital Kitchen",
@@ -10296,18 +8772,6 @@
     "neighborhood": "Crown Heights"
   },
   {
-    "name": "Altar",
-    "rating": 4.7,
-    "reviews": 245,
-    "address": "645 Sterling Pl, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=6552386898188155031",
-    "reddit_quote": "Moving to Crown Heights",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1537`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
     "name": "Le Pistol Bar & Cafe",
     "rating": 4.7,
     "reviews": 309,
@@ -10356,18 +8820,6 @@
     "neighborhood": "Long Island City"
   },
   {
-    "name": "Chick It Out \" Khao Man Gai\"",
-    "rating": 4.7,
-    "reviews": 340,
-    "address": "32-06 35th St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=11793407230624889820",
-    "reddit_quote": "What are the best value meals you have had in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1609`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Morgenstern's Finest Ice Cream",
     "rating": 4.7,
     "reviews": 43,
@@ -10414,18 +8866,6 @@
     "category": "Bar",
     "borough": "Brooklyn",
     "neighborhood": "Williamsburg"
-  },
-  {
-    "name": "Rudar Club",
-    "rating": 4.7,
-    "reviews": 143,
-    "address": "34-01 45th St, Astoria, NY 11101, USA",
-    "maps_link": "https://maps.google.com/?cid=11327312576734025249",
-    "reddit_quote": "Restaurants similar to dinnertable",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1625`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "La Caridad 72",
@@ -10488,18 +8928,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Diamond Dogs",
-    "rating": 4.7,
-    "reviews": 432,
-    "address": "34-04 31st Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=7569131513999762821",
-    "reddit_quote": "What do you guys like to do in Queens when the wea",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1679`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Jules",
     "rating": 4.7,
     "reviews": 100,
@@ -10512,30 +8940,6 @@
     "neighborhood": "Brooklyn Heights"
   },
   {
-    "name": "Impasto",
-    "rating": 4.7,
-    "reviews": 234,
-    "address": "373 Waverly Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=9538377950017103708",
-    "reddit_quote": "Best pizza in Bed Stuy, Clinton Hill, Crown Height",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1699`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Clinton Hill"
-  },
-  {
-    "name": "Briscola Trattoria",
-    "rating": 4.7,
-    "reviews": 348,
-    "address": "798a Franklin Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=16424390432079998656",
-    "reddit_quote": "Date night dinner spots Crown Heights/Prospect Hei",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1700`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
     "name": "The Nuaa Table",
     "rating": 4.7,
     "reviews": 305,
@@ -10543,18 +8947,6 @@
     "maps_link": "https://maps.google.com/?cid=3889286255954399304",
     "reddit_quote": "What do people like to eat in Crown Heights for lu",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1701`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Heights"
-  },
-  {
-    "name": "The Nuaa Table",
-    "rating": 4.7,
-    "reviews": 305,
-    "address": "638 Bergen St, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=3889286255954399304",
-    "reddit_quote": "Solo Dinner in Crown Heights or Prospect Heights",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1703`)",
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Prospect Heights"
@@ -10570,30 +8962,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "QED Astoria",
-    "rating": 4.7,
-    "reviews": 239,
-    "address": "27-16 23rd Ave, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=1680141925238226340",
-    "reddit_quote": "All my single (Astoria) ladies",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1724`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "3 Aunties Thai Market",
-    "rating": 4.7,
-    "reviews": 238,
-    "address": "64-04 39th Ave, Woodside, NY 11377, USA",
-    "maps_link": "https://maps.google.com/?cid=10955924429748672042",
-    "reddit_quote": "Suggestions for a 7 train ... snacks crawl?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1733`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Woodside"
   },
   {
     "name": "Whoopsie Daisy",
@@ -10642,18 +9010,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Someday Bar NYC",
-    "rating": 4.7,
-    "reviews": 488,
-    "address": "364 Atlantic Ave, Brooklyn, NY 11217, USA",
-    "maps_link": "https://maps.google.com/?cid=13890708064061317659",
-    "reddit_quote": "Going to Brooklyn Paramount in a few weeks for a c",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1788`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Boerum Hill"
   },
   {
     "name": "Sound + Fury Brewery and Kitchen",
@@ -10728,18 +9084,6 @@
     "neighborhood": "Union Square"
   },
   {
-    "name": "Halal Munchies",
-    "rating": 4.7,
-    "reviews": 407,
-    "address": "164 Delancey St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15307552936140589266",
-    "reddit_quote": "Favorite spots in Brooklyn for greasy food?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1833`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Luxury Vision Center",
     "rating": 4.7,
     "reviews": 127,
@@ -10776,18 +9120,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Lê Phin",
-    "rating": 4.7,
-    "reviews": 455,
-    "address": "259 E 10th St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=1173281705050019322",
-    "reddit_quote": "brooklyn must eat/drink/do",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1886`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "frog",
     "rating": 4.7,
     "reviews": 15,
@@ -10795,54 +9127,6 @@
     "maps_link": "https://maps.google.com/?cid=6198967100340324989",
     "reddit_quote": "Looking for Leads/Advice: Long-Term Outdoor/Indoor",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1896`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Whoopsie Daisy",
-    "rating": 4.7,
-    "reviews": 79,
-    "address": "225 Rogers Ave, Brooklyn, NY 11225, USA",
-    "maps_link": "https://maps.google.com/?cid=14911465988599561093",
-    "reddit_quote": "Looking for Leads/Advice: Long-Term Outdoor/Indoor",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1896`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
-    "name": "Dumpling Xi 喜家德水饺",
-    "rating": 4.7,
-    "reviews": 301,
-    "address": "71 4th Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=7735023155487234544",
-    "reddit_quote": "Affordable dumpling/dim sum spot in queens/flushin",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1907`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Ramen By Ra",
-    "rating": 4.7,
-    "reviews": 257,
-    "address": "70 E 1st St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=3126443939304595479",
-    "reddit_quote": "Top 10 Vegetarian Desi Dishes in the NY Region",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1933`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Omakase Room by Mitsu",
-    "rating": 4.7,
-    "reviews": 322,
-    "address": "| Ground Floor, 14 Christopher St Ground Floor, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=2006606926807840762",
-    "reddit_quote": "Omakase Room by Mitsu",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1941`)",
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
@@ -10882,18 +9166,6 @@
     "category": "Cafe",
     "borough": "Brooklyn",
     "neighborhood": "Prospect Lefferts Gardens"
-  },
-  {
-    "name": "30th Street Guitars",
-    "rating": 4.7,
-    "reviews": 370,
-    "address": "234 W 27th St, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=14267932389351422163",
-    "reddit_quote": "Independent Musical Instrument Stores",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1993`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Chelsea"
   },
   {
     "name": "Olas Coffee Company",
@@ -11052,18 +9324,6 @@
     "neighborhood": "SoHo"
   },
   {
-    "name": "La Bicyclette Bakery",
-    "rating": 4.7,
-    "reviews": 486,
-    "address": "667 Driggs Ave, Brooklyn, NY 11211, USA",
-    "maps_link": "https://maps.google.com/?cid=8453765897576684353",
-    "reddit_quote": "Best French Bakery in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2191`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Williamsburg"
-  },
-  {
     "name": "MayRee",
     "rating": 4.7,
     "reviews": 458,
@@ -11112,18 +9372,6 @@
     "neighborhood": "Upper West Side"
   },
   {
-    "name": "Hamilton",
-    "rating": 4.7,
-    "reviews": 447,
-    "address": "226 W 46th St, New York, NY 10036, USA",
-    "maps_link": "https://maps.google.com/?cid=16879798003080131743",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Windsor Terrace",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2208`)",
-    "category": "Entertainment",
-    "borough": "Manhattan",
-    "neighborhood": "Theater District"
-  },
-  {
     "name": "Central Park West",
     "rating": 4.7,
     "reviews": 126,
@@ -11148,30 +9396,6 @@
     "neighborhood": "Long Island City"
   },
   {
-    "name": "Remix Market NYC",
-    "rating": 4.7,
-    "reviews": 427,
-    "address": "5-17 46th Rd, Long Island City, NY 11101, USA",
-    "maps_link": "https://maps.google.com/?cid=7335871832806615840",
-    "reddit_quote": "Best Antique / Architectural Salvage Stores",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2218`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Long Island City"
-  },
-  {
-    "name": "Furnish Green",
-    "rating": 4.7,
-    "reviews": 170,
-    "address": "132 1/2 W 24th St, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=6513333044340630063",
-    "reddit_quote": "Good shops for 2nd hand furniture?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2221`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Chelsea"
-  },
-  {
     "name": "Oncheon NYC",
     "rating": 4.7,
     "reviews": 497,
@@ -11194,54 +9418,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Dumbo"
-  },
-  {
-    "name": "Za-Ya",
-    "rating": 4.7,
-    "reviews": 250,
-    "address": "321 Starr St Ste D, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=17457982059229645753",
-    "reddit_quote": "Best Ramen in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2248`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
-    "name": "Baker Falls",
-    "rating": 4.7,
-    "reviews": 67,
-    "address": "192 Allen St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15065043338889684815",
-    "reddit_quote": "What are the best local indie an alt bands/bars in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2252`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "The Nuaa Table",
-    "rating": 4.7,
-    "reviews": 305,
-    "address": "638 Bergen St, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=3889286255954399304",
-    "reddit_quote": "Celiac feeling sad - gluten free recs in Brooklyn",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2260`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Heights"
-  },
-  {
-    "name": "Five Iron Golf",
-    "rating": 4.7,
-    "reviews": 387,
-    "address": "138 5th Ave, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=2990030674859584938",
-    "reddit_quote": "Best place to watch Masters Tournament?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2272`)",
-    "category": "Entertainment",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
   },
   {
     "name": "Philip Williams Posters",
@@ -11292,18 +9468,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "Bat Haus",
-    "rating": 4.7,
-    "reviews": 112,
-    "address": "459 Grand St Fl 1, Brooklyn, NY 11211, USA",
-    "maps_link": "https://maps.google.com/?cid=3595503466091824906",
-    "reddit_quote": "What’s the coolest event you’ve ever been to in NY",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2301`)",
-    "category": "Entertainment",
-    "borough": "Brooklyn",
-    "neighborhood": "Williamsburg"
-  },
-  {
     "name": "The Parlor - Luxury beauty and wellness suites for rent in NYC",
     "rating": 4.7,
     "reviews": 31,
@@ -11340,30 +9504,6 @@
     "neighborhood": "Midtown"
   },
   {
-    "name": "The Wallace",
-    "rating": 4.7,
-    "reviews": 452,
-    "address": "242 W 76th St, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=3580173611334714656",
-    "reddit_quote": "Quiet cocktail with lowkey jazz playing?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2352`)",
-    "category": "Hotel",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "Culture Lab LIC",
-    "rating": 4.7,
-    "reviews": 487,
-    "address": "5-25 46th Ave, Long Island City, NY 11101, USA",
-    "maps_link": "https://maps.google.com/?cid=12357378007212498691",
-    "reddit_quote": "Queens, what classes or events are we doing for fu",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2356`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Long Island City"
-  },
-  {
     "name": "El Mariachi Mexican Cuisine 🇲🇽",
     "rating": 4.7,
     "reviews": 153,
@@ -11386,18 +9526,6 @@
     "category": "Park",
     "borough": "Manhattan",
     "neighborhood": "Financial District"
-  },
-  {
-    "name": "Baker Falls",
-    "rating": 4.7,
-    "reviews": 67,
-    "address": "192 Allen St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15065043338889684815",
-    "reddit_quote": "goth/alt nyc places to go??",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2396`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Eva Joan",
@@ -11434,18 +9562,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Kimchi Kooks Kate's Kitchen",
-    "rating": 4.7,
-    "reviews": 91,
-    "address": "119 Bay Ridge Ave, Brooklyn, NY 11220, USA",
-    "maps_link": "https://maps.google.com/?cid=1657154544532684167",
-    "reddit_quote": "Small Food Businesses/ Restaurants Shoutouts in NY",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2409`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Bay Ridge"
   },
   {
     "name": "Kimchi Kooks Kate's Kitchen",
@@ -11506,18 +9622,6 @@
     "category": "Retail",
     "borough": "Brooklyn",
     "neighborhood": "Bedford-Stuyvesant"
-  },
-  {
-    "name": "Lê Phin",
-    "rating": 4.7,
-    "reviews": 455,
-    "address": "259 E 10th St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=1173281705050019322",
-    "reddit_quote": "Best matcha spots in nyc?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2455`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "mika's direction",
@@ -11868,18 +9972,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Foxface Natural",
-    "rating": 4.6,
-    "reviews": 215,
-    "address": "189 Avenue A, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=4791255496516397567",
-    "reddit_quote": "Which Top 3 restaurants are 1st on your list in Ma",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_115`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "The Little Shop",
     "rating": 4.6,
     "reviews": 282,
@@ -12048,18 +10140,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Trans-Pecos",
-    "rating": 4.6,
-    "reviews": 458,
-    "address": "9-15 Wyckoff Ave, Ridgewood, NY 11385, USA",
-    "maps_link": "https://maps.google.com/?cid=15146835306243463621",
-    "reddit_quote": "Great live music venues to check out in Brooklyn/W",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_182`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Ridgewood"
-  },
-  {
     "name": "Cassette",
     "rating": 4.6,
     "reviews": 184,
@@ -12106,18 +10186,6 @@
     "category": "Cafe",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Alewife Brewing",
-    "rating": 4.6,
-    "reviews": 218,
-    "address": "41-11 39th St, Sunnyside, NY 11104, USA",
-    "maps_link": "https://maps.google.com/?cid=15694600163486777027",
-    "reddit_quote": "Looking for neighborhoods to explore",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_211`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Sunnyside"
   },
   {
     "name": "Mochiron Izakaya",
@@ -12228,18 +10296,6 @@
     "neighborhood": "Nolita"
   },
   {
-    "name": "Ricas Pupusas & Mas",
-    "rating": 4.6,
-    "reviews": 292,
-    "address": "47-55 47th St, Woodside, NY 11377, USA",
-    "maps_link": "https://maps.google.com/?cid=4035743561689795035",
-    "reddit_quote": "Show Queens Restaurants Some Love!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_264`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Woodside"
-  },
-  {
     "name": "Uptown Night Market",
     "rating": 4.6,
     "reviews": 184,
@@ -12300,18 +10356,6 @@
     "neighborhood": "Tribeca"
   },
   {
-    "name": "New World Mall Food Court",
-    "rating": 4.6,
-    "reviews": 67,
-    "address": "136-20 Roosevelt Ave, Flushing, NY 11354, USA",
-    "maps_link": "https://maps.google.com/?cid=17207185311747294506",
-    "reddit_quote": "Uncommon/underrated ethnic representations in the",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_297`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Flushing"
-  },
-  {
     "name": "Lhasa",
     "rating": 4.6,
     "reviews": 353,
@@ -12370,18 +10414,6 @@
     "category": "Cafe",
     "borough": "Manhattan",
     "neighborhood": "NoHo"
-  },
-  {
-    "name": "Café Mars",
-    "rating": 4.6,
-    "reviews": 182,
-    "address": "272 3rd Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=7471430124162444409",
-    "reddit_quote": "Help me prepare a NYC dining bucket list!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_316`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Gowanus"
   },
   {
     "name": "C&B",
@@ -12648,30 +10680,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Cassette",
-    "rating": 4.6,
-    "reviews": 184,
-    "address": "68-38 Forest Ave storefront B, Flushing, NY 11385, USA",
-    "maps_link": "https://maps.google.com/?cid=15106301688073333868",
-    "reddit_quote": "Great Morning Beautiful People of New York City. A",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_404`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Ridgewood"
-  },
-  {
-    "name": "Lhasa",
-    "rating": 4.6,
-    "reviews": 353,
-    "address": "177 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=6124083237205411752",
-    "reddit_quote": "Nepali People in NYC - Nepali Food Recs!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_410`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Athena Mediterranean Cuisine",
     "rating": 4.6,
     "reviews": 467,
@@ -12682,18 +10690,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Park Slope"
-  },
-  {
-    "name": "Roman's",
-    "rating": 4.6,
-    "reviews": 487,
-    "address": "243 Dekalb Ave, Brooklyn, NY 11205, USA",
-    "maps_link": "https://maps.google.com/?cid=2076421618519717799",
-    "reddit_quote": "Best Italian Restaurants (with great wine list!) i",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_424`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Fort Greene"
   },
   {
     "name": "l’abeille",
@@ -12900,18 +10896,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "The Bar Room at The Modern",
-    "rating": 4.6,
-    "reviews": 404,
-    "address": "9 W 53rd St, New York, NY 10019, USA",
-    "maps_link": "https://maps.google.com/?cid=3661968536369978508",
-    "reddit_quote": "Lunch spot near Central Park on InKind?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_489`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown"
-  },
-  {
     "name": "The C Cafe & Wine",
     "rating": 4.6,
     "reviews": 214,
@@ -12934,18 +10918,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "P.J. Clarke’s Oyster Bar & Grille",
-    "rating": 4.6,
-    "reviews": 64,
-    "address": "424 W 33rd St, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=7009917077568179272",
-    "reddit_quote": "Best fast-casual burger with lettuce,  tomato and",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_499`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown West"
   },
   {
     "name": "Doyle's Corner",
@@ -13044,18 +11016,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Athena Mediterranean Cuisine",
-    "rating": 4.6,
-    "reviews": 467,
-    "address": "535 6th Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=10457463994009672033",
-    "reddit_quote": "Best Greek food in park slope area?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_571`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
-  },
-  {
     "name": "Court Pastry Shop",
     "rating": 4.6,
     "reviews": 327,
@@ -13066,18 +11026,6 @@
     "category": "Bakery",
     "borough": "Brooklyn",
     "neighborhood": "Carroll Gardens"
-  },
-  {
-    "name": "Rockaway Peninsula",
-    "rating": 4.6,
-    "reviews": 68,
-    "address": "Rockaway Peninsula, Queens, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=11186056584735742847",
-    "reddit_quote": "What are the most unknown neighborhoods in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1812`)",
-    "category": "Other",
-    "borough": "Queens",
-    "neighborhood": "Rockaway Peninsula"
   },
   {
     "name": "Juku",
@@ -13128,18 +11076,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Karazishi Botan",
-    "rating": 4.6,
-    "reviews": 354,
-    "address": "255 Smith St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=10949480383098621010",
-    "reddit_quote": "Where to eat near Boerum Hill?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_600`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
     "name": "Rice & Miso",
     "rating": 4.6,
     "reviews": 223,
@@ -13150,18 +11086,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Boerum Hill"
-  },
-  {
-    "name": "Trans-Pecos",
-    "rating": 4.6,
-    "reviews": 458,
-    "address": "9-15 Wyckoff Ave, Ridgewood, NY 11385, USA",
-    "maps_link": "https://maps.google.com/?cid=15146835306243463621",
-    "reddit_quote": "I want to get into NYC’s rock/punk music scene - a",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1334`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Ridgewood"
   },
   {
     "name": "The Mayfly",
@@ -13368,18 +11292,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Smør",
-    "rating": 4.6,
-    "reviews": 487,
-    "address": "441 E 12th St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=1357061756434843938",
-    "reddit_quote": "Follow Up: Food from Wife's Surprise Trip + 1st We",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_679`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Sidewalk Tacos Food Truck",
     "rating": 4.6,
     "reviews": 28,
@@ -13476,18 +11388,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Brooklyn Borough Hall",
-    "rating": 4.6,
-    "reviews": 200,
-    "address": "209 Joralemon St 3rd floor room 340, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=3637247522806068687",
-    "reddit_quote": "Why does Brooklyn Borough Hall look so bad?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_725`)",
-    "category": "Other",
-    "borough": "Brooklyn",
-    "neighborhood": "Downtown Brooklyn"
-  },
-  {
     "name": "Broadway Silk",
     "rating": 4.6,
     "reviews": 48,
@@ -13522,18 +11422,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Murray Hill"
-  },
-  {
-    "name": "C&B",
-    "rating": 4.6,
-    "reviews": 496,
-    "address": "178 E 7th St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=16947245845478232356",
-    "reddit_quote": "Best sandwich in New York",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_731`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Piccola Strada",
@@ -13608,18 +11496,6 @@
     "neighborhood": "Brooklyn Heights"
   },
   {
-    "name": "Penny",
-    "rating": 4.6,
-    "reviews": 260,
-    "address": "90 E 10th St 1st Floor, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=14720511980569387416",
-    "reddit_quote": "Recommendations near The Penny and Warsaw",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_755`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "The Lighthouse",
     "rating": 4.6,
     "reviews": 337,
@@ -13644,18 +11520,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "The Wolfhound",
-    "rating": 4.6,
-    "reviews": 401,
-    "address": "38-14 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=11287723347735995450",
-    "reddit_quote": "Visiting Astoria queens from the Uk for 2 weeks",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_775`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Mighty Oak Roasters",
     "rating": 4.6,
     "reviews": 412,
@@ -13678,18 +11542,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Santo Taco",
-    "rating": 4.6,
-    "reviews": 462,
-    "address": "114 Kenmare St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=7993457168169309170",
-    "reddit_quote": "What’s your NYC institution/third place restaurant",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_782`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Little Italy"
   },
   {
     "name": "Bleecker Street",
@@ -13788,18 +11640,6 @@
     "neighborhood": "Upper East Side"
   },
   {
-    "name": "Paulie Gee’s Slice Shop East Village",
-    "rating": 4.6,
-    "reviews": 10,
-    "address": "100 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=5251655061064584968",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Greenpoint",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_833`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Upright Coffee",
     "rating": 4.6,
     "reviews": 97,
@@ -13860,18 +11700,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "The C Cafe & Wine",
-    "rating": 4.6,
-    "reviews": 214,
-    "address": "552 Hudson St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=3525282951416029106",
-    "reddit_quote": "Hole in the wall restaurants in Brooklyn!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_850`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "West Village"
-  },
-  {
     "name": "Huda New Levantine Bistro",
     "rating": 4.6,
     "reviews": 404,
@@ -13906,18 +11734,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Clinton Hill"
-  },
-  {
-    "name": "Bar Bête",
-    "rating": 4.6,
-    "reviews": 379,
-    "address": "263 Smith St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=4570147927555707121",
-    "reddit_quote": "I hear a lot about good Italian in Brooklyn but no",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_873`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
   },
   {
     "name": "Little Egg",
@@ -14052,18 +11868,6 @@
     "neighborhood": "Ridgewood"
   },
   {
-    "name": "KAL",
-    "rating": 4.6,
-    "reviews": 432,
-    "address": "34-05 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=1585182729877921873",
-    "reddit_quote": "Astoria Recs for Family",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_923`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Merguez and Frites",
     "rating": 4.6,
     "reviews": 337,
@@ -14112,30 +11916,6 @@
     "neighborhood": "Chinatown"
   },
   {
-    "name": "P.J. Clarke’s Oyster Bar & Grille",
-    "rating": 4.6,
-    "reviews": 64,
-    "address": "424 W 33rd St, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=7009917077568179272",
-    "reddit_quote": "3rd date ideas/suggestions in brooklyn or lower ma",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_943`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Hudson Yards"
-  },
-  {
-    "name": "The Lions Bar & Grill",
-    "rating": 4.6,
-    "reviews": 170,
-    "address": "132 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=777133303688724242",
-    "reddit_quote": "5 days in Manhattan, best food recommendations?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_949`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Aqua Best NYC LLC",
     "rating": 4.6,
     "reviews": 165,
@@ -14158,18 +11938,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Rockaway Peninsula",
-    "rating": 4.6,
-    "reviews": 68,
-    "address": "Rockaway Peninsula, Queens, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=11186056584735742847",
-    "reddit_quote": "Two swedes looking for a New York adventure",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1157`)",
-    "category": "Park",
-    "borough": "Queens",
-    "neighborhood": "Rockaway"
   },
   {
     "name": "The Owl's Tail",
@@ -14206,18 +11974,6 @@
     "category": "Other",
     "borough": "Manhattan",
     "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "The Shillelagh Tavern",
-    "rating": 4.6,
-    "reviews": 269,
-    "address": "47-22 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=17160986913235064295",
-    "reddit_quote": "Dear Party People Of Astoria (April 2026)",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1009`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Grizzly Coffee & Tea House",
@@ -14364,18 +12120,6 @@
     "neighborhood": "Brooklyn Heights"
   },
   {
-    "name": "Murphys Irish Pub",
-    "rating": 4.6,
-    "reviews": 124,
-    "address": "986 2nd Ave, New York, NY 10022, USA",
-    "maps_link": "https://maps.google.com/?cid=15817874196436292389",
-    "reddit_quote": "What’s the best atmosphere to watch the Knicks in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1055`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown East"
-  },
-  {
     "name": "Moonburger",
     "rating": 4.6,
     "reviews": 156,
@@ -14410,18 +12154,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Smør",
-    "rating": 4.6,
-    "reviews": 487,
-    "address": "441 E 12th St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=1357061756434843938",
-    "reddit_quote": "Best breakfast spots in East Village?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1065`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Kidult Brick",
@@ -14616,30 +12348,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Pitt's",
-    "rating": 4.6,
-    "reviews": 103,
-    "address": "347 Van Brunt St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=17429750728095222226",
-    "reddit_quote": "Need NYC restaurant recommendation for a gift cert",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1170`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Red Hook"
-  },
-  {
-    "name": "Hart's",
-    "rating": 4.6,
-    "reviews": 418,
-    "address": "506 Franklin Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=10658631937615149654",
-    "reddit_quote": "Quiet Restaurants: Dining Options BK",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1564`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
     "name": "Fedora",
     "rating": 4.6,
     "reviews": 97,
@@ -14650,18 +12358,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Kaufman Astoria Studios",
-    "rating": 4.6,
-    "reviews": 156,
-    "address": "34-12 36th St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=4108631283025924129",
-    "reddit_quote": "Dutch Kills CSA here in Astoria 🌽🍅",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1179`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Scarlet Lounge",
@@ -14688,42 +12384,6 @@
     "neighborhood": "Rosebank"
   },
   {
-    "name": "INDAY",
-    "rating": 4.6,
-    "reviews": 158,
-    "address": "240 Lafayette St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=7043742168223444417",
-    "reddit_quote": "Bryant Park - Lunch Recommendations?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1217`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "SoHo"
-  },
-  {
-    "name": "Paris Baguette",
-    "rating": 4.6,
-    "reviews": 190,
-    "address": "244 Grand St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15128621849281436031",
-    "reddit_quote": "Radio Bakery didn’t live up to hype",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1226`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Mighty Oak Roasters",
-    "rating": 4.6,
-    "reviews": 412,
-    "address": "28-01 24th Ave, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=15627368442220069256",
-    "reddit_quote": "Rank Your Favorite Coffee Shops in Astoria",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1253`)",
-    "category": "Cafe",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Hide & Seek",
     "rating": 4.6,
     "reviews": 230,
@@ -14734,18 +12394,6 @@
     "category": "Bar",
     "borough": "Brooklyn",
     "neighborhood": "Greenpoint"
-  },
-  {
-    "name": "Verse",
-    "rating": 4.6,
-    "reviews": 252,
-    "address": "28-13 Astoria Blvd, Long Island City, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=12855812894588851971",
-    "reddit_quote": "Well this was unexpectedp",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1257`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Avlee Greek Kitchen",
@@ -14827,18 +12475,6 @@
     "maps_link": "https://maps.google.com/?cid=9112417539400666255",
     "reddit_quote": "Food pop-ups / food routes worth checking this wee",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1318`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Petit Chou",
-    "rating": 4.6,
-    "reviews": 498,
-    "address": "229 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=17478603689359100902",
-    "reddit_quote": "10 East Village bakeries in 2.5 days",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1386`)",
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
@@ -15012,18 +12648,6 @@
     "neighborhood": "Upper East Side"
   },
   {
-    "name": "New World Mall Food Court",
-    "rating": 4.6,
-    "reviews": 67,
-    "address": "136-20 Roosevelt Ave, Flushing, NY 11354, USA",
-    "maps_link": "https://maps.google.com/?cid=17207185311747294506",
-    "reddit_quote": "Suggestions for a 7 train ... snacks crawl?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1733`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Flushing"
-  },
-  {
     "name": "Black Fish Tattoo",
     "rating": 4.6,
     "reviews": 197,
@@ -15096,18 +12720,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "El jalapeño",
-    "rating": 4.6,
-    "reviews": 146,
-    "address": "72 Grove St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=10244185479597823120",
-    "reddit_quote": "What are the unsung restaurant(s)/eatery(ies) that",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1484`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Layla",
     "rating": 4.6,
     "reviews": 220,
@@ -15166,18 +12778,6 @@
     "category": "Retail",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "Blank Street",
-    "rating": 4.6,
-    "reviews": 445,
-    "address": "688 Broadway, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=6235604693163792435",
-    "reddit_quote": "Recap Reel: Jackson Heights in a Cup, a celebratio",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1506`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
   },
   {
     "name": "Bar Birba",
@@ -15312,18 +12912,6 @@
     "neighborhood": "Hell's Kitchen"
   },
   {
-    "name": "Miriam West Village",
-    "rating": 4.6,
-    "reviews": 118,
-    "address": "140 7th Ave S, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=11369521436157824958",
-    "reddit_quote": "Bunch/Lunch spots near Barclays",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1560`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "West Village"
-  },
-  {
     "name": "Cocktail Bedstuy",
     "rating": 4.6,
     "reviews": 396,
@@ -15332,18 +12920,6 @@
     "reddit_quote": "Where I went during NYCW",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1566`)",
     "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Bedford-Stuyvesant"
-  },
-  {
-    "name": "Macosa Trattoria",
-    "rating": 4.6,
-    "reviews": 459,
-    "address": "310 Tompkins Ave, Brooklyn, NY 11216, USA",
-    "maps_link": "https://maps.google.com/?cid=8351970794647222559",
-    "reddit_quote": "Where I went during NYCW",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1566`)",
-    "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Bedford-Stuyvesant"
   },
@@ -15358,30 +12934,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Midtown"
-  },
-  {
-    "name": "Bobbi’s Italian beef",
-    "rating": 4.6,
-    "reviews": 279,
-    "address": "228 Smith St Ste a, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=10500287338282255733",
-    "reddit_quote": "Looking for somewhere I can buy soft poppy seed ho",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1575`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
-    "name": "For All Things Good Bed-Stuy",
-    "rating": 4.6,
-    "reviews": 392,
-    "address": "343 Franklin Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=14797985381113345126",
-    "reddit_quote": "How's the Food & Drink Scene Near Classon St G?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1599`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Bedford-Stuyvesant"
   },
   {
     "name": "Downtown Burritos",
@@ -15540,18 +13092,6 @@
     "neighborhood": "Ditmas Park"
   },
   {
-    "name": "Bobbi’s Italian beef",
-    "rating": 4.6,
-    "reviews": 279,
-    "address": "228 Smith St Ste a, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=10500287338282255733",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Cobble Hill, Ca",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1688`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
     "name": "Oma Grassa",
     "rating": 4.6,
     "reviews": 179,
@@ -15571,54 +13111,6 @@
     "maps_link": "https://maps.google.com/?cid=4669803778385983269",
     "reddit_quote": "What do people like to eat in Crown Heights for lu",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1701`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Heights"
-  },
-  {
-    "name": "The Barlow",
-    "rating": 4.6,
-    "reviews": 167,
-    "address": "446 Park Pl, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=15923079814590166523",
-    "reddit_quote": "Good date night spots in crown heights?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1702`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Crown Heights"
-  },
-  {
-    "name": "Medusa Art Studios and Events & Bar/Cafe",
-    "rating": 4.6,
-    "reviews": 22,
-    "address": "18-14 Astoria Blvd, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=12373635122589304365",
-    "reddit_quote": "How do people feel about House/Techno at Bohemian",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1707`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Reyes Deli & Grocery",
-    "rating": 4.6,
-    "reviews": 458,
-    "address": "532 4th Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=2022132721607214441",
-    "reddit_quote": "Restaurants to try in sunset park/park slope/downt",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1711`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
-  },
-  {
-    "name": "Ciao, Gloria",
-    "rating": 4.6,
-    "reviews": 439,
-    "address": "550 Vanderbilt Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=12091505634202712646",
-    "reddit_quote": "Help me plan the perfect friends to lovers date",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1729`)",
     "category": "Cafe",
     "borough": "Brooklyn",
     "neighborhood": "Prospect Heights"
@@ -15648,18 +13140,6 @@
     "neighborhood": "Greenpoint"
   },
   {
-    "name": "Bleecker Street",
-    "rating": 4.6,
-    "reviews": 165,
-    "address": "Bleecker St, New York, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=15944714295747331232",
-    "reddit_quote": "4 days in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1752`)",
-    "category": "Other",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Big Apple BBQ",
     "rating": 4.6,
     "reviews": 49,
@@ -15672,30 +13152,6 @@
     "neighborhood": "NoMad"
   },
   {
-    "name": "Bibble & Sip",
-    "rating": 4.6,
-    "reviews": 52,
-    "address": "64 Bayard St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=2210560278704030894",
-    "reddit_quote": "Queens Night Market. 6/15/24",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1761`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "4th Street Food Co-op",
-    "rating": 4.6,
-    "reviews": 61,
-    "address": "58 E 4th St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=6728594830863370953",
-    "reddit_quote": "Which Whole Foods Market in NYC still have a decen",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1762`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "mộc mạc",
     "rating": 4.6,
     "reviews": 140,
@@ -15706,42 +13162,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Café Habibti",
-    "rating": 4.6,
-    "reviews": 206,
-    "address": "510 LaGuardia Pl, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=1560138135851833913",
-    "reddit_quote": "Shah's Halal Food on 30th Ave any good? Other reco",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1774`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "The Westbury",
-    "rating": 4.6,
-    "reviews": 476,
-    "address": "20 W 38th St, New York, NY 10018, USA",
-    "maps_link": "https://maps.google.com/?cid=7292427573270891711",
-    "reddit_quote": "Halal certified food for different cuisines outsid",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1782`)",
-    "category": "Hotel",
-    "borough": "Manhattan",
-    "neighborhood": "Garment District"
-  },
-  {
-    "name": "Young Ethel's",
-    "rating": 4.6,
-    "reviews": 281,
-    "address": "506 5th Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=2555943297084807956",
-    "reddit_quote": "Brooklyn clubs/bars outside of North Brooklyn?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1789`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
   },
   {
     "name": "Impact Kitchen",
@@ -15816,54 +13236,6 @@
     "neighborhood": "Bay Ridge"
   },
   {
-    "name": "The Shillelagh Tavern",
-    "rating": 4.6,
-    "reviews": 269,
-    "address": "47-22 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=17160986913235064295",
-    "reddit_quote": "How do people feel about House/Techno in Astoria?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1825`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Bench Flour Bakers",
-    "rating": 4.6,
-    "reviews": 272,
-    "address": "43-18 25th Ave, Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=8877105141533524456",
-    "reddit_quote": "Food walk recs. Hi all, looking to do a weekend to",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1827`)",
-    "category": "Bakery",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Bobbi’s Italian beef",
-    "rating": 4.6,
-    "reviews": 279,
-    "address": "228 Smith St Ste a, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=10500287338282255733",
-    "reddit_quote": "Favorite spots in Brooklyn for greasy food?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1833`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
-    "name": "8-Bit Bites Chelsea",
-    "rating": 4.6,
-    "reviews": 449,
-    "address": "197 7th Ave, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=17852864678617331226",
-    "reddit_quote": "Favorite spots in Brooklyn for greasy food?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1833`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chelsea"
-  },
-  {
     "name": "Saint Street Cakes",
     "rating": 4.6,
     "reviews": 144,
@@ -15924,42 +13296,6 @@
     "neighborhood": "Brooklyn Heights"
   },
   {
-    "name": "Uma's",
-    "rating": 4.6,
-    "reviews": 456,
-    "address": "92-07 Rockaway Beach Blvd, Rockaway Park, NY 11694, USA",
-    "maps_link": "https://maps.google.com/?cid=13747101944781553459",
-    "reddit_quote": "requesting your weirdest restaurant recs",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1857`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Rockaway Park"
-  },
-  {
-    "name": "Bibble & Sip",
-    "rating": 4.6,
-    "reviews": 52,
-    "address": "64 Bayard St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=2210560278704030894",
-    "reddit_quote": "Dinner Recommendations",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1859`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Medusa Art Studios and Events & Bar/Cafe",
-    "rating": 4.6,
-    "reviews": 22,
-    "address": "18-14 Astoria Blvd, Astoria, NY 11102, USA",
-    "maps_link": "https://maps.google.com/?cid=12373635122589304365",
-    "reddit_quote": "Hey Astoria! -Medusa Art Studios",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1875`)",
-    "category": "Entertainment",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Montauk Salt Cave downtown",
     "rating": 4.6,
     "reviews": 274,
@@ -15968,42 +13304,6 @@
     "reddit_quote": "I think NYC has the best food + options in general",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1892`)",
     "category": "Spa",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "The C Cafe & Wine",
-    "rating": 4.6,
-    "reviews": 214,
-    "address": "552 Hudson St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=3525282951416029106",
-    "reddit_quote": "Planning a full-day European-style dining itinerar",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1893`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "West Village"
-  },
-  {
-    "name": "Young Ethel's",
-    "rating": 4.6,
-    "reviews": 281,
-    "address": "506 5th Ave, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=2555943297084807956",
-    "reddit_quote": "Local news/events resources?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1928`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
-  },
-  {
-    "name": "Lhasa",
-    "rating": 4.6,
-    "reviews": 353,
-    "address": "177 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=6124083237205411752",
-    "reddit_quote": "Jackson Heights Food Crawl Recs - Best Dishes?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1936`)",
-    "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
   },
@@ -16032,18 +13332,6 @@
     "neighborhood": "Chinatown"
   },
   {
-    "name": "Blank Street",
-    "rating": 4.6,
-    "reviews": 445,
-    "address": "688 Broadway, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=6235604693163792435",
-    "reddit_quote": "What reasonably well-known (among NYers) NYC chain",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1946`)",
-    "category": "Cafe",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
-  },
-  {
     "name": "il Gigante",
     "rating": 4.6,
     "reviews": 314,
@@ -16068,35 +13356,11 @@
     "neighborhood": "Upper East Side"
   },
   {
-    "name": "L’Appartement 4F",
-    "rating": 4.6,
-    "reviews": 246,
-    "address": "119 W 10th St, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=3734839699197313662",
-    "reddit_quote": "What NYC spot that usually has long lines would yo",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1960`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Feltman's Kitchen",
     "rating": 4.6,
     "reviews": 5,
     "address": "80 St Marks Pl, New York, NY 10003, USA",
     "maps_link": "https://maps.google.com/?cid=17548228691269260572",
-    "reddit_quote": "Dishes Invented In NYC Restaurants?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1975`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Taishoken NYC",
-    "rating": 4.6,
-    "reviews": 196,
-    "address": "92 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=17504106877839137257",
     "reddit_quote": "Dishes Invented In NYC Restaurants?",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1975`)",
     "category": "Restaurant",
@@ -16188,30 +13452,6 @@
     "neighborhood": "Mott Haven"
   },
   {
-    "name": "The Lions Bar & Grill",
-    "rating": 4.6,
-    "reviews": 170,
-    "address": "132 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=777133303688724242",
-    "reddit_quote": "NYC - What's your absolute favorite neighborhood s",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2022`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Windy City Ale House",
-    "rating": 4.6,
-    "reviews": 211,
-    "address": "7915 3rd Ave, Brooklyn, NY 11209, USA",
-    "maps_link": "https://maps.google.com/?cid=9169213211616861502",
-    "reddit_quote": "Best bar in bay ridge for the Knicks game?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2029`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Bay Ridge"
-  },
-  {
     "name": "Narrows Botanical Gardens",
     "rating": 4.6,
     "reviews": 486,
@@ -16284,18 +13524,6 @@
     "neighborhood": "Prospect Heights"
   },
   {
-    "name": "Casey Rubber Stamps",
-    "rating": 4.6,
-    "reviews": 284,
-    "address": "322 E 11th St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=175411588879371249",
-    "reddit_quote": "Your favorite store in nyc?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2080`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Sweet Pickle Books",
     "rating": 4.6,
     "reviews": 320,
@@ -16306,18 +13534,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Tootles & French",
-    "rating": 4.6,
-    "reviews": 356,
-    "address": "36-15 Ditmars Blvd, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=2474873329778274427",
-    "reddit_quote": "Former Astoria Resident looking for food/bar recom",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2085`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Alnour النور",
@@ -16392,42 +13608,6 @@
     "neighborhood": "Harlem"
   },
   {
-    "name": "The Wallace Lounge",
-    "rating": 4.6,
-    "reviews": 116,
-    "address": "242 W 76th St, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=13421542283179832251",
-    "reddit_quote": "What are some good intimate lounges in NYC with co",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2124`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "Cheong Fun Cart",
-    "rating": 4.6,
-    "reviews": 308,
-    "address": "159 Hester St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=3668312664394629254",
-    "reddit_quote": "research notes re: trip to Manhattan from Boston n",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2127`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "PopUp Bagels",
-    "rating": 4.6,
-    "reviews": 55,
-    "address": "20 E 16th St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=11976061774727659114",
-    "reddit_quote": "Visiting Chicagoan Seeking Recs",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2128`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Union Square"
-  },
-  {
     "name": "Quique Crudo",
     "rating": 4.6,
     "reviews": 232,
@@ -16438,18 +13618,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "West Village"
-  },
-  {
-    "name": "The King Of Falafel & Shawarma Cart",
-    "rating": 4.6,
-    "reviews": 195,
-    "address": "E 53rd St &, Park Ave, New York, NY 10022, USA",
-    "maps_link": "https://maps.google.com/?cid=16780312458800230514",
-    "reddit_quote": "Favorite spots in Midtown East? (Near 52nd and Par",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2143`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown East"
   },
   {
     "name": "Majorelle",
@@ -16464,30 +13632,6 @@
     "neighborhood": "Upper East Side"
   },
   {
-    "name": "Cauldron Chicken",
-    "rating": 4.6,
-    "reviews": 268,
-    "address": "190 Bleecker St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=2394628392783398045",
-    "reddit_quote": "Looking for fun restaurant for my 40th birthday in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2149`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "The Lions Bar & Grill",
-    "rating": 4.6,
-    "reviews": 170,
-    "address": "132 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=777133303688724242",
-    "reddit_quote": "Recommendations for a Nice Burger Spot in Chelsea/",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2157`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Sushi 456",
     "rating": 4.6,
     "reviews": 220,
@@ -16498,54 +13642,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "West Village"
-  },
-  {
-    "name": "L’Appartement 4F",
-    "rating": 4.6,
-    "reviews": 246,
-    "address": "119 W 10th St, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=3734839699197313662",
-    "reddit_quote": "Non-touristy, one-day itinerary",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2181`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Bench Flour Bakers",
-    "rating": 4.6,
-    "reviews": 272,
-    "address": "43-18 25th Ave, Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=8877105141533524456",
-    "reddit_quote": "Best Croissant in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2188`)",
-    "category": "Bakery",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Petit Chou",
-    "rating": 4.6,
-    "reviews": 498,
-    "address": "229 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=17478603689359100902",
-    "reddit_quote": "Best Croissant in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2188`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Petit Chou",
-    "rating": 4.6,
-    "reviews": 498,
-    "address": "229 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=17478603689359100902",
-    "reddit_quote": "Best Croissant in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2188`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Elbow Bread",
@@ -16570,18 +13666,6 @@
     "category": "Bar",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Sidewalk Tacos Food Truck",
-    "rating": 4.6,
-    "reviews": 28,
-    "address": "1 Washington Pl, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=12803795954523783053",
-    "reddit_quote": "Just moved to East Harlem, any favorites or gems?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2203`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Contento",
@@ -16656,18 +13740,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Court Pastry Shop",
-    "rating": 4.6,
-    "reviews": 327,
-    "address": "298 Court St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=12357256111784032019",
-    "reddit_quote": "I am writing a book on classic, regional American",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2258`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
     "name": "Bowery Poetry Club",
     "rating": 4.6,
     "reviews": 127,
@@ -16740,54 +13812,6 @@
     "neighborhood": "Financial District"
   },
   {
-    "name": "Evil Twin Brewing NYC",
-    "rating": 4.6,
-    "reviews": 454,
-    "address": "16-16 George St, Ridgewood, NY 11385, USA",
-    "maps_link": "https://maps.google.com/?cid=529647893924162557",
-    "reddit_quote": "I won the 4th of July fireworks viewing lottery an",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2309`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Ridgewood"
-  },
-  {
-    "name": "Heidi's House by the Side of the Road & Ed's Elbow Room",
-    "rating": 4.6,
-    "reviews": 452,
-    "address": "308 E 78th St, New York, NY 10075, USA",
-    "maps_link": "https://maps.google.com/?cid=16174627934475001410",
-    "reddit_quote": "What’s the smallest (physical space) restaurant yo",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2315`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "Paulie Gee’s Slice Shop East Village",
-    "rating": 4.6,
-    "reviews": 10,
-    "address": "100 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=5251655061064584968",
-    "reddit_quote": "My opinion on best New York slices",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2316`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Tompkins Square Dog Run",
-    "rating": 4.6,
-    "reviews": 118,
-    "address": "99 1/2 St Marks Pl, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=11942457962385346141",
-    "reddit_quote": "Hosting a free dog parade at Tompkins Square Park",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2334`)",
-    "category": "Park",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Tompkins Square Dog Run",
     "rating": 4.6,
     "reviews": 118,
@@ -16822,30 +13846,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "SoHo"
-  },
-  {
-    "name": "Petit Chou",
-    "rating": 4.6,
-    "reviews": 498,
-    "address": "229 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=17478603689359100902",
-    "reddit_quote": "Help us choose the best eats",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2349`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Bleecker Street",
-    "rating": 4.6,
-    "reviews": 165,
-    "address": "Bleecker St, New York, NY, USA",
-    "maps_link": "https://maps.google.com/?cid=15944714295747331232",
-    "reddit_quote": "Rate my choices",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2351`)",
-    "category": "Other",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Francis Kite Club",
@@ -16942,30 +13942,6 @@
     "category": "Bar",
     "borough": "Brooklyn",
     "neighborhood": "Park Slope"
-  },
-  {
-    "name": "Bench Flour Bakers",
-    "rating": 4.6,
-    "reviews": 272,
-    "address": "43-18 25th Ave, Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=8877105141533524456",
-    "reddit_quote": "“The Best Croissants in New York City (Gift Articl",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2418`)",
-    "category": "Bakery",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "The Eighty Six",
-    "rating": 4.6,
-    "reviews": 115,
-    "address": "86 Bedford St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=9582495193889881597",
-    "reddit_quote": "A Teen Food Appreciator's Review @ The Eighty Six",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2423`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Good Judy",
@@ -17760,18 +14736,6 @@
     "neighborhood": "Financial District"
   },
   {
-    "name": "Place des Fêtes",
-    "rating": 4.5,
-    "reviews": 486,
-    "address": "212 Greene Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4406585057070888652",
-    "reddit_quote": "What are your favorite seafood dishes in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_368`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Clinton Hill"
-  },
-  {
     "name": "The Sultan Room",
     "rating": 4.5,
     "reviews": 296,
@@ -18094,18 +15058,6 @@
     "category": "Cafe",
     "borough": "Brooklyn",
     "neighborhood": "Park Slope"
-  },
-  {
-    "name": "Bagel Pub",
-    "rating": 4.5,
-    "reviews": 354,
-    "address": "418 6th Ave, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=11665270654365471496",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Park Slope",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_570`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Simply Greek",
@@ -18444,30 +15396,6 @@
     "neighborhood": "Prospect Heights"
   },
   {
-    "name": "The Sultan Room",
-    "rating": 4.5,
-    "reviews": 296,
-    "address": "234 Starr St, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=3865973061612880392",
-    "reddit_quote": "Looking to bring cool House music to Astoria!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_720`)",
-    "category": "Entertainment",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
-    "name": "Lord’s",
-    "rating": 4.5,
-    "reviews": 454,
-    "address": "506 LaGuardia Pl, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=9847511004049164337",
-    "reddit_quote": "What are the best burgers in New York City?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_732`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "The Little Whiskey",
     "rating": 4.5,
     "reviews": 179,
@@ -18478,18 +15406,6 @@
     "category": "Bar",
     "borough": "Brooklyn",
     "neighborhood": "Bushwick"
-  },
-  {
-    "name": "Talea Beer Co. West Village",
-    "rating": 4.5,
-    "reviews": 239,
-    "address": "102 Christopher St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=11390109668803966022",
-    "reddit_quote": "Yet Another \"What Should I Do\" Post!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_740`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "West Village"
   },
   {
     "name": "East Wind Snack Shop",
@@ -18631,18 +15547,6 @@
     "maps_link": "https://maps.google.com/?cid=3683879384088509891",
     "reddit_quote": "Brooklyn Neighborhood of the Week: Greenpoint",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_833`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
-    "name": "Place des Fêtes",
-    "rating": 4.5,
-    "reviews": 486,
-    "address": "212 Greene Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4406585057070888652",
-    "reddit_quote": "New / Hidden Gem for Very Upscale Bday Date?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_836`)",
     "category": "Other",
     "borough": "Unknown",
     "neighborhood": "Unknown"
@@ -18804,18 +15708,6 @@
     "neighborhood": "Unknown"
   },
   {
-    "name": "Shui Mei Cafe",
-    "rating": 4.5,
-    "reviews": 126,
-    "address": "67 E Broadway, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=7791285884729401610",
-    "reddit_quote": "Queens Night Market Vendor List (4/18)",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_889`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
     "name": "Chickn Rotonda",
     "rating": 4.5,
     "reviews": 168,
@@ -18912,30 +15804,6 @@
     "neighborhood": "Unknown"
   },
   {
-    "name": "El Lado Taco",
-    "rating": 4.5,
-    "reviews": 250,
-    "address": "34-14 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=13250708041974386232",
-    "reddit_quote": "Best breakfast tacos in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_952`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
-    "name": "Los Burritos Juarez",
-    "rating": 4.5,
-    "reviews": 256,
-    "address": "354 Myrtle Ave, Brooklyn, NY 11205, USA",
-    "maps_link": "https://maps.google.com/?cid=5715792353777600772",
-    "reddit_quote": "Best breakfast tacos in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_952`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
     "name": "Schaller & Weber",
     "rating": 4.5,
     "reviews": 369,
@@ -18955,18 +15823,6 @@
     "maps_link": "https://maps.google.com/?cid=3837608677831179589",
     "reddit_quote": "Best deli pickles in NYC (preferably near manhatta",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_955`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
-    "name": "Plowshares Coffee Roasters",
-    "rating": 4.5,
-    "reviews": 233,
-    "address": "1351 Amsterdam Ave, New York, NY 10027, USA",
-    "maps_link": "https://maps.google.com/?cid=18411338198051721681",
-    "reddit_quote": "NYC Bagel shops with great coffee? Please help. I’",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1013`)",
     "category": "Other",
     "borough": "Unknown",
     "neighborhood": "Unknown"
@@ -19080,18 +15936,6 @@
     "neighborhood": "Unknown"
   },
   {
-    "name": "Place des Fêtes",
-    "rating": 4.5,
-    "reviews": 486,
-    "address": "212 Greene Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4406585057070888652",
-    "reddit_quote": "How's the Food & Drink Scene Near Classon Ave G?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1516`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
     "name": "fontainhas + (/du.kaan/)",
     "rating": 4.5,
     "reviews": 288,
@@ -19159,30 +16003,6 @@
     "maps_link": "https://maps.google.com/?cid=1401533266024486600",
     "reddit_quote": "Best 1-star Michelin star restaurant for a tourist",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1120`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
-    "name": "Leslie-Lohman Museum of Art",
-    "rating": 4.5,
-    "reviews": 261,
-    "address": "26 Wooster St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=6948599787961707368",
-    "reddit_quote": "Non Tourist places to see in nyc",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1122`)",
-    "category": "Other",
-    "borough": "Unknown",
-    "neighborhood": "Unknown"
-  },
-  {
-    "name": "El Lado Taco",
-    "rating": 4.5,
-    "reviews": 250,
-    "address": "34-14 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=13250708041974386232",
-    "reddit_quote": "Weekly Astoria Diner In/Order Out Thread",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1128`)",
     "category": "Other",
     "borough": "Unknown",
     "neighborhood": "Unknown"
@@ -19284,18 +16104,6 @@
     "neighborhood": "Clinton Hill"
   },
   {
-    "name": "Place des Fêtes",
-    "rating": 4.5,
-    "reviews": 486,
-    "address": "212 Greene Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4406585057070888652",
-    "reddit_quote": "Going from UWS to Prospect Park (Crown Heights) fo",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1156`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Clinton Hill"
-  },
-  {
     "name": "Doris",
     "rating": 4.5,
     "reviews": 474,
@@ -19342,18 +16150,6 @@
     "category": "Other",
     "borough": "Manhattan",
     "neighborhood": "NoMad"
-  },
-  {
-    "name": "Sarabeth's Greenwich Village",
-    "rating": 4.5,
-    "reviews": 254,
-    "address": "100 W Houston St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=8965240703141728890",
-    "reddit_quote": "Any closed restaurants that you miss?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1198`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Spes",
@@ -19452,18 +16248,6 @@
     "neighborhood": "Financial District"
   },
   {
-    "name": "Judy & Punch",
-    "rating": 4.5,
-    "reviews": 414,
-    "address": "34-08 30th Ave., Astoria, NY 11103, USA",
-    "maps_link": "https://maps.google.com/?cid=9934156553213451822",
-    "reddit_quote": "The Hottest Happy Hour Meetup in Astoria",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1593`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Victory Sweet Shop/Victory Garden Cafe",
     "rating": 4.5,
     "reviews": 450,
@@ -19486,18 +16270,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Hell's Kitchen"
-  },
-  {
-    "name": "Milu",
-    "rating": 4.5,
-    "reviews": 470,
-    "address": "333 Park Ave S, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=9328431436354915972",
-    "reddit_quote": "Galaktoboureko",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1263`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
   },
   {
     "name": "COMPTON'S",
@@ -19572,18 +16344,6 @@
     "neighborhood": "Dumbo"
   },
   {
-    "name": "The Sultan Room",
-    "rating": 4.5,
-    "reviews": 296,
-    "address": "234 Starr St, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=3865973061612880392",
-    "reddit_quote": "What are the best local indie an alt bands/bars in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2252`)",
-    "category": "Entertainment",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
     "name": "BRASS",
     "rating": 4.5,
     "reviews": 206,
@@ -19632,18 +16392,6 @@
     "neighborhood": "Chinatown"
   },
   {
-    "name": "Elevenses",
-    "rating": 4.5,
-    "reviews": 242,
-    "address": "31-05 35th Ave, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=9732853896211450227",
-    "reddit_quote": "NYC Trip End of February",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1364`)",
-    "category": "Cafe",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "The Peristyle",
     "rating": 4.5,
     "reviews": 164,
@@ -19668,18 +16416,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "LÀ LÁ Bakeshop NYC",
-    "rating": 4.5,
-    "reviews": 214,
-    "address": "73 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=8699856638336190701",
-    "reddit_quote": "Best coffee in the east village / alphabet city? E",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1388`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Bushwick City Farm",
     "rating": 4.5,
     "reviews": 51,
@@ -19690,18 +16426,6 @@
     "category": "Other",
     "borough": "Brooklyn",
     "neighborhood": "Bushwick"
-  },
-  {
-    "name": "The Little One",
-    "rating": 4.5,
-    "reviews": 342,
-    "address": "150 E Broadway, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=11995385246958571624",
-    "reddit_quote": "Shaved ice in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1408`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "The Little One",
@@ -19858,30 +16582,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Astoria"
-  },
-  {
-    "name": "The Office of Mr. Moto",
-    "rating": 4.5,
-    "reviews": 200,
-    "address": "120A St Marks Pl, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=12190070327723558765",
-    "reddit_quote": "Yoshoku, a Kaiseki-Inspired Gem in the Waldorf Ast",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1463`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Sarabeth's Greenwich Village",
-    "rating": 4.5,
-    "reviews": 254,
-    "address": "100 W Houston St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=8965240703141728890",
-    "reddit_quote": "First days in NYC - food review",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1482`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "OMG Shawarma",
@@ -20076,42 +16776,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "Ingas Bar",
-    "rating": 4.5,
-    "reviews": 274,
-    "address": "66 Hicks St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=17765494194383568293",
-    "reddit_quote": "Quiet Restaurants: Dining Options BK",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1564`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Brooklyn Heights"
-  },
-  {
-    "name": "Stone Street",
-    "rating": 4.5,
-    "reviews": 249,
-    "address": "Stone St, New York, NY 10004, USA",
-    "maps_link": "https://maps.google.com/?cid=11738687888769891355",
-    "reddit_quote": "Looking for a good divey wings and beer place that",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1579`)",
-    "category": "Other",
-    "borough": "Manhattan",
-    "neighborhood": "Financial District"
-  },
-  {
-    "name": "Place des Fêtes",
-    "rating": 4.5,
-    "reviews": 486,
-    "address": "212 Greene Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=4406585057070888652",
-    "reddit_quote": "How's the Food & Drink Scene Near Classon St G?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1599`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Clinton Hill"
-  },
-  {
     "name": "The Golden Swan",
     "rating": 4.5,
     "reviews": 266,
@@ -20146,30 +16810,6 @@
     "category": "Retail",
     "borough": "Brooklyn",
     "neighborhood": "Cobble Hill"
-  },
-  {
-    "name": "Bar Great Harry",
-    "rating": 4.5,
-    "reviews": 408,
-    "address": "280 Smith St, Brooklyn, NY 11231, USA",
-    "maps_link": "https://maps.google.com/?cid=13472151412096889379",
-    "reddit_quote": "Gems to visit as a newbie",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1615`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Carroll Gardens"
-  },
-  {
-    "name": "COMPTON'S",
-    "rating": 4.5,
-    "reviews": 98,
-    "address": "123 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=2826872714368081968",
-    "reddit_quote": "Bars/Restaurants near Hallet’s Point area?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1616`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Sixpoint Brewery at Brookfield Place",
@@ -20232,30 +16872,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "El Fish Marisqueria",
-    "rating": 4.5,
-    "reviews": 309,
-    "address": "155 Amsterdam Ave, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=15564648729591398127",
-    "reddit_quote": "Help? Need an UWS restaurant that can feed a pesca",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1659`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "Poseidon Greek Bakery",
-    "rating": 4.5,
-    "reviews": 234,
-    "address": "629 9th Ave, New York, NY 10036, USA",
-    "maps_link": "https://maps.google.com/?cid=3026387524370439623",
-    "reddit_quote": "Hell's Kitchen Recommendations- Local shops, coffe",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1662`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Hell's Kitchen"
-  },
-  {
     "name": "The Gate Worldwide",
     "rating": 4.5,
     "reviews": 2,
@@ -20266,18 +16882,6 @@
     "category": "Other",
     "borough": "Manhattan",
     "neighborhood": "Flatiron District"
-  },
-  {
-    "name": "Madame Sousou Cafe",
-    "rating": 4.5,
-    "reviews": 479,
-    "address": "31-05 33rd St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=17788717959858980199",
-    "reddit_quote": "What do you guys like to do in Queens when the wea",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1679`)",
-    "category": "Cafe",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
   },
   {
     "name": "Zhu Ji Dumpling House",
@@ -20304,18 +16908,6 @@
     "neighborhood": "Ditmas Park"
   },
   {
-    "name": "Sam's",
-    "rating": 4.5,
-    "reviews": 237,
-    "address": "238 Court St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=10141072521776073548",
-    "reddit_quote": "Brooklyn Neighborhood of the Week: Cobble Hill, Ca",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1688`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Cobble Hill"
-  },
-  {
     "name": "Otway Bakery",
     "rating": 4.5,
     "reviews": 224,
@@ -20326,18 +16918,6 @@
     "category": "Bakery",
     "borough": "Brooklyn",
     "neighborhood": "Clinton Hill"
-  },
-  {
-    "name": "Stocked Cafe + Burgers",
-    "rating": 4.5,
-    "reviews": 302,
-    "address": "663 Washington Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=17059449396600606293",
-    "reddit_quote": "What do people like to eat in Crown Heights for lu",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1701`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Heights"
   },
   {
     "name": "Nourish",
@@ -20436,18 +17016,6 @@
     "neighborhood": "Theater District"
   },
   {
-    "name": "Phil-Am Food Mart",
-    "rating": 4.5,
-    "reviews": 455,
-    "address": "40-03 70th St, Woodside, NY 11377, USA",
-    "maps_link": "https://maps.google.com/?cid=11539417234827846382",
-    "reddit_quote": "Suggestions for a 7 train ... snacks crawl?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1733`)",
-    "category": "Retail",
-    "borough": "Queens",
-    "neighborhood": "Woodside"
-  },
-  {
     "name": "Purple Dough",
     "rating": 4.5,
     "reviews": 363,
@@ -20508,30 +17076,6 @@
     "neighborhood": "Park Slope"
   },
   {
-    "name": "Veeray da Dhaba",
-    "rating": 4.5,
-    "reviews": 452,
-    "address": "222 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=4423391599723630686",
-    "reddit_quote": "Vegetarian food recs in East Village?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1794`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "The Onion Tree Pizza Co.",
-    "rating": 4.5,
-    "reviews": 394,
-    "address": "214 1st Ave, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=949288599170301735",
-    "reddit_quote": "Vegetarian food recs in East Village?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1794`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Eastern Parkway",
     "rating": 4.5,
     "reviews": 91,
@@ -20554,18 +17098,6 @@
     "category": "Restaurant",
     "borough": "Queens",
     "neighborhood": "Elmhurst"
-  },
-  {
-    "name": "Hardee Chinese & American Cusine",
-    "rating": 4.5,
-    "reviews": 56,
-    "address": "351 Myrtle Ave, Brooklyn, NY 11205, USA",
-    "maps_link": "https://maps.google.com/?cid=10547004378767252115",
-    "reddit_quote": "“Hardee” Chinese - Why this name?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1824`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Fort Greene"
   },
   {
     "name": "Hardee Chinese & American Cusine",
@@ -20604,18 +17136,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "Bagel Pub",
-    "rating": 4.5,
-    "reviews": 354,
-    "address": "418 6th Ave, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=11665270654365471496",
-    "reddit_quote": "Favorite spot in Brooklyn for bagel sandwiches",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1831`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "Le Fatima",
     "rating": 4.5,
     "reviews": 367,
@@ -20638,18 +17158,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "New Nurlan Uyghur restaurant",
-    "rating": 4.5,
-    "reviews": 255,
-    "address": "133-51 39th Ave, Flushing, NY 11354, USA",
-    "maps_link": "https://maps.google.com/?cid=1835924629812356059",
-    "reddit_quote": "requesting your weirdest restaurant recs",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1857`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Flushing"
   },
   {
     "name": "Pratt Institute",
@@ -20700,18 +17208,6 @@
     "neighborhood": "Williamsburg"
   },
   {
-    "name": "Time and Tide",
-    "rating": 4.5,
-    "reviews": 143,
-    "address": "48 E 26th St, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=3620563235990393354",
-    "reddit_quote": "I think NYC has the best food + options in general",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1892`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
-  },
-  {
     "name": "Patisserie Vanessa",
     "rating": 4.5,
     "reviews": 391,
@@ -20722,18 +17218,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "Fulgurances",
-    "rating": 4.5,
-    "reviews": 202,
-    "address": "132 Franklin St, Brooklyn, NY 11222, USA",
-    "maps_link": "https://maps.google.com/?cid=5686522001589747600",
-    "reddit_quote": "Looking for Leads/Advice: Long-Term Outdoor/Indoor",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1896`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Greenpoint"
   },
   {
     "name": "Gentlemen's Resale",
@@ -20794,30 +17278,6 @@
     "category": "Park",
     "borough": "Manhattan",
     "neighborhood": "Washington Heights"
-  },
-  {
-    "name": "Le Veau d'Or",
-    "rating": 4.5,
-    "reviews": 305,
-    "address": "129 E 60th St, New York, NY 10022, USA",
-    "maps_link": "https://maps.google.com/?cid=13651785613616331058",
-    "reddit_quote": "ISO: Dad and Daughter Birthday Dinner Idea",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1965`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "Lori Jayne",
-    "rating": 4.5,
-    "reviews": 291,
-    "address": "232 Knickerbocker Avenue, (INSIDE DANGERDANGER, 140 Wilson Ave, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=3205021484174058421",
-    "reddit_quote": "Any good Late night spots that are celiac friendly",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1972`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
   },
   {
     "name": "Cobblestones",
@@ -20964,18 +17424,6 @@
     "neighborhood": "Lower East Side"
   },
   {
-    "name": "Fulgurances",
-    "rating": 4.5,
-    "reviews": 202,
-    "address": "132 Franklin St, Brooklyn, NY 11222, USA",
-    "maps_link": "https://maps.google.com/?cid=5686522001589747600",
-    "reddit_quote": "Restaurant recommendations for romantic dinner in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2042`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Greenpoint"
-  },
-  {
     "name": "Metro Acres Market",
     "rating": 4.5,
     "reviews": 42,
@@ -20998,18 +17446,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Le Fournil",
-    "rating": 4.5,
-    "reviews": 475,
-    "address": "115 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=4360187484929987286",
-    "reddit_quote": "Visiting From TX",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2044`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Shifka NYC",
@@ -21070,30 +17506,6 @@
     "category": "Bakery",
     "borough": "Queens",
     "neighborhood": "Elmhurst"
-  },
-  {
-    "name": "Victory Sweet Shop/Victory Garden Cafe",
-    "rating": 4.5,
-    "reviews": 450,
-    "address": "21-69 Steinway St, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=5134776318379173873",
-    "reddit_quote": "Trying every restaurant in Astoria: 2025 update!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2091`)",
-    "category": "Bakery",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Ingas Bar",
-    "rating": 4.5,
-    "reviews": 274,
-    "address": "66 Hicks St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=17765494194383568293",
-    "reddit_quote": "Fun, unique bar/restaurant for 31st birthday party",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2108`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Brooklyn Heights"
   },
   {
     "name": "69 Leonard Street",
@@ -21180,18 +17592,6 @@
     "neighborhood": "Hackensack"
   },
   {
-    "name": "Zimmi's",
-    "rating": 4.5,
-    "reviews": 147,
-    "address": "72 Bedford St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=5201459524896833855",
-    "reddit_quote": "Single traveller in Greenwich Village",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2160`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "West Village"
-  },
-  {
     "name": "Justine's on Hudson",
     "rating": 4.5,
     "reviews": 104,
@@ -21252,30 +17652,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "OMG Shawarma",
-    "rating": 4.5,
-    "reviews": 336,
-    "address": "131 7th Ave S, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=4559202530030311778",
-    "reddit_quote": "Anywhere I can find Shawarma in NYC similar to the",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2185`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
-    "name": "Le Fournil",
-    "rating": 4.5,
-    "reviews": 475,
-    "address": "115 2nd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=4360187484929987286",
-    "reddit_quote": "Best Croissant in NYC",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2188`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Enoteca",
     "rating": 4.5,
     "reviews": 79,
@@ -21286,18 +17662,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Hell's Kitchen"
-  },
-  {
-    "name": "Bedford Galleries",
-    "rating": 4.5,
-    "reviews": 82,
-    "address": "1167 Bedford Ave, Brooklyn, NY 11216, USA",
-    "maps_link": "https://maps.google.com/?cid=1821911972663089561",
-    "reddit_quote": "Hi!! Any good furniture thrift stores in Brooklyn",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2217`)",
-    "category": "Retail",
-    "borough": "Brooklyn",
-    "neighborhood": "Bedford-Stuyvesant"
   },
   {
     "name": "Fish Bar",
@@ -21370,18 +17734,6 @@
     "category": "Bar",
     "borough": "Manhattan",
     "neighborhood": "NoMad"
-  },
-  {
-    "name": "Osamil Upstairs",
-    "rating": 4.5,
-    "reviews": 492,
-    "address": "5 W 31st St 2nd floor, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=6939966800525595498",
-    "reddit_quote": "Review & Rate: NYC 4 Nights Cocktail Bars Itinerar",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2268`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Koreatown"
   },
   {
     "name": "Chimi Luisa",
@@ -21552,18 +17904,6 @@
     "neighborhood": "Battery Park City"
   },
   {
-    "name": "Duals Natural Herbs & Teas",
-    "rating": 4.5,
-    "reviews": 194,
-    "address": "91 1st Ave Store Below, 91 1st Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=1753586600753900945",
-    "reddit_quote": "Best Indian Grocery Store",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2390`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Gothic Renaissance",
     "rating": 4.5,
     "reviews": 484,
@@ -21732,18 +18072,6 @@
     "neighborhood": "Astoria"
   },
   {
-    "name": "iKraveit Foods",
-    "rating": 4.4,
-    "reviews": 397,
-    "address": "34-02 30th St, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=16829495595933994726",
-    "reddit_quote": "Ghost Kitchens of Astoria: The Sequel (please list",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_16`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Mayamezcal",
     "rating": 4.4,
     "reviews": 465,
@@ -21862,18 +18190,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Fort Greene"
-  },
-  {
-    "name": "The 3 Luigis",
-    "rating": 4.4,
-    "reviews": 264,
-    "address": "275 Grand Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=6325621472342640030",
-    "reddit_quote": "Pizza Rec in BedStuy",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_60`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Clinton Hill"
   },
   {
     "name": "Beebe's at Boro Hotel",
@@ -22044,18 +18360,6 @@
     "neighborhood": "Bushwick"
   },
   {
-    "name": "ShapeShifter Lab",
-    "rating": 4.4,
-    "reviews": 176,
-    "address": "837 Union St, Brooklyn, NY 11215, USA",
-    "maps_link": "https://maps.google.com/?cid=1006425246423233603",
-    "reddit_quote": "Bars with free live music",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_181`)",
-    "category": "Entertainment",
-    "borough": "Brooklyn",
-    "neighborhood": "Park Slope"
-  },
-  {
     "name": "The Turk's Inn",
     "rating": 4.4,
     "reviews": 391,
@@ -22138,18 +18442,6 @@
     "category": "Other",
     "borough": "Bronx",
     "neighborhood": "Concourse"
-  },
-  {
-    "name": "Bánh Anh Em",
-    "rating": 4.4,
-    "reviews": 440,
-    "address": "99 3rd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=5340050237851437698",
-    "reddit_quote": "Asians, where can I find a proper bánh mì?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_421`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "One White Street",
@@ -22800,18 +19092,6 @@
     "neighborhood": "NoMad"
   },
   {
-    "name": "Vesuvio Bakery",
-    "rating": 4.4,
-    "reviews": 228,
-    "address": "160 Prince St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=5662665478971664499",
-    "reddit_quote": "Restaurant/Venue Recommendations for a holiday par",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_621`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "SoHo"
-  },
-  {
     "name": "The Leopard at des Artistes",
     "rating": 4.4,
     "reviews": 424,
@@ -22860,18 +19140,6 @@
     "neighborhood": "Greenpoint"
   },
   {
-    "name": "Roberta’s",
-    "rating": 4.4,
-    "reviews": 398,
-    "address": "One Penn Plaza, Plaza 33 East, New York, NY 10119, USA",
-    "maps_link": "https://maps.google.com/?cid=5908520870111761510",
-    "reddit_quote": "What would be \"essentials\" for vegetarian/vegan in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_651`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown West"
-  },
-  {
     "name": "CityStore",
     "rating": 4.4,
     "reviews": 95,
@@ -22906,18 +19174,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Downtown Brooklyn"
-  },
-  {
-    "name": "gertrude’s",
-    "rating": 4.4,
-    "reviews": 473,
-    "address": "605 Carlton Ave, Brooklyn, NY 11238, USA",
-    "maps_link": "https://maps.google.com/?cid=377457166188410850",
-    "reddit_quote": "Looking for a restaurant recommendation walking di",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_709`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Heights"
   },
   {
     "name": "No. 7 Restaurant",
@@ -22964,42 +19220,6 @@
     "reddit_quote": "local shops for Valentine’s Day gifts?",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_729`)",
     "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Bánh Mì Cô Út",
-    "rating": 4.4,
-    "reviews": 386,
-    "address": "83 Elizabeth St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=4805976662203488461",
-    "reddit_quote": "PSA that Saigon Vietnamese Sandwich Deli in little",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1554`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Chinatown"
-  },
-  {
-    "name": "One White Street",
-    "rating": 4.4,
-    "reviews": 401,
-    "address": "1 White St, New York, NY 10013, USA",
-    "maps_link": "https://maps.google.com/?cid=12136952659801835810",
-    "reddit_quote": "What are the best burgers in New York City?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_732`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Tribeca"
-  },
-  {
-    "name": "Virginia's",
-    "rating": 4.4,
-    "reviews": 425,
-    "address": "200 E 3rd St, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=11847287459718584309",
-    "reddit_quote": "Special Birthday Dinner Near the East Village",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1478`)",
-    "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "East Village"
   },
@@ -23316,18 +19536,6 @@
     "neighborhood": "East Village"
   },
   {
-    "name": "Dick and Jane’s",
-    "rating": 4.4,
-    "reviews": 316,
-    "address": "266 Adelphi St, Brooklyn, NY 11205, USA",
-    "maps_link": "https://maps.google.com/?cid=18298821877455417593",
-    "reddit_quote": "tourist questions :)",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_901`)",
-    "category": "Bar",
-    "borough": "Brooklyn",
-    "neighborhood": "Fort Greene"
-  },
-  {
     "name": "Uzuki",
     "rating": 4.4,
     "reviews": 315,
@@ -23350,18 +19558,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "East Village"
-  },
-  {
-    "name": "Vesuvio Bakery",
-    "rating": 4.4,
-    "reviews": 228,
-    "address": "160 Prince St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=5662665478971664499",
-    "reddit_quote": "'Sopranos' writers named character after NYC resta",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_933`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "SoHo"
   },
   {
     "name": "PJ Bernstein",
@@ -23408,18 +19604,6 @@
     "reddit_quote": "Broadway closures?",
     "reddit_thread": "r/Unknown (Thread ID: `recovered_1008`)",
     "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Red Gate Bakery",
-    "rating": 4.4,
-    "reviews": 266,
-    "address": "68 E 1st St, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=996604046046897173",
-    "reddit_quote": "Lets talk NYC Cookie Shops",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1018`)",
-    "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "East Village"
   },
@@ -23484,18 +19668,6 @@
     "neighborhood": "Midtown"
   },
   {
-    "name": "B-Side",
-    "rating": 4.4,
-    "reviews": 167,
-    "address": "131 Ave. C, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=11747986773487492677",
-    "reddit_quote": "Great Eats for a Picky Teen?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1058`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
     "name": "Rafiqi's food cart",
     "rating": 4.4,
     "reviews": 50,
@@ -23518,18 +19690,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "The Commerce Inn",
-    "rating": 4.4,
-    "reviews": 480,
-    "address": "50 Commerce St, New York, NY 10014, USA",
-    "maps_link": "https://maps.google.com/?cid=4814612455903147161",
-    "reddit_quote": "I need help narrowing down my list of restaurants!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1079`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "Sartiano's",
@@ -23614,18 +19774,6 @@
     "category": "Bar",
     "borough": "Westchester",
     "neighborhood": "Larchmont"
-  },
-  {
-    "name": "Funny Face Bakery",
-    "rating": 4.4,
-    "reviews": 335,
-    "address": "319 Lafayette St, New York, NY 10012, USA",
-    "maps_link": "https://maps.google.com/?cid=11964066608293453092",
-    "reddit_quote": "Itinerary review for 4-day birthday visit",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1155`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "NoHo"
   },
   {
     "name": "Cagen",
@@ -23724,18 +19872,6 @@
     "neighborhood": "Kips Bay"
   },
   {
-    "name": "Rebel",
-    "rating": 4.4,
-    "reviews": 432,
-    "address": "29 Clinton St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=7993701275177300820",
-    "reddit_quote": "Are there any good Caribbean spots in Manhattan?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1239`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
     "name": "Cho-Ko",
     "rating": 4.4,
     "reviews": 212,
@@ -23784,42 +19920,6 @@
     "neighborhood": "Woodside"
   },
   {
-    "name": "B-Side",
-    "rating": 4.4,
-    "reviews": 167,
-    "address": "131 Ave. C, New York, NY 10009, USA",
-    "maps_link": "https://maps.google.com/?cid=11747986773487492677",
-    "reddit_quote": "Where can I buy unique stickers?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1258`)",
-    "category": "Bar",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Dionysos Restaurant",
-    "rating": 4.4,
-    "reviews": 240,
-    "address": "23-15 31st St, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=16259966398488445004",
-    "reddit_quote": "Looking for Cypriot (Cyprus) food anywhere in NYC.",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1260`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Botte Bar",
-    "rating": 4.4,
-    "reviews": 423,
-    "address": "25-07 Broadway, Astoria, NY 11106, USA",
-    "maps_link": "https://maps.google.com/?cid=15290886812804514652",
-    "reddit_quote": "Date/anniversary spot with vegetarian options?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1274`)",
-    "category": "Bar",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
     "name": "Borgo",
     "rating": 4.4,
     "reviews": 270,
@@ -23830,30 +19930,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Kips Bay"
-  },
-  {
-    "name": "Bánh Anh Em",
-    "rating": 4.4,
-    "reviews": 440,
-    "address": "99 3rd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=5340050237851437698",
-    "reddit_quote": "Recommend me a restaurant!",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1290`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
-  },
-  {
-    "name": "Bánh Anh Em",
-    "rating": 4.4,
-    "reviews": 440,
-    "address": "99 3rd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=5340050237851437698",
-    "reddit_quote": "UPDATE to my List of the Best New York Restaurant",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1296`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Wu Lou Lounge",
@@ -23914,18 +19990,6 @@
     "category": "Bar",
     "borough": "Queens",
     "neighborhood": "Ridgewood"
-  },
-  {
-    "name": "Regina's Grocery",
-    "rating": 4.4,
-    "reviews": 250,
-    "address": "27 Orchard St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15808602573837996239",
-    "reddit_quote": "🌈🍪🚨 RAINBOW COOKIE PROJECT UPDATE: QUEENS IS COMPL",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1341`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
   },
   {
     "name": "Lily Bloom Bakery",
@@ -24024,30 +20088,6 @@
     "neighborhood": "Elmhurst"
   },
   {
-    "name": "Regina's Grocery",
-    "rating": 4.4,
-    "reviews": 250,
-    "address": "27 Orchard St, New York, NY 10002, USA",
-    "maps_link": "https://maps.google.com/?cid=15808602573837996239",
-    "reddit_quote": "3.5 days in NYC food options! please critique my l",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1428`)",
-    "category": "Retail",
-    "borough": "Manhattan",
-    "neighborhood": "Lower East Side"
-  },
-  {
-    "name": "Koloman",
-    "rating": 4.4,
-    "reviews": 448,
-    "address": "16 W 29th St, New York, NY 10001, USA",
-    "maps_link": "https://maps.google.com/?cid=8079543871912489920",
-    "reddit_quote": "Looking for classy yet affordable sit-down restaur",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1450`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "NoMad"
-  },
-  {
     "name": "Highbury Pub",
     "rating": 4.4,
     "reviews": 281,
@@ -24072,18 +20112,6 @@
     "neighborhood": "Bedford-Stuyvesant"
   },
   {
-    "name": "Wa Jeal",
-    "rating": 4.4,
-    "reviews": 304,
-    "address": "1588 2nd Ave, New York, NY 10028, USA",
-    "maps_link": "https://maps.google.com/?cid=10723330794062594397",
-    "reddit_quote": "Is there any good General Tso's chicken in NYC?",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1472`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper East Side"
-  },
-  {
     "name": "Long Spring Garden",
     "rating": 4.4,
     "reviews": 122,
@@ -24106,18 +20134,6 @@
     "category": "Bakery",
     "borough": "Manhattan",
     "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "Le Jardinier",
-    "rating": 4.4,
-    "reviews": 443,
-    "address": "610 Lexington Ave, New York, NY 10022, USA",
-    "maps_link": "https://maps.google.com/?cid=9883945552681980276",
-    "reddit_quote": "Recommend a restaurant with great food/decor, ente",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1492`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown East"
   },
   {
     "name": "Senso Unico",
@@ -24204,18 +20220,6 @@
     "neighborhood": "Fort Greene"
   },
   {
-    "name": "Cecchi's",
-    "rating": 4.4,
-    "reviews": 325,
-    "address": "105 W 13th St, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=13318040934412849731",
-    "reddit_quote": "Romantic NYC dinner recommendations that aren’t “f",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1608`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
-  },
-  {
     "name": "8th Avenue Chinatown, Brooklyn, NY",
     "rating": 4.4,
     "reviews": 73,
@@ -24262,18 +20266,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Hell's Kitchen"
-  },
-  {
-    "name": "The Leopard at des Artistes",
-    "rating": 4.4,
-    "reviews": 424,
-    "address": "1 W 67th St, New York, NY 10023, USA",
-    "maps_link": "https://maps.google.com/?cid=10449521697913936820",
-    "reddit_quote": "Help? Need an UWS restaurant that can feed a pesca",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1659`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
   },
   {
     "name": "10th Avenue",
@@ -24324,18 +20316,6 @@
     "neighborhood": "Greenwich Village"
   },
   {
-    "name": "Joe and Sal's Pizzeria (Fort Greene)",
-    "rating": 4.4,
-    "reviews": 285,
-    "address": "353 Myrtle Ave, Brooklyn, NY 11205, USA",
-    "maps_link": "https://maps.google.com/?cid=2187177268066552793",
-    "reddit_quote": "Best pizza in Bed Stuy, Clinton Hill, Crown Height",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1699`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Fort Greene"
-  },
-  {
     "name": "Crown Heights Pizza",
     "rating": 4.4,
     "reviews": 396,
@@ -24346,18 +20326,6 @@
     "category": "Restaurant",
     "borough": "Brooklyn",
     "neighborhood": "Crown Heights"
-  },
-  {
-    "name": "Bánh Anh Em",
-    "rating": 4.4,
-    "reviews": 440,
-    "address": "99 3rd Ave, New York, NY 10003, USA",
-    "maps_link": "https://maps.google.com/?cid=5340050237851437698",
-    "reddit_quote": "What do people like to eat in Crown Heights for lu",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1701`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "East Village"
   },
   {
     "name": "Nostrand Coffee Roaster",
@@ -24636,18 +20604,6 @@
     "neighborhood": "West Village"
   },
   {
-    "name": "Ferrane Bakery",
-    "rating": 4.4,
-    "reviews": 171,
-    "address": "57 Clark St, Brooklyn, NY 11201, USA",
-    "maps_link": "https://maps.google.com/?cid=14023474985650049564",
-    "reddit_quote": "Planning a full-day European-style dining itinerar",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_1893`)",
-    "category": "Bakery",
-    "borough": "Brooklyn",
-    "neighborhood": "Brooklyn Heights"
-  },
-  {
     "name": "Dominie's Hoek",
     "rating": 4.4,
     "reviews": 349,
@@ -24792,18 +20748,6 @@
     "neighborhood": "Dumbo"
   },
   {
-    "name": "The Turk's Inn",
-    "rating": 4.4,
-    "reviews": 391,
-    "address": "234 Starr St, Brooklyn, NY 11237, USA",
-    "maps_link": "https://maps.google.com/?cid=17834622891816779831",
-    "reddit_quote": "authentic, historic, kitschy restaurants & bars in",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2014`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Bushwick"
-  },
-  {
     "name": "Zio Toto",
     "rating": 4.4,
     "reviews": 315,
@@ -24862,18 +20806,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Financial District"
-  },
-  {
-    "name": "HasenStüble",
-    "rating": 4.4,
-    "reviews": 235,
-    "address": "1184 Nostrand Ave, Brooklyn, NY 11225, USA",
-    "maps_link": "https://maps.google.com/?cid=8951760520323487035",
-    "reddit_quote": "Book or craft clubs near Prospect Park",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2076`)",
-    "category": "Restaurant",
-    "borough": "Brooklyn",
-    "neighborhood": "Prospect Lefferts Gardens"
   },
   {
     "name": "Mast Books",
@@ -24970,42 +20902,6 @@
     "category": "Restaurant",
     "borough": "Manhattan",
     "neighborhood": "Upper East Side"
-  },
-  {
-    "name": "Le Jardinier",
-    "rating": 4.4,
-    "reviews": 443,
-    "address": "610 Lexington Ave, New York, NY 10022, USA",
-    "maps_link": "https://maps.google.com/?cid=9883945552681980276",
-    "reddit_quote": "Restaurants focusing on local produce / Le Bernard",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2120`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown East"
-  },
-  {
-    "name": "Roberta’s",
-    "rating": 4.4,
-    "reviews": 398,
-    "address": "One Penn Plaza, Plaza 33 East, New York, NY 10119, USA",
-    "maps_link": "https://maps.google.com/?cid=5908520870111761510",
-    "reddit_quote": "research notes re: trip to Manhattan from Boston n",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2127`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Midtown West"
-  },
-  {
-    "name": "Cecchi's",
-    "rating": 4.4,
-    "reviews": 325,
-    "address": "105 W 13th St, New York, NY 10011, USA",
-    "maps_link": "https://maps.google.com/?cid=13318040934412849731",
-    "reddit_quote": "Upscale but still fun & vibey restaurant in Midtow",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2140`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Greenwich Village"
   },
   {
     "name": "La Villetta",
@@ -25164,18 +21060,6 @@
     "neighborhood": "Midtown East"
   },
   {
-    "name": "BROOKLYN PERK Coffee",
-    "rating": 4.4,
-    "reviews": 108,
-    "address": "206 Parkside Ave, Brooklyn, NY 11226, USA",
-    "maps_link": "https://maps.google.com/?cid=15705586685902429956",
-    "reddit_quote": "URGENT: First Ever Flatbush Comedy Festival in 10",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2328`)",
-    "category": "Cafe",
-    "borough": "Brooklyn",
-    "neighborhood": "Flatbush"
-  },
-  {
     "name": "So & So's Neighborhood Piano Bar",
     "rating": 4.4,
     "reviews": 173,
@@ -25188,42 +21072,6 @@
     "neighborhood": "Hell's Kitchen"
   },
   {
-    "name": "Joe's Steam Rice Roll",
-    "rating": 4.4,
-    "reviews": 390,
-    "address": "422 Amsterdam Ave, New York, NY 10024, USA",
-    "maps_link": "https://maps.google.com/?cid=18346918313103979545",
-    "reddit_quote": "Rate my choices",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2351`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
-  },
-  {
-    "name": "Acento Latin Kitchen & Bar",
-    "rating": 4.4,
-    "reviews": 386,
-    "address": "33-06 Ditmars Blvd, Astoria, NY 11105, USA",
-    "maps_link": "https://maps.google.com/?cid=15899925810987241980",
-    "reddit_quote": "Anyone found a replacement for Stop Deli/Mi Esquin",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2375`)",
-    "category": "Restaurant",
-    "borough": "Queens",
-    "neighborhood": "Astoria"
-  },
-  {
-    "name": "Joe's Steam Rice Roll",
-    "rating": 4.4,
-    "reviews": 390,
-    "address": "422 Amsterdam Ave, New York, NY 10024, USA",
-    "maps_link": "https://maps.google.com/?cid=18346918313103979545",
-    "reddit_quote": "Family Itinerary 8 Day Trip",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2379`)",
-    "category": "Restaurant",
-    "borough": "Manhattan",
-    "neighborhood": "Upper West Side"
-  },
-  {
     "name": "Tan Tin Hung Supermarket",
     "rating": 4.4,
     "reviews": 268,
@@ -25234,18 +21082,6 @@
     "category": "Retail",
     "borough": "Manhattan",
     "neighborhood": "Chinatown"
-  },
-  {
-    "name": "Somedays Bakery - Flatiron",
-    "rating": 4.4,
-    "reviews": 124,
-    "address": "297 Park Ave S, New York, NY 10010, USA",
-    "maps_link": "https://maps.google.com/?cid=16345096806074643862",
-    "reddit_quote": "“The Best Croissants in New York City (Gift Articl",
-    "reddit_thread": "r/Unknown (Thread ID: `recovered_2418`)",
-    "category": "Bakery",
-    "borough": "Manhattan",
-    "neighborhood": "Flatiron District"
   },
   {
     "name": "Chen Mommy Kitchen",
