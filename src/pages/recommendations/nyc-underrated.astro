@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UnderratedPlacesList from '../../components/UnderratedPlacesList.astro';
+---
+
+<Layout title="NYC Underrated Places | Recommendations | Jack Maguire" description="A rigorously filtered list of NYC's hidden gems, sourced from thousands of Reddit threads.">
+  <main class="page-container">
+    <header class="page-header">
+      <h1>NYC Underrated Places</h1>
+      <p class="intro">
+        This database was synthesized by scanning over 3,300 local NYC Reddit threads for discussions on hidden gems, neighborhood staples, and off-the-radar establishments. To ensure these places haven't succumbed to TikTok or Instagram saturation, the dataset was strictly gated against the Google Places API. Only locations maintaining a rating of 4.5 or higher with fewer than 500 reviews were preserved. The result is a consolidated directory of genuinely underrated venues.
+      </p>
+    </header>
+
+    <UnderratedPlacesList />
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    letter-spacing: -0.02em;
+  }
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    max-width: 800px;
+    margin: 0;
+  }
+</style>
