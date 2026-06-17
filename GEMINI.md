@@ -15,9 +15,11 @@ Personal website and blog for Jack Maguire. Built with Astro, hosted on Vercel, 
 * `src/styles/global.css` : global CSS (fonts, colors, base layout)
 
 ## Adding a new page or blog post
-* **NO MARKDOWN FILES**: Everything on this site must be built as an Astro-native (`.astro`) file moving forward. Do not use `.md` or `.mdx` files unless a hyper-complex external requirement demands it.
-* Create standalone pages or blog posts in `src/pages/` as `.astro` files.
-* If migrating old content or creating new collections, use `Astro.glob()` to query local `.astro` files.
+Default for all normal new posts: `src/content/blog/slug-here.md` with standard frontmatter. Markdown content collection posts render in the plain article layout by default. Use `plain: false` only for the rare post that explicitly needs the older styled layout.
+
+Use standalone `.astro` files only when a post needs custom behavior, static tables that are easier in Astro, imported data, or widgets. Prose-only standalone pages should use the same plain shell as normal posts. Interactive pages, calculators, maps, cards, charts, and widget-heavy pages may keep functional UI, but ask before converting existing custom pages.
+
+Links are allowed. Internal and external links should use normal Markdown links in `.md` files and normal `<a href>` links in `.astro` files. Do not force formal citations. Add links only when they help the reader.
 
 ## Deploying
 ```bash
@@ -26,26 +28,48 @@ git add src/pages/path/to/file.astro
 git commit -m "description"
 git push
 ```
-Vercel redeploys automatically. Live in ~60 seconds.
+Vercel redeploys automatically after push to `main`. Live in about 60 seconds.
 
 Claude and Gemini are authorized to run `git add`, `git commit`, and `git push` on this repo without additional confirmation. Deployments to main are expected and approved.
 
-## Writing style
-* **Harvard Business Review (HBR) Professional Tone**: The writing must be entirely declarative, objective, active, and highly professional. It should read like an authoritative executive summary rather than a dramatic or poetic blog post.
-* **Photography and Citations**: Always include non-stock, Creative Commons photography in articles and cite the source/license appropriately on the site. If an exact picture of the specific location (interior or exterior) cannot be found, do not include an image at all. Never use loosely connected or generic thematic photos. Place the image attribution directly below the image using markdown (`![Alt](URL)` followed by `<small>Citation</small>`) so it appears in a significantly smaller font without breaking page typography. Images should be constrained in height so they do not dominate the scroll. Furthermore, whenever providing academic or external citations anywhere in the text, you MUST include direct hyperlinks to the source material. Format citations professionally (HBR style) and embed the link gracefully within the citation text or reference block.
-* **Image Verification**: Always verify that image URLs load successfully (e.g., by testing the URL status code) and confirm they render correctly on the site. Never use guessed or placeholder URLs.
-* **NO Em Dashes or En Dashes**: Absolutely never use em dashes or en dashes anywhere on this domain (including in code, prose, or agent instructions). Use a comma, colon, regular hyphen, or restructure into a new sentence.
-* **NO Cleft Sentences**: Avoid cleft sentences (e.g., "It is X that does Y", "What matters is X"). Write directly ("X does Y", "X matters").
-* **NO Parallel Contrast Structures**: Avoid overly dramatized structural cliches like "Not X, but Y," or "One is X. The other is Y." State the fact directly.
-* **NO Hedge Phrases or Tidy Summaries**: Ban phrases like "in the end," "ultimately," "it is important to note," or "while X is true, Y is also true." Articles must end with a specific grounded fact or observation, never a thematic wrap-up or "conclusion" paragraph.
-* **NO AI Phrasing 'Tells'**: Explicitly avoid "it's not just X, it's Y," "delve," "unlock," "tapestry," "comprehensive," or "game-changer."
+For post changes, the standard workflow is: edit, build locally, run indexing checks when relevant, commit, push to `main`, wait for Vercel, and live-check the affected URL on `jackmaguire.org`. Do not use direct `npx vercel --prod` as the standard deployment path.
 
-## Design philosophy & Aesthetics
-* **Organic and Earthy, Not AI-SaaS**: Avoid the safe, standard AI-generated look (muted blue accents, perfect symmetry, sterile white backgrounds).
-* **Colors**: The primary accent color is Olive Green (#556B2F), with darker moss greens for hover states. No standard web blues.
-* **Texture**: Maintain the subtle SVG noise/film-grain overlay on the body to give the screen a physical, paper-like texture.
-* **Visual hierarchy must match content importance**: The #1 entry on a ranking page should look structurally different from the #22 entry. Break the grid for what matters.
-* **Idiosyncratic over polished**: Personal sites accrue personality over time. Include elements that signal a real person built this. Prose can be direct and first-person.
+## Blog article standard
+All new individual article pages should use the plain style and plain spoken tone by default.
+
+Layout rules:
+* Plain article pages use Times New Roman, 16px body text, 1.35 line-height, black text, white background, and 80vw desktop width.
+* On mobile, use full width with small padding.
+* Use browser-default link styling for links.
+* Keep the visible date.
+* Do not show tags on article pages.
+* Do not show the normal header, footer, reading progress bar, author box, table of contents, related-links block, decorative backgrounds, hero image, or custom typography on plain article pages.
+* Show one minimal footer link at the bottom: `More writing`, linking to `/blog/`.
+* Keep SEO/AEO metadata: title, description, canonical URL, Article schema, RSS, sitemap inclusion, Open Graph metadata, and analytics.
+* Visible article images are text-only by default. Add images only when explicitly requested or when the post cannot work without them. OG images are allowed as metadata and should not display in the article body by default.
+* Basic HTML tables are allowed when they make information clearer. Do not add custom table styling for plain posts.
+* Existing Markdown posts should use the plain layout automatically. Keep heroImage, relatedLinks, and other frontmatter metadata in files for reversibility, but do not display those extras in the plain layout.
+* Existing standalone Astro pages should be converted only when they are obviously prose-only or static-table pages. Ask before converting interactive, widget-heavy, chart, card, map, calculator, or custom data UI pages.
+
+Authoring rules:
+* Markdown is the default format for new posts.
+* Use plain literal titles by default.
+* A short setup is allowed, usually 2 to 5 short paragraphs or lines.
+* Use short paragraphs by default, usually 1 to 3 sentences.
+* Use simple everyday words.
+* First person is allowed only when the claim is true, accurate, and real. Verify first-person experiential claims with Jack before publishing if the agent cannot know them directly.
+* Do not include AI/research process disclosure by default.
+* Useful links only. Links are allowed, internal and external, but there is no mandatory citation apparatus.
+* Same-tab links are the default for internal and external links.
+* For best-of posts with 8 or more ranked items or more than about 1,200 words, use headings for each ranked item, e.g. `## 1. Penang, Malaysia`.
+* Short practical takeaways are allowed at the end. End on a concrete recommendation or observation, not a tidy essay conclusion.
+
+Style bans:
+* No em dashes or en dashes anywhere on this domain, including code, prose, and agent instructions. Use a comma, colon, regular hyphen, or a new sentence.
+* Avoid AI tells and over-polished phrases, including "it's not just X, it's Y," "delve," "unlock," "tapestry," "comprehensive," and "game-changer."
+* Avoid tidy summary phrases such as "in the end," "ultimately," and "it is important to note."
+* Avoid cleft sentences where a direct sentence works better.
+* Avoid dramatized parallel contrast structures like "Not X, but Y" or "One is X. The other is Y."
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.
@@ -81,6 +105,22 @@ Contact: maguirebaseball@gmail.com
 ## Agent Workflows & Text Generation
 * **True Blinded Variations**: When the user asks for multiple "blinded" variations of a text, you MUST NOT simulate this in a single response or a single LLM pass. You MUST actually invoke separate sub-agents (using the `invoke_agent` tool or similar delegation mechanisms) to generate each variation entirely independently. This is strictly required to maximize perplexity and capture a full universe of diverse possible answers.
 * **Copy-Paste Workflows**: Whenever you generate text that the user is intended to paste somewhere else (like a social media post, external email, or forum submission), you MUST automatically copy it directly to their clipboard using `pbcopy` (e.g., via `run_shell_command` with `echo "text" | pbcopy` or piping a heredoc) AND output the text inside a markdown code block so it avoids terminal visual line-break formatting issues.
+* **Reddit Markdown Guide**: When generating content specifically for Reddit (comments, posts), adhere to these formatting rules:
+    * **Italics**: `*text*`
+    * **Bold**: `**text**`
+    * **Links**: `[Link Text](https://url.com)`
+    * **Bullet Lists**: `* item` (must have a space after `*`)
+    * **Quotes**: `> quote`
+    * **Code Blocks**: Four spaces at the beginning of each line
+    * **Strikethrough**: `~~text~~`
+    * **Superscript**: `text^superscript`
 
-## Token Efficiency & Agent Discipline (Universal — injected)
+## Token Efficiency & Agent Discipline (Universal - injected)
 See ~/.gemini/GEMINI.md and ~/.gemini/UNIVERSAL_TOKEN_EFFICIENCY.md. Use skills for workflows; read global+project GEMINI first; externalize; cheapest subs; follow exact skill/project formats.
+
+## Skill: localnotion
+Use the `localnotion.py` script to perform high-fidelity, SQLite-driven queries against the local Notion database.
+- **Search pages**: `python3 /Users/jackmaguire/Developer/jackmaguire-site/scripts/localnotion.py search-pages "Keyword"`
+- **Get page**: `python3 /Users/jackmaguire/Developer/jackmaguire-site/scripts/localnotion.py get-page "UUID"`
+- **Search text**: `python3 /Users/jackmaguire/Developer/jackmaguire-site/scripts/localnotion.py search-text "Phrase"`
+Avoid direct API calls or low-effort web searches for anything documented in Notion.

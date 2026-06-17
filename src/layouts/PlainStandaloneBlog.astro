@@ -1,0 +1,132 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+type Props = {
+	title: string;
+	description: string;
+	pubDate: string;
+	datePublished?: string;
+};
+
+const { title, description, pubDate, datePublished } = Astro.props;
+const published = datePublished ?? pubDate;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Article",
+			"headline": title,
+			"description": description,
+			"url": Astro.url.href,
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": Astro.url.href
+			},
+			"image": new URL('/og-default.png', Astro.site).toString(),
+			"author": {
+				"@type": "Person",
+				"name": "Jack Maguire",
+				"url": Astro.site?.toString()
+			},
+			"publisher": {
+				"@type": "Person",
+				"name": "Jack Maguire",
+				"url": Astro.site?.toString()
+			},
+			"datePublished": published,
+			"dateModified": published
+		})} />
+		<style>
+			body {
+				background: #fff;
+				color: #000;
+				font-family: "Times New Roman", Times, serif;
+				font-size: 16px;
+				line-height: 1.35;
+				margin: 0;
+				padding: 0;
+			}
+			main,
+			.plain-footer {
+				width: 80vw;
+				margin: 0 auto;
+			}
+			main {
+				padding: 1rem 0 3rem;
+			}
+			.plain-footer {
+				padding: 0 0 1rem;
+			}
+			h1 {
+				font-family: "Times New Roman", Times, serif;
+				font-size: 32px;
+				font-weight: 400;
+				line-height: 1.1;
+				margin: 0 0 0.5rem;
+			}
+			h2 {
+				font-size: 20px;
+				font-weight: 400;
+				margin: 1.25rem 0 0.5rem;
+			}
+			h3 {
+				font-size: 18px;
+				font-weight: 400;
+				margin: 1rem 0 0.5rem;
+			}
+			p,
+			ul,
+			ol,
+			blockquote,
+			table {
+				margin: 0 0 1rem;
+			}
+			li {
+				margin: 0 0 0.75rem;
+			}
+			table {
+				border-collapse: separate;
+				border-spacing: 2px;
+			}
+			th,
+			td {
+				padding: 1px;
+			}
+			.date {
+				margin: 0 0 0.75rem;
+			}
+			.title {
+				margin: 0 0 1rem;
+			}
+			a {
+				color: revert;
+				text-decoration: revert;
+			}
+			@media (max-width: 600px) {
+				main,
+				.plain-footer {
+					width: auto;
+					margin-left: 0;
+					margin-right: 0;
+					padding-left: 0.75rem;
+					padding-right: 0.75rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="title">
+				<p class="date">{pubDate}</p>
+				<h1>{title}</h1>
+			</div>
+			<slot />
+		</main>
+		<footer class="plain-footer">
+			<a href="/blog/">More writing</a>
+		</footer>
+	</body>
+</html>

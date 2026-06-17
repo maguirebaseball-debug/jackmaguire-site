@@ -13,6 +13,7 @@ const blog = defineCollection({
 			heroImage: z.optional(image()),
 			ogImage: z.string().optional(),
 			tags: z.array(z.string()).optional(),
+			plain: z.boolean().optional(),
 			relatedLinks: z
 				.array(
 					z.object({

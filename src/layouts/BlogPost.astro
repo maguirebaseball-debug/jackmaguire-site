@@ -10,7 +10,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks, plain = true } = Astro.props;
 const defaultRelatedRecommendationLinks = [
 	...(tags.includes('nyc') || tags.includes('food')
 		? [
@@ -165,16 +165,97 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				color: rgba(var(--gray-dark), 0.6);
 				text-underline-offset: 0.15em;
 			}
+			.plain-blog {
+				background: #fff;
+				color: #000;
+				font-family: "Times New Roman", Times, serif;
+			}
+			.plain-blog main {
+				width: 80vw;
+				margin: 0 auto;
+				padding: 1rem 0 3rem;
+			}
+			.plain-blog .article-container {
+				display: block;
+				max-width: none;
+				width: 100%;
+				margin: 0;
+			}
+			.plain-blog .prose {
+				width: 100%;
+				max-width: none;
+				padding: 0;
+				color: #000;
+				font-family: "Times New Roman", Times, serif;
+				font-size: 16px;
+				line-height: 1.35;
+			}
+			.plain-blog .title {
+				max-width: none;
+				margin: 0 0 1rem;
+				padding: 0;
+			}
+			.plain-blog .title h1 {
+				font-family: "Times New Roman", Times, serif;
+				font-size: 32px;
+				font-weight: 400;
+				line-height: 1.1;
+				margin: 0 0 0.5rem;
+			}
+			.plain-blog .date {
+				color: #000;
+				font-family: "Times New Roman", Times, serif;
+				font-size: 16px;
+				font-weight: 400;
+				margin-bottom: 0.75rem;
+			}
+			.plain-blog .prose :global(h2) {
+				font-size: 20px;
+				font-weight: 400;
+				margin: 1.25rem 0 0.5rem;
+			}
+			.plain-blog .prose :global(p),
+			.plain-blog .prose :global(ol),
+			.plain-blog .prose :global(ul) {
+				margin: 0 0 1rem;
+			}
+			.plain-blog .prose :global(li) {
+				margin: 0 0 0.75rem;
+			}
+			.plain-blog .prose :global(a),
+			.plain-blog .plain-footer a {
+				color: revert;
+				text-decoration: revert;
+				text-underline-offset: auto;
+			}
+			.plain-blog .plain-footer {
+				width: 80vw;
+				margin: 2rem auto 0;
+				padding: 0 0 1rem;
+				font-family: "Times New Roman", Times, serif;
+				font-size: 16px;
+				line-height: 1.35;
+			}
+			@media (max-width: 600px) {
+				.plain-blog main,
+				.plain-blog .plain-footer {
+					width: auto;
+					margin-left: 0;
+					margin-right: 0;
+					padding-left: 0.75rem;
+					padding-right: 0.75rem;
+				}
+			}
 		</style>
 	</head>
 
-	<body>
-		<ReadingProgressBar />
-		<Header />
+	<body class:list={[plain && 'plain-blog']}>
+		{!plain && <ReadingProgressBar />}
+		{!plain && <Header />}
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{!plain && heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
 				<div class="article-container">
 					<div class="prose">
@@ -191,12 +272,14 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 							</div>
 							<h1>{title}</h1>
 						</div>
+						{!plain && (
 							<div style="background: #f5f5f5; border-left: 4px solid #556B2F; padding: 1.25rem; margin: 2rem 0; font-size: 0.95rem; line-height: 1.6;">
 								<p style="margin: 0 0 0.5rem 0;"><strong>Jack Maguire</strong> is a writer and analyst based in East Village, NYC. He covers food, travel, AI, and sports with an emphasis on research and firsthand perspective. <a href="/about/" style="color: #556B2F;">Read more</a></p>
 							</div>
+						)}
 						<slot />
 						{
-							relatedRecommendationLinks.length > 0 && (
+							!plain && relatedRecommendationLinks.length > 0 && (
 								<>
 									<hr />
 									<p>Further reading:</p>
@@ -212,10 +295,15 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 							)
 						}
 					</div>
-					<TableOfContents />
+					{!plain && <TableOfContents />}
 				</div>
 			</article>
 		</main>
-		<Footer />
+		{plain && (
+			<footer class="plain-footer">
+				<a href="/blog/">More writing</a>
+			</footer>
+		)}
+		{!plain && <Footer />}
 	</body>
 </html>

@@ -1,9 +1,5 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
-import TableOfContents from '../../components/TableOfContents.astro';
 
 const title = "Three AI Coding Agents Deleted Production Databases in 16 Months";
 const description = "Three documented incidents at Replit, Amazon Kiro, and PocketOS each shared one missing infrastructure control: no approval gate before destructive database operations ran.";
@@ -190,17 +186,135 @@ const pubDate = "Jun 1, 2026";
     .related-reading a:hover {
       color: var(--accent-dark);
     }
+    body {
+      background: #fff;
+      color: #000;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    main {
+      width: 80vw;
+      max-width: none;
+      margin: 0 auto;
+      padding: 1rem 0 3rem;
+    }
+    .article-container,
+    .wrap {
+      display: block;
+      max-width: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .article-header {
+      padding: 0;
+      border-bottom: 0;
+      margin: 0 0 1rem;
+    }
+    .article-header .meta,
+    .article-header .read-time,
+    .article-header h1,
+    .article-header .intro,
+    .prose,
+    .prose h2,
+    .prose h3,
+    .prose p,
+    .prose li,
+    .callout-box,
+    .callout-box .callout-label,
+    .callout-box li {
+      color: #000;
+      font-family: "Times New Roman", Times, serif;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .article-header .meta,
+    .article-header .intro {
+      font-size: 16px;
+      line-height: 1.35;
+      margin: 0 0 0.75rem;
+    }
+    .article-header h1 {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 0.5rem;
+    }
+    .prose {
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .prose p,
+    .prose ul,
+    .prose ol,
+    .prose blockquote {
+      margin: 0 0 1rem;
+    }
+    .prose h2 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 1.25rem 0 0.5rem;
+    }
+    .prose h3 {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 1rem 0 0.5rem;
+    }
+    .prose li {
+      margin: 0 0 0.75rem;
+      line-height: 1.35;
+    }
+    .prose a,
+    .plain-footer a {
+      color: revert;
+      text-decoration: revert;
+      text-underline-offset: auto;
+    }
+    .callout-box {
+      background: transparent;
+      border-left: 0;
+      border-radius: 0;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+    .callout-box .callout-label {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0 0 1rem;
+    }
+    .related-reading {
+      display: none;
+    }
+    .plain-footer {
+      width: 80vw;
+      margin: 2rem auto 0;
+      padding: 0 0 1rem;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    @media (max-width: 600px) {
+      main,
+      .plain-footer {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <ReadingProgressBar />
-  <Header />
   <main>
     <div class="article-container">
       <div class="wrap">
 
         <header class="article-header">
-          <p class="meta">{pubDate} &nbsp;|&nbsp; Tech &amp; AI &nbsp;|&nbsp; <span class="read-time">8 min read</span></p>
+          <p class="meta">{pubDate}</p>
           <h1>Three AI Coding Agents Deleted Production Databases in 16 Months. One Control Was Missing Each Time.</h1>
           <p class="intro">Three documented incidents at Replit, Amazon Kiro, and PocketOS share one missing infrastructure control: no technical enforcement layer between an agent's destructive database operation and its execution.</p>
         </header>
@@ -340,20 +454,11 @@ const pubDate = "Jun 1, 2026";
 
         </article>
 
-        <section class="related-reading" aria-labelledby="related-reading-label">
-          <h2 id="related-reading-label">Elsewhere on this site</h2>
-          <ul>
-            <li><a href="/blog/ai-job-grief/">AI Job Grief: the psychological weight of AI displacement</a></li>
-            <li><a href="/blog/how-i-use-ai-to-solve-everyday-problems/">How I use AI tools day-to-day</a></li>
-            <li><a href="/recommendations/apps/">Recommended apps</a></li>
-            <li><a href="/about/">About this site and the person behind it</a></li>
-          </ul>
-        </section>
-
       </div>
-      <TableOfContents />
     </div>
   </main>
-  <Footer />
+  <footer class="plain-footer">
+    <a href="/blog/">More writing</a>
+  </footer>
 </body>
 </html>
