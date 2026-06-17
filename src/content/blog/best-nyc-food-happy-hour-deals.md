@@ -11,7 +11,7 @@ Prices and happy hours change. Check the restaurant before you go, especially fo
 
 ## The Best Overall Deals
 
-### 1. Cozy Royale, West Village
+## 1. Cozy Royale, West Village
 
 The deal: $25 Monday steak frites, $10 smash burger with fries, and a $10 gin martini.
 
@@ -21,7 +21,7 @@ Go early. One Reddit user said they arrived about 10 minutes after opening and n
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1n056zh/shoutout_whoever_recommended_cozy_royales_25/) and [Instagram confirmation](https://www.instagram.com/p/DH4MWfPS5ft/)
 
-### 2. Mermaid Inn or Mermaid Oyster Bar, Greenwich Village
+## 2. Mermaid Inn or Mermaid Oyster Bar, Greenwich Village
 
 The deal: $1.50 oysters at happy hour, plus a real happy hour food menu.
 
@@ -29,7 +29,7 @@ This is the most repeatedly praised happy hour food spot in the dataset. The use
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1sz86pi/great_happy_hours_in_manhattan_after_5pm/)
 
-### 3. S Wan Cafe, Chinatown
+## 3. S Wan Cafe, Chinatown
 
 The deal: $9.50 chicken chop with onions over rice, a $2.50 turkey and cheese sandwich, and most items around $10.
 
@@ -37,7 +37,7 @@ This is the best pure lunch value in the list. It is a Hong Kong cafe, not a pol
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1q7p3if/s_wan_cafes_pork_chop_with_onions_over_rice_for/) and [Google Maps](https://maps.app.goo.gl/X5eEfQL9gagU3xRx5)
 
-### 4. Food cart at East 34th Street and Madison Avenue
+## 4. Food cart at East 34th Street and Madison Avenue
 
 The deal: $5.50 sausage, egg, and cheese.
 
@@ -45,7 +45,7 @@ The cart is outside Wells Fargo. The appeal is consistency: soft scramble, black
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1rqvilk/a_sausage_egg_cheese_for_550/)
 
-### 5. Maison Pickle, Upper West Side
+## 5. Maison Pickle, Upper West Side
 
 The deal: $10 happy hour appetizers.
 
@@ -55,7 +55,7 @@ The deviled eggs and shishito peppers got the strongest praise, mostly because t
 
 ## Good Drinking Deals
 
-### Pearlbox
+## 6. Pearlbox
 
 The deal: $5 martinis, with an appetizer purchase required.
 
@@ -63,7 +63,7 @@ This is the cleanest martini deal in the list. The appetizer condition matters, 
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1qj2jmj/i_built_an_app_to_track_happy_hours_across_nyc/)
 
-### Penny Farthing, East Village
+## 7. Penny Farthing, East Village
 
 The deal: $5 Aperol spritzes on Thursdays.
 
@@ -71,7 +71,7 @@ This is the warm-weather pick. The outdoor seating is part of the value, because
 
 [Reddit thread](https://reddit.com/r/AskNYC/comments/1t6e8eb/day_drinking_happy_hours_with_aperol_spritz/)
 
-### Rudy's Bar and Jimmy's Corner, Midtown
+## 8. Rudy's Bar and Jimmy's Corner, Midtown
 
 The deal: beer well under $10.
 
@@ -79,7 +79,7 @@ These are the Midtown dive bar answers. Rudy's is the Hell's Kitchen pick. Jimmy
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1m4sgfw/real_happy_hours_in_midtown/)
 
-### Porchlight, West Chelsea
+## 9. Porchlight, West Chelsea
 
 The deal: $12 cocktails and snacks, with an all-day Sunday happy hour.
 
@@ -87,7 +87,7 @@ The Sunday window is the reason to remember it. Most useful happy hours are week
 
 ## Good Food Deals
 
-### Cellar 36, downtown Manhattan
+## 10. Cellar 36, downtown Manhattan
 
 The deal: $1 oysters at happy hour.
 
@@ -95,7 +95,7 @@ This came up as the closest practical answer for someone looking near Tribeca. I
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1tru24g/recommendations_for_low_key_1_oyster_happy_hour/)
 
-### The Ready Cantina, East Village
+## 11. The Ready Cantina, East Village
 
 The deal: $9 margaritas and $1 tacos on weekend afternoons.
 
@@ -103,7 +103,7 @@ Weekend happy hour is the useful detail. A lot of deals are built for Tuesday at
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1t5ye09/favorite_weekend_happy_hours/)
 
-### Her Name is Han, Koreatown
+## 12. Her Name is Han, Koreatown
 
 The deal: lunch specials around $20 per person.
 
@@ -111,7 +111,7 @@ This is the high end of the list, but it is still a real value for a sit-down lu
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1olzqzm/everything_i_ate_in_3_days_reviews/)
 
-### Greenpoint Fish and Lobster Co., Greenpoint
+## 13. Greenpoint Fish and Lobster Co., Greenpoint
 
 The deal: oyster happy hour until 6pm.
 
@@ -119,25 +119,25 @@ The report did not surface a clean oyster price, so I would treat this as a qual
 
 [Reddit thread](https://reddit.com/r/FoodNYC/comments/1ltki0m/greenpoint_fish_lobster_co/)
 
-### Cafe Luluc, Cobble Hill
+## 14. Cafe Luluc, Cobble Hill
 
 The deal: $12 pasta on Tuesdays.
 
 This is a simple weekly special at a neighborhood restaurant, which is usually the best kind. Bring cash.
 
-### Fumo, Upper East Side and Kips Bay
+## 15. Fumo, Upper East Side and Kips Bay
 
 The deal: $12 pasta lunch special until 4pm.
 
 The long window makes this more useful than a normal lunch special. It can function as a very early dinner if you structure the day around it.
 
-### Jubilee Marketplace, Financial District
+## 16. Jubilee Marketplace, Financial District
 
 The deal: $5 breakfast sandwiches until 11am.
 
 This is the FiDi breakfast answer. Not fancy, just useful: bagel or roll, real meat, and a price that still feels like old New York.
 
-### Queens Night Market, Flushing Meadows Corona Park
+## 17. Queens Night Market, Flushing Meadows Corona Park
 
 The deal: everything under $6.
 
