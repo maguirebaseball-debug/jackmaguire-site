@@ -35,3 +35,14 @@ Run `python3 scripts/nyc_5star_restaurants.py` to:
 - Extracting restaurant lists from Google Maps with specific review count ceilings.
 - Performing sentiment analysis on Google Reviews.
 - Generating CSV datasets for restaurant research.
+
+## Reddit Markdown Guide
+When generating content specifically for Reddit (comments, posts), adhere to these formatting rules:
+- **Italics**: `*text*`
+- **Bold**: `**text**`
+- **Links**: `[Link Text](https://url.com)`
+- **Bullet Lists**: `* item` (must have a space after `*`)
+- **Quotes**: `> quote`
+- **Code Blocks**: Four spaces at the beginning of each line
+- **Strikethrough**: `~~text~~`
+- **Superscript**: `text^superscript`

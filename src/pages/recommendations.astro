@@ -7,6 +7,7 @@ import { SITE_TITLE } from '../consts';
 const lastUpdated = 'May 28, 2026';
 const recommendationHubs = [
 	{ name: 'NYC Restaurants', url: '/recommendations/nyc-restaurants/' },
+	{ name: 'NYC Underrated Places', url: '/recommendations/nyc-underrated/' },
 	{ name: 'Chinatown Non-Spicy Intel', url: '/recommendations/curry-house-chinatown/' },
 	{ name: 'NYC Pastrami Ranking', url: '/recommendations/nyc-pastrami/' },
 	{ name: 'Books', url: '/recommendations/books/' },
@@ -39,15 +40,21 @@ const recommendationHubs = [
 			<p class="intro">Things I return to after actual use: places, books, tools, and films with enough signal to recommend directly.</p>
 			<p class="updated">Last updated: {lastUpdated}</p>
 
-			<section class="feature">
-				<h2>NYC Restaurants</h2>
-				<p>Practical dining picks across New York City, with firsthand notes and clear tradeoffs.</p>
-				<a href="/recommendations/nyc-restaurants" class="section-link">View list →</a>
-			</section>
+				<section class="feature">
+					<h2>NYC Restaurants</h2>
+					<p>Practical dining picks across New York City, with firsthand notes and clear tradeoffs.</p>
+					<a href="/recommendations/nyc-restaurants" class="section-link">View list →</a>
+				</section>
 
-			<section>
-				<h2>Chinatown Non-Spicy Intel</h2>
-				<p>A restrained field guide to mild Malaysian orders at Curry House on Pell Street.</p>
+				<section class="feature">
+					<h2>NYC Underrated Places</h2>
+					<p>A filtered directory of 2,100+ hidden gems — including restaurants, retail, parks, and museums — sourced from local discussions.</p>
+					<a href="/recommendations/nyc-underrated" class="section-link">View directory →</a>
+				</section>
+
+				<section>
+					<h2>Chinatown Non-Spicy Intel</h2>
+					<p>A restrained field guide to mild Malaysian orders at Curry House on Pell Street.</p>
 				<a href="/recommendations/curry-house-chinatown" class="section-link">View guide →</a>
 			</section>
 

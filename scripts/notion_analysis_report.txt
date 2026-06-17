@@ -1,0 +1,99 @@
+====================================================================================================
+NOTION DATABASE ANALYSIS: PCA & CLUSTERING REPORT
+====================================================================================================
+
+Total Pages Analyzed: 328
+Optimal Number of Clusters: 10
+PCA Variance Explained (2 components): 28.76%
+  - PC1: 22.02%
+  - PC2: 6.74%
+
+CLUSTER BREAKDOWN
+----------------------------------------------------------------------------------------------------
+
+Cluster 0: 70 pages
+  Word count: min=115, max=1383, avg=568
+  Top pages:
+    - Resume - Base (1383 words)
+    - LawnStarter Reply Plan (1365 words)
+    - Americor — Interview Prep Dossier — Jeremy Ratcliff (1316 words)
+    - Sr. Director of Paid Social Growth (BetterHelp) - Optimized Resume - Feb 2026 (1242 words)
+    - Sr. Director of Growth Marketing - Optimized Resume - Feb 2026 (1203 words)
+
+Cluster 1: 16 pages
+  Word count: min=153, max=97604, avg=8458
+  Top pages:
+    - JGPT w Articles (2) (1) (97604 words)
+    - Jack's Unauthorized Guide to Ljubljana (8175 words)
+    - Research Plan: Life Solely for My Well-Being and Prospering (7529 words)
+    - Brno (4421 words)
+    - Personalized, Evidence-Based Recovery and Growth Plan: Strategic Life Aspects for Post-Breakup Well-Being (3740 words)
+
+Cluster 2: 5 pages
+  Word count: min=2730, max=3354, avg=3022
+  Top pages:
+    - Saturday, April 4, 2026 (3354 words)
+    - Sunday, April 5, 2026 (3267 words)
+    - Friday, April 3, 2026 (2957 words)
+    - Wednesday, April 1, 2026 (2802 words)
+    - Wednesday, April 15, 2026 (2730 words)
+
+Cluster 3: 159 pages
+  Word count: min=1, max=372725, avg=2562
+  Top pages:
+    - relationship_conversations (372725 words)
+    - Daily mood log with distortions (3968 words)
+    - Energy Trade Reset — 5-Name Trade Dossier (EIA April 2026 STEO / Fiorillo Thesis) (2718 words)
+    - Resume Optimizaiion Static (2146 words)
+    - Comprehensive Longitudinal Biomarker Analysis: InsideTracker Bloodwork History (1802 words)
+
+Cluster 4: 36 pages
+  Word count: min=5, max=1752, avg=545
+  Top pages:
+    - Skills & Experience Inventory (1752 words)
+    - Bullish Resume Plan (1338 words)
+    - Jack_Maguire_DirectorSocialStrategy_Ogilvy_2026 (877 words)
+    - Jack_Maguire_SocialMediaDirector_FIS_2026 (865 words)
+    - Sr. Director of Global Social Media (Ninja) - Optimized Resume - Feb 2026 (807 words)
+
+Cluster 5: 3 pages
+  Word count: min=4, max=7, avg=6
+  Top pages:
+    - Saturday, March 28, 2026 (Test Run 3) (7 words)
+    - Saturday, March 28, 2026 (Test Run 2) (7 words)
+    - Saturday, March 28, 2026 (4 words)
+
+Cluster 6: 11 pages
+  Word count: min=4, max=3691, avg=600
+  Top pages:
+    - Large Sea Scallops: Full Cooking Guide (3691 words)
+    - Egg Sauce Combo Pipeline (910 words)
+    - Tofu Dashi Pairing Rankings (584 words)
+    - Sub-skill: Conviction Rubric for Delayed Catalyst Outputs (531 words)
+    - Smoked Kipper Slaw — Miso-Ginger Marinade (337 words)
+
+Cluster 7: 20 pages
+  Word count: min=4, max=6, avg=4
+  Top pages:
+    - Sunday, April 12, 2026 (Evening Run) (6 words)
+    - Sunday, April 12, 2026 (Evening Run) (6 words)
+    - Monday, April 20, 2026 (4 words)
+    - Wednesday, April 22, 2026 (4 words)
+    - Friday, April 17, 2026 (4 words)
+
+Cluster 8: 6 pages
+  Word count: min=1, max=104, avg=38
+  Top pages:
+    - Social: Night with Vishwa — quiet, not bad, missing Christin (104 words)
+    - Status: Meditation on silence, time dilation + depersonalization (54 words)
+    - Status: Down after intense session (33 words)
+    - Status: Down after intense session (33 words)
+    - Try AI Meeting Notes 2026-05-08T16:31:00.000+02:00 (5 words)
+
+Cluster 9: 2 pages
+  Word count: min=638, max=1620, avg=1129
+  Top pages:
+    - Workout Routine (1620 words)
+    - Legacy Archive — Workout Routine (Pre-DEXA, Feb 24 2026) (638 words)
+
+====================================================================================================

@@ -1,7 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -17,719 +16,446 @@ import Footer from '../components/Footer.astro';
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* ═══ CNT DESIGN TOKENS ═════════════════════════════════════ */
     :root {
-      --cream:     #FAF8F2;
-      --ink:       #1C1916;
-      --ink-soft:  #3D3A34;
-      --muted:     #6E6A60;
-      --faint:     #A09890;
-      --rule:      #DDD9CE;
-      --warm-wh:   #FFFDF8;
-
-      --gold:      #C9A264;
-      --gold-dk:   #8B6420;
-      --gold-lt:   #F4E6C8;
-      --gold-bg:   #FBF4E4;
-
-      --dark:      #18160F;
-      --dark-soft: #2A2720;
-      --dark-text: #F0EBE0;
-      --dark-muted:#B8B0A0;
-
-      --sans:  'Inter', system-ui, -apple-system, sans-serif;
-      --mono:  'IBM Plex Mono', 'Fira Code', monospace;
-
-      --tab-h:  56px;
-      --radius: 6px;
+      --cream:    #FAF8F2;
+      --ink:      #1C1916;
+      --muted:    #6E6A60;
+      --faint:    #A09890;
+      --rule:     #DDD9CE;
+      --gold:     #C9A264;
+      --gold-dk:  #8B6420;
+      --gold-lt:  #F4E6C8;
+      --gold-bg:  #FBF4E4;
+      --dark:     #18160F;
+      --dark-2:   #2A2720;
+      --dark-txt: #F0EBE0;
+      --dark-mut: #B8B0A0;
+      --sans:     'Inter', system-ui, sans-serif;
+      --mono:     'IBM Plex Mono', monospace;
+      --r:        8px;
     }
 
-    html, body {
-      background: var(--cream);
+    /* ── SHELL: body fills viewport, header + guide split it ─── */
+    html { height: 100%; }
+
+    body {
       margin: 0;
       font-family: var(--sans);
+      background: var(--dark);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ═══ APP SHELL ═════════════════════════════════════════════ */
-    .app-masthead {
-      background: var(--dark);
-      padding: 1.5rem 1.25rem 1.25rem;
-    }
-
-    .am-eyebrow {
-      font-family: var(--sans);
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-
-    .am-title {
-      font-family: var(--sans);
-      font-size: clamp(1.6rem, 7vw, 2.2rem);
-      font-style: normal;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.08;
-      margin: 0 0 0.7rem;
-      letter-spacing: -0.03em;
-    }
-
-    .am-meta {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .am-pill {
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.1);
-      color: var(--dark-muted);
-      padding: 0.3rem 0.65rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* ═══ STAT ROW ══════════════════════════════════════════════ */
-    .stat-row {
-      display: flex;
-      overflow-x: auto;
-      scrollbar-width: none;
-      background: var(--dark-soft);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .stat-row::-webkit-scrollbar { display: none; }
-
-    .stat-cell {
-      flex: 0 0 auto;
-      min-width: 90px;
-      padding: 0.9rem 1rem;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .sc-n {
-      font-family: var(--mono);
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-      letter-spacing: -0.02em;
-    }
-
-    .sc-l {
-      font-family: var(--sans);
-      font-size: 0.52rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--dark-muted);
-      margin-top: 0.2rem;
-      line-height: 1.3;
-    }
-
-    /* ═══ TAB BAR ═══════════════════════════════════════════════ */
-    .tab-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      overflow-x: auto;
-      scrollbar-width: none;
-      background: var(--dark);
-      border-bottom: 1px solid rgba(201,162,100,0.3);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .tab-bar::-webkit-scrollbar { display: none; }
-
-    .tab-btn {
-      flex: 0 0 auto;
-      padding: 0 1.1rem;
-      height: var(--tab-h);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.15s, color 0.15s;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-
-    .tab-btn .t-icon {
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-
-    .tab-btn .t-label {
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--dark-muted);
-      transition: color 0.15s;
-    }
-
-    .tab-btn.active {
-      border-bottom-color: var(--gold);
-    }
-
-    .tab-btn.active .t-label { color: var(--gold); }
-    .tab-btn.active .t-icon { filter: none; }
-    .tab-btn:not(.active) .t-icon { opacity: 0.45; }
-
-    /* ═══ PANELS ════════════════════════════════════════════════ */
-    .panel {
-      display: none;
-      padding: 0 0 4rem;
-    }
-
-    .panel.active { display: block; }
-
-    .panel-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 1.1rem;
-    }
-
-    /* ═══ SECTION HEADERS ═══════════════════════════════════════ */
-    .sec-head {
-      padding: 2rem 0 0.6rem;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 1.2rem;
-    }
-
-    .sec-eyebrow {
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-
-    .sec-title {
-      font-family: var(--sans);
-      font-size: 1.2rem;
-      font-style: normal;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 0;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    /* ═══ CARDS ═════════════════════════════════════════════════ */
-    .card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-dark {
-      background: var(--dark);
-      border-color: transparent;
-      border-left: 3px solid var(--gold);
-    }
-
-    .card-gold {
-      background: var(--gold-bg);
-      border: 1px solid var(--gold-lt);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    /* ═══ ACTIVITY CARD ═════════════════════════════════════════ */
-    .act-card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      margin-bottom: 0.75rem;
+      height: 100dvh;
       overflow: hidden;
     }
 
-    .act-card-body { padding: 1rem 1.1rem 0.9rem; }
+    /* site header stays as-is; main takes the rest */
+    main {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-    .act-top {
+    /* ── GUIDE SHELL ────────────────────────────────────────────── */
+    #guide {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--dark);
+      position: relative;
+    }
+
+    /* ── PROGRESS BAR ───────────────────────────────────────────── */
+    .progress-track {
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      transition: width 0.35s ease;
+    }
+
+    /* ── STEP HEADER ────────────────────────────────────────────── */
+    .step-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.7rem;
-      margin-bottom: 0.5rem;
+      align-items: center;
+      padding: 0.6rem 1.1rem 0.4rem;
+      flex-shrink: 0;
     }
 
-    .act-name {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--ink);
-      margin: 0;
-      line-height: 1.25;
-      flex: 1;
-      letter-spacing: -0.01em;
-    }
-
-    .badge {
+    .step-label {
       font-family: var(--sans);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 0.25rem 0.55rem;
-      border-radius: 3px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      color: var(--gold);
     }
 
-    .b-free     { background: #DFF2CE; color: #245A0E; }
-    .b-cheap    { background: #FDF1CC; color: #7A5200; }
-    .b-moderate { background: #FCE4D8; color: #8A2010; }
-    .b-local    { background: var(--dark); color: var(--gold); border: 1px solid var(--gold); }
-
-    .act-desc {
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: var(--muted);
-      margin: 0 0 0.6rem;
-    }
-
-    .act-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 1.1rem;
-      background: var(--cream);
-      border-top: 1px solid var(--rule);
-    }
-
-    .act-meta {
-      font-family: var(--sans);
-      font-size: 0.62rem;
-      color: var(--faint);
-      letter-spacing: 0.02em;
-    }
-
-    .map-link {
-      font-family: var(--sans);
+    .step-count {
+      font-family: var(--mono);
       font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold-dk);
-      text-decoration: none;
+      color: var(--dark-mut);
+    }
+
+    /* ── SLIDES VIEWPORT ────────────────────────────────────────── */
+    .slides-viewport {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 0.6rem 1.1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    .slide.exit {
+      opacity: 0;
+      transform: translateX(-28px);
+    }
+
+    /* ── NAV BAR ────────────────────────────────────────────────── */
+    .guide-nav {
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.6rem;
+      padding: 0.65rem 1.1rem 0.8rem;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .map-link:hover { color: var(--gold); }
-
-    /* ═══ LOCAL TIP CARD ════════════════════════════════════════ */
-    .tip-card {
-      background: var(--dark);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1.1rem 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .tip-ey {
+    .btn-back {
       font-family: var(--sans);
-      font-size: 0.52rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--dark-mut);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 0.6rem;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-back.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .btn-next {
+      flex: 1;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--dark);
+      background: var(--gold);
+      border: none;
+      border-radius: var(--r);
+      padding: 0.9rem 1rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.12s, transform 0.08s;
+      min-height: 48px;
+    }
+
+    .btn-next:active { transform: scale(0.98); background: var(--gold-dk); color: #fff; }
+
+    /* ── SLIDE COMPONENTS ───────────────────────────────────────── */
+
+    /* Slide title block */
+    .s-eye {
+      font-family: var(--sans);
+      font-size: 0.55rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .tip-body {
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: var(--dark-muted);
-      margin: 0;
-    }
-
-    .tip-body strong { color: var(--dark-text); font-style: normal; font-weight: 600; }
-    .tip-body em { color: var(--gold-lt); font-style: normal; font-weight: 400; }
-
-    /* ═══ PULL QUOTE ════════════════════════════════════════════ */
-    .pq {
-      border-top: 2px solid var(--gold);
-      border-bottom: 1px solid var(--rule);
-      padding: 1.2rem 0;
-      margin: 1.5rem 0;
-    }
-
-    .pq p {
-      font-family: var(--sans);
-      font-size: clamp(1rem, 4vw, 1.25rem);
-      font-style: normal;
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--ink);
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    /* ═══ PROPERTY CARD ═════════════════════════════════════════ */
-    .property-card {
-      background: var(--dark);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    .pc-header {
-      padding: 1.2rem 1.3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .pc-ey {
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-
-    .pc-name {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #fff;
-      margin: 0 0 0.3rem;
-      letter-spacing: -0.02em;
-    }
-
-    .pc-sub {
-      font-family: var(--sans);
-      font-size: 0.62rem;
-      color: var(--dark-muted);
-    }
-
-    .pc-specs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .pc-spec {
-      padding: 0.85rem 1.2rem;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .pc-spec:nth-child(even) { border-right: none; }
-
-    .pcs-l {
-      font-family: var(--sans);
-      font-size: 0.52rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.2rem;
-      opacity: 0.7;
-    }
-
-    .pcs-v {
-      font-size: 0.85rem;
-      color: var(--dark-text);
-      line-height: 1.4;
-    }
-
-    /* ═══ FERRY TABLE ════════════════════════════════════════════ */
-    .ferry-card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 0.75rem;
-    }
-
-    .fc-head {
-      background: var(--gold-bg);
-      padding: 0.7rem 1.1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--gold-lt);
-    }
-
-    .fc-name {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .fc-price {
-      font-family: var(--mono);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gold-dk);
-      letter-spacing: -0.01em;
-    }
-
-    .fc-body {
-      padding: 0.8rem 1.1rem;
-    }
-
-    .fc-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.83rem;
-      padding: 0.3rem 0;
-      border-bottom: 1px solid var(--rule);
-      color: var(--muted);
-    }
-
-    .fc-row:last-child { border-bottom: none; }
-
-    .fc-row span:first-child {
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--faint);
-      display: flex;
-      align-items: center;
-    }
-
-    /* ═══ DAY CARDS ═════════════════════════════════════════════ */
-    .day-card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 0.75rem;
-    }
-
-    .dc-head {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.9rem 1.1rem;
-      background: var(--dark-soft);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-
-    .dc-tag {
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(201,162,100,0.15);
-      border: 1px solid rgba(201,162,100,0.3);
-      padding: 0.25rem 0.6rem;
-      border-radius: 3px;
-      white-space: nowrap;
-    }
-
-    .dc-title {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--dark-text);
-      flex: 1;
-    }
-
-    .dc-chevron {
-      font-size: 0.8rem;
-      color: var(--dark-muted);
-      transition: transform 0.2s;
       flex-shrink: 0;
     }
 
-    .day-card.open .dc-chevron { transform: rotate(180deg); }
-
-    .dc-body {
-      display: none;
-      padding: 0.8rem 1.1rem;
+    .s-title {
+      font-family: var(--sans);
+      font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0;
+      flex-shrink: 0;
     }
 
-    .day-card.open .dc-body { display: block; }
+    .s-sub {
+      font-size: 0.83rem;
+      color: var(--dark-mut);
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    /* Tag pill row */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .pill {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.08);
+      color: var(--dark-mut);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.28rem 0.65rem;
+      border-radius: 20px;
+    }
+
+    /* Item list */
+    .item-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-height: 0;
+    }
+
+    .item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      padding: 0.7rem 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .item-icon {
+      font-size: 1rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .item-body { flex: 1; min-width: 0; }
+
+    .item-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .item-desc {
+      font-size: 0.75rem;
+      color: var(--dark-mut);
+      line-height: 1.45;
+      margin-top: 0.1rem;
+    }
+
+    .item-badge {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 0.05rem;
+    }
+
+    .ib-free     { background: rgba(80,180,60,0.15); color: #7dd87d; }
+    .ib-cheap    { background: rgba(201,162,100,0.15); color: var(--gold); }
+    .ib-price    { background: rgba(255,255,255,0.08); color: var(--dark-mut); }
+
+    /* Schedule rows */
+    .sched-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 0;
+    }
 
     .srow {
       display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 0.2rem 0.8rem;
-      margin-bottom: 0.75rem;
+      grid-template-columns: 72px 1fr;
+      gap: 0.3rem 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
     }
 
-    .srow:last-child { margin-bottom: 0; }
+    .srow:last-child { border-bottom: none; }
 
-    .st {
-      font-family: var(--sans);
+    .stime {
+      font-family: var(--mono);
       font-size: 0.58rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--faint);
-      padding-top: 0.2rem;
+      color: var(--gold);
+      padding-top: 0.18rem;
       line-height: 1.3;
+      font-weight: 400;
     }
 
-    .sv {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--muted);
+    .stext {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: var(--dark-mut);
     }
 
-    .sv strong { color: var(--ink); font-style: normal; font-weight: 600; }
+    .stext strong { color: #fff; font-weight: 600; font-style: normal; }
 
-    /* ═══ FOOD CARDS ════════════════════════════════════════════ */
-    .food-card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      margin-bottom: 0.75rem;
-      overflow: hidden;
+    /* Spec grid (cabin) */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      flex: 1;
+      min-height: 0;
     }
 
-    .food-top {
-      padding: 0.9rem 1.1rem 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.6rem;
+    .spec-cell {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      padding: 0.65rem 0.75rem;
     }
 
-    .food-name {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.93rem;
-      color: var(--ink);
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    .food-price {
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-dk);
-      white-space: nowrap;
-    }
-
-    .food-desc {
-      font-size: 0.87rem;
-      line-height: 1.65;
-      color: var(--muted);
-      padding: 0 1.1rem 1rem;
-      margin: 0;
-    }
-
-    .food-tag {
-      font-family: var(--sans);
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.4rem 1.1rem;
-      background: var(--cream);
-      border-top: 1px solid var(--rule);
-      color: var(--faint);
-    }
-
-    /* ═══ HISTORY ACCORDION ═════════════════════════════════════ */
-    .hist-item {
-      border-bottom: 1px solid var(--rule);
-      overflow: hidden;
-    }
-
-    .hist-item:first-child { border-top: 1px solid var(--rule); }
-
-    .hist-btn {
-      width: 100%;
-      padding: 1rem 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .hist-cat {
+    .spec-l {
       font-family: var(--sans);
       font-size: 0.52rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 0.2rem;
     }
 
-    .hist-hed {
+    .spec-v {
+      font-size: 0.78rem;
+      color: var(--dark-txt);
+      line-height: 1.4;
+    }
+
+    /* Two-option cards */
+    .option-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .option-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--r);
+      padding: 0.85rem 0.8rem;
+    }
+
+    .option-label {
       font-family: var(--sans);
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.93rem;
-      color: var(--ink);
-      line-height: 1.35;
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .option-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
       letter-spacing: -0.01em;
     }
 
-    .hist-body {
-      display: none;
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: var(--muted);
-      padding-bottom: 1.1rem;
+    .option-body {
+      font-size: 0.72rem;
+      color: var(--dark-mut);
+      line-height: 1.5;
     }
 
-    .hist-body.open { display: block; }
-    .hist-body em { color: var(--ink-soft); font-style: italic; }
-
-    /* ═══ COST BLOCK ════════════════════════════════════════════ */
-    .cost-block {
-      background: var(--dark);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.3rem;
-      margin-top: 0.75rem;
+    /* Ferry cards */
+    .ferry-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex-shrink: 0;
     }
 
-    .cb-hed {
-      font-family: var(--sans);
-      font-size: 0.55rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .ferry-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r);
+      padding: 0.7rem 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ferry-left { flex: 1; }
+
+    .ferry-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .ferry-note {
+      font-size: 0.68rem;
+      color: var(--dark-mut);
+      margin-top: 0.1rem;
+    }
+
+    .ferry-price {
+      font-family: var(--mono);
+      font-size: 0.9rem;
       color: var(--gold);
-      margin: 0 0 1rem;
+    }
+
+    /* Cost rows */
+    .cost-rows {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 0;
     }
 
     .crow {
@@ -737,974 +463,737 @@ import Footer from '../components/Footer.astro';
       justify-content: space-between;
       align-items: baseline;
       gap: 0.5rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      font-size: 0.87rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.8rem;
+      flex-shrink: 0;
     }
 
     .crow:last-child {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.18);
       padding-top: 0.75rem;
-      margin-top: 0.2rem;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
     }
 
-    .crow .cl { color: rgba(255,255,255,0.6); flex: 1; }
-    .crow .cv { color: var(--gold-lt); font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .crow:last-child .cl { color: #fff; }
+    .crow .cl { color: var(--dark-mut); flex: 1; }
+    .crow .cv { font-family: var(--mono); color: var(--gold); white-space: nowrap; }
+    .crow:last-child .cl { color: #fff; font-weight: 600; }
     .crow:last-child .cv { color: #fff; }
 
-    /* ═══ SWIM CARD ═════════════════════════════════════════════ */
-    .swim-card {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      margin-bottom: 0.75rem;
-      overflow: hidden;
+    /* Tip bar */
+    .tip-bar {
+      background: rgba(201,162,100,0.1);
+      border: 1px solid rgba(201,162,100,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 0.65rem 0.85rem;
+      flex-shrink: 0;
     }
 
-    .swim-top {
-      padding: 1rem 1.1rem 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-
-    .swim-name {
+    .tip-eye {
       font-family: var(--sans);
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.93rem;
-      color: var(--ink);
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    .swim-desc {
-      font-size: 0.87rem;
-      line-height: 1.65;
-      color: var(--muted);
-      padding: 0 1.1rem 0.5rem;
-      margin: 0;
-    }
-
-    .swim-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.55rem 1.1rem;
-      background: var(--cream);
-      border-top: 1px solid var(--rule);
-    }
-
-    .swim-dist {
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      color: var(--faint);
-      letter-spacing: 0.03em;
-    }
-
-    /* ═══ HACK CARD ═════════════════════════════════════════════ */
-    .hack-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.65rem;
-    }
-
-    @media (min-width: 480px) {
-      .hack-list { grid-template-columns: 1fr 1fr; }
-    }
-
-    .hack {
-      background: var(--warm-wh);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 0.95rem 1rem;
-    }
-
-    .hack-h {
-      font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.5rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      margin: 0 0 0.3rem;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
     }
 
-    .hack-b {
-      font-size: 0.85rem;
-      line-height: 1.58;
-      color: var(--muted);
-      margin: 0;
+    .tip-text {
+      font-size: 0.77rem;
+      color: var(--dark-mut);
+      line-height: 1.5;
     }
 
-    /* ═══ PROSE ═════════════════════════════════════════════════ */
-    .p {
-      font-size: 0.93rem;
-      line-height: 1.72;
-      color: var(--ink-soft);
-      margin: 0 0 1rem;
+    .tip-text strong { color: var(--dark-txt); font-weight: 600; }
+
+    /* Checklist (done slide) */
+    .check-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-height: 0;
     }
 
-    .p-lead {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      margin: 0 0 1.1rem;
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0.9rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      flex-shrink: 0;
     }
 
-    /* ═══ GRUNGY ENTRY ══════════════════════════════════════════ */
-    .grungy-card {
-      border-bottom: 1px solid var(--rule);
-      padding: 1rem 0;
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(80,180,60,0.15);
+      border: 1px solid rgba(80,180,60,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      color: #7dd87d;
     }
 
-    .grungy-card:first-child { border-top: 1px solid var(--rule); }
+    .check-text {
+      font-size: 0.8rem;
+      color: var(--dark-txt);
+      font-weight: 500;
+    }
 
-    .gr-name {
+    /* Welcome CTA */
+    .welcome-cta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      min-height: 0;
+    }
+
+    /* History items */
+    .hist-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-height: 0;
+    }
+
+    .hist-entry {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r);
+      padding: 0.7rem 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .hist-cat {
       font-family: var(--sans);
-      font-style: normal;
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .hist-hed {
+      font-size: 0.8rem;
       font-weight: 600;
-      font-size: 0.93rem;
-      color: var(--ink);
-      margin: 0 0 0.35rem;
+      color: #fff;
       letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
     }
 
-    .gr-body {
-      font-size: 0.87rem;
-      line-height: 1.65;
-      color: var(--muted);
-      margin: 0;
+    .hist-body {
+      font-size: 0.73rem;
+      color: var(--dark-mut);
+      line-height: 1.5;
     }
 
-    .gr-body em { color: var(--ink-soft); font-style: italic; }
-
-    /* ═══ FOOTER NOTE ═══════════════════════════════════════════ */
-    .closing-card {
-      background: var(--dark-soft);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.3rem;
-      margin: 1.5rem 0 0;
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      flex-shrink: 0;
     }
 
-    .closing-card p {
-      font-family: var(--sans);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 0.9rem;
-      line-height: 1.72;
-      color: var(--dark-muted);
-      margin: 0;
-    }
-
-    /* ═══ RESPONSIVE ════════════════════════════════════════════ */
-    @media (min-width: 600px) {
-      .am-title { font-size: 2.4rem; }
-      .panel-inner { padding: 0 1.5rem; }
-    }
+    /* Hide footer on this page */
+    footer { display: none; }
   </style>
 </head>
 <body>
   <Header />
   <main>
+  <div id="guide">
 
-    <!-- MASTHEAD -->
-    <div class="app-masthead">
-      <div class="am-eyebrow">Upper Peninsula · Michigan · June 2026</div>
-      <h1 class="am-title">Four Days at the<br>Top of Michigan</h1>
-      <div class="am-meta">
-        <span class="am-pill">Jun 13–17</span>
-        <span class="am-pill">St. Ignace</span>
-        <span class="am-pill">6 travelers</span>
-        <span class="am-pill">Budget guide</span>
-      </div>
+    <!-- PROGRESS -->
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:6.25%"></div>
     </div>
 
-    <!-- STATS -->
-    <div class="stat-row">
-      <div class="stat-cell">
-        <div class="sc-n">4</div>
-        <div class="sc-l">Nights</div>
-      </div>
-      <div class="stat-cell">
-        <div class="sc-n">~$30</div>
-        <div class="sc-l">Ferry R/T</div>
-      </div>
-      <div class="stat-cell">
-        <div class="sc-n">80%</div>
-        <div class="sc-l">Free state park</div>
-      </div>
-      <div class="stat-cell">
-        <div class="sc-n">8 mi</div>
-        <div class="sc-l">Car-free ride</div>
-      </div>
-      <div class="stat-cell">
-        <div class="sc-n">65°F</div>
-        <div class="sc-l">June avg high</div>
-      </div>
-      <div class="stat-cell">
-        <div class="sc-n">1898</div>
-        <div class="sc-l">Cars banned</div>
-      </div>
+    <!-- STEP HEADER -->
+    <div class="step-header">
+      <div class="step-label" id="stepLabel">Welcome</div>
+      <div class="step-count" id="stepCount">1 / 16</div>
     </div>
 
-    <!-- TAB BAR -->
-    <div class="tab-bar" role="tablist">
-      <button class="tab-btn active" data-panel="plan" role="tab">
-        <span class="t-icon">📋</span>
-        <span class="t-label">Plan</span>
-      </button>
-      <button class="tab-btn" data-panel="island" role="tab">
-        <span class="t-icon">🏝️</span>
-        <span class="t-label">Island</span>
-      </button>
-      <button class="tab-btn" data-panel="explore" role="tab">
-        <span class="t-icon">🌲</span>
-        <span class="t-label">Explore</span>
-      </button>
-      <button class="tab-btn" data-panel="eat" role="tab">
-        <span class="t-icon">🍽️</span>
-        <span class="t-label">Eat</span>
-      </button>
-      <button class="tab-btn" data-panel="story" role="tab">
-        <span class="t-icon">📜</span>
-        <span class="t-label">Story</span>
-      </button>
-    </div>
+    <!-- ═══ SLIDES ════════════════════════════════════════════════ -->
+    <div class="slides-viewport">
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PANEL: PLAN                                                  -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="panel active" id="panel-plan">
-      <div class="panel-inner">
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">Your Base</div>
-          <h2 class="sec-title">The Cabin</h2>
+      <!-- 0: WELCOME -->
+      <div class="slide active" data-label="Welcome">
+        <div class="s-eye">Upper Peninsula · Michigan · June 2026</div>
+        <h1 class="s-title">Four Days at<br>the Top of Michigan</h1>
+        <p class="s-sub">A field guide to Mackinac Island and St. Ignace — swimming holes, the car-free island, laborers' bars, and the history underneath all of it. Almost everything is free.</p>
+        <div class="pill-row">
+          <span class="pill">Jun 13–17</span>
+          <span class="pill">St. Ignace, MI</span>
+          <span class="pill">6 travelers</span>
+          <span class="pill">Lake Michigan cabin</span>
         </div>
-
-        <div class="property-card">
-          <div class="pc-header">
-            <div class="pc-ey">VRBO #1104745 · Premier Host · 9.8/10 · 158 Reviews</div>
-            <div class="pc-name">Log Cabin on Lake Michigan</div>
-            <div class="pc-sub">St. Ignace, MI · 1 min from Mystery Spot · Walk to ferry dock</div>
-          </div>
-          <div class="pc-specs">
-            <div class="pc-spec">
-              <div class="pcs-l">Sleeping</div>
-              <div class="pcs-v">King + Queen + Double daybed · Sleeps 6</div>
-            </div>
-            <div class="pc-spec">
-              <div class="pcs-l">Waterfront</div>
-              <div class="pcs-v">Direct Lake Michigan beach access</div>
-            </div>
-            <div class="pc-spec">
-              <div class="pcs-l">Outdoor</div>
-              <div class="pcs-v">Firepit at water's edge · swing · kayaks</div>
-            </div>
-            <div class="pc-spec">
-              <div class="pcs-l">Kitchen</div>
-              <div class="pcs-v">Full kitchen + charcoal BBQ</div>
-            </div>
-            <div class="pc-spec">
-              <div class="pcs-l">View</div>
-              <div class="pcs-v">St. Helena lighthouse · freighters</div>
-            </div>
-            <div class="pc-spec">
-              <div class="pcs-l">Extras</div>
-              <div class="pcs-v">Outdoor heated shower · WiFi</div>
-            </div>
+        <div class="welcome-cta">
+          <div class="divider"></div>
+          <div class="tip-bar">
+            <div class="tip-eye">Before you start</div>
+            <p class="tip-text">Each slide is one thing to know. Tap <strong>Next</strong> to move forward. No scrolling, ever.</p>
           </div>
         </div>
+      </div>
 
-        <div class="tip-card">
-          <div class="tip-ey">Local knowledge</div>
-          <p class="tip-body">The freighters running the Straits are 600–750 feet long. They pass close enough to hear. <strong>Leave a window open at night</strong> — a massive ore carrier in the dark at 2am is something the teenagers will remember at 40.</p>
-        </div>
-
-        <!-- ITINERARY -->
-        <div class="sec-head" style="margin-top:1.5rem;">
-          <div class="sec-eyebrow">Day by Day</div>
-          <h2 class="sec-title">Itinerary</h2>
-        </div>
-
-        <div class="day-card" id="day1">
-          <div class="dc-head" onclick="toggleDay('day1')">
-            <div class="dc-tag">Sat Jun 13</div>
-            <div class="dc-title">Arrival on the Straits</div>
-            <div class="dc-chevron">▼</div>
+      <!-- 1: THE CABIN -->
+      <div class="slide" data-label="The Cabin">
+        <div class="s-eye">Your Base</div>
+        <h2 class="s-title">The Cabin</h2>
+        <div class="spec-grid">
+          <div class="spec-cell">
+            <div class="spec-l">Sleeping</div>
+            <div class="spec-v">King + Queen + Double · Sleeps 6</div>
           </div>
-          <div class="dc-body">
-            <div class="srow">
-              <div class="st">Afternoon</div>
-              <div class="sv">Check in after 4pm. Walk to the water. Note the freighters — they run through the night. Leave a window open.</div>
+          <div class="spec-cell">
+            <div class="spec-l">Waterfront</div>
+            <div class="spec-v">Direct Lake Michigan beach access</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-l">Outdoor</div>
+            <div class="spec-v">Firepit at water's edge · kayaks included</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-l">Kitchen</div>
+            <div class="spec-v">Full kitchen + charcoal grill</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-l">View</div>
+            <div class="spec-v">St. Helena lighthouse · passing freighters</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-l">Check-in / out</div>
+            <div class="spec-v">After 4pm · Before 10:30am</div>
+          </div>
+        </div>
+        <div class="tip-bar">
+          <div class="tip-eye">Local knowledge</div>
+          <p class="tip-text">Leave a window open at night. <strong>A 700-foot freighter passing in the dark at 2am is something.</strong></p>
+        </div>
+      </div>
+
+      <!-- 2: ESSENTIALS -->
+      <div class="slide" data-label="Essentials">
+        <div class="s-eye">Before You Go</div>
+        <h2 class="s-title">3 Things That<br>Actually Matter</h2>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon">🧥</div>
+            <div class="item-body">
+              <div class="item-name">Bring real layers</div>
+              <div class="item-desc">Highs hit 65°F but wind off the Straits drops the feels-like to 50. You need a fleece or jacket every single day, not just at night.</div>
             </div>
-            <div class="srow">
-              <div class="st">Late PM</div>
-              <div class="sv">Drive 3 miles north to <strong>Castle Rock</strong> ($1 each). 15-min climb, full Straits panorama. Then <strong>Father Marquette Memorial</strong> for the bridge at sunset.</div>
+          </div>
+          <div class="item">
+            <div class="item-icon">🧺</div>
+            <div class="item-body">
+              <div class="item-name">Pack a cooler before every island day</div>
+              <div class="item-desc">A sandwich from the cabin costs $0. A sandwich on Mackinac Island costs $18. For 6 people over two island days, that's $200 in savings.</div>
             </div>
-            <div class="srow">
-              <div class="st">Evening</div>
-              <div class="sv">Dinner at <strong>Clyde's Drive-In</strong> or pasties from a local bakery. Light the firepit at the water's edge. Early night.</div>
+          </div>
+          <div class="item">
+            <div class="item-icon">🎫</div>
+            <div class="item-body">
+              <div class="item-name">Buy ferry tickets online tonight</div>
+              <div class="item-desc">Arnold Line and Star Line both sell advance tickets. Weekend morning departures sell out or have long lines. Book tonight.</div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="day-card" id="day2">
-          <div class="dc-head" onclick="toggleDay('day2')">
-            <div class="dc-tag">Sun Jun 14</div>
-            <div class="dc-title">Full Day on Mackinac Island</div>
-            <div class="dc-chevron">▼</div>
+      <!-- 3: DAY 1 -->
+      <div class="slide" data-label="Day 1 — Arrival">
+        <div class="s-eye">Saturday · Jun 13</div>
+        <h2 class="s-title">Day 1: Arrival</h2>
+        <div class="sched-list">
+          <div class="srow">
+            <div class="stime">Afternoon</div>
+            <div class="stext">Check in after 4pm. Walk the 60 feet to the water. That's your view for four days.</div>
           </div>
-          <div class="dc-body">
-            <div class="srow">
-              <div class="st">Morning</div>
-              <div class="sv">Pack the picnic cooler. Walk to <strong>Arnold Line dock</strong>, take the 9–10am ferry. Buy tickets online the night before.</div>
+          <div class="srow">
+            <div class="stime">Late PM</div>
+            <div class="stext">Drive 3 miles north to <strong>Castle Rock</strong> ($1/person, 15-min climb, full Straits view). Then <strong>Father Marquette Memorial</strong> waterfront walk for the bridge at sunset.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Evening</div>
+            <div class="stext"><strong>Clyde's Drive-In</strong> for dinner (since 1949, ~$10/person). Light the firepit at the water's edge. Early night — big island day tomorrow.</div>
+          </div>
+        </div>
+        <div class="tip-bar">
+          <div class="tip-eye">Tonight</div>
+          <p class="tip-text"><strong>Buy tomorrow's ferry tickets now</strong> before you forget. Arnold Line, online.</p>
+        </div>
+      </div>
+
+      <!-- 4: DAY 2 ISLAND -->
+      <div class="slide" data-label="Day 2 — Mackinac Island">
+        <div class="s-eye">Sunday · Jun 14</div>
+        <h2 class="s-title">Day 2: Mackinac Island</h2>
+        <div class="sched-list">
+          <div class="srow">
+            <div class="stime">9am</div>
+            <div class="stext">Pack the cooler. Walk to the <strong>Arnold Line dock</strong>. Take the 9–10am ferry. Bring your own bikes if you have them.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Mid-AM</div>
+            <div class="stext">Rent bikes at the dock. Ride the full <strong>M-185 perimeter</strong> (8 miles, flat, car-free). Picnic at <strong>British Landing</strong> halfway around.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Afternoon</div>
+            <div class="stext">Return bikes. Interior trails to <strong>Arch Rock → Sugar Loaf → Skull Cave</strong>. All free. 90% of tourists never find them.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Late PM</div>
+            <div class="stext"><strong>Fudge sampling</strong> on Market St (every shop gives free samples). Beer at <strong>Horn's Bar</strong> (est. 1859, workers' spot). Evening ferry back.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: FERRY GUIDE -->
+      <div class="slide" data-label="Ferry Guide">
+        <div class="s-eye">Getting to the Island</div>
+        <h2 class="s-title">The Ferry</h2>
+        <div class="ferry-row">
+          <div class="ferry-card">
+            <div class="ferry-left">
+              <div class="ferry-name">Arnold Line</div>
+              <div class="ferry-note">Recommended · St. Ignace dock · walk from cabin · ~15 min crossing</div>
             </div>
-            <div class="srow">
-              <div class="st">Mid-AM</div>
-              <div class="sv">Rent bikes at the dock. Ride the <strong>M-185 perimeter</strong> (8 miles, flat, car-free). Picnic at <strong>British Landing</strong> halfway around.</div>
+            <div class="ferry-price">~$30</div>
+          </div>
+          <div class="ferry-card">
+            <div class="ferry-left">
+              <div class="ferry-name">Star Line</div>
+              <div class="ferry-note">St. Ignace · hydro-jet · slightly faster</div>
             </div>
-            <div class="srow">
-              <div class="st">Afternoon</div>
-              <div class="sv">Return bikes. Interior trails to <strong>Arch Rock → Sugar Loaf → Skull Cave</strong>. All free. All empty. 2 hours.</div>
+            <div class="ferry-price">~$30</div>
+          </div>
+          <div class="ferry-card">
+            <div class="ferry-left">
+              <div class="ferry-name">Shepler's</div>
+              <div class="ferry-note">Mackinaw City (south of bridge) · skip unless passing through</div>
             </div>
-            <div class="srow">
-              <div class="st">Late PM</div>
-              <div class="sv"><strong>Fudge sampling</strong> on Market St. Stop into <strong>Horn's Bar</strong> (1859) for a beer with the island workers. Evening ferry back.</div>
+            <div class="ferry-price">~$32</div>
+          </div>
+        </div>
+        <div class="tip-bar">
+          <div class="tip-eye">Save $200+ for the group</div>
+          <p class="tip-text"><strong>Bring your own bikes</strong> (~$8 ferry fee) instead of renting on the island (~$45/day). For 6 people that's a no-brainer.</p>
+        </div>
+      </div>
+
+      <!-- 6: ISLAND ACTIVITIES -->
+      <div class="slide" data-label="Island Activities">
+        <div class="s-eye">Mackinac Island · 80% free state park</div>
+        <h2 class="s-title">Best Activities</h2>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Perimeter Ride — M-185</div>
+              <div class="item-desc">8 miles flat, car-free, full shoreline. The only state highway with no motor vehicles. 1.5–2 hrs.</div>
+            </div>
+            <div class="item-badge ib-free">Free on foot</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Arch Rock</div>
+              <div class="item-desc">Natural limestone arch, 146 ft above Lake Huron. Short steep trail. Go before 11am.</div>
+            </div>
+            <div class="item-badge ib-free">Free</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Sugar Loaf + Skull Cave</div>
+              <div class="item-desc">75-ft limestone pillar and a cave from the 1763 Pontiac War. Unsigned interior trails. Nobody goes here.</div>
+            </div>
+            <div class="item-badge ib-free">Free</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Fort Mackinac</div>
+              <div class="item-desc">1780 British fort, cannon firings on the hour. Optional but the best paid experience on the island.</div>
+            </div>
+            <div class="item-badge ib-cheap">$14/adult</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: DAY 3 -->
+      <div class="slide" data-label="Day 3 — Explore">
+        <div class="s-eye">Monday · Jun 15</div>
+        <h2 class="s-title">Day 3: Explore</h2>
+        <div class="sched-list">
+          <div class="srow">
+            <div class="stime">Morning</div>
+            <div class="stext"><strong>Mystery Spot</strong> (1 min from cabin, ~$10). Then kayak from the cabin beach before 9am while the water is calm.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Midday</div>
+            <div class="stext"><strong>Brevoort Lake</strong> — 22 miles west on US-2. Clear inland lake at 68–72°F. Where Upper Peninsula locals actually swim. Free walk-in beach.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Afternoon</div>
+            <div class="stext">Drive the <strong>M-119 Tunnel of Trees</strong> toward Cross Village — 20 miles of old-growth canopy arching over Lake Michigan bluffs. Go both directions.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Evening</div>
+            <div class="stext">Dinner at <strong>Legs Inn</strong> (Cross Village) — Polish roadhouse on a Lake Michigan bluff, ~$16/person. Best meal of the trip.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: DAY 4 -->
+      <div class="slide" data-label="Day 4 — Choose">
+        <div class="s-eye">Tuesday · Jun 16</div>
+        <h2 class="s-title">Day 4: Your Call</h2>
+        <div class="option-row">
+          <div class="option-card">
+            <div class="option-label">Option A</div>
+            <div class="option-title">Return to the Island</div>
+            <div class="option-body">Fort Mackinac, Butterfly House, slower hiking. More relaxed when you know the layout.</div>
+          </div>
+          <div class="option-card">
+            <div class="option-label">Option B</div>
+            <div class="option-title">Beach Day</div>
+            <div class="option-body">Swim, grill, sit in the chairs, watch freighters. Walk to Deer Ranch (15 min, ~$6).</div>
+          </div>
+        </div>
+        <div class="sched-list">
+          <div class="srow">
+            <div class="stime">Tonight</div>
+            <div class="stext">If clear: drive 45 min west to <strong>Headlands Dark Sky Park</strong> (free). Milky Way visible naked-eye. Bring blankets.</div>
+          </div>
+        </div>
+        <div class="tip-bar">
+          <div class="tip-eye">Worth the drive</div>
+          <p class="tip-text">The aurora borealis is occasionally visible at this latitude in June. Check the forecast.</p>
+        </div>
+      </div>
+
+      <!-- 9: DAY 5 -->
+      <div class="slide" data-label="Day 5 — Checkout">
+        <div class="s-eye">Wednesday · Jun 17</div>
+        <h2 class="s-title">Day 5: Checkout</h2>
+        <div class="sched-list">
+          <div class="srow">
+            <div class="stime">Morning</div>
+            <div class="stext">Last walk to the water. Coffee on the shore. Check out by 10:30am.</div>
+          </div>
+          <div class="srow">
+            <div class="stime">Drive home</div>
+            <div class="stext">Cross the <strong>Mackinac Bridge</strong> south (~$4 toll). Five miles of suspension cable. On a clear morning the island is visible to the east the whole way across.</div>
+          </div>
+        </div>
+        <div class="tip-bar">
+          <div class="tip-eye">On the way south</div>
+          <p class="tip-text">Stop at <strong>Clyde's Drive-In</strong> one last time for pasties to go. US-2 west along Lake Michigan is a beautiful drive if you have time.</p>
+        </div>
+      </div>
+
+      <!-- 10: SWIMMING HOLES -->
+      <div class="slide" data-label="Swimming Holes">
+        <div class="s-eye">Not on any tourist map</div>
+        <h2 class="s-title">Where Locals<br>Actually Swim</h2>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Brevoort Lake — Locals' Favorite</div>
+              <div class="item-desc">22 mi west on US-2. Clear inland lake, 68–72°F. Free walk-in beach. Where UP families swim.</div>
+            </div>
+            <div class="item-badge ib-free">Free</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Point aux Chenes Bay</div>
+              <div class="item-desc">10 min east on M-134. Protected bay, calmer and slightly warmer than open Lake Huron.</div>
+            </div>
+            <div class="item-badge ib-free">Free</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Back Rocks — Mackinac Island</div>
+              <div class="item-desc">Past British Landing Nature Center. Rocky limestone ledge entry. Where island workers swim on days off.</div>
+            </div>
+            <div class="item-badge ib-free">Workers' spot</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Cabin Beach</div>
+              <div class="item-desc">Lake Michigan · ~58°F in June. Cold but doable. The Straits current makes it slightly warmer here.</div>
+            </div>
+            <div class="item-badge ib-free">At the VRBO</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: LOCALS' SPOTS -->
+      <div class="slide" data-label="Locals' Spots">
+        <div class="s-eye">The parallel economy</div>
+        <h2 class="s-title">Where Workers<br>Actually Go</h2>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon">🍺</div>
+            <div class="item-body">
+              <div class="item-name">Horn's Bar — Mackinac Island (est. 1859)</div>
+              <div class="item-desc">Oldest bar on the island. Workers drink here after shifts. Cash preferred, cheap beer, no frills. Market St.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-icon">🥪</div>
+            <div class="item-body">
+              <div class="item-name">Doud's Market Deli — Island</div>
+              <div class="item-desc">$6–8 sandwiches at the grocery deli vs. $22 at the restaurant next door. Same food, different markup.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-icon">🎱</div>
+            <div class="item-body">
+              <div class="item-name">Casey's Bar — St. Ignace</div>
+              <div class="item-desc">The locals' bar. Not on the tourist strip. Pool table, cheap beer, year-round residents.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-icon">🥟</div>
+            <div class="item-body">
+              <div class="item-name">Gas Station Pasties — St. Ignace</div>
+              <div class="item-desc">Same recipe as tourist bakeries, $5–6 vs. $12. Ask a local where they actually buy pasties.</div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="day-card" id="day3">
-          <div class="dc-head" onclick="toggleDay('day3')">
-            <div class="dc-tag">Mon Jun 15</div>
-            <div class="dc-title">Tunnel of Trees &amp; Brevoort Lake</div>
-            <div class="dc-chevron">▼</div>
+      <!-- 12: EAT -->
+      <div class="slide" data-label="Where to Eat">
+        <div class="s-eye">Food Guide</div>
+        <h2 class="s-title">What &amp; Where<br>to Eat</h2>
+        <div class="tip-bar">
+          <div class="tip-eye">The rule</div>
+          <p class="tip-text"><strong>Never eat a full meal on Mackinac Island.</strong> Everything arrives by freight ferry. A burger is $24.</p>
+        </div>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">U.P. Pasty — Any Local Bakery</div>
+              <div class="item-desc">Beef + potato + rutabaga, hand-crimped. Pronounced PASS-tee. The food of this place. Non-negotiable.</div>
+            </div>
+            <div class="item-badge ib-cheap">~$6–8</div>
           </div>
-          <div class="dc-body">
-            <div class="srow">
-              <div class="st">Morning</div>
-              <div class="sv"><strong>Mystery Spot</strong> (1 min from cabin, ~$10). Then kayak from the cabin beach — launch before 9am.</div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Clyde's Drive-In — St. Ignace</div>
+              <div class="item-desc">Open since 1949. Burgers, pasties, soft-serve. The right dinner after a long island day.</div>
             </div>
-            <div class="srow">
-              <div class="st">Midday</div>
-              <div class="sv"><strong>Brevoort Lake</strong> (22 mi west on US-2) for actual warm swimming — 68–72°F inland water, locals' beach, free walk-in.</div>
+            <div class="item-badge ib-cheap">~$10/person</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Legs Inn — Cross Village</div>
+              <div class="item-desc">Polish roadhouse on a Lake Michigan bluff. Pierogies, perch. Built from driftwood in the 1920s.</div>
             </div>
-            <div class="srow">
-              <div class="st">PM/Eve</div>
-              <div class="sv">West to Cross Village via <strong>M-119 Tunnel of Trees</strong>. Dinner at <strong>Legs Inn</strong> on Lake Michigan bluff. Drive home through the trees at dusk.</div>
+            <div class="item-badge ib-cheap">~$16/person</div>
+          </div>
+          <div class="item">
+            <div class="item-body">
+              <div class="item-name">Grill at the Cabin</div>
+              <div class="item-desc">Charcoal grill, full kitchen, water's edge. The best meal of the trip costs $10/person.</div>
             </div>
+            <div class="item-badge ib-free">Included</div>
           </div>
         </div>
+      </div>
 
-        <div class="day-card" id="day4">
-          <div class="dc-head" onclick="toggleDay('day4')">
-            <div class="dc-tag">Tue Jun 16</div>
-            <div class="dc-title">Second Island Day or Slow Beach Day</div>
-            <div class="dc-chevron">▼</div>
-          </div>
-          <div class="dc-body">
-            <div class="srow">
-              <div class="st">Option A</div>
-              <div class="sv">Return to island for what was skipped: <strong>Fort Mackinac</strong>, Butterfly House, slower hiking. More relaxed the second time.</div>
-            </div>
-            <div class="srow">
-              <div class="st">Option B</div>
-              <div class="sv">Beach day. Swim, grill, sit in the chairs, watch freighters. Walk to <strong>Deer Ranch</strong> (15 min, ~$6). Nearly free.</div>
-            </div>
-            <div class="srow">
-              <div class="st">Night</div>
-              <div class="sv">If clear: drive 45 min west to <strong>Headlands Dark Sky Park</strong> (free). Milky Way visible to the naked eye. Bring blankets.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="day-card" id="day5">
-          <div class="dc-head" onclick="toggleDay('day5')">
-            <div class="dc-tag">Wed Jun 17</div>
-            <div class="dc-title">Checkout &amp; the Bridge</div>
-            <div class="dc-chevron">▼</div>
-          </div>
-          <div class="dc-body">
-            <div class="srow">
-              <div class="st">Morning</div>
-              <div class="sv">Last walk to the water. Check out by 10:30am. Drive south across the <strong>Mackinac Bridge</strong> (~$4 toll southbound) — five miles of suspension cable, island visible east.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COST -->
-        <div class="sec-head" style="margin-top:1.5rem;">
-          <div class="sec-eyebrow">Budget</div>
-          <h2 class="sec-title">Cost Per Person</h2>
-        </div>
-
-        <div class="cost-block">
-          <div class="cb-hed">Estimated · Excluding VRBO</div>
+      <!-- 13: BUDGET -->
+      <div class="slide" data-label="Budget">
+        <div class="s-eye">Cost per person · excluding VRBO</div>
+        <h2 class="s-title">The Budget</h2>
+        <div class="cost-rows">
           <div class="crow"><span class="cl">Ferry, round trip (1 day)</span><span class="cv">~$30</span></div>
-          <div class="crow"><span class="cl">Bike rental on island (or $8 bring your own)</span><span class="cv">~$22</span></div>
+          <div class="crow"><span class="cl">Bike rental on island</span><span class="cv">~$22</span></div>
           <div class="crow"><span class="cl">Mystery Spot</span><span class="cv">~$10</span></div>
           <div class="crow"><span class="cl">Castle Rock</span><span class="cv">$1</span></div>
           <div class="crow"><span class="cl">Legs Inn dinner</span><span class="cv">~$16</span></div>
-          <div class="crow"><span class="cl">Food, 4 days (picnic-heavy)</span><span class="cv">~$65–85</span></div>
-          <div class="crow"><span class="cl"><strong>Total per person</strong></span><span class="cv"><strong>~$145–165</strong></span></div>
+          <div class="crow"><span class="cl">Food, 4 days (picnic-heavy)</span><span class="cv">~$70</span></div>
+          <div class="crow"><span class="cl">Total per person</span><span class="cv">~$149</span></div>
         </div>
-
+        <div class="tip-bar">
+          <div class="tip-eye">Bring your own bikes</div>
+          <p class="tip-text">Swap the $22 bike rental for an $8 ferry bike fee. For 6 people, that's <strong>$84 saved</strong> in one decision.</p>
+        </div>
       </div>
+
+      <!-- 14: HISTORY -->
+      <div class="slide" data-label="The Story">
+        <div class="s-eye">History · Economics · Sociology</div>
+        <h2 class="s-title">What Most<br>Visitors Miss</h2>
+        <div class="hist-list">
+          <div class="hist-entry">
+            <div class="hist-cat">The Car Ban · 1898</div>
+            <div class="hist-hed">It was a horse-protection ordinance, not environmentalism</div>
+            <div class="hist-body">Resort owners banned cars because the noise frightened horses used by wealthy guests. An accident of equine property rights that shaped the island forever.</div>
+          </div>
+          <div class="hist-entry">
+            <div class="hist-cat">Sociology</div>
+            <div class="hist-hed">"Fudgies" — what workers call you</div>
+            <div class="hist-body">~3,000 seasonal workers (mostly J-1 visas) run the island. They call tourists "fudgies." Not affectionate. The Grand Hotel ($800+/night, $10 to walk the porch) is a 5-min walk from the employee dorms.</div>
+          </div>
+          <div class="hist-entry">
+            <div class="hist-cat">Fur Trade · 1780–1834</div>
+            <div class="hist-hed">John Jacob Astor became America's richest man here</div>
+            <div class="hist-body">Every beaver pelt destined for Europe passed through these straits. When silk hats replaced fur ones, the island pivoted to tourism in a single generation.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15: DONE -->
+      <div class="slide" data-label="You're Set">
+        <div class="s-eye">Ready to Go</div>
+        <h2 class="s-title">You're Set</h2>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Buy ferry tickets tonight — Arnold Line, online</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Pack a cooler before every island day</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Bring real layers — jacket every day</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Eat a pasty before you leave St. Ignace</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Leave a window open for the freighters at 2am</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">Swim at Brevoort Lake — warm, free, locals only</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /slides -->
+
+    <!-- NAV -->
+    <div class="guide-nav">
+      <button class="btn-back" id="btnBack">← Back</button>
+      <button class="btn-next" id="btnNext">Begin Guide →</button>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PANEL: ISLAND                                                -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="panel" id="panel-island">
-      <div class="panel-inner">
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">Getting There</div>
-          <h2 class="sec-title">The Ferry</h2>
-        </div>
-
-        <div class="ferry-card">
-          <div class="fc-head">
-            <div class="fc-name">Arnold Line — Recommended</div>
-            <div class="fc-price">~$30 R/T</div>
-          </div>
-          <div class="fc-body">
-            <div class="fc-row"><span>Departs</span><span>St. Ignace dock · walk from cabin</span></div>
-            <div class="fc-row"><span>Crossing</span><span>~15 minutes each way</span></div>
-            <div class="fc-row"><span>Tip</span><span>Buy online night before</span></div>
-          </div>
-        </div>
-
-        <div class="ferry-card">
-          <div class="fc-head">
-            <div class="fc-name">Star Line</div>
-            <div class="fc-price">~$30 R/T</div>
-          </div>
-          <div class="fc-body">
-            <div class="fc-row"><span>Departs</span><span>St. Ignace · hydro-jet, slightly faster</span></div>
-            <div class="fc-row"><span>Bikes</span><span>Check for mid-week discount days</span></div>
-          </div>
-        </div>
-
-        <div class="tip-card">
-          <div class="tip-ey">Save money on the ferry</div>
-          <p class="tip-body"><strong>Bring your own bikes</strong> (~$8 fee on the boat) instead of renting on the island (~$45/day). For 6 people, that's $222 saved in one move. <strong>Most operators let you return on any departure the same day</strong> — take a morning boat, stay until sunset.</p>
-        </div>
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">On the Island — 80% is free state park</div>
-          <h2 class="sec-title">Activities</h2>
-        </div>
-
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">The Perimeter Ride — M-185</h3>
-                <span class="badge b-cheap">Bike rental ~$45</span>
-              </div>
-              <p class="act-desc">Eight miles of flat, car-free shoreline — the only state highway in America with no motor vehicles. Ride the full circuit in 1.5–2 hours. Pack a picnic and stop at British Landing halfway around. Go before 9am to beat the second ferry wave.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">Free on foot · $8 if you bring your own bike on ferry</span>
-              <a class="map-link" href="https://maps.google.com/?q=Mackinac+Island+M-185+Michigan" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Arch Rock</h3>
-                <span class="badge b-free">Free</span>
-              </div>
-              <p class="act-desc">A natural limestone arch 146 feet above Lake Huron. The most photographed thing on the island. Short steep trail from the shore road — twenty minutes on foot. Go before 11am or it's mobbed.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">~1 mile from ferry dock · east shore trail</span>
-              <a class="map-link" href="https://maps.google.com/?q=Arch+Rock+Mackinac+Island+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Sugar Loaf &amp; Skull Cave</h3>
-                <span class="badge b-free">Free</span>
-              </div>
-              <p class="act-desc">A 75-foot limestone pillar in the forest and a cave where Ojibwe warriors sheltered in 1763. Ninety percent of visitors never find either one. Both are on unsigned interior trails off Garrison Road — bring a map.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">Interior trail · off Garrison Rd</span>
-              <a class="map-link" href="https://maps.google.com/?q=Sugar+Loaf+Rock+Mackinac+Island" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">British Landing Picnic</h3>
-                <span class="badge b-free">Free</span>
-              </div>
-              <p class="act-desc">The north-shore beach where British troops landed in 1812. Picnic tables, free nature center, quiet water. Best free lunch spot on the island — pack food from your cabin and eat with a Lake Huron view.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">4 miles from ferry dock · midpoint of perimeter ride</span>
-              <a class="map-link" href="https://maps.google.com/?q=British+Landing+Mackinac+Island+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Fudge Sampling Circuit</h3>
-                <span class="badge b-free">Free to sample</span>
-              </div>
-              <p class="act-desc">Walk the entire Market Street strip before buying. Every shop — Murdick's, Ryba's, Joann's — gives free samples at the window. The fudge is made on marble slabs while you watch. Buy a half-pound at the end only if you've found your favorite.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">Market St (downtown) · ~$8 a half-pound if you buy</span>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Fort Mackinac</h3>
-                <span class="badge b-moderate">$14 adult · $8 ages 5–17</span>
-              </div>
-              <p class="act-desc">Working British fort from 1780 with cannon firings on the hour. Optional but the best use of money on the island if you go one day. The cannon is genuinely startling. The elevated view over the Straits is the best on the island.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">On the bluff above downtown · ~1.5 hrs</span>
-              <a class="map-link" href="https://maps.google.com/?q=Fort+Mackinac+Mackinac+Island+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-        </ul>
-
-        <div class="tip-card" style="margin-top:0.75rem;">
-          <div class="tip-ey">Locals-only spots on the island</div>
-          <p class="tip-body"><strong>Horn's Bar</strong> (Market St, est. 1859) is where island workers drink. No frills, cash preferred, cheap draft beer. The <strong>Grand Hotel charges $10 to walk through the porch</strong> — skip it; Fort Mackinac's free overlook is higher and better. <strong>Doud's Market deli counter</strong> sells sandwiches for $6 while the restaurant next door charges $22 for the same thing.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PANEL: EXPLORE                                               -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="panel" id="panel-explore">
-      <div class="panel-inner">
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">St. Ignace &amp; the U.P.</div>
-          <h2 class="sec-title">Day Trips</h2>
-        </div>
-
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Kayak from the Cabin</h3>
-                <span class="badge b-free">Free — at cabin</span>
-              </div>
-              <p class="act-desc">Kayaks are included with the VRBO. Launch off the beach and paddle east toward Point aux Chenes Bay or west along the rocky shore. Calm mornings only — stay within 100 yards of shore, the Straits can generate real chop and the water is cold year-round.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">Best before 9am · water ~58°F in June</span>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Castle Rock</h3>
-                <span class="badge b-free">$1 per person</span>
-              </div>
-              <p class="act-desc">A 200-foot limestone outcropping three miles north. Fifteen-minute round-trip climb to a full Straits panorama. Michigan's oldest tourist attraction. They charge one dollar. Worth every cent of it.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">N State St · 3 miles north of downtown</span>
-              <a class="map-link" href="https://maps.google.com/?q=Castle+Rock+St+Ignace+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Mystery Spot</h3>
-                <span class="badge b-cheap">~$10/person</span>
-              </div>
-              <p class="act-desc">One minute from the cabin. A tilted cabin where water appears to run uphill. Pure illusion. The teenagers will enjoy debunking it — and then feel unsettled that it still looks wrong after they understand how it works.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">150 Martin Lake Rd · 1 min drive</span>
-              <a class="map-link" href="https://maps.google.com/?q=Mystery+Spot+St+Ignace+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Tunnel of Trees — M-119</h3>
-                <span class="badge b-free">Free</span>
-              </div>
-              <p class="act-desc">Drive 30 min west to Cross Village, then south on M-119 — twenty miles of old-growth hardwood arching over the road along Lake Michigan bluffs. One of the great drives in the country. Go both directions: different light each way. End at Legs Inn for dinner.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">45 min west via US-2 · best in late afternoon</span>
-              <a class="map-link" href="https://maps.google.com/?q=M-119+Tunnel+of+Trees+Michigan" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-
-          <li class="act-card">
-            <div class="act-card-body">
-              <div class="act-top">
-                <h3 class="act-name">Headlands Dark Sky Park</h3>
-                <span class="badge b-free">Free</span>
-              </div>
-              <p class="act-desc">One of the darkest sky preserves in the Midwest, 45 minutes west. No fee. On a clear night the Milky Way is visible naked-eye and the aurora is occasionally possible at this latitude in June. Bring blankets and lie on the hood of the car. Phones are useless out here — that is the point.</p>
-            </div>
-            <div class="act-footer">
-              <span class="act-meta">15675 Headlands Rd, Mackinaw City · 45 min</span>
-              <a class="map-link" href="https://maps.google.com/?q=Headlands+Dark+Sky+Park+Mackinaw+City+MI" target="_blank" rel="noopener">↗ Map</a>
-            </div>
-          </li>
-        </ul>
-
-        <!-- SWIMMING HOLES -->
-        <div class="sec-head">
-          <div class="sec-eyebrow">Not on any tourist map</div>
-          <h2 class="sec-title">Locals' Swimming Holes</h2>
-        </div>
-
-        <p class="p">Lake Michigan runs ~58°F in mid-June — beautiful to look at, cold to be in. The real swimming is inland. These are the spots locals use. None are advertised.</p>
-
-        <div class="swim-card">
-          <div class="swim-top">
-            <div class="swim-name">Brevoort Lake</div>
-            <span class="badge b-local">Locals' favorite</span>
-          </div>
-          <p class="swim-desc">22 miles west on US-2. Clear inland lake that warms to 68–72°F by mid-June — unlike anything on the Great Lakes. Brevoort Lake Campground has a sand beach with free walk-in day access. Almost entirely locals. This is where Upper Peninsula families actually swim.</p>
-          <div class="swim-footer">
-            <div class="swim-dist">US-2 west ~22 miles · free walk-in</div>
-            <a class="map-link" href="https://maps.google.com/?q=Brevoort+Lake+Campground+Michigan" target="_blank" rel="noopener">↗ Map</a>
-          </div>
-        </div>
-
-        <div class="swim-card">
-          <div class="swim-top">
-            <div class="swim-name">Point aux Chenes Bay</div>
-            <span class="badge b-free">10 min from cabin</span>
-          </div>
-          <p class="swim-desc">Ten miles east on M-134. A protected bay off Lake Huron — calmer and slightly warmer than open water, rocky-sand shoreline, almost no foot traffic. Good for wading. The kayaks can reach it on a calm day.</p>
-          <div class="swim-footer">
-            <div class="swim-dist">M-134 east ~10 miles · free</div>
-            <a class="map-link" href="https://maps.google.com/?q=Pointe+aux+Chenes+Michigan" target="_blank" rel="noopener">↗ Map</a>
-          </div>
-        </div>
-
-        <div class="swim-card">
-          <div class="swim-top">
-            <div class="swim-name">Back Rocks — Mackinac Island</div>
-            <span class="badge b-local">Workers' spot</span>
-          </div>
-          <p class="swim-desc">The rocky shoreline north of British Landing, past the nature center, is where island workers swim on days off — away from tourist beaches near the ferry dock. Cold Lake Huron water, limestone ledge entry, no facilities, no crowds. You'll almost certainly be the only non-locals there.</p>
-          <div class="swim-footer">
-            <div class="swim-dist">North shore past British Landing · no signage</div>
-          </div>
-        </div>
-
-        <div class="swim-card">
-          <div class="swim-top">
-            <div class="swim-name">Lake Michigan — the Cabin Beach</div>
-            <span class="badge b-free">At the VRBO</span>
-          </div>
-          <p class="swim-desc">It's right there. Locals do swim in Lake Michigan in June — it requires acclimation. The Straits current makes the St. Ignace shore slightly warmer than open lake water. Wade in slowly. It is worth it once you are in.</p>
-          <div class="swim-footer">
-            <div class="swim-dist">The cabin's own beach · ~58°F mid-June</div>
-          </div>
-        </div>
-
-        <!-- LOCALS' SPOTS -->
-        <div class="sec-head">
-          <div class="sec-eyebrow">Parallel economy</div>
-          <h2 class="sec-title">Where Workers &amp; Locals Go</h2>
-        </div>
-
-        <p class="p">The island employs ~3,000 seasonal workers each summer. They have their own geography, invisible to most tourists. In St. Ignace, the laborers' economy runs a parallel track to the waterfront strip.</p>
-
-        <div class="grungy-card">
-          <div class="gr-name">Horn's Bar — Mackinac Island (est. 1859)</div>
-          <p class="gr-body">The oldest bar on the island and the one workers actually drink at after shifts end. Market St but easy to miss — it doesn't advertise. Cash preferred, cheap draft, no frills. Go on a weeknight. The conversation at the bar is about <em>living here</em>, not visiting.</p>
-        </div>
-
-        <div class="grungy-card">
-          <div class="gr-name">Doud's Market Deli — Mackinac Island</div>
-          <p class="gr-body">The island's only grocery store has a deli counter. Island workers eat here — sandwiches for $6–8. You can do the same. It is not glamorous. It is the correct move when the restaurant forty feet away charges $24 for the same thing.</p>
-        </div>
-
-        <div class="grungy-card">
-          <div class="gr-name">Casey's Bar &amp; Grill — St. Ignace</div>
-          <p class="gr-body">The locals' bar in St. Ignace. Not on the tourist strip, not waterfront. Pool table, cheap domestic beer, people who live here year-round. <em>An hour here teaches you more about the real Upper Peninsula than any guidebook.</em></p>
-        </div>
-
-        <div class="grungy-card">
-          <div class="gr-name">Gas Station Pasties — St. Ignace</div>
-          <p class="gr-body">The best-value pasties aren't at tourist bakeries. <em>Tom's Mix-It-Up</em> and similar local spots sell them fresh daily for $5–6 — the same recipe locals eat. The tourist-facing bakeries can charge double for an identical product. Ask any local where they buy theirs.</p>
-        </div>
-
-        <div class="tip-card" style="margin-top:0.75rem;">
-          <div class="tip-ey">Budget hacks at every step</div>
-          <p class="tip-body">
-            <strong>Bring bikes on the ferry</strong> (~$8) instead of renting on island ($40–50/day). ·
-            <strong>Skip the Grand Hotel porch walk</strong> ($10 just to enter the lobby area) — Fort Mackinac's overlook is free and better. ·
-            <strong>Buy fudge in bulk at the end</strong>, not by the slice throughout. ·
-            <strong>Pack picnic food from the cabin</strong> before every island day — saves $15–20/person vs. eating on Market St.
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PANEL: EAT                                                   -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="panel" id="panel-eat">
-      <div class="panel-inner">
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">The cardinal rule</div>
-          <h2 class="sec-title">Where &amp; What to Eat</h2>
-        </div>
-
-        <div class="pq">
-          <p>"Never eat a full meal on Mackinac Island. Pack lunch, eat at British Landing, return to St. Ignace for dinner. The food on the island is tourist-priced by necessity — everything arrives by freight ferry."</p>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">The U.P. Pasty</div>
-            <div class="food-price">~$6–8</div>
-          </div>
-          <p class="food-desc">The signature food of the Upper Peninsula — a hand-crimped pastry of beef, potato, onion, and rutabaga, brought over by Finnish and Cornish miners in the 1800s. Pronounced <em>PASS-tee</em>. Eat it before you leave. Non-negotiable. Every bakery in St. Ignace sells them.</p>
-          <div class="food-tag">U.P. essential · try before anything else</div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">Clyde's Drive-In — St. Ignace</div>
-            <div class="food-price">~$8–12/person</div>
-          </div>
-          <p class="food-desc">Open since 1949. Burgers, hot dogs, pasties, and soft-serve in a roadside setting with zero pretension. Cash-friendly and fast. The right dinner after a long island day when nobody wants to sit down.</p>
-          <div class="food-tag">Local institution · St. Ignace</div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">Picnic at British Landing</div>
-            <div class="food-price">~$3–5/person</div>
-          </div>
-          <p class="food-desc">Pack sandwiches, chips, fruit, and cold drinks from the cabin before every island day. Eat at the picnic tables on the north shore with a Lake Huron view. Saves $15–20 per person versus eating on Market Street. For six people over two island days: $180 in savings.</p>
-          <div class="food-tag">Strategy · biggest single money decision of the trip</div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">Legs Inn — Cross Village</div>
-            <div class="food-price">~$14–18/person</div>
-          </div>
-          <p class="food-desc">A Polish-American roadhouse on a bluff above Lake Michigan, built entirely from driftwood and found stones by Polish immigrant Stanley Smolak beginning in the 1920s. Cheap pierogies, perch, and cold drinks with a Lake Michigan view. The interior looks like something carved from the forest by a very strange artist. Worth the 45-minute drive. Pair it with the Tunnel of Trees.</p>
-          <div class="food-tag">Worth the drive · Cross Village · 45 min west</div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">Cook at the Cabin</div>
-            <div class="food-price">~$10/person</div>
-          </div>
-          <p class="food-desc">Full kitchen and a charcoal grill. One dinner grilled at the water's edge — watching freighters pass while the coals burn down, the lighthouse visible on St. Helena Island — is worth more than any restaurant in the area. Stock up on arrival day.</p>
-          <div class="food-tag">Best value · included with VRBO</div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-top">
-            <div class="food-name">Mackinac Island Fudge — Strategy</div>
-            <div class="food-price">Free to sample</div>
-          </div>
-          <p class="food-desc">Walk the entire Market Street strip and sample at every shop before buying anything. Murdick's, Ryba's, and Joann's all give free samples at the window. Buy a half-pound slice at the end — it splits six ways and costs about $8. Do not buy by the slice at every shop along the way.</p>
-          <div class="food-tag">Sample everything · buy once · Murdick's or Ryba's</div>
-        </div>
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">Pack ahead</div>
-          <h2 class="sec-title">Grocery Run on Arrival</h2>
-        </div>
-
-        <div class="hack-list">
-          <div class="hack">
-            <div class="hack-h">Island Day Cooler</div>
-            <p class="hack-b">Sandwiches, chips, fruit, cold drinks. Pack the night before. Eat at British Landing. $3–5/person vs. $22 on Market St.</p>
-          </div>
-          <div class="hack">
-            <div class="hack-h">Cabin Breakfast</div>
-            <p class="hack-b">Eggs, bread, coffee from the grocery store. Eat before every ferry day. Nothing on the island is worth $18 for breakfast.</p>
-          </div>
-          <div class="hack">
-            <div class="hack-h">Grill Night</div>
-            <p class="hack-b">Steaks, brats, corn. Stock the charcoal grill. Eat at the water's edge. The best meal of the trip costs $10/person.</p>
-          </div>
-          <div class="hack">
-            <div class="hack-h">Pasty Hunt</div>
-            <p class="hack-b">Don't buy pasties from a tourist bakery. Ask a local or find Tom's Mix-It-Up. Same recipe, $5–6 instead of $12.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PANEL: STORY                                                 -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <div class="panel" id="panel-story">
-      <div class="panel-inner">
-
-        <div class="sec-head">
-          <div class="sec-eyebrow">History, Economics &amp; Sociology</div>
-          <h2 class="sec-title">The Story Under the Fudge</h2>
-        </div>
-
-        <p class="p-lead">Most visitors walk through Mackinac Island thinking only about fudge. The actual history makes the place stranger and more interesting. Tap any entry to read.</p>
-
-        <div id="hist-accordion">
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">Ancient History</div>
-              <div class="hist-hed">"Michilimackinac" — Land of the Great Turtle</div>
-            </button>
-            <div class="hist-body">
-              The island's name comes from the Anishinaabe word <em>Michilimackinac</em>, meaning roughly "Land of the Great Turtle" — the island's shape as seen from the water. The Odawa, Ojibwe, and Potawatomi peoples lived and fished these straits for thousands of years before European contact. The island was considered sacred, a place of spiritual significance at the meeting of the two great lakes. The first French missionaries arrived in 1671. The Indigenous inhabitants were largely displaced over the following two centuries, though Odawa communities remain in the region today — and the name they gave this place is the only one that has ever been used for it.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">Fur Trade &amp; Astor's Fortune</div>
-              <div class="hist-hed">The richest man in America built his fortune here</div>
-            </button>
-            <div class="hist-body">
-              From roughly 1780 to 1834, Mackinac Island was the fur trade capital of North America. Every beaver pelt destined for European hat markets passed through these straits. John Jacob Astor's American Fur Company — headquartered on the island — made him the wealthiest person in the United States. A fortune built on the labor of Indigenous trappers and French-Canadian <em>voyageurs</em> paddling thousands of miles of wilderness. When the fur trade collapsed in the 1830s (European tastes shifted to silk hats), the island pivoted to tourism within a single generation. The same geography that made it a perfect trading hub made it a perfect resort.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">War of 1812</div>
-              <div class="hist-hed">America's first defeat — before anyone knew the war had started</div>
-            </button>
-            <div class="hist-body">
-              On July 17, 1812, a British force landed at British Landing on the island's north shore — the same beach where you'll eat your picnic lunch — and captured Fort Mackinac before dawn. The American garrison surrendered without a shot. The reason: the declaration of war had been signed in Washington two days earlier, but no one had told the soldiers stationed here. The British held the island for three years. The earlier 1763 siege — when Ojibwe warriors captured the fort during a lacrosse game, distracting the guards as the ball was "accidentally" hit through the gate — is an even more remarkable story. Fort Mackinac covers both.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">The Car Ban</div>
-              <div class="hist-hed">Automobiles were banned in 1898 — to protect horses, not people</div>
-            </button>
-            <div class="hist-body">
-              The ban was not visionary environmentalism. It was a noise ordinance. Resort owners and hotel operators were concerned that "horseless carriages" were frightening the horses used by their wealthy guests. The ban passed. The automobiles left. Nothing about the island has been required to adapt to the internal combustion engine since. The effect is profound and slightly eerie: the only motorized vehicles are emergency snowmobiles in winter and a handful of maintenance trucks. The island smells like horses. It is quieter than any other populated place you have ever been. All of this was an accident of nineteenth-century equine property rights.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">Economics</div>
-              <div class="hist-hed">500 year-round residents. 15,000 daily visitors in July. Everything costs more because it arrives by boat.</div>
-            </button>
-            <div class="hist-body">
-              Mackinac Island's permanent population is around 500 people. In peak summer, the daily visitor count can exceed 15,000 — a 30-to-1 ratio that flips back to near-zero by November. Everything on the island — food, building materials, propane, the horses themselves — arrives via freight ferry. That logistics cost is passed directly to consumers: a burger costs $24, a coffee costs $7. The horses produce several tons of manure per day, which is collected and composted. The island has its own water treatment facility, fire department, and school (enrollment 15–30 students depending on how many year-round families remain). It is a complete civic organism for 500 people that scales up by 3,000% every June.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">Sociology</div>
-              <div class="hist-hed">"Fudgies" — and the 3,000 workers who feed them</div>
-            </button>
-            <div class="hist-body">
-              The island hires approximately 3,000 seasonal workers each summer — mostly on J-1 cultural exchange visas from Eastern Europe, Jamaica, and Central America, supplemented by American college students. They work 60-hour weeks during peak season and live in employee housing behind downtown. The term <em>fudgie</em> — what island workers and year-round residents call day-trippers — is not affectionate. It captures the particular contempt that service workers everywhere develop for the customers who make their wages possible. The Grand Hotel, which charges $800+ per night and $10 to walk through its porch, sits a five-minute walk from the employee dormitories. The economic distance between those two buildings is the actual story of the island, more than any historical plaque.
-            </div>
-          </div>
-
-          <div class="hist-item">
-            <button class="hist-btn" onclick="toggleHist(this)">
-              <div class="hist-cat">National Park History</div>
-              <div class="hist-hed">America's second national park — then given away</div>
-            </button>
-            <div class="hist-body">
-              In 1875, Congress established Mackinac National Park — only the second national park in American history, after Yellowstone (1872). It lasted twenty years. In 1895, the federal government transferred the land to Michigan, making it the first Michigan state park. The reason: the island was too small, too developed, and too accessible to fit the emerging vision of vast wilderness preservation. Michigan has managed it as a state park ever since. The 80% of island land that is free to hike, bike, and explore is the direct legacy of that 1875 designation.
-            </div>
-          </div>
-
-        </div>
-
-        <div class="closing-card">
-          <p>The Upper Peninsula has been overlooked for most of its modern history, which is perhaps why it has stayed so intact. The limestone bluffs are still there. The car-free island still smells like horses and fudge. The dark sky park is still genuinely dark. The pasties are still six dollars. None of it has been optimized into something lesser. Go before someone notices.</p>
-        </div>
-
-      </div>
-    </div>
-
+  </div>
   </main>
-  <Footer />
 
   <script>
-    // ── TAB SWITCHING ────────────────────────────────────────────
-    const tabs = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.panel');
+    const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+    const btnNext = document.getElementById('btnNext') as HTMLButtonElement;
+    const btnBack = document.getElementById('btnBack') as HTMLButtonElement;
+    const progressFill = document.getElementById('progressFill') as HTMLElement;
+    const stepLabel = document.getElementById('stepLabel') as HTMLElement;
+    const stepCount = document.getElementById('stepCount') as HTMLElement;
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.panel;
+    const TOTAL = slides.length;
+    let current = 0;
 
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
+    const nextLabels: Record<number, string> = {
+      0: 'Begin Guide →',
+    };
+    const DEFAULT_NEXT = 'Next →';
+    const LAST_LABEL = 'Done ✓';
 
-        tab.classList.add('active');
-        document.getElementById('panel-' + target)?.classList.add('active');
+    function goTo(index: number, direction: 'forward' | 'back') {
+      const prev = slides[current];
+      prev.classList.remove('active');
+      prev.classList.add('exit');
 
-        // Scroll to top of content on tab switch
-        window.scrollTo({ top: document.querySelector('.tab-bar').offsetTop - 1, behavior: 'smooth' });
-      });
+      if (direction === 'back') {
+        prev.style.transform = 'translateX(28px)';
+        prev.style.opacity = '0';
+      }
+
+      setTimeout(() => {
+        prev.classList.remove('exit');
+        prev.style.transform = '';
+        prev.style.opacity = '';
+      }, 250);
+
+      current = index;
+      const next = slides[current];
+
+      if (direction === 'back') {
+        next.style.transform = 'translateX(-28px)';
+        next.style.opacity = '0';
+        next.offsetHeight; // force reflow
+      }
+
+      next.classList.add('active');
+
+      if (direction === 'back') {
+        requestAnimationFrame(() => {
+          next.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+          next.style.transform = '';
+          next.style.opacity = '';
+        });
+      }
+
+      // Update UI
+      const pct = ((current + 1) / TOTAL) * 100;
+      progressFill.style.width = `${pct}%`;
+      stepLabel.textContent = next.dataset.label ?? '';
+      stepCount.textContent = `${current + 1} / ${TOTAL}`;
+
+      btnNext.textContent = current === TOTAL - 1
+        ? LAST_LABEL
+        : (nextLabels[current] ?? DEFAULT_NEXT);
+
+      if (current > 0) btnBack.classList.add('visible');
+      else btnBack.classList.remove('visible');
+    }
+
+    btnNext.addEventListener('click', () => {
+      if (current < TOTAL - 1) goTo(current + 1, 'forward');
     });
 
-    // ── DAY ACCORDIONS ───────────────────────────────────────────
-    function toggleDay(id: string) {
-      const card = document.getElementById(id);
-      card?.classList.toggle('open');
-    }
+    btnBack.addEventListener('click', () => {
+      if (current > 0) goTo(current - 1, 'back');
+    });
 
-    // ── HISTORY ACCORDION ────────────────────────────────────────
-    function toggleHist(btn: HTMLElement) {
-      const body = btn.nextElementSibling as HTMLElement;
-      if (!body) return;
-      const isOpen = body.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.hist-body').forEach(b => b.classList.remove('open'));
-      // Open clicked if it was closed
-      if (!isOpen) body.classList.add('open');
-    }
+    // Keyboard nav
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') btnNext.click();
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') btnBack.click();
+    });
 
-    // Expose to global scope for inline onclick handlers
-    (window as any).toggleDay = toggleDay;
-    (window as any).toggleHist = toggleHist;
+    // Touch swipe
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 50) {
+        if (dx > 0) btnNext.click();
+        else btnBack.click();
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>

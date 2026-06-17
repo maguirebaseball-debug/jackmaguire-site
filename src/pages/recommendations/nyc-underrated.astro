@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import UnderratedPlacesList from '../../components/UnderratedPlacesList.astro';
 ---
 
@@ -9,45 +7,73 @@ import UnderratedPlacesList from '../../components/UnderratedPlacesList.astro';
 <html lang="en">
   <head>
     <BaseHead title="NYC Underrated Places | Recommendations | Jack Maguire" description="A rigorously filtered list of NYC's hidden gems, sourced from thousands of Reddit threads." />
+    <style>
+      .plain-blog {
+        background: #fff;
+        color: #000;
+        font-family: "Times New Roman", Times, serif;
+      }
+      main {
+        width: 80vw;
+        margin: 0 auto;
+        padding: 1rem 0 3rem;
+      }
+      .prose {
+        width: 100%;
+        color: #000;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1.1;
+        margin: 0 0 0.75rem;
+      }
+      .intro {
+        margin: 0 0 1.5rem;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .plain-footer {
+        width: 80vw;
+        margin: 2rem auto 0;
+        padding: 0 0 1rem;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .plain-footer a {
+        color: revert;
+        text-decoration: revert;
+      }
+      @media (max-width: 600px) {
+        main,
+        .plain-footer {
+          width: auto;
+          margin-left: 0;
+          margin-right: 0;
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <Header />
-    <main class="page-container">
-      <header class="page-header">
+  <body class="plain-blog">
+    <main>
+      <article class="prose">
         <h1>NYC Underrated Places</h1>
         <p class="intro">
-          This database was synthesized by scanning over 3,300 local NYC Reddit threads for discussions on hidden gems, neighborhood staples, and off-the-radar establishments. To ensure these places haven't succumbed to TikTok or Instagram saturation, the dataset was strictly gated against the Google Places API. Only locations maintaining a rating of 4.5 or higher with fewer than 500 reviews were preserved. The result is a consolidated directory of genuinely underrated venues.
+          This database was synthesized by scanning over 3,300 local NYC Reddit threads for hidden gems, neighborhood staples, and off-the-radar establishments across restaurants, retail, parks, and entertainment. To ensure these places haven't succumbed to TikTok or Instagram saturation, the dataset was strictly gated against the Google Places API. Only locations maintaining a rating of 4.5 or higher with fewer than 500 reviews were preserved. The result is a consolidated directory of genuinely underrated venues.
         </p>
-      </header>
 
-      <UnderratedPlacesList />
+        <UnderratedPlacesList />
+      </article>
     </main>
-    <Footer />
+    <footer class="plain-footer">
+      <a href="/recommendations/">More recommendations</a>
+    </footer>
   </body>
 </html>
-
-
-<style>
-  .page-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  .page-header {
-    margin-bottom: 2rem;
-  }
-  h1 {
-    font-size: 2.5rem;
-    color: #222;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-    letter-spacing: -0.02em;
-  }
-  .intro {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: #4a4a4a;
-    max-width: 800px;
-    margin: 0;
-  }
-</style>

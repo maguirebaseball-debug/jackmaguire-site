@@ -56,4 +56,14 @@ When presenting what you found, prepend each item with its evidence tier. Exampl
 - [Tier 3 — qualitative pattern] Multiple threads in r/cscareerquestions describe the same emotional sequence...
 - [Tier 4 — engagement signal only] The top-voted comment (score: 847) on this thread reads...
 
-This lets Jack decide how to weight each piece before it enters the draft.
+
+### Reddit Markdown Guide
+When generating content specifically for Reddit (comments, posts), adhere to these formatting rules:
+- **Italics**: `*text*`
+- **Bold**: `**text**`
+- **Links**: `[Link Text](https://url.com)`
+- **Bullet Lists**: `* item` (must have a space after `*`)
+- **Quotes**: `> quote`
+- **Code Blocks**: Four spaces at the beginning of each line
+- **Strikethrough**: `~~text~~`
+- **Superscript**: `text^superscript`

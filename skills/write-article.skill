@@ -125,3 +125,14 @@ Run these after the standard pre-publish steps in CLAUDE.md (build, dash grep, l
 **Evidence tier audit**: For each claim doing argumentative work (not scene-setting, not transitions), note its tier. If the majority of load-bearing claims are Tier 3-4, either upgrade the sourcing or downgrade the certainty of the conclusion before publishing.
 
 **Credibility disclosure check**: Does the article make assertions about a professional domain Jack does not work in? If yes: confirm the author's lens statement is present and appears before the first such assertion. This check takes 30 seconds.
+
+### Reddit Markdown Guide
+When generating content specifically for Reddit (comments, posts), adhere to these formatting rules:
+- **Italics**: `*text*`
+- **Bold**: `**text**`
+- **Links**: `[Link Text](https://url.com)`
+- **Bullet Lists**: `* item` (must have a space after `*`)
+- **Quotes**: `> quote`
+- **Code Blocks**: Four spaces at the beginning of each line
+- **Strikethrough**: `~~text~~`
+- **Superscript**: `text^superscript`

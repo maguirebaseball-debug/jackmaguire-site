@@ -64,14 +64,15 @@ function fmtElapsed(seconds: number): string {
 // ─── Shared UI atoms ──────────────────────────────────────────────────────────
 
 function Btn({
-  onClick, children, variant = 'primary', disabled = false,
+  onClick, children, variant = 'primary', disabled = false, fullWidth = false,
 }: {
   onClick: () => void;
   children: React.ReactNode;
   variant?: 'primary' | 'ghost';
   disabled?: boolean;
+  fullWidth?: boolean;
 }) {
-  const base = 'px-6 py-3 rounded font-semibold text-base transition-opacity disabled:opacity-40 cursor-pointer';
+  const base = `px-6 py-3 rounded font-semibold text-base transition-opacity disabled:opacity-40 cursor-pointer${fullWidth ? ' w-full' : ''}`;
   const styles = {
     primary: `${base} bg-[#556B2F] text-white hover:bg-[#3A4B1C]`,
     ghost:   `${base} bg-transparent border border-[#556B2F] text-[#556B2F] hover:bg-[#556B2F]/10`,

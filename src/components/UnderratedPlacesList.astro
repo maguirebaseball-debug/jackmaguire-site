@@ -121,7 +121,7 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
       const header = document.createElement('div');
       header.className = 'place-card-header';
       header.innerHTML = `
-        <h3>${place.name}</h3>
+        <h2>${place.name}</h2>
         <div class="place-rating">${place.rating} ⭐ (${place.reviews} reviews)</div>
       `;
 
@@ -233,7 +233,7 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
     box-shadow: 0 4px 12px rgba(85, 107, 47, 0.1);
     border-color: rgba(85, 107, 47, 0.4);
   }
-  .place-card-header h3 {
+  .place-card-header h2 {
     margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
     color: #222;

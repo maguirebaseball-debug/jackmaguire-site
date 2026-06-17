@@ -65,23 +65,28 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-heading);
-	margin: 0 0 0.3rem 0;
+	margin: 1.5rem 0 0.5rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
 }
+h1:first-child,
+h2:first-child,
+h3:first-child {
+	margin-top: 0;
+}
 h1 {
-	font-size: clamp(1.125em, 4.5vw, 1.875em);
+	font-size: clamp(1.25em, 5vw, 2em);
 	letter-spacing: 0;
 }
 h2 {
-	font-size: clamp(0.9375em, 3.75vw, 1.425em);
+	font-size: clamp(1.1em, 4.2vw, 1.6em);
 	letter-spacing: 0;
 }
 h3 {
-	font-size: clamp(1.1em, 4vw, 1.55em);
+	font-size: clamp(1em, 3.6vw, 1.35em);
 }
 h4 {
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 h5 {
 	font-size: 1.1em;
