@@ -75,7 +75,46 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
   const resultsCount = document.getElementById('results-count');
   const loadMoreBtn = document.getElementById('load-more-btn');
 
+  function updateFilterOptions() {
+    const selectedCat = categoryFilter.value;
+    const selectedBoro = boroughFilter.value;
+    const selectedNeigh = neighborhoodFilter.value;
+
+    // Categories valid for current Boro + Neigh
+    const validCats = [...new Set(allPlaces
+      .filter((p: any) => (selectedBoro === 'All' || p.borough === selectedBoro) && (selectedNeigh === 'All' || p.neighborhood === selectedNeigh))
+      .map((p: any) => p.category))].sort();
+
+    // Boroughs valid for current Cat + Neigh
+    const validBoros = [...new Set(allPlaces
+      .filter((p: any) => (selectedCat === 'All' || p.category === selectedCat) && (selectedNeigh === 'All' || p.neighborhood === selectedNeigh))
+      .map((p: any) => p.borough))].sort();
+
+    // Neighborhoods valid for current Cat + Boro
+    const validNeighs = [...new Set(allPlaces
+      .filter((p: any) => (selectedCat === 'All' || p.category === selectedCat) && (selectedBoro === 'All' || p.borough === selectedBoro))
+      .map((p: any) => p.neighborhood))].sort();
+
+    updateSelect(categoryFilter, validCats, selectedCat, 'All Categories');
+    updateSelect(boroughFilter, validBoros, selectedBoro, 'All Boroughs');
+    updateSelect(neighborhoodFilter, validNeighs, selectedNeigh, 'All Neighborhoods');
+  }
+
+  function updateSelect(select: HTMLSelectElement, options: string[], currentValue: string, allLabel: string) {
+    const prevValue = currentValue;
+    select.innerHTML = `<option value="All">${allLabel}</option>`;
+    options.forEach(opt => {
+      const option = document.createElement('option');
+      option.value = opt;
+      option.textContent = opt;
+      if (opt === prevValue) option.selected = true;
+      select.appendChild(option);
+    });
+  }
+
   function applyFiltersAndSort() {
+    updateFilterOptions();
+
     const cat = categoryFilter.value;
     const boro = boroughFilter.value;
     const neigh = neighborhoodFilter.value;
@@ -121,7 +160,7 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
       const header = document.createElement('div');
       header.className = 'place-card-header';
       header.innerHTML = `
-        <h2>${place.name}</h2>
+        <h3>${place.name}</h3>
         <div class="place-rating">${place.rating} ⭐ (${place.reviews} reviews)</div>
       `;
 
@@ -210,10 +249,15 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
     color: #000;
   }
   .places-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) {
+    .places-grid {
+      grid-template-columns: 1fr;
+    }
   }
   .place-card {
     border-top: 1px solid #eee;

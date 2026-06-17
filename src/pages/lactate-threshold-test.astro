@@ -12,8 +12,10 @@ import '../styles/lactate.css';
   <title>Lactate Threshold Test — jackmaguire.org</title>
   <link rel="stylesheet" href="/styles/global.css" />
 </head>
-<body style="margin:0;padding:0;background:#fbfaf6;font-family:Verdana,Tahoma,Geneva,sans-serif;">
+<body style="margin:0;padding:0;background:#fbfaf6;font-family:Verdana,Tahoma,Geneva,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;">
   <Header />
-  <LactateTest client:load />
+  <main style="flex:1;overflow-y:auto;display:flex;flex-direction:column;">
+    <LactateTest client:load />
+  </main>
 </body>
 </html>

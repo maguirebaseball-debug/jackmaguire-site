@@ -72,7 +72,7 @@ function Btn({
   disabled?: boolean;
   fullWidth?: boolean;
 }) {
-  const base = `px-6 py-3 rounded font-semibold text-base transition-opacity disabled:opacity-40 cursor-pointer${fullWidth ? ' w-full' : ''}`;
+  const base = `px-4 sm:px-6 py-3 rounded font-semibold text-base transition-opacity disabled:opacity-40 cursor-pointer${fullWidth ? ' w-full' : ''}`;
   const styles = {
     primary: `${base} bg-[#556B2F] text-white hover:bg-[#3A4B1C]`,
     ghost:   `${base} bg-transparent border border-[#556B2F] text-[#556B2F] hover:bg-[#556B2F]/10`,
@@ -127,13 +127,13 @@ function Onboarding({ onSubmit }: { onSubmit: (age: number) => void }) {
   const valid = age !== '' && Number(age) >= 14 && Number(age) <= 100;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#fbfaf6] px-4 py-12">
+    <div className="flex flex-col items-center justify-center bg-[#fbfaf6] px-4 py-8 sm:py-12" style={{ minHeight: 'calc(100vh - 60px)' }}>
       <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Lactate Threshold Test</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Lactate Threshold Test</h1>
         <p className="text-gray-500 mb-2 text-sm leading-relaxed">
           The 30-minute time trial — the gold standard no-blood LT test.
         </p>
-        <p className="text-gray-400 mb-10 text-sm leading-relaxed">
+        <p className="text-gray-400 mb-6 sm:mb-10 text-sm leading-relaxed">
           Run as hard as you can sustain for 30 minutes. Your average heart rate
           in the last 20 minutes = your lactate threshold HR.
         </p>
@@ -146,10 +146,10 @@ function Onboarding({ onSubmit }: { onSubmit: (age: number) => void }) {
           value={age}
           onChange={e => setAge(e.target.value)}
           placeholder="e.g. 32"
-          className="w-full border border-gray-300 rounded px-4 py-3 text-lg mb-8 bg-white focus:outline-none focus:border-[#556B2F]"
+          className="w-full border border-gray-300 rounded px-4 py-3 text-lg mb-6 sm:mb-8 bg-white focus:outline-none focus:border-[#556B2F]"
         />
 
-        <Btn onClick={() => onSubmit(Number(age))} disabled={!valid}>
+        <Btn onClick={() => onSubmit(Number(age))} disabled={!valid} fullWidth>
           Continue →
         </Btn>
       </div>
@@ -169,12 +169,12 @@ function Instructions({ onStart, onBack }: { onStart: () => void; onBack: () => 
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbfaf6] px-4 py-12 flex flex-col items-center">
+    <div className="bg-[#fbfaf6] px-4 py-8 sm:py-12 flex flex-col items-center" style={{ minHeight: 'calc(100vh - 60px)' }}>
       <div className="w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-900 mb-1">Before you start</h2>
-        <p className="text-gray-500 text-sm mb-8">Make sure your heart rate watch is on and synced.</p>
+        <p className="text-gray-500 text-sm mb-6 sm:mb-8">Make sure your heart rate watch is on and synced.</p>
 
-        <div className="space-y-4 mb-10">
+        <div className="space-y-4 mb-8 sm:mb-10">
           {items.map((item, i) => (
             <div key={i} className="flex gap-4 items-start">
               <span className="text-xl mt-0.5 shrink-0">{item.icon}</span>
@@ -188,13 +188,12 @@ function Instructions({ onStart, onBack }: { onStart: () => void; onBack: () => 
           <p className="text-sm text-gray-600 leading-relaxed">
             At lactate threshold, your body reaches steady-state lactate production. Heart rate stabilises
             in the last 20 minutes of an all-out 30-min effort — that stable HR is your LT.
-            More accurate than a step test because you set your own pace.
           </p>
         </div>
 
-        <div className="flex gap-3">
-          <Btn onClick={onBack} variant="ghost">← Back</Btn>
+        <div className="flex flex-col sm:flex-row gap-3">
           <Btn onClick={onStart}>Start warmup</Btn>
+          <Btn onClick={onBack} variant="ghost">← Back</Btn>
         </div>
       </div>
     </div>
@@ -207,11 +206,11 @@ function Warmup({ onDone }: { onDone: () => void }) {
   const { display, stop } = useCountdown(WARMUP_DURATION, onDone);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4">
+    <div className="bg-gray-900 text-white flex flex-col items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 60px)' }}>
       <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Warmup</p>
-      <p className="text-gray-300 text-lg mb-2">Easy pace · 1% incline</p>
-      <p className="text-gray-500 text-sm mb-10">Get your legs moving — don't push yet</p>
-      <div className="font-mono text-8xl font-bold tabular-nums mb-12">{display}</div>
+      <p className="text-gray-300 text-base sm:text-lg mb-2 text-center">Easy pace · 1% incline</p>
+      <p className="text-gray-500 text-sm mb-8 sm:mb-10 text-center">Get your legs moving — don't push yet</p>
+      <div className="font-mono text-7xl sm:text-8xl font-bold tabular-nums mb-10 sm:mb-12" style={{ fontSize: 'clamp(4rem, 20vw, 8rem)' }}>{display}</div>
       <button
         onClick={() => { stop(); onDone(); }}
         className="text-gray-500 underline text-sm cursor-pointer hover:text-gray-300"
@@ -237,9 +236,9 @@ function HRPrompt({
   const valid = hr !== '' && Number(hr) >= 40 && Number(hr) <= 240;
 
   return (
-    <div className="absolute inset-0 bg-gray-950/90 flex flex-col items-center justify-center px-4 z-10">
-      <div className="w-full max-w-sm bg-gray-800 rounded-xl p-6">
-        <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">
+    <div className="absolute inset-0 bg-gray-950/95 flex flex-col items-center justify-center px-4 z-10">
+      <div className="w-full max-w-sm bg-gray-800 rounded-xl p-6 shadow-2xl">
+        <p className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-widest mb-1">
           Reading {promptNumber} of {totalPrompts} · {fmtElapsed(elapsed)} elapsed
         </p>
         <h3 className="text-white text-xl font-bold mb-1">Check your watch</h3>
@@ -259,7 +258,7 @@ function HRPrompt({
         <button
           onClick={() => onSubmit(Number(hr))}
           disabled={!valid}
-          className="w-full py-3 bg-[#556B2F] text-white rounded font-semibold disabled:opacity-40 cursor-pointer hover:bg-[#3A4B1C] transition-colors mb-3"
+          className="w-full py-4 bg-[#556B2F] text-white rounded font-bold disabled:opacity-40 cursor-pointer hover:bg-[#3A4B1C] transition-colors mb-3"
         >
           Log HR →
         </button>
@@ -344,7 +343,7 @@ function Trial({
   const promptsTotal = PROMPT_TIMES.length;
 
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4">
+    <div className="relative bg-gray-900 text-white flex flex-col items-center justify-center px-4 overflow-hidden" style={{ minHeight: 'calc(100vh - 60px)' }}>
       {showPrompt && (
         <HRPrompt
           elapsed={elapsed}
@@ -358,40 +357,40 @@ function Trial({
       <div className="w-full max-w-sm">
         {/* Phase banner */}
         <div className={`text-center mb-6 transition-all duration-700 ${inThreshold ? 'text-yellow-400' : 'text-gray-400'}`}>
-          <p className="text-xs uppercase tracking-widest font-semibold">
+          <p className="text-[10px] sm:text-xs uppercase tracking-widest font-semibold">
             {inThreshold ? '⚡ Threshold phase — hold your pace' : 'Building phase — settle in'}
           </p>
         </div>
 
         {/* Progress bar */}
         <div className="mb-8">
-          <div className="h-1.5 bg-gray-700 rounded-full overflow-hidden">
+          <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
             <div
               className={`h-full transition-all duration-1000 ${inThreshold ? 'bg-yellow-400' : 'bg-gray-500'}`}
               style={{ width: `${pct}%` }}
             />
           </div>
-          <div className="flex justify-between text-xs text-gray-600 mt-1">
+          <div className="flex justify-between text-[10px] sm:text-xs text-gray-600 mt-2">
             <span>0:00</span>
-            <span>10:00</span>
+            <span className={inThreshold ? 'text-yellow-600' : ''}>10:00</span>
             <span>30:00</span>
           </div>
         </div>
 
         {/* Countdown */}
         <p className="text-gray-400 text-sm text-center mb-1">remaining</p>
-        <div className="font-mono text-8xl font-bold tabular-nums text-center mb-10">
+        <div className="font-mono text-7xl sm:text-8xl font-bold tabular-nums text-center mb-8 sm:mb-10" style={{ fontSize: 'clamp(4rem, 24vw, 8rem)' }}>
           {fmtTime(remaining)}
         </div>
 
         {/* HR readings so far */}
         {hrReadings.length > 0 && (
-          <div className="bg-gray-800 rounded-lg p-4 mb-6">
-            <p className="text-gray-400 text-xs uppercase tracking-widest mb-3">HR readings so far</p>
+          <div className="bg-gray-800/50 rounded-lg p-4 mb-6">
+            <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-3">HR readings so far</p>
             <div className="flex flex-wrap gap-2">
               {hrReadings.map((r, i) => (
-                <span key={i} className="bg-gray-700 text-white text-sm font-mono px-3 py-1 rounded">
-                  {r.hr} bpm
+                <span key={i} className="bg-gray-700 text-white text-xs sm:text-sm font-mono px-3 py-1 rounded">
+                  {r.hr}
                 </span>
               ))}
             </div>
@@ -400,7 +399,7 @@ function Trial({
 
         {/* Next prompt indicator */}
         {!showPrompt && promptIdx < PROMPT_TIMES.length && (
-          <p className="text-gray-600 text-xs text-center">
+          <p className="text-gray-600 text-[10px] sm:text-xs text-center">
             Next HR check at {fmtElapsed(PROMPT_TIMES[promptIdx])}
           </p>
         )}
@@ -421,11 +420,11 @@ function RPECheck({ onSubmit }: { onSubmit: (rpe: number) => void }) {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4">
+    <div className="bg-gray-900 text-white flex flex-col items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 60px)' }}>
       <div className="w-full max-w-sm">
         <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">Done — one more question</p>
         <h2 className="text-2xl font-bold mb-1">How hard was that?</h2>
-        <p className="text-gray-400 text-sm mb-8">
+        <p className="text-gray-400 text-sm mb-6 sm:mb-8">
           Should be 8–9 for an accurate LT reading.
         </p>
 
@@ -434,7 +433,7 @@ function RPECheck({ onSubmit }: { onSubmit: (rpe: number) => void }) {
             <button
               key={n}
               onClick={() => setSelected(n)}
-              className={`py-4 rounded text-lg font-bold transition-colors cursor-pointer ${
+              className={`py-3 sm:py-4 rounded text-base sm:text-lg font-bold transition-colors cursor-pointer ${
                 selected === n
                   ? 'bg-[#556B2F] text-white'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -445,14 +444,16 @@ function RPECheck({ onSubmit }: { onSubmit: (rpe: number) => void }) {
           ))}
         </div>
 
-        {selected !== null && (
-          <p className="text-gray-400 text-sm text-center mb-6">{RPE_LABELS[selected]}</p>
-        )}
+        <div className="h-6 mb-6">
+          {selected !== null && (
+            <p className="text-gray-400 text-sm text-center">{RPE_LABELS[selected]}</p>
+          )}
+        </div>
 
         <button
           onClick={() => selected !== null && onSubmit(selected)}
           disabled={selected === null}
-          className="w-full py-3 bg-[#556B2F] text-white rounded font-semibold disabled:opacity-40 cursor-pointer hover:bg-[#3A4B1C] transition-colors"
+          className="w-full py-4 bg-[#556B2F] text-white rounded font-bold disabled:opacity-40 cursor-pointer hover:bg-[#3A4B1C] transition-colors"
         >
           See results →
         </button>
@@ -503,21 +504,21 @@ function Results({
   const hrMax = Math.min(maxHR + 5, Math.max(...readings.map(r => r.hr)) + 10);
 
   return (
-    <div className="min-h-screen bg-[#fbfaf6] px-4 py-12">
+    <div className="bg-[#fbfaf6] px-4 py-8 sm:py-12">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-2xl font-bold text-gray-900 mb-1">Results</h2>
-        <p className="text-gray-500 text-sm mb-8">
+        <p className="text-gray-500 text-sm mb-6 sm:mb-8">
           Based on {readings.length} HR reading{readings.length !== 1 ? 's' : ''} from your 30-min trial
         </p>
 
         {/* LT callout */}
-        <div className="bg-[#556B2F]/10 border border-[#556B2F]/30 rounded p-5 mb-4">
-          <p className="text-xs uppercase tracking-widest text-[#556B2F] font-semibold mb-1">
-            Lactate Threshold Heart Rate
+        <div className="bg-[#556B2F]/10 border border-[#556B2F]/30 rounded p-4 sm:p-5 mb-4">
+          <p className="text-[10px] uppercase tracking-widest text-[#556B2F] font-bold mb-1">
+            Lactate Threshold HR
           </p>
-          <p className="text-5xl font-bold text-gray-900 mb-1">{ltHR} <span className="text-2xl font-normal text-gray-500">bpm</span></p>
-          <p className="text-sm text-gray-500">
-            {ltPct}% of estimated max HR ({maxHR} bpm) · avg of {usedReadingCount} readings (15:00–30:00)
+          <p className="text-4xl sm:text-5xl font-bold text-gray-900 mb-1">{ltHR} <span className="text-xl sm:text-2xl font-normal text-gray-500">bpm</span></p>
+          <p className="text-xs sm:text-sm text-gray-500">
+            {ltPct}% of est. max · avg of {usedReadingCount} readings
           </p>
         </div>
 
@@ -525,7 +526,7 @@ function Results({
         {rpeWarning && (
           <div className="bg-orange-50 border border-orange-200 rounded p-4 mb-4 flex gap-3">
             <span className="text-orange-400 text-lg shrink-0">⚠</span>
-            <p className="text-sm text-orange-700">{rpeWarning.msg}</p>
+            <p className="text-xs sm:text-sm text-orange-700">{rpeWarning.msg}</p>
           </div>
         )}
 
@@ -533,70 +534,74 @@ function Results({
         {driftWarning && (
           <div className="bg-yellow-50 border border-yellow-200 rounded p-4 mb-4 flex gap-3">
             <span className="text-yellow-500 text-lg shrink-0">↑</span>
-            <p className="text-sm text-yellow-800">{driftWarning}</p>
+            <p className="text-xs sm:text-sm text-yellow-800">{driftWarning}</p>
           </div>
         )}
 
         {/* HR progression chart */}
-        <div className="bg-white rounded border border-gray-200 p-4 mb-8">
-          <p className="text-sm font-semibold text-gray-700 mb-4">HR during last 20 minutes</p>
-          <ResponsiveContainer width="100%" height={220}>
-            <LineChart data={chartData} margin={{ top: 10, right: 20, left: 0, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+        <div className="bg-white rounded border border-gray-200 p-3 sm:p-4 mb-6 sm:mb-8">
+          <p className="text-xs sm:text-sm font-bold text-gray-700 mb-4">HR progression (last 20m)</p>
+          <ResponsiveContainer width="100%" height={200}>
+            <LineChart data={chartData} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
               <XAxis
                 dataKey="min"
-                label={{ value: 'Elapsed (min)', position: 'insideBottom', offset: -10, fill: '#9ca3af', fontSize: 12 }}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 10 }}
+                tickLine={false}
+                axisLine={false}
               />
               <YAxis
                 domain={[hrMin, hrMax]}
-                label={{ value: 'HR (bpm)', angle: -90, position: 'insideLeft', fill: '#9ca3af', fontSize: 12 }}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 10 }}
+                tickLine={false}
+                axisLine={false}
               />
-              <Tooltip formatter={(val: number) => [`${val} bpm`, 'Heart Rate']} />
+              <Tooltip formatter={(val: number) => [`${val} bpm`, 'HR']} />
               <ReferenceLine
                 y={ltHR}
                 stroke="#556B2F"
                 strokeDasharray="4 4"
-                label={{ value: `LT avg ${ltHR}`, fill: '#556B2F', fontSize: 11, position: 'right' }}
+                label={{ value: `LT ${ltHR}`, fill: '#556B2F', fontSize: 10, position: 'right' }}
               />
               <Line
                 type="monotone"
                 dataKey="hr"
                 stroke="#556B2F"
-                strokeWidth={2}
-                dot={<Dot r={6} fill="#556B2F" stroke="#fff" strokeWidth={2} />}
-                activeDot={{ r: 8 }}
+                strokeWidth={3}
+                dot={<Dot r={5} fill="#556B2F" stroke="#fff" strokeWidth={2} />}
+                activeDot={{ r: 7 }}
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         {/* Training zones */}
-        <div className="bg-white rounded border border-gray-200 overflow-hidden mb-8">
-          <div className="px-4 py-3 border-b border-gray-100">
-            <p className="text-sm font-semibold text-gray-700">Training zones</p>
-            <p className="text-xs text-gray-400">Anchored to your measured LT HR of {ltHR} bpm</p>
+        <div className="bg-white rounded border border-gray-200 overflow-hidden mb-6 sm:mb-8">
+          <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
+            <p className="text-xs sm:text-sm font-bold text-gray-700">Training zones</p>
           </div>
-          <table className="w-full text-sm">
+          <table className="w-full text-xs sm:text-sm">
             <tbody>
               {zones.map((z, i) => (
                 <tr key={z.name} className={i > 0 ? 'border-t border-gray-100' : ''}>
-                  <td className="px-4 py-3">
-                    <span
-                      className="inline-block w-2 h-2 rounded-full mr-2"
-                      style={{ background: z.color }}
-                    />
-                    <span className="font-medium text-gray-800">{z.name} — {z.label}</span>
+                  <td className="px-3 sm:px-4 py-3">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="w-2 h-2 rounded-full shrink-0"
+                        style={{ background: z.color }}
+                      />
+                      <span className="font-bold text-gray-800">{z.name}</span>
+                      <span className="text-[10px] sm:text-xs text-gray-500 font-normal">{z.label}</span>
+                    </div>
                   </td>
-                  <td className="px-4 py-3 font-mono text-gray-700">
+                  <td className="px-3 sm:px-4 py-3 font-mono text-gray-900 text-right">
                     {z.name === 'Z1'
                       ? `< ${z.high}`
                       : z.name === 'Z5'
                         ? `${z.low}+`
                         : `${z.low}–${z.high}`}
                   </td>
-                  <td className="px-4 py-3 text-gray-500 hidden sm:table-cell text-xs">{z.desc}</td>
+                  <td className="px-4 py-3 text-gray-400 hidden md:table-cell text-[10px]">{z.desc}</td>
                 </tr>
               ))}
             </tbody>
@@ -604,13 +609,13 @@ function Results({
         </div>
 
         {/* Raw readings */}
-        <div className="bg-white rounded border border-gray-200 overflow-hidden mb-10">
-          <table className="w-full text-sm">
+        <div className="bg-white rounded border border-gray-200 overflow-hidden mb-8 sm:mb-10">
+          <table className="w-full text-xs sm:text-sm">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left px-4 py-2 text-gray-500 font-medium">Time</th>
-                <th className="text-left px-4 py-2 text-gray-500 font-medium">HR</th>
-                <th className="text-left px-4 py-2 text-gray-500 font-medium hidden sm:table-cell">Δ from avg</th>
+                <th className="text-left px-3 sm:px-4 py-2 text-gray-500 font-bold uppercase text-[10px]">Time</th>
+                <th className="text-left px-3 sm:px-4 py-2 text-gray-500 font-bold uppercase text-[10px]">HR</th>
+                <th className="text-right px-3 sm:px-4 py-2 text-gray-500 font-bold uppercase text-[10px] hidden sm:table-cell">Δ avg</th>
               </tr>
             </thead>
             <tbody>
@@ -619,15 +624,15 @@ function Results({
                 const delta = r.hr - ltHR;
                 return (
                   <tr key={i} className={i > 0 ? 'border-t border-gray-100' : ''}>
-                    <td className="px-4 py-3 text-gray-500">
+                    <td className="px-3 sm:px-4 py-3 text-gray-500">
                       {fmtElapsed(r.elapsed)}
-                      {excluded && <span className="ml-2 text-xs text-gray-400">(settling)</span>}
+                      {excluded && <span className="ml-1 text-[9px] text-gray-300">excl.</span>}
                     </td>
-                    <td className={`px-4 py-3 font-mono ${excluded ? 'text-gray-400' : 'text-gray-700'}`}>{r.hr} bpm</td>
-                    <td className="px-4 py-3 hidden sm:table-cell">
+                    <td className={`px-3 sm:px-4 py-3 font-mono ${excluded ? 'text-gray-300' : 'text-gray-900 font-bold'}`}>{r.hr} <span className="text-[10px] font-normal text-gray-400">bpm</span></td>
+                    <td className="px-3 sm:px-4 py-3 text-right hidden sm:table-cell">
                       {excluded
-                        ? <span className="text-xs text-gray-300">excl.</span>
-                        : <span className={`text-xs font-mono ${delta > 0 ? 'text-red-400' : delta < 0 ? 'text-blue-400' : 'text-gray-400'}`}>
+                        ? null
+                        : <span className={`text-[10px] font-mono font-bold ${delta > 0 ? 'text-red-500' : delta < 0 ? 'text-blue-500' : 'text-gray-400'}`}>
                             {delta > 0 ? `+${delta}` : delta}
                           </span>
                       }
@@ -635,18 +640,13 @@ function Results({
                   </tr>
                 );
               })}
-              <tr className="border-t-2 border-gray-200 bg-gray-50">
-                <td className="px-4 py-3 text-gray-700 font-semibold">Average (15:00–30:00)</td>
-                <td className="px-4 py-3 font-mono font-bold text-gray-900">{ltHR} bpm</td>
-                <td className="px-4 py-3 hidden sm:table-cell" />
-              </tr>
             </tbody>
           </table>
         </div>
 
         <button
           onClick={onRestart}
-          className="text-sm text-[#556B2F] underline cursor-pointer hover:text-[#3A4B1C]"
+          className="text-sm text-[#556B2F] font-bold underline cursor-pointer hover:text-[#3A4B1C] block w-full text-center"
         >
           Run another test
         </button>
