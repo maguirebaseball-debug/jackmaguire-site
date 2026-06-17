@@ -1,5 +1,6 @@
 ---
 import LactateTest from '../components/LactateTest.tsx';
+import Header from '../components/Header.astro';
 import '../styles/lactate.css';
 ---
 <!doctype html>
@@ -9,8 +10,10 @@ import '../styles/lactate.css';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Lactate Threshold Test — jackmaguire.org</title>
+  <link rel="stylesheet" href="/styles/global.css" />
 </head>
 <body style="margin:0;padding:0;background:#fbfaf6;font-family:Verdana,Tahoma,Geneva,sans-serif;">
+  <Header />
   <LactateTest client:load />
 </body>
 </html>
