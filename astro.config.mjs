@@ -1,7 +1,9 @@
 // @ts-check
 
+import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
@@ -15,7 +17,11 @@ export default defineConfig({
 		'/blog/ai-ally-betrayal/': '/blog/we-are-all-inside-different-machines/',
 		'/nycworldcupopenervenues/': '/worldcupnyc2026/',
 	},
+	vite: {
+		plugins: [tailwindcss()],
+	},
 	integrations: [
+		react(),
 		mdx(),
 		sitemap({
 			filter: (page) =>

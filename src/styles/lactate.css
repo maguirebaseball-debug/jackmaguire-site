@@ -1,0 +1,3 @@
+/* Theme tokens (colors, spacing, etc.) + utilities — no preflight/base to protect site CSS */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
