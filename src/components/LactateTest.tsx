@@ -6,7 +6,7 @@ import {
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Screen = 'ONBOARDING' | 'INSTRUCTIONS' | 'WARMUP' | 'TRIAL' | 'RESULTS';
+type Screen = 'ONBOARDING' | 'INSTRUCTIONS' | 'WARMUP' | 'TRIAL' | 'RPE_CHECK' | 'RESULTS';
 
 interface HRReading {
   elapsed: number; // seconds
@@ -39,7 +39,16 @@ function getZones(ltHR: number) {
 }
 
 function computeLtHR(readings: HRReading[]): number {
-  return Math.round(readings.reduce((s, r) => s + r.hr, 0) / readings.length);
+  // Exclude the 10:00 (600s) reading — HR hasn't fully stabilised at phase transition yet.
+  // Use only 15:00–30:00 readings; fall back to all readings if fewer than 2 qualify.
+  const stable = readings.filter(r => r.elapsed > 600);
+  const src = stable.length >= 2 ? stable : readings;
+  return Math.round(src.reduce((s, r) => s + r.hr, 0) / src.length);
+}
+
+function ltReadings(readings: HRReading[]): HRReading[] {
+  const stable = readings.filter(r => r.elapsed > 600);
+  return stable.length >= 2 ? stable : readings;
 }
 
 function fmtTime(seconds: number): string {
@@ -399,19 +408,90 @@ function Trial({
   );
 }
 
+// ─── Screen: RPE_CHECK ───────────────────────────────────────────────────────
+
+const RPE_LABELS: Record<number, string> = {
+  1: 'Nothing at all', 2: 'Very easy', 3: 'Easy', 4: 'Moderate',
+  5: 'Somewhat hard', 6: 'Hard', 7: 'Very hard', 8: 'Very hard+',
+  9: 'Extremely hard', 10: 'Maximal',
+};
+
+function RPECheck({ onSubmit }: { onSubmit: (rpe: number) => void }) {
+  const [selected, setSelected] = useState<number | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4">
+      <div className="w-full max-w-sm">
+        <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">Done — one more question</p>
+        <h2 className="text-2xl font-bold mb-1">How hard was that?</h2>
+        <p className="text-gray-400 text-sm mb-8">
+          Should be 8–9 for an accurate LT reading.
+        </p>
+
+        <div className="grid grid-cols-5 gap-2 mb-4">
+          {[1,2,3,4,5,6,7,8,9,10].map(n => (
+            <button
+              key={n}
+              onClick={() => setSelected(n)}
+              className={`py-4 rounded text-lg font-bold transition-colors cursor-pointer ${
+                selected === n
+                  ? 'bg-[#556B2F] text-white'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              {n}
+            </button>
+          ))}
+        </div>
+
+        {selected !== null && (
+          <p className="text-gray-400 text-sm text-center mb-6">{RPE_LABELS[selected]}</p>
+        )}
+
+        <button
+          onClick={() => selected !== null && onSubmit(selected)}
+          disabled={selected === null}
+          className="w-full py-3 bg-[#556B2F] text-white rounded font-semibold disabled:opacity-40 cursor-pointer hover:bg-[#3A4B1C] transition-colors"
+        >
+          See results →
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ─── Screen: RESULTS ─────────────────────────────────────────────────────────
 
 function Results({
-  readings, age, onRestart,
+  readings, age, rpe, onRestart,
 }: {
   readings: HRReading[];
   age: number;
+  rpe: number;
   onRestart: () => void;
 }) {
   const ltHR = computeLtHR(readings);
   const maxHR = 220 - age;
   const ltPct = Math.round((ltHR / maxHR) * 100);
   const zones = getZones(ltHR);
+  const stableReadings = ltReadings(readings);
+  const usedReadingCount = stableReadings.length;
+
+  // RPE validity
+  const rpeWarning = rpe <= 6
+    ? { color: 'orange', msg: `RPE ${rpe}/10 suggests the effort may have been too easy. Your true LT HR is likely a few bpm higher than shown.` }
+    : rpe === 10
+      ? { color: 'orange', msg: `RPE 10/10 — maximum effort. Anaerobic contribution at this intensity can inflate HR slightly above true LT.` }
+      : null;
+
+  // Drift check over the stable (averaged) readings
+  const stableHRs = stableReadings.map(r => r.hr);
+  const hrSpread = stableHRs.length >= 2
+    ? Math.max(...stableHRs) - Math.min(...stableHRs)
+    : 0;
+  const driftWarning = hrSpread > 10
+    ? `Your HR rose ${hrSpread} bpm across the measured window (${Math.min(...stableHRs)}→${Math.max(...stableHRs)} bpm). This suggests cardiac drift or pacing out too hard early — your true LT may be closer to the lower readings.`
+    : null;
 
   const chartData = readings.map(r => ({
     min: Math.round(r.elapsed / 60),
@@ -430,15 +510,31 @@ function Results({
         </p>
 
         {/* LT callout */}
-        <div className="bg-[#556B2F]/10 border border-[#556B2F]/30 rounded p-5 mb-8">
+        <div className="bg-[#556B2F]/10 border border-[#556B2F]/30 rounded p-5 mb-4">
           <p className="text-xs uppercase tracking-widest text-[#556B2F] font-semibold mb-1">
             Lactate Threshold Heart Rate
           </p>
           <p className="text-5xl font-bold text-gray-900 mb-1">{ltHR} <span className="text-2xl font-normal text-gray-500">bpm</span></p>
           <p className="text-sm text-gray-500">
-            {ltPct}% of estimated max HR ({maxHR} bpm) · average of {readings.length} readings
+            {ltPct}% of estimated max HR ({maxHR} bpm) · avg of {usedReadingCount} readings (15:00–30:00)
           </p>
         </div>
+
+        {/* RPE validity warning */}
+        {rpeWarning && (
+          <div className="bg-orange-50 border border-orange-200 rounded p-4 mb-4 flex gap-3">
+            <span className="text-orange-400 text-lg shrink-0">⚠</span>
+            <p className="text-sm text-orange-700">{rpeWarning.msg}</p>
+          </div>
+        )}
+
+        {/* Drift warning */}
+        {driftWarning && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded p-4 mb-4 flex gap-3">
+            <span className="text-yellow-500 text-lg shrink-0">↑</span>
+            <p className="text-sm text-yellow-800">{driftWarning}</p>
+          </div>
+        )}
 
         {/* HR progression chart */}
         <div className="bg-white rounded border border-gray-200 p-4 mb-8">
@@ -518,21 +614,28 @@ function Results({
             </thead>
             <tbody>
               {readings.map((r, i) => {
+                const excluded = r.elapsed === 600;
                 const delta = r.hr - ltHR;
                 return (
                   <tr key={i} className={i > 0 ? 'border-t border-gray-100' : ''}>
-                    <td className="px-4 py-3 text-gray-500">{fmtElapsed(r.elapsed)}</td>
-                    <td className="px-4 py-3 font-mono text-gray-700">{r.hr} bpm</td>
+                    <td className="px-4 py-3 text-gray-500">
+                      {fmtElapsed(r.elapsed)}
+                      {excluded && <span className="ml-2 text-xs text-gray-400">(settling)</span>}
+                    </td>
+                    <td className={`px-4 py-3 font-mono ${excluded ? 'text-gray-400' : 'text-gray-700'}`}>{r.hr} bpm</td>
                     <td className="px-4 py-3 hidden sm:table-cell">
-                      <span className={`text-xs font-mono ${delta > 0 ? 'text-red-400' : delta < 0 ? 'text-blue-400' : 'text-gray-400'}`}>
-                        {delta > 0 ? `+${delta}` : delta}
-                      </span>
+                      {excluded
+                        ? <span className="text-xs text-gray-300">excl.</span>
+                        : <span className={`text-xs font-mono ${delta > 0 ? 'text-red-400' : delta < 0 ? 'text-blue-400' : 'text-gray-400'}`}>
+                            {delta > 0 ? `+${delta}` : delta}
+                          </span>
+                      }
                     </td>
                   </tr>
                 );
               })}
               <tr className="border-t-2 border-gray-200 bg-gray-50">
-                <td className="px-4 py-3 text-gray-700 font-semibold">Average</td>
+                <td className="px-4 py-3 text-gray-700 font-semibold">Average (15:00–30:00)</td>
                 <td className="px-4 py-3 font-mono font-bold text-gray-900">{ltHR} bpm</td>
                 <td className="px-4 py-3 hidden sm:table-cell" />
               </tr>
@@ -557,10 +660,11 @@ export default function LactateTest() {
   const [screen, setScreen] = useState<Screen>('ONBOARDING');
   const [age, setAge] = useState(0);
   const [readings, setReadings] = useState<HRReading[]>([]);
+  const [rpe, setRpe] = useState(0);
 
   const handleTrialDone = useCallback((r: HRReading[]) => {
     setReadings(r);
-    setScreen('RESULTS');
+    setScreen('RPE_CHECK');
   }, []);
 
   if (screen === 'ONBOARDING') return (
@@ -582,11 +686,16 @@ export default function LactateTest() {
     <Trial onDone={handleTrialDone} />
   );
 
+  if (screen === 'RPE_CHECK') return (
+    <RPECheck onSubmit={r => { setRpe(r); setScreen('RESULTS'); }} />
+  );
+
   if (screen === 'RESULTS') return (
     <Results
       readings={readings}
       age={age}
-      onRestart={() => { setReadings([]); setScreen('ONBOARDING'); }}
+      rpe={rpe}
+      onRestart={() => { setReadings([]); setRpe(0); setScreen('ONBOARDING'); }}
     />
   );
 
