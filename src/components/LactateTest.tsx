@@ -127,7 +127,7 @@ function Onboarding({ onSubmit }: { onSubmit: (age: number) => void }) {
   const valid = age !== '' && Number(age) >= 14 && Number(age) <= 100;
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#fbfaf6] px-4 py-8 sm:py-12" style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <div className="flex-1 flex flex-col items-center justify-center bg-[#fbfaf6] px-4 py-8 sm:py-12 w-full">
       <div className="w-full max-w-md">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Lactate Threshold Test</h1>
         <p className="text-gray-500 mb-2 text-sm leading-relaxed">
@@ -169,7 +169,7 @@ function Instructions({ onStart, onBack }: { onStart: () => void; onBack: () => 
   ];
 
   return (
-    <div className="bg-[#fbfaf6] px-4 py-8 sm:py-12 flex flex-col items-center" style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <div className="flex-1 bg-[#fbfaf6] px-4 py-8 sm:py-12 flex flex-col items-center w-full">
       <div className="w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-900 mb-1">Before you start</h2>
         <p className="text-gray-500 text-sm mb-6 sm:mb-8">Make sure your heart rate watch is on and synced.</p>
@@ -206,7 +206,7 @@ function Warmup({ onDone }: { onDone: () => void }) {
   const { display, stop } = useCountdown(WARMUP_DURATION, onDone);
 
   return (
-    <div className="bg-gray-900 text-white flex flex-col items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <div className="flex-1 bg-gray-900 text-white flex flex-col items-center justify-center px-4 w-full">
       <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Warmup</p>
       <p className="text-gray-300 text-base sm:text-lg mb-2 text-center">Easy pace · 1% incline</p>
       <p className="text-gray-500 text-sm mb-8 sm:mb-10 text-center">Get your legs moving — don't push yet</p>
@@ -343,7 +343,7 @@ function Trial({
   const promptsTotal = PROMPT_TIMES.length;
 
   return (
-    <div className="relative bg-gray-900 text-white flex flex-col items-center justify-center px-4 overflow-hidden" style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <div className="flex-1 relative bg-gray-900 text-white flex flex-col items-center justify-center px-4 overflow-hidden w-full">
       {showPrompt && (
         <HRPrompt
           elapsed={elapsed}
@@ -420,7 +420,7 @@ function RPECheck({ onSubmit }: { onSubmit: (rpe: number) => void }) {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <div className="bg-gray-900 text-white flex flex-col items-center justify-center px-4" style={{ minHeight: 'calc(100vh - 60px)' }}>
+    <div className="flex-1 bg-gray-900 text-white flex flex-col items-center justify-center px-4 w-full">
       <div className="w-full max-w-sm">
         <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">Done — one more question</p>
         <h2 className="text-2xl font-bold mb-1">How hard was that?</h2>

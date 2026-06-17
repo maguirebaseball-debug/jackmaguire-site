@@ -177,7 +177,6 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
       citation.className = 'reddit-citation';
       citation.innerHTML = `
         <p class="quote">"${place.reddit_quote}"</p>
-        <small class="thread-id">— ${place.reddit_thread}</small>
       `;
 
       card.appendChild(header);
@@ -315,13 +314,8 @@ const neighborhoods = [...new Set(placesData.map((p: any) => p.neighborhood))].s
     font-size: 16px;
   }
   .quote {
-    margin: 0 0 0.25rem 0;
+    margin: 0;
     line-height: 1.4;
-  }
-  .thread-id {
-    color: #888;
-    font-size: 12px;
-    font-style: normal;
   }
   .load-more-container {
     display: flex;
