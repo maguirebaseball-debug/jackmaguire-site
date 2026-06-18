@@ -46,7 +46,7 @@ Layout rules:
 * Use browser-default link styling for links.
 * Keep the visible date.
 * Do not show tags on article pages.
-* Do not show the normal header, footer, reading progress bar, author box, table of contents, related-links block, decorative backgrounds, hero image, or custom typography on plain article pages.
+* Do not show the reading progress bar, author box, table of contents, related-links block, decorative backgrounds, hero image, or custom typography on plain article pages. (Note: The global Header navigation and global Footer ARE allowed and should be visible on plain article pages).
 * Show one minimal footer link at the bottom: `More writing`, linking to `/blog/`.
 * Keep SEO/AEO metadata: title, description, canonical URL, Article schema, RSS, sitemap inclusion, Open Graph metadata, and analytics.
 * Visible article images are text-only by default. Add images only when explicitly requested or when the post cannot work without them. OG images are allowed as metadata and should not display in the article body by default.

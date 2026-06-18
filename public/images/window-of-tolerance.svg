@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #FAFAFA; rx: 8px; }
+      .axis { stroke: #D1D5DB; stroke-width: 1; }
+      .grid { stroke: #E5E7EB; stroke-width: 1; stroke-dasharray: 4 4; }
+      .band { fill: rgba(85, 107, 47, 0.12); }
+      .band-text { fill: #556B2F; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; opacity: 0.8; }
+      .line { fill: none; stroke: #D97757; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .point { fill: #D97757; stroke: #FFF; stroke-width: 2; }
+      .label { fill: #4B5563; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: middle; }
+      .y-label { fill: #4B5563; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: end; }
+      .title { fill: #111827; font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 600; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <rect width="800" height="400" class="bg"/>
+  
+  <text x="400" y="40" class="title">The Window of Tolerance (Nervous System States)</text>
+  
+  <!-- Grid -->
+  <line x1="100" y1="50" x2="750" y2="50" class="grid"/>
+  <line x1="100" y1="125" x2="750" y2="125" class="grid"/>
+  <line x1="100" y1="200" x2="750" y2="200" class="grid"/>
+  <line x1="100" y1="275" x2="750" y2="275" class="grid"/>
+  
+  <!-- Window of Tolerance Band (y=170 to y=230) -->
+  <rect x="100" y="170" width="650" height="60" class="band"/>
+  <text x="110" y="190" class="band-text">Optimal Zone (Window of Tolerance)</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="350" x2="750" y2="350" class="axis"/>
+  <line x1="100" y1="50" x2="100" y2="350" class="axis"/>
+  
+  <!-- Y-axis labels -->
+  <text x="85" y="55" class="y-label">10</text>
+  <text x="85" y="130" class="y-label">7.5</text>
+  <text x="85" y="205" class="y-label">5</text>
+  <text x="85" y="280" class="y-label">2.5</text>
+  <text x="85" y="355" class="y-label">0</text>
+  
+  <text x="40" y="200" class="y-label" transform="rotate(-90 40,200)">Arousal Level</text>
+
+  <!-- X-axis labels -->
+  <text x="100" y="375" class="label">Calm</text>
+  <text x="262.5" y="375" class="label">Triggered</text>
+  <text x="425" y="375" class="label">Prolonged Stress</text>
+  <text x="587.5" y="375" class="label">Overwhelmed</text>
+  <text x="750" y="375" class="label">Dissociation</text>
+
+  <!-- Data Line -->
+  <!-- Points: [5, 8, 9, 3, 1] -> Y: [200, 110, 80, 260, 320] -->
+  <polyline class="line" points="100,200 262.5,110 425,80 587.5,260 750,320" />
+  
+  <!-- Data Points -->
+  <circle cx="100" cy="200" r="5" class="point"/>
+  <circle cx="262.5" cy="110" r="5" class="point"/>
+  <circle cx="425" cy="80" r="5" class="point"/>
+  <circle cx="587.5" cy="260" r="5" class="point"/>
+  <circle cx="750" cy="320" r="5" class="point"/>
+
+  <!-- Annotations -->
+  <text x="425" y="65" class="label" style="font-style: italic;">Hyperarousal (Panic)</text>
+  <text x="750" y="305" class="label" style="font-style: italic;">Hypoarousal (Numbness)</text>
+</svg>

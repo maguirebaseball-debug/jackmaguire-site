@@ -209,7 +209,10 @@ function Warmup({ onDone }: { onDone: () => void }) {
     <div className="flex-1 bg-gray-900 text-white flex flex-col items-center justify-center px-4 w-full">
       <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Warmup</p>
       <p className="text-gray-300 text-base sm:text-lg mb-2 text-center">Easy pace · 1% incline</p>
-      <p className="text-gray-500 text-sm mb-8 sm:mb-10 text-center">Get your legs moving — don't push yet</p>
+      <p className="text-gray-500 text-sm mb-6 text-center">Get your legs moving — don't push yet</p>
+      <div className="bg-gray-800 border border-gray-700 rounded px-4 py-2 mb-8 text-center">
+        <p className="text-yellow-400 text-xs font-semibold">The 30-minute test begins <em>after</em> this warmup</p>
+      </div>
       <div className="font-mono text-7xl sm:text-8xl font-bold tabular-nums mb-10 sm:mb-12" style={{ fontSize: 'clamp(4rem, 20vw, 8rem)' }}>{display}</div>
       <button
         onClick={() => { stop(); onDone(); }}

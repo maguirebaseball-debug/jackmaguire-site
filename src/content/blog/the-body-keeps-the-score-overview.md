@@ -50,14 +50,7 @@ Dr. van der Kolk explains the brain using a highly accessible metaphor:
 
 In a traumatized brain, the smoke detector is hyper-sensitive, and the watchtower is offline. When triggered, the logical brain literally shuts down. This is called an **amygdala hijack**. 
 
-```mermaid
-xychart-beta
-    title "The Window of Tolerance (Nervous System States)"
-    x-axis ["Calm", "Triggered", "Prolonged Stress", "Overwhelmed", "Dissociation"]
-    y-axis "Arousal Level" 0 --> 10
-    line [5, 8, 9, 3, 1]
-    bar [5, 5, 5, 5, 5]
-```
+![The Window of Tolerance](/images/window-of-tolerance.svg)
 *(The chart above illustrates the Window of Tolerance. The bar represents the optimal zone of regulation. Trauma pushes the body into hyperarousal (anxiety/panic, the peak) or hypoarousal (numbness/dissociation, the drop), making it impossible to process information logically.)*
 
 
@@ -121,13 +114,7 @@ Readers constantly point to this section as the moment their mysterious physical
 
 This is the most celebrated section of the book. Having established that trauma is a physical problem, Dr. van der Kolk outlines physical and relational solutions. He argues that traditional talk therapy is insufficient because it only engages the rational brain. True healing requires interventions that rewire the nervous system and help the body feel safe again.
 
-```mermaid
-xychart-beta
-    title "The Non-Linear Journey of Somatic Healing"
-    x-axis ["Mo 1", "Mo 2", "Mo 3", "Mo 4", "Mo 5", "Mo 6", "Mo 7", "Mo 8", "Mo 9"]
-    y-axis "Nervous System Regulation" 0 --> 100
-    line [10, 30, 20, 50, 40, 75, 60, 90, 85]
-```
+![The Non-Linear Journey of Somatic Healing](/images/non-linear-healing.svg)
 *(The chart above reflects the reality of trauma recovery as described by the community: healing is not a straight line. Somatic interventions can cause temporary dips or emotional hangovers as the body processes stuck trauma, but the overarching trajectory leads to much higher baseline regulation.)*
 
 

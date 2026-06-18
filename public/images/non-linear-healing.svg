@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #FAFAFA; rx: 8px; }
+      .axis { stroke: #D1D5DB; stroke-width: 1; }
+      .grid { stroke: #E5E7EB; stroke-width: 1; stroke-dasharray: 4 4; }
+      .line { fill: none; stroke: #3B82F6; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .point { fill: #3B82F6; stroke: #FFF; stroke-width: 2; }
+      .label { fill: #4B5563; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: middle; }
+      .y-label { fill: #4B5563; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; text-anchor: end; }
+      .title { fill: #111827; font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 600; text-anchor: middle; }
+      .trend { fill: none; stroke: #9CA3AF; stroke-width: 2; stroke-dasharray: 6 6; }
+    </style>
+  </defs>
+  
+  <rect width="800" height="400" class="bg"/>
+  
+  <text x="400" y="40" class="title">The Non-Linear Journey of Somatic Healing</text>
+  
+  <!-- Grid -->
+  <line x1="100" y1="50" x2="750" y2="50" class="grid"/>
+  <line x1="100" y1="125" x2="750" y2="125" class="grid"/>
+  <line x1="100" y1="200" x2="750" y2="200" class="grid"/>
+  <line x1="100" y1="275" x2="750" y2="275" class="grid"/>
+  
+  <!-- Axes -->
+  <line x1="100" y1="350" x2="750" y2="350" class="axis"/>
+  <line x1="100" y1="50" x2="100" y2="350" class="axis"/>
+  
+  <!-- Y-axis labels -->
+  <text x="85" y="55" class="y-label">100</text>
+  <text x="85" y="130" class="y-label">75</text>
+  <text x="85" y="205" class="y-label">50</text>
+  <text x="85" y="280" class="y-label">25</text>
+  <text x="85" y="355" class="y-label">0</text>
+  
+  <text x="40" y="200" class="y-label" transform="rotate(-90 40,200)">Nervous System Regulation</text>
+
+  <!-- X-axis labels -->
+  <text x="100" y="375" class="label">Mo 1</text>
+  <text x="181.25" y="375" class="label">Mo 2</text>
+  <text x="262.5" y="375" class="label">Mo 3</text>
+  <text x="343.75" y="375" class="label">Mo 4</text>
+  <text x="425" y="375" class="label">Mo 5</text>
+  <text x="506.25" y="375" class="label">Mo 6</text>
+  <text x="587.5" y="375" class="label">Mo 7</text>
+  <text x="668.75" y="375" class="label">Mo 8</text>
+  <text x="750" y="375" class="label">Mo 9</text>
+
+  <!-- Trend line (rough linear fit) -->
+  <line x1="100" y1="320" x2="750" y2="90" class="trend"/>
+  <text x="650" y="140" class="label" style="font-style: italic;">Upward Trajectory</text>
+
+  <!-- Data Line -->
+  <!-- Points: [320, 260, 290, 200, 230, 125, 170, 80, 95] -->
+  <polyline class="line" points="100,320 181.25,260 262.5,290 343.75,200 425,230 506.25,125 587.5,170 668.75,80 750,95" />
+  
+  <!-- Data Points -->
+  <circle cx="100" cy="320" r="5" class="point"/>
+  <circle cx="181.25" cy="260" r="5" class="point"/>
+  <circle cx="262.5" cy="290" r="5" class="point"/>
+  <circle cx="343.75" cy="200" r="5" class="point"/>
+  <circle cx="425" cy="230" r="5" class="point"/>
+  <circle cx="506.25" cy="125" r="5" class="point"/>
+  <circle cx="587.5" cy="170" r="5" class="point"/>
+  <circle cx="668.75" cy="80" r="5" class="point"/>
+  <circle cx="750" cy="95" r="5" class="point"/>
+
+</svg>
