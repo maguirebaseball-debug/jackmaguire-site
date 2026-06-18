@@ -41,6 +41,8 @@ Layout rules:
 * Plain article pages use a system serif stack (Charter, Bitstream Charter, Sitka Text, Cambria, Times New Roman, Times, serif), 18px body text, 1.6 line-height, black text, white background.
 * Desktop: Use 80% width with auto margins (effectively 10% page margins). No max-width.
 * Mobile: Use 100% width with 20px horizontal padding.
+* All headers (h1-h4) in plain mode use the serif font stack.
+* The layout handles the main article title (h1). Any h1 tags found within the Markdown body are hidden automatically to prevent duplication.
 * Use browser-default link styling for links.
 * Keep the visible date.
 * Do not show tags on article pages.
