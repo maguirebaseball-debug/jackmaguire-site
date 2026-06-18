@@ -168,12 +168,14 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 			.plain-blog {
 				background: #fff;
 				color: #000;
-				font-family: "Times New Roman", Times, serif;
+				font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Times New Roman", Times, serif;
 			}
 			.plain-blog main {
-				width: 80vw;
+				width: 100%;
+				max-width: 720px;
 				margin: 0 auto;
-				padding: 1rem 0 3rem;
+				padding: 2rem 1rem 4rem;
+				box-sizing: border-box;
 			}
 			.plain-blog .article-container {
 				display: block;
@@ -186,41 +188,42 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				max-width: none;
 				padding: 0;
 				color: #000;
-				font-family: "Times New Roman", Times, serif;
-				font-size: 16px;
-				line-height: 1.35;
+				font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Times New Roman", Times, serif;
+				font-size: 18px;
+				line-height: 1.6;
 			}
 			.plain-blog .title {
 				max-width: none;
-				margin: 0 0 1rem;
+				margin: 0 0 1.5rem;
 				padding: 0;
 			}
 			.plain-blog .title h1 {
-				font-family: "Times New Roman", Times, serif;
-				font-size: 32px;
+				font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Times New Roman", Times, serif;
+				font-size: 2.25rem;
 				font-weight: 400;
-				line-height: 1.1;
-				margin: 0 0 0.5rem;
+				line-height: 1.2;
+				margin: 0 0 1.5rem;
 			}
 			.plain-blog .date {
 				color: #000;
-				font-family: "Times New Roman", Times, serif;
-				font-size: 16px;
+				font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Times New Roman", Times, serif;
+				font-size: 18px;
 				font-weight: 400;
 				margin-bottom: 0.75rem;
 			}
 			.plain-blog .prose :global(h2) {
-				font-size: 20px;
+				font-size: 1.5rem;
 				font-weight: 400;
-				margin: 1.25rem 0 0.5rem;
+				line-height: 1.3;
+				margin: 2rem 0 1rem;
 			}
 			.plain-blog .prose :global(p),
 			.plain-blog .prose :global(ol),
 			.plain-blog .prose :global(ul) {
-				margin: 0 0 1rem;
+				margin: 0 0 1.5rem;
 			}
 			.plain-blog .prose :global(li) {
-				margin: 0 0 0.75rem;
+				margin: 0 0 0.5rem;
 			}
 			.plain-blog .prose :global(a),
 			.plain-blog .plain-footer a {
@@ -229,12 +232,14 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				text-underline-offset: auto;
 			}
 			.plain-blog .plain-footer {
-				width: 80vw;
-				margin: 2rem auto 0;
-				padding: 0 0 1rem;
-				font-family: "Times New Roman", Times, serif;
-				font-size: 16px;
-				line-height: 1.35;
+				width: 100%;
+				max-width: 720px;
+				margin: 0 auto;
+				padding: 0 1rem 2rem;
+				font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Times New Roman", Times, serif;
+				font-size: 18px;
+				line-height: 1.6;
+				box-sizing: border-box;
 			}
 			@media (max-width: 600px) {
 				.plain-blog main,
@@ -242,8 +247,8 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 					width: auto;
 					margin-left: 0;
 					margin-right: 0;
-					padding-left: 0.75rem;
-					padding-right: 0.75rem;
+					padding-left: 1rem;
+					padding-right: 1rem;
 				}
 			}
 		</style>

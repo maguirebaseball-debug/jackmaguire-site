@@ -38,8 +38,8 @@ For post changes, the standard workflow is: edit, build locally, run indexing ch
 All new individual article pages should use the plain style and plain spoken tone by default.
 
 Layout rules:
-* Plain article pages use Times New Roman, 16px body text, 1.35 line-height, black text, white background, and 80vw desktop width.
-* On mobile, use full width with small padding.
+* Plain article pages use a system serif stack (Charter, Bitstream Charter, Sitka Text, Cambria, Times New Roman, Times, serif), 18px body text, 1.6 line-height, black text, white background, and a max-width of 720px.
+* On mobile, use full width with 1rem padding.
 * Use browser-default link styling for links.
 * Keep the visible date.
 * Do not show tags on article pages.
