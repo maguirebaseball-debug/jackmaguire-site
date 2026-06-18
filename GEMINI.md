@@ -39,7 +39,9 @@ All new individual article pages should use the plain style and plain spoken ton
 
 Layout rules:
 * Plain article pages use a system serif stack (Charter, Bitstream Charter, Sitka Text, Cambria, Times New Roman, Times, serif), 18px body text, 1.6 line-height, black text, white background, and a max-width of 720px.
-* On mobile, use full width with 1rem padding.
+* Desktop: Use 10% horizontal margins (padding).
+* Mobile: Use 20px horizontal margins (padding).
+* On mobile, use full width with the specified 20px padding.
 * Use browser-default link styling for links.
 * Keep the visible date.
 * Do not show tags on article pages.
