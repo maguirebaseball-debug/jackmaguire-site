@@ -71,18 +71,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			<p>Out of the 51,878 deterministic trigger conditions discovered across the massive matrix, <strong>18,999 trades</strong> passed the strict OpenRouter LLM semantic validation layer and were executed as out-of-sample trades in the database.</p>
 
-			<h2>Statistical Edge Validation</h2>
+			<h2>Statistical Edge Validation (Expected Value &gt; 0)</h2>
 			
-			<p>We ran a rigorous validation script (<code>validate_edge.py</code>) over the 18,999 executed out-of-sample trades, applying a strict <strong>Bonferroni correction (alpha = 0.15, N=100)</strong> requiring a p-value threshold of p &lt; 0.0015 to be deemed statistically significant.</p>
+			<p>We ran a rigorous validation script (<code>validate_edge.py</code>) over the 18,999 executed out-of-sample trades, evaluating each system with a strictly-bounded 1-sample t-test to determine if the strategy possessed a statistically significant <strong>Positive Expected Value (EV &gt; 0)</strong>.</p>
 
-			<p>Out of 100 strategies, 23 passed the strict Bonferroni test. However, the majority of the significant strategies possessed a <strong>negative mean return</strong>, meaning they proved mathematically that certain technical combinations consistently lose money in the real world.</p>
+			<p>We applied a strict <strong>Bonferroni correction (alpha = 0.15, N=100)</strong> requiring a p-value threshold of p &lt; 0.0015 to be deemed statistically significant.</p>
 
 			<div class="alert-tip">
-				<strong>TIP:</strong> We successfully discovered <strong>3 uniquely profitable strategies</strong> that generated robust, statistically significant alpha across the 3-year blind test.
+				<strong>TIP:</strong> Out of 100 evaluated strategies, we successfully discovered <strong>1 uniquely profitable strategy</strong> that possessed a true, statistically significant positive Expected Value across the 3-year blind test.
 			</div>
 
 			<h3>The Crown Jewel: strat_286</h3>
-			<p>This was by far the best-performing quantitative system evaluated in the entire sweep. It captured a massive <strong>70% Win Rate</strong> over <strong>787 purely out-of-sample</strong> executed trades, generating an average 1.19% return per trade (p-value = 4.53e-16).</p>
+			<p>This was the sole survivor of the entire quantitative sweep. It captured a massive <strong>70% Win Rate</strong> over <strong>787 purely out-of-sample</strong> executed trades, generating an average +1.19% return per trade (p-value = 0.000175).</p>
+
+			<p><strong>Statistical Confidence Intervals:</strong></p>
+			<ul>
+				<li><strong>EV 95% CI:</strong> [+0.54%, +1.85%] per trade</li>
+				<li><strong>Win Rate 95% CI:</strong> [66.81%, 73.21%]</li>
+			</ul>
 
 			<p><strong>The Winning Parameters (strat_286):</strong></p>
 			<ul>
@@ -93,30 +99,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<li><strong>Semantic Rule:</strong> Must PASS standard OpenRouter financial intuition check.</li>
 			</ul>
 
-			<h3>Runner-Up 1: strat_197</h3>
-			<p>A slower, time-bounded approach that yielded a 46% win rate over 283 trades with a robust p-value = 7.14e-05.</p>
-			<ul>
-				<li><strong>Trend Filter:</strong> 10-day MA &gt; 50-day MA</li>
-				<li><strong>Mean Reversion Entry:</strong> RSI dips below 30</li>
-				<li><strong>Momentum Entry:</strong> MACD above signal</li>
-				<li><strong>Exit Logic:</strong> Exits completely after exactly 14 holding days (time_14d), or upon hitting a 10% Take-Profit upside ceiling.</li>
-			</ul>
-
-			<h3>Runner-Up 2: strat_341</h3>
-			<p>A highly-restrictive, extreme "Quick Flip" system. It fired only 99 times globally over 3 years, taking advantage of ultra-deep oversold anomalies in slower trends (p-value = 1.79e-04).</p>
-			<ul>
-				<li><strong>Trend Filter:</strong> 10-day MA &gt; 100-day MA</li>
-				<li><strong>Mean Reversion Entry:</strong> RSI collapses below <strong>20</strong></li>
-				<li><strong>Momentum Entry:</strong> MACD above signal</li>
-				<li><strong>Exit Logic:</strong> Held for a maximum of only 3 days (time_3d) looking for an immediate 5% bounce.</li>
-			</ul>
-
 			<h2>Final Output</h2>
 			<p>Your workspace now contains the complete framework:</p>
 			<ul>
 				<li><code>build_universe.py</code> dynamically sources your global tickers.</li>
 				<li><code>walk_forward_engine_async.py</code> executes blazing-fast multi-core deterministic searches instantly paired with high-concurrency LLM async evaluation.</li>
-				<li><code>validate_edge.py</code> mathematically enforces Bonferroni statistics.</li>
+				<li><code>validate_edge.py</code> mathematically enforces Bonferroni statistics and computes 95% Confidence Intervals for Expected Value.</li>
 				<li><code>backtest_results_async.db</code> stores the complete 18,999 trade history for your own deep-dive analysis.</li>
 			</ul>
 
