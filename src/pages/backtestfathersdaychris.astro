@@ -71,6 +71,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			<p>Out of the 51,878 deterministic trigger conditions discovered across the massive matrix, <strong>18,999 trades</strong> passed the strict OpenRouter LLM semantic validation layer and were executed as out-of-sample trades in the database.</p>
 
+			<h2>Walk-Forward Architecture &amp; Parameters</h2>
+			<p>To ensure these strategies don't just "overfit" to historical data, the engine utilized a strict Rolling Walk-Forward Optimization framework. This mathematically guarantees that the system is constantly tested on blind, unseen future data.</p>
+
+			<p><strong>The specific rules applied were:</strong></p>
+			<ul>
+				<li><strong>Global Test Period:</strong> 3 Years (Jan 1, 2023 — Jan 1, 2026).</li>
+				<li><strong>In-Sample (IS) Training Window:</strong> 90 Days.</li>
+				<li><strong>Out-of-Sample (OOS) Blind Window:</strong> 30 Days.</li>
+				<li><strong>Step Size:</strong> 30 Days.</li>
+			</ul>
+
+			<p><em>How it worked:</em> The engine would hypothetically "train" a strategy's parameters over a 90-day period, and then lock those parameters in to blindly trade the immediately following 30-day window. The entire window then rolls forward by 30 days, and the process repeats.</p>
+
+			<div class="alert-tip">
+				<strong>CRITICAL NOTE:</strong> All trade counts, Expected Values, Win Rates, and statistical p-values reported below are calculated <strong>exclusively from the 30-day blind Out-of-Sample (OOS) windows</strong>. Zero in-sample data was used to grade the final performance.
+			</div>
+
 			<h2>Statistical Edge Validation (Expected Value &gt; 0)</h2>
 			
 			<p>We ran a rigorous validation script (<code>validate_edge.py</code>) over the 18,999 executed out-of-sample trades, evaluating each system with a strictly-bounded 1-sample t-test to determine if the strategy possessed a statistically significant <strong>Positive Expected Value (EV &gt; 0)</strong>.</p>
