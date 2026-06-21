@@ -94,6 +94,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			<p>We applied a strict <strong>Bonferroni correction (alpha = 0.15, N=100)</strong> requiring a p-value threshold of p &lt; 0.0015 to be deemed statistically significant.</p>
 
+			<p><strong>Why use a Bonferroni Correction?</strong> When you test 100 different strategies, the laws of probability dictate that a few of them will look highly profitable purely by random chance (a false positive, or "Type I error"). The Bonferroni correction aggressively penalizes the required confidence threshold by dividing the target alpha (0.15) by the number of tests run (100). This eliminates the "data mining mirage" and mathematically guarantees that any strategy surviving the test possesses a true structural edge, rather than just being a lucky roll of the dice.</p>
+
 			<div class="alert-tip">
 				<strong>TIP:</strong> Out of 100 evaluated strategies, we successfully discovered <strong>1 uniquely profitable strategy</strong> that possessed a true, statistically significant positive Expected Value across the 3-year blind test.
 			</div>
