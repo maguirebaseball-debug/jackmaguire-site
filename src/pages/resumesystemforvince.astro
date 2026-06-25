@@ -1,0 +1,1259 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Resume System — For Vince";
+const description = "An interactive walkthrough of how Jack Maguire generates tailored, ATS-optimized resumes using a structured AI-assisted workflow.";
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    :root {
+      --green: #556B2F;
+      --green-dark: #3A4B1C;
+      --green-light: #eef2e6;
+      --paper: #fbfaf6;
+      --paper-warm: #f5efe3;
+      --ink: #22293A;
+      --muted: #60739F;
+      --border: rgba(85,107,47,0.18);
+      --shadow: 0 2px 12px rgba(85,107,47,0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    .rs-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+      font-family: Verdana, Tahoma, Geneva, sans-serif;
+      color: var(--ink);
+    }
+
+    /* ── Hero ── */
+    .rs-hero {
+      text-align: center;
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .rs-hero-label {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 2rem;
+      margin-bottom: 1rem;
+    }
+    .rs-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 0.75rem;
+      color: var(--ink);
+    }
+    .rs-hero p {
+      font-size: 0.97rem;
+      color: #4a5568;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── Stats row ── */
+    .rs-stats {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+    .rs-stat {
+      background: var(--paper-warm);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.85rem 1.25rem;
+      text-align: center;
+      min-width: 120px;
+    }
+    .rs-stat-n {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+    .rs-stat-l {
+      font-size: 0.72rem;
+      color: #607050;
+      margin-top: 0.25rem;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Section title ── */
+    .rs-section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.1rem;
+    }
+
+    /* ── Pipeline flow ── */
+    .rs-pipeline {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+    .rs-pipeline-track {
+      position: absolute;
+      left: 22px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), var(--green-light));
+      border-radius: 2px;
+    }
+    .rs-step {
+      display: flex;
+      gap: 1.1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .rs-step-badge {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--green-light);
+      position: relative;
+      z-index: 1;
+    }
+    .rs-step-badge.gate {
+      background: #c0392b;
+      box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px #fddedd;
+    }
+    .rs-step-card {
+      flex: 1;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s;
+    }
+    .rs-step-card:hover {
+      border-color: var(--green);
+    }
+    .rs-step-header {
+      padding: 1rem 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      user-select: none;
+    }
+    .rs-step-header:hover { background: var(--green-light); }
+    .rs-step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .rs-step-subtitle {
+      font-size: 0.78rem;
+      color: #607050;
+      margin-top: 0.15rem;
+    }
+    .rs-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--green);
+      transition: transform 0.2s;
+    }
+    .rs-step-card.open .rs-chevron { transform: rotate(180deg); }
+    .rs-step-body {
+      display: none;
+      padding: 0 1.1rem 1.1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: #3a4030;
+    }
+    .rs-step-card.open .rs-step-body { display: block; }
+    .rs-step-body p { margin: 0.65rem 0 0; }
+    .rs-step-body ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+    }
+    .rs-step-body li { margin-bottom: 0.3rem; }
+    .rs-step-body strong { color: var(--ink); }
+
+    /* doc-chips */
+    .rs-doc-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+    .rs-doc-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--green-light);
+      border: 1px solid rgba(85,107,47,0.25);
+      border-radius: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+    }
+    .rs-doc-chip:hover {
+      background: #dde8c4;
+      border-color: var(--green);
+    }
+    .rs-doc-chip svg { flex-shrink: 0; }
+
+    /* gate badge */
+    .rs-gate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fddedd;
+      border: 1px solid #e07070;
+      border-radius: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #c0392b;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Docs section ── */
+    .rs-docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 3rem;
+    }
+    .rs-doc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1rem;
+      cursor: pointer;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .rs-doc-card:hover {
+      border-color: var(--green);
+      box-shadow: var(--shadow);
+    }
+    .rs-doc-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .rs-doc-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .rs-doc-desc {
+      font-size: 0.74rem;
+      color: #607050;
+      line-height: 1.4;
+    }
+    .rs-doc-open-hint {
+      font-size: 0.7rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 0.25rem;
+    }
+
+    /* ── Modal ── */
+    .rs-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,25,20,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .rs-modal-overlay.active {
+      display: flex;
+    }
+    .rs-modal {
+      background: var(--paper);
+      border-radius: 0.75rem;
+      width: 100%;
+      max-width: 780px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.25);
+    }
+    .rs-modal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .rs-modal-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .rs-modal-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #607050;
+      padding: 0.25rem;
+      border-radius: 0.3rem;
+      display: flex;
+      align-items: center;
+      transition: background 0.1s;
+    }
+    .rs-modal-close:hover { background: var(--green-light); color: var(--green-dark); }
+    .rs-modal-body {
+      overflow-y: auto;
+      padding: 1.25rem;
+      flex: 1;
+    }
+    .rs-modal-body pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      background: #f0ede6;
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      padding: 1rem;
+      margin: 0;
+      color: #2d3020;
+    }
+
+    /* ── Rules list ── */
+    .rs-rules {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 3rem;
+    }
+    .rs-rules ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: #3a4030;
+    }
+    .rs-rules li { margin-bottom: 0.35rem; }
+
+    @media (max-width: 600px) {
+      .rs-pipeline-track { left: 19px; }
+      .rs-step-badge { width: 38px; height: 38px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  <main>
+    <div class="rs-wrap">
+
+      <!-- Hero -->
+      <div class="rs-hero">
+        <span class="rs-hero-label">Resume System Documentation</span>
+        <h1>How Jack's Resume Pipeline Works</h1>
+        <p>Every resume is built fresh from the same source materials, tailored to a specific job, generated as a Word document, and visually verified before it ever touches an application form.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="rs-stats">
+        <div class="rs-stat">
+          <span class="rs-stat-n">40+</span>
+          <span class="rs-stat-l">Resumes generated</span>
+        </div>
+        <div class="rs-stat">
+          <span class="rs-stat-n">3</span>
+          <span class="rs-stat-l">Source documents</span>
+        </div>
+        <div class="rs-stat">
+          <span class="rs-stat-n">7</span>
+          <span class="rs-stat-l">Steps in the pipeline</span>
+        </div>
+        <div class="rs-stat">
+          <span class="rs-stat-n">0</span>
+          <span class="rs-stat-l">Fabricated skills</span>
+        </div>
+      </div>
+
+      <!-- Source Documents -->
+      <div class="rs-section-title">Source Documents (click to read)</div>
+      <div class="rs-docs-grid">
+        <div class="rs-doc-card" data-modal="modal-base">
+          <div class="rs-doc-icon">📄</div>
+          <div class="rs-doc-name">Base Resume</div>
+          <div class="rs-doc-desc">Full career history. The raw content pool — never sent anywhere as-is.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+        <div class="rs-doc-card" data-modal="modal-static">
+          <div class="rs-doc-icon">📐</div>
+          <div class="rs-doc-name">Optimization Rules</div>
+          <div class="rs-doc-desc">ATS philosophy, what to cut, how to avoid fabrication, 7-second-read principle.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+        <div class="rs-doc-card" data-modal="modal-skills">
+          <div class="rs-doc-icon">🗂️</div>
+          <div class="rs-doc-name">Skills Inventory</div>
+          <div class="rs-doc-desc">Confirmed skills only. Anything not here stays off every resume.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+        <div class="rs-doc-card" data-modal="modal-wiki">
+          <div class="rs-doc-icon">🗒️</div>
+          <div class="rs-doc-name">Content Wiki</div>
+          <div class="rs-doc-desc">Living log of job notes, reusable answers, and workflow decisions.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+        <div class="rs-doc-card" data-modal="modal-example-md">
+          <div class="rs-doc-icon">✍️</div>
+          <div class="rs-doc-name">Example Output (Gusto)</div>
+          <div class="rs-doc-desc">The tailored markdown for the Gusto Senior Paid Social Lead role.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+        <div class="rs-doc-card" data-modal="modal-example-py">
+          <div class="rs-doc-icon">🐍</div>
+          <div class="rs-doc-name">DOCX Script (Gusto)</div>
+          <div class="rs-doc-desc">The Python script that builds the Word document for that role.</div>
+          <div class="rs-doc-open-hint">Click to read →</div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="rs-section-title">The 7-Step Pipeline</div>
+      <div class="rs-pipeline">
+        <div class="rs-pipeline-track"></div>
+
+        <!-- Step 1 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">1</div>
+          <div class="rs-step-card" id="step1">
+            <div class="rs-step-header" onclick="toggleStep('step1')">
+              <div>
+                <div class="rs-step-title">Load source materials</div>
+                <div class="rs-step-subtitle">Base Resume + Optimization Rules + Skills Inventory + Content Wiki</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>Every application starts from the same three source files. A prior job-specific resume is <strong>never</strong> used as a starting point for a new application — existing tailored resumes are archival history only.</p>
+              <ul>
+                <li><strong>Base Resume</strong> — 12 years of career history. The raw content pool.</li>
+                <li><strong>Optimization Rules</strong> — ATS and hiring-manager philosophy. The job description is the only filter.</li>
+                <li><strong>Skills Inventory</strong> — Confirmed skills only. If it's not here, it doesn't go on a resume, period.</li>
+                <li><strong>Content Wiki</strong> — Accumulated job notes, reusable application answers, and platform quirks.</li>
+              </ul>
+              <div class="rs-doc-chips">
+                <a class="rs-doc-chip" data-modal="modal-base">
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+                  View Base Resume
+                </a>
+                <a class="rs-doc-chip" data-modal="modal-skills">
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  View Skills Inventory
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">2</div>
+          <div class="rs-step-card" id="step2">
+            <div class="rs-step-header" onclick="toggleStep('step2')">
+              <div>
+                <div class="rs-step-title">Extract the job description</div>
+                <div class="rs-step-subtitle">Keywords, responsibilities, seniority signals, required tools</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>Before writing a single word, the job description is broken into a checklist of every requirement, responsibility, skill, tool, and qualification it mentions. That checklist is the blueprint.</p>
+              <ul>
+                <li>Pull exact phrases and keywords, not paraphrases.</li>
+                <li>Note the seniority level: IC contributor, manager, director, etc.</li>
+                <li>Flag any required skills that are <strong>not</strong> confirmed in the Skills Inventory. Those get flagged as gaps rather than added to the resume.</li>
+                <li>Note whether the role is in-house/brand-side or agency — changes which experience to lead with.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">3</div>
+          <div class="rs-step-card" id="step3">
+            <div class="rs-step-header" onclick="toggleStep('step3')">
+              <div>
+                <div class="rs-step-title">Write the tailored markdown resume</div>
+                <div class="rs-step-subtitle">Fresh file, job-specific copy, ATS keywords, no fabrication</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>A new <code>.md</code> file is created, named for the company and role. The resume is assembled from the base content with strict rules on what makes the cut:</p>
+              <ul>
+                <li>Only bullets that map directly to the job posting blueprint are kept.</li>
+                <li>The summary is rewritten entirely from scratch for each role.</li>
+                <li>Most recent role: ~6 bullets. Second role: ~3 bullets. Older roles: 1-2 bullets or a single title/date line.</li>
+                <li>Exact job-description keywords are used where truthful. No flowery language, no AI-sounding filler words.</li>
+                <li>No skills, tools, or platforms that are not in the Skills Inventory, even if the posting asks for them.</li>
+                <li>Location formatted as <code>New York, New York</code>. No em dashes anywhere.</li>
+              </ul>
+              <div class="rs-doc-chips">
+                <a class="rs-doc-chip" data-modal="modal-example-md">
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+                  See Gusto example output
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">4</div>
+          <div class="rs-step-card" id="step4">
+            <div class="rs-step-header" onclick="toggleStep('step4')">
+              <div>
+                <div class="rs-step-title">Generate the DOCX via Python</div>
+                <div class="rs-step-subtitle">python-docx script, ATS-safe layout, single-column, no decorative elements</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>Each resume has a paired Python script that builds a Word document using the <code>python-docx</code> library. The content is hardcoded in the script, and running it outputs the final <code>.docx</code>. The formatting spec is fixed:</p>
+              <ul>
+                <li><strong>Font:</strong> Arial, 10.5pt body, 22pt name, 10.5pt bold section headers</li>
+                <li><strong>Margins:</strong> 0.6–0.65 inches (tighter than default to fit content without shrinking text)</li>
+                <li><strong>Layout:</strong> Single-column only. No tables, text boxes, sidebars, images, or decorative lines.</li>
+                <li><strong>Bullets:</strong> Standard round bullets via Word's <code>List Bullet</code> style</li>
+                <li><strong>Section heads:</strong> All-caps, bold — SUMMARY, SKILLS, EXPERIENCE, EDUCATION</li>
+                <li><strong>Line spacing:</strong> 1.0 throughout with tight paragraph spacing (0-3pt before/after)</li>
+              </ul>
+              <div class="rs-doc-chips">
+                <a class="rs-doc-chip" data-modal="modal-example-py">
+                  <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                  See Python script
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">5</div>
+          <div class="rs-step-card" id="step5">
+            <div class="rs-step-header" onclick="toggleStep('step5')">
+              <div>
+                <div class="rs-step-title">Visual render check</div>
+                <div class="rs-step-subtitle">LibreOffice converts DOCX to PNG pages, each page inspected manually</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>The <code>.docx</code> is converted to page-by-page PNG images using LibreOffice (called via a render script, with the app bundle binary path added to PATH). These land in a folder like <code>rendered_gusto_paid_social/page-1.png</code>.</p>
+              <ul>
+                <li>Every rendered page is inspected visually for clipping, cramped spacing, or bad pagination.</li>
+                <li>If anything looks off, the Python script is revised and rerun until the render is clean.</li>
+                <li>This step catches issues that Word's own preview hides — particularly content overflowing the page or orphaned lines at the top of page 2.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="rs-step">
+          <div class="rs-step-badge gate">⛔</div>
+          <div class="rs-step-card" id="step6">
+            <div class="rs-step-header" onclick="toggleStep('step6')">
+              <div>
+                <div class="rs-step-title">Human review gate</div>
+                <div class="rs-step-subtitle">Hard stop — nothing moves forward until Jack signs off</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>After generating and visually checking the resume, the process fully stops. The resume is not uploaded to any application form until explicit sign-off is given.</p>
+              <div class="rs-gate-badge">
+                <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                Mandatory on every single run, no exceptions
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="rs-step">
+          <div class="rs-step-badge">7</div>
+          <div class="rs-step-card" id="step7">
+            <div class="rs-step-header" onclick="toggleStep('step7')">
+              <div>
+                <div class="rs-step-title">Application form autofill (optional)</div>
+                <div class="rs-step-subtitle">Greenhouse / React forms filled via JS, .env as source of truth, second gate before submit</div>
+              </div>
+              <svg class="rs-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="rs-step-body">
+              <p>For supported application systems (mainly Greenhouse), a JavaScript autofill script fills standard form fields. A second hard stop fires before any final submission click.</p>
+              <ul>
+                <li><strong>Source of truth:</strong> <code>.env</code> file, not browser autofill (which can insert stale email addresses).</li>
+                <li><strong>Legal name / Preferred name:</strong> Always "John" / "Jack" respectively.</li>
+                <li><strong>React fields:</strong> Filled via native input value setters plus dispatched <code>input</code>/<code>change</code> events so React-controlled fields register the update.</li>
+                <li><strong>Demographic dropdowns:</strong> Must be actually selected from the menu — typing into the field is not sufficient in Greenhouse.</li>
+                <li><strong>Country code dropdown:</strong> Always the "+1 / US" option.</li>
+                <li><strong>Non-compete:</strong> Jack has confirmed no active non-competes — answer is "No."</li>
+                <li><strong>Second gate:</strong> Process stops at "filled and uploaded, no submit" until Jack confirms he's ready.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Guardrails -->
+      <div class="rs-section-title">Standing Guardrails</div>
+      <div class="rs-rules">
+        <ul>
+          <li>Never reuse a prior job-specific resume as the starting point for a new application.</li>
+          <li>Never fabricate or imply a skill, tool, or platform that is not confirmed in the Skills Inventory.</li>
+          <li>Never include a personal website or portfolio URL unless explicitly overridden for a specific role.</li>
+          <li>Never use em dashes anywhere in resume copy.</li>
+          <li>Never upload a resume that has not passed the human review gate.</li>
+          <li>Never submit a final application without explicit confirmation — only fill and stop.</li>
+          <li>Flag unconfirmed skills as gaps rather than assuming ownership.</li>
+          <li>Keep resume language tuned to the actual hiring audience — no fancy technical padding unless the job asks for it.</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+
+  <!-- Modals -->
+
+  <div class="rs-modal-overlay" id="modal-base">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">Base Resume — Raw Source</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-base')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-base"></pre></div>
+    </div>
+  </div>
+
+  <div class="rs-modal-overlay" id="modal-static">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">Optimization Rules Document</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-static')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-static"></pre></div>
+    </div>
+  </div>
+
+  <div class="rs-modal-overlay" id="modal-skills">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">Skills &amp; Experience Inventory</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-skills')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-skills"></pre></div>
+    </div>
+  </div>
+
+  <div class="rs-modal-overlay" id="modal-wiki">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">Content Wiki</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-wiki')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-wiki"></pre></div>
+    </div>
+  </div>
+
+  <div class="rs-modal-overlay" id="modal-example-md">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">Example Tailored Resume — Gusto Senior Paid Social Lead</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-example-md')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-example-md"></pre></div>
+    </div>
+  </div>
+
+  <div class="rs-modal-overlay" id="modal-example-py">
+    <div class="rs-modal">
+      <div class="rs-modal-top">
+        <div class="rs-modal-title">DOCX Builder Script — Gusto Senior Paid Social Lead</div>
+        <button class="rs-modal-close" onclick="closeModal('modal-example-py')">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+      <div class="rs-modal-body"><pre id="content-example-py"></pre></div>
+    </div>
+  </div>
+
+  <script>
+    // Document content
+    const docs = {
+      'content-base': `# Resume - Base
+
+Jack Maguire
+Paid Social Ads Director | Bridging Creative Strategy & Data | $30M+ Managed Spend | $7M+ Career Profitable Revenue Generated
+New York, New York
+
+Summary
+
+I'm a Paid Social Ads Director bridging the gap between Creative Strategy and Data. Over the last 12 years, I have managed $30M+ in ad spend, generated 300,000+ leads, and driven over $7 million in profitable revenue for businesses across my career (including an estimated $5 million at National Debt Relief). I've helped businesses reach $1M+ monthly profitable spend on Meta & TikTok using optimization methods I've personally developed. I've cut CPAs by 50% and scaled new channels from $0 to 7-figures in under a year. I have helped lead department-wide AI adoption, utilizing tools like ChatGPT, Veo3, and HeyGen to automate creative testing and scoring. I am a mentor who bridges product, sales, and creative teams. I translate complex performance data into clear narratives that stakeholders can trust. Outside of work I've completed three marathons and thru-hiked the 2,190-mile Appalachian Trail during my university career.
+
+Experience
+
+National Debt Relief, LLC — 4 years 1 month
+
+Social Media Marketing Director
+March 2023 - January 2026 (2 years 10 months) | New York, NY
+
+- Championed department-wide AI adoption, leading implementation of ChatGPT for creative testing workflows, Veo3 for video creative generation, and predictive lead scoring models that improved channel efficiency on Meta.
+- Identified vendor, strategized rollout, and optimized a predictive lead scoring model on Meta, directly improving lead quality signals and downstream conversion performance.
+- Built the Paid Social BI dashboard from the ground up. Sourced vendor, guided setup, and developed custom LTV formulas and KPIs that shortened the optimization cycle and accelerated scaling decisions.
+- Oversaw implementation of Meta's offline conversion events, improving signal quality sent back to the platform and enabling smarter algorithmic optimization.
+- Managed pixel deployment and measurement integrations across Meta, LinkedIn, and TikTok in coordination with engineering.
+- Applied regression analysis and explored machine learning techniques (random forest, neural nets, decision trees) to validate how key parameters impact business outcomes.
+- Assisted in designing holdout market tests for incrementality measurement.
+- Managed campaign execution, planning, and activation across Meta and TikTok, continuously testing new campaign types, creatives, and bid strategies.
+- Evaluated and implemented third-party audience strategies via Oracle and LiveRamp, coordinating data flows through Salesforce.
+- Partnered directly with the CFO to manage paid social to specified lead volume and profitability targets, generating an estimated $5 million in profitable revenue.
+- Delivered root cause analysis, unit cost analysis, and impact analysis on core business outcomes to senior leadership.
+- Reported on and optimized ROI, CPL, CLV, CTR, CAC, and CPA, translating complex performance data into clear, actionable narratives for decision-makers.
+- Monitored the competitive landscape and surfaced strategic insights to leadership.
+
+Paid Social Media Senior Marketing Manager
+February 2022 - March 2023 (1 year 2 months) | New York, NY
+
+- Worked closely with sales and customer lifecycle marketing to optimize contacted rates and conversion of paid social leads.
+- Coordinated measurement, projections, and analysis across Salesforce, Treasure Data, and Facebook Business Suite.
+- Designed and implemented suppression audiences to reduce waste and improve targeting efficiency.
+- Assisted in developing holdout market tests for incrementality measurement on new marketing channels.
+- Managed pixel deployment and measurement system integrations across Facebook, LinkedIn, and TikTok.
+
+Good Apple
+Lead Senior Paid Social Media Marketing Strategist, Dollar General (Agency)
+June 2021 - January 2022 | New York, NY
+
+Led a team of three paid social managers overseeing national paid social (Facebook, Instagram, TikTok, Snapchat) for Fortune 100 client Dollar General across 17K retail locations and their new brand pOpshelf.
+
+Visiting Angels
+Lead Paid Social Media Marketing Strategist (Brand)
+November 2019 - June 2021 | Greater Philadelphia Area
+
+Created and maintained a national social media lead generation campaign. Generated over 10K Facebook business leads. Advised a national network of 600+ business owners on paid and organic social media strategy.
+
+Ascension
+Lead Paid Social Media Marketing Manager (Brand)
+November 2014 - October 2019 | Greater Philadelphia
+
+Developed national brand Facebook lead generation strategies that generated over 150,000 email leads and grew social media presence by 30x.
+
+Renegade Communications
+Marketing and Paid Social Media Associate Account Executive (Agency)
+December 2012 - December 2014 | Baltimore, Maryland
+
+Education
+McGill University — Bachelor's in Business, Marketing, Philosophy`,
+
+      'content-static': `# Resume Optimization Rules
+
+## The Core Principle
+
+The job description is the ONLY filter that matters. Every single line on the optimized resume must earn its place by directly supporting what the job posting asks for.
+
+## Before Writing Anything
+
+Create an explicit checklist of every requirement, responsibility, skill, tool, and qualification mentioned in the job posting. This checklist is the blueprint. Nothing goes on the resume unless it maps to something on this checklist.
+
+## Hard Rules
+
+- If a bullet point does not directly address a posting requirement — DELETE IT.
+- Do not include skills, tools, or platforms not mentioned or clearly implied by the job description, even if Jack has them.
+- Do not add technical methods, niche analytics terms, or specialized tools just to sound advanced.
+- If a posting requires a skill not confirmed in the base resume or Skills Inventory, do not include it. Flag it separately.
+- Entire past roles can be reduced to a single title/date line or removed entirely if they contribute nothing.
+- The summary section must be rewritten from scratch for each role.
+- After drafting, re-read every line: "Does the job posting ask for this?" If the answer is not a clear yes, remove it.
+
+## ATS Understanding
+
+- ATS systems are databases, not scoring algorithms.
+- They search for exact keyword matches.
+- Database retrieval comes first, then human review.
+- The top one-third of page one is critical real estate.
+
+## 2026 Hiring Manager Reality
+
+- Spends ~7 seconds on initial review.
+- Can instantly recognize AI-generated content (watch for: "delve," "tapestry," excessive flowery language).
+- Looks for measurable outcomes, not task descriptions.
+
+## DOCX Layout Requirements
+
+- Single-column layout only. No tables, text boxes, sidebars, columns, or multi-column structures.
+- ATS-safe typography: Calibri, Arial, Georgia, Aptos, Helvetica, Verdana, or Tahoma.
+- Name block in the main body (not in a header/footer).
+- Clear section headers.
+- Standard round or square bullets only.
+- 0.5 to 1 inch margins (1 inch preferred).
+- 1.0 or 1.15 line spacing.
+- No decorative elements: no lines, borders, shading, graphics, images, icons, or text boxes.
+
+## Confirmed ATS Section Headings
+
+- Professional Summary or Summary
+- Work Experience or Professional Experience
+- Education
+- Skills
+- Certifications (when relevant)`,
+
+      'content-skills': `# Skills & Experience Inventory
+
+## Role Targeting Guardrails
+
+- Prefer in-house / brand-side roles. Strongly deprioritize agency or client-service-heavy environments.
+- Do NOT target roles centered on content creation, copywriting, filming, editing, design, or organic content production.
+- Position Jack for media buying, paid social strategy, performance marketing leadership, and measurement roles.
+- Analytics fit is strongest for reporting, BI, attribution, KPI development, LTV analysis, dashboarding, and measurement strategy.
+- Jack did NOT manage organic social at National Debt Relief. NDR = strictly paid social.
+- Do NOT position as a coding-heavy analytics candidate. SQL is AI-assisted and limited.
+
+## Platforms & Ad Tools (Confirmed)
+
+- Meta (Facebook/Instagram) Ads
+- Meta Advantage+ (2 years, NDR, Mar 2022 - Jan 2026)
+- TikTok Ads + TikTok Smart Performance
+- LinkedIn Ads, Snapchat Ads, Pinterest Ads
+- Reddit Ads (active campaigns, Reddit rep relationship)
+- Quora Ads (ran campaigns at NDR)
+- YouTube Ads (~2 years at NDR)
+- Facebook native bulk editing (Excel export/import)
+- Sprinklr for bulk campaign edits (Good Apple)
+
+## Analytics & BI (Confirmed)
+
+- Regression analysis (simple and multiple linear)
+- ML exploration: random forest, neural nets, decision trees (with AI)
+- LTV formulas and KPI development
+- ROI, CPL, CLV, CTR, CAC, CPA reporting
+- MMM (Media Mix Modeling) ~1 year
+- Looker BI (data visualization)
+- Advanced Excel
+- SQL (AI-assisted only, not personally fluent)
+- Google Analytics (legacy, extensive prior use)
+- GA4 (studied fundamentals; not hands-on)
+
+## Data & MarTech (Confirmed)
+
+- Salesforce, Treasure Data, Facebook Business Suite
+- Oracle + LiveRamp (third-party audiences)
+- Meta offline conversion events
+- Meta Conversions API (CAPI) setup (extensive, with developers)
+- Pixel deployment across Meta, LinkedIn, TikTok
+- Dynamic Product Ads (DPA) on Meta
+- UTM structures, campaign taxonomy, naming conventions
+
+## AI & Automation (Confirmed)
+
+- ChatGPT (creative testing, data analysis, campaign optimization)
+- Claude + Claude Code (daily workflow, agent building, planning mode)
+- Veo3 (video creative generation), HeyGen
+- Predictive lead scoring models
+- Building AI agents and automating workflows with LLMs
+- Web development with no-code tools, Claude Code, and Codex
+- AI-first practitioner: top 0.1% first ChatGPT users, 3+ years daily LLM usage
+
+## Strategy & Leadership (Confirmed)
+
+- Cross-functional leadership (Sales, Creative, Finance/CFO)
+- Team management: led team of 3 at Good Apple; managed direct report at NDR
+- Hands-on keyboard execution while managing reports (player-coach model)
+- Incrementality / holdout market testing
+- Suppression audience design
+- Budget management and profitability targeting ($1M+/month profitable at NDR)
+- Executive presentations and stakeholder communication
+- Regulatory compliance for social advertising (debt settlement industry)
+
+## NOT Confirmed / Explicitly Declined
+
+- VP-level roles or above (explicitly declined, Jun 2026)
+- MMP platforms: Singular, AppsFlyer, Adjust
+- Google Ads (no experience)
+- Programmatic / DSPs / DV360 / The Trade Desk
+- Affiliate marketing (no experience)
+- App campaign mechanics / SKAdNetwork
+- Northbeam, Amplitude (no experience)
+- Tableau, PowerBI (has Looker BI instead)
+- Global campaigns outside North America
+- Adobe Analytics`,
+
+      'content-wiki': `# Resume Optimization Content Wiki
+
+## Source Files
+
+- Base resume: Resume - Base ...md
+- Static optimization resume: Resume Optimization Static ...md
+- Application profile: .env
+
+## Workflow Rules
+
+- Generate a new tailored resume for every distinct job application.
+- Do not reuse a prior job-specific resume as the starting output.
+- Do not upload a resume from a previous application into a new form.
+- The only acceptable inputs: base resume, static optimization resume, and current job description.
+- Confirm a new resume file exists for the current job before application support begins.
+- Human resume review gate is mandatory: generate and render-check, then stop for Jack's review.
+- Human review gate is mandatory for each application: fill forms, upload materials, stop before any submit click until Jack explicitly confirms.
+- Never provide a personal website or portfolio URL unless Jack explicitly overrides it for a specific role.
+- Always use "John" as Legal Name and "Jack" as Preferred Name.
+- Jack has confirmed no active non-competes. Use "No" for non-compete questions.
+- On Greenhouse forms, always select the '+1/US' option in the country code dropdown.
+- Always ensure the tailored resume is actually attached before final review.
+
+## Reusable Application Answers
+
+### Machine Learning Partnership Question
+"I worked specifically with an ensemble lead scoring model at my last job. We provided structured data to a machine learning vendor to score the lifetime predicted value of our leads based on an existing dataset. The work I helped champion became our winning targeting campaign on Meta Ads at a 7-figure revenue scale."
+
+### Test/Experiment Walkthrough (Ascension / Religious Publishing)
+"I became obsessed with Gary Halbert and his direct-response copywriting method. I thought we could use it for the publishing company we had (Ascension), so I wrote up a long-form email telling the story of a very obscure object used in the Catholic Mass. Most of my coworkers thought it was ridiculous, but I insisted we test it. It turned out to be our best-selling email of all time. I learned that in settings where a lot of thought goes into a purchase, long-form advertising can work really well."
+
+### AI Prompting Question
+"The head of Claude Code said that using planning mode can help vastly with the output of the models. I found that ever since I asked it to plan or explicitly go into plan mode in Claude Code, it comes up with much more detailed and specific answers."
+
+## Job Notes (Selected)
+
+- T-Mobile: enterprise scale, Meta/TikTok/Snap/LinkedIn, MMM alignment, incrementality testing, AI-driven optimization. Workday form requires manual submission.
+- Scribd: Meta/TikTok/Reddit, experimentation, attribution, subscription products. Strict duplicate limits.
+- Citrix: B2B Enterprise ABM, existing accounts only (no net-new lead gen), LinkedIn + retargeting, UTM/pixel integrity, Looker BI dashboards.
+- Google: global comms strategy, full-funnel performance, social/OLV/display, budget reconciliation, AI-first mindset.
+- Solace: hands-on Meta ownership, Pixel/CAPI health, lead quality signals, UTM hygiene, healthcare lead gen.
+- Kepler (agency): lean into Good Apple leadership, client presentations, business development support. Do not overstate organic or culture-content execution.`,
+
+      'content-example-md': `# Jack Maguire
+
+Senior Paid Social Lead | Full-Funnel Acquisition, Creative Testing, and AI Workflows
+
+New York, New York | jpmaguire2@gmail.com
+
+## Summary
+
+Paid social and demand generation leader with 12+ years in marketing and 5+ years running high-volume paid social investment, including $30M+ managed spend and $5M in profitable revenue generated at National Debt Relief. I own full-funnel acquisition from audience strategy and creative testing through forecasting, attribution, budget allocation, and post-click conversion learnings. My strongest work sits at the intersection of performance marketing, creative strategy, measurement, and AI-assisted workflow design across Sales, Finance, Analytics, Web, and Creative partners.
+
+## Skills
+
+Paid Social: Meta Ads, TikTok Ads, LinkedIn Ads, Reddit Ads, Quora Ads, Snapchat Ads, YouTube Ads, Meta Advantage+, TikTok Smart Performance
+
+Measurement and Budgeting: forecasting, pacing, budget allocation, attribution, incrementality, holdout tests, KPI development, LTV, MMM, regression analysis, ROI, CPL, CLV, CAC, CPA
+
+Creative and Conversion: creative briefing, test-and-learn roadmaps, message match, dynamic creative testing, lead quality analysis, landing page and post-click optimization inputs
+
+Platforms and Data: Looker BI, Salesforce, Treasure Data, Facebook Business Suite, Oracle, LiveRamp, pixel deployment, offline conversions, Conversions API, UTM structures
+
+Leadership and AI: agency management, contractor/vendor management, team management, executive presentations, cross-functional collaboration, ChatGPT, Veo3, HeyGen, predictive lead scoring
+
+## Experience
+
+National Debt Relief, LLC
+
+Social Media Marketing Director
+March 2023 - January 2026 | New York, New York
+
+- Owned paid social strategy and execution across Meta and TikTok, guiding a $10M annual budget through forecasting, pacing, testing, and optimization.
+- Built the Paid Social BI dashboard with LTV formulas and custom KPIs, improving leadership visibility into pipeline quality, revenue impact, and budget allocation decisions.
+- Partnered with Finance, Sales, Analytics, Lifecycle, and Creative to align paid social investment with profitability targets, generating $5M in profitable revenue.
+- Led offline conversion events, pixel deployment, Conversions API, and third-party audiences across Meta, LinkedIn, TikTok, Oracle, and LiveRamp to strengthen attribution and targeting.
+- Championed AI adoption with ChatGPT, Veo3, HeyGen, and predictive lead scoring to accelerate creative testing, audience research, and channel efficiency.
+- Translated performance data into creative direction, root-cause analysis, unit cost analysis, and clear executive narratives across ROI, CPL, CLV, CAC, and CPA.
+
+Paid Social Media Senior Marketing Manager
+February 2022 - March 2023 | New York, New York
+
+- Coordinated paid social strategy and projections across Facebook Business Suite, Salesforce, and Treasure Data to align campaign execution with sales goals and lead volume targets.
+- Designed suppression audiences and holdout market tests to reduce waste, clarify incrementality, and improve measurement in imperfect attribution environments.
+- Partnered with creative design teams and agencies on paid social testing plans that balanced brand consistency, channel learning, and conversion performance.
+
+Good Apple
+
+Lead Senior Paid Social Media Marketing Strategist, Dollar General (Agency)
+June 2021 - January 2022 | New York, New York
+
+- Led three paid social managers across Meta, TikTok, Snapchat, and Instagram for Dollar General and pOpshelf, presenting pacing and performance recommendations to VP-level stakeholders.
+- Managed weekly creative rotations and incremental store-visit campaigns using Placed and PlaceIQ measurement data across 17K retail locations.
+
+Visiting Angels
+
+Lead Paid Social Media Marketing Strategist
+November 2019 - June 2021 | Greater Philadelphia Area
+
+- Built a national Facebook and Instagram lead generation program that drove 10K+ leads for a 500-office franchise network.
+- Advised 600+ business owners on paid social strategy, reporting, localized budget pacing, and platform best practices.
+
+Ascension
+
+Lead Paid Social Media Marketing Manager
+November 2014 - October 2019 | Greater Philadelphia Area
+
+- Developed national Facebook lead generation campaigns that produced 150K+ email leads and grew social presence 30x.
+
+Renegade Communications
+
+Marketing and Paid Social Media Associate Account Executive
+December 2012 - December 2014 | Baltimore, Maryland
+
+Supported client marketing initiatives, project management, and strategic paid social planning in an agency setting.
+
+## Education
+
+McGill University, Bachelor's in Business, Marketing, Philosophy`,
+
+      'content-example-py': `from pathlib import Path
+
+from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt, RGBColor
+
+
+OUT_DIR = Path("/Users/jackmaguire/CLIStore/ResumeAutomation")
+DOCX_PATH = OUT_DIR / "Jack_Maguire_Gusto_SeniorPaidSocialLead_2026.docx"
+MD_PATH = OUT_DIR / "Jack_Maguire_Gusto_SeniorPaidSocialLead_2026.md"
+
+
+def apply_run_font(run, size, bold=False, italic=False, color="000000", name="Arial"):
+    font = run.font
+    font.name = name
+    font.size = Pt(size)
+    font.bold = bold
+    font.italic = italic
+    font.color.rgb = RGBColor.from_string(color)
+    r_pr = run._element.get_or_add_rPr()
+    r_fonts = r_pr.rFonts
+    if r_fonts is None:
+        r_fonts = OxmlElement("w:rFonts")
+        r_pr.insert(0, r_fonts)
+    r_fonts.set(qn("w:ascii"), name)
+    r_fonts.set(qn("w:hAnsi"), name)
+    r_fonts.set(qn("w:cs"), name)
+
+
+def apply_paragraph_format(paragraph, before=0, after=0, line=1.0, left=0, first_line=0):
+    paragraph.paragraph_format.space_before = Pt(before)
+    paragraph.paragraph_format.space_after = Pt(after)
+    paragraph.paragraph_format.line_spacing = line
+    paragraph.paragraph_format.left_indent = Inches(left)
+    paragraph.paragraph_format.first_line_indent = Inches(first_line)
+
+
+def add_text(doc, text="", *, size=10.5, bold=False, align=WD_ALIGN_PARAGRAPH.LEFT, before=0, after=0, line=1.0):
+    p = doc.add_paragraph()
+    p.alignment = align
+    apply_paragraph_format(p, before=before, after=after, line=line)
+    run = p.add_run(text)
+    apply_run_font(run, size=size, bold=bold)
+    return p
+
+
+def add_section(doc, text):
+    add_text(doc, text.upper(), size=10.5, bold=True, before=7, after=3)
+
+
+def add_role(doc, company, title, dates, location):
+    add_text(doc, company, size=10.5, bold=True, before=4, after=0)
+    p = doc.add_paragraph()
+    apply_paragraph_format(p, before=0, after=0, line=1.0)
+    title_run = p.add_run(title)
+    apply_run_font(title_run, size=10.5, bold=True)
+    detail_run = p.add_run(f" | {dates} | {location}")
+    apply_run_font(detail_run, size=10.5)
+
+
+def add_bullet(doc, text):
+    p = doc.add_paragraph(style="List Bullet")
+    apply_paragraph_format(p, before=0, after=0, line=1.0)
+    run = p.add_run(text)
+    apply_run_font(run, size=10.5)
+
+
+def build_resume():
+    doc = Document()
+    section = doc.sections[0]
+    section.top_margin = Inches(0.6)
+    section.bottom_margin = Inches(0.6)
+    section.left_margin = Inches(0.65)
+    section.right_margin = Inches(0.65)
+
+    normal = doc.styles["Normal"]
+    normal.font.name = "Arial"
+    normal.font.size = Pt(10.5)
+    normal.paragraph_format.space_before = Pt(0)
+    normal.paragraph_format.space_after = Pt(0)
+    normal.paragraph_format.line_spacing = 1.0
+
+    add_text(doc, "Jack Maguire", size=22, align=WD_ALIGN_PARAGRAPH.CENTER, after=1)
+    add_text(
+        doc,
+        "Senior Paid Social Lead | Full-Funnel Acquisition, Creative Testing, and AI Workflows",
+        size=10.5, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, after=1,
+    )
+    add_text(doc, "New York, New York | jpmaguire2@gmail.com",
+             size=10.5, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
+
+    add_section(doc, "Summary")
+    add_text(
+        doc,
+        "Paid social and demand generation leader with 12+ years in marketing...",
+        after=3,
+    )
+
+    add_section(doc, "Skills")
+    for line in [
+        "Paid Social: Meta Ads, TikTok Ads, LinkedIn Ads, Reddit Ads...",
+        "Measurement and Budgeting: forecasting, pacing, attribution...",
+        "Creative and Conversion: creative briefing, test-and-learn roadmaps...",
+        "Platforms and Data: Looker BI, Salesforce, Treasure Data...",
+        "Leadership and AI: agency management, team management, ChatGPT...",
+    ]:
+        add_text(doc, line, after=1)
+
+    add_section(doc, "Experience")
+    add_role(doc, "National Debt Relief, LLC", "Social Media Marketing Director",
+             "March 2023 - January 2026", "New York, New York")
+    for bullet in [
+        "Owned paid social strategy and execution across Meta and TikTok...",
+        "Built the Paid Social BI dashboard with LTV formulas and custom KPIs...",
+        "Partnered with Finance, Sales, Analytics, Lifecycle, and Creative...",
+        "Led offline conversion events, pixel deployment, Conversions API...",
+        "Championed AI adoption with ChatGPT, Veo3, HeyGen...",
+        "Translated performance data into creative direction and executive narratives...",
+    ]:
+        add_bullet(doc, bullet)
+
+    # ... (continues for all roles and education)
+
+    doc.save(str(DOCX_PATH))
+    MD_PATH.write_text(RESUME_MD)
+
+
+if __name__ == "__main__":
+    build_resume()
+    print(DOCX_PATH)`
+    };
+
+    // Populate modal content
+    Object.entries(docs).forEach(([id, content]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = content;
+    });
+
+    // Toggle step cards
+    function toggleStep(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('open');
+    }
+    window.toggleStep = toggleStep;
+
+    // Modal open
+    function openModal(id) {
+      const overlay = document.getElementById(id);
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Modal close
+    function closeModal(id) {
+      const overlay = document.getElementById(id);
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    window.closeModal = closeModal;
+
+    // Close on overlay click
+    document.querySelectorAll('.rs-modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay.id);
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.rs-modal-overlay.active').forEach(o => closeModal(o.id));
+      }
+    });
+
+    // Wire up all doc triggers (cards and chips)
+    document.querySelectorAll('[data-modal]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(el.dataset.modal);
+      });
+    });
+  </script>
+</body>
+</html>
