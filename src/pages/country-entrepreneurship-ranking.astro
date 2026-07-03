@@ -1,0 +1,324 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ReadingProgressBar from '../components/ReadingProgressBar.astro';
+import CountryEntrepreneurshipTable from '../components/widgets/CountryEntrepreneurshipTable.astro';
+import countries from '../components/widgets/country-entrepreneurship-scores.json';
+
+const title = "Ranking Every Country on Business Freedom, Hiring, Taxes, and Property Rights";
+const description = "184 countries ranked on a weighted score built from four questions: is it easy to start a company, easy to hire and fire, is the tax burden onerous, and can you own an asset without it getting seized.";
+const pubDate = "July 3, 2026";
+
+const top10 = countries.slice(0, 10);
+const bottom10 = countries.slice(-10).reverse();
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <style>
+    .article-container {
+      display: flex;
+      justify-content: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .article-header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 2.5rem;
+    }
+    .article-header .meta {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: rgb(var(--gray));
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .article-header h1 {
+      font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+      margin: 0 0 1.2rem;
+      font-family: var(--font-heading);
+      line-height: 1.15;
+      font-weight: 800;
+      color: rgb(var(--black));
+    }
+    .article-header .intro {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgb(var(--gray-dark));
+      margin: 0;
+    }
+
+    .prose {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgb(var(--gray-dark));
+    }
+    .prose p {
+      margin: 0 0 1.5rem;
+    }
+    .prose h2 {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      color: rgb(var(--black));
+      margin: 2.5rem 0 1.25rem;
+      line-height: 1.2;
+    }
+    .prose h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: rgb(var(--black));
+      margin: 2rem 0 0.75rem;
+      line-height: 1.25;
+    }
+    .prose hr {
+      border: 0;
+      border-top: 1px solid rgb(var(--gray-light));
+      margin: 3rem 0;
+    }
+    .prose blockquote {
+      margin: 1.5rem 0;
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      border-left: 3px solid var(--accent);
+      color: rgb(var(--gray-dark));
+      font-style: italic;
+    }
+    .prose blockquote p {
+      margin: 0 0 0.75rem;
+    }
+    .prose blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Weight table */
+    .weight-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .weight-table th,
+    .weight-table td {
+      text-align: left;
+      padding: 0.65rem 0.8rem;
+      border-bottom: 1px solid rgb(var(--gray-light));
+    }
+    .weight-table th {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgb(var(--gray));
+    }
+    .weight-table td.weight-num {
+      font-weight: 700;
+      color: rgb(var(--black));
+    }
+
+    /* Top/bottom cards */
+    .rank-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .rank-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(var(--gray-light), 0.7);
+      font-size: 0.95rem;
+    }
+    .rank-row .rank-num {
+      color: rgb(var(--gray));
+      font-weight: 700;
+      width: 1.75rem;
+      display: inline-block;
+    }
+    .rank-row .rank-name {
+      color: rgb(var(--black));
+      font-weight: 600;
+    }
+    .rank-row .rank-score {
+      color: rgb(var(--gray-dark));
+      font-family: var(--font-ui), sans-serif;
+    }
+    @media (max-width: 640px) {
+      .rank-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .caveat-list {
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+  <ReadingProgressBar />
+  <Header />
+  <main>
+    <div class="article-container">
+      <div class="wrap">
+
+        <header class="article-header">
+          <p class="meta">{pubDate}</p>
+          <h1>{title}</h1>
+          <p class="intro">{description}</p>
+        </header>
+
+        <section class="prose">
+          <p>
+            The pitch for why some places produce startups and some places do not usually starts with talent
+            and culture. But there is a third piece that gets less attention: the actual legal environment. Here
+            is the framework I used to build this ranking.
+          </p>
+
+          <blockquote>
+            <p>
+              And like, by the way, many countries have that that don't have a Silicon Valley. And what are
+              they missing? They're missing the other two components. The second is, do you have a set of
+              laws and policies that facilitate entrepreneurship or essentially good for business? Like, can
+              you create a company easily? Can you hire people easily? Can you fire people easily? Is there a
+              tax incentive structure that's not onerous? Can you own, and this is a big one lately, which
+              California is kind of moving against, but can you own an illiquid asset that has value or will
+              it get seized?
+            </p>
+          </blockquote>
+
+          <p>
+            That is four testable questions: is it easy to start and run a business, is it easy to hire and
+            fire, is the tax structure reasonable, and are your property rights actually secure. The
+            <a href="https://static.heritage.org/index/pdf/2026/2026_indexofeconomicfreedom.pdf">2026 Index of Economic Freedom</a>
+            from the Heritage Foundation grades 184 economies on twelve sub-scores every year, and four of
+            them map almost exactly onto those four questions: Business Freedom, Labor Freedom, Tax Burden,
+            and Property Rights. So I pulled those four sub-scores for every graded country and combined them
+            into one weighted number.
+          </p>
+
+          <h2>How it's weighted</h2>
+          <p>
+            The weighting is not scientific. It is proportional to how much emphasis each idea got in the
+            quote above: hiring and firing get asked about as two separate questions, so labor freedom counts
+            for the most. Property rights get an explicit "this is a big one lately" callout, so they are
+            weighted just behind labor. Business freedom and tax burden get one clause each.
+          </p>
+
+          <table class="weight-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>What it measures</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hire / fire freedom</td>
+                <td>Labor Freedom sub-score: how easy it is to hire and to fire</td>
+                <td class="weight-num">30%</td>
+              </tr>
+              <tr>
+                <td>Business freedom</td>
+                <td>Business Freedom sub-score: how easy it is to start, run, and close a company</td>
+                <td class="weight-num">25%</td>
+              </tr>
+              <tr>
+                <td>Property rights</td>
+                <td>Property Rights sub-score: how secure ownership of an asset is from seizure</td>
+                <td class="weight-num">25%</td>
+              </tr>
+              <tr>
+                <td>Tax burden</td>
+                <td>Tax Burden sub-score: how much of income and corporate profit the state takes</td>
+                <td class="weight-num">20%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            Every sub-score runs 0 to 100, where 100 is the most free. The composite score below is just
+            the weighted average of the four, so it also runs roughly 0 to 100.
+          </p>
+
+          <hr />
+
+          <h2>Top 10</h2>
+          <div class="rank-grid">
+            {top10.map((c) => (
+              <div class="rank-row">
+                <span><span class="rank-num">{c.rank}</span><span class="rank-name">{c.name}</span></span>
+                <span class="rank-score">{c.composite.toFixed(1)}</span>
+              </div>
+            ))}
+          </div>
+
+          <h2>Bottom 10</h2>
+          <div class="rank-grid">
+            {bottom10.map((c) => (
+              <div class="rank-row">
+                <span><span class="rank-num">{c.rank}</span><span class="rank-name">{c.name}</span></span>
+                <span class="rank-score">{c.composite.toFixed(1)}</span>
+              </div>
+            ))}
+          </div>
+
+          <p>
+            The United States lands at number 2, mostly on strong property rights and business freedom.
+            Norway and Finland show up near the top despite genuinely high tax burdens, both scoring below
+            the 184-country average on that factor alone. What pulls them up is near-perfect property rights
+            and business freedom scores that outweigh the tax penalty once the four factors are combined.
+            Mauritius, at number 4, is the highest-ranked country in Africa and one people rarely name when
+            they talk about "good for business."
+          </p>
+
+          <hr />
+
+          <h2>Full ranking</h2>
+
+          <CountryEntrepreneurshipTable />
+
+          <hr />
+
+          <h2>Methodology and what's missing</h2>
+          <ul class="caveat-list">
+            <li>
+              Source data is the Heritage Foundation's
+              <a href="https://static.heritage.org/index/pdf/2026/2026_indexofeconomicfreedom.pdf">2026 Index of Economic Freedom</a>,
+              which grades 176 economies with a full composite score and reports component sub-scores for
+              8 additional "not graded" economies (Afghanistan, Iraq, Libya, Liechtenstein, Somalia, Syria,
+              Ukraine, and Yemen). Those 8 are included here because their Business Freedom, Labor Freedom,
+              Tax Burden, and Property Rights sub-scores are all reported even though Heritage does not
+              publish an overall grade for them.
+            </li>
+            <li>
+              13 sovereign states are not rated by Heritage and are not in this ranking: Andorra, Antigua and
+              Barbuda, Grenada, the Marshall Islands, Monaco, Nauru, Palau, Palestine, Saint Kitts and Nevis,
+              San Marino, South Sudan, Tuvalu, and Vatican City. Hong Kong, which Heritage rated for decades,
+              has also been dropped from the index since 2021.
+            </li>
+            <li>
+              The weighting is a reading of the quote above, not a Heritage Foundation product. Heritage does
+              not endorse this composite or the weights applied to it.
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>
