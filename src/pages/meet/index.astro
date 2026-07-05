@@ -147,6 +147,30 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 							</div>
 						</div>
 
+						<div class="form-row">
+							<label for="height">Your height<span class="req">*</span></label>
+							<select id="height" name="height" required>
+								<option value="" disabled selected>Select your height</option>
+								<option value="57">4'10" and below</option>
+								<option value="58">4'11"</option>
+								<option value="60">5'0"</option>
+								<option value="61">5'1"</option>
+								<option value="62">5'2"</option>
+								<option value="63">5'3"</option>
+								<option value="64">5'4"</option>
+								<option value="65">5'5"</option>
+								<option value="66">5'6"</option>
+								<option value="67">5'7"</option>
+								<option value="68">5'8"</option>
+								<option value="69">5'9"</option>
+								<option value="70">5'10"</option>
+								<option value="71">5'11"</option>
+								<option value="72">6'0"</option>
+								<option value="73">6'1"</option>
+								<option value="74">6'2"</option>
+							</select>
+						</div>
+
 						<button type="submit" class="submit-btn">Send</button>
 						<p class="form-note">No spam, no lists. Just me reading it.</p>
 						<p class="form-error" role="alert" hidden>
@@ -178,8 +202,11 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 									if (result.success) {
 										const single = form.querySelector('input[name="single"]:checked');
 										const nycArea = form.querySelector('input[name="nyc_area"]:checked');
+										const heightSelect = form.querySelector('#height');
+										const heightInches = heightSelect instanceof HTMLSelectElement ? Number(heightSelect.value) : NaN;
 										const qualified = single instanceof HTMLInputElement && single.value === 'Yes'
-											&& nycArea instanceof HTMLInputElement && nycArea.value === 'Yes';
+											&& nycArea instanceof HTMLInputElement && nycArea.value === 'Yes'
+											&& heightInches < 64;
 										window.location.href = qualified ? '/meet/thank-you-match/' : '/meet/thank-you/';
 										return;
 									}
@@ -366,6 +393,7 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 	}
 	input[type='text'],
 	input[type='email'],
+	select,
 	textarea {
 		font-family: Verdana, Tahoma, Geneva, sans-serif;
 		font-size: 1em;
@@ -375,7 +403,11 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 		background: #fff;
 		color: rgb(var(--gray-dark));
 	}
+	select {
+		max-width: 320px;
+	}
 	input:focus,
+	select:focus,
 	textarea:focus {
 		outline: 2px solid var(--accent);
 		outline-offset: 1px;
