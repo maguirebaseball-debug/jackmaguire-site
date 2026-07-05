@@ -1,0 +1,268 @@
+---
+import PlainStandaloneBlog from '../../layouts/PlainStandaloneBlog.astro';
+
+const title = "Are American Workers Really the Richest in the World?";
+const description = "A chart going around X says American workers have the highest disposable income anywhere. Rebuilding it from public OECD data mostly backs it up, until you divide by hours.";
+const pubDate = "Jul 05, 2026";
+
+// Gross adjusted household disposable income per worker, USD at PPPs, 2023.
+// Computed from OECD data: B7G per capita (NAAG) x population / employment.
+// est = employment taken from OECD labour force statistics instead of the
+// national accounts series (not reported there for 2023).
+const data = [
+  { country: 'Luxembourg', usd: 153407, pct: 109, est: false },
+  { country: 'United States', usd: 141029, pct: 100, est: false },
+  { country: 'Belgium', usd: 121515, pct: 86, est: false },
+  { country: 'France', usd: 115336, pct: 82, est: false },
+  { country: 'Austria', usd: 108785, pct: 77, est: false },
+  { country: 'Germany', usd: 107112, pct: 76, est: false },
+  { country: 'Italy', usd: 106252, pct: 75, est: false },
+  { country: 'Australia', usd: 99645, pct: 71, est: false },
+  { country: 'Netherlands', usd: 97824, pct: 69, est: false },
+  { country: 'United Kingdom', usd: 97317, pct: 69, est: false },
+  { country: 'Finland', usd: 95717, pct: 68, est: false },
+  { country: 'Spain', usd: 95023, pct: 67, est: false },
+  { country: 'Sweden', usd: 94497, pct: 67, est: false },
+  { country: 'Türkiye', usd: 91926, pct: 65, est: true },
+  { country: 'Canada', usd: 91694, pct: 65, est: false },
+  { country: 'Denmark', usd: 89581, pct: 64, est: false },
+  { country: 'Ireland', usd: 88465, pct: 63, est: false },
+  { country: 'Iceland', usd: 87268, pct: 62, est: false },
+  { country: 'Czechia', usd: 84243, pct: 60, est: false },
+  { country: 'Portugal', usd: 78097, pct: 55, est: false },
+  { country: 'New Zealand', usd: 77966, pct: 55, est: false },
+  { country: 'Poland', usd: 76949, pct: 55, est: false },
+  { country: 'Slovenia', usd: 76357, pct: 54, est: false },
+  { country: 'Lithuania', usd: 73719, pct: 52, est: false },
+  { country: 'Slovak Republic', usd: 72566, pct: 51, est: false },
+  { country: 'Japan', usd: 72446, pct: 51, est: true },
+  { country: 'Hungary', usd: 70137, pct: 50, est: false },
+  { country: 'Korea', usd: 68190, pct: 48, est: false },
+  { country: 'Greece', usd: 67752, pct: 48, est: false },
+  { country: 'Estonia', usd: 62896, pct: 45, est: false },
+  { country: 'Latvia', usd: 59367, pct: 42, est: false },
+  { country: 'Chile', usd: 53968, pct: 38, est: false },
+  { country: 'Mexico', usd: 49403, pct: 35, est: true },
+  { country: 'Colombia', usd: 43990, pct: 31, est: false },
+];
+const MAX = 110; // axis maximum, percent of the US figure
+const ticks = [0, 25, 50, 75, 100];
+const fmt = (n) => '$' + n.toLocaleString('en-US');
+---
+
+<PlainStandaloneBlog title={title} description={description} pubDate={pubDate} datePublished="2026-07-05">
+
+  <p>On the Fourth of July a chart went around X claiming that American workers are far and away the richest in the world. It was posted by <a href="https://x.com/cremieuxrecueil">Crémieux Recueil</a> and it ranked 30 countries by net adjusted household disposable income per worker. America sat at 100 percent. Belgium came second at 75. Mexico was last at 31.</p>
+
+  <p>I work in performance marketing, not economics. So rather than take the chart on faith, this post rebuilds it from the public OECD data and walks through what the metric says and what it hides.</p>
+
+  <h2>What the metric actually measures</h2>
+
+  <p>Adjusted household disposable income is the money households keep after taxes and government transfers, plus the value of services the state provides directly, mainly public healthcare and education. That adjustment matters. The usual objection to comparisons like this is that Europeans get services Americans pay for out of pocket. This metric already counts those services as income.</p>
+
+  <p>The figures are converted at purchasing power parities rather than market exchange rates, so they account for the fact that a dollar buys more in Warsaw than in Zurich. Dividing by workers instead of residents then asks a narrower question: how much disposable income does each employed person generate for their household?</p>
+
+  <h2>The replication</h2>
+
+  <p>The OECD publishes gross adjusted household disposable income per person in PPP dollars. For 2023 the American figure is $68,247, the highest in the table. Multiply by population and divide by total employment and you get the per worker version. America comes out at $141,029. Everything below is shown as a share of that.</p>
+
+  <div class="viz-root" id="nahdi-chart">
+    <p class="viz-title">Gross adjusted household disposable income per worker, 2023</p>
+    <p class="viz-sub">USD at purchasing power parities, as a percentage of the United States. Source: OECD national accounts.</p>
+    {data.map((d) => (
+      <div class="viz-row" data-usd={fmt(d.usd)} data-pct={d.pct}>
+        <span class="viz-label">{d.country}{d.est ? '*' : ''}</span>
+        <span class="viz-track">
+          <span class={`viz-bar${d.country === 'United States' ? ' viz-bar-us' : ''}`} style={`width:${(d.pct / MAX) * 100}%`}></span>
+          <span class="viz-val">{d.pct}%</span>
+        </span>
+      </div>
+    ))}
+    <div class="viz-row viz-axis">
+      <span class="viz-label"></span>
+      <span class="viz-track viz-axis-track">
+        {ticks.map((t) => (
+          <span class="viz-tick" style={`left:${(t / MAX) * 100}%`}>{t}%</span>
+        ))}
+      </span>
+    </div>
+    <p class="viz-note">* Employment for Türkiye, Japan and Mexico is taken from OECD labour force statistics because the national accounts employment series does not cover them for 2023. Norway and Switzerland are absent because they do not report this income series.</p>
+    <div class="viz-tip" id="nahdi-tip" hidden></div>
+  </div>
+
+  <details>
+    <summary>Full data table</summary>
+    <table>
+      <thead>
+        <tr><th>Country</th><th>Per worker (USD, PPP)</th><th>Share of US</th></tr>
+      </thead>
+      <tbody>
+        {data.map((d) => (
+          <tr><td>{d.country}{d.est ? '*' : ''}</td><td>{fmt(d.usd)}</td><td>{d.pct}%</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </details>
+
+  <p>Method and sources, so you can check the arithmetic: <a href="https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAAG@DF_NAAG_V,?startPeriod=2023&endPeriod=2023&format=csvfilewithlabels">income per person</a> comes from the OECD National Accounts at a Glance household chapter, <a href="https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN10@DF_TABLE3_POP_EMPNC,?startPeriod=2023&endPeriod=2023&format=csvfilewithlabels">population and employment</a> from the annual national accounts, and the three gap countries from <a href="https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_ALFS@DF_ALFS_EMP,/JPN+MEX+TUR........?startPeriod=2023&endPeriod=2023&format=csvfilewithlabels">labour force statistics</a>. Those links download the raw CSVs from the OECD API. You can browse the same tables at the <a href="https://data-explorer.oecd.org/">OECD Data Explorer</a>. Data pulled July 5, 2026.</p>
+
+  <h2>What holds up</h2>
+
+  <p>The core claim survives. Among large economies, American households have the highest disposable income per worker by a comfortable margin, and it is not close: Belgium, the best of the big European countries, sits at 86 percent here.</p>
+
+  <p>The viral version shows a bigger gap, with Belgium at 75 percent, Germany at 64 and Japan at 45. It uses net income, which subtracts depreciation on things households own, mostly housing, and a PPP basket based on actual individual consumption. This replication uses gross income because that is the figure the OECD publishes per person at PPPs. Same story, different sharpness.</p>
+
+  <h2>What the chart leaves out</h2>
+
+  <p>Luxembourg. Include it and America is not first: Luxembourg lands at 109 percent of the American figure. It is a city-state of 668,000 people built around finance, and it is routinely dropped from charts like this as an outlier. Dropping it is defensible. It should still be disclosed.</p>
+
+  <p>Dividing by workers also reshuffles Europe in ways worth noticing. Germany employs 55 percent of its population, Belgium 44 and Italy 43. So Germany looks better per person, at 86 percent of the US figure, than per worker, at 76 percent, while Belgium and Italy jump the other way. Türkiye, which the viral chart skips, lands at a surprising 65 percent here largely because only 36 percent of its population is employed. A high rank per worker can mean workers earn a lot, or it can mean fewer people work.</p>
+
+  <h2>The hours problem</h2>
+
+  <p>Per worker is not per hour. In 2023 the average American worker put in <a href="https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_HW@DF_AVG_ANN_HRS_WKD,?startPeriod=2023&endPeriod=2023&format=csvfilewithlabels">1,805 hours, against 1,339 in Germany, 1,503 in France and 1,591 in Belgium</a>, per the OECD hours series. Divide the incomes above by those hours and the top of the chart compresses to nearly nothing: Germany comes out at 102 percent of the American figure, France at 98 and Belgium at 98.</p>
+
+  <p>Hours data is the least comparable series the OECD publishes, since countries measure it differently, so treat the per hour numbers as rough. But the direction is clear. A large share of the American lead is bought with time.</p>
+
+  <p>Two more things the metric stays silent on. These are averages, and an average per worker says nothing about the median worker. And income counted at PPP is not the same as security: the adjustment credits you with the healthcare you receive, not with protection from the bill you might get.</p>
+
+  <h2>Takeaway</h2>
+
+  <p>The chart holds up on its own terms. Per worker, at purchasing power, American disposable incomes lead every large economy by 15 to 30 percent depending on the exact measure. Before resharing a chart like this, check whether it says per person, per worker, or per hour. On the 2023 data those three choices crown three different winners: America per person, Luxembourg per worker, and Germany per hour.</p>
+
+  <style>
+    .viz-root {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 13px;
+      color: #0b0b0b;
+      margin: 0 0 1.5rem;
+      position: relative;
+    }
+    .viz-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 2px;
+    }
+    .viz-sub {
+      color: #52514e;
+      margin: 0 0 12px;
+    }
+    .viz-row {
+      display: flex;
+      align-items: center;
+      margin: 0 0 3px;
+    }
+    .viz-label {
+      flex: 0 0 118px;
+      text-align: right;
+      padding-right: 8px;
+      color: #0b0b0b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .viz-track {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      position: relative;
+      min-height: 15px;
+      border-left: 1px solid #c3c2b7;
+      background-image:
+        linear-gradient(to right, #e1e0d9 1px, transparent 1px),
+        linear-gradient(to right, #e1e0d9 1px, transparent 1px),
+        linear-gradient(to right, #e1e0d9 1px, transparent 1px),
+        linear-gradient(to right, #e1e0d9 1px, transparent 1px);
+      background-repeat: no-repeat;
+      background-size: 1px 100%;
+      background-position:
+        calc(22.727% - 0.5px) 0,
+        calc(45.455% - 0.5px) 0,
+        calc(68.182% - 0.5px) 0,
+        calc(90.909% - 0.5px) 0;
+    }
+    .viz-bar {
+      display: block;
+      height: 13px;
+      background: #1baf7a;
+      border-radius: 0 4px 4px 0;
+    }
+    .viz-bar-us {
+      background: #2a78d6;
+    }
+    .viz-val {
+      margin-left: 6px;
+      color: #52514e;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .viz-axis-track {
+      border-left: none;
+      background: none;
+      min-height: 20px;
+    }
+    .viz-tick {
+      position: absolute;
+      top: 4px;
+      transform: translateX(-50%);
+      color: #898781;
+      font-size: 12px;
+    }
+    .viz-note {
+      color: #52514e;
+      font-size: 12px;
+      margin: 10px 0 0;
+    }
+    .viz-tip {
+      position: fixed;
+      pointer-events: none;
+      background: #0b0b0b;
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 10;
+      max-width: 240px;
+    }
+    details {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 14px;
+      margin: 0 0 1.5rem;
+    }
+    details table {
+      margin-top: 0.75rem;
+    }
+    details th, details td {
+      padding: 2px 10px 2px 0;
+      text-align: left;
+      font-variant-numeric: tabular-nums;
+    }
+    @media (max-width: 600px) {
+      .viz-label {
+        flex-basis: 84px;
+        font-size: 11px;
+      }
+      .viz-val {
+        font-size: 11px;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var root = document.getElementById('nahdi-chart');
+      var tip = document.getElementById('nahdi-tip');
+      if (!root || !tip) return;
+      root.addEventListener('mousemove', function (e) {
+        var row = e.target.closest ? e.target.closest('.viz-row') : null;
+        if (!row || !row.dataset.usd) { tip.hidden = true; return; }
+        tip.textContent = row.dataset.usd + ' per worker, ' + row.dataset.pct + '% of the US figure';
+        tip.hidden = false;
+        tip.style.left = Math.min(e.clientX + 12, window.innerWidth - 250) + 'px';
+        tip.style.top = (e.clientY + 14) + 'px';
+      });
+      root.addEventListener('mouseleave', function () { tip.hidden = true; });
+    })();
+  </script>
+
+</PlainStandaloneBlog>
