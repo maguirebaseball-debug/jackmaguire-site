@@ -1,0 +1,554 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+
+const title = 'Jack Maguire — Paid Social Director for CMOs';
+const description = 'I fix broken paid social measurement (CAPI, Pixel, conversion signal) and turn it into revenue. 12 years, $30M+ managed spend, $10M+ profitable revenue driven. Available now.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfilePage",
+			"mainEntity": {
+				"@type": "Person",
+				"name": "Jack Maguire",
+				"jobTitle": "Paid Social Director",
+				"url": "https://jackmaguire.org/cmo/",
+				"sameAs": ["https://www.linkedin.com/in/paidsocialdirector/"]
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<main>
+			<section class="hero">
+				<div class="wrap">
+					<p class="eyebrow">Paid social leadership &middot; available now</p>
+					<h1>Your paid social funnel is probably reporting numbers it can't back up.</h1>
+					<p class="subhead">
+						Most teams find out during a platform update, a privacy change, or a board
+						question they can't answer cleanly. I've spent 12 years being the person brought
+						in to find the leak, rebuild the measurement layer, and put the budget back to work
+						on signal that's actually true.
+					</p>
+					<a href="#contact" class="cta-link">See how, then send me a message &darr;</a>
+				</div>
+			</section>
+
+			<section class="signal-diagram-section">
+				<div class="wrap">
+					<h2>What "broken" usually looks like, and what fixing it does</h2>
+					<div class="diagram" role="img" aria-label="Diagram showing a broken measurement pipeline of ad platform, degraded pixel and CAPI signal, blind targeting, and wasted spend, transforming into a fixed pipeline of rebuilt CAPI and pixel, clean signal, validated targeting, and profitable revenue.">
+						<div class="pipeline broken">
+							<span class="pipeline-label">Before</span>
+							<div class="stage" data-state="broken"><span class="stage-name">Ad platform</span></div>
+							<div class="connector broken-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="broken"><span class="stage-name">Degraded Pixel / CAPI signal</span></div>
+							<div class="connector broken-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="broken"><span class="stage-name">Algorithm optimizing on noise</span></div>
+							<div class="connector broken-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="broken end"><span class="stage-name">Spend scaled on a broken read</span></div>
+						</div>
+						<div class="pipeline fixed">
+							<span class="pipeline-label">After</span>
+							<div class="stage" data-state="fixed"><span class="stage-name">Ad platform</span></div>
+							<div class="connector fixed-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="fixed"><span class="stage-name">Rebuilt Pixel + CAPI, clean signal</span></div>
+							<div class="connector fixed-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="fixed"><span class="stage-name">Targeting validated with holdout tests</span></div>
+							<div class="connector fixed-connector" aria-hidden="true"></div>
+							<div class="stage" data-state="fixed end"><span class="stage-name">$10M+ in profitable revenue</span></div>
+						</div>
+					</div>
+					<p class="diagram-caption">
+						This is the actual sequence: fix the measurement first, because you can't scale a
+						funnel you can't measure. Everything after that (targeting, creative, holdout
+						tests) only works once the input data is trustworthy.
+					</p>
+				</div>
+			</section>
+
+			<section class="proof-section">
+				<div class="wrap">
+					<h2>The numbers, from doing this work for 12 years</h2>
+					<div class="stat-grid">
+						<div class="stat">
+							<span class="stat-number">$30M+</span>
+							<span class="stat-label">ad spend managed</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">300K+</span>
+							<span class="stat-label">leads generated</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">$10M+</span>
+							<span class="stat-label">profitable revenue driven</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">250M+</span>
+							<span class="stat-label">monthly impressions managed</span>
+						</div>
+					</div>
+					<div class="case-note">
+						<p>
+							<strong>National Debt Relief, 2022 to 2026.</strong> Led Meta and TikTok paid
+							social offline conversion events, Conversions API, and Pixel integrations,
+							working directly with engineering to repair degraded signal quality in a
+							regulated industry. Layered on regression and ML (random forest, neural nets,
+							decision trees) to confirm which signals actually mattered, added third-party
+							audience integrations via Oracle and LiveRamp coordinated through Salesforce,
+							and ran holdout market tests to validate incrementality before scaling spend.
+							Result: an estimated $5M of the $10M+ in profitable revenue came directly from
+							that measurement rebuild.
+						</p>
+						<p>
+							Managed $1M+ in monthly ad spend, led a team of paid social managers, and drove
+							300,000+ Facebook followers and 365,000+ email leads over the role.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="fit-section">
+				<div class="wrap">
+					<h2>What I'm looking for</h2>
+					<p>
+						Director-level or adjacent paid social / performance leadership, ideally in
+						financial services, consumer finance, DTC, or another data-driven team where the
+						measurement layer actually matters to the business. Open to remote or NYC-based.
+					</p>
+					<p>
+						If your team is scaling spend on a funnel nobody fully trusts, or you've got a paid
+						social leadership seat open and want someone who starts with the data, that's the
+						conversation I want to have.
+					</p>
+				</div>
+			</section>
+
+			<section id="contact" class="contact-section">
+				<div class="wrap">
+					<h2>Get in touch</h2>
+
+					<div class="calendly-slot">
+						<p class="calendly-placeholder-label">Book time directly (coming soon)</p>
+						<p class="calendly-placeholder-note">
+							A direct scheduling link will go here. For now, use the form below and I'll
+							follow up personally, usually within a day.
+						</p>
+					</div>
+
+					<form id="cmo-form" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
+						<input type="hidden" name="subject" value="New lead from jackmaguire.org/cmo" />
+						<input type="hidden" name="from_name" value="jackmaguire.org CMO landing page" />
+						<input type="checkbox" name="botcheck" class="botcheck" style="display:none" />
+
+						<div class="form-row">
+							<label for="name">Name<span class="req">*</span></label>
+							<input type="text" id="name" name="name" required autocomplete="name" />
+						</div>
+
+						<div class="form-row">
+							<label for="email">Work email<span class="req">*</span></label>
+							<input type="email" id="email" name="email" required autocomplete="email" />
+						</div>
+
+						<div class="form-row two-col">
+							<div>
+								<label for="company">Company</label>
+								<input type="text" id="company" name="company" autocomplete="organization" />
+							</div>
+							<div>
+								<label for="role">Your role</label>
+								<input type="text" id="role" name="role" placeholder="e.g. CMO, VP Marketing" />
+							</div>
+						</div>
+
+						<div class="form-row">
+							<label for="message">Message</label>
+							<textarea id="message" name="message" rows="4" placeholder="What's the role, or what's broken?"></textarea>
+						</div>
+
+						<button type="submit" class="submit-btn">Send</button>
+						<p class="form-note">No spam. I read every message myself and reply directly.</p>
+						<p class="form-error" role="alert" hidden>
+							Something went wrong sending that. Please email
+							<a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a> directly instead.
+						</p>
+					</form>
+
+					<script>
+						const form = document.getElementById('cmo-form');
+						if (form instanceof HTMLFormElement) {
+							form.addEventListener('submit', async (event) => {
+								event.preventDefault();
+								const errorEl = form.querySelector('.form-error');
+								const submitBtn = form.querySelector('.submit-btn');
+								if (submitBtn instanceof HTMLButtonElement) {
+									submitBtn.disabled = true;
+									submitBtn.textContent = 'Sending...';
+								}
+								if (errorEl instanceof HTMLElement) errorEl.hidden = true;
+
+								try {
+									const response = await fetch(form.action, {
+										method: 'POST',
+										headers: { Accept: 'application/json' },
+										body: new FormData(form),
+									});
+									const result = await response.json();
+									if (result.success) {
+										window.location.href = '/cmo/thank-you/';
+										return;
+									}
+									throw new Error(result.message || 'Submission failed');
+								} catch (err) {
+									if (errorEl instanceof HTMLElement) errorEl.hidden = false;
+									if (submitBtn instanceof HTMLButtonElement) {
+										submitBtn.disabled = false;
+										submitBtn.textContent = 'Send';
+									}
+								}
+							});
+						}
+					</script>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		background: var(--paper);
+	}
+	main {
+		max-width: none;
+		padding: 0;
+	}
+	.wrap {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 1.25em;
+	}
+
+	.hero {
+		padding: 3.5em 0 2.5em;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.eyebrow {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin: 0 0 0.75em;
+	}
+	.hero h1 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.6em, 5.5vw, 2.5em);
+		line-height: 1.18;
+		margin: 0 0 0.75em;
+		color: rgb(var(--black));
+	}
+	.subhead {
+		font-size: 1.08em;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		max-width: 620px;
+		margin: 0 0 1.5em;
+	}
+	.cta-link {
+		display: inline-block;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		font-size: 0.95em;
+		color: var(--accent-dark);
+		text-decoration: none;
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 2px;
+	}
+	.cta-link:hover {
+		color: var(--accent);
+	}
+
+	.signal-diagram-section {
+		padding: 3em 0;
+		background: var(--paper-warm);
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.signal-diagram-section h2 {
+		font-size: clamp(1.15em, 4vw, 1.5em);
+		margin: 0 0 1.5em;
+	}
+	.diagram {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+	}
+	.pipeline {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0;
+		position: relative;
+		padding-top: 1.4em;
+	}
+	.pipeline-label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.68rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: rgb(var(--gray));
+	}
+	.stage {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.78rem;
+		font-weight: 600;
+		padding: 0.6em 0.85em;
+		border-radius: 6px;
+		line-height: 1.3;
+		max-width: 160px;
+	}
+	.stage[data-state='broken'] {
+		background: transparent;
+		border: 1.5px dashed #b3492f;
+		color: #b3492f;
+	}
+	.stage[data-state='fixed'] {
+		background: var(--accent);
+		border: 1.5px solid var(--accent-dark);
+		color: #fff;
+	}
+	.connector {
+		flex: 0 0 auto;
+		width: 1.75em;
+		height: 0;
+		border-top: 2px solid;
+		margin: 0 -1px;
+	}
+	.broken-connector {
+		border-top-style: dashed;
+		border-top-color: #b3492f;
+	}
+	.fixed-connector {
+		border-top-style: solid;
+		border-top-color: var(--accent-dark);
+	}
+	.diagram-caption {
+		margin-top: 1.5em;
+		font-size: 0.92em;
+		color: rgb(var(--gray-dark));
+		line-height: 1.55;
+		max-width: 620px;
+	}
+
+	.proof-section {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.proof-section h2 {
+		font-size: clamp(1.15em, 4vw, 1.5em);
+		margin: 0 0 1.25em;
+	}
+	.stat-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1em;
+		margin-bottom: 2em;
+	}
+	.stat {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2em;
+		padding: 1em 0.25em;
+		border-top: 3px solid var(--accent);
+	}
+	.stat-number {
+		font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+		font-size: 1.5em;
+		font-weight: 700;
+		color: rgb(var(--black));
+	}
+	.stat-label {
+		font-size: 0.78em;
+		color: rgb(var(--gray));
+	}
+	.case-note {
+		background: var(--paper-warm);
+		border-radius: 8px;
+		padding: 1.4em 1.5em;
+		font-size: 0.95em;
+		line-height: 1.6;
+	}
+	.case-note p {
+		margin: 0 0 1em;
+	}
+	.case-note p:last-child {
+		margin-bottom: 0;
+	}
+
+	.fit-section {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.fit-section h2 {
+		font-size: clamp(1.15em, 4vw, 1.5em);
+		margin: 0 0 1em;
+	}
+	.fit-section p {
+		max-width: 620px;
+		line-height: 1.6;
+	}
+
+	.contact-section {
+		padding: 3em 0 4em;
+	}
+	.contact-section h2 {
+		font-size: clamp(1.15em, 4vw, 1.5em);
+		margin: 0 0 1.25em;
+	}
+	.calendly-slot {
+		border: 1.5px dashed rgb(var(--gray));
+		border-radius: 8px;
+		padding: 1.25em 1.5em;
+		margin-bottom: 2em;
+		background: var(--paper-warm);
+	}
+	.calendly-placeholder-label {
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		font-size: 0.85em;
+		margin: 0 0 0.35em;
+		color: rgb(var(--gray-dark));
+	}
+	.calendly-placeholder-note {
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1em;
+	}
+	.form-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+	.form-row.two-col {
+		flex-direction: row;
+		gap: 1em;
+	}
+	.form-row.two-col > div {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+	label {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.85em;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.req {
+		color: #b3492f;
+		margin-left: 0.15em;
+	}
+	input[type='text'],
+	input[type='email'],
+	textarea {
+		font-family: Verdana, Tahoma, Geneva, sans-serif;
+		font-size: 1em;
+		padding: 0.65em 0.75em;
+		border: 1.5px solid rgb(var(--gray-light));
+		border-radius: 6px;
+		background: #fff;
+		color: rgb(var(--gray-dark));
+	}
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+		border-color: var(--accent);
+	}
+	textarea {
+		resize: vertical;
+	}
+	.submit-btn {
+		align-self: flex-start;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		font-size: 0.95em;
+		background: var(--accent-dark);
+		color: #fff;
+		border: none;
+		border-radius: 6px;
+		padding: 0.75em 2em;
+		cursor: pointer;
+	}
+	.submit-btn:hover {
+		background: var(--accent);
+	}
+	.form-note {
+		font-size: 0.78em;
+		color: rgb(var(--gray));
+		margin: 0.25em 0 0;
+	}
+	.form-error {
+		font-size: 0.85em;
+		color: #b3492f;
+		margin: 0.25em 0 0;
+	}
+	.submit-btn:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+
+	@media (max-width: 640px) {
+		.stat-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.form-row.two-col {
+			flex-direction: column;
+		}
+		.pipeline {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		.connector {
+			width: 0;
+			height: 1.25em;
+			border-top: none;
+			border-left: 2px solid;
+			margin: -1px 0;
+			margin-left: 1.1em;
+		}
+		.broken-connector {
+			border-left-style: dashed;
+			border-left-color: #b3492f;
+			border-top: none;
+		}
+		.fixed-connector {
+			border-left-style: solid;
+			border-left-color: var(--accent-dark);
+			border-top: none;
+		}
+		.stage {
+			max-width: none;
+		}
+	}
+</style>

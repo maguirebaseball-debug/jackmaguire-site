@@ -30,6 +30,7 @@ export default defineConfig({
 				        'https://jackmaguire.org/sobriety-admin/',
 				        'https://jackmaguire.org/x/peak/',
 				        'https://jackmaguire.org/x/looksmax/',
+				        'https://jackmaguire.org/cmo/thank-you/',
 				].includes(page),
 		}),
 	],
