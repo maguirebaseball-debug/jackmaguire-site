@@ -131,6 +131,22 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 							<textarea id="message" name="message" rows="4" required placeholder="Say hi. Or ask a question. Whatever feels natural."></textarea>
 						</div>
 
+						<div class="form-row">
+							<span class="radio-label">Are you single?<span class="req">*</span></span>
+							<div class="radio-options">
+								<label class="radio-option"><input type="radio" name="single" value="Yes" required /> Yes</label>
+								<label class="radio-option"><input type="radio" name="single" value="No" required /> No</label>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<span class="radio-label">Do you live in NYC or within a daytrip?<span class="req">*</span></span>
+							<div class="radio-options">
+								<label class="radio-option"><input type="radio" name="nyc_area" value="Yes" required /> Yes</label>
+								<label class="radio-option"><input type="radio" name="nyc_area" value="No" required /> No</label>
+							</div>
+						</div>
+
 						<button type="submit" class="submit-btn">Send</button>
 						<p class="form-note">No spam, no lists. Just me reading it.</p>
 						<p class="form-error" role="alert" hidden>
@@ -160,7 +176,11 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 									});
 									const result = await response.json();
 									if (result.success) {
-										window.location.href = '/meet/thank-you/';
+										const single = form.querySelector('input[name="single"]:checked');
+										const nycArea = form.querySelector('input[name="nyc_area"]:checked');
+										const qualified = single instanceof HTMLInputElement && single.value === 'Yes'
+											&& nycArea instanceof HTMLInputElement && nycArea.value === 'Yes';
+										window.location.href = qualified ? '/meet/thank-you-match/' : '/meet/thank-you/';
 										return;
 									}
 									throw new Error(result.message || 'Submission failed');
@@ -320,6 +340,29 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 	.req {
 		color: #b3492f;
 		margin-left: 0.15em;
+	}
+	.radio-label {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.85em;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.radio-options {
+		display: flex;
+		gap: 1.5em;
+	}
+	.radio-option {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		font-family: Verdana, Tahoma, Geneva, sans-serif;
+		font-size: 0.95em;
+		font-weight: 400;
+		color: rgb(var(--gray-dark));
+		cursor: pointer;
+	}
+	.radio-option input {
+		accent-color: var(--accent-dark);
 	}
 	input[type='text'],
 	input[type='email'],
