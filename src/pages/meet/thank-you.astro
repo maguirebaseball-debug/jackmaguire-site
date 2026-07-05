@@ -1,0 +1,104 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+
+const title = 'Thanks, Jack Maguire';
+const description = 'Message received. Jack Maguire will follow up directly.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<meta name="robots" content="noindex, nofollow" />
+
+		<!-- Meta Pixel: replace YOUR_PIXEL_ID with the real Pixel ID from Events Manager -->
+		<script type="text/javascript">
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window, document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', 'YOUR_PIXEL_ID');
+		fbq('track', 'Lead');
+		</script>
+		<noscript>
+		<img height="1" width="1" style="display:none" alt=""
+		src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1" />
+		</noscript>
+	</head>
+	<body>
+		<main>
+			<div class="wrap">
+				<p class="eyebrow">Message received</p>
+				<h1>Thanks for saying hello.</h1>
+				<p class="body-text">
+					I read every message myself. If there's something worth continuing, I'll follow up
+					directly.
+				</p>
+				<p class="body-text">
+					In the meantime, feel free to look around:
+				</p>
+				<div class="social-links">
+					<a href="https://www.instagram.com/jack.maguire__/" target="_blank" rel="noopener">Instagram</a>
+					<span class="sep">&middot;</span>
+					<a href="https://www.linkedin.com/in/paidsocialdirector/" target="_blank" rel="noopener">LinkedIn</a>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		background: var(--paper);
+	}
+	main {
+		max-width: none;
+		padding: 0;
+		display: flex;
+		min-height: 70vh;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 620px;
+		margin: 0 auto;
+		padding: 3em 1.25em;
+		text-align: left;
+	}
+	.eyebrow {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin: 0 0 0.75em;
+	}
+	h1 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.5em, 5vw, 2.2em);
+		margin: 0 0 0.75em;
+		color: rgb(var(--black));
+	}
+	.body-text {
+		font-size: 1.05em;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1em;
+	}
+	.social-links {
+		margin-top: 1.5em;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+	}
+	.social-links a {
+		color: var(--accent-dark);
+	}
+	.sep {
+		margin: 0 0.5em;
+		color: rgb(var(--gray));
+	}
+</style>

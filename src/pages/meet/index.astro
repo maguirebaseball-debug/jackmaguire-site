@@ -1,0 +1,386 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { Image } from 'astro:assets';
+import jackBratislava from '../../assets/meet/jack-bratislava.jpg';
+import jackUsaJersey from '../../assets/meet/jack-usa-jersey.jpg';
+import jackApron from '../../assets/meet/jack-apron.jpeg';
+
+const title = 'Jack Maguire, East Village, NYC';
+const description = 'A short, honest introduction to Jack Maguire: 5\'3", from Maryland, McGill grad, ex-Philly, now East Village. Say hello below.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfilePage",
+			"mainEntity": {
+				"@type": "Person",
+				"name": "Jack Maguire",
+				"url": "https://jackmaguire.org/meet/",
+				"sameAs": ["https://www.instagram.com/jack.maguire__/", "https://www.linkedin.com/in/paidsocialdirector/"]
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<main>
+			<section class="hero">
+				<div class="wrap hero-grid">
+					<div class="hero-copy">
+						<p class="eyebrow">East Village, New York City</p>
+						<h1>Hi, I'm Jack.</h1>
+						<p class="subhead">
+							This is the short version of me, written honestly instead of cleverly.
+							If you read to the bottom and want to say hello, there's a place to do that.
+						</p>
+					</div>
+					<div class="hero-photo">
+						<Image src={jackBratislava} alt="Jack Maguire smiling on a street in Bratislava, Slovakia" widths={[400, 800, 1200]} sizes="(max-width: 640px) 90vw, 420px" />
+					</div>
+				</div>
+			</section>
+
+			<section class="basics-section">
+				<div class="wrap">
+					<h2>The basics</h2>
+					<p>
+						I'm 5'3", grew up in Maryland, and went to McGill University in Montreal for
+						business and philosophy. After college I thru-hiked the Appalachian Trail, 2,178
+						miles in 99 days, before I'd even started my first job. I lived in Philadelphia
+						for a few years, and now I'm in the East Village. I work in performance marketing,
+						running paid social campaigns, which mostly means I spend my days being analytical
+						about things that don't always deserve it.
+					</p>
+					<p>
+						I'm short. I'm not going to pretend otherwise or make a joke out of it. It's just
+						one fact about me among a lot of others, and I'd rather say it here plainly than
+						have it be a surprise or an afterthought.
+					</p>
+				</div>
+			</section>
+
+			<section class="photo-band">
+				<div class="wrap">
+					<Image src={jackUsaJersey} alt="Jack Maguire at a bar watching a World Cup match in a USA jersey" widths={[300, 600]} sizes="(max-width: 640px) 45vw, 280px" />
+					<Image src={jackApron} alt="Jack Maguire smiling while cooking in an apron" widths={[300, 600]} sizes="(max-width: 640px) 45vw, 280px" />
+				</div>
+			</section>
+
+			<section class="interests-section">
+				<div class="wrap">
+					<h2>What I actually care about</h2>
+					<p>
+						I've run three marathons (Montreal, Baltimore, Philadelphia) and I still run for
+						the quiet of it, not the medal. I read a lot, more than 300 books at this point,
+						mostly economics, behavioral economics, philosophy, and theology. I listen to
+						podcasts and audiobooks constantly, on walks, on trains, in the kitchen.
+					</p>
+					<p>
+						I travel whenever I can, usually with a plan that's more detailed than it needs to
+						be. I've spent time across Latin America and Europe, and I'd rather stay in a
+						hostel and talk to strangers than see the version of a city built for tourists. I
+						cook, I host dinners, and I notice architecture and city design in a way that
+						probably annoys people I'm walking with. I got into bird watching a few years ago
+						and I'm not embarrassed about it anymore.
+					</p>
+					<p>
+						I'm more introspective than my job title suggests. I like a good argument about
+						something that doesn't matter and a quiet night that isn't about anything at all.
+					</p>
+				</div>
+			</section>
+
+			<section class="looking-for-section">
+				<div class="wrap">
+					<h2>What I'm looking for</h2>
+					<p>
+						Someone I can actually talk to. Not a highlight reel, not a performance, just two
+						people finding out if there's something worth building. I'd rather have one honest
+						conversation than ten polished ones. If that sounds like you, say hello.
+					</p>
+				</div>
+			</section>
+
+			<section id="contact" class="contact-section">
+				<div class="wrap">
+					<h2>Say hello</h2>
+					<p class="contact-note">Leave your name and a note. I read every one myself.</p>
+
+					<form id="meet-form" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
+						<input type="hidden" name="subject" value="New hello from jackmaguire.org/meet" />
+						<input type="hidden" name="from_name" value="jackmaguire.org/meet" />
+						<input type="checkbox" name="botcheck" class="botcheck" style="display:none" />
+
+						<div class="form-row">
+							<label for="name">Your name<span class="req">*</span></label>
+							<input type="text" id="name" name="name" required autocomplete="name" />
+						</div>
+
+						<div class="form-row">
+							<label for="email">Email or Instagram handle<span class="req">*</span></label>
+							<input type="text" id="email" name="email" required autocomplete="email" placeholder="so I can actually reply" />
+						</div>
+
+						<div class="form-row">
+							<label for="message">Your note<span class="req">*</span></label>
+							<textarea id="message" name="message" rows="4" required placeholder="Say hi. Or ask a question. Whatever feels natural."></textarea>
+						</div>
+
+						<button type="submit" class="submit-btn">Send</button>
+						<p class="form-note">No spam, no lists. Just me reading it.</p>
+						<p class="form-error" role="alert" hidden>
+							Something went wrong sending that. Please email
+							<a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a> directly instead.
+						</p>
+					</form>
+
+					<script>
+						const form = document.getElementById('meet-form');
+						if (form instanceof HTMLFormElement) {
+							form.addEventListener('submit', async (event) => {
+								event.preventDefault();
+								const errorEl = form.querySelector('.form-error');
+								const submitBtn = form.querySelector('.submit-btn');
+								if (submitBtn instanceof HTMLButtonElement) {
+									submitBtn.disabled = true;
+									submitBtn.textContent = 'Sending...';
+								}
+								if (errorEl instanceof HTMLElement) errorEl.hidden = true;
+
+								try {
+									const response = await fetch(form.action, {
+										method: 'POST',
+										headers: { Accept: 'application/json' },
+										body: new FormData(form),
+									});
+									const result = await response.json();
+									if (result.success) {
+										window.location.href = '/meet/thank-you/';
+										return;
+									}
+									throw new Error(result.message || 'Submission failed');
+								} catch (err) {
+									if (errorEl instanceof HTMLElement) errorEl.hidden = false;
+									if (submitBtn instanceof HTMLButtonElement) {
+										submitBtn.disabled = false;
+										submitBtn.textContent = 'Send';
+									}
+								}
+							});
+						}
+					</script>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		background: var(--paper);
+	}
+	main {
+		max-width: none;
+		padding: 0;
+	}
+	.wrap {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 1.25em;
+	}
+
+	.hero {
+		padding: 3.5em 0 2.5em;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.hero-grid {
+		display: flex;
+		align-items: center;
+		gap: 2.5em;
+	}
+	.hero-copy {
+		flex: 1;
+	}
+	.hero-photo {
+		flex: 0 0 auto;
+		width: 240px;
+	}
+	.hero-photo img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 8px;
+	}
+	.eyebrow {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin: 0 0 0.75em;
+	}
+	.hero h1 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.8em, 6vw, 2.8em);
+		line-height: 1.1;
+		margin: 0 0 0.75em;
+		color: rgb(var(--black));
+	}
+	.subhead {
+		font-size: 1.08em;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		max-width: 460px;
+		margin: 0;
+	}
+
+	.basics-section,
+	.interests-section,
+	.looking-for-section {
+		padding: 2.75em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.basics-section h2,
+	.interests-section h2,
+	.looking-for-section h2,
+	.contact-section h2 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.2em, 4vw, 1.5em);
+		margin: 0 0 1em;
+		color: rgb(var(--black));
+	}
+	.basics-section p,
+	.interests-section p,
+	.looking-for-section p {
+		font-size: 1.02em;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1em;
+	}
+	.basics-section p:last-child,
+	.interests-section p:last-child,
+	.looking-for-section p:last-child {
+		margin-bottom: 0;
+	}
+
+	.photo-band {
+		padding: 2em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+		background: var(--paper-warm);
+	}
+	.photo-band .wrap {
+		display: flex;
+		gap: 1em;
+		justify-content: center;
+	}
+	.photo-band img {
+		width: 100%;
+		max-width: 280px;
+		height: auto;
+		border-radius: 8px;
+		display: block;
+	}
+
+	.looking-for-section {
+		border-bottom: none;
+		background: var(--paper-warm);
+	}
+
+	.contact-section {
+		padding: 3em 0 4em;
+	}
+	.contact-note {
+		font-size: 0.95em;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1.5em;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1em;
+	}
+	.form-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+	label {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.85em;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.req {
+		color: #b3492f;
+		margin-left: 0.15em;
+	}
+	input[type='text'],
+	input[type='email'],
+	textarea {
+		font-family: Verdana, Tahoma, Geneva, sans-serif;
+		font-size: 1em;
+		padding: 0.65em 0.75em;
+		border: 1.5px solid rgb(var(--gray-light));
+		border-radius: 6px;
+		background: #fff;
+		color: rgb(var(--gray-dark));
+	}
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+		border-color: var(--accent);
+	}
+	textarea {
+		resize: vertical;
+	}
+	.submit-btn {
+		align-self: flex-start;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		font-size: 0.95em;
+		background: var(--accent-dark);
+		color: #fff;
+		border: none;
+		border-radius: 6px;
+		padding: 0.75em 2em;
+		cursor: pointer;
+	}
+	.submit-btn:hover {
+		background: var(--accent);
+	}
+	.form-note {
+		font-size: 0.78em;
+		color: rgb(var(--gray));
+		margin: 0.25em 0 0;
+	}
+	.form-error {
+		font-size: 0.85em;
+		color: #b3492f;
+		margin: 0.25em 0 0;
+	}
+	.submit-btn:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+
+	@media (max-width: 640px) {
+		.hero-grid {
+			flex-direction: column-reverse;
+			gap: 1.5em;
+		}
+		.hero-photo {
+			width: 200px;
+		}
+		.photo-band .wrap {
+			flex-wrap: wrap;
+		}
+	}
+</style>
