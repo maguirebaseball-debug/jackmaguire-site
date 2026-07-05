@@ -29,14 +29,8 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9635628&fmt=gif" />
 		</noscript>
 
-		<!--
-			PLACEHOLDER: specific conversion event for this lead goal.
-			Create a conversion in Campaign Manager > Account Assets > Conversion Tracking
-			(type: Website, URL: https://jackmaguire.org/cmo/thank-you/), grab its Conversion ID,
-			then uncomment the line below with that ID in place of YOUR_CONVERSION_ID.
-			This must load after the base Insight Tag script above.
-		-->
-		<!-- <script type="text/javascript">window.lintrk('track', { conversion_id: YOUR_CONVERSION_ID });</script> -->
+		<!-- LinkedIn conversion event: "Meeting Success" (page load on this URL, $5 value) -->
+		<script type="text/javascript">window.lintrk('track', { conversion_id: 27137100 });</script>
 	</head>
 	<body>
 		<main>
