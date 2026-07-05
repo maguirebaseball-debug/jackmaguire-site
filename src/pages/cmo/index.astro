@@ -35,7 +35,7 @@ const description = 'I fix broken paid social measurement (CAPI, Pixel, conversi
 						in to find the leak, rebuild the measurement layer, and put the budget back to work
 						on signal that's actually true.
 					</p>
-					<a href="#contact" class="cta-link">See how, then send me a message &darr;</a>
+					<a href="#contact" class="cta-link">See how, then book a call &darr;</a>
 				</div>
 			</section>
 
@@ -134,12 +134,16 @@ const description = 'I fix broken paid social measurement (CAPI, Pixel, conversi
 					<h2>Get in touch</h2>
 
 					<div class="calendly-slot">
-						<p class="calendly-placeholder-label">Book time directly (coming soon)</p>
-						<p class="calendly-placeholder-note">
-							A direct scheduling link will go here. For now, use the form below and I'll
-							follow up personally, usually within a day.
+						<p class="calendly-label">Book 30 minutes directly</p>
+						<p class="calendly-note">
+							Fastest way to talk. Pick a time that works and I'll be there.
 						</p>
+						<a href="https://calendly.com/jpmaguire2/30min" target="_blank" rel="noopener" class="calendly-btn">
+							Book a call &rarr;
+						</a>
 					</div>
+
+					<p class="or-divider">Or send a message and I'll follow up personally</p>
 
 					<form id="cmo-form" action="https://api.web3forms.com/submit" method="POST">
 						<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
@@ -418,24 +422,48 @@ const description = 'I fix broken paid social measurement (CAPI, Pixel, conversi
 		margin: 0 0 1.25em;
 	}
 	.calendly-slot {
-		border: 1.5px dashed rgb(var(--gray));
+		border: 1.5px solid var(--accent);
 		border-radius: 8px;
-		padding: 1.25em 1.5em;
-		margin-bottom: 2em;
+		padding: 1.5em;
+		margin-bottom: 1.25em;
 		background: var(--paper-warm);
 	}
-	.calendly-placeholder-label {
+	.calendly-label {
 		font-family: var(--font-ui), sans-serif;
 		font-weight: 700;
-		font-size: 0.85em;
+		font-size: 1.05em;
 		margin: 0 0 0.35em;
-		color: rgb(var(--gray-dark));
+		color: rgb(var(--black));
 	}
-	.calendly-placeholder-note {
-		font-size: 0.85em;
-		color: rgb(var(--gray));
-		margin: 0;
+	.calendly-note {
+		font-size: 0.9em;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1em;
 		line-height: 1.5;
+	}
+	.calendly-btn {
+		display: inline-block;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		font-size: 0.95em;
+		background: var(--accent-dark);
+		color: #fff;
+		text-decoration: none;
+		border-radius: 6px;
+		padding: 0.75em 1.75em;
+	}
+	.calendly-btn:hover {
+		background: var(--accent);
+	}
+	.or-divider {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.8em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: rgb(var(--gray));
+		text-align: center;
+		margin: 0 0 1.5em;
 	}
 
 	form {

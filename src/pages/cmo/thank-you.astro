@@ -11,17 +11,9 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		<BaseHead title={title} description={description} />
 		<meta name="robots" content="noindex, nofollow" />
 
-		<!--
-			PLACEHOLDER: LinkedIn Insight Tag + Conversion tracking.
-			Replace YOUR_PARTNER_ID below with the Partner ID from
-			LinkedIn Campaign Manager > Account Assets > Insight Tag.
-			Find the Conversion ID for this specific goal (e.g. "CMO landing page lead")
-			under Campaign Manager > Account Assets > Conversion Tracking, then
-			uncomment the conversion snippet beneath the base tag.
-		-->
+		<!-- LinkedIn Insight Tag (base tag, Partner ID 9635628) -->
 		<script type="text/javascript">
-		/*
-		_linkedin_partner_id = "YOUR_PARTNER_ID";
+		_linkedin_partner_id = "9635628";
 		window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
 		window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 		(function(l) {
@@ -32,13 +24,19 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		b.type = "text/javascript";b.async = true;
 		b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
 		s.parentNode.insertBefore(b, s);})(window.lintrk);
-		*/
 		</script>
-		<!--
 		<noscript>
-		<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=YOUR_PARTNER_ID&conversionId=YOUR_CONVERSION_ID&fmt=gif" />
+		<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9635628&fmt=gif" />
 		</noscript>
+
+		<!--
+			PLACEHOLDER: specific conversion event for this lead goal.
+			Create a conversion in Campaign Manager > Account Assets > Conversion Tracking
+			(type: Website, URL: https://jackmaguire.org/cmo/thank-you/), grab its Conversion ID,
+			then uncomment the line below with that ID in place of YOUR_CONVERSION_ID.
+			This must load after the base Insight Tag script above.
 		-->
+		<!-- <script type="text/javascript">window.lintrk('track', { conversion_id: YOUR_CONVERSION_ID });</script> -->
 	</head>
 	<body>
 		<main>
