@@ -50,7 +50,7 @@ def call_openrouter(prompt, api_key):
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "google/gemini-2.5-flash",
+        "model": "google/gemini-2.5-flash-lite",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.1
     }

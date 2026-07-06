@@ -11,7 +11,7 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		<BaseHead title={title} description={description} />
 		<meta name="robots" content="noindex, nofollow" />
 
-		<!-- Meta Pixel: replace YOUR_PIXEL_ID with the real Pixel ID from Events Manager -->
+		<!-- Meta Pixel: Jack Maguire Meet -->
 		<script type="text/javascript">
 		!function(f,b,e,v,n,t,s)
 		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,13 +21,23 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		t.src=v;s=b.getElementsByTagName(e)[0];
 		s.parentNode.insertBefore(t,s)}(window, document,'script',
 		'https://connect.facebook.net/en_US/fbevents.js');
-		fbq('init', 'YOUR_PIXEL_ID');
+		fbq('init', '1578848813945108');
 		fbq('track', 'Lead');
 		</script>
 		<noscript>
 		<img height="1" width="1" style="display:none" alt=""
-		src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1" />
+		src="https://www.facebook.com/tr?id=1578848813945108&ev=Lead&noscript=1" />
 		</noscript>
+
+		<script type="module">
+		const email = sessionStorage.getItem('meet_lead_email') ?? undefined;
+		sessionStorage.removeItem('meet_lead_email');
+		fetch('/api/capi-lead', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email, eventName: 'lead', eventSourceUrl: window.location.href }),
+		}).catch(() => {});
+		</script>
 	</head>
 	<body>
 		<main>

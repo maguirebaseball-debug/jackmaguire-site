@@ -19,7 +19,7 @@ import json
 import sys
 import os
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'research', 'reddit_2000_threads.json')
+DATA_FILE = os.environ.get("DATASET", os.path.join(os.path.dirname(__file__), "..", "research", "/Users/jackmaguire/CLIStore/WebResearch/Reddit/trading_signals_intelligent.json"))
 
 
 def load_data(path):
@@ -37,7 +37,7 @@ def verify_citations(data, citations):
     Returns a list of failure dicts (empty = all passed).
     """
     # Build a fast lookup: post_id -> thread dict
-    index = {thread.get('id', ''): thread for thread in data}
+    index = {thread.get('id', ''): thread for thread in data.get("all_posts", data)}
 
     failures = []
     for i, cit in enumerate(citations):

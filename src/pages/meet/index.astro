@@ -207,6 +207,10 @@ const description = 'A short, honest introduction to Jack Maguire: 5\'3", from M
 										const qualified = single instanceof HTMLInputElement && single.value === 'Yes'
 											&& nycArea instanceof HTMLInputElement && nycArea.value === 'Yes'
 											&& heightInches < 64;
+										const emailField = form.querySelector('#email');
+										if (emailField instanceof HTMLInputElement && emailField.value.includes('@')) {
+											sessionStorage.setItem('meet_lead_email', emailField.value);
+										}
 										window.location.href = qualified ? '/meet/thank-you-match/' : '/meet/thank-you/';
 										return;
 									}
