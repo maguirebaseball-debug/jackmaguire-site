@@ -33,12 +33,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 	const payload = {
 		data: [
 			{
-				event_name: body.eventName === 'lead_match' ? 'Lead' : 'Lead',
+				event_name: body.eventName === 'lead_match' ? 'Purchase' : 'Lead',
 				event_time: Math.floor(Date.now() / 1000),
 				action_source: 'website',
 				event_source_url: body.eventSourceUrl ?? 'https://jackmaguire.org/meet/',
 				user_data: userData,
-				custom_data: body.eventName ? { content_name: body.eventName } : undefined,
+				custom_data: body.eventName === 'lead_match' 
+					? { content_name: body.eventName, value: 10.00, currency: 'USD' } 
+					: (body.eventName ? { content_name: body.eventName } : undefined),
 			},
 		],
 	};
