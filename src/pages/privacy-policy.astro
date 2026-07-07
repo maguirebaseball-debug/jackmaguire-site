@@ -1,0 +1,80 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Privacy Policy | ${SITE_TITLE}`} description="Privacy Policy for Jack Maguire's website." />
+		<meta name="robots" content="noindex" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-lede">
+				<h1>Privacy Policy</h1>
+				<p>
+					Effective Date: July 2026
+				</p>
+			</section>
+			<div class="prose">
+				<p>
+					This Privacy Policy explains how Jack Maguire ("I", "me", or "my") collects, uses, and protects your personal information when you submit a lead form on Meta (Facebook/Instagram) or this website.
+				</p>
+
+				<h2>1. Information Collection</h2>
+				<p>
+					I collect personal information that you voluntarily provide, which may include your name, email address, and phone number.
+				</p>
+
+				<h2>2. Use of Information</h2>
+				<p>
+					The information collected is used strictly for the purpose of contacting you directly. I will not sell, rent, or share your personal information with any third-party marketing agencies or external organizations.
+				</p>
+
+				<h2>3. Data Security</h2>
+				<p>
+					I take reasonable precautions to protect your personal information from unauthorized access, alteration, or disclosure.
+				</p>
+
+				<h2>4. Your Rights</h2>
+				<p>
+					You have the right to request that I delete any personal information you have provided. To make such a request, please contact me using the email address below.
+				</p>
+
+				<h2>5. Contact</h2>
+				<p>
+					If you have any questions or concerns about this Privacy Policy, please contact me at:
+					maguirebaseball [at] gmail [dot] com
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: var(--width-prose);
+	}
+	.page-lede {
+		max-width: var(--width-prose);
+		margin-bottom: 2rem;
+		padding-bottom: 1.35rem;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+	}
+	.page-lede p:last-child {
+		margin: 0;
+		max-width: var(--width-prose);
+		color: rgb(var(--gray-dark));
+		font-size: 1.05em;
+	}
+	.prose h2 {
+		font-size: 1.2em;
+		margin-top: 2em;
+		margin-bottom: 0.5em;
+	}
+</style>
