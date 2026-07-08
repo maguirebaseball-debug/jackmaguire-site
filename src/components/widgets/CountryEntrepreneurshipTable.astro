@@ -1,0 +1,333 @@
+---
+import countries from './country-entrepreneurship-scores.json';
+---
+<div class="country-widget" id="countryWidget">
+  <div class="db-header">
+    <span class="widget-subtitle">Reference table</span>
+    <h3 class="db-title">184 Countries Ranked</h3>
+    <p class="db-intro">Search by name or click a column header to sort. "Score" is the weighted composite described above.</p>
+  </div>
+
+  <div class="db-controls">
+    <div class="search-box">
+      <label for="countrySearch" class="sr-only">Search countries</label>
+      <input type="text" id="countrySearch" class="search-input" placeholder="Search by country name..." autocomplete="off" />
+      <span class="search-icon">🔍</span>
+    </div>
+  </div>
+
+  <div class="db-meta-row">
+    <div class="results-count" id="resultsCount">Showing all {countries.length} countries</div>
+  </div>
+
+  <div class="table-scroll-container">
+    <table class="db-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-key="rank" style="width: 60px;">Rank</th>
+          <th class="sortable" data-key="name">Country</th>
+          <th class="sortable num" data-key="composite">Score</th>
+          <th class="sortable num" data-key="business">Business<br />freedom</th>
+          <th class="sortable num" data-key="labor">Hire / fire<br />freedom</th>
+          <th class="sortable num" data-key="tax">Tax<br />burden</th>
+          <th class="sortable num" data-key="property">Property<br />rights</th>
+        </tr>
+      </thead>
+      <tbody id="dbTableBody">
+        <!-- rendered by client JS -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .country-widget {
+    background-color: rgba(255, 255, 255, 0.52);
+    border-top: 2px solid rgba(85, 107, 47, 0.32);
+    border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+    padding: 1.35rem 0;
+    margin: 3rem 0;
+    font-family: var(--font-ui), sans-serif;
+  }
+
+  .db-header {
+    border-bottom: 1px solid rgba(var(--gray-light), 0.6);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .widget-subtitle {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+  }
+
+  .db-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-heading);
+  }
+
+  .db-intro {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgb(var(--gray-dark));
+  }
+
+  .db-controls {
+    background-color: rgba(245, 239, 227, 0.42);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-box {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    font-size: 0.95rem;
+    border: 1px solid rgba(85, 107, 47, 0.24);
+    background-color: rgba(255, 255, 255, 0.74);
+    color: rgb(var(--black));
+    font-family: var(--font-ui), sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .search-input:focus {
+    border-color: var(--accent);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .db-meta-row {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: rgb(var(--gray));
+    font-weight: 600;
+  }
+
+  .table-scroll-container {
+    overflow-x: auto;
+    border: 1px solid rgba(var(--gray-light), 0.78);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: left;
+  }
+
+  .db-table th {
+    background-color: rgba(245, 239, 227, 0.78);
+    border-bottom: 2px solid rgb(var(--gray-light));
+    color: rgb(var(--black));
+    font-weight: 700;
+    padding: 0.7rem 0.9rem;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .db-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .db-table th.sortable:hover {
+    color: var(--accent-dark);
+  }
+
+  .db-table th.sortable.active {
+    color: var(--accent-dark);
+  }
+
+  .db-table th.sortable.active::after {
+    content: attr(data-arrow);
+    margin-left: 0.3rem;
+  }
+
+  .db-table th.num,
+  .db-table td.num {
+    text-align: right;
+  }
+
+  .db-table td {
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid rgba(var(--gray-light), 0.4);
+    color: rgb(var(--gray-dark));
+  }
+
+  .db-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .db-table tr:hover td {
+    background-color: rgba(var(--gray-light), 0.15);
+  }
+
+  .rank-cell {
+    font-weight: 700;
+    color: rgb(var(--gray));
+  }
+
+  .name-cell {
+    font-weight: 600;
+    color: rgb(var(--black));
+  }
+
+  .score-cell {
+    font-weight: 700;
+    color: rgb(var(--black));
+    font-family: var(--font-ui), sans-serif;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 600px) {
+    .country-widget {
+      padding: 1.25rem 0;
+    }
+    .db-controls {
+      padding: 0.75rem;
+    }
+  }
+</style>
+
+<script define:vars={{ countries }}>
+  function initCountryWidget() {
+    const container = document.getElementById('countryWidget');
+    if (!container) return;
+
+    const searchInput = container.querySelector('#countrySearch');
+    const tableBody = container.querySelector('#dbTableBody');
+    const countDisplay = container.querySelector('#resultsCount');
+    const headers = container.querySelectorAll('th.sortable');
+
+    let searchQuery = '';
+    let sortKey = 'rank';
+    let sortDir = 'asc';
+
+    function applyAndRender() {
+      let list = countries.filter((c) =>
+        c.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+      list = list.slice().sort((a, b) => {
+        const av = a[sortKey];
+        const bv = b[sortKey];
+        let cmp;
+        if (typeof av === 'string') {
+          cmp = av.localeCompare(bv);
+        } else {
+          cmp = av - bv;
+        }
+        return sortDir === 'asc' ? cmp : -cmp;
+      });
+
+      renderTable(list);
+    }
+
+    function renderTable(list) {
+      if (!tableBody) return;
+      tableBody.innerHTML = '';
+
+      if (list.length === 0) {
+        tableBody.innerHTML =
+          '<tr><td colspan="7" style="text-align:center; padding: 2rem; color: rgb(var(--gray));">No matching countries found.</td></tr>';
+      } else {
+        const frag = document.createDocumentFragment();
+        list.forEach((c) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="rank-cell">${c.rank}</td>
+            <td class="name-cell">${c.name}</td>
+            <td class="num score-cell">${c.composite.toFixed(1)}</td>
+            <td class="num">${c.business.toFixed(1)}</td>
+            <td class="num">${c.labor.toFixed(1)}</td>
+            <td class="num">${c.tax.toFixed(1)}</td>
+            <td class="num">${c.property.toFixed(1)}</td>
+          `;
+          frag.appendChild(tr);
+        });
+        tableBody.appendChild(frag);
+      }
+
+      if (countDisplay) {
+        countDisplay.textContent =
+          list.length === countries.length
+            ? `Showing all ${countries.length} countries`
+            : `Showing ${list.length} of ${countries.length} countries`;
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchQuery = searchInput.value;
+        applyAndRender();
+      });
+    }
+
+    headers.forEach((th) => {
+      th.addEventListener('click', () => {
+        const key = th.getAttribute('data-key');
+        if (sortKey === key) {
+          sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          sortKey = key;
+          sortDir = key === 'rank' || key === 'name' ? 'asc' : 'desc';
+        }
+        headers.forEach((h) => {
+          h.classList.remove('active');
+          h.removeAttribute('data-arrow');
+        });
+        th.classList.add('active');
+        th.setAttribute('data-arrow', sortDir === 'asc' ? '↑' : '↓');
+        applyAndRender();
+      });
+    });
+
+    const initialHeader = container.querySelector('th[data-key="rank"]');
+    if (initialHeader) {
+      initialHeader.classList.add('active');
+      initialHeader.setAttribute('data-arrow', '↑');
+    }
+
+    applyAndRender();
+  }
+
+  initCountryWidget();
+  document.addEventListener('astro:page-load', initCountryWidget);
+</script>
