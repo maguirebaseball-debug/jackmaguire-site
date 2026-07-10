@@ -1,361 +1,696 @@
 ---
-import PlainStandaloneBlog from '../layouts/PlainStandaloneBlog.astro';
+import BaseHead from '../components/BaseHead.astro';
 
 const title = 'How Meta Ads Actually Work in 2026: Andromeda, GEM, and the CTC Canon, Checked Against Independent Experts';
 const description = 'A breakdown of the CTC Canon framework for Meta advertising in 2026, Andromeda, GEM, budget liquidity, never turning off an ad, checked against Jon Loomer, Andrew Foxwell, Meta\'s own engineering blog, and 12 years of my own paid social experience.';
 const pubDate = 'July 10, 2026';
 ---
 
-<PlainStandaloneBlog title={title} description={description} pubDate={pubDate}>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Article",
+			"headline": title,
+			"description": description,
+			"url": Astro.url.href,
+			"mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
+			"image": new URL('/og-default.png', Astro.site).toString(),
+			"author": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+			"publisher": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+			"datePublished": "2026-07-10",
+			"dateModified": "2026-07-10"
+		})} />
+	</head>
+	<body>
+		<main>
+			<!-- HERO -->
+			<section class="hero">
+				<div class="wrap">
+					<p class="eyebrow">Account audit &middot; Meta advertising &middot; {pubDate}</p>
+					<h1>Your Meta account is still built for an algorithm that doesn't exist anymore.</h1>
+					<p class="hero-sub">
+						Common Thread Collective published a framework in June 2026 called the CTC Canon. I checked
+						it against Meta's own engineering blog and independent experts with no methodology to
+						sell, then against 12 years of running paid social myself. Most of it holds up. Some of it
+						needs a caveat nobody's saying out loud.
+					</p>
+					<div class="hero-stat">
+						<span class="stat-number">10,000x</span>
+						<span class="stat-label">the jump in ad-retrieval model complexity Meta shipped with Andromeda, per Meta's own engineering blog. Your targeting settings matter less than they used to. Your creative matters more.</span>
+					</div>
+					<a href="#audit" class="hero-cta">Run the 90-second account audit &darr;</a>
+				</div>
+			</section>
 
-<p>
-I've spent the last 12 years managing paid social budgets, most recently as Social Media Marketing Director at
-National Debt Relief, where I ran Meta and TikTok spend at over $1M a month in a regulated industry with legal
-and compliance sitting in on campaign reviews. I built out Meta's Conversions API integration there, ran
-holdout-market incrementality tests, and lived through the platform's shift from an audience-targeting tool to
-something closer to a creative-scoring engine. That's the lens this piece comes from: not an outside observer,
-someone who has had to defend a media plan to a CFO when the dashboard said one thing and the following week's
-delivery said another.
-</p>
+			<!-- LENS -->
+			<section class="lens">
+				<div class="wrap">
+					<p>
+						<strong>Where this comes from:</strong> I ran Meta and TikTok spend at over $1M a month as
+						Social Media Marketing Director at National Debt Relief, a regulated industry with legal
+						and compliance in every campaign review. I built the CAPI integration, ran holdout-market
+						incrementality tests, and watched the platform shift from an audience-targeting tool to
+						something closer to a creative-scoring engine. This isn't an outside read. It's a lens
+						from having defended a media plan to a CFO when the dashboard said one thing and the
+						following week's delivery said another.
+					</p>
+				</div>
+			</section>
 
-<p>
-Common Thread Collective published a framework in June 2026 called the CTC Canon, and their VP of Paid Media
-Tony Chopp walked through the Meta-specific piece of it on the eCommerce Playbook podcast. It's a genuinely
-useful codification of how account management has changed. I wanted to check it against people with no
-methodology to sell: Meta's own engineering blog, and independent practitioners like Jon Loomer and Andrew
-Foxwell who've been doing this as long or longer than CTC has existed. Some of it holds up completely. Some of
-it needs a caveat CTC didn't include.
-</p>
+			<!-- AUDIT CHECKLIST -->
+			<section id="audit" class="audit">
+				<div class="wrap">
+					<h2>The 90-second audit</h2>
+					<p class="section-intro">Five habits that were correct in 2021 and are actively costing you money now. Check the ones that describe your account.</p>
+					<ul class="audit-list">
+						<li>
+							<span class="audit-mark">01</span>
+							<div>
+								<p class="audit-claim">You've killed an ad because its 3-day ROAS looked bad.</p>
+								<p class="audit-detail">Meta's own documentation says historical performance does not predict future delivery. If you're running cost controls, the algorithm already reduced that ad's allocation using signals you can't see. Turning it off removes optionality, it doesn't fix anything.</p>
+							</div>
+						</li>
+						<li>
+							<span class="audit-mark">02</span>
+							<div>
+								<p class="audit-claim">Your "creative volume" is ten ads with the same product shot and different headlines.</p>
+								<p class="audit-detail">Andromeda clusters visually similar ads into one retrieval "ticket." Those ten ads count as one shot on goal, not ten. Real diversity of concept is the mechanism, not a style preference.</p>
+							</div>
+						</li>
+						<li>
+							<span class="audit-mark">03</span>
+							<div>
+								<p class="audit-claim">You get nervous when daily spend swings 30% and you cap the budget to smooth it out.</p>
+								<p class="audit-detail">That swing is Meta's system spending aggressively in cheap inventory and pulling back in expensive moments. Budget liquidity is the feature. Smoothing it out is you fighting your own algorithm.</p>
+							</div>
+						</li>
+						<li>
+							<span class="audit-mark">04</span>
+							<div>
+								<p class="audit-claim">You don't know your Event Match Quality score, or it's below 7 out of 10.</p>
+								<p class="audit-detail">Below that threshold GEM is optimizing against degraded data. Meta's April 2026 one-click CAPI rollout made this nearly free to fix. There's no excuse left for skipping it.</p>
+							</div>
+						</li>
+						<li>
+							<span class="audit-mark">05</span>
+							<div>
+								<p class="audit-claim">Your first move on underspend is loosening the ROAS target.</p>
+								<p class="audit-detail">That's phase four of four. Phases one through three (creative expansion, bid surface expansion, underspend ad recovery) almost always solve it first. Relaxing the constraint is the last lever, not the first.</p>
+							</div>
+						</li>
+					</ul>
+					<p class="audit-result">Three or more checked? That's a structure problem, not a targeting problem. Keep reading, or skip to <a href="#contact">get a second pair of eyes</a>.</p>
+				</div>
+			</section>
 
-<h2>The two systems most advertisers have never heard of</h2>
+			<!-- THE TWO SYSTEMS -->
+			<section class="systems">
+				<div class="wrap">
+					<h2>The two systems running your account</h2>
+					<div class="systems-grid">
+						<div class="system-card">
+							<h3>Andromeda</h3>
+							<p class="system-role">Creative-first ad retrieval engine</p>
+							<p>Evaluates creative attributes, user context, and behavioral signals to build a candidate set of eligible ads for every impression. Meta's engineering team describes a 10,000x increase in model complexity versus what came before, plus a 10x gain in inference efficiency.</p>
+						</div>
+						<div class="system-card">
+							<h3>GEM</h3>
+							<p class="system-role">Generative Evaluation Model, the ranking layer</p>
+							<p>Unveiled by Meta in a November 2025 engineering paper. Reportedly the largest foundation model Meta has built for a recommendation system, trained at roughly GPT-4 scale. It decides what actually gets shown from Andromeda's candidate set.</p>
+						</div>
+					</div>
+					<p class="systems-callout">Together: Meta is no longer audience-first. It's creative-first. Your targeting matters less than what you feed the system. <span class="attrib">Corroborated independently by Jon Loomer, who has covered Meta ads for a decade with no agency to sell.</span></p>
+				</div>
+			</section>
 
-<p>
-Meta's advertising engine now runs on two systems most people managing ad accounts couldn't name. The first is
-Andromeda, a creative-first ad retrieval engine. The second is GEM, the Generative Evaluation Model, Meta's
-ranking intelligence layer operating at LLM scale. Together they process billions of interactions daily and make
-allocation decisions no human operator can replicate.
-</p>
+			<!-- FOUR PHASE FRAMEWORK -->
+			<section class="phases">
+				<div class="wrap">
+					<h2>Fixing underspend: work the phases in order</h2>
+					<p class="section-intro">CTC's sequence for diagnosing delivery problems. Don't skip ahead.</p>
+					<div class="phase-list">
+						<div class="phase">
+							<span class="phase-num">Phase 1</span>
+							<h3>Creative expansion</h3>
+							<p>Deploy genuinely different concepts into evergreen and active campaigns, not minor variations. This is almost always the right first move.</p>
+						</div>
+						<div class="phase">
+							<span class="phase-num">Phase 2</span>
+							<h3>Bid surface expansion</h3>
+							<p>Duplicate evergreen campaigns into a different bidding mechanism (lowest cost, bid cap, cost cap) using the same creative pool. Accesses a different audience with no new segmentation.</p>
+						</div>
+						<div class="phase">
+							<span class="phase-num">Phase 3</span>
+							<h3>Underspend ad recovery</h3>
+							<p>A dedicated campaign for ads that never got a fair shot, spend under 3x the CPA target. Give them another opportunity before writing them off.</p>
+						</div>
+						<div class="phase">
+							<span class="phase-num">Phase 4</span>
+							<h3>Constraint relaxation</h3>
+							<p>Loosen the ROAS target or cost cap itself, only once the first three phases are exhausted and the business case justifies it. Last lever, not first.</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-<p>
-This isn't agency marketing copy. Meta's own engineering blog described Andromeda in December 2024 as a
-personalized ads retrieval engine that scales to a large volume of ad creatives using an efficient hierarchical
-index. The headline number: a 10,000x increase in the complexity of the models used for ad retrieval, the step
-that narrows a pool of tens of millions of ads down to a few thousand candidates, plus a 10x gain in inference
-efficiency. Third-party coverage consistently cites a roughly 6% recall and 8% ad quality improvement from the
-rollout.
-</p>
+			<!-- CORROBORATE / COMPLICATE -->
+			<section class="verdicts">
+				<div class="wrap">
+					<h2>Checked against independent experts</h2>
+					<p class="section-intro">Where the CTC Canon holds up against people with no framework to sell, and where it needs a caveat.</p>
+					<div class="verdict-table">
+						<div class="verdict-row verdict-head">
+							<span>Claim</span>
+							<span>Holds up</span>
+							<span>Needs a caveat</span>
+						</div>
+						<div class="verdict-row">
+							<span class="verdict-claim">Creative volume is the primary scaling lever</span>
+							<span class="verdict-yes">Andrew Foxwell (Foxwell Founders, $500M+/mo managed) independently reached the same conclusion.</span>
+							<span class="verdict-no">His own 2026 report found only 11% of agencies have a clear top-performing AI-generated ad. Volume without real diversity doesn't work.</span>
+						</div>
+						<div class="verdict-row">
+							<span class="verdict-claim">Never turn off an ad</span>
+							<span class="verdict-yes">Foxwell independently advises near-100% cost controls so the system, not a human, kills losers.</span>
+							<span class="verdict-no">Cody Plofker (Jones Road Beauty) prefers bid caps over cost caps for tighter control. Not unanimous.</span>
+						</div>
+						<div class="verdict-row">
+							<span class="verdict-claim">Clean signal (CAPI/EMQ) is a competitive moat</span>
+							<span class="verdict-yes">Uncontested. Every named source treats 7+ EMQ as non-negotiable infrastructure.</span>
+							<span class="verdict-no">Meta's April 2026 one-click CAPI rollout made this nearly free for everyone. The moat is shrinking fast.</span>
+						</div>
+						<div class="verdict-row">
+							<span class="verdict-claim">Andromeda guarantees better performance</span>
+							<span class="verdict-yes">Meta's own data shows measurable recall and quality gains platform-wide.</span>
+							<span class="verdict-no">Jon Loomer: it "should improve performance, but it won't guarantee results." Bad performance is usually still a creative or offer problem.</span>
+						</div>
+					</div>
+				</div>
+			</section>
 
-<p>
-GEM sits downstream as the ranking layer. Meta formally unveiled it in a November 2025 engineering paper,
-and trade coverage describes it as the largest foundation model Meta has built for a recommendation system,
-trained at roughly GPT-4 scale across thousands of GPUs. It had quietly started shipping on Reels months before
-that paper came out.
-</p>
+			<!-- THE JOB NOW -->
+			<section class="summary">
+				<div class="wrap">
+					<h2>What the job actually is now</h2>
+					<p>
+						Three things, and this matches what worked in the accounts I ran. Set correct budget
+						allocation with no artificial limits at the campaign level. Make sure the bid matches
+						real unit economics, not a number that felt safe in a planning meeting. Keep feeding the
+						machine genuinely new creative. That's most of the job, and it's a different job than
+						the one media buyers were trained to do five years ago.
+					</p>
+				</div>
+			</section>
 
-<p>
-The practical upshot: Meta is no longer an audience-first platform. It's creative-first. Your targeting
-selections matter far less than the creative you put into the system. The algorithm finds the audience. Your
-job is to give it signal.
-</p>
+			<!-- LEAD FORM -->
+			<section id="contact" class="contact-section">
+				<div class="wrap">
+					<h2>Get a second pair of eyes on your account</h2>
+					<p class="contact-note">
+						If two or more items in the audit above described your account, leave your email and a
+						quick note. I read every one myself and reply personally.
+					</p>
 
-<p>
-Jon Loomer, who has covered Meta ads independently for a decade with no agency or software to sell, backs this
-read using Meta's own language: the rise of AI-enabled ad tools has shifted the winning lever from niche
-targeting to creative diversification. But he adds a check worth keeping in mind before crediting or blaming the
-algorithm for anything: Andromeda "should improve performance overall, but it won't guarantee results," and poor
-performance is more often a creative or offer problem than a platform problem.
-</p>
+					<form id="meta-ads-lead-form" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
+						<input type="hidden" name="subject" value="New Meta ads help lead from jackmaguire.org/meta-ads-2026" />
+						<input type="hidden" name="from_name" value="jackmaguire.org/meta-ads-2026" />
+						<input type="checkbox" name="botcheck" class="botcheck" style="display:none" />
 
-<h2>The breakdown effect: why yesterday's ROAS lies to you</h2>
+						<div class="form-row">
+							<label for="lead-name">Your name<span class="req">*</span></label>
+							<input type="text" id="lead-name" name="name" required autocomplete="name" />
+						</div>
 
-<p>
-One of the more counterintuitive ideas in the CTC Canon is what Chopp calls the breakdown effect: historical
-ROAS does not predict future ROAS. Meta says this outright in its own documentation, that the relationship
-between historical performance and future delivery is not deterministic.
-</p>
+						<div class="form-row">
+							<label for="lead-email">Email<span class="req">*</span></label>
+							<input type="email" id="lead-email" name="email" required autocomplete="email" />
+						</div>
 
-<p>
-I'd put it plainer. If you're making decisions off yesterday's ROAS by ad, you're working from a small,
-backward-looking sample to predict a future the system already models with far more signal than your dashboard
-shows you. I've watched an ad get killed for a bad three-day stretch that would have recovered by day seven, and
-I've watched the reverse. The instinct to intervene daily is exactly the instinct that needs to go.
-</p>
+						<div class="form-row">
+							<label for="lead-message">What's going on with your account? (optional)</label>
+							<textarea id="lead-message" name="message" rows="3" placeholder="Briefly, what's not working right now."></textarea>
+						</div>
 
-<h2>How CTC structures an account</h2>
+						<button type="submit" class="submit-btn">Send</button>
+						<p class="form-note">No spam, no lists. I read every one myself.</p>
+						<p class="form-success" role="status" hidden>Thanks, got it. I'll follow up by email.</p>
+						<p class="form-error" role="alert" hidden>
+							Something went wrong sending that. Please email
+							<a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a> directly instead.
+						</p>
+					</form>
+				</div>
+			</section>
 
-<p>
-The Canon uses a deliberately simple three-tier hierarchy. At the campaign level: sales objective, value
-optimization, minimum ROAS, ASC or CBO to let Meta handle budget allocation, with an inflated budget and cost
-controls. At the ad set level: a seven-day click optimization window, broad targeting, acquisition and retention
-exclusions, with ROAS targets living here rather than at the campaign level. At the ad level: AI enhancements
-wherever a brand is willing to test, including dynamic creative and multiple URL testing.
-</p>
+			<!-- SOURCES -->
+			<section class="sources-section">
+				<div class="wrap">
+					<p class="sources-note">
+						Sources: CTC VP of Paid Media Tony Chopp, "How Meta Actually Works in 2026," eCommerce
+						Playbook podcast, July 7 2026. Meta's engineering blog on Andromeda (December 2024) and
+						GEM (November 2025). Jon Loomer's independent Meta ads analysis. Andrew Foxwell and the
+						Foxwell x Motion 2026 State of Agencies report.
+					</p>
+				</div>
+			</section>
 
-<p>
-Two campaign types run underneath that structure. Evergreen campaigns run continuously, split between
-acquisition and retention, with ad sets filling sequentially with new creative up to Meta's current 150-ad limit,
-plus a dedicated DABA ad set inside acquisition. Marketing moment campaigns are time-bound, tied to sales,
-launches, or any event with a defined start and end date.
-</p>
+			<footer class="plain-footer">
+				<a href="/blog/">More writing</a>
+			</footer>
+		</main>
 
-<h2>Budget liquidity: the variance is the point</h2>
-
-<p>
-One of the most misunderstood ideas in Meta advertising is budget liquidity. CTC deliberately runs inflated
-budgets with cost controls, not despite the day-to-day spend variance this creates, but because of it. Meta
-calls this liquidity: the system's ability to spend aggressively during cheap inventory moments and pull back
-during expensive ones. Setting an inflated budget and enforcing profitability through a minimum ROAS or cost cap
-lets the algorithm move freely across the time spectrum. That variance is the system working correctly, not a
-sign something's broken.
-</p>
-
-<h2>Where the creative-volume consensus holds, and where it doesn't</h2>
-
-<p>
-This is genuinely the mainstream position now, not just a CTC opinion. Andrew Foxwell, whose Foxwell Founders
-network spans roughly 550 agencies and brands managing over $500 million a month in Meta spend, independently
-arrived at the same creative-diversification-first conclusion. His 2026 material is built around net-new
-concepts and messaging rather than funnel mechanics.
-</p>
-
-<p>
-But his own Foxwell x Motion 2026 State of Agencies report found that only 11% of agencies have a clear
-top-performing AI-generated ad, despite widespread AI creative adoption. That complicates the popular shorthand
-of "just generate more AI variants." Volume without real conceptual diversity doesn't work, and there's a
-specific technical reason why: Andromeda clusters visually and semantically similar ads into a single retrieval
-"ticket." Ten ads with the same product shot and different headlines count as one shot on goal, not ten. That's
-the actual mechanism behind "big swings, not minor variations," not a stylistic preference CTC invented.
-</p>
-
-<p>
-It cuts the other way too. Andromeda's similarity detection can suppress an entire cluster if it judges the
-core concept weak, which is why a winning ad sometimes dies off with no warning: the algorithm judged the whole
-cluster fatigued, not any single creative in it. CTC's own framing (creative strategy as a volume mechanism, not
-an efficiency mechanism) accounts for this, but a lot of the "just make more ads" advice circulating in the
-industry doesn't carry that nuance, and it risks diluting signal on the budget-per-creative math smaller
-advertisers tend to ignore.
-</p>
-
-<h2>Never turn off an ad</h2>
-
-<p>
-This is the single most common mistake CTC sees brands make, and it runs against a decade of media buying habit.
-When you turn off an ad with poor historical ROAS, you're solving a problem the system has already solved. If
-you're running a CBO with cost controls, the algorithm has already reduced allocation to that ad based on
-signals you can't see. Turning it off doesn't improve outcomes. It removes optionality from the machine.
-</p>
-
-<p>
-Foxwell lands in similar territory from a different angle: his public position is to put close to 100% of
-budget on cost controls, mostly bid caps, and let Meta's system suppress the likely losers instead of a human
-pulling the trigger early. Structurally that's the same logic as never touching an ad manually. But it's not
-unanimous. Cody Plofker at Jones Road Beauty prefers bid caps over cost caps specifically for tighter control,
-and there's a live practitioner debate about reading learning-phase signals in layers, click-through and hook
-rate first, funnel signals second, rather than adopting a blanket never-touch rule at every budget tier.
-</p>
-
-<h2>Signal quality: the part nobody disputes</h2>
-
-<p>
-Before any of the above matters, the algorithm needs clean data. The components: CAPI integration sending
-server-side events directly from your backend to Meta, bypassing ad blockers and incomplete pixel fires. An
-Event Match Quality score of 7 out of 10 or higher, since below that threshold you're optimizing against
-degraded data. Purchase signal integrity audited monthly, because if Meta is only receiving 80% of your actual
-purchase events, it's optimizing on incomplete data and both performance and measurement suffer. Clean audience
-definitions for acquisition, retention, and existing customers, configured at the account level.
-</p>
-
-<p>
-This part is closer to settled infrastructure than debated philosophy. Every serious named source agrees on it.
-Where it gets more interesting is that Meta's April 2026 one-click CAPI rollout has made baseline EMQ hygiene
-nearly free for everyone, including advertisers who couldn't previously justify the engineering lift. That
-undercuts any framing of clean data as a durable competitive moat. It's becoming table stakes, fast.
-</p>
-
-<h2>Solving underspend: a four-phase sequence</h2>
-
-<p>
-When delivery falls short, CTC works through a defined sequence in order, before touching anything else.
-</p>
-
-<p>
-<strong>Phase 1: Creative expansion.</strong> Deploy additional creative into evergreen and active marketing
-moment campaigns, prioritizing genuine diversity of concept over minor variations. This is almost always the
-right first move.
-</p>
-
-<p>
-<strong>Phase 2: Bid surface expansion.</strong> Duplicate evergreen campaigns into lowest cost, bid cap, or cost
-cap bidding using the same creative pool. A different bidding mechanism accesses a different audience without
-any additional segmentation.
-</p>
-
-<p>
-<strong>Phase 3: Underspend ad recovery.</strong> Launch a dedicated ASC campaign, single ad set, value
-optimized, same ROAS target as evergreen, populated with ads from evergreen where spend is under 3x the CPA
-target. These are ads that never got a fair opportunity to scale.
-</p>
-
-<p>
-<strong>Phase 4: Constraint relaxation.</strong> Expand beyond current efficiency limits only when business
-performance justifies it, meaning adjusting the ROAS target or cost cap itself. Last lever, not first.
-</p>
-
-<h2>What this means if you're running the account</h2>
-
-<p>
-Three jobs, and I'd say this matches what actually worked in the accounts I ran. Ensure correct budget
-allocation with no artificial limitations at the campaign level. Ensure the bid matches the business objective,
-meaning the ROAS target or cost cap reflects real unit economics, not a number that felt safe in a planning
-meeting. Identify and launch new creative, continuously. Feed the machine. That's most of the job now, and it's
-a genuinely different job than the one media buyers were trained to do five years ago.
-</p>
-
-<p>
-If your account still looks like a 2021 structure, fragmented campaigns, ad-level kill decisions made off a
-three-day dashboard, thin creative volume, that's usually not a targeting problem. It's a structure problem.
-</p>
-
-<hr />
-
-<p>
-<em>Sources: CTC VP of Paid Media Tony Chopp, "How Meta Actually Works in 2026," eCommerce Playbook podcast,
-July 7 2026. Meta's engineering blog on Andromeda (December 2024) and GEM (November 2025). Jon Loomer's
-independent Meta ads analysis. Andrew Foxwell and the Foxwell x Motion 2026 State of Agencies report.</em>
-</p>
-
-<section id="contact" class="lead-section">
-	<h2>Need help with your Meta ads account?</h2>
-	<p class="lead-note">
-		If any of this sounds like your account, structure, signal quality, creative volume, or just knowing
-		when to leave an ad alone, leave your email below and I'll reach out.
-	</p>
-
-	<form id="meta-ads-lead-form" action="https://api.web3forms.com/submit" method="POST">
-		<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
-		<input type="hidden" name="subject" value="New Meta ads help lead from jackmaguire.org/meta-ads-2026" />
-		<input type="hidden" name="from_name" value="jackmaguire.org/meta-ads-2026" />
-		<input type="checkbox" name="botcheck" class="botcheck" style="display:none" />
-
-		<div class="form-row">
-			<label for="lead-name">Your name<span class="req">*</span></label>
-			<input type="text" id="lead-name" name="name" required autocomplete="name" />
-		</div>
-
-		<div class="form-row">
-			<label for="lead-email">Email<span class="req">*</span></label>
-			<input type="email" id="lead-email" name="email" required autocomplete="email" />
-		</div>
-
-		<div class="form-row">
-			<label for="lead-message">What's going on with your account? (optional)</label>
-			<textarea id="lead-message" name="message" rows="3" placeholder="Briefly, what's not working right now."></textarea>
-		</div>
-
-		<button type="submit" class="submit-btn">Send</button>
-		<p class="form-note">No spam, no lists. I read every one myself.</p>
-		<p class="form-success" role="status" hidden>Thanks, got it. I'll follow up by email.</p>
-		<p class="form-error" role="alert" hidden>
-			Something went wrong sending that. Please email
-			<a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a> directly instead.
-		</p>
-	</form>
-
-	<script>
-		const form = document.getElementById('meta-ads-lead-form');
-		if (form instanceof HTMLFormElement) {
-			form.addEventListener('submit', async (event) => {
-				event.preventDefault();
-				const errorEl = form.querySelector('.form-error');
-				const successEl = form.querySelector('.form-success');
-				const submitBtn = form.querySelector('.submit-btn');
-				if (submitBtn instanceof HTMLButtonElement) {
-					submitBtn.disabled = true;
-					submitBtn.textContent = 'Sending...';
-				}
-				if (errorEl instanceof HTMLElement) errorEl.hidden = true;
-
-				try {
-					const response = await fetch(form.action, {
-						method: 'POST',
-						headers: { Accept: 'application/json' },
-						body: new FormData(form),
-					});
-					const result = await response.json();
-					if (result.success) {
-						form.hidden = true;
-						if (successEl instanceof HTMLElement) successEl.hidden = false;
-						return;
-					}
-					throw new Error(result.message || 'Submission failed');
-				} catch (err) {
-					if (errorEl instanceof HTMLElement) errorEl.hidden = false;
+		<script>
+			const form = document.getElementById('meta-ads-lead-form');
+			if (form instanceof HTMLFormElement) {
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+					const errorEl = form.querySelector('.form-error');
+					const successEl = form.querySelector('.form-success');
+					const submitBtn = form.querySelector('.submit-btn');
 					if (submitBtn instanceof HTMLButtonElement) {
-						submitBtn.disabled = false;
-						submitBtn.textContent = 'Send';
+						submitBtn.disabled = true;
+						submitBtn.textContent = 'Sending...';
 					}
-				}
-			});
-		}
-	</script>
-</section>
+					if (errorEl instanceof HTMLElement) errorEl.hidden = true;
+
+					try {
+						const response = await fetch(form.action, {
+							method: 'POST',
+							headers: { Accept: 'application/json' },
+							body: new FormData(form),
+						});
+						const result = await response.json();
+						if (result.success) {
+							form.hidden = true;
+							if (successEl instanceof HTMLElement) successEl.hidden = false;
+							return;
+						}
+						throw new Error(result.message || 'Submission failed');
+					} catch (err) {
+						if (errorEl instanceof HTMLElement) errorEl.hidden = false;
+						if (submitBtn instanceof HTMLButtonElement) {
+							submitBtn.disabled = false;
+							submitBtn.textContent = 'Send';
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
 
 <style>
-	.lead-section {
-		margin-top: 3rem;
-		padding-top: 2rem;
-		border-top: 1px solid #ddd;
+	:global(body) {
+		background: var(--paper);
 	}
-	.lead-note {
-		color: #333;
+	main {
+		max-width: none;
+		padding: 0;
 	}
-	#meta-ads-lead-form {
+	.wrap {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 0 1.25em;
+	}
+
+	/* HERO */
+	.hero {
+		padding: 4em 0 3em;
+		background: var(--paper-warm);
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.eyebrow {
+		font-family: var(--font-heading), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin: 0 0 1em;
+	}
+	.hero h1 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.9em, 5.4vw, 2.7em);
+		line-height: 1.15;
+		margin: 0 0 0.9em;
+		color: rgb(var(--black));
+	}
+	.hero-sub {
+		font-size: 1.08em;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		max-width: 620px;
+		margin: 0 0 2em;
+	}
+	.hero-stat {
+		display: flex;
+		align-items: baseline;
+		gap: 1em;
+		background: #fff;
+		border: 1px solid rgba(85, 107, 47, 0.22);
+		border-left: 4px solid var(--accent-dark);
+		padding: 1.1em 1.3em;
+		margin: 0 0 2em;
+		max-width: 620px;
+	}
+	.stat-number {
+		font-family: var(--font-heading), sans-serif;
+		font-size: 1.8em;
+		font-weight: 700;
+		color: var(--accent-dark);
+		white-space: nowrap;
+	}
+	.stat-label {
+		font-size: 0.92em;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.hero-cta {
+		display: inline-block;
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+		font-size: 0.95em;
+		background: var(--accent-dark);
+		color: #fff;
+		text-decoration: none;
+		border-radius: 6px;
+		padding: 0.8em 1.75em;
+	}
+	.hero-cta:hover {
+		background: var(--accent);
+	}
+
+	/* LENS */
+	.lens {
+		padding: 2em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.lens p {
+		font-size: 0.98em;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+		margin: 0;
+	}
+
+	/* SECTION SHARED */
+	section h2 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.25em, 4.4vw, 1.6em);
+		margin: 0 0 0.5em;
+		color: rgb(var(--black));
+	}
+	.section-intro {
+		font-size: 0.98em;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1.5em;
+	}
+
+	/* AUDIT */
+	.audit {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.audit-list {
+		list-style: none;
+		margin: 0 0 1.5em;
+		padding: 0;
 		display: flex;
 		flex-direction: column;
+		gap: 1.25em;
+	}
+	.audit-list li {
+		display: flex;
 		gap: 1em;
+		align-items: flex-start;
+		background: #fff;
+		border: 1px solid rgba(85, 107, 47, 0.16);
+		border-radius: 8px;
+		padding: 1.1em 1.25em;
+	}
+	.audit-mark {
+		font-family: var(--font-heading), sans-serif;
+		font-weight: 700;
+		font-size: 0.85em;
+		color: var(--accent-dark);
+		flex: 0 0 auto;
+		padding-top: 0.15em;
+	}
+	.audit-claim {
+		font-weight: 700;
+		margin: 0 0 0.35em;
+		color: rgb(var(--black));
+	}
+	.audit-detail {
+		font-size: 0.94em;
+		color: rgb(var(--gray-dark));
+		margin: 0;
+		line-height: 1.55;
+	}
+	.audit-result {
+		font-size: 1em;
+		font-weight: 700;
+		color: rgb(var(--black));
+		background: var(--paper-warm);
+		border-radius: 6px;
+		padding: 1em 1.25em;
+		margin: 0;
+	}
+	.audit-result a {
+		color: var(--accent-dark);
+	}
+
+	/* SYSTEMS */
+	.systems {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.systems-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25em;
+		margin: 0 0 1.5em;
+	}
+	.system-card {
+		background: #fff;
+		border: 1px solid rgba(85, 107, 47, 0.16);
+		border-radius: 8px;
+		padding: 1.25em;
+	}
+	.system-card h3 {
+		font-family: var(--font-heading), sans-serif;
+		margin: 0 0 0.2em;
+		color: rgb(var(--black));
+	}
+	.system-role {
+		font-size: 0.8em;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		margin: 0 0 0.75em;
+	}
+	.system-card p:last-child {
+		font-size: 0.94em;
+		line-height: 1.55;
+		color: rgb(var(--gray-dark));
+		margin: 0;
+	}
+	.systems-callout {
+		font-size: 1.02em;
+		line-height: 1.6;
+		border-left: 3px solid var(--accent);
+		padding-left: 1em;
+		margin: 0;
+		color: rgb(var(--black));
+	}
+	.systems-callout .attrib {
+		display: block;
+		font-size: 0.82em;
+		color: rgb(var(--gray-dark));
+		font-weight: 400;
+		margin-top: 0.4em;
+	}
+
+	/* PHASES */
+	.phases {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+		background: var(--paper-warm);
+	}
+	.phase-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25em;
+	}
+	.phase {
+		background: #fff;
+		border-radius: 8px;
+		padding: 1.25em;
+	}
+	.phase-num {
+		display: inline-block;
+		font-family: var(--font-heading), sans-serif;
+		font-size: 0.72em;
+		font-weight: 700;
+		color: #fff;
+		background: var(--accent-dark);
+		border-radius: 4px;
+		padding: 0.25em 0.6em;
+		margin: 0 0 0.6em;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.phase h3 {
+		font-family: var(--font-heading), sans-serif;
+		font-size: 1.05em;
+		margin: 0 0 0.4em;
+		color: rgb(var(--black));
+	}
+	.phase p {
+		font-size: 0.92em;
+		line-height: 1.55;
+		color: rgb(var(--gray-dark));
+		margin: 0;
+	}
+
+	/* VERDICTS */
+	.verdicts {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.verdict-table {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6em;
+	}
+	.verdict-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1em;
+		padding: 1em 1.1em;
+		border: 1px solid rgba(85, 107, 47, 0.16);
+		border-radius: 8px;
+		background: #fff;
+	}
+	.verdict-head {
+		background: transparent;
+		border: none;
+		font-family: var(--font-heading), sans-serif;
+		font-size: 0.75em;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--accent-dark);
+		padding: 0 1.1em;
+	}
+	.verdict-claim {
+		font-weight: 700;
+		font-size: 0.92em;
+		color: rgb(var(--black));
+	}
+	.verdict-yes,
+	.verdict-no {
+		font-size: 0.86em;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.verdict-yes {
+		border-left: 3px solid var(--accent);
+		padding-left: 0.75em;
+	}
+	.verdict-no {
+		border-left: 3px solid #b3492f;
+		padding-left: 0.75em;
+	}
+
+	/* SUMMARY */
+	.summary {
+		padding: 3em 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.18);
+	}
+	.summary p {
+		font-size: 1.05em;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+		margin: 0;
+	}
+
+	/* CONTACT */
+	.contact-section {
+		padding: 3em 0;
+	}
+	.contact-note {
+		font-size: 0.95em;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1.5em;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1em;
 		max-width: 480px;
 	}
 	.form-row {
 		display: flex;
 		flex-direction: column;
-		gap: 0.35em;
+		gap: 0.4em;
 	}
 	label {
+		font-family: var(--font-heading), sans-serif;
+		font-size: 0.85em;
 		font-weight: 700;
-		font-size: 0.9em;
+		color: rgb(var(--gray-dark));
 	}
 	.req {
 		color: #b3492f;
+		margin-left: 0.15em;
 	}
 	input[type='text'],
 	input[type='email'],
 	textarea {
-		font-family: inherit;
+		font-family: Verdana, Tahoma, Geneva, sans-serif;
 		font-size: 1em;
-		padding: 0.6em 0.7em;
-		border: 1.5px solid #ccc;
+		padding: 0.65em 0.75em;
+		border: 1.5px solid rgb(var(--gray-light));
 		border-radius: 6px;
+		background: #fff;
+		color: rgb(var(--gray-dark));
+	}
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+		border-color: var(--accent);
 	}
 	textarea {
 		resize: vertical;
 	}
 	.submit-btn {
 		align-self: flex-start;
+		font-family: var(--font-heading), sans-serif;
 		font-weight: 700;
-		background: #000;
+		font-size: 0.95em;
+		background: var(--accent-dark);
 		color: #fff;
 		border: none;
 		border-radius: 6px;
-		padding: 0.7em 1.75em;
+		padding: 0.75em 2em;
 		cursor: pointer;
+	}
+	.submit-btn:hover {
+		background: var(--accent);
 	}
 	.submit-btn:disabled {
 		opacity: 0.7;
 		cursor: not-allowed;
 	}
 	.form-note {
-		font-size: 0.8em;
-		color: #666;
+		font-size: 0.78em;
+		color: rgb(var(--gray));
 		margin: 0.25em 0 0;
 	}
 	.form-success {
@@ -365,7 +700,40 @@ independent Meta ads analysis. Andrew Foxwell and the Foxwell x Motion 2026 Stat
 	.form-error {
 		font-size: 0.85em;
 		color: #b3492f;
+		margin: 0.25em 0 0;
+	}
+
+	/* SOURCES */
+	.sources-section {
+		padding: 1.5em 0 0.5em;
+	}
+	.sources-note {
+		font-size: 0.8em;
+		color: rgba(var(--gray-dark), 0.75);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	.plain-footer {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 2em 1.25em 3em;
+	}
+
+	@media (max-width: 640px) {
+		.systems-grid,
+		.phase-list {
+			grid-template-columns: 1fr;
+		}
+		.verdict-row {
+			grid-template-columns: 1fr;
+		}
+		.verdict-head {
+			display: none;
+		}
+		.hero-stat {
+			flex-direction: column;
+			gap: 0.4em;
+		}
 	}
 </style>
-
-</PlainStandaloneBlog>
