@@ -20,6 +20,8 @@ export default defineConfig({
 		'/blog/ai-ally-betrayal/': '/blog/we-are-all-inside-different-machines/',
 		'/nycworldcupopenervenues/': '/worldcupnyc2026/',
 		'/tabetome/': '/blog/tabetome/',
+		'/itineraries/central-europe/': '/blog/central-europe-itinerary/',
+		'/itineraries/nyc-euro/': '/blog/nyc-euro-esque-day-itinerary/',
 	},
 	vite: {
 		plugins: [tailwindcss()],

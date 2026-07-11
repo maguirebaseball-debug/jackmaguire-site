@@ -3,9 +3,10 @@ import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const blogDir = join(root, 'src/pages/blog');
-const distHome = join(root, 'dist/index.html');
-const distBlogIndex = join(root, 'dist/blog/index.html');
-const distSitemap = join(root, 'dist/sitemap-0.xml');
+const distRoot = existsSync(join(root, 'dist/client')) ? join(root, 'dist/client') : join(root, 'dist');
+const distHome = join(distRoot, 'index.html');
+const distBlogIndex = join(distRoot, 'blog/index.html');
+const distSitemap = join(distRoot, 'sitemap-0.xml');
 
 function extractConst(source, name, filename) {
 	const match = source.match(new RegExp(`const ${name} = (["'])(.*?)\\1;`, 's'));
@@ -113,17 +114,17 @@ for (const filename of astroPages) {
 
 	assertNoBareUrls(source, filename);
 
-	assertContains(blogIndex, path, 'dist/blog/index.html');
-	assertContains(blogIndex, escapeHtml(title), 'dist/blog/index.html');
+	assertContains(blogIndex, path, `${distRoot}/blog/index.html`);
+	assertContains(blogIndex, escapeHtml(title), `${distRoot}/blog/index.html`);
 	
 	if (top6Paths.has(path)) {
-		assertContains(home, path, 'dist/index.html');
-		assertContains(home, escapeHtml(title), 'dist/index.html');
+		assertContains(home, path, `${distRoot}/index.html`);
+		assertContains(home, escapeHtml(title), `${distRoot}/index.html`);
 	}
 
-	assertContains(sitemap, absoluteUrl, 'dist/sitemap-0.xml');
+	assertContains(sitemap, absoluteUrl, `${distRoot}/sitemap-0.xml`);
 
-	if (!/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(pubDate)) {
+	if (!/^[A-Z][a-z]+ \d{1,2}, \d{4}$/.test(pubDate)) {
 		throw new Error(`${filename} pubDate must use display format like May 27, 2026.`);
 	}
 }

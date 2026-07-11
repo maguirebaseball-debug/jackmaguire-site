@@ -19,17 +19,20 @@ export function getStandaloneBlogPosts() {
 		.map(([path, source]) => {
 			const slug = path.split('/').at(-1)?.replace('.astro', '');
 			const title = extractConst(source as string, 'title');
+			const description = extractConst(source as string, 'description');
+			const category = extractConst(source as string, 'category') ?? 'Interactive';
 			const pubDate = extractConst(source as string, 'pubDate');
 
-			if (!slug || !title || !pubDate) {
-				throw new Error(`${path} must define const title and const pubDate to appear in blog listings.`);
+			if (!slug || !title || !description || !pubDate) {
+				throw new Error(`${path} must define const title, description, and pubDate to appear in blog listings.`);
 			}
 
 			return {
 				title,
+				description,
 				href: `/blog/${slug}/`,
 				pubDate: parseDisplayDate(pubDate),
-				category: "Feature essay",
+				category,
 			};
 		})
 		.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
