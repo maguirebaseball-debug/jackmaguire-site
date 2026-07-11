@@ -171,6 +171,16 @@
       "source": "/nyc-restaurant-recommendations/",
       "destination": "/recommendations/nyc-restaurants/",
       "permanent": true
+    },
+    {
+      "source": "/itineraries/central-europe/",
+      "destination": "/blog/central-europe-itinerary/",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries/nyc-euro/",
+      "destination": "/blog/nyc-euro-esque-day-itinerary/",
+      "permanent": true
     }
   ]
 }
