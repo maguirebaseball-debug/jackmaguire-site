@@ -1,14 +1,176 @@
 {
-	"redirects": [
-		{
-			"source": "/itineraries/central-europe",
-			"destination": "/blog/central-europe-itinerary/",
-			"permanent": true
-		},
-		{
-			"source": "/itineraries/nyc-euro",
-			"destination": "/blog/nyc-euro-esque-day-itinerary/",
-			"permanent": true
-		}
-	]
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "labs.jackmaguire.org"
+        }
+      ],
+      "destination": "https://jackmaguire.org/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/10/william-gaddis-recognitions-my-thoughts/",
+      "destination": "/blog/william-gaddis-recognitions/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/10/william-gaddis-recognitions/",
+      "destination": "/blog/william-gaddis-recognitions/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/11/hudson-river-pathway/",
+      "destination": "/blog/hudson-river-pathway/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/12/sushi-lin-park-slope-omakase/",
+      "destination": "/blog/sushi-lin-park-slope-omakase/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/14/living-in-nyc-recommendations-from-year-one/",
+      "destination": "/blog/living-in-nyc-recommendations-from-year-one/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/18/luthun-excels/",
+      "destination": "/blog/luthun-excels/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/21/wayla-thai-restaurant-nyc/",
+      "destination": "/blog/wayla-thai-restaurant-nyc/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/24/how-i-use-ai-to-solve-everyday-problems/",
+      "destination": "/blog/how-i-use-ai-to-solve-everyday-problems/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/24/my-brother-is-building-a-data-platform-for-fishermen-and-its-exposing-how-broken-the-industry-really-is/",
+      "destination": "/blog/my-brother-building-data-platform-fishermen/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/24/my-brother-building-data-platform-fishermen/",
+      "destination": "/blog/my-brother-building-data-platform-fishermen/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/28/the-only-place-skunk-cabbage-ever-lived/",
+      "destination": "/blog/the-only-place-skunk-cabbage-ever-lived/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/28/the-structural-turn-or-why-analytic-philosophy-spent-the-last-decade-staring-at-the-skeleton-of-reality-2015-2025/",
+      "destination": "/blog/why-analytic-philosophy-has-changed-since-2015/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/28/why-analytic-philosophy-has-changed-since-2015/",
+      "destination": "/blog/why-analytic-philosophy-has-changed-since-2015/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/29/bahn-anh-em-best-banh-mi/",
+      "destination": "/blog/bahn-anh-em-best-banh-mi/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/01/29/bahn-anh-em-has-the-best-banh-mi-bread-ive-ever-eaten/",
+      "destination": "/blog/bahn-anh-em-best-banh-mi/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/13/when-things-fall-apart-pema-chodron/",
+      "destination": "/blog/when-things-fall-apart-pema-chodron/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/16/best-ovrride-snowboard-resorts-near-nyc/",
+      "destination": "/blog/best-ovrride-snowboard-resorts-near-nyc/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/20/dallas-casual-dining-2026-consensus-picks/",
+      "destination": "/blog/dallas-casual-dining-2026-consensus-picks/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/20/five-recommended-nyc-counter-service-dumpling-spots/",
+      "destination": "/blog/five-recommended-nyc-counter-service-dumpling-spots/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/22/three-martini-lunch-manhattan/",
+      "destination": "/blog/three-martini-lunch-manhattan/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/25/mutual-parasociality-friendships-digital-world/",
+      "destination": "/blog/mutual-parasociality-friendships-digital-world/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/25/nyc-weekday-lunch-deals-by-borough/",
+      "destination": "/blog/nyc-weekday-lunch-deals-by-borough/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/02/26/nyc-tofu-shops/",
+      "destination": "/blog/nyc-tofu-shops/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/05/21/nyc-hidden-gem-pizza/",
+      "destination": "/blog/nyc-hidden-gem-pizza/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/05/22/nyc-omakase-price-per-course/",
+      "destination": "/blog/nyc-omakase-price-per-course/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/05/24/nyc-hidden-gems-research/",
+      "destination": "/blog/nyc-hidden-gems-research/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/05/24/nyc-memorial-day-local-guide-2026/",
+      "destination": "/blog/nyc-memorial-day-local-guide-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/05/26/theoretical-upper-limit-us-stock-market/",
+      "destination": "/blog/theoretical-upper-limit-us-stock-market/",
+      "permanent": true
+    },
+    {
+      "source": "/all-writing/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/app-recommendations/",
+      "destination": "/recommendations/apps/",
+      "permanent": true
+    },
+    {
+      "source": "/book-recommendations/",
+      "destination": "/recommendations/books/",
+      "permanent": true
+    },
+    {
+      "source": "/nyc-restaurant-recommendations/",
+      "destination": "/recommendations/nyc-restaurants/",
+      "permanent": true
+    }
+  ]
 }
