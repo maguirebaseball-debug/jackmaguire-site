@@ -32,7 +32,7 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		<script type="module">
 		const email = sessionStorage.getItem('meet_lead_email') ?? undefined;
 		sessionStorage.removeItem('meet_lead_email');
-		fetch('/api/capi-lead', {
+		fetch('/api/capi-lead/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ email, eventName: 'lead', eventSourceUrl: window.location.href }),

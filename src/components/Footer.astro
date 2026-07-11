@@ -18,7 +18,7 @@ const today = new Date();
 <script>
 	const igLink = document.getElementById('ig-follow-link');
 	igLink?.addEventListener('click', () => {
-		fetch('/api/capi-lead', {
+		fetch('/api/capi-lead/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
