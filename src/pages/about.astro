@@ -42,6 +42,19 @@ import { SITE_TITLE } from '../consts';
 				<img src="/images/about/jack-beach.jpg" alt="Jack Maguire at the beach" loading="eager" width="900" height="506" class="c6" />
 				<img src="/images/about/jack-oklahoma-roadtrip.jpg" alt="Jack Maguire at the Oklahoma welcome sign on a road trip" loading="eager" width="900" height="506" class="c7" />
 			</div>
+			<section class="fun-facts" aria-labelledby="fun-facts-title">
+				<p class="kicker">The short version</p>
+				<h2 id="fun-facts-title">7 fun facts</h2>
+				<ol>
+					<li>I thru-hiked the 2,178-mile Appalachian Trail with my brother in 97 days, averaging 22 miles a day.</li>
+					<li>I ran the Baltimore Marathon in 3:18 and finished 90th overall.</li>
+					<li>I also ran the Montréal Marathon, finishing in 3:48.</li>
+					<li>I studied marketing and philosophy at McGill University.</li>
+					<li>I plan trips with detailed custom maps, then leave the schedule loose enough for surprises.</li>
+					<li>Watching soccer is one of my favorite ways to understand a new city. I have been to European matches with crowds of more than 35,000.</li>
+					<li>I have read more than 300 books, mostly on philosophy, economics, behavioral science, and systems thinking.</li>
+				</ol>
+			</section>
 			<div class="prose">
 				<p>
 					I'm Jack Maguire, a performance marketing and paid social media director based in
@@ -84,7 +97,7 @@ import { SITE_TITLE } from '../consts';
 				<h2>Outside work</h2>
 				<p>
 					Before my junior year at McGill University, I thru-hiked the Appalachian Trail:
-					2,178 miles in 99 days. I have completed three marathons. I have read more than
+					2,178 miles in 97 days. I have completed three marathons. I have read more than
 					300 books, with particular focus on economics, behavioral economics, philosophy,
 					theology, and systems thinking. I live in the East Village in New York City.
 				</p>
@@ -139,6 +152,32 @@ import { SITE_TITLE } from '../consts';
 		z-index: 2;
 		transition: transform 0.18s ease, box-shadow 0.18s ease;
 	}
+	.fun-facts {
+		max-width: var(--width-prose);
+		margin: 0 0 3rem;
+		padding: 1.25rem 1.35rem 1.15rem;
+		border: 1px solid rgba(85, 107, 47, 0.22);
+		background: rgba(85, 107, 47, 0.05);
+	}
+	.fun-facts .kicker {
+		margin-bottom: 0.35rem;
+	}
+	.fun-facts h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.35em;
+	}
+	.fun-facts ol {
+		columns: 2;
+		column-gap: 2.5rem;
+		margin: 0;
+		padding-left: 1.4rem;
+	}
+	.fun-facts li {
+		break-inside: avoid;
+		margin: 0 0 0.75rem;
+		padding-left: 0.15rem;
+		line-height: 1.5;
+	}
 	@media (max-width: 700px) {
 		.photo-collage {
 			gap: 0.8rem 0.6rem;
@@ -149,6 +188,12 @@ import { SITE_TITLE } from '../consts';
 			height: auto !important;
 			aspect-ratio: 3 / 4;
 			margin-top: 0 !important;
+		}
+		.fun-facts {
+			padding: 1.1rem;
+		}
+		.fun-facts ol {
+			columns: 1;
 		}
 	}
 	.prose {
