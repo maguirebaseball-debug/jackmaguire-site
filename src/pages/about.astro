@@ -33,6 +33,15 @@ import { SITE_TITLE } from '../consts';
 					The site records the work questions and personal obsessions that keep recurring.
 				</p>
 			</section>
+			<div class="photo-collage" aria-label="Photos of Jack Maguire">
+				<img src="/images/about/jack-east-village.jpg" alt="Jack Maguire on a brownstone-lined street in the East Village, NYC" loading="eager" width="900" height="506" class="c1" />
+				<img src="/images/about/jack-reading.jpg" alt="Jack Maguire reading a magazine at home" loading="eager" width="495" height="900" class="c2" />
+				<img src="/images/about/jack-soccer.jpg" alt="Jack Maguire at a bar wearing a US soccer jersey" loading="eager" width="708" height="900" class="c3" />
+				<img src="/images/about/jack-cafe.jpg" alt="Jack Maguire close-up portrait" loading="eager" width="900" height="900" class="c4" />
+				<img src="/images/about/jack-fall-street.jpg" alt="Jack Maguire on a New York City street in fall" loading="eager" width="900" height="506" class="c5" />
+				<img src="/images/about/jack-beach.jpg" alt="Jack Maguire at the beach" loading="eager" width="900" height="506" class="c6" />
+				<img src="/images/about/jack-oklahoma-roadtrip.jpg" alt="Jack Maguire at the Oklahoma welcome sign on a road trip" loading="eager" width="900" height="506" class="c7" />
+			</div>
 			<div class="prose">
 				<p>
 					I'm Jack Maguire, a performance marketing and paid social media director based in
@@ -99,6 +108,49 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <style>
+	.photo-collage {
+		max-width: var(--width-prose);
+		margin: 0 0 3rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		gap: 1.1rem 0.9rem;
+		padding: 0.5rem 0 1rem;
+	}
+	.photo-collage img {
+		display: block;
+		background: #fff;
+		padding: 0.5rem 0.5rem 1.2rem;
+		box-shadow: 0 4px 14px rgba(34, 41, 57, 0.16);
+		object-fit: cover;
+		border: 1px solid rgba(85, 107, 47, 0.15);
+	}
+	.photo-collage .c1 { width: 190px; height: 143px; transform: rotate(-4deg); }
+	.photo-collage .c2 { width: 130px; height: 175px; transform: rotate(3deg); margin-top: 1.6rem; }
+	.photo-collage .c3 { width: 155px; height: 175px; transform: rotate(-2deg); }
+	.photo-collage .c4 { width: 155px; height: 155px; transform: rotate(5deg); margin-top: 0.8rem; }
+	.photo-collage .c5 { width: 185px; height: 139px; transform: rotate(-3deg); margin-top: 1.2rem; }
+	.photo-collage .c6 { width: 180px; height: 135px; transform: rotate(4deg); }
+	.photo-collage .c7 { width: 175px; height: 131px; transform: rotate(-5deg); margin-top: 0.6rem; }
+	.photo-collage img:hover {
+		transform: rotate(0deg) scale(1.04);
+		box-shadow: 0 8px 22px rgba(34, 41, 57, 0.24);
+		position: relative;
+		z-index: 2;
+		transition: transform 0.18s ease, box-shadow 0.18s ease;
+	}
+	@media (max-width: 700px) {
+		.photo-collage {
+			gap: 0.8rem 0.6rem;
+			justify-content: center;
+		}
+		.photo-collage img {
+			width: 42vw !important;
+			height: auto !important;
+			aspect-ratio: 3 / 4;
+			margin-top: 0 !important;
+		}
+	}
 	.prose {
 		max-width: var(--width-prose);
 	}
