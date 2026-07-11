@@ -15,7 +15,7 @@ const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '127573
 			More of this in photo form: <a href="https://instagram.com/jack.maguire__/" id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
 		</p>
 		{mailchimpFormAction && (
-			<form class="newsletter-form" action={mailchimpFormAction} method="post" target="_blank">
+			<form id="newsletter-form" class="newsletter-form" action={mailchimpFormAction} method="post" target="_blank">
 				<label for="footer-email">Subscribe for my newsletter</label>
 				<div class="newsletter-fields">
 					<input id="footer-email" name="EMAIL" type="email" autocomplete="email" placeholder="you@example.com" required />
@@ -39,6 +39,37 @@ const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '127573
 			body: JSON.stringify({
 				eventName: 'instagram_follow_clickout',
 				eventSourceUrl: window.location.href,
+			}),
+			keepalive: true,
+		}).catch(() => {});
+	});
+
+	function readCookie(name: string) {
+		return document.cookie
+			.split('; ')
+			.find((cookie) => cookie.startsWith(`${name}=`))
+			?.split('=')
+			.slice(1)
+			.join('=');
+	}
+
+	const newsletterForm = document.getElementById('newsletter-form') as HTMLFormElement | null;
+	newsletterForm?.addEventListener('submit', () => {
+		const formData = new FormData(newsletterForm);
+		const email = formData.get('EMAIL');
+		const honeypot = formData.get('b_16fb5a83b0da789d7ccb30447_6ada8c3cc3');
+		if (typeof email !== 'string' || !email || honeypot) return;
+
+		fetch('/api/capi-lead/', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				email,
+				eventId: crypto.randomUUID(),
+				eventName: 'newsletter_signup',
+				eventSourceUrl: window.location.href,
+				fbp: readCookie('_fbp'),
+				fbc: readCookie('_fbc'),
 			}),
 			keepalive: true,
 		}).catch(() => {});

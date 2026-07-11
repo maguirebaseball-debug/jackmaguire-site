@@ -73,3 +73,93 @@ const ogImageUrl = new URL(ogImage, Astro.site);
   gtag('js', new Date());
   gtag('config', 'G-1697T7D92W');
 </script>
+
+<script>
+	const engagementStorageKey = 'jm_engagement_lead_v1';
+	const engagementThresholdMs = 2 * 60 * 1000;
+
+	function readCookie(name) {
+		return document.cookie
+			.split('; ')
+			.find((cookie) => cookie.startsWith(`${name}=`))
+			?.split('=')
+			.slice(1)
+			.join('=');
+	}
+
+	function getEngagementState() {
+		try {
+			return JSON.parse(sessionStorage.getItem(engagementStorageKey) || '{"paths":[],"activeMs":0,"sent":false}');
+		} catch {
+			return { paths: [], activeMs: 0, sent: false };
+		}
+	}
+
+	function saveEngagementState(state) {
+		sessionStorage.setItem(engagementStorageKey, JSON.stringify(state));
+	}
+
+	function recordCurrentPage() {
+		const state = getEngagementState();
+		const path = `${window.location.pathname}${window.location.search}`;
+		state.paths = [...new Set([...state.paths, path])];
+		saveEngagementState(state);
+	}
+
+	if (!window.__jmEngagementTrackingInitialized) {
+		window.__jmEngagementTrackingInitialized = true;
+		recordCurrentPage();
+
+		let activeSince = document.visibilityState === 'visible' ? Date.now() : null;
+
+		const addActiveTime = () => {
+			if (activeSince === null) return;
+			const latestState = getEngagementState();
+			latestState.activeMs += Date.now() - activeSince;
+			activeSince = Date.now();
+			saveEngagementState(latestState);
+		};
+
+		const sendLeadIfQualified = () => {
+			addActiveTime();
+			const latestState = getEngagementState();
+			if (latestState.sent || latestState.paths.length < 3 || latestState.activeMs < engagementThresholdMs) return;
+
+			latestState.sent = true;
+			saveEngagementState(latestState);
+			fetch('/api/capi-lead/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					eventId: crypto.randomUUID(),
+					eventName: 'engaged_visitor_3_pages_2_minutes',
+					eventSourceUrl: window.location.href,
+					fbp: readCookie('_fbp'),
+					fbc: readCookie('_fbc'),
+				}),
+				keepalive: true,
+			}).catch(() => {});
+		};
+
+		const onVisibilityChange = () => {
+			if (document.visibilityState === 'visible') {
+				activeSince = Date.now();
+			} else {
+				addActiveTime();
+				activeSince = null;
+			}
+			sendLeadIfQualified();
+		};
+
+		document.addEventListener('visibilitychange', onVisibilityChange);
+		document.addEventListener('astro:page-load', () => {
+			recordCurrentPage();
+			sendLeadIfQualified();
+		});
+		window.addEventListener('pagehide', () => {
+			addActiveTime();
+			sendLeadIfQualified();
+		});
+		window.setInterval(sendLeadIfQualified, 10_000);
+	}
+</script>

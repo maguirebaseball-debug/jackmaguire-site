@@ -15,7 +15,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 		return new Response(JSON.stringify({ success: false, message: 'CAPI not configured' }), { status: 500 });
 	}
 
-	let body: { email?: string; eventName?: string; eventSourceUrl?: string };
+	let body: {
+		email?: string;
+		eventId?: string;
+		eventName?: string;
+		eventSourceUrl?: string;
+		fbp?: string;
+		fbc?: string;
+	};
 	try {
 		body = await request.json();
 	} catch {
@@ -29,11 +36,18 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 	if (body.email) {
 		userData.em = [sha256(body.email)];
 	}
+	if (body.fbp) {
+		userData.fbp = body.fbp;
+	}
+	if (body.fbc) {
+		userData.fbc = body.fbc;
+	}
 
 	const payload = {
 		data: [
 			{
 				event_name: body.eventName === 'lead_match' ? 'Purchase' : 'Lead',
+				event_id: body.eventId,
 				event_time: Math.floor(Date.now() / 1000),
 				action_source: 'website',
 				event_source_url: body.eventSourceUrl ?? 'https://jackmaguire.org/meet/',
