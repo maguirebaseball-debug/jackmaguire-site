@@ -1,5 +1,7 @@
 ---
 const today = new Date();
+const mailchimpFormAction = import.meta.env.PUBLIC_MAILCHIMP_SUBSCRIBE_URL;
+const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID;
 ---
 
 <footer>
@@ -12,6 +14,16 @@ const today = new Date();
 		<p class="footer-ig">
 			More of this in photo form: <a href="https://instagram.com/jack.maguire__/" id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
 		</p>
+		{mailchimpFormAction && (
+			<form class="newsletter-form" action={mailchimpFormAction} method="post" target="_blank">
+				<label for="footer-email">Subscribe for my newsletter</label>
+				<div class="newsletter-fields">
+					<input id="footer-email" name="EMAIL" type="email" autocomplete="email" placeholder="you@example.com" required />
+					{mailchimpTagId && <input type="hidden" name="tags" value={mailchimpTagId} />}
+					<button type="submit">Subscribe</button>
+				</div>
+			</form>
+		)}
 	</div>
 </footer>
 
@@ -54,11 +66,47 @@ const today = new Date();
 		color: var(--accent);
 		text-decoration: underline;
 	}
+	.newsletter-form {
+		margin-top: 0.85em;
+	}
+	.newsletter-form label {
+		display: block;
+		margin-bottom: 0.35em;
+	}
+	.newsletter-fields {
+		display: flex;
+		gap: 0.4em;
+		max-width: 24rem;
+	}
+	.newsletter-fields input {
+		min-width: 0;
+		flex: 1;
+		padding: 0.35em 0.45em;
+		border: 1px solid rgb(var(--gray));
+		border-radius: 0;
+		font: inherit;
+	}
+	.newsletter-fields button {
+		padding: 0.35em 0.65em;
+		border: 1px solid rgb(var(--gray-dark));
+		border-radius: 0;
+		background: transparent;
+		color: rgb(var(--gray-dark));
+		font: inherit;
+		cursor: pointer;
+	}
+	.newsletter-fields button:hover {
+		background: rgb(var(--gray-dark));
+		color: var(--paper);
+	}
 	@media (max-width: 600px) {
 		footer {
 			padding: 1.2em 1em;
 			margin-top: 1.5em;
 			font-size: 0.75em;
+		}
+		.newsletter-fields {
+			max-width: none;
 		}
 	}
 </style>
