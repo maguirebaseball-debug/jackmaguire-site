@@ -1,0 +1,40 @@
+---
+interface Props {
+	idPrefix: string;
+	label?: string;
+	buttonLabel?: string;
+}
+
+const {
+	idPrefix,
+	label = 'Subscribe for my newsletter',
+	buttonLabel = 'Subscribe',
+} = Astro.props;
+const mailchimpFormAction = import.meta.env.PUBLIC_MAILCHIMP_SUBSCRIBE_URL || 'https://instagram.us12.list-manage.com/subscribe/post?u=16fb5a83b0da789d7ccb30447&id=6ada8c3cc3&f_id=00e791e3f0';
+const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '12757388';
+---
+
+{mailchimpFormAction && (
+	<form id={`${idPrefix}-newsletter-form`} class="newsletter-form" action={mailchimpFormAction} method="post" target="_blank" data-newsletter-form>
+		<label for={`${idPrefix}-email`}>{label}</label>
+		<div class="newsletter-fields">
+			<input id={`${idPrefix}-email`} name="EMAIL" type="email" autocomplete="email" placeholder="you@example.com" required />
+			<input type="hidden" name="tags" value={mailchimpTagId} />
+			<div class="newsletter-honeypot" aria-hidden="true">
+				<input type="text" name="b_16fb5a83b0da789d7ccb30447_6ada8c3cc3" tabindex="-1" value="" />
+			</div>
+			<button type="submit">{buttonLabel}</button>
+		</div>
+	</form>
+)}
+
+<style>
+	.newsletter-form { margin-top: 0.85em; }
+	.newsletter-form label { display: block; margin-bottom: 0.35em; }
+	.newsletter-fields { display: flex; gap: 0.4em; max-width: 24rem; }
+	.newsletter-fields input { min-width: 0; flex: 1; padding: 0.35em 0.45em; border: 1px solid rgb(var(--gray)); border-radius: 0; font: inherit; }
+	.newsletter-fields button { padding: 0.35em 0.65em; border: 1px solid rgb(var(--gray-dark)); border-radius: 0; background: transparent; color: rgb(var(--gray-dark)); font: inherit; cursor: pointer; }
+	.newsletter-fields button:hover { background: rgb(var(--gray-dark)); color: var(--paper); }
+	.newsletter-honeypot { position: absolute; left: -5000px; }
+	@media (max-width: 600px) { .newsletter-fields { max-width: none; } }
+</style>

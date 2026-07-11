@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getStandaloneBlogPosts } from '../lib/standaloneBlogPosts';
 
@@ -38,6 +39,13 @@ const posts = [...getStandaloneBlogPosts(), ...markdownPosts]
 					<span>Food notes</span>
 					<span>Travel routes</span>
 				</div>
+			</section>
+
+			<section class="newsletter-callout" aria-labelledby="newsletter-title">
+				<p class="eyebrow">New writing, by email</p>
+				<h2 id="newsletter-title">Get the useful notes.</h2>
+				<p>Occasional ideas on paid social, NYC restaurants, travel, books, and AI tools worth using.</p>
+				<NewsletterSignup idPrefix="home" label="Your email address" buttonLabel="Get the notes" />
 			</section>
 
 			<section class="recent">
@@ -151,6 +159,30 @@ const posts = [...getStandaloneBlogPosts(), ...markdownPosts]
 	}
 	.site-index {
 		margin-top: 3em;
+	}
+	.newsletter-callout {
+		max-width: 42rem;
+		margin: 0 0 3.2em;
+		padding: 1.35rem 1.45rem 1.45rem;
+		border-left: 3px solid rgba(85, 107, 47, 0.55);
+		background: rgba(245, 239, 227, 0.7);
+	}
+	.newsletter-callout .eyebrow {
+		margin: 0 0 0.35rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+	.newsletter-callout h2 {
+		margin: 0;
+		font-size: 1.45em;
+	}
+	.newsletter-callout p:not(.eyebrow) {
+		margin: 0.4rem 0 0;
+		font-size: 0.96em;
 	}
 	.index-row {
 		display: grid;

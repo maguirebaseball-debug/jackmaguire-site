@@ -1,7 +1,6 @@
 ---
+import NewsletterSignup from './NewsletterSignup.astro';
 const today = new Date();
-const mailchimpFormAction = import.meta.env.PUBLIC_MAILCHIMP_SUBSCRIBE_URL || 'https://instagram.us12.list-manage.com/subscribe/post?u=16fb5a83b0da789d7ccb30447&id=6ada8c3cc3&f_id=00e791e3f0';
-const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '12757388';
 ---
 
 <footer>
@@ -14,19 +13,7 @@ const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '127573
 		<p class="footer-ig">
 			More of this in photo form: <a href="https://instagram.com/jack.maguire__/" id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
 		</p>
-		{mailchimpFormAction && (
-			<form id="newsletter-form" class="newsletter-form" action={mailchimpFormAction} method="post" target="_blank">
-				<label for="footer-email">Subscribe for my newsletter</label>
-				<div class="newsletter-fields">
-					<input id="footer-email" name="EMAIL" type="email" autocomplete="email" placeholder="you@example.com" required />
-					<input type="hidden" name="tags" value={mailchimpTagId} />
-					<div class="newsletter-honeypot" aria-hidden="true">
-						<input type="text" name="b_16fb5a83b0da789d7ccb30447_6ada8c3cc3" tabindex="-1" value="" />
-					</div>
-					<button type="submit">Subscribe</button>
-				</div>
-			</form>
-		)}
+		<NewsletterSignup idPrefix="footer" />
 	</div>
 </footer>
 
@@ -53,8 +40,11 @@ const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '127573
 			.join('=');
 	}
 
-	const newsletterForm = document.getElementById('newsletter-form') as HTMLFormElement | null;
-	newsletterForm?.addEventListener('submit', () => {
+	document.addEventListener('submit', (event) => {
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+		const newsletterForm = target.closest<HTMLFormElement>('[data-newsletter-form]');
+		if (!newsletterForm) return;
 		const formData = new FormData(newsletterForm);
 		const email = formData.get('EMAIL');
 		const honeypot = formData.get('b_16fb5a83b0da789d7ccb30447_6ada8c3cc3');
@@ -100,51 +90,11 @@ const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '127573
 		color: var(--accent);
 		text-decoration: underline;
 	}
-	.newsletter-form {
-		margin-top: 0.85em;
-	}
-	.newsletter-form label {
-		display: block;
-		margin-bottom: 0.35em;
-	}
-	.newsletter-fields {
-		display: flex;
-		gap: 0.4em;
-		max-width: 24rem;
-	}
-	.newsletter-fields input {
-		min-width: 0;
-		flex: 1;
-		padding: 0.35em 0.45em;
-		border: 1px solid rgb(var(--gray));
-		border-radius: 0;
-		font: inherit;
-	}
-	.newsletter-fields button {
-		padding: 0.35em 0.65em;
-		border: 1px solid rgb(var(--gray-dark));
-		border-radius: 0;
-		background: transparent;
-		color: rgb(var(--gray-dark));
-		font: inherit;
-		cursor: pointer;
-	}
-	.newsletter-fields button:hover {
-		background: rgb(var(--gray-dark));
-		color: var(--paper);
-	}
-	.newsletter-honeypot {
-		position: absolute;
-		left: -5000px;
-	}
 	@media (max-width: 600px) {
 		footer {
 			padding: 1.2em 1em;
 			margin-top: 1.5em;
 			font-size: 0.75em;
-		}
-		.newsletter-fields {
-			max-width: none;
 		}
 	}
 </style>
