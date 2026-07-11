@@ -19,6 +19,7 @@ export default defineConfig({
 		'/all-writing/': '/blog/',
 		'/blog/ai-ally-betrayal/': '/blog/we-are-all-inside-different-machines/',
 		'/nycworldcupopenervenues/': '/worldcupnyc2026/',
+		'/tabetome/': '/blog/tabetome/',
 	},
 	vite: {
 		plugins: [tailwindcss()],
