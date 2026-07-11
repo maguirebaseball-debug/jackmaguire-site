@@ -9,8 +9,26 @@ const today = new Date();
 			<a href="/start">Start</a> · <a href="/blog">Writing</a> · <a href="/recommendations">Recs</a> · <a href="/now">Now</a> · <a href="/rss.xml">RSS</a>
 			&copy; {today.getFullYear()}
 		</p>
+		<p class="footer-ig">
+			More of this in photo form: <a href="https://instagram.com/jack.maguire__/" id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
+		</p>
 	</div>
 </footer>
+
+<script>
+	const igLink = document.getElementById('ig-follow-link');
+	igLink?.addEventListener('click', () => {
+		fetch('/api/capi-lead', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				eventName: 'instagram_follow_clickout',
+				eventSourceUrl: window.location.href,
+			}),
+			keepalive: true,
+		}).catch(() => {});
+	});
+</script>
 <style>
 	footer {
 		padding: 1.5em 1em;
