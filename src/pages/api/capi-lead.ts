@@ -8,9 +8,9 @@ const PIXEL_ID = '1578848813945108';
 const eventNames: Record<string, string> = {
 	lead: 'Lead',
 	lead_match: 'Purchase',
-	newsletter_signup: 'Subscribe',
-	engaged_visitor_3_pages_2_minutes: 'EngagedVisitor',
-	instagram_follow_clickout: 'InstagramFollowClickout',
+	newsletter_signup: 'Lead',
+	engaged_visitor_3_pages_2_minutes: 'Lead',
+	instagram_follow_clickout: 'Lead',
 };
 
 function sha256(value: string): string {

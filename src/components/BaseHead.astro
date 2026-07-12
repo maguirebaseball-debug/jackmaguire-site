@@ -159,7 +159,7 @@ const ogImageUrl = new URL(ogImage, Astro.site);
 			latestState.sent = true;
 			saveEngagementState(latestState);
 			const eventId = crypto.randomUUID();
-			fbq('trackCustom', 'EngagedVisitor', {}, { eventID: eventId });
+			fbq('track', 'Lead', { content_name: 'engaged_visitor_3_pages_2_minutes' }, { eventID: eventId });
 			fetch('/api/capi-lead/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
