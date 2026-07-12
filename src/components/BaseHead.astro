@@ -74,6 +74,20 @@ const ogImageUrl = new URL(ogImage, Astro.site);
   gtag('config', 'G-1697T7D92W');
 </script>
 
+<!-- Meta Pixel -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '1578848813945108');
+	fbq('track', 'PageView');
+</script>
+
 <script>
 	const engagementStorageKey = 'jm_engagement_lead_v1';
 	const engagementThresholdMs = 2 * 60 * 1000;
@@ -144,11 +158,13 @@ const ogImageUrl = new URL(ogImage, Astro.site);
 
 			latestState.sent = true;
 			saveEngagementState(latestState);
+			const eventId = crypto.randomUUID();
+			fbq('trackCustom', 'EngagedVisitor', {}, { eventID: eventId });
 			fetch('/api/capi-lead/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					eventId: crypto.randomUUID(),
+					eventId,
 					eventName: 'engaged_visitor_3_pages_2_minutes',
 					eventSourceUrl: window.location.href,
 					fbp: readCookie('_fbp'),

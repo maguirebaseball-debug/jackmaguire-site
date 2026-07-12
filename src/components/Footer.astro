@@ -20,12 +20,17 @@ const today = new Date();
 <script>
 	const igLink = document.getElementById('ig-follow-link');
 	igLink?.addEventListener('click', () => {
+		const eventId = crypto.randomUUID();
+		fbq('trackCustom', 'InstagramFollowClickout', {}, { eventID: eventId });
 		fetch('/api/capi-lead/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
+				eventId,
 				eventName: 'instagram_follow_clickout',
 				eventSourceUrl: window.location.href,
+				fbp: readCookie('_fbp'),
+				fbc: readCookie('_fbc'),
 			}),
 			keepalive: true,
 		}).catch(() => {});
@@ -49,13 +54,15 @@ const today = new Date();
 		const email = formData.get('EMAIL');
 		const honeypot = formData.get('b_16fb5a83b0da789d7ccb30447_6ada8c3cc3');
 		if (typeof email !== 'string' || !email || honeypot) return;
+		const eventId = crypto.randomUUID();
+		fbq('track', 'Subscribe', {}, { eventID: eventId });
 
 		fetch('/api/capi-lead/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				email,
-				eventId: crypto.randomUUID(),
+				eventId,
 				eventName: 'newsletter_signup',
 				eventSourceUrl: window.location.href,
 				fbp: readCookie('_fbp'),

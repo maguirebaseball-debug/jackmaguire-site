@@ -22,8 +22,8 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		s.parentNode.insertBefore(t,s)}(window, document,'script',
 		'https://connect.facebook.net/en_US/fbevents.js');
 		fbq('init', '1578848813945108');
-		const eventId = crypto.randomUUID();
-		fbq('track', 'Purchase', {value: 10.00, currency: 'USD', content_name: 'meet_match'}, { eventID: eventId });
+		window.__jmMeetEventId = crypto.randomUUID();
+		fbq('track', 'Purchase', {value: 10.00, currency: 'USD', content_name: 'meet_match'}, { eventID: window.__jmMeetEventId });
 		</script>
 		<noscript>
 		<img height="1" width="1" style="display:none" alt=""
@@ -31,6 +31,7 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		</noscript>
 
 		<script type="module">
+		const eventId = window.__jmMeetEventId;
 		const email = sessionStorage.getItem('meet_lead_email') ?? undefined;
 		const fbc = document.cookie
 			.split('; ')

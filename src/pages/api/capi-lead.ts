@@ -5,6 +5,14 @@ export const prerender = false;
 
 const PIXEL_ID = '1578848813945108';
 
+const eventNames: Record<string, string> = {
+	lead: 'Lead',
+	lead_match: 'Purchase',
+	newsletter_signup: 'Subscribe',
+	engaged_visitor_3_pages_2_minutes: 'EngagedVisitor',
+	instagram_follow_clickout: 'InstagramFollowClickout',
+};
+
 function sha256(value: string): string {
 	return crypto.createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
 }
@@ -46,7 +54,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 	const payload = {
 		data: [
 			{
-				event_name: body.eventName === 'lead_match' ? 'Purchase' : 'Lead',
+				event_name: eventNames[body.eventName ?? 'lead'] ?? 'Lead',
 				event_id: body.eventId,
 				event_time: Math.floor(Date.now() / 1000),
 				action_source: 'website',
