@@ -7,8 +7,8 @@ interface Props {
 
 const {
 	idPrefix,
-	label = 'Subscribe for my newsletter',
-	buttonLabel = 'Subscribe',
+	label = 'Get occasional personal updates from me',
+	buttonLabel = 'Keep me posted',
 } = Astro.props;
 const mailchimpFormAction = import.meta.env.PUBLIC_MAILCHIMP_SUBSCRIBE_URL || 'https://instagram.us12.list-manage.com/subscribe/post?u=16fb5a83b0da789d7ccb30447&id=6ada8c3cc3&f_id=00e791e3f0';
 const mailchimpTagId = import.meta.env.PUBLIC_MAILCHIMP_FOOTER_TAG_ID || '12757388';
