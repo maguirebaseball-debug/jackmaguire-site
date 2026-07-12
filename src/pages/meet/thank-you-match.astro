@@ -22,7 +22,8 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 		s.parentNode.insertBefore(t,s)}(window, document,'script',
 		'https://connect.facebook.net/en_US/fbevents.js');
 		fbq('init', '1578848813945108');
-		fbq('track', 'Purchase', {value: 10.00, currency: 'USD', content_name: 'meet_match'});
+		const eventId = crypto.randomUUID();
+		fbq('track', 'Purchase', {value: 10.00, currency: 'USD', content_name: 'meet_match'}, { eventID: eventId });
 		</script>
 		<noscript>
 		<img height="1" width="1" style="display:none" alt=""
@@ -31,12 +32,26 @@ const description = 'Message received. Jack Maguire will follow up directly.';
 
 		<script type="module">
 		const email = sessionStorage.getItem('meet_lead_email') ?? undefined;
+		const fbc = document.cookie
+			.split('; ')
+			.find((cookie) => cookie.startsWith('_fbc='))
+			?.split('=')
+			.slice(1)
+			.join('=') ?? sessionStorage.getItem('jm_meta_fbc') ?? undefined;
 		sessionStorage.removeItem('meet_lead_email');
-		fetch('/api/capi-lead/', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ email, eventName: 'lead_match', eventSourceUrl: window.location.href }),
-		}).catch(() => {});
+		window.setTimeout(() => {
+			const fbp = document.cookie
+				.split('; ')
+				.find((cookie) => cookie.startsWith('_fbp='))
+				?.split('=')
+				.slice(1)
+				.join('=');
+			fetch('/api/capi-lead/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email, eventId, eventName: 'lead_match', eventSourceUrl: window.location.href, fbp, fbc }),
+			}).catch(() => {});
+		}, 250);
 		</script>
 	</head>
 	<body>
