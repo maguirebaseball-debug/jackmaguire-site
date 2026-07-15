@@ -206,12 +206,12 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 							<table class="ti-data-table">
 								<thead>
 									<tr>
-										<th scope="col">Rank</th>
-										<th scope="col">Country</th>
-										<th scope="col">Price index</th>
-										<th scope="col">Range</th>
-										<th scope="col">Grade</th>
-										<th scope="col"><span class="sr-only">Compare</span></th>
+										<th class="ti-col-rank" scope="col">Rank</th>
+										<th class="ti-col-name" scope="col">Country</th>
+										<th class="ti-col-price" scope="col">Price index</th>
+										<th class="ti-col-range" scope="col">Range</th>
+										<th class="ti-col-grade" scope="col">Grade</th>
+										<th class="ti-col-compare" scope="col"><span class="sr-only">Compare</span></th>
 									</tr>
 								</thead>
 								<tbody id="country-rows"></tbody>
@@ -271,11 +271,11 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 							<table class="ti-data-table">
 								<thead>
 									<tr>
-										<th scope="col">Rank</th>
-										<th scope="col">City</th>
-										<th scope="col">Country</th>
-										<th scope="col">Price index</th>
-										<th scope="col">Grade</th>
+										<th class="ti-col-rank" scope="col">Rank</th>
+										<th class="ti-col-name" scope="col">City</th>
+										<th class="ti-col-city-country" scope="col">Country</th>
+										<th class="ti-col-price" scope="col">Price index</th>
+										<th class="ti-col-grade" scope="col">Grade</th>
 									</tr>
 								</thead>
 								<tbody id="city-rows"></tbody>
@@ -459,12 +459,12 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 					$('country-count').textContent = `${rows.length} destination${rows.length === 1 ? '' : 's'}`;
 					$('country-rows').innerHTML = visible.length ? visible.map((row) => `
 						<tr data-iso="${safe(row.iso3)}" class="${selectedCountry === row.iso3 ? 'is-selected' : ''} ${['D', 'E'].includes(row.projection_confidence) ? 'is-caution' : ''}" tabindex="0" aria-label="View ${safe(row.country)} details">
-							<td class="ti-rank-cell">${safe(row.visitor_rank_cheapest)}</td>
-							<td><strong>${safe(row.country)}</strong><small>${safe(row.region)}</small></td>
-							<td><span class="ti-index-value">${number(row.visitor_price_us100)}</span><span class="ti-mini-bar"><i style="width:${Math.min(100, row.visitor_price_us100 / 1.3)}%"></i></span></td>
-							<td>${safe(row.visitor_rank_p10)} to ${safe(row.visitor_rank_p90)}</td>
-							<td><span class="${gradeClass(row.projection_confidence)}">${safe(row.projection_confidence)}</span></td>
-							<td><label class="ti-check" title="Add to comparison"><input type="checkbox" data-compare="${safe(row.iso3)}" ${comparison.includes(row.iso3) ? 'checked' : ''} /><span>+</span></label></td>
+							<td class="ti-rank-cell ti-col-rank">${safe(row.visitor_rank_cheapest)}</td>
+							<td class="ti-col-name"><strong>${safe(row.country)}</strong><small>${safe(row.region)}</small></td>
+							<td class="ti-col-price"><span class="ti-index-value">${number(row.visitor_price_us100)}</span><span class="ti-mini-bar"><i style="width:${Math.min(100, row.visitor_price_us100 / 1.3)}%"></i></span></td>
+							<td class="ti-col-range">${safe(row.visitor_rank_p10)} to ${safe(row.visitor_rank_p90)}</td>
+							<td class="ti-col-grade"><span class="${gradeClass(row.projection_confidence)}">${safe(row.projection_confidence)}</span></td>
+							<td class="ti-col-compare"><label class="ti-check" title="Add to comparison"><input type="checkbox" data-compare="${safe(row.iso3)}" ${comparison.includes(row.iso3) ? 'checked' : ''} /><span>+</span></label></td>
 						</tr>`).join('') : '<tr><td colspan="6" class="ti-empty">No countries match those filters.</td></tr>';
 
 					$('country-rows').querySelectorAll('tr[data-iso]').forEach((rowElement) => {
@@ -558,11 +558,11 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 					$('city-count').textContent = `${rows.length} cit${rows.length === 1 ? 'y' : 'ies'}`;
 					$('city-rows').innerHTML = visible.length ? visible.map((row) => `
 						<tr data-city="${safe(row.city)}" class="${selectedCity === row.city ? 'is-selected' : ''}" tabindex="0" aria-label="View ${safe(row.city)} details">
-							<td class="ti-rank-cell">${safe(row.robust_city_rank_cheapest)}</td>
-							<td><strong>${safe(row.city)}</strong></td>
-							<td>${safe(row.economy)}</td>
-							<td><span class="ti-index-value">${number(row.robust_city_price_us100)}</span><span class="ti-mini-bar"><i style="width:${Math.min(100, row.robust_city_price_us100 / 1.3)}%"></i></span></td>
-							<td><span class="${gradeClass(row.confidence)}">${safe(row.confidence)}</span></td>
+							<td class="ti-rank-cell ti-col-rank">${safe(row.robust_city_rank_cheapest)}</td>
+							<td class="ti-col-name"><strong>${safe(row.city)}</strong><small class="ti-mobile-only">${safe(row.economy)}</small></td>
+							<td class="ti-col-city-country">${safe(row.economy)}</td>
+							<td class="ti-col-price"><span class="ti-index-value">${number(row.robust_city_price_us100)}</span><span class="ti-mini-bar"><i style="width:${Math.min(100, row.robust_city_price_us100 / 1.3)}%"></i></span></td>
+							<td class="ti-col-grade"><span class="${gradeClass(row.confidence)}">${safe(row.confidence)}</span></td>
 						</tr>`).join('') : '<tr><td colspan="5" class="ti-empty">No cities match those filters.</td></tr>';
 					$('city-rows').querySelectorAll('tr[data-city]').forEach((rowElement) => {
 						const activate = () => {
@@ -624,6 +624,8 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 
 	html:has(body.travel-index) {
 		overflow-x: hidden;
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
 	}
 
 	.travel-index {
@@ -634,6 +636,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 		font-size: 16px;
 		line-height: 1.45;
 		overflow-x: hidden;
+		max-width: 100%;
 	}
 
 	.travel-index main {
@@ -687,7 +690,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 		border-bottom: 1px solid var(--ti-ink);
 	}
 
-	.ti-hero-copy { max-width: 850px; }
+	.ti-hero-copy { min-width: 0; max-width: 850px; }
 	.ti-rubric,
 	.ti-section-label { margin: 0 0 1.25rem; color: var(--ti-red); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 	.ti-rubric span { padding: 0 0.35rem; color: var(--ti-ink); }
@@ -720,7 +723,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 	.ti-method { display: grid; grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr); gap: 4vw; padding: clamp(4rem, 8vw, 7rem) 5vw; border-bottom: 1px solid var(--ti-ink); }
 	.ti-reading-body,
 	.ti-factor-content,
-	.ti-method-body { max-width: 1160px; }
+	.ti-method-body { min-width: 0; max-width: 1160px; }
 	.ti-reading h2,
 	.ti-factor-heading h2,
 	.ti-city-heading h2,
@@ -761,7 +764,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 	.ti-controls label { display: flex; flex-direction: column; min-width: 0; padding: 0.7rem 0.8rem; background: var(--ti-white); }
 	.ti-controls label > span { margin-bottom: 0.3rem; color: var(--ti-muted); font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; }
 	.ti-controls input,
-	.ti-controls select { width: 100%; padding: 0; border: 0; border-radius: 0; outline: 0; background: transparent; color: var(--ti-ink); font: 700 0.78rem/1.4 Arial, sans-serif; }
+	.ti-controls select { width: 100%; min-width: 0; padding: 0; border: 0; border-radius: 0; outline: 0; background: transparent; color: var(--ti-ink); font: 700 0.78rem/1.4 Arial, sans-serif; text-overflow: ellipsis; }
 	.ti-controls label:focus-within { box-shadow: inset 0 -3px var(--ti-red); }
 	.ti-resultbar { display: flex; justify-content: space-between; align-items: center; min-height: 46px; color: var(--ti-muted); font-size: 0.7rem; }
 	.ti-resultbar p { margin: 0; }
@@ -788,6 +791,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 	.ti-data-table td { font-size: 0.78rem; }
 	.ti-data-table td strong { display: block; font-size: 0.82rem; }
 	.ti-data-table td small { display: block; max-width: 170px; overflow: hidden; color: var(--ti-muted); font-size: 0.6rem; text-overflow: ellipsis; }
+	.ti-mobile-only { display: none !important; }
 	.ti-rank-cell { color: var(--ti-muted); font: 400 1.05rem/1 Georgia, serif !important; }
 	.ti-index-value { display: inline-block; width: 38px; font-weight: 700; }
 	.ti-mini-bar { display: inline-block; width: 60px; height: 4px; margin-left: 0.4rem; vertical-align: middle; background: #ddd; }
@@ -913,7 +917,12 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 	}
 
 	@media (max-width: 600px) {
-		.ti-masthead { min-height: 58px; padding-inline: 1rem; border-top-width: 6px; }
+		.ti-masthead {
+			min-height: 58px;
+			padding-left: max(1rem, env(safe-area-inset-left));
+			padding-right: max(1rem, env(safe-area-inset-right));
+			border-top-width: 6px;
+		}
 		.ti-home,
 		.ti-index-link { font-size: 0.66rem; }
 		.ti-hero,
@@ -921,8 +930,13 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 		.ti-factors,
 		.ti-explorer,
 		.ti-city-section,
-		.ti-method { padding: 3.5rem 1rem; }
-		.ti-hero h1 { font-size: clamp(3.55rem, 17vw, 5.4rem); }
+		.ti-method {
+			padding-top: 3.5rem;
+			padding-right: max(1rem, env(safe-area-inset-right));
+			padding-bottom: 3.5rem;
+			padding-left: max(1rem, env(safe-area-inset-left));
+		}
+		.ti-hero h1 { max-width: 100%; font-size: clamp(2.8rem, 14vw, 4.5rem); line-height: 0.9; letter-spacing: -0.055em; overflow-wrap: normal; }
 		.ti-dek { font-size: 1.25rem; }
 		.ti-byline { flex-direction: column; gap: 0.3rem; }
 		.ti-statline div { padding: 1.2rem 1rem; }
@@ -937,11 +951,65 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 		.ti-city-controls { grid-template-columns: 1fr 1fr; }
 		.ti-controls .ti-search { grid-column: 1 / -1; }
 		.ti-resultbar { align-items: flex-start; gap: 1rem; }
-		.ti-table-scroll { max-width: calc(100vw - 2rem); }
+		.ti-table-panel,
+		.ti-table-scroll { width: 100%; max-width: calc(100vw - 2rem); min-width: 0; overflow-x: hidden; }
+		.travel-index table.ti-data-table { width: 100%; table-layout: fixed; }
 		.ti-data-table th,
-		.ti-data-table td { padding: 0.68rem 0.55rem; }
+		.ti-data-table td { padding: 0.68rem 0.35rem; overflow: hidden; text-overflow: ellipsis; }
+		.ti-data-table .ti-col-rank { width: 2.35rem; }
+		.ti-data-table .ti-col-price { width: 5rem; }
+		.ti-data-table .ti-col-grade { width: 2.9rem; text-align: center; }
+		.ti-data-table .ti-col-compare { width: 2.7rem; text-align: center; }
+		.ti-data-table .ti-col-range,
+		.ti-data-table .ti-col-city-country { display: none; }
+		.ti-data-table .ti-col-name strong,
+		.ti-data-table .ti-col-name small { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+		.ti-data-table .ti-col-name small:not(.ti-mobile-only) { display: none; }
+		.ti-data-table .ti-mobile-only { display: block !important; }
+		.ti-mini-bar { display: none; }
+		.ti-index-value { width: auto; }
+		.ti-check span { width: 30px; height: 30px; }
 		.ti-warning { grid-template-columns: 1fr; gap: 0.5rem; }
-		.ti-footer { gap: 1rem; padding-inline: 1rem; }
+		.ti-footer {
+			gap: 1rem;
+			padding-left: max(1rem, env(safe-area-inset-left));
+			padding-right: max(1rem, env(safe-area-inset-right));
+		}
 		.ti-footer span { display: none; }
+	}
+
+	@media (max-width: 480px) {
+		.ti-controls,
+		.ti-city-controls { grid-template-columns: 1fr; }
+		.ti-controls .ti-search { grid-column: auto; }
+		.ti-controls label { min-height: 44px; justify-content: center; }
+		.ti-resultbar { font-size: 0.64rem; }
+		.ti-resultbar p:last-child { text-align: right; }
+		.ti-hero-rank-head,
+		.ti-rank-row { grid-template-columns: 2rem minmax(0, 1fr) auto; gap: 0.5rem; }
+		.ti-hero-rank-head { grid-template-columns: 1fr auto; }
+		.ti-rank-country { min-width: 0; }
+		.ti-rank-country strong,
+		.ti-rank-country small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	}
+
+	@media (max-width: 360px) {
+		.ti-home,
+		.ti-index-link { font-size: 0.6rem; letter-spacing: 0.06em; }
+		.ti-hero h1 { font-size: clamp(2.55rem, 13.5vw, 3.1rem); }
+		.ti-dek { font-size: 1.12rem; }
+		.ti-reading h2,
+		.ti-factor-heading h2,
+		.ti-city-heading h2,
+		.ti-method h2,
+		.ti-explorer-heading h2 { font-size: 2.55rem; }
+		.ti-data-table .ti-col-rank { width: 2.15rem; }
+		.ti-data-table .ti-col-price { width: 4.55rem; }
+		.ti-data-table .ti-col-grade { width: 2.65rem; }
+		.ti-data-table .ti-col-compare { width: 2.5rem; }
+		.ti-data-table th,
+		.ti-data-table td { padding-right: 0.25rem; padding-left: 0.25rem; }
+		.ti-pagination { gap: 0.15rem; padding-inline: 0.35rem; }
+		.ti-pagination button { min-width: 29px; padding-inline: 0.4rem; }
 	}
 </style>
