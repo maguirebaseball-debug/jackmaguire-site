@@ -1,0 +1,56 @@
+[
+  {
+    "outcome": "Visitor USD prices",
+    "causal_feature": "Currency appreciation",
+    "elasticity": 0.7380935652654859,
+    "ci_low": 0.45101638019982376,
+    "ci_high": 1.025170750331148,
+    "importance_share_pct": 54.53619894674624,
+    "interpretation": "A stronger local currency raises visitor-facing USD prices."
+  },
+  {
+    "outcome": "Visitor USD prices",
+    "causal_feature": "Moderate inflation",
+    "elasticity": 0.49789516864162436,
+    "ci_low": -0.1598020766692701,
+    "ci_high": 1.1555924139525189,
+    "importance_share_pct": 22.144333013751886,
+    "interpretation": "Estimate is noisy below roughly 10% annual inflation."
+  },
+  {
+    "outcome": "Visitor USD prices",
+    "causal_feature": "High-inflation excess",
+    "elasticity": 1.4317552479788165,
+    "ci_low": 1.1569726087390464,
+    "ci_high": 1.7065378872185866,
+    "importance_share_pct": 23.31946803950187,
+    "interpretation": "Inflation above roughly 10% sharply raises local prices."
+  },
+  {
+    "outcome": "Resident cost / wage",
+    "causal_feature": "Local wage growth",
+    "elasticity": -0.8983954822641811,
+    "ci_low": -0.9789347291142523,
+    "ci_high": -0.8178562354141099,
+    "importance_share_pct": 84.27877541696839,
+    "interpretation": "Higher wages improve affordability, net of price feedback."
+  },
+  {
+    "outcome": "Resident cost / wage",
+    "causal_feature": "Moderate inflation",
+    "elasticity": -0.012443980198687837,
+    "ci_low": -0.37462887454731064,
+    "ci_high": 0.349740914149935,
+    "importance_share_pct": 0.6548305476548598,
+    "interpretation": "No independently clear effect in the panel."
+  },
+  {
+    "outcome": "Resident cost / wage",
+    "causal_feature": "High-inflation excess",
+    "elasticity": 1.3177971907379624,
+    "ci_low": 1.1289255801171407,
+    "ci_high": 1.5066688013587841,
+    "importance_share_pct": 15.06639403537675,
+    "interpretation": "High inflation worsens local cost-to-wage ratios."
+  }
+]
