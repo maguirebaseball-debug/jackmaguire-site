@@ -1,110 +1,70 @@
 ---
 title: "Marketing’s content problem"
-description: "AI has made the outer shape of persuasion abundant. Marketing departments now have to decide what deserves trust, attention, and a human being's time."
+description: "The strongest marketing teams will refuse to let cheap content, platform metrics, and artificial urgency set the agenda."
 pubDate: 2026-07-16
 tags: ["tech", "ai", "essays"]
 ---
 
-The new unit of marketing work is a file that looks as if it has already been through three meetings, since a prompt can produce the campaign brief, the customer personas, the landing-page copy, the paid-social variants, the social calendar, and a few images that make the whole thing feel real, often before anyone has settled on what the customer wants or whether the company has anything distinctive to say. The finished artifact can pass for an answer before it has even become a question.
+The marketing problem I keep returning to begins with perfectly serviceable AI work, which can be more dangerous than obvious failure. A file can arrive looking as if it has already been argued through, revised, approved, and placed into a campaign, despite being assembled before anyone has reached a view about the customer or the company. It has the outer texture of a decision, and that texture is often enough to make a team stop asking questions.
 
-I have worked in several different marketing departments, and I have never seen the work change at this speed. AI has intensified conditions that were already forming: platforms offer noisier signals, organic distribution has become more conditional, executives expect more from smaller teams, and the job market asks marketers to demonstrate competence before they have been given much time or authority to exercise it. The accumulating problem is judgment, because when marketing material is cheap, abundant, and increasingly similar, deciding what deserves to be made becomes the valuable act.
+I have worked in several marketing departments, and I have never seen the work change at this speed. What worries me is less the disappearance of particular tasks than the easy substitution of activity for judgment. The pressure now comes from every direction at once: more assets, more channels, more reporting, more applications, more tool mandates, and a professional expectation that all of this can be carried by a smaller group of people because much of the surface work is now automated.
 
-I am between jobs and researching this because I want a clearer view of the profession I am returning to. AI may remove a great deal of drudgery and leave more room for strategy, although it can also make the appearance of strategy remarkably easy to generate while raising the pressure to publish, test, report, and apply. Both possibilities are already visible, and organizations are revealing their priorities by the work they reward.
+The reassuring story has the machines removing drudgery and returning us to strategy. That outcome is available, though it rarely emerges by default. The usual result is a denser workflow in which the time saved by a tool is immediately claimed by another request, another output, another dashboard, or another expectation that the team should now be able to cover a function it previously did not own. Most organizations use efficiency to raise the volume requirement instead of creating room for better work.
 
-## The bottleneck now sits upstream
+That is how content becomes a problem. Once a company can make twenty versions of something with little friction, it becomes harder to defend the time required to make one version genuinely good. The temptation is to call this testing. Sometimes it is. More often, it is a way of avoiding the uncomfortable earlier decision about what the message is, what the audience already believes, and what the company can credibly promise.
 
-For much of the digital era, production constrained marketing. A team could have a good idea and still lack the writer, designer, budget, or time to make it visible, so somebody had to choose the brief, defend the line of copy, and make a limited set of assets do real work. Generative tools have dissolved part of that scarcity, moving the bottleneck upstream into the acts of choosing and refusing.
+The marketers I trust most are becoming more willing to kill work. They are willing to say that a campaign has no angle, that a social calendar is merely filling space, that a brief contains the answer it was supposed to discover, or that a new channel has appeared because somebody wanted evidence of progress rather than because the business needed it. This can sound negative inside an organization that has turned production into a virtue. I think it is a form of care. Every weak asset sent into the world makes the strong ones easier to miss.
 
-Content has become easier to mistake for value, which lets a leader report more assets, more tests, and more channels while the company becomes less memorable and less credible, because the material is coherent, grammatical, and correctly branded without giving a customer much reason to remember it after it disappears from the feed. The human role shifts toward finding the real customer tension, spotting a claim any competitor could make, and deciding whether an idea deserves another round of work or should be killed.
+## The argument should start with the workflow
 
-The division of labor is fairly plain: AI can help with research, organization, early drafts, versioning, QA, and repetitive analysis, while people retain strategic direction, taste, creative judgment, and final responsibility for what a brand says.
+I am tired of conversations about whether AI is good or bad for marketing. The interesting question is whether a particular use makes a real decision easier, or simply makes the department appear more current.
 
-None of this requires a romantic theory of human creativity. Context matters because the market, product, customer, and difference between a plausible answer and a true one matter, while every competitor can now generate fifty competent headlines in an afternoon.
+AI is genuinely helpful when it removes the preparation around a piece of work that still requires human attention. It can organize a messy research set, produce a competent first draft, identify a reporting anomaly, check a calculation, create a range of mechanical variations, and save the energy that would otherwise be spent getting to the point where someone can think. The problem begins when the generated output acquires authority just because it is fluent.
 
-## The AI question is becoming an operating-economics question
+A weekly report is a good example. No sensible person should want a marketer to spend hours assembling the same recurring figures by hand. But a report that can summarize the figures is not the same thing as a report that understands why they changed. The gap between those two things contains the work. Somebody still has to decide whether a decline reflects demand, a platform quirk, an exhausted audience, a worse lead source, an attribution issue, or nothing worth reacting to yet.
 
-The adoption question has also become less interesting than the operating question. The tool already enters the work through employees, agencies, vendors, and applicants; the useful inquiry concerns whether a particular use changes a workflow enough to improve the business.
+That distinction should govern the budget. I would rather see a team pay for one tool that saves real preparation and gives an experienced person more time to investigate than pay for a sprawling stack that produces a great deal of presentable output and no sharper decisions. AI has its own payroll, hidden in the review, correction, prompting, data handling, brand risk, and handoffs that accumulate around the subscription fee. It is easy to ignore that payroll when the output looks immediate.
 
-Every tool carries a price, even when the subscription is cheap, in the setup, training, prompt creation, review, correction, brand risk, data handling, and time spent moving between tools, along with the quieter cost of allowing a poor process to run faster.
+The companies that get this right will probably look a little less enthusiastic than their peers. Their use of AI will be specific, unglamorous, and tied to a workflow that somebody can explain without reaching for a slogan. They will use it to clear the desk, then do the work that cannot be cleared from the desk.
 
-The sensible position is neither panic nor loyalty to the tool. Most marketers can see that AI is already useful for parts of the job, especially the tedious parts, while also recognizing that vendors and executives have a strong incentive to describe every saved minute as a strategic breakthrough. A team should be wary of any AI plan that cannot name the work it removes, the person responsible for checking it, and the decision that becomes easier once it is in place. Those are modest standards, but they are more useful than a company-wide mandate to experiment.
+## A metric is usually an argument from someone else's system
 
-Consider a weekly performance report, where an AI tool might collect recurring numbers, flag unusual changes, and prepare a first draft; the work becomes useful only when a marketer interprets the change, separates a genuine signal from platform noise, and recommends a decision, rather than delivering another polished document that nobody uses.
+I have become much less interested in the confidence of a channel report. The number may be accurate within the small world that produced it, yet still tell a misleading story about the business. That is especially true when the platform is optimized to make its own activity look meaningful, which is not a scandal so much as a fact of the arrangement.
 
-The same test applies to content. A tool that gives a strategist more time to interview customers, improve an offer, or develop a better creative angle can create real leverage. A tool that floods a weak distribution channel with interchangeable posts usually does not.
+Marketing departments often get into trouble by treating a clean number as a conclusion rather than an invitation to investigate. A cheap click can be a cheap click. A surge in engagement can be a surge in engagement. Neither tells us very much until it reaches the customer, the sales process, the retention curve, or some other point where the business actually has to live with it.
 
-The leaders who make the best decisions will treat AI as a budget item with an expected return, not as proof that the department is modern.
+The more senior version of the job involves resisting the pressure to turn every result into a story of success. Sometimes the honest answer is that a number is incomplete, the test was inconclusive, or the channel has produced an event that deserves monitoring rather than a budget increase. I think people underestimate how much trust this builds inside a business. A marketer who is willing to preserve uncertainty when it is warranted becomes more useful than one who can always make the slide feel optimistic.
 
-## Marketers are being asked to prove more with less reliable data
+This also requires a degree of institutional nerve. Different teams will naturally defend the metric that protects their own work, and the dashboard can make that defense feel scientific. The most useful leaders create a shared view of the decision rather than a competition among self-flattering reports. They ask where the demand came from, what happened after the lead, and what result would justify moving real money.
 
-Marketing has always had an attribution problem. In 2026, it is getting harder to hide behind a dashboard.
+## The internet has made directness more valuable
 
-Platform reporting can be useful, but it has limits. Organic reach is less dependable than it once was. Search behavior is shifting. Social platforms are full of questionable engagement. A clean-looking number can reflect the platform's definition of success more than a genuine change in demand.
+The most sensible response to noisy platforms is a little more conservative than marketing culture usually allows. A business needs ways to be found, understood, and trusted that do not depend entirely on a feed, a trending format, or an opaque system of distribution. Paid media and social work still matter, though no single platform deserves the right to define what counts as attention.
 
-That is a particularly uncomfortable problem for departments that have grown around channel reports. The metric is usually real in the narrow sense that the platform counted it, but the business meaning can be far less certain. Cheap traffic can come from a poor source. A burst of engagement can be automated, incidental, or disconnected from any intent to buy. A campaign can look efficient until its leads reach sales, or until the retention data arrives months later. The most credible marketers are becoming more willing to say that a number is incomplete rather than stretching it into a story it cannot support.
+I would take a reliable email program, accurate local information, useful product pages, strong customer reviews, responsive service, and repeat customers over a month of frantic social output almost every time. Those assets do not feel glamorous because they do not lend themselves to a screenshot. They do something better: they make the business easier to trust when a person is actually deciding whether to buy.
 
-Triangulation offers a slower and less theatrical alternative to the search for one settling number, while remaining closer to the actual work of interpretation.
+Organic social still has a place, though I think many teams have been encouraged to ask too much of it. It can make a company feel alive, give customers somewhere to ask questions, and build a relationship with people who already have a reason to care. It becomes less effective when it is treated as free mass distribution, particularly when the answer to every disappointing post is to produce more posts.
 
-The important question is usually the one the channel report makes inconvenient: did the campaign create demand, or merely win the platform's internal game? Good marketers are becoming less embarrassed by the answer "we do not know yet" and more suspicious of reports that arrive with perfect confidence. The proper response is to put platform data beside lead quality, sales feedback, retention, experiments, and a close account of the actual buying process, then decide with the uncertainty visible rather than hidden in a footnote.
+The same restraint applies to brand voice. I have no objection to humor, self-awareness, or a brand that sounds like someone who has been on the internet. The trouble starts when a company mistakes recognizably online language for a relationship with its audience. A joke can be technically competent and still feel commissioned. An executive can borrow the right vocabulary and still reveal that they have no contact with the product or the people who use it.
 
-## Platforms are losing trust at the same time marketers need them most
+Good voice comes from proximity. It is easier to write when the company has listened to customers, knows what irritates them, understands its own limitations, and can say something that has not been copied from the prevailing tone of the feed. This sounds obvious, but a great deal of marketing work is devoted to avoiding that proximity because it is easier to generate language than to find out what people actually mean.
 
-A second constraint is the growing difficulty of trusting the environments where marketing happens. Spam, fake accounts, low-quality lead sources, misleading ads, engagement manipulation, and automated replies all make it harder to know whether a brand is reaching a real person or merely creating activity inside a platform.
+## “More with less” has become a way to avoid priorities
 
-For years, marketers were encouraged to go where attention was, advice that remains broadly true only once the attention has been qualified: is the audience real, is the conversation meaningful, and does the channel create a relationship rather than a number that can be screenshot in a monthly report?
+I have some sympathy for broad marketing roles. They can make a person formidable. Someone who understands creative, distribution, conversion, measurement, and the commercial logic of a business is much more interesting than someone who only knows one platform well.
 
-This is a reason to value direct relationships more highly. Email lists built with permission, customer communities, repeat purchasers, credible editorial partners, helpful local listings, and real customer service interactions are not glamorous. They are harder to fake and more likely to survive a platform change.
+But the marketing job description has become a place where companies hide their refusal to prioritize. A role that includes paid media, content, social, creative briefing, analytics, email, partnerships, landing pages, and reporting can be a real ownership opportunity only when the person has authority, access to information, a credible budget, and permission to make tradeoffs. Without those conditions, it is a list of functions that management prefers not to staff.
 
-There is a practical conservatism in this approach that marketing sometimes forgets. A business does not need to win every new attention market in order to grow. It needs reliable ways to be found, understood, and trusted by the people most likely to buy. For a local company, an accurate listing, strong reviews, and a person who answers the phone may produce more durable value than a frantic month of trend-chasing. For a larger brand, the equivalent may be an email program that people want to receive, a useful product page, or a relationship with customers that is not mediated entirely by an algorithm.
+AI is making this worse because it gives leaders a plausible explanation for why a smaller team should absorb more. The logic usually runs from a true premise, that a tool can speed up a task, to a false conclusion, that a person can therefore own the entire surrounding system. The missing ingredient is attention. A marketer can use automation to draft a brief and still need time to understand the offer, choose the audience, review the work, interpret the result, and explain the decision to the people who control the budget.
 
-The same principle applies to advertising. Marketers need to care about lead quality, downstream conversion, and fraud controls, rather than treating a cheap click or a large view count as the finish line.
+I would choose a team with permission to say no over one that is merely large or technologically advanced. The better team lets a new responsibility displace an old one, keeps measurement close enough to the business to discipline the conversation, and makes every urgent request compete with the rest instead of adding it permanently to the job.
 
-## Organic social is no longer a complete distribution plan
+## Hiring has become another version of the same problem
 
-Many brands still treat organic social as if it should deliver broad reach for free. Sometimes it can. More often, it is a place to build familiarity, credibility, customer service, and a record of what the brand cares about.
+The application process now contains the same abundance problem as marketing itself. A candidate can generate polished materials quickly, while a hiring manager receives far more polished materials than they can seriously read. Both sides can use automation to simulate care, and both sides then complain that the process feels impersonal.
 
-The mistake is treating every channel as a distribution engine. Organic work can maintain a relationship with people already inclined to care, while paid media introduces a message, search catches immediate intent, and partnerships borrow credibility. A large content calendar often appears when a company asks one channel to perform all four jobs and then mistakes the resulting churn for a strategy.
+Longer application rituals will not repair the hiring process. Candidates are right to be selective with the unpaid time they spend, especially after months inside opaque hiring systems. The application that matters ought to contain some evidence of a mind at work: a decision made under constraint, an explanation of what changed after the decision, a question that reveals a real understanding of the company, or a small piece of analysis that could not have been written for every employer at once.
 
-This also puts more weight on marketing fundamentals that often get neglected because they are not exciting. A correct and active Google Business Profile matters for a local business. So do reviews, location pages, clean conversion paths, a helpful email welcome series, accurate product information, and a fast response to customer questions.
+Hiring managers have a parallel responsibility. If a company wants a careful application, it should make the role legible and create some reason to believe that a person will read what comes back. A short realistic problem can reveal much more about judgment than an elaborate take-home exercise, and it does so without pretending that a free consulting project is an interview.
 
-These assets do not become obsolete because a new social feature is launched. They are the pieces that continue working when reach falls or a platform changes its rules.
-
-## Brand voice has become a high-risk shortcut
-
-The pressure to stand out has pushed more brands toward a sharper, more casual, more openly online voice. Humor and self-awareness can work. A brand can acknowledge a flaw, join a cultural moment, or respond to criticism in a way that feels human.
-
-But this style has a narrow margin for error. A joke can feel forced. A supposedly edgy post can look like a senior leader trying to imitate a younger audience. A brand that chases attention too aggressively can make a product seem cheap, unserious, or disconnected from the people who actually buy it.
-
-The same problem applies to executive communication. When a CEO or founder speaks publicly, customers read the language as evidence of whether leadership understands the product and the customer. The most effective executive participation does not feel like a social-media stunt. It reflects real familiarity with the business.
-
-Brand personality works when the voice fits the audience, product, and moment, and when a customer can feel that it grows out of familiarity with the actual business. A copied tone tends to produce the opposite impression.
-
-## The labor market is making marketing work feel more precarious
-
-Many roles now combine work that used to be distributed among specialists: paid media, content, social, creative briefing, analytics, email, partnerships, landing pages, and reporting. That breadth can be a great education. It can also be an unrealistic job design disguised as an opportunity.
-
-Ownership comes with authority, priorities, access to information, and a credible budget. Its imitation comes with a long list of tasks and a vague instruction to wear many hats, which is why some broad marketing roles become an education and others become an impossible scope disguised as an opportunity.
-
-Agency work remains a place where people can learn quickly across a range of businesses, although thin staffing, unclear boundaries, and client demands can turn every request into an emergency; in-house roles may offer more focus while leaving senior people isolated from peers with whom they can work through hard strategic questions.
-
-This is why the most sensible people in marketing tend to be suspicious of grand claims about doing more with less. Lean teams can work well when they have a clear mandate, a coherent measurement model, and permission to decline work that does not serve the business. They become fragile when every request is treated as urgent, every new channel is added without removing another obligation, and AI is used as a reason to expand the workload rather than improve the quality of the work. Efficiency without priorities is simply a faster route to burnout.
-
-The most durable marketing careers will probably be built around transferable capability. That means knowing how to diagnose a business problem, connect an activity to an outcome, explain a tradeoff to leadership, and work across functions. A platform credential matters less than a demonstrated ability to make a good decision under imperfect conditions.
-
-## Hiring has become a signal problem too
-
-AI has also changed the application process. It is easier to generate a tailored resume, cover letter, and application at scale. That gives job seekers more tools. It also gives hiring managers far more polished material to skim.
-
-The predictable outcome is a worse signal-to-noise ratio. A generic application can now look unusually complete. A candidate with real experience can get buried among hundreds of documents that contain the right keywords and little evidence of judgment.
-
-For candidates, the answer is not necessarily to write a long cover letter for every opening. The return on that work is too inconsistent. But for the roles that genuinely fit, a concise and specific note can still help. It should show that the candidate understands the company's actual problem, not merely the words in the job description.
-
-For employers, more automated screening will not solve the problem by itself. If applicants use automation to look qualified and employers use automation to filter them, both sides will get more efficient at missing the same people. A better process gives candidates a small, realistic problem and evaluates their reasoning. The goal is to surface how someone thinks, not ask them to work for free.
-
-Hiring managers should also acknowledge the asymmetry of the process. An applicant may spend months moving through opaque systems, while the person reviewing applications has only seconds to spare for each one. A carefully tailored note can still be worth writing for the role that genuinely fits, especially when it makes a specific case rather than restating a resume, but candidates are right to reserve that effort for openings where there is a plausible human reader on the other side. The better hiring process respects both constraints and gives each party a chance to see real judgment.
-
-## Marketing needs more judgment, not more activity
-
-Across the job, a sharper sorting process is underway as cheap content and increasingly unreliable signals make generic activity easy to produce and difficult to evaluate.
-
-The organizations worth watching will be the ones that refuse to let cheap production set the agenda. They will tolerate fewer, better-chosen bets; treat a platform result as an argument to investigate rather than a verdict; and defend the unglamorous assets that let a business speak directly to customers. Their advantage will come from the willingness to leave more work undone.
+The professional advantage in marketing is becoming harder to package because it is increasingly a matter of discernment. The best people will still know the platforms and tools, but their real value will appear in the work they refuse, the metric they question, the false certainty they puncture, and the customer relationship they protect. Cheap production has made that kind of judgment more visible, even as it has made it much harder to practice.
