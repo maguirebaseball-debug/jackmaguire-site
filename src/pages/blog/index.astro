@@ -23,7 +23,7 @@ const standalonePosts = getStandaloneBlogPosts().map((post) => ({
 	isStandalone: post.category === 'Interactive',
 }));
 
-const posts = [...standalonePosts, ...markdownPosts].sort(
+const posts = [...new Map([...standalonePosts, ...markdownPosts].map((post) => [post.href, post])).values()].sort(
 	(a, b) => b.pubDate.valueOf() - a.pubDate.valueOf(),
 );
 

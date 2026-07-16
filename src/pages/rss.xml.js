@@ -18,7 +18,7 @@ export async function GET(context) {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
-		items: [...markdownPosts, ...standalonePosts].sort(
+		items: [...new Map([...standalonePosts, ...markdownPosts].map((post) => [post.link, post])).values()].sort(
 			(a, b) => b.pubDate.valueOf() - a.pubDate.valueOf(),
 		),
 	});

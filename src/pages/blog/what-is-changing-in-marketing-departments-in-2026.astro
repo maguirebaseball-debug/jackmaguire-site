@@ -1,0 +1,102 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Marketing’s content problem";
+const description = "AI has made the outer shape of persuasion abundant. Marketing departments now have to decide what deserves trust, attention, and a human being's time.";
+const pubDate = "July 16, 2026";
+const category = "Essays";
+const post = await getEntry('blog', 'what-is-changing-in-marketing-departments-in-2026');
+if (!post) throw new Error('Missing marketing content post');
+const { Content } = await render(post);
+---
+
+<!doctype html>
+<html lang="en">
+  <head><BaseHead title={title} description={description} /></head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <header class="masthead">
+          <p class="kicker">Marketing and AI</p>
+          <h1>{title}</h1>
+          <p class="deck">The new marketing bottleneck is not producing content. It is deciding what deserves to exist.</p>
+          <p class="byline">By Jack Maguire <span>•</span> {pubDate}</p>
+        </header>
+
+        <figure class="signal-chart" aria-labelledby="signal-caption">
+          <figcaption id="signal-caption"><strong>Where marketing pressure is concentrating</strong><span>Recurring themes in high-engagement marketing discussion, 2026</span></figcaption>
+          <div class="bars">
+            <div><label>Career scope and hiring</label><i style="--w: 100%">23</i></div>
+            <div><label>AI content integrity</label><i style="--w: 52%">12</i></div>
+            <div><label>Platform trust</label><i style="--w: 30%">7</i></div>
+            <div><label>Organic distribution</label><i style="--w: 13%">3</i></div>
+            <div><label>AI economics</label><i style="--w: 13%">3</i></div>
+          </div>
+          <small>Thread counts are directional signals of practitioner concern, not estimates of market prevalence.</small>
+        </figure>
+
+        <section class="article-body"><Content /></section>
+
+        <aside class="decision-table">
+          <h2>The 2026 marketing test</h2>
+          <table>
+            <thead><tr><th>Area</th><th>Easy proxy</th><th>Better question</th></tr></thead>
+            <tbody>
+              <tr><td>AI content</td><td>Assets produced</td><td>Does it say something no competitor could say?</td></tr>
+              <tr><td>Paid media</td><td>Cheap clicks</td><td>Did it create qualified demand?</td></tr>
+              <tr><td>Organic social</td><td>Reach</td><td>Did it build familiarity or trust with the right people?</td></tr>
+              <tr><td>Reporting</td><td>A polished dashboard</td><td>What decision changed because of it?</td></tr>
+              <tr><td>Hiring</td><td>Keyword match</td><td>Can the candidate show real judgment?</td></tr>
+            </tbody>
+          </table>
+        </aside>
+
+        <figure class="decision-flow" aria-labelledby="flow-caption">
+          <figcaption id="flow-caption">The work that remains valuable</figcaption>
+          <div><b>Automated output</b><span>Drafts, variants, summaries, reporting</span></div>
+          <em>→</em>
+          <div><b>Human qualification</b><span>Context, taste, ethics, customer knowledge</span></div>
+          <em>→</em>
+          <div><b>Business decision</b><span>What to fund, change, test, or stop</span></div>
+        </figure>
+
+        <p class="more"><a href="/blog/">More writing</a></p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main { max-width: 1180px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+  article { max-width: 920px; margin: auto; }
+  .masthead { border-top: 6px solid #d71920; border-bottom: 1px solid #161616; padding: 1.25rem 0 2rem; margin-bottom: 2.25rem; }
+  .kicker { color: #d71920; font: 700 .75rem/1 var(--font-ui); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 .7rem; }
+  h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.7rem, 8vw, 5.25rem); line-height: .95; letter-spacing: -.055em; max-width: 800px; margin: 0; color: #111; }
+  .deck { font: 1.32rem/1.35 Georgia, 'Times New Roman', serif; max-width: 690px; margin: 1.35rem 0; color: #333; }
+  .byline { font: 700 .78rem/1 var(--font-ui); text-transform: uppercase; letter-spacing: .04em; margin: 0; }
+  .byline span { color: #d71920; padding: 0 .35rem; }
+  .article-body { max-width: 690px; margin: 0 auto; font: 1.16rem/1.62 Georgia, 'Times New Roman', serif; color: #171717; }
+  .article-body :global(p) { margin: 0 0 1.35rem; }
+  .article-body :global(h2) { font: 700 2rem/1.05 Georgia, 'Times New Roman', serif; margin: 2.6rem 0 1rem; letter-spacing: -.025em; }
+  .signal-chart, .decision-table, .decision-flow { margin: 2.5rem auto; max-width: 780px; }
+  .signal-chart { background: #121212; color: #fff; padding: 1.35rem; }
+  figcaption { font: 700 1rem/1.2 var(--font-ui); }
+  figcaption span { display: block; margin-top: .3rem; color: #b7b7b7; font: .78rem/1.3 var(--font-ui); }
+  .bars { margin: 1.15rem 0; display: grid; gap: .55rem; }
+  .bars div { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: .7rem; font: .76rem/1.15 var(--font-ui); }
+  .bars i { display: block; width: var(--w); min-width: 1.6rem; box-sizing: border-box; padding: .4rem .5rem; background: #e51d2a; color: #fff; font-style: normal; font-weight: 700; }
+  small { color: #b7b7b7; font: .7rem/1.3 var(--font-ui); }
+  .decision-table { border-top: 4px solid #d71920; padding-top: .7rem; }
+  .decision-table h2 { font: 700 1.65rem/1 Georgia, 'Times New Roman', serif; margin: 0 0 .8rem; }
+  table { width: 100%; border-collapse: collapse; font: .88rem/1.3 var(--font-ui); }
+  th { text-align: left; background: #151515; color: #fff; padding: .65rem; } td { border-bottom: 1px solid #cfcfcf; padding: .65rem; vertical-align: top; }
+  .decision-flow { display: flex; align-items: stretch; gap: .6rem; border-top: 1px solid #171717; border-bottom: 1px solid #171717; padding: 1.2rem 0; }
+  .decision-flow div { flex: 1; background: #f0eee9; padding: .8rem; } .decision-flow b, .decision-flow span { display:block; } .decision-flow b { font: 700 .85rem/1.1 var(--font-ui); } .decision-flow span { font: .75rem/1.35 var(--font-ui); margin-top:.35rem; } .decision-flow em { align-self:center; color:#d71920; font-size:1.5rem; }
+  .more { margin-top: 3rem; font: 700 .85rem var(--font-ui); text-transform: uppercase; }
+  @media (max-width: 640px) { .bars div { grid-template-columns: 110px 1fr; } .decision-flow { flex-direction: column; } .decision-flow em { transform: rotate(90deg); align-self: center; } }
+</style>

@@ -1,6 +1,6 @@
 ---
-title: "Marketing Departments Have a Trust and Judgment Problem in 2026"
-description: "The defining marketing problem of 2026 is not AI adoption. It is deciding what deserves trust, attention, budget, and a human being's time."
+title: "Marketing’s content problem"
+description: "AI has made the outer shape of persuasion abundant. Marketing departments now have to decide what deserves trust, attention, and a human being's time."
 pubDate: 2026-07-16
 tags: ["tech", "ai", "essays"]
 ---

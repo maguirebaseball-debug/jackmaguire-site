@@ -14,7 +14,7 @@ const markdownPosts = (await getCollection('blog')).map((post) => ({
 	pubDate: post.data.pubDate,
 }));
 
-const posts = [...getStandaloneBlogPosts(), ...markdownPosts]
+const posts = [...new Map([...getStandaloneBlogPosts(), ...markdownPosts].map((post) => [post.href, post])).values()]
 	.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
 	.slice(0, 6);
 ---
