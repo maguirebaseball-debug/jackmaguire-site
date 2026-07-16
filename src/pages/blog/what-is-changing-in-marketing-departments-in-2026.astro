@@ -4,8 +4,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const title = "Marketing’s content problem";
-const description = "AI has made the outer shape of persuasion abundant. Marketing departments now have to decide what deserves trust, attention, and a human being's time.";
+const title = "Most marketing departments are optimizing the wrong thing";
+const description = "The useful marketing department in 2026 will be smaller in its ambitions, tougher on platform claims, and much closer to sales, finance, and real customer behavior.";
 const pubDate = "July 16, 2026";
 const category = "Essays";
 const post = await getEntry('blog', 'what-is-changing-in-marketing-departments-in-2026');
@@ -23,34 +23,34 @@ const { Content } = await render(post);
         <header class="masthead">
           <p class="kicker">Marketing and AI</p>
           <h1>{title}</h1>
-          <p class="deck">The new marketing bottleneck is not producing content. It is deciding what deserves to exist.</p>
+          <p class="deck">Cheap output has exposed a more important shortage: teams that can connect creative, media, sales, and measurement to a real decision.</p>
           <p class="byline">By Jack Maguire <span>•</span> {pubDate}</p>
         </header>
 
         <figure class="signal-chart" aria-labelledby="signal-caption">
-          <figcaption id="signal-caption"><strong>Where marketing pressure is concentrating</strong><span>The issues most likely to reshape a 2026 department</span></figcaption>
+          <figcaption id="signal-caption"><strong>What marketing teams should get tougher about</strong><span>Relative weight in this argument, not a claim about market prevalence</span></figcaption>
           <div class="bars">
-            <div><label>Career scope and hiring</label><i style="--w: 100%">23</i></div>
-            <div><label>AI content integrity</label><i style="--w: 52%">12</i></div>
-            <div><label>Platform trust</label><i style="--w: 30%">7</i></div>
-            <div><label>Organic distribution</label><i style="--w: 13%">3</i></div>
-            <div><label>AI economics</label><i style="--w: 13%">3</i></div>
+            <div><label>Downstream lead quality</label><i style="--w: 100%">5</i></div>
+            <div><label>Platform measurement</label><i style="--w: 84%">4</i></div>
+            <div><label>Creative learning</label><i style="--w: 68%">3</i></div>
+            <div><label>AI workflow discipline</label><i style="--w: 52%">2</i></div>
+            <div><label>Scope and priorities</label><i style="--w: 36%">1</i></div>
           </div>
-          <small>Relative weight in the argument, not a claim about market prevalence.</small>
+          <small>The bottleneck is judgment, not asset production.</small>
         </figure>
 
         <section class="article-body"><Content /></section>
 
         <aside class="decision-table">
-          <h2>The 2026 marketing test</h2>
+          <h2>The useful marketing test</h2>
           <table>
             <thead><tr><th>Area</th><th>Easy proxy</th><th>Better question</th></tr></thead>
             <tbody>
-              <tr><td>AI content</td><td>Assets produced</td><td>Does it say something no competitor could say?</td></tr>
-              <tr><td>Paid media</td><td>Cheap clicks</td><td>Did it create qualified demand?</td></tr>
-              <tr><td>Organic social</td><td>Reach</td><td>Did it build familiarity or trust with the right people?</td></tr>
+              <tr><td>AI workflow</td><td>Assets produced</td><td>What human decision did this improve?</td></tr>
+              <tr><td>Paid media</td><td>Cheap leads</td><td>Did it create qualified, incremental demand?</td></tr>
+              <tr><td>Creative testing</td><td>More variations</td><td>What did the test teach us to change next?</td></tr>
               <tr><td>Reporting</td><td>A polished dashboard</td><td>What decision changed because of it?</td></tr>
-              <tr><td>Hiring</td><td>Keyword match</td><td>Can the candidate show real judgment?</td></tr>
+              <tr><td>Hiring</td><td>Full-stack job title</td><td>Which work leaves when the scope expands?</td></tr>
             </tbody>
           </table>
         </aside>

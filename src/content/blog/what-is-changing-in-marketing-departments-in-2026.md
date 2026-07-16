@@ -1,70 +1,70 @@
 ---
-title: "Marketing’s content problem"
-description: "The strongest marketing teams will refuse to let cheap content, platform metrics, and artificial urgency set the agenda."
+title: "Most marketing departments are optimizing the wrong thing"
+description: "The useful marketing department in 2026 will be smaller in its ambitions, tougher on platform claims, and much closer to sales, finance, and real customer behavior."
 pubDate: 2026-07-16
 tags: ["tech", "ai", "essays"]
 ---
 
-The marketing problem I keep returning to begins with perfectly serviceable AI work, which can be more dangerous than obvious failure. A file can arrive looking as if it has already been argued through, revised, approved, and placed into a campaign, despite being assembled before anyone has reached a view about the customer or the company. It has the outer texture of a decision, and that texture is often enough to make a team stop asking questions.
+The big change in marketing is not that AI can make more content. It is that content is now cheap enough to expose how little discipline many departments had before.
 
-I have worked in several marketing departments, and I have never seen the work change at this speed. What worries me is less the disappearance of particular tasks than the easy substitution of activity for judgment. The pressure now comes from every direction at once: more assets, more channels, more reporting, more applications, more tool mandates, and a professional expectation that all of this can be carried by a smaller group of people because much of the surface work is now automated.
+Most companies do not have a content shortage. They have a decision shortage. They do not know which customer they are trying to persuade, what claim they can honestly make, what happened after a lead was generated, or what result would make them stop spending money. AI has made it possible to conceal that confusion behind a much larger pile of work.
 
-The reassuring story has the machines removing drudgery and returning us to strategy. That outcome is available, though it rarely emerges by default. The usual result is a denser workflow in which the time saved by a tool is immediately claimed by another request, another output, another dashboard, or another expectation that the team should now be able to cover a function it previously did not own. Most organizations use efficiency to raise the volume requirement instead of creating room for better work.
+That is why I think the fashionable description of the 2026 marketing department is wrong. This is not primarily a story about marketers becoming more productive. It is a story about companies deciding whether they want a production function or a commercial function.
 
-That is how content becomes a problem. Once a company can make twenty versions of something with little friction, it becomes harder to defend the time required to make one version genuinely good. The temptation is to call this testing. Sometimes it is. More often, it is a way of avoiding the uncomfortable earlier decision about what the message is, what the audience already believes, and what the company can credibly promise.
+The production function will publish more, test more, report more, and ask for less headcount. The commercial function will be harder to run. It will put creative, media, sales, lifecycle, finance, and measurement in the same argument. It will spend more time deciding what to kill. It will probably look less exciting in a weekly status update.
 
-The marketers I trust most are becoming more willing to kill work. They are willing to say that a campaign has no angle, that a social calendar is merely filling space, that a brief contains the answer it was supposed to discover, or that a new channel has appeared because somebody wanted evidence of progress rather than because the business needed it. This can sound negative inside an organization that has turned production into a virtue. I think it is a form of care. Every weak asset sent into the world makes the strong ones easier to miss.
+I would bet on the second kind of team.
 
-## The argument should start with the workflow
+## AI is a tax on bad management
 
-I am tired of conversations about whether AI is good or bad for marketing. The interesting question is whether a particular use makes a real decision easier, or simply makes the department appear more current.
+AI does not remove the need for a point of view. It makes the absence of one more expensive.
 
-AI is genuinely helpful when it removes the preparation around a piece of work that still requires human attention. It can organize a messy research set, produce a competent first draft, identify a reporting anomaly, check a calculation, create a range of mechanical variations, and save the energy that would otherwise be spent getting to the point where someone can think. The problem begins when the generated output acquires authority just because it is fluent.
+When a team can create twenty ads, five landing pages, and a polished performance recap in an afternoon, the natural instinct is to call that speed. It can also be a very efficient way to put more mediocre work in front of the same audience. Lower production cost does not make a weak offer more convincing or a confused strategy more coherent.
 
-A weekly report is a good example. No sensible person should want a marketer to spend hours assembling the same recurring figures by hand. But a report that can summarize the figures is not the same thing as a report that understands why they changed. The gap between those two things contains the work. Somebody still has to decide whether a decline reflects demand, a platform quirk, an exhausted audience, a worse lead source, an attribution issue, or nothing worth reacting to yet.
+The first question for an AI workflow should be: what human decision does this make better? If nobody can answer that, the workflow is probably theater. A generated brief that does not sharpen the audience, the offer, or the learning agenda is just a nicer-looking way to pass uncertainty to a designer, a media buyer, or a junior marketer.
 
-That distinction should govern the budget. I would rather see a team pay for one tool that saves real preparation and gives an experienced person more time to investigate than pay for a sprawling stack that produces a great deal of presentable output and no sharper decisions. AI has its own payroll, hidden in the review, correction, prompting, data handling, brand risk, and handoffs that accumulate around the subscription fee. It is easy to ignore that payroll when the output looks immediate.
+There are useful applications. AI can reduce the preparation around creative testing, summarize messy information, spot reporting anomalies, produce mechanical variants, and help teams move faster once they know what they are trying to learn. I have used it in creative testing, video generation, scoring, and reporting. The value comes from accelerating a real system, not from replacing the system with prompts.
 
-The companies that get this right will probably look a little less enthusiastic than their peers. Their use of AI will be specific, unglamorous, and tied to a workflow that somebody can explain without reaching for a slogan. They will use it to clear the desk, then do the work that cannot be cleared from the desk.
+Companies that treat AI as a reason to demand twice as much output from the same team will get exactly what they asked for: twice as much output. They will not get twice as much insight, and they will not get twice as much growth.
 
-## A metric is usually an argument from someone else's system
+## The platform is not your measurement partner
 
-I have become much less interested in the confidence of a channel report. The number may be accurate within the small world that produced it, yet still tell a misleading story about the business. That is especially true when the platform is optimized to make its own activity look meaningful, which is not a scandal so much as a fact of the arrangement.
+Every advertising platform wants to take credit for your business. That is not an accusation. It is the structure of the product.
 
-Marketing departments often get into trouble by treating a clean number as a conclusion rather than an invitation to investigate. A cheap click can be a cheap click. A surge in engagement can be a surge in engagement. Neither tells us very much until it reaches the customer, the sales process, the retention curve, or some other point where the business actually has to live with it.
+The dangerous marketing habit is treating a platform-reported result as a business result because the number arrived in a dashboard with enough decimal places. Cheap clicks, low CPL, strong engagement, and an attractive attributed return can all be real. They can also be irrelevant to whether the company found good customers, made money, or created demand that would not have existed otherwise.
 
-The more senior version of the job involves resisting the pressure to turn every result into a story of success. Sometimes the honest answer is that a number is incomplete, the test was inconclusive, or the channel has produced an event that deserves monitoring rather than a budget increase. I think people underestimate how much trust this builds inside a business. A marketer who is willing to preserve uncertainty when it is warranted becomes more useful than one who can always make the slide feel optimistic.
+Lead volume without lead quality is usually a vanity metric with a sales handoff attached. If the leads do not answer, do not qualify, do not convert, or do not retain, the marketing department has not earned the right to celebrate a cheap acquisition cost.
 
-This also requires a degree of institutional nerve. Different teams will naturally defend the metric that protects their own work, and the dashboard can make that defense feel scientific. The most useful leaders create a shared view of the decision rather than a competition among self-flattering reports. They ask where the demand came from, what happened after the lead, and what result would justify moving real money.
+This is why the best performance teams spend so much time on unglamorous work: offline conversion events, CRM connections, clean lead statuses, custom LTV formulas, suppression, holdouts, and incrementality tests. None of it looks as good in a kickoff deck as a new creative tool. It is also where the truth starts to enter the system.
 
-## The internet has made directness more valuable
+The edgier version of this opinion is simple: a marketing team without access to downstream results is not managing growth. It is renting attention on someone else's terms.
 
-The most sensible response to noisy platforms is a little more conservative than marketing culture usually allows. A business needs ways to be found, understood, and trusted that do not depend entirely on a feed, a trending format, or an opaque system of distribution. Paid media and social work still matter, though no single platform deserves the right to define what counts as attention.
+## Creative should sit closer to the money
 
-I would take a reliable email program, accurate local information, useful product pages, strong customer reviews, responsive service, and repeat customers over a month of frantic social output almost every time. Those assets do not feel glamorous because they do not lend themselves to a screenshot. They do something better: they make the business easier to trust when a person is actually deciding whether to buy.
+The old separation between creative and performance marketing is becoming harder to defend. It asks one group to make the thing and another group to discover whether the thing works, often after the moment when either team could improve it.
 
-Organic social still has a place, though I think many teams have been encouraged to ask too much of it. It can make a company feel alive, give customers somewhere to ask questions, and build a relationship with people who already have a reason to care. It becomes less effective when it is treated as free mass distribution, particularly when the answer to every disappointing post is to produce more posts.
+Creative should not be reduced to a response-rate contest. Brand matters, and every short-term metric can be gamed. But performance creative needs to be built around real customer objections, real sales friction, real conversion data, and a clear learning agenda. A creative team that never sees those inputs is being asked to guess. A media team that cannot explain the message is also guessing.
 
-The same restraint applies to brand voice. I have no objection to humor, self-awareness, or a brand that sounds like someone who has been on the internet. The trouble starts when a company mistakes recognizably online language for a relationship with its audience. A joke can be technically competent and still feel commissioned. An executive can borrow the right vocabulary and still reveal that they have no contact with the product or the people who use it.
+The useful unit is a tight loop: a clear hypothesis, a set of controlled creative differences, a decision rule, an honest read on downstream quality, and a record of what the next test should change. Most teams call this testing. Many are really doing content rotation with a spreadsheet.
 
-Good voice comes from proximity. It is easier to write when the company has listened to customers, knows what irritates them, understands its own limitations, and can say something that has not been copied from the prevailing tone of the feed. This sounds obvious, but a great deal of marketing work is devoted to avoiding that proximity because it is easier to generate language than to find out what people actually mean.
+That distinction matters because AI will make rotation nearly free. The scarce capability is designing a test that teaches the company something. The department that builds an experimentation engine will outlast the department that buys the largest library of hooks.
 
-## “More with less” has become a way to avoid priorities
+## A full-stack marketer is often a headcount freeze in disguise
 
-I have some sympathy for broad marketing roles. They can make a person formidable. Someone who understands creative, distribution, conversion, measurement, and the commercial logic of a business is much more interesting than someone who only knows one platform well.
+I like broad operators. A marketer who understands creative, media, conversion, measurement, and the commercial model is more useful than someone who only knows the controls of one platform.
 
-But the marketing job description has become a place where companies hide their refusal to prioritize. A role that includes paid media, content, social, creative briefing, analytics, email, partnerships, landing pages, and reporting can be a real ownership opportunity only when the person has authority, access to information, a credible budget, and permission to make tradeoffs. Without those conditions, it is a list of functions that management prefers not to staff.
+But companies have turned the phrase "full-stack marketer" into an excuse to avoid choosing what matters. A job description that combines paid media, organic social, content, email, creative direction, analytics, partnerships, landing pages, and reporting is not ambitious by default. It may be a sign that management wants seven functions without staffing or prioritizing any of them.
 
-AI is making this worse because it gives leaders a plausible explanation for why a smaller team should absorb more. The logic usually runs from a true premise, that a tool can speed up a task, to a false conclusion, that a person can therefore own the entire surrounding system. The missing ingredient is attention. A marketer can use automation to draft a brief and still need time to understand the offer, choose the audience, review the work, interpret the result, and explain the decision to the people who control the budget.
+AI makes this temptation worse. The logic goes: a tool can draft a brief, generate a video, summarize a report, and produce variations, therefore one person can own every surrounding responsibility. That conclusion ignores the actual work. Someone still needs to set the objective, get the data, understand the customer, judge the output, coordinate the handoffs, find the failure, make a tradeoff, and defend the budget.
 
-I would choose a team with permission to say no over one that is merely large or technologically advanced. The better team lets a new responsibility displace an old one, keeps measurement close enough to the business to discipline the conversation, and makes every urgent request compete with the rest instead of adding it permanently to the job.
+Good operators should demand a real answer to one question: when a new responsibility arrives, what work leaves the plate? If the answer is nothing, the company is not building a modern marketing department. It is converting priorities into job descriptions.
 
-## Hiring has become another version of the same problem
+## The best marketing departments will become more skeptical
 
-The application process now contains the same abundance problem as marketing itself. A candidate can generate polished materials quickly, while a hiring manager receives far more polished materials than they can seriously read. Both sides can use automation to simulate care, and both sides then complain that the process feels impersonal.
+The person who will matter most in a 2026 marketing department is not the one who can generate the most assets. It is the person who can stop the wrong work before it reaches production.
 
-Longer application rituals will not repair the hiring process. Candidates are right to be selective with the unpaid time they spend, especially after months inside opaque hiring systems. The application that matters ought to contain some evidence of a mind at work: a decision made under constraint, an explanation of what changed after the decision, a question that reveals a real understanding of the company, or a small piece of analysis that could not have been written for every employer at once.
+That person will question a clean dashboard when the sales data disagrees. They will reject a new channel that has no credible path to incremental demand. They will ask why a creative test is being run and what decision it can change. They will say that a lead is not valuable because it exists. They will be willing to make a reporting deck slightly less optimistic if it makes the next decision more honest.
 
-Hiring managers have a parallel responsibility. If a company wants a careful application, it should make the role legible and create some reason to believe that a person will read what comes back. A short realistic problem can reveal much more about judgment than an elaborate take-home exercise, and it does so without pretending that a free consulting project is an interview.
+This is harder than it sounds. Most organizations reward visible activity, fast agreement, and a positive story. Skepticism can look like resistance until the results of the alternative become obvious.
 
-The professional advantage in marketing is becoming harder to package because it is increasingly a matter of discernment. The best people will still know the platforms and tools, but their real value will appear in the work they refuse, the metric they question, the false certainty they puncture, and the customer relationship they protect. Cheap production has made that kind of judgment more visible, even as it has made it much harder to practice.
+The right goal for a marketing department is not to become an AI content factory. It is to become difficult to fool, including by its own metrics, its own tools, and its own appetite for more work.
