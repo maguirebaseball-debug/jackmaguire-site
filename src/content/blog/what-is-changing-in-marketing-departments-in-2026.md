@@ -5,29 +5,27 @@ pubDate: 2026-07-16
 tags: ["tech", "ai", "essays"]
 ---
 
-I have worked in several different marketing departments, and I have never seen a period when the work changed this quickly.
+The new unit of marketing work is a file that looks as if it has already been through three meetings. A prompt can produce the campaign brief, the customer personas, the landing-page copy, the paid-social variants, the social calendar, and a few images that make the whole thing feel real, often before anyone has settled on what the customer wants or whether the company has anything distinctive to say. The result is a smooth artifact that can pass for an answer before it has become a question.
 
-AI is the obvious part of the story. But the deeper shift is a crisis of trust and judgment. Marketers are trying to work through an abundance of cheap content, noisier platforms, weaker organic distribution, executive pressure to automate, and a job market that asks people to prove more with less time and stability.
+I have worked in several different marketing departments, and I have never seen the work change at this speed. AI has intensified conditions that were already forming: platforms offer noisier signals, organic distribution has become more conditional, executives expect more from smaller teams, and the job market asks marketers to demonstrate competence before they have been given much time or authority to exercise it. The accumulating problem is judgment, because when marketing material is cheap, abundant, and increasingly similar, deciding what deserves to be made becomes the valuable act.
 
-I am between jobs and researching this because I need a clear view of where the work is going. The pattern I keep seeing is that the winning marketing department will not be the one that produces the most. It will be the one that makes better decisions about what to believe, what to make, what to fund, and what to leave alone.
+I am between jobs and researching this because I want a clearer view of the profession I am returning to. AI may remove a great deal of drudgery and leave more room for strategy, although it can also make the appearance of strategy remarkably easy to generate while raising the pressure to publish, test, report, and apply. Both possibilities are already visible, and organizations are revealing their priorities by the work they reward.
 
-## AI has made content abundant. That does not make it valuable.
+## The bottleneck has moved upstream
 
-The first major change is not that AI can write a draft. Everyone knows that now. The change is that passable marketing material has become incredibly easy to create.
+For much of the digital era, production constrained marketing. A team could have a good idea and still lack the writer, designer, budget, or time to make it visible, so somebody had to choose the brief, defend the line of copy, and make a limited set of assets do real work. Generative tools have dissolved part of that scarcity, moving the bottleneck upstream into the acts of choosing and refusing.
 
 Copy, images, scripts, research summaries, landing-page outlines, ad variants, and social posts can now appear in minutes. That sounds like an obvious advantage. In practice, it creates a new problem: a lot more marketing now looks finished before anyone has asked whether it is distinctive, accurate, useful, or right for the brand.
 
-The result is a growing gap between volume and quality. AI can make a team look busy. It can help a leader report that more assets were produced, more tests were launched, and more channels were covered. But an organization can increase output while making its marketing less memorable and less trustworthy.
-
-This is why the human role is shifting upward. The scarce skill is less about producing a first draft and more about choosing the brief, finding the real customer tension, recognizing a generic claim, and knowing whether an idea deserves another round of work.
+Content has become easier to mistake for value. A leader can report more assets, more tests, and more channels while the company becomes less memorable and less credible, because the material is coherent, grammatical, and correctly branded without giving a customer much reason to remember it after it disappears from the feed. The human role therefore shifts toward finding the real customer tension, spotting a claim any competitor could make, and deciding whether an idea deserves another round of work or should be killed.
 
 The useful division of labor is simple. AI can help with research, organization, early drafts, versioning, QA, and repetitive analysis. People need to own strategic direction, taste, creative judgment, and the final responsibility for what a brand says.
 
-That is not a romantic defense of human creativity. It is a practical response to sameness. When every competitor can generate 50 competent headlines, the advantage goes to the team that has a point of view and can recognize the ten that should never have been made.
+None of this requires a romantic theory of human creativity. Context matters because the market, product, customer, and difference between a plausible answer and a true one matter, while every competitor can now generate fifty competent headlines in an afternoon.
 
 ## The AI question is becoming an operating-economics question
 
-Many marketing leaders still talk about AI as if the decision is whether to adopt it. That question is already dated. The real question is whether the use case earns its cost and changes a useful workflow.
+The adoption question has also become less interesting than the operating question. The tool already enters the work through employees, agencies, vendors, and applicants; the useful inquiry concerns whether a particular use changes a workflow enough to improve the business.
 
 Every tool has a price, even when the subscription is cheap. There is the cost of setup, training, prompt creation, review, correction, brand risk, data handling, and the time spent moving between tools. There is also the quiet cost of letting a poor process run faster.
 
@@ -45,11 +43,11 @@ Marketing has always had an attribution problem. In 2026, it is getting harder t
 
 Platform reporting can be useful, but it has limits. Organic reach is less dependable than it once was. Search behavior is shifting. Social platforms are full of questionable engagement. A clean-looking number can reflect the platform's definition of success more than a genuine change in demand.
 
-That does not mean marketing measurement is hopeless. It means the job is to triangulate rather than look for one number that settles everything.
+The answer is triangulation, which is slower and less theatrical than looking for one number that settles everything, but closer to the actual work of interpretation.
 
 A strong team combines platform data with customer quality, conversion behavior, experiments, sales feedback, retention data, and an understanding of the real buying process. It asks a better set of questions. Did this campaign create incremental demand? Did leads convert later? Did the creative work beyond one audience or one reporting window? What would we expect to see if the result were real?
 
-This is where judgment becomes more important than reporting volume. A dashboard is an input. It is not a decision.
+Judgment increasingly matters more than reporting volume, because a dashboard supplies evidence while the decision still has to be made by someone who understands the wider business.
 
 Marketing departments should also get more disciplined about measurement ownership. The person closest to a channel needs enough information to make tactical changes. But bigger budget decisions need a shared view across media, creative, product, sales, and finance. Otherwise each team will defend the metric that makes its own work look best.
 
@@ -71,7 +69,7 @@ The same principle applies to advertising. Marketers need to care about lead qua
 
 Many brands still treat organic social as if it should deliver broad reach for free. Sometimes it can. More often, it is a place to build familiarity, credibility, customer service, and a record of what the brand cares about.
 
-Those are valuable jobs. They are just different from guaranteed distribution.
+Those are valuable jobs, although they differ materially from guaranteed distribution and should be planned and measured accordingly.
 
 The practical implication is that marketing teams need to separate community work from reach work. Organic content can create trust with the people who already care. Paid distribution can introduce a message to the people who do not. Search and local discovery can capture people with immediate intent. Partnerships can borrow attention and credibility from someone else.
 
@@ -89,7 +87,7 @@ But this style has a narrow margin for error. A joke can feel forced. A supposed
 
 The same problem applies to executive communication. When a CEO or founder speaks publicly, customers read the language as evidence of whether leadership understands the product and the customer. The most effective executive participation does not feel like a social-media stunt. It reflects real familiarity with the business.
 
-The question is not whether a brand should have personality. It should. The question is whether the voice fits the audience, product, and moment. A good brand voice gives a customer a reason to trust the company. A copied tone only gives people another reason to scroll past.
+Brand personality works when the voice fits the audience, product, and moment, and when a customer can feel that it grows out of familiarity with the actual business. A copied tone tends to produce the opposite impression.
 
 ## The labor market is making marketing work feel more precarious
 
@@ -97,7 +95,7 @@ The human consequence of these pressures is visible in the job market. Marketers
 
 Many roles now combine work that used to be distributed among specialists: paid media, content, social, creative briefing, analytics, email, partnerships, landing pages, and reporting. That breadth can be a great education. It can also be an unrealistic job design disguised as an opportunity.
 
-There is a difference between giving someone ownership and giving them an impossible scope. Ownership comes with authority, priorities, access to information, and a credible budget. Impossible scope comes with a long list of tasks and a vague instruction to "wear many hats."
+Ownership comes with authority, priorities, access to information, and a credible budget. Its imitation comes with a long list of tasks and a vague instruction to wear many hats, which is why some broad marketing roles become an education and others become an impossible scope disguised as an opportunity.
 
 Agency work remains a place where people can learn quickly and see a range of businesses. It can also become exhausting when client demands, thin staffing, and unclear boundaries turn every request into an emergency. In-house roles can offer more focus, but they can also create isolation for senior people who have no peer group for hard strategic questions.
 
@@ -117,10 +115,10 @@ For employers, more automated screening will not solve the problem by itself. If
 
 ## Marketing needs more judgment, not more activity
 
-The core trend in 2026 is not the replacement of marketers by tools. It is a sharper sorting process inside the job.
+The core trend in 2026 is a sharper sorting process inside the job, with cheap content and increasingly unreliable signals making generic activity easy to produce and difficult to evaluate.
 
 Low-cost content, unreliable platform signals, declining organic reach, noisy applications, and pressure to do more have made generic activity easier than ever. They have also made discernment more valuable.
 
 The best marketing departments will protect the things that still create trust. They will use AI where it genuinely improves a workflow. They will treat platform data as evidence rather than truth. They will invest in durable customer relationships and basic assets. They will be cautious about a brand voice that wins a reaction but loses credibility. And they will give people enough scope to own outcomes without making every role a burnout machine.
 
-That is where the puck is going. The work is becoming less about producing more marketing and more about deciding what is worth making at all.
+The work is moving toward a more demanding form of leverage, where the advantage comes from deciding what is worth making, funding, testing, and leaving alone.
