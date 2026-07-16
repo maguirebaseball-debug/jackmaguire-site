@@ -74,6 +74,8 @@ Style bans:
 * Avoid tidy summary phrases such as "in the end," "ultimately," and "it is important to note."
 * Avoid cleft sentences where a direct sentence works better.
 * Avoid dramatized parallel contrast structures like "Not X, but Y" or "One is X. The other is Y."
+* In opinion writing, carry the claim through a natural, connected sentence instead of using clipped counter-assertion pairs such as "That is not X. It is Y."
+* House style example: "Every advertising platform is designed to make its contribution to revenue visible and persuasive, so its reporting will naturally place the platform near the center of the growth story." See `docs/writing-style-memory.md` for the full decision and before-and-after example.
 
 ## Terminal command formatting
 Always give terminal commands as separate lines (one command per line), not chained with `&&`. This lets the user copy-paste each line individually without zsh line-wrap breaking the command.
