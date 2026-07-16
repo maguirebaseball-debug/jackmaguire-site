@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Marketing priorities</title>
+  <desc id="desc">Five marketing priorities shown as red horizontal bars, with longer bars indicating greater importance.</desc>
+  <rect width="1200" height="630" fill="#121212"/>
+  <g fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">
+    <text x="72" y="143">Downstream lead quality</text>
+    <text x="72" y="238">Platform measurement</text>
+    <text x="72" y="333">Creative learning</text>
+    <text x="72" y="428">AI workflow discipline</text>
+    <text x="72" y="523">Scope and priorities</text>
+  </g>
+  <g fill="#e51d2a">
+    <rect x="460" y="100" width="660" height="62"/>
+    <rect x="460" y="195" width="554" height="62"/>
+    <rect x="460" y="290" width="449" height="62"/>
+    <rect x="460" y="385" width="343" height="62"/>
+    <rect x="460" y="480" width="238" height="62"/>
+  </g>
+</svg>
