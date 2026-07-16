@@ -102,6 +102,8 @@ Authoring rules:
 * A short setup is allowed, usually 2 to 5 short paragraphs or lines.
 * Use short paragraphs by default, usually 1 to 3 sentences.
 * Use simple everyday words.
+* For an essay or research-backed revision, lead with the strongest contrarian opinions the available sources can support. Reduce descriptive scene-setting and let the evidence constrain the claim rather than sanding it into a neutral summary.
+* When a user asks for an intentional writing style, use `/styleforge` if it is available. If it is unavailable, say so and choose a stated style from the work's audience, evidence, and purpose.
 * First person is allowed only when the claim is true, accurate, and real. Verify first-person experiential claims with Jack before publishing if the agent cannot know them directly.
 * Do not include AI/research process disclosure by default.
 * Useful links only. Links are allowed, internal and external, but there is no mandatory citation apparatus.

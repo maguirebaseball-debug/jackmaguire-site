@@ -221,6 +221,8 @@ Structured AI-readable memory store. Captures facts, decisions, rules, patterns,
 
 For opinion essays, retain a continuous, claim-led flow instead of clipped contrast or counter-assertion pairs. The preferred form carries the causal relationship in one natural sentence, for example: "Every advertising platform is designed to make its contribution to revenue visible and persuasive, so its reporting will naturally place the platform near the center of the growth story." The reference revision is [Most marketing departments are optimizing the wrong thing](src/content/blog/what-is-changing-in-marketing-departments-in-2026.md). The durable repository record is [docs/writing-style-memory.md](docs/writing-style-memory.md).
 
+For research-backed essays, favor the sharpest opinions that the source material can defend over a neutral description of the situation. When a writing style is requested, use `/styleforge` when it is available and otherwise state the evidence-led style selected as a fallback.
+
 #### Notes
 **Collection:** `collection://2e414299-8528-8079-9e36-000bfe48912b`
 **URL:** https://www.notion.so/2e414299852880028173fee45b2a0249

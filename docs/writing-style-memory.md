@@ -21,3 +21,11 @@ After:
 Apply this pattern when revising opinionated writing: make the claim, show why it follows, and keep moving. Do not manufacture tension by separating the point from its explanation.
 
 **Source:** [Most marketing departments are optimizing the wrong thing](../src/content/blog/what-is-changing-in-marketing-departments-in-2026.md)
+
+## Opinion-first, source-grounded framing
+
+For research-backed essays, move quickly from the setup to the strongest claims that the evidence can carry. The source material sets the boundary for an opinion, but it should not force the piece into a neutral catalogue of observations.
+
+Use the tension, disagreement, or neglected implication found in the source base to form the thesis and the section headings. Remove descriptive passages that do not serve that argument.
+
+When the user asks for a deliberate writing style, use `/styleforge` if it is available in the active environment. When it is unavailable, say so and select a style explicitly from the audience, evidence, and purpose of the piece.
