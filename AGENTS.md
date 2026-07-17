@@ -125,3 +125,7 @@ Contact: maguirebaseball@gmail.com
 
 ## Token Efficiency & Agent Discipline (Universal - injected from ~/.grok/AGENTS.md + template; customize or remove per-project overrides)
 See full details and copy-paste base in ~/.grok/UNIVERSAL_TOKEN_EFFICIENCY_SECTION.md and ~/.grok/AGENTS.md (native). The detailed 7-section version is also in ~/.claude/UNIVERSAL_TOKEN_EFFICIENCY_SECTION.md and ~/.claude/AGENTS.md (loaded via default Claude compatibility). Core: leverage first-turn memory injection + /flush + /dream, externalize to files + targeted tools (read_file limits, grep, selective monitor filters, never full cats or raw long logs), proactive /compact (auto at 85%), subagents only for real independence (cheapest/fast models, spawn_subagent returns ONLY concise high-signal summary + file pointers), skills and personas over re-instruction, run `grok inspect` to verify loaded rules + token counts. Read AGENTS.md + memory context first on startup.
+
+## Persistent Project State
+
+At session start, read `CURRENT_STATE.md`, the latest `MEMORY.md` entries, and relevant portions of `BRAIN.md`, `REFERENCES.md`, and `RESOURCES.md`. After meaningful work, append a concise memory entry and update current state when deployment behavior, active work, or blockers change. Use `wiki/README.md` for navigation rather than duplicating source material.
