@@ -1,5 +1,16 @@
 {
   "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/vince-previewer/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        }
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/(.*)",
