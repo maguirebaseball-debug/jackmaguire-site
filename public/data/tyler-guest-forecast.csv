@@ -1,0 +1,30 @@
+guest,domain,audience_score,tyler_score,reach,expertise_depth,single_subject,current_relevance,candor,novelty,idiosyncrasy,prep_payoff,intellectual_range,rapport,audience_case,tyler_case,audience_top_25,tyler_top_25,overlap
+Mira Murati,AI leadership,84,70,5,3,4,5,4,4,3,4,4,3,rare access to a central AI actor,useful institutional and technical transition story,True,False,False
+Lisa Su,semiconductors,90,91,5,5,4,5,3,4,4,5,4,4,AI infrastructure with broad recognition,"engineering, Taiwan, supply chains, and management reward preparation",True,True,True
+Mustafa Suleyman,AI policy,86,76,5,4,4,5,4,3,3,4,4,3,large current AI audience and clear stakes,"good policy and organizational tension, less distinctive than technical peers",True,False,False
+Brian Chesky,hospitality and product,88,82,5,4,4,5,4,4,4,4,4,4,consumer recognition plus a real operating story,"travel, cities, regulation, and design create many angles",True,True,True
+John Jumper,AI biology,95,94,5,5,5,5,3,5,5,5,4,3,Nobel-level breakthrough with a clean premise,deep scientific explanation with unusually high preparation payoff,True,True,True
+Aidan Gomez,enterprise AI,88,76,5,4,4,5,4,4,3,4,4,3,founder status plus the transformer origin story,"enterprise AI, Canada, and sovereignty open real disagreement",True,False,False
+Aravind Srinivas,AI search,83,73,4,4,4,5,4,4,3,4,3,3,directly legible consumer AI product,search economics and product strategy are strong but narrower,False,False,False
+Tobi Lütke,commerce and software,88,91,4,5,4,5,4,4,4,5,4,4,credible builder with a distinct public voice,"management, entrepreneurship, culture, and technology all travel well",True,True,True
+Max Martin,music,92,92,5,5,5,4,3,5,5,5,4,3,a universally known output with an unfamiliar maker,"song construction, Sweden, and artistic production are classic CWT terrain",True,True,True
+Michael Levin,developmental biology,85,96,3,5,5,4,4,5,5,5,5,4,high recommendation value for curious listeners,"the strongest pure Tyler-fit: unusual theory, experiment, and vocabulary",True,True,True
+Kevin Esvelt,biosecurity,90,98,3,5,5,5,5,5,5,5,5,4,high-stakes subject with a real moral voice,technical depth and candid institutional criticism,True,True,True
+Ted Chiang,fiction and technology,90,96,4,5,5,4,4,5,5,5,5,4,"loyal, unusually discussion-prone audience","fiction, computation, and moral philosophy reward slow questions",True,True,True
+Chris Olah,AI interpretability,88,97,3,5,5,5,4,5,5,5,5,3,one of the few technical AI conversations listeners would share,a rare chance to make a difficult frontier intelligible,True,True,True
+Patrick Radden Keefe,narrative nonfiction,88,96,4,5,5,4,4,4,5,5,5,4,an established long-form audience and vivid material,"research method, state capacity, and narrative craft",True,True,True
+A. R. Rahman,music,93,94,4,5,5,5,4,5,5,5,4,3,global audience and unusually broad cultural reach,"composition, India, technology, and religious aesthetics",True,True,True
+Venki Ramakrishnan,biology,83,96,3,5,5,4,4,4,5,5,5,4,Nobel prestige with a tractable human story,"science, institutions, India, and autobiography",False,True,False
+Ngozi Okonjo-Iweala,trade and development,88,94,4,5,4,5,4,4,4,5,5,4,global trade with an immediately legible institutional role,"development, Africa, trade rules, and state capacity create a high-preparation conversation",True,True,True
+Sarah Paine,military history,90,98,3,5,5,5,5,5,5,5,5,4,specialist intensity and recommendation value,"precisely the kind of deep, surprising historical explanation Tyler prizes",True,True,True
+Caitlin Talmadge,security studies,86,94,3,5,5,5,4,4,4,5,5,4,war and deterrence have immediate relevance,technical strategy plus an accessible explanatory style,True,True,True
+Andrei Soldatov,Russia and surveillance,90,97,3,5,5,5,5,5,5,5,5,3,rare on-the-ground expertise,the combination of regime knowledge and direct reporting is unusually CWT-compatible,True,True,True
+Kori Schake,security studies,85,94,3,5,4,5,5,4,4,5,5,4,clear and timely foreign-policy conversation,"institutional experience, history, and frank strategic judgment",True,True,True
+Dawn Song,computer security,86,97,3,5,5,5,3,5,5,5,5,3,AI and security without generic founder talk,technical originality and a focused subject,True,True,True
+Regina Barzilay,AI medicine,88,97,3,5,5,5,4,5,5,5,5,3,clear human payoff from frontier AI,"medicine, algorithms, and personal scientific motivation",True,True,True
+Percy Liang,AI research,86,97,3,5,5,5,4,4,5,5,5,3,"a credible, less overexposed AI expert",excellent fit for questions on evaluation and the production function of science,True,True,True
+Hernan Diaz,fiction,85,96,3,5,5,4,4,5,5,5,5,4,a distinctive author likely to generate strong word of mouth,"literature, capitalism, and form create unusually rich preparation payoff",True,True,True
+Amor Towles,fiction,83,96,3,5,5,4,4,4,5,5,5,4,large book audience and accessible conversational style,"historical imagination, Russia, and social observation",False,True,False
+Kiana Hayeri,photojournalism,90,97,3,5,5,5,5,5,5,5,5,3,first-hand reporting gives the episode narrative momentum,"Afghanistan, migration, aesthetics, and lived knowledge",True,True,True
+Misha Glenny,geopolitics,90,98,3,5,5,5,5,5,5,5,5,4,broad relevance without pundit monotony,"crime, technology, Central Europe, and history",True,True,True
+Katherine De Kleer,planetary science,78,95,2,5,5,4,3,5,5,5,5,3,a compelling niche-science surprise,"pure expertise and an alien world, with a clear single subject",False,True,False
