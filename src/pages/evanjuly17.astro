@@ -1,0 +1,146 @@
+---
+const stops = [
+  { rank: '01', name: 'The Magician', area: 'Lower East Side', moment: 'The opener', score: '9.3', price: '$', social: 'High', crowd: 'Late 20s / early 30s', note: 'A red-neon room with enough motion to make talking to strangers feel normal. Start here before the night becomes a project.', why: 'The best all-around answer: busy, unpretentious, cheap enough to stay loose, and never trying to turn the night into a nightclub audition.', image: 'https://images.squarespace-cdn.com/content/v1/628e87b30aa7f925d2044b84/574d9014-c39f-4fdd-8467-a3fdf11579df/072623+-+The+Magician-2+%282%29.jpg', maps: 'https://maps.google.com/?q=The+Magician+118+Rivington+Street+NYC', site: 'https://www.themagicianbar.com/' },
+  { rank: '02', name: 'Bua', area: 'St. Marks / East Village', moment: 'The reliable middle', score: '9.0', price: '$$', social: 'High', crowd: '25–32 sweet spot', note: 'An open-front room with a happy, low-stakes current. Easy to enter, easy to linger, easy to leave with a larger group than you arrived with.', why: 'Bua has the night-to-night consistency. It is the right kind of busy: social rather than precious, and lively without the awful bottle-service undertow.', image: 'https://images.getbento.com/accounts/c44f61e7a149fc1687b176d796599dfb/media/images/91951buamrk.png', maps: 'https://maps.google.com/?q=Bua+122+St+Marks+Place+NYC', site: 'https://www.buabar.com/' },
+  { rank: '03', name: 'The Lions', area: 'East Village', moment: 'The polished pivot', score: '8.7', price: '$$', social: 'Medium-high', crowd: '28–35', note: 'Burgers, cold beer, martinis, and a good-looking room that stops short of becoming a scene.', why: 'Pick this when the group wants a touch more polish and a crowd that has generally aged out of the first-job stampede.', image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85', maps: 'https://maps.google.com/?q=The+Lions+132+First+Avenue+NYC', site: 'https://www.thelionsbar.com/' },
+  { rank: '04', name: 'Ace Bar', area: 'Alphabet City', moment: 'The stranger-maker', score: '8.6', price: '$', social: 'Very high', crowd: 'Mixed, adult dive energy', note: 'Pool, darts, skee-ball, pinball. A bar with built-in reasons to say something besides “what are you drinking?”', why: 'The strongest place to convert a group night into a meeting-people night. Play something, lose something, talk to whoever is next.', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=85', maps: 'https://maps.google.com/?q=Ace+Bar+531+East+5th+Street+NYC', site: 'https://www.acebar.com/' },
+  { rank: '05', name: 'B-Side', area: 'Avenue C', moment: 'The soft landing', score: '8.3', price: '$', social: 'Medium', crowd: 'Neighborhood 20s / 30s', note: 'Relaxed and lived-in, with the mood of a neighborhood bar that did not receive a brand refresh.', why: 'For a group that wants the East Village without the pressure to make an entrance. Best as an early or late change of temperature.', image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=85', maps: 'https://maps.google.com/?q=B-Side+131+Avenue+C+NYC', site: 'https://www.bsidenyc.bar/' },
+  { rank: '06', name: '169 Bar', area: 'Chinatown / LES', moment: 'The cheap weird option', score: '8.2', price: '$', social: 'High', crowd: 'Can skew younger late', note: 'Funky, loud, a little strange, with cocktails that do not punish the wallet.', why: 'A wonderful choice before midnight. After that, the same energy can tilt recent-grad and feral. Use it with intention.', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=85', maps: 'https://maps.google.com/?q=169+Bar+169+East+Broadway+NYC', site: 'https://169barnyc.com/' },
+  { rank: '07', name: 'The Wayland', area: 'Alphabet City', moment: 'The music answer', score: '8.1', price: '$$', social: 'Medium', crowd: 'Creative 25–35', note: 'Cocktails, warmth, live music, and a room that feels more house party than hunt.', why: 'Choose it when cool means people with stories rather than the largest possible crowd. Less random mingling, better conversation.', image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1600&q=85', maps: 'https://maps.google.com/?q=The+Wayland+700+East+9th+Street+NYC', site: 'https://www.thewaylandnyc.com/' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evan's Drunken Holes | Saturday, July 17</title>
+    <meta name="description" content="A field guide for an actually good Saturday bar night in the East Village and Lower East Side." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="hero-top"><span>JACK'S FIELD GUIDE</span><span>NYC / SATURDAY</span><span>17 JULY 2026</span></div>
+        <p class="kicker">FOR EVAN, AND WHOEVER ELSE GETS THE TEXT</p>
+        <h1>A good night<br /><i>without the</i> bullshit.</h1>
+        <div class="hero-bottom">
+          <p>Seven bars for a Saturday that begins casually, gets loose, and still has a chance of putting cool people in your path.</p>
+          <a href="#plan">The night plan <span>↓</span></a>
+        </div>
+      </section>
+
+      <section class="manifesto" id="plan">
+        <div class="number">00</div>
+        <div>
+          <p class="eyebrow">THE BRIEF</p>
+          <h2>Drinks, no dinner. A lot of people. No recent-grad gauntlet.</h2>
+          <p class="lede">This is a list for 25–32ish energy: places with friction, character, prices that do not induce early restraint, and enough room to meet people. The scoring favors a bar you can walk into without performing taste.</p>
+        </div>
+      </section>
+
+      <section class="criteria">
+        <p class="eyebrow">HOW THE LIST WORKS</p>
+        <div class="criteria-grid">
+          <div><b>01</b><h3>Social gravity</h3><p>Is there an actual reason to talk to people, or just groups guarding their tables?</p></div>
+          <div><b>02</b><h3>Price elasticity</h3><p>Can everyone buy another round without somebody announcing the Uber home at 11:15?</p></div>
+          <div><b>03</b><h3>Crowd maturity</h3><p>The point is energy, not internship-summer chaos or after-work finance cosplay.</p></div>
+          <div><b>04</b><h3>Saturday readiness</h3><p>A place must be alive enough to matter, but not so loud that the only plan is to get drunker.</p></div>
+        </div>
+      </section>
+
+      <section class="route">
+        <p class="eyebrow">THE PLAN, IF WE WANT ONE</p>
+        <div class="route-line"><span>9:30</span><strong>The Magician</strong><i>Get in before the room goes full.</i></div>
+        <div class="route-line"><span>11:00</span><strong>Bua <em>or</em> The Lions</strong><i>Pick Bua for volume, Lions for a better-looking crowd.</i></div>
+        <div class="route-line"><span>12:30</span><strong>Ace Bar</strong><i>Pool, pinball, dartboard. Let the night spill outward.</i></div>
+        <div class="route-note">Alternate ending: 169 Bar, before midnight, if weird and cheap wins the vote.</div>
+      </section>
+
+      <section class="spots">
+        <div class="spots-heading"><p class="eyebrow">THE OPTIONS</p><p>Tap a bar for directions or its current details.</p></div>
+        {stops.map((stop) => (
+          <article class="spot">
+            <div class="spot-image"><img src={stop.image} alt={`Mood and visual reference for ${stop.name}`} loading="lazy" /><span>VISUAL MOOD</span></div>
+            <div class="spot-copy">
+              <div class="spot-meta"><span>{stop.rank}</span><span>{stop.area}</span><span>FIT {stop.score}</span></div>
+              <h2>{stop.name}</h2>
+              <p class="moment">{stop.moment}</p>
+              <p>{stop.note}</p>
+              <p class="why">{stop.why}</p>
+              <dl><div><dt>PRICE</dt><dd>{stop.price}</dd></div><div><dt>SOCIAL</dt><dd>{stop.social}</dd></div><div><dt>CROWD</dt><dd>{stop.crowd}</dd></div></dl>
+              <div class="links"><a href={stop.maps} target="_blank">Map it ↗</a><a href={stop.site} target="_blank">Venue details ↗</a></div>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <footer>
+        <p>JACK MAGUIRE / EVAN'S DRUNKEN HOLES</p>
+        <p>Saturday is not a thesis. Make the first good decision, then follow the room.</p>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; background: #efe8dc; color: #1d1a18; font-family: 'DM Sans', sans-serif; }
+  main { max-width: 1460px; margin: auto; background: #f8f5ee; overflow: hidden; }
+  .hero { min-height: 770px; padding: 30px 5.2vw 44px; color: #f7f2e9; background: radial-gradient(circle at 73% 65%, rgba(200,52,35,.88), transparent 21%), radial-gradient(circle at 23% 22%, rgba(250,178,91,.19), transparent 22%), linear-gradient(122deg, #111414 0%, #17251f 47%, #3f1716 100%); display: flex; flex-direction: column; justify-content: space-between; }
+  .hero-top, .spot-meta, .eyebrow, .kicker, footer, dt { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .11em; }
+  .hero-top { display: flex; justify-content: space-between; opacity: .85; }
+  .kicker { margin: auto 0 16px; color: #f4b56f; }
+  h1 { margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(70px, 12vw, 178px); line-height: .78; letter-spacing: -.07em; max-width: 950px; }
+  h1 i { color: #ec5b41; font-weight: 400; }
+  .hero-bottom { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-top: 42px; }
+  .hero-bottom p { max-width: 360px; margin: 0; font-size: 18px; line-height: 1.35; }
+  .hero-bottom a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 8px; font-family: 'DM Mono', monospace; font-size: 12px; }
+  .hero-bottom span { color: #f4b56f; font-size: 18px; padding-left: 20px; }
+  .manifesto { padding: 130px 10% 105px; display: grid; grid-template-columns: 100px 1fr; gap: 30px; }
+  .number { font: 13px 'DM Mono', monospace; color: #bd422d; }
+  .eyebrow { color: #bd422d; margin: 0 0 18px; }
+  h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.04em; }
+  .manifesto h2 { font-size: clamp(44px, 6vw, 84px); line-height: .95; margin: 0; max-width: 940px; }
+  .lede { max-width: 610px; font-size: 20px; line-height: 1.45; margin: 38px 0 0; }
+  .criteria { padding: 78px 10%; background: #1c2924; color: #f7f2e9; }
+  .criteria .eyebrow { color: #efad69; }
+  .criteria-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 52px; }
+  .criteria-grid b { font: 13px 'DM Mono', monospace; color: #e55a41; }
+  .criteria-grid h3 { font-size: 22px; margin: 14px 0 10px; font-weight: 600; }
+  .criteria-grid p { font-size: 15px; line-height: 1.45; color: #c8d0c7; margin: 0; }
+  .route { padding: 115px 10%; }
+  .route-line { display: grid; grid-template-columns: 112px minmax(210px, 1fr) 1.25fr; gap: 14px; align-items: baseline; padding: 19px 0; border-top: 1px solid #c9c1b5; }
+  .route-line span, .route-note { font: 12px 'DM Mono', monospace; color: #bd422d; }
+  .route-line strong { font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; font-weight: 400; letter-spacing: -.025em; }
+  .route-line em { color: #bd422d; font-size: .65em; }
+  .route-line i { font-size: 16px; color: #665f59; font-style: normal; }
+  .route-note { margin: 20px 0 0 112px; }
+  .spots { padding: 90px 5.2vw 100px; background: #dc563d; }
+  .spots-heading { display: flex; justify-content: space-between; color: #301b18; align-items: baseline; border-bottom: 1px solid rgba(48,27,24,.45); padding-bottom: 20px; }
+  .spots-heading .eyebrow, .spots-heading p { margin: 0; }
+  .spots-heading .eyebrow { color: #301b18; }
+  .spot { display: grid; grid-template-columns: 1.03fr .97fr; min-height: 560px; border-bottom: 1px solid rgba(48,27,24,.42); }
+  .spot:nth-of-type(even) { direction: rtl; }
+  .spot > * { direction: ltr; }
+  .spot-image { position: relative; min-height: 440px; overflow: hidden; margin: 38px 0; }
+  .spot-image:after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, transparent 65%, rgba(20,12,9,.5)); }
+  .spot-image img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; filter: saturate(.8) contrast(1.06); }
+  .spot-image span { position: absolute; z-index: 1; bottom: 16px; left: 18px; color: #fff7ea; font: 10px 'DM Mono', monospace; letter-spacing: .1em; }
+  .spot-copy { padding: 62px 9%; display: flex; flex-direction: column; justify-content: center; }
+  .spot-meta { display: flex; justify-content: space-between; color: rgba(48,27,24,.8); }
+  .spot-copy h2 { font-size: clamp(58px, 6.5vw, 104px); line-height: .86; margin: 26px 0 8px; }
+  .moment { color: #f8eddc; font: 17px 'DM Mono', monospace; margin: 0 0 22px; }
+  .spot-copy > p:not(.moment) { max-width: 480px; font-size: 16px; line-height: 1.45; margin: 0 0 14px; }
+  .spot-copy .why { font-weight: 600; }
+  dl { display: grid; grid-template-columns: 1fr 1fr 1.5fr; margin: 26px 0; gap: 12px; }
+  dt { font-size: 9px; color: rgba(48,27,24,.75); margin-bottom: 4px; }
+  dd { margin: 0; font-size: 13px; }
+  .links { display: flex; gap: 22px; }
+  .links a { color: #301b18; text-decoration: none; font: 12px 'DM Mono', monospace; border-bottom: 1px solid #301b18; padding-bottom: 5px; }
+  footer { min-height: 240px; padding: 44px 5.2vw; color: #f4e9dc; background: #161514; display: flex; justify-content: space-between; align-items: end; }
+  footer p { max-width: 390px; margin: 0; line-height: 1.5; }
+  @media (max-width: 720px) { .hero { min-height: 660px; padding: 22px 24px 30px; } .hero-top span:nth-child(2) { display:none; } .hero-bottom, .spots-heading, footer { align-items: start; flex-direction: column; } .hero-bottom { gap: 24px; } .manifesto { padding: 80px 24px; grid-template-columns: 1fr; gap: 16px; } .criteria, .route { padding: 64px 24px; } .criteria-grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; } .route-line { grid-template-columns: 70px 1fr; } .route-line i { grid-column: 2; } .route-note { margin-left: 70px; } .spots { padding: 60px 24px; } .spot, .spot:nth-of-type(even) { display:flex; flex-direction: column; direction:ltr; } .spot-image { min-height: 300px; margin: 30px 0 0; } .spot-copy { padding: 38px 0 48px; } .spot-copy h2 { font-size: 65px; } footer { gap: 22px; } }
+</style>
