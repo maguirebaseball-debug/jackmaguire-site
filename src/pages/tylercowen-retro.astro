@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import analysis from '../data/tyler-retro-analysis.json';
 
 const title = 'What Makes a Conversations with Tyler Episode Work';
 const description = 'A seven-year retrospective of audience reach, audience love, and Tyler Cowen’s own favorite conversations.';
@@ -15,36 +16,22 @@ const yearlyLeaders = [
   { year: '2025', top: 'Sam Altman', loved: 'David Commins', tyler: 'Any Austin / Donald Lopez', note: 'Commins is the year’s most useful outlier.' },
 ];
 
-const viewEffects = [
-  { label: 'Guest fame', value: 82, score: '+0.82' },
-  { label: 'Topical salience', value: 47, score: '+0.47' },
-  { label: 'Social distribution', value: 36, score: '+0.36' },
-  { label: 'Debate or controversy', value: 26, score: '+0.26' },
-  { label: 'Institutional access', value: 22, score: '+0.22' },
-  { label: 'Arts or specialist niche', value: -31, score: '-0.31' },
-  { label: 'Obscurity without a hook', value: -28, score: '-0.28' },
-  { label: 'Accent or audio friction', value: -20, score: '-0.20' },
-];
-
-const loveEffects = [
-  { label: 'Host enthusiasm', value: 67, score: '+0.67' },
-  { label: 'Guest authenticity', value: 61, score: '+0.61' },
-  { label: 'Expertise depth', value: 49, score: '+0.49' },
-  { label: 'Single-subject focus', value: 44, score: '+0.44' },
-  { label: 'Emotional disclosure', value: 36, score: '+0.36' },
-  { label: 'Novelty', value: 25, score: '+0.25' },
-  { label: 'Accent or audio friction', value: -17, score: '-0.17' },
-];
-
-const tylerEffects = [
-  { label: 'Expertise depth', value: 79, score: '+0.79' },
-  { label: 'Guest authenticity', value: 73, score: '+0.73' },
-  { label: 'Single-subject focus', value: 69, score: '+0.69' },
-  { label: 'Prep payoff', value: 61, score: '+0.61' },
-  { label: 'Fast, specific answers', value: 49, score: '+0.49' },
-  { label: 'Rapport', value: 42, score: '+0.42' },
-  { label: 'Celebrity alone', value: -12, score: '-0.12' },
-];
+const measuredDimensions = analysis.dimensions.filter((dimension) => dimension.state === 'coded' && !dimension.sparse);
+const topEffects = (outcome: 'acquisition' | 'affection' | 'tyler') => measuredDimensions
+  .filter((dimension) => !dimension.effects![outcome].notApplicable)
+  .map((dimension) => ({
+    label: dimension.label,
+    value: dimension.effects![outcome].differencePp,
+    interval: dimension.effects![outcome].interval80,
+  }))
+  .sort((left, right) => Math.abs(right.value) - Math.abs(left.value))
+  .slice(0, 7);
+const viewEffects = topEffects('acquisition');
+const loveEffects = topEffects('affection');
+const tylerEffects = topEffects('tyler');
+const outcomeByKey = Object.fromEntries(analysis.outcomes.map((outcome) => [outcome.key, outcome]));
+const displayPp = (value: number) => `${value >= 0 ? '+' : ''}${value}pp`;
+const displayInterval = (interval: number[] | null) => interval ? `[${interval[0]}, ${interval[1]}]` : 'sparse';
 
 const outliers = [
   { name: 'David Commins', year: '2025', x: 39, y: 86, quote: 'Tyler expected a Saudi Arabia episode to be near the bottom. It finished seventh.' },
@@ -55,23 +42,6 @@ const outliers = [
   { name: 'Masaaki Suzuki', year: '2024', x: 18, y: 71, quote: 'A specialist Bach episode that exposes how subject knowledge and accent can shape starts.' },
 ];
 
-const dimensions = [
-  ['Reach', 'Guest fame', 'Known guest brings new listeners into the first ten minutes.'],
-  ['Reach', 'Topical salience', 'The subject arrives with its own news cycle or audience appetite.'],
-  ['Reach', 'Social distribution', 'The guest has a high-propensity referral network.'],
-  ['Conversation', 'Single subject', 'One expert, one intellectual object, one legible promise.'],
-  ['Conversation', 'Pushback', 'Serious disagreement that forces a guest out of prepared language.'],
-  ['Conversation', 'Prep payoff', 'Tyler learns something he could not have learned by reading alone.'],
-  ['Human', 'Authenticity', 'The guest is not optimizing every answer for media appearance.'],
-  ['Human', 'Emotional disclosure', 'The conversation admits stakes, memory, failure, or mortality.'],
-  ['Language', 'Question density', 'How often Tyler opens a new line of inquiry.'],
-  ['Language', 'Follow-up density', 'How often a first answer receives pressure rather than praise.'],
-  ['Language', 'Specificity', 'Proper nouns, examples, numbers, and irreducible detail.'],
-  ['Language', 'Hedge rate', 'Caution can make claims trustworthy, or drain momentum.'],
-  ['Style', 'Answer speed', 'Quick, concrete answers help conversation feel alive.'],
-  ['Style', 'Narrative arc', 'A beginning, turn, and destination that make recommendation easier.'],
-  ['Style', 'Unexpected ending', 'A close that gives a listener something to repeat.'],
-];
 ---
 
 <!doctype html>
@@ -105,8 +75,8 @@ const dimensions = [
           <p>A seven-year read of which conversations attracted the largest audience, which became loved, and which Tyler himself found most alive.</p>
           <dl>
             <div><dt>07</dt><dd>retrospectives</dd></div>
-            <div><dt>61</dt><dd>episode-year signals</dd></div>
-            <div><dt>62</dt><dd>coded dimensions</dd></div>
+            <div><dt>{analysis.panel.rows}</dt><dd>retrospective mentions</dd></div>
+            <div><dt>{analysis.dimensions.length}</dt><dd>pre-registered dimensions</dd></div>
           </dl>
         </div>
       </section>
@@ -115,7 +85,7 @@ const dimensions = [
         <p class="section-label">THE MAIN FINDING</p>
         <div>
           <h2>There are three different ways for an episode to work.</h2>
-          <p class="lede">A famous guest maximizes starts. An unusually specific conversation maximizes recommendations. Tyler’s favorites arise when serious preparation meets an unstandardized mind. The tension among those outcomes is the point of the show, not a bug in the data.</p>
+          <p class="lede">The evidence supports a narrower claim than the first version made. In this selected retrospective panel, fame is strongly enriched among download leaders. History, obscurity, and specialist expertise are enriched among the love signals. Those are descriptive contrasts, not causal effects.</p>
         </div>
       </section>
 
@@ -123,19 +93,19 @@ const dimensions = [
         <article class="way acquisition">
           <span>01</span>
           <h3>Audience<br />acquisition</h3>
-          <p>Official first-week audio-download rankings. The strongest pull comes from fame, topical relevance, and a large external network.</p>
+          <p>{outcomeByKey.acquisition.events} of {analysis.panel.rows} mentions ({outcomeByKey.acquisition.rate}%) appear in a retrospective top-download list.</p>
           <strong>Sam Altman<br />Paul Graham<br />Peter Thiel</strong>
         </article>
         <article class="way affection">
           <span>02</span>
           <h3>Audience<br />affection</h3>
-          <p>Retention, direct listener mentions, and producer observations. This is where Lazarus Lake, Stephen Kotkin, and Amia Srinivasan matter.</p>
+          <p>{outcomeByKey.affection.events} of {analysis.panel.rows} mentions ({outcomeByKey.affection.rate}%) carry a direct listener-favorite or retention signal.</p>
           <strong>Lazarus Lake<br />Stephen Kotkin<br />Vishy Anand</strong>
         </article>
         <article class="way tyler">
           <span>03</span>
           <h3>Tyler’s<br />enjoyment</h3>
-          <p>Explicit retrospective language: “favorite,” “best,” “all-timer,” “magical,” and personal highlight. A host outcome, not an audience proxy.</p>
+          <p>{outcomeByKey.tyler.events} of {analysis.panel.rows} mentions ({outcomeByKey.tyler.rate}%) receive the strongest Tyler-praise code. This is a host outcome, not an audience proxy.</p>
           <strong>Knausgård<br />Donald Lopez<br />Any Austin</strong>
         </article>
       </section>
@@ -151,11 +121,11 @@ const dimensions = [
       </section>
 
       <section class="effects" id="effects">
-        <div class="effects-intro"><p class="section-label">WHAT THE MODEL SAYS</p><h2>Same show. Different outcome functions.</h2><p>Bars are standardized exploratory associations from the coded retrospective panel. They rank direction and relative magnitude. They are not causal estimates and should guide the next analytics pull, not settle it.</p></div>
+        <div class="effects-intro"><p class="section-label">WHAT THE PANEL ACTUALLY SAYS</p><h2>Descriptive enrichment, in percentage points.</h2><p>Every bar is the observed outcome rate when a feature is present minus its rate when absent. The bracket is an 80% bootstrap interval from 5,000 deterministic resamples. It is not a regression coefficient, a p-value, or a causal estimate.</p></div>
         <div class="effect-grid">
-          <article class="effect-card"><header><span class="dot acquisition-dot"></span><p>Audience views</p><small>What gets the start</small></header><div class="bar-list">{viewEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.abs(effect.value)}%`}></i></div><b>{effect.score}</b></div>)}</div></article>
-          <article class="effect-card"><header><span class="dot affection-dot"></span><p>Audience love</p><small>What gets remembered</small></header><div class="bar-list">{loveEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.abs(effect.value)}%`}></i></div><b>{effect.score}</b></div>)}</div></article>
-          <article class="effect-card"><header><span class="dot tyler-dot"></span><p>Tyler enjoyment</p><small>What feels worth the prep</small></header><div class="bar-list">{tylerEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.abs(effect.value)}%`}></i></div><b>{effect.score}</b></div>)}</div></article>
+          <article class="effect-card"><header><span class="dot acquisition-dot"></span><p>Acquisition</p><small>Top-download-list enrichment</small></header><div class="bar-list">{viewEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.min(Math.abs(effect.value), 100)}%`}></i></div><b>{displayPp(effect.value)}<small>{displayInterval(effect.interval)}</small></b></div>)}</div></article>
+          <article class="effect-card"><header><span class="dot affection-dot"></span><p>Audience affection</p><small>Listener-favorite enrichment</small></header><div class="bar-list">{loveEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.min(Math.abs(effect.value), 100)}%`}></i></div><b>{displayPp(effect.value)}<small>{displayInterval(effect.interval)}</small></b></div>)}</div></article>
+          <article class="effect-card"><header><span class="dot tyler-dot"></span><p>Strong Tyler pick</p><small>Highest retrospective praise code</small></header><div class="bar-list">{tylerEffects.map((effect) => <div class:list={['effect-row', effect.value < 0 && 'negative']}><span>{effect.label}</span><div class="track"><i style={`width:${Math.min(Math.abs(effect.value), 100)}%`}></i></div><b>{displayPp(effect.value)}<small>{displayInterval(effect.interval)}</small></b></div>)}</div></article>
         </div>
       </section>
 
@@ -175,8 +145,26 @@ const dimensions = [
       </section>
 
       <section class="taxonomy">
-        <div class="taxonomy-head"><p class="section-label">THE 62-DIMENSION CODEBOOK</p><h2>Episodes were tagged by subject, construction, human texture, and language.</h2><p>The full codebook also measures word and phrase patterns: question and follow-up density, use of numbers and examples, hedging, certainty, surprise markers, proper-noun density, answer speed, narrative arc, and guest-specific lexicon.</p></div>
-        <div class="dimension-grid">{dimensions.map(([group, dimension, definition]) => <article><span>{group}</span><h3>{dimension}</h3><p>{definition}</p></article>)}</div>
+        <div class="taxonomy-head"><p class="section-label">THE 62-DIMENSION CODEBOOK</p><h2>Every dimension, its operational definition, and its data status.</h2><p>Thirty-five features were coded from the annual retrospectives. Twenty-seven transcript and audio measures are pre-registered here but explicitly unobserved. The table never turns an unmeasured quantity into a zero.</p></div>
+        <div class="codebook-note"><p><b>Reading a cell:</b> Δ is feature-present rate minus feature-absent rate, in percentage points. Brackets are 80% bootstrap intervals. “Sparse” means fewer than four observations in a comparison group. “Not observed” means the available source corpus cannot identify the feature.</p></div>
+        <div class="codebook-wrap">
+          <table class="codebook-table">
+            <thead><tr><th>Family</th><th>Dimension and definition</th><th>Observed n</th><th>Acquisition Δ</th><th>Affection Δ</th><th>Tyler Δ</th><th>Status</th></tr></thead>
+            <tbody>{analysis.dimensions.map((dimension) => <tr class:list={[dimension.state === 'not_observed' && 'unobserved']}>
+              <td>{dimension.group}</td>
+              <td><b>{dimension.label}</b><span>{dimension.definition}</span></td>
+              {dimension.state === 'coded' ? <>
+                <td>{dimension.support!.present}/{analysis.panel.rows}</td>
+                <td>{displayPp(dimension.effects!.acquisition.differencePp)}<small>{displayInterval(dimension.effects!.acquisition.interval80)}</small></td>
+                <td>{displayPp(dimension.effects!.affection.differencePp)}<small>{displayInterval(dimension.effects!.affection.interval80)}</small></td>
+                {dimension.effects!.tyler.notApplicable ? <td>n/a<small>overlaps outcome</small></td> : <td>{displayPp(dimension.effects!.tyler.differencePp)}<small>{displayInterval(dimension.effects!.tyler.interval80)}</small></td>}
+                <td>{dimension.sparse ? 'Sparse' : 'Coded'}</td>
+              </> : <>
+                <td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Not observed</td>
+              </>}
+            </tr>)}</tbody>
+          </table>
+        </div>
       </section>
 
       <section class="recommendations">
@@ -187,7 +175,7 @@ const dimensions = [
 
       <section class="method" id="method">
         <p class="section-label">METHOD AND SOURCES</p>
-        <div><h2>Useful precisely because it does not pretend to know too much.</h2><p>The official retrospective transcripts provide first-week download rankings, some retention observations, producer commentary, listener anecdotes, and Tyler’s explicit favorites. They do not provide a clean public YouTube-view panel or a complete episode-level analytics dataset. “Audience views” therefore means the show’s reported audio-download metric. “Audience love” is a transparent qualitative proxy.</p><p>The next version should use the show’s first-party data: downloads at fixed ages, starts, retention, completion, referral source, promotion exposure, prior guest fame, and transcript or audio features. Then estimate acquisition and attachment as separate stages, with year effects, guest history, release timing, and format controls.</p><p class="sources"><a href="https://conversationswithtyler.com/episodes/tyler-looks-back-on-2019-bonus/">2019</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2020-retrospective/">2020</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2021-retrospective/">2021</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2022-retrospective/">2022</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2023-retrospective/">2023</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2024-retrospective/">2024</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2025-retrospective/">2025</a></p></div>
+        <div><h2>The number is useful only when you can reconstruct it.</h2><p><b>Unit and corpus.</b> The panel has {analysis.panel.rows} retrospective episode-year mentions covering {analysis.panel.distinctGuests} distinct guests from the seven official 2019 to 2025 CWT retrospectives. It is a selected sample of episodes the show chose to discuss. It is not the full episode universe, so neither its rates nor its contrasts generalize mechanically to the show.</p><p><b>Outcomes.</b> Acquisition means an episode was named in a retrospective top-download list. Audience affection means the retrospective supplied a listener-favorite, unusually strong retention, or equivalent direct listener-response signal. Strong Tyler pick means the hand-coded Tyler-enjoyment score equals 3, reserved for the strongest personal-praise language. These are three binary outcomes, reported separately because a download leader and a beloved conversation are not the same object.</p><p><b>Estimator.</b> For each coded feature d and outcome Y, the reported statistic is Δ<sub>d</sub> = mean(Y | d = 1) − mean(Y | d = 0). It is an unadjusted rate difference in percentage points. The interval is an 80% percentile bootstrap with 5,000 seeded resamples (seed 20260717). Intervals are withheld when either comparison group has fewer than four rows. The code and exact input files below reproduce every displayed number. Host enthusiasm is withheld from the Strong Tyler Pick comparison because the two codes overlap.</p><p><b>What it does not identify.</b> Features and outcomes are both hand-coded from the same retrospective documents. Selection into the panel is outcome-related. The table therefore describes co-occurrence in a curated retrospective sample. It does not identify causal effects, produce a predictive model, or substitute for the show’s first-party analytics. A defensible next stage would use the full episode universe, downloads at fixed ages, starts, retention, completion, promotion exposure, guest fame measured before release, release timing, and transcript or diarized-audio measures. Then it could estimate preregistered models with year and format controls.</p><p class="sources"><b>Primary sources:</b> <a href="https://conversationswithtyler.com/episodes/tyler-looks-back-on-2019-bonus/">2019</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2020-retrospective/">2020</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2021-retrospective/">2021</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2022-retrospective/">2022</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2023-retrospective/">2023</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2024-retrospective/">2024</a> · <a href="https://conversationswithtyler.com/episodes/conversations-with-tyler-2025-retrospective/">2025</a></p><p class="sources"><b>Reproducibility:</b> <a href="/data/tyler-retro-panel.csv">coded panel CSV</a> · <a href="/data/tyler-retro-analysis.json">analysis output JSON</a> · <a href="https://github.com/maguirebaseball-debug/jackmaguire-site/blob/main/scripts/analyze-tyler-retro.mjs">analysis script</a></p></div>
       </section>
       <footer><a href="/">JACK MAGUIRE</a><span>BUILT FROM THE OFFICIAL RETROSPECTIVE ARCHIVE</span><a href="#top">BACK TO TOP ↑</a></footer>
     </main>
@@ -239,13 +227,13 @@ const dimensions = [
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 27px; }.section-head > p:last-child { max-width: 350px; margin: 0; font-size: 14px; color: #68716f; }
   .year-table .section-label, .effects .section-label, .scatter-copy .section-label, .taxonomy .section-label, .recommendations .section-label, .method .section-label { color: #bc5038; }
   .table-wrap { overflow-x: auto; border-top: 1px solid #aab0ad; }.year-table table { width: 100%; margin: 0; border-collapse: collapse; display: table; font-size: 14px; }.year-table th { padding: 14px 10px; color: #6b7372; border-bottom: 1px solid #aab0ad; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .07em; text-align: left; text-transform: uppercase; }.year-table td { padding: 20px 10px; border-bottom: 1px solid #cbd0ca; vertical-align: top; }.year-table td:first-child { font: 22px Georgia, serif; }.year-table td:nth-child(2), .year-table td:nth-child(3), .year-table td:nth-child(4) { font-weight: 700; }.year-table td:last-child { max-width: 360px; color: #5f6b70; line-height: 1.45; }
-  .effects { padding: 120px 7vw; background: #142b3c; }.effects-intro { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 35px; align-items: end; }.effects-intro > p:last-child { margin: 0; color: #aebdbc; font-size: 14px; line-height: 1.5; }.effects-intro h2 { color: #eff0e8; }.effect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 62px; }.effect-card { padding: 25px 22px 28px; border: 1px solid rgba(237, 238, 230, .22); background: rgba(255,255,255,.025); }.effect-card header { display: grid; grid-template-columns: 10px 1fr; column-gap: 9px; align-items: center; margin-bottom: 26px; }.effect-card header p { margin: 0; font: 24px Georgia, serif; color: #f0ede3; }.effect-card header small { grid-column: 2; color: #b4c2c1; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }.dot { display: block; width: 8px; height: 8px; border-radius: 50%; }.acquisition-dot { background: #f1a93c; }.affection-dot { background: #61c5b5; }.tyler-dot { background: #e36e4f; }.effect-row { display: grid; grid-template-columns: 1.25fr 1fr 45px; gap: 10px; align-items: center; margin: 13px 0; }.effect-row > span { color: #d8dfd9; font-size: 12px; }.track { height: 6px; overflow: hidden; background: rgba(239, 240, 232, .13); }.track i { display:block; height:100%; background: #61c5b5; }.effect-card:first-child .track i { background:#f1a93c; }.effect-card:last-child .track i { background:#e36e4f; }.effect-row.negative .track i { background:#8a9b9f; }.effect-row b { color: #bdc9c8; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+  .effects { padding: 120px 7vw; background: #142b3c; }.effects-intro { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 35px; align-items: end; }.effects-intro > p:last-child { margin: 0; color: #aebdbc; font-size: 14px; line-height: 1.5; }.effects-intro h2 { color: #eff0e8; }.effect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 62px; }.effect-card { padding: 25px 22px 28px; border: 1px solid rgba(237, 238, 230, .22); background: rgba(255,255,255,.025); }.effect-card header { display: grid; grid-template-columns: 10px 1fr; column-gap: 9px; align-items: center; margin-bottom: 26px; }.effect-card header p { margin: 0; font: 24px Georgia, serif; color: #f0ede3; }.effect-card header small { grid-column: 2; color: #b4c2c1; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; }.dot { display: block; width: 8px; height: 8px; border-radius: 50%; }.acquisition-dot { background: #f1a93c; }.affection-dot { background: #61c5b5; }.tyler-dot { background: #e36e4f; }.effect-row { display: grid; grid-template-columns: 1.15fr 1fr 76px; gap: 10px; align-items: center; margin: 13px 0; }.effect-row > span { color: #d8dfd9; font-size: 12px; }.track { height: 6px; overflow: hidden; background: rgba(239, 240, 232, .13); }.track i { display:block; height:100%; background: #61c5b5; }.effect-card:first-child .track i { background:#f1a93c; }.effect-card:last-child .track i { background:#e36e4f; }.effect-row.negative .track i { background:#8a9b9f; }.effect-row b { color: #bdc9c8; font: 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }.effect-row b small { display:block; margin-top:3px; color:#849997; font:8px ui-monospace, SFMono-Regular, Menlo, monospace; }
   .scatter-section { display: grid; grid-template-columns: .9fr 1.1fr; gap: 7vw; padding: 130px 9vw; background: #eef1e8; color: #182432; }.scatter-copy p:not(.section-label) { max-width: 480px; color: #53605e; font-size: 16px; line-height: 1.55; }.scatter { position: relative; aspect-ratio: 1.1/1; margin: 0; background: #dfe5dc; border-left: 1px solid #40535a; border-bottom: 1px solid #40535a; overflow: visible; }.scatter-grid { position:absolute; inset:0; background-image: linear-gradient(to right, rgba(31,52,58,.13) 1px, transparent 1px), linear-gradient(to bottom, rgba(31,52,58,.13) 1px, transparent 1px); background-size:25% 25%; }.axis { position:absolute; font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.12em; color:#60716f; }.y-axis { left:-58px; top:50%; transform:rotate(-90deg); }.x-axis { right:0; bottom:-28px; }.point { position:absolute; z-index:2; width:17px; height:17px; transform:translate(-50%,50%); border:2px solid #f4f0e8; border-radius:50%; background:#be5038; cursor:pointer; transition: transform .2s ease, box-shadow .2s ease; }.point:hover, .point:focus { transform:translate(-50%,50%) scale(1.45); box-shadow:0 0 0 6px rgba(190,80,56,.18); outline:none; }.point-1,.point-3 { background:#56aa9d; }.point-2 { background:#d89d35; }.point-4 { background:#223e51; }.point-5 { background:#7e6a9d; }.tooltip { position:absolute; z-index:3; right:16px; top:16px; width:min(245px, 58%); padding:13px; background:#182c3b; color:#edf1e9; box-shadow:0 9px 24px rgba(0,0,0,.15); pointer-events:none; }.tooltip strong, .tooltip span { display:block; }.tooltip strong { margin-bottom:5px; font:600 13px Arial,sans-serif; }.tooltip i { color:#f1a93c; font:10px ui-monospace, SFMono-Regular, Menlo, monospace; font-style:normal; }.tooltip span { font-size:12px; line-height:1.38; color:#c7d1cd; }
   .outlier-table { padding: 100px 7vw; background:#f3a53d; color:#1b2834; }.outlier-table .section-label { color:#1d4b52; }.outlier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:36px; border:1px solid rgba(24,36,50,.38); background:rgba(24,36,50,.38); }.outlier-card { min-height:220px; padding:24px; background:#f3a53d; }.outlier-card span { color:#315659; font:10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.1em; }.outlier-card h3 { margin:42px 0 10px; font:400 40px/.9 Georgia,serif; letter-spacing:-.045em; }.outlier-card p { margin:0; font-size:13px; line-height:1.45; }
-  .taxonomy { padding:125px 9vw; background:#f1ebdf; color:#172432; }.taxonomy-head { display:grid; grid-template-columns:1fr 2.2fr .9fr; gap:32px; align-items:end; }.taxonomy-head p:last-child { margin:0; color:#5b686a; font-size:14px; line-height:1.5; }.dimension-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:60px; background:#b5bab3; border:1px solid #b5bab3; }.dimension-grid article { min-height:150px; padding:23px; background:#f1ebdf; }.dimension-grid span { color:#be5038; font:9px ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.1em; text-transform:uppercase; }.dimension-grid h3 { margin:22px 0 7px; font:400 29px/.93 Georgia,serif; letter-spacing:-.04em; }.dimension-grid p { margin:0; color:#596466; font-size:13px; line-height:1.42; }
+  .taxonomy { padding:125px 9vw; background:#f1ebdf; color:#172432; }.taxonomy-head { display:grid; grid-template-columns:1fr 2.2fr .9fr; gap:32px; align-items:end; }.taxonomy-head p:last-child { margin:0; color:#5b686a; font-size:14px; line-height:1.5; }.codebook-note { max-width:830px; margin:44px 0 20px; padding:16px 18px; border-left:3px solid #be5038; background:#e5dfd1; color:#4e5b5e; font-size:13px; line-height:1.5; }.codebook-note p { margin:0; }.codebook-wrap { overflow-x:auto; border-top:1px solid #aab0ad; }.codebook-table { width:100%; min-width:1040px; border-collapse:collapse; font-size:12px; }.codebook-table th { padding:13px 10px; border-bottom:1px solid #aab0ad; color:#596466; font:9px ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.07em; text-align:left; text-transform:uppercase; }.codebook-table td { padding:12px 10px; border-bottom:1px solid #cbd0ca; vertical-align:top; color:#3e4d51; }.codebook-table td:first-child { width:112px; color:#be5038; font:9px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.05em; text-transform:uppercase; }.codebook-table td:nth-child(2) { min-width:300px; }.codebook-table td:nth-child(n+3) { white-space:nowrap; font:10px ui-monospace,SFMono-Regular,Menlo,monospace; }.codebook-table td b, .codebook-table td span, .codebook-table td small { display:block; }.codebook-table td b { margin-bottom:4px; color:#192c35; font:600 14px Georgia,serif; }.codebook-table td span { max-width:395px; color:#65706e; font-size:11px; line-height:1.42; }.codebook-table td small { margin-top:4px; color:#7a827d; font-size:9px; }.codebook-table .unobserved { background:rgba(92,102,99,.055); }.codebook-table .unobserved td { color:#7c837e; }
   .recommendations { padding:125px 9vw; background:#b95742; color:#ffefdd; }.recommendations .section-label { color:#ffe2ac; }.recommendations h2 { max-width:920px; margin-top:34px; }.recommendation-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:70px; }.recommendation-grid b { color:#ffe2ac; }.recommendation-grid h3 { margin:18px 0 10px; font:400 33px/.95 Georgia,serif; letter-spacing:-.04em; }.recommendation-grid p { max-width:315px; margin:0; font-size:15px; line-height:1.5; color:#fde5d3; }
   .method { display:grid; grid-template-columns:1fr 2.3fr; gap:65px; padding:120px 9vw 135px; background:#172b3a; color:#edf0e8; }.method .section-label { color:#f1a93c; padding-top:12px; }.method h2 { max-width:720px; }.method p:not(.section-label) { max-width:720px; color:#c5d0cc; font-size:16px; line-height:1.55; }.method .sources { padding-top:14px; border-top:1px solid rgba(237,240,232,.2); font:11px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace; }.method .sources a { color:#f4b551; }
   footer { display:flex; justify-content:space-between; align-items:center; padding:25px 4.5vw; background:#0d1720; color:#cad4d0; font:10px ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.09em; } footer a { text-decoration:none; }
-  @media (max-width:900px) { .hero { min-height:680px; }.thesis, .effects-intro, .scatter-section, .taxonomy-head, .method { grid-template-columns:1fr; gap:26px; }.effect-grid { grid-template-columns:1fr; }.outlier-grid, .dimension-grid { grid-template-columns:repeat(2,1fr); }.three-ways, .recommendation-grid { grid-template-columns:1fr; }.way { min-height:300px; }.way h3 { margin:56px 0 18px; }.scatter { margin:15px 42px 28px 58px; }.method .section-label { padding-top:0; } }
-  @media (max-width:620px) { .retro-nav { padding:0 20px; }.retro-nav span { display:none; }.hero { min-height:650px; padding:62px 24px 32px; }.hero h1 { font-size:clamp(58px,17vw,90px); letter-spacing:-.08em; }.hero-bottom { align-items:start; flex-direction:column; gap:30px; }.hero-bottom dl { width:100%; justify-content:space-between; gap:0; }.hero-bottom dt { font-size:23px; }.thesis, .year-table, .effects, .scatter-section, .taxonomy, .recommendations, .method { padding:72px 24px; }.thesis h2, .effects h2, .scatter-copy h2, .taxonomy h2, .recommendations h2, .method h2 { font-size:43px; }.section-head { align-items:start; flex-direction:column; }.year-table table { min-width:760px; }.effects-intro > p:last-child { max-width:430px; }.effect-row { grid-template-columns:1.3fr 1fr 43px; }.outlier-table { padding:72px 24px; }.outlier-grid, .dimension-grid { grid-template-columns:1fr; }.outlier-card { min-height:180px; }.scatter { margin:15px 26px 30px 45px; aspect-ratio:1/1.13; }.tooltip { top:10px; right:10px; }.recommendation-grid { gap:34px; margin-top:48px; }.method { gap:28px; } footer { gap:15px; align-items:start; flex-direction:column; padding:24px; } }
+  @media (max-width:900px) { .hero { min-height:680px; }.thesis, .effects-intro, .scatter-section, .taxonomy-head, .method { grid-template-columns:1fr; gap:26px; }.effect-grid { grid-template-columns:1fr; }.outlier-grid { grid-template-columns:repeat(2,1fr); }.three-ways, .recommendation-grid { grid-template-columns:1fr; }.way { min-height:300px; }.way h3 { margin:56px 0 18px; }.scatter { margin:15px 42px 28px 58px; }.method .section-label { padding-top:0; } }
+  @media (max-width:620px) { .retro-nav { padding:0 20px; }.retro-nav span { display:none; }.hero { min-height:650px; padding:62px 24px 32px; }.hero h1 { font-size:clamp(58px,17vw,90px); letter-spacing:-.08em; }.hero-bottom { align-items:start; flex-direction:column; gap:30px; }.hero-bottom dl { width:100%; justify-content:space-between; gap:0; }.hero-bottom dt { font-size:23px; }.thesis, .year-table, .effects, .scatter-section, .taxonomy, .recommendations, .method { padding:72px 24px; }.thesis h2, .effects h2, .scatter-copy h2, .taxonomy h2, .recommendations h2, .method h2 { font-size:43px; }.section-head { align-items:start; flex-direction:column; }.year-table table { min-width:760px; }.effects-intro > p:last-child { max-width:430px; }.effect-row { grid-template-columns:1.1fr 1fr 72px; }.outlier-table { padding:72px 24px; }.outlier-grid { grid-template-columns:1fr; }.outlier-card { min-height:180px; }.scatter { margin:15px 26px 30px 45px; aspect-ratio:1/1.13; }.tooltip { top:10px; right:10px; }.recommendation-grid { gap:34px; margin-top:48px; }.method { gap:28px; } footer { gap:15px; align-items:start; flex-direction:column; padding:24px; } }
 </style>

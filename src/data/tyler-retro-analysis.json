@@ -1,0 +1,1569 @@
+{
+  "generatedAt": "2026-07-17",
+  "panel": {
+    "unit": "retrospective episode-year mention",
+    "rows": 61,
+    "distinctGuests": 58,
+    "years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "selection": "The annual retrospectives select notable episodes. This is not the full CWT episode universe."
+  },
+  "outcomes": [
+    {
+      "key": "acquisition",
+      "label": "Acquisition",
+      "definition": "Mentioned in a retrospective top-download list.",
+      "events": 22,
+      "rate": 36
+    },
+    {
+      "key": "affection",
+      "label": "Audience affection",
+      "definition": "Retrospective contains a direct listener-favorite, retention, or repeated-listener signal.",
+      "events": 24,
+      "rate": 39
+    },
+    {
+      "key": "tyler",
+      "label": "Strong Tyler pick",
+      "definition": "Tyler-enjoyment proxy equals 3, the strongest retrospective praise code.",
+      "events": 24,
+      "rate": 39
+    }
+  ],
+  "estimation": {
+    "estimator": "unadjusted difference in descriptive outcome rates, feature present minus feature absent",
+    "uncertainty": "5,000 deterministic nonparametric bootstrap resamples, 80% percentile interval, seed 20260717",
+    "suppression": "Intervals are withheld when either feature group has fewer than four rows.",
+    "limitation": "Features and outcomes are hand-coded from the same retrospective documents. Estimates are descriptive enrichments in a selected sample, not causal effects, predictive model coefficients, or podcast-wide rates."
+  },
+  "dimensions": [
+    {
+      "key": "guest_fame",
+      "group": "Guest and distribution",
+      "label": "Guest fame",
+      "definition": "Guest is coded high-fame in the retrospective.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 21,
+        "absent": 40
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 90,
+          "absentRate": 8,
+          "differencePp": 82,
+          "interval80": [
+            73,
+            93
+          ]
+        },
+        "affection": {
+          "presentRate": 5,
+          "absentRate": 57,
+          "differencePp": -52,
+          "interval80": [
+            -65,
+            -40
+          ]
+        },
+        "tyler": {
+          "presentRate": 14,
+          "absentRate": 53,
+          "differencePp": -39,
+          "interval80": [
+            -53,
+            -24
+          ]
+        }
+      }
+    },
+    {
+      "key": "repeat_guest",
+      "group": "Guest and distribution",
+      "label": "Repeat guest",
+      "definition": "Guest had appeared on CWT before this episode-year.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 100,
+          "absentRate": 33,
+          "differencePp": 67,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 41,
+          "differencePp": -41,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 0,
+          "absentRate": 41,
+          "differencePp": -41,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "topic_AI",
+      "group": "Topic",
+      "label": "AI",
+      "definition": "Primary subject includes artificial intelligence.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 4,
+        "absent": 57
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 75,
+          "absentRate": 33,
+          "differencePp": 42,
+          "interval80": [
+            11,
+            70
+          ]
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 42,
+          "differencePp": -42,
+          "interval80": [
+            -51,
+            -33
+          ]
+        },
+        "tyler": {
+          "presentRate": 0,
+          "absentRate": 42,
+          "differencePp": -42,
+          "interval80": [
+            -51,
+            -33
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_politics",
+      "group": "Topic",
+      "label": "Politics / policy",
+      "definition": "Primary subject includes politics, policy, intelligence, defense, race, or geopolitics.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 21,
+        "absent": 40
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 52,
+          "absentRate": 28,
+          "differencePp": 24,
+          "interval80": [
+            8,
+            42
+          ]
+        },
+        "affection": {
+          "presentRate": 29,
+          "absentRate": 45,
+          "differencePp": -16,
+          "interval80": [
+            -33,
+            0
+          ]
+        },
+        "tyler": {
+          "presentRate": 38,
+          "absentRate": 40,
+          "differencePp": -2,
+          "interval80": [
+            -19,
+            15
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_economics",
+      "group": "Topic",
+      "label": "Economics / finance",
+      "definition": "Primary subject includes economics, finance, labor, or investing.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 8,
+        "absent": 53
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 38,
+          "absentRate": 36,
+          "differencePp": 2,
+          "interval80": [
+            -23,
+            25
+          ]
+        },
+        "affection": {
+          "presentRate": 38,
+          "absentRate": 40,
+          "differencePp": -2,
+          "interval80": [
+            -26,
+            23
+          ]
+        },
+        "tyler": {
+          "presentRate": 50,
+          "absentRate": 38,
+          "differencePp": 12,
+          "interval80": [
+            -13,
+            37
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_history",
+      "group": "Topic",
+      "label": "History",
+      "definition": "Primary subject includes history, archaeology, or a historical geography.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 11,
+        "absent": 50
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 9,
+          "absentRate": 42,
+          "differencePp": -33,
+          "interval80": [
+            -46,
+            -18
+          ]
+        },
+        "affection": {
+          "presentRate": 64,
+          "absentRate": 34,
+          "differencePp": 30,
+          "interval80": [
+            8,
+            51
+          ]
+        },
+        "tyler": {
+          "presentRate": 45,
+          "absentRate": 38,
+          "differencePp": 7,
+          "interval80": [
+            -15,
+            29
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_science",
+      "group": "Topic",
+      "label": "Science / psychology",
+      "definition": "Primary subject includes science, psychology, or statistics.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 9,
+        "absent": 52
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 56,
+          "absentRate": 33,
+          "differencePp": 23,
+          "interval80": [
+            -1,
+            46
+          ]
+        },
+        "affection": {
+          "presentRate": 22,
+          "absentRate": 42,
+          "differencePp": -20,
+          "interval80": [
+            -39,
+            0
+          ]
+        },
+        "tyler": {
+          "presentRate": 22,
+          "absentRate": 42,
+          "differencePp": -20,
+          "interval80": [
+            -40,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_arts",
+      "group": "Topic",
+      "label": "Visual arts / poetry",
+      "definition": "Primary subject includes visual art, painting, or poetry.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 2,
+        "absent": 59
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 37,
+          "differencePp": -37,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 41,
+          "differencePp": -41,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 0,
+          "absentRate": 41,
+          "differencePp": -41,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "topic_literature",
+      "group": "Topic",
+      "label": "Literature",
+      "definition": "Primary subject includes literature, translation, or fiction.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 5,
+        "absent": 56
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 39,
+          "differencePp": -39,
+          "interval80": [
+            -48,
+            -32
+          ]
+        },
+        "affection": {
+          "presentRate": 80,
+          "absentRate": 36,
+          "differencePp": 44,
+          "interval80": [
+            19,
+            68
+          ]
+        },
+        "tyler": {
+          "presentRate": 60,
+          "absentRate": 38,
+          "differencePp": 22,
+          "interval80": [
+            -6,
+            51
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_music",
+      "group": "Topic",
+      "label": "Music",
+      "definition": "Primary subject includes music, Bach, the Beatles, or classical music.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 5,
+        "absent": 56
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 39,
+          "differencePp": -39,
+          "interval80": [
+            -48,
+            -30
+          ]
+        },
+        "affection": {
+          "presentRate": 40,
+          "absentRate": 39,
+          "differencePp": 1,
+          "interval80": [
+            -28,
+            30
+          ]
+        },
+        "tyler": {
+          "presentRate": 40,
+          "absentRate": 39,
+          "differencePp": 1,
+          "interval80": [
+            -26,
+            30
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_religion",
+      "group": "Topic",
+      "label": "Religion",
+      "definition": "Primary subject includes religion or Buddhism.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 1,
+        "absent": 60
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 37,
+          "differencePp": -37,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "topic_sports",
+      "group": "Topic",
+      "label": "Sports / competition",
+      "definition": "Primary subject includes sports, chess, ultramarathon, or competition.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 38,
+          "differencePp": -38,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 67,
+          "absentRate": 38,
+          "differencePp": 29,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 67,
+          "absentRate": 38,
+          "differencePp": 29,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "topic_technology",
+      "group": "Topic",
+      "label": "Technology",
+      "definition": "Primary subject includes technology, AI, YouTube, or aviation.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 12,
+        "absent": 49
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 67,
+          "absentRate": 29,
+          "differencePp": 38,
+          "interval80": [
+            19,
+            57
+          ]
+        },
+        "affection": {
+          "presentRate": 17,
+          "absentRate": 45,
+          "differencePp": -28,
+          "interval80": [
+            -45,
+            -12
+          ]
+        },
+        "tyler": {
+          "presentRate": 25,
+          "absentRate": 43,
+          "differencePp": -18,
+          "interval80": [
+            -36,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "key": "topic_geography",
+      "group": "Topic",
+      "label": "Geography",
+      "definition": "Primary subject includes a named region or country.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 5,
+        "absent": 56
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 20,
+          "absentRate": 38,
+          "differencePp": -18,
+          "interval80": [
+            -41,
+            8
+          ]
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 34,
+          "differencePp": 66,
+          "interval80": [
+            57,
+            73
+          ]
+        },
+        "tyler": {
+          "presentRate": 60,
+          "absentRate": 38,
+          "differencePp": 22,
+          "interval80": [
+            -6,
+            51
+          ]
+        }
+      }
+    },
+    {
+      "key": "single_subject",
+      "group": "Conversation design",
+      "label": "Single subject",
+      "definition": "The episode has one explicit intellectual object or question.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 2,
+        "absent": 59
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 50,
+          "absentRate": 36,
+          "differencePp": 14,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 37,
+          "differencePp": 63,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 37,
+          "differencePp": 63,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "debate_pushback",
+      "group": "Conversation design",
+      "label": "Debate / pushback",
+      "definition": "Retrospective tags show serious disagreement or a combative exchange.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 6,
+        "absent": 55
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 50,
+          "absentRate": 35,
+          "differencePp": 15,
+          "interval80": [
+            -12,
+            43
+          ]
+        },
+        "affection": {
+          "presentRate": 50,
+          "absentRate": 38,
+          "differencePp": 12,
+          "interval80": [
+            -16,
+            40
+          ]
+        },
+        "tyler": {
+          "presentRate": 67,
+          "absentRate": 36,
+          "differencePp": 31,
+          "interval80": [
+            3,
+            56
+          ]
+        }
+      }
+    },
+    {
+      "key": "controversy",
+      "group": "Conversation design",
+      "label": "Controversy",
+      "definition": "The episode was described as controversial or polarizing.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 0,
+        "absent": 61
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": null,
+          "absentRate": 36,
+          "differencePp": null,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": null,
+          "absentRate": 39,
+          "differencePp": null,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": null,
+          "absentRate": 39,
+          "differencePp": null,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "authenticity",
+      "group": "Human texture",
+      "label": "Authenticity",
+      "definition": "The retrospective describes unguarded, unpolished, or non-performative answers.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 9,
+        "absent": 52
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 11,
+          "absentRate": 40,
+          "differencePp": -29,
+          "interval80": [
+            -44,
+            -12
+          ]
+        },
+        "affection": {
+          "presentRate": 89,
+          "absentRate": 31,
+          "differencePp": 58,
+          "interval80": [
+            42,
+            73
+          ]
+        },
+        "tyler": {
+          "presentRate": 89,
+          "absentRate": 31,
+          "differencePp": 58,
+          "interval80": [
+            41,
+            73
+          ]
+        }
+      }
+    },
+    {
+      "key": "emotional_disclosure",
+      "group": "Human texture",
+      "label": "Emotional disclosure",
+      "definition": "The retrospective records personally consequential disclosure.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 1,
+        "absent": 60
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 37,
+          "differencePp": -37,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "humor",
+      "group": "Human texture",
+      "label": "Humor",
+      "definition": "The retrospective records humor as a meaningful feature.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 0,
+        "absent": 61
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": null,
+          "absentRate": 36,
+          "differencePp": null,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": null,
+          "absentRate": 39,
+          "differencePp": null,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": null,
+          "absentRate": 39,
+          "differencePp": null,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "novelty",
+      "group": "Human texture",
+      "label": "Novelty",
+      "definition": "The retrospective signals a surprising premise, person, or subject.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 33,
+          "absentRate": 36,
+          "differencePp": -3,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 33,
+          "absentRate": 40,
+          "differencePp": -7,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 67,
+          "absentRate": 38,
+          "differencePp": 29,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "practical_utility",
+      "group": "Conversation design",
+      "label": "Practical utility",
+      "definition": "The retrospective tags a concrete, usable implication.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 67,
+          "absentRate": 34,
+          "differencePp": 33,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 41,
+          "differencePp": -41,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 33,
+          "absentRate": 40,
+          "differencePp": -7,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "expertise_depth",
+      "group": "Conversation design",
+      "label": "Expertise depth",
+      "definition": "The guest is tagged for specialist knowledge or a singular subject.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 19,
+        "absent": 42
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 11,
+          "absentRate": 48,
+          "differencePp": -37,
+          "interval80": [
+            -50,
+            -24
+          ]
+        },
+        "affection": {
+          "presentRate": 58,
+          "absentRate": 31,
+          "differencePp": 27,
+          "interval80": [
+            9,
+            44
+          ]
+        },
+        "tyler": {
+          "presentRate": 37,
+          "absentRate": 40,
+          "differencePp": -3,
+          "interval80": [
+            -20,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "key": "obscurity",
+      "group": "Guest and distribution",
+      "label": "Obscurity",
+      "definition": "The retrospective frames the guest as underrated or outside the obvious fame pool.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 22,
+        "absent": 39
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 5,
+          "absentRate": 54,
+          "differencePp": -49,
+          "interval80": [
+            -62,
+            -37
+          ]
+        },
+        "affection": {
+          "presentRate": 68,
+          "absentRate": 23,
+          "differencePp": 45,
+          "interval80": [
+            30,
+            60
+          ]
+        },
+        "tyler": {
+          "presentRate": 50,
+          "absentRate": 33,
+          "differencePp": 17,
+          "interval80": [
+            0,
+            34
+          ]
+        }
+      }
+    },
+    {
+      "key": "institutional_access",
+      "group": "Guest and distribution",
+      "label": "Institutional access",
+      "definition": "The guest offers unusual access to an institution or state actor.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 6,
+        "absent": 55
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 50,
+          "absentRate": 35,
+          "differencePp": 15,
+          "interval80": [
+            -12,
+            42
+          ]
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 44,
+          "differencePp": -44,
+          "interval80": [
+            -53,
+            -35
+          ]
+        },
+        "tyler": {
+          "presentRate": 17,
+          "absentRate": 42,
+          "differencePp": -25,
+          "interval80": [
+            -45,
+            -3
+          ]
+        }
+      }
+    },
+    {
+      "key": "female_guest",
+      "group": "Guest and distribution",
+      "label": "Female guest",
+      "definition": "Guest gender, hand-coded only for descriptive balance checks.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 8,
+        "absent": 53
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 25,
+          "absentRate": 38,
+          "differencePp": -13,
+          "interval80": [
+            -34,
+            9
+          ]
+        },
+        "affection": {
+          "presentRate": 38,
+          "absentRate": 40,
+          "differencePp": -2,
+          "interval80": [
+            -26,
+            21
+          ]
+        },
+        "tyler": {
+          "presentRate": 38,
+          "absentRate": 40,
+          "differencePp": -2,
+          "interval80": [
+            -25,
+            22
+          ]
+        }
+      }
+    },
+    {
+      "key": "accent_or_audio_friction",
+      "group": "Production",
+      "label": "Accent / audio friction",
+      "definition": "The retrospective calls out accent comprehension or rough audio.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 2,
+        "absent": 59
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 50,
+          "absentRate": 36,
+          "differencePp": 14,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 37,
+          "differencePp": 63,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 37,
+          "differencePp": 63,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "rapport",
+      "group": "Human texture",
+      "label": "Rapport",
+      "definition": "The retrospective identifies host-guest rapport as salient.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 38,
+          "differencePp": -38,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 67,
+          "absentRate": 38,
+          "differencePp": 29,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 36,
+          "differencePp": 64,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "host_enthusiasm",
+      "group": "Human texture",
+      "label": "Host enthusiasm",
+      "definition": "Tyler's retrospective language scores the exchange as a strong personal success.",
+      "state": "coded",
+      "excludedOutcomes": [
+        "tyler"
+      ],
+      "support": {
+        "present": 26,
+        "absent": 35
+      },
+      "sparse": false,
+      "effects": {
+        "acquisition": {
+          "presentRate": 15,
+          "absentRate": 51,
+          "differencePp": -36,
+          "interval80": [
+            -50,
+            -22
+          ]
+        },
+        "affection": {
+          "presentRate": 77,
+          "absentRate": 11,
+          "differencePp": 66,
+          "interval80": [
+            53,
+            78
+          ]
+        },
+        "tyler": {
+          "notApplicable": true
+        }
+      }
+    },
+    {
+      "key": "prep_intensity",
+      "group": "Conversation design",
+      "label": "Preparation intensity",
+      "definition": "Requires episode transcript and prep materials, not coded in this panel.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "narrative_arc",
+      "group": "Conversation design",
+      "label": "Narrative arc",
+      "definition": "Requires full transcript or listening notes, not coded in this panel.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "unexpected_ending",
+      "group": "Conversation design",
+      "label": "Unexpected ending",
+      "definition": "The retrospective identifies a closing turn that readers or listeners repeat.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 1,
+        "absent": 60
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 37,
+          "differencePp": -37,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "fast_answers",
+      "group": "Conversation design",
+      "label": "Fast answers",
+      "definition": "The retrospective describes unusually quick, concrete answers.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 3,
+        "absent": 58
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 38,
+          "differencePp": -38,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 36,
+          "differencePp": 64,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 36,
+          "differencePp": 64,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "long_runtime",
+      "group": "Production",
+      "label": "Long runtime",
+      "definition": "The episode is tagged long relative to the CWT format.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 1,
+        "absent": 60
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 0,
+          "absentRate": 37,
+          "differencePp": -37,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 100,
+          "absentRate": 38,
+          "differencePp": 62,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "live_or_panel",
+      "group": "Production",
+      "label": "Live / panel format",
+      "definition": "The episode was recorded live or as a panel.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 1,
+        "absent": 60
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 100,
+          "absentRate": 35,
+          "differencePp": 65,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 0,
+          "absentRate": 40,
+          "differencePp": -40,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 0,
+          "absentRate": 40,
+          "differencePp": -40,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "social_media_reach",
+      "group": "Guest and distribution",
+      "label": "Social distribution",
+      "definition": "Retrospective tags document a notable social or YouTube distribution channel.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 2,
+        "absent": 59
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 50,
+          "absentRate": 36,
+          "differencePp": 14,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 50,
+          "absentRate": 39,
+          "differencePp": 11,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 50,
+          "absentRate": 39,
+          "differencePp": 11,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "production_quality",
+      "group": "Production",
+      "label": "Production quality",
+      "definition": "The retrospective flags a material audio-quality issue or its absence.",
+      "state": "coded",
+      "excludedOutcomes": [],
+      "support": {
+        "present": 60,
+        "absent": 1
+      },
+      "sparse": true,
+      "effects": {
+        "acquisition": {
+          "presentRate": 35,
+          "absentRate": 100,
+          "differencePp": -65,
+          "interval80": null
+        },
+        "affection": {
+          "presentRate": 38,
+          "absentRate": 100,
+          "differencePp": -62,
+          "interval80": null
+        },
+        "tyler": {
+          "presentRate": 38,
+          "absentRate": 100,
+          "differencePp": -62,
+          "interval80": null
+        }
+      }
+    },
+    {
+      "key": "question_density",
+      "group": "Transcript measurement",
+      "label": "Question density",
+      "definition": "Tyler questions per 1,000 transcript words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "follow_up_density",
+      "group": "Transcript measurement",
+      "label": "Follow-up density",
+      "definition": "Follow-up questions per 1,000 Tyler words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "why_question_rate",
+      "group": "Transcript measurement",
+      "label": "Why-question rate",
+      "definition": "Share of Tyler questions beginning with or functioning as why questions.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "what_do_you_really_think_rate",
+      "group": "Transcript measurement",
+      "label": "Pressure-question rate",
+      "definition": "Rate of direct belief-probing questions, including “what do you really think?”.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "production_function_phrase",
+      "group": "Transcript measurement",
+      "label": "Production-function prompts",
+      "definition": "Count of prompts that ask how an outcome is produced.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "first_person_rate",
+      "group": "Transcript measurement",
+      "label": "First-person rate",
+      "definition": "First-person pronouns per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "hedging_rate",
+      "group": "Transcript measurement",
+      "label": "Hedge rate",
+      "definition": "Hedges per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "certainty_rate",
+      "group": "Transcript measurement",
+      "label": "Certainty rate",
+      "definition": "High-certainty terms per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "counterfactual_rate",
+      "group": "Transcript measurement",
+      "label": "Counterfactual rate",
+      "definition": "Counterfactual constructions per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "numbers_rate",
+      "group": "Transcript measurement",
+      "label": "Numbers rate",
+      "definition": "Numbers per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "proper_noun_density",
+      "group": "Transcript measurement",
+      "label": "Proper-noun density",
+      "definition": "Named entities per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "named_example_rate",
+      "group": "Transcript measurement",
+      "label": "Named-example rate",
+      "definition": "Concrete named examples per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "technical_jargon_rate",
+      "group": "Transcript measurement",
+      "label": "Technical-jargon rate",
+      "definition": "Domain terms per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "plain_language_rate",
+      "group": "Transcript measurement",
+      "label": "Plain-language rate",
+      "definition": "Share of words below a pre-registered reading-complexity threshold.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "metaphor_rate",
+      "group": "Transcript measurement",
+      "label": "Metaphor rate",
+      "definition": "Hand-checked metaphoric constructions per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "analogy_rate",
+      "group": "Transcript measurement",
+      "label": "Analogy rate",
+      "definition": "Explicit analogies per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "negative_polarity",
+      "group": "Transcript measurement",
+      "label": "Negative polarity",
+      "definition": "Negative-sentiment terms per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "positive_polarity",
+      "group": "Transcript measurement",
+      "label": "Positive polarity",
+      "definition": "Positive-sentiment terms per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "surprise_markers",
+      "group": "Transcript measurement",
+      "label": "Surprise markers",
+      "definition": "Surprise expressions per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "laughter_markers",
+      "group": "Transcript measurement",
+      "label": "Laughter markers",
+      "definition": "Transcript laughter markers per 1,000 speaker words.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "interruption_rate",
+      "group": "Transcript measurement",
+      "label": "Interruption rate",
+      "definition": "Overlaps or interruptions per hour from speaker diarization.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "short_answer_rate",
+      "group": "Transcript measurement",
+      "label": "Short-answer rate",
+      "definition": "Guest answers under a pre-registered word threshold.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "long_sentence_rate",
+      "group": "Transcript measurement",
+      "label": "Long-sentence rate",
+      "definition": "Sentences above a pre-registered word threshold.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "food_travel_aside_rate",
+      "group": "Transcript measurement",
+      "label": "Food / travel asides",
+      "definition": "Food or travel digressions per hour.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    },
+    {
+      "key": "guest_specific_lexicon",
+      "group": "Transcript measurement",
+      "label": "Guest-specific lexicon",
+      "definition": "Distinctive vocabulary after matching on topic and guest background.",
+      "state": "not_observed",
+      "excludedOutcomes": []
+    }
+  ]
+}
