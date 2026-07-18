@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" role="img">
+<rect width="900" height="200" fill="#fbfaf6"/>
+<text x="450" y="24" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="14" font-weight="700">Mechanism cascade: grief to open football</text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#60739f"/></marker></defs>
+<rect x="20.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#8B3A3A" stroke-width="2"/>
+<text x="80.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Semi loss</text>
+<text x="80.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">shock</text>
+<line x1="144.0" y1="100" x2="164.0" y2="100" stroke="#60739f" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="168.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#8B6914" stroke-width="2"/>
+<text x="228.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Title gone</text>
+<text x="228.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">stakes fall</text>
+<line x1="292.0" y1="100" x2="312.0" y2="100" stroke="#60739f" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="316.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#3A5A7A" stroke-width="2"/>
+<text x="376.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Bronze vs</text>
+<text x="376.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">4th (nothing)</text>
+<line x1="440.0" y1="100" x2="460.0" y2="100" stroke="#60739f" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="464.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#556B2F" stroke-width="2"/>
+<text x="524.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Freer risk</text>
+<text x="524.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">taking</text>
+<line x1="588.0" y1="100" x2="608.0" y2="100" stroke="#60739f" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="612.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#556B2F" stroke-width="2"/>
+<text x="672.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Rotation +</text>
+<text x="672.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">Golden Boot</text>
+<line x1="736.0" y1="100" x2="756.0" y2="100" stroke="#60739f" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="760.0" y="55" width="120" height="90" fill="#f5efe3" stroke="#556B2F" stroke-width="2"/>
+<text x="820.0" y="93" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">More goals</text>
+<text x="820.0" y="111" text-anchor="middle" fill="#222939" font-size="12" font-weight="700" font-family="Verdana,sans-serif">(modern)</text>
+</svg>

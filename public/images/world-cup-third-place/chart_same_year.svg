@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img">
+<rect width="900" height="340" fill="#fbfaf6"/>
+<text x="450" y="28" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="15" font-weight="700">Same-year goals: third place vs final</text>
+<polygon points="50.0,165.0 93.2,141.0 93.2,141.0 50.0,213.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="93.2,141.0 136.3,189.0 136.3,165.0 93.2,141.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="136.3,189.0 179.5,69.0 179.5,117.0 136.3,165.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="179.5,69.0 222.6,261.0 222.6,189.0 179.5,117.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="222.6,261.0 265.8,213.0 265.8,141.0 222.6,189.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="265.8,213.0 308.9,261.0 308.9,165.0 265.8,141.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="308.9,261.0 352.1,261.0 352.1,213.0 308.9,165.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="352.1,261.0 395.3,213.0 395.3,189.0 352.1,213.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="395.3,213.0 438.4,165.0 438.4,189.0 395.3,189.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="438.4,165.0 481.6,141.0 481.6,165.0 438.4,189.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="481.6,141.0 524.7,213.0 524.7,261.0 481.6,165.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="524.7,213.0 567.9,189.0 567.9,285.0 524.7,261.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="567.9,189.0 611.1,213.0 611.1,213.0 567.9,285.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="611.1,213.0 654.2,165.0 654.2,237.0 611.1,213.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="654.2,165.0 697.4,189.0 697.4,237.0 654.2,237.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="697.4,189.0 740.5,165.0 740.5,261.0 697.4,237.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="740.5,165.0 783.7,213.0 783.7,261.0 740.5,261.0" fill="rgba(85,107,47,0.12)"/>
+<polygon points="783.7,213.0 826.8,237.0 826.8,141.0 783.7,261.0" fill="rgba(139,58,58,0.1)"/>
+<polygon points="826.8,237.0 870.0,213.0 870.0,141.0 826.8,141.0" fill="rgba(139,58,58,0.1)"/>
+<polyline points="50.0,165.0 93.2,141.0 136.3,189.0 179.5,69.0 222.6,261.0 265.8,213.0 308.9,261.0 352.1,261.0 395.3,213.0 438.4,165.0 481.6,141.0 524.7,213.0 567.9,189.0 611.1,213.0 654.2,165.0 697.4,189.0 740.5,165.0 783.7,213.0 826.8,237.0 870.0,213.0" fill="none" stroke="#556B2F" stroke-width="2.5"/>
+<polyline points="50.0,213.0 93.2,141.0 136.3,165.0 179.5,117.0 222.6,189.0 265.8,141.0 308.9,165.0 352.1,213.0 395.3,189.0 438.4,189.0 481.6,165.0 524.7,261.0 567.9,285.0 611.1,213.0 654.2,237.0 697.4,237.0 740.5,261.0 783.7,261.0 826.8,141.0 870.0,141.0" fill="none" stroke="#8B3A3A" stroke-width="2.5"/>
+<circle cx="50.0" cy="165.0" r="4" fill="#556B2F"/>
+<circle cx="50.0" cy="213.0" r="4" fill="#8B3A3A"/>
+<text x="50.0" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1934</text>
+<circle cx="93.2" cy="141.0" r="4" fill="#556B2F"/>
+<circle cx="93.2" cy="141.0" r="4" fill="#8B3A3A"/>
+<circle cx="136.3" cy="189.0" r="4" fill="#556B2F"/>
+<circle cx="136.3" cy="165.0" r="4" fill="#8B3A3A"/>
+<text x="136.3" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1954</text>
+<circle cx="179.5" cy="69.0" r="4" fill="#556B2F"/>
+<circle cx="179.5" cy="117.0" r="4" fill="#8B3A3A"/>
+<circle cx="222.6" cy="261.0" r="4" fill="#556B2F"/>
+<circle cx="222.6" cy="189.0" r="4" fill="#8B3A3A"/>
+<text x="222.6" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1962</text>
+<circle cx="265.8" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="265.8" cy="141.0" r="4" fill="#8B3A3A"/>
+<circle cx="308.9" cy="261.0" r="4" fill="#556B2F"/>
+<circle cx="308.9" cy="165.0" r="4" fill="#8B3A3A"/>
+<text x="308.9" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1970</text>
+<circle cx="352.1" cy="261.0" r="4" fill="#556B2F"/>
+<circle cx="352.1" cy="213.0" r="4" fill="#8B3A3A"/>
+<circle cx="395.3" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="395.3" cy="189.0" r="4" fill="#8B3A3A"/>
+<text x="395.3" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1978</text>
+<circle cx="438.4" cy="165.0" r="4" fill="#556B2F"/>
+<circle cx="438.4" cy="189.0" r="4" fill="#8B3A3A"/>
+<circle cx="481.6" cy="141.0" r="4" fill="#556B2F"/>
+<circle cx="481.6" cy="165.0" r="4" fill="#8B3A3A"/>
+<text x="481.6" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1986</text>
+<circle cx="524.7" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="524.7" cy="261.0" r="4" fill="#8B3A3A"/>
+<circle cx="567.9" cy="189.0" r="4" fill="#556B2F"/>
+<circle cx="567.9" cy="285.0" r="4" fill="#8B3A3A"/>
+<text x="567.9" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">1994</text>
+<circle cx="611.1" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="611.1" cy="213.0" r="4" fill="#8B3A3A"/>
+<circle cx="654.2" cy="165.0" r="4" fill="#556B2F"/>
+<circle cx="654.2" cy="237.0" r="4" fill="#8B3A3A"/>
+<text x="654.2" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">2002</text>
+<circle cx="697.4" cy="189.0" r="4" fill="#556B2F"/>
+<circle cx="697.4" cy="237.0" r="4" fill="#8B3A3A"/>
+<circle cx="740.5" cy="165.0" r="4" fill="#556B2F"/>
+<circle cx="740.5" cy="261.0" r="4" fill="#8B3A3A"/>
+<text x="740.5" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">2010</text>
+<circle cx="783.7" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="783.7" cy="261.0" r="4" fill="#8B3A3A"/>
+<circle cx="826.8" cy="237.0" r="4" fill="#556B2F"/>
+<circle cx="826.8" cy="141.0" r="4" fill="#8B3A3A"/>
+<text x="826.8" y="301" text-anchor="middle" fill="#60739f" font-size="9" font-family="Verdana,sans-serif">2018</text>
+<circle cx="870.0" cy="213.0" r="4" fill="#556B2F"/>
+<circle cx="870.0" cy="141.0" r="4" fill="#8B3A3A"/>
+<circle cx="730" cy="20" r="4" fill="#556B2F"/><text x="738" y="24" fill="#60739f" font-size="11" font-family="Verdana,sans-serif">3rd place</text>
+<circle cx="815" cy="20" r="4" fill="#8B3A3A"/><text x="823" y="24" fill="#60739f" font-size="11" font-family="Verdana,sans-serif">Final</text>
+</svg>

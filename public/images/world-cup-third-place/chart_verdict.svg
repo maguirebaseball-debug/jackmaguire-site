@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img">
+<rect width="800" height="280" fill="#fbfaf6"/>
+<text x="400" y="28" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="15" font-weight="700">Verdict matrix: is the high-scoring claim true?</text>
+<rect x="20" y="50" width="360" height="95" fill="#f5efe3" stroke="#8B3A3A" stroke-width="2.5"/>
+<text x="200.0" y="78" text-anchor="middle" fill="#222939" font-size="12" font-family="Verdana,sans-serif">All-time vs Final</text>
+<text x="200.0" y="102" text-anchor="middle" fill="#8B3A3A" font-size="16" font-weight="700" font-family="Verdana,sans-serif">FALSE / PARITY</text>
+<text x="200.0" y="125" text-anchor="middle" fill="#60739f" font-size="12" font-family="Verdana,sans-serif">3.80 ≈ 3.81 GPG</text>
+<rect x="420" y="50" width="360" height="95" fill="#f5efe3" stroke="#556B2F" stroke-width="2.5"/>
+<text x="600.0" y="78" text-anchor="middle" fill="#222939" font-size="12" font-family="Verdana,sans-serif">Modern vs Final</text>
+<text x="600.0" y="102" text-anchor="middle" fill="#556B2F" font-size="16" font-weight="700" font-family="Verdana,sans-serif">TRUE</text>
+<text x="600.0" y="125" text-anchor="middle" fill="#60739f" font-size="12" font-family="Verdana,sans-serif">3.56 vs 2.44 GPG</text>
+<rect x="20" y="165" width="360" height="95" fill="#f5efe3" stroke="#556B2F" stroke-width="2.5"/>
+<text x="200.0" y="193" text-anchor="middle" fill="#222939" font-size="12" font-family="Verdana,sans-serif">Modern vs Semi</text>
+<text x="200.0" y="217" text-anchor="middle" fill="#556B2F" font-size="16" font-weight="700" font-family="Verdana,sans-serif">TRUE</text>
+<text x="200.0" y="240" text-anchor="middle" fill="#60739f" font-size="12" font-family="Verdana,sans-serif">3.56 vs 2.28 GPG</text>
+<rect x="420" y="165" width="360" height="95" fill="#f5efe3" stroke="#8B6914" stroke-width="2.5"/>
+<text x="600.0" y="193" text-anchor="middle" fill="#222939" font-size="12" font-family="Verdana,sans-serif">Vs tournament average</text>
+<text x="600.0" y="217" text-anchor="middle" fill="#8B6914" font-size="16" font-weight="700" font-family="Verdana,sans-serif">USUALLY TRUE</text>
+<text x="600.0" y="240" text-anchor="middle" fill="#60739f" font-size="12" font-family="Verdana,sans-serif">Higher in 15 of 20 editions</text>
+</svg>
