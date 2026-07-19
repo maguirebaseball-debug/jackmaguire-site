@@ -1,4 +1,11 @@
-const astroPageSources = import.meta.glob('../pages/blog/*.astro', {
+const blogPageSources = import.meta.glob('../pages/blog/*.astro', {
+	query: '?raw',
+	import: 'default',
+	eager: true,
+});
+
+/** Root-level article pages that should appear on /blog and homepage feeds. */
+const rootArticleSources = import.meta.glob('../pages/blinded-world-cup-2026.astro', {
 	query: '?raw',
 	import: 'default',
 	eager: true,
@@ -13,8 +20,11 @@ function parseDisplayDate(pubDate: string) {
 	return new Date(`${pubDate} 12:00:00 UTC`);
 }
 
-export function getStandaloneBlogPosts() {
-	return Object.entries(astroPageSources)
+function postsFromGlob(
+	sources: Record<string, unknown>,
+	hrefForSlug: (slug: string) => string,
+) {
+	return Object.entries(sources)
 		.filter(([path]) => !path.includes('/index.astro') && !path.includes('/[...slug].astro'))
 		.map(([path, source]) => {
 			const slug = path.split('/').at(-1)?.replace('.astro', '');
@@ -30,10 +40,16 @@ export function getStandaloneBlogPosts() {
 			return {
 				title,
 				description,
-				href: `/blog/${slug}/`,
+				href: hrefForSlug(slug),
 				pubDate: parseDisplayDate(pubDate),
 				category,
 			};
-		})
-		.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+		});
+}
+
+export function getStandaloneBlogPosts() {
+	const blogPosts = postsFromGlob(blogPageSources, (slug) => `/blog/${slug}/`);
+	const rootPosts = postsFromGlob(rootArticleSources, (slug) => `/${slug}/`);
+
+	return [...blogPosts, ...rootPosts].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 }

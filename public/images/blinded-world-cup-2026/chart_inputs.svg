@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 270" role="img" aria-label="Blind model inputs for Side A and Side B">
+<rect width="800" height="270" fill="#fbfaf6"/>
+
+<text x="400" y="28" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="16" font-weight="700">What the model was allowed to see</text>
+<!-- cards -->
+<rect x="40" y="50" width="340" height="200" rx="8" fill="#f5efe3" stroke="#556B2F" stroke-width="2"/>
+<text x="210" y="80" text-anchor="middle" fill="#3A4B1C" font-family="Verdana,sans-serif" font-size="13" font-weight="700">SIDE A</text>
+<text x="210" y="115" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="28" font-weight="700">Elo 2232</text>
+<text x="210" y="150" text-anchor="middle" fill="#60739f" font-family="Verdana,sans-serif" font-size="13">Tournament: 1.86 goals scored / match</text>
+<text x="210" y="175" text-anchor="middle" fill="#60739f" font-family="Verdana,sans-serif" font-size="13">0.14 goals conceded / match</text>
+<text x="210" y="210" text-anchor="middle" fill="#556B2F" font-family="Verdana,sans-serif" font-size="12" font-weight="700">6 clean sheets in 7 games</text>
+
+<rect x="420" y="50" width="340" height="200" rx="8" fill="#f5efe3" stroke="#3A5A7A" stroke-width="2"/>
+<text x="590" y="80" text-anchor="middle" fill="#3A5A7A" font-family="Verdana,sans-serif" font-size="13" font-weight="700">SIDE B</text>
+<text x="590" y="115" text-anchor="middle" fill="#222939" font-family="Verdana,sans-serif" font-size="28" font-weight="700">Elo 2200</text>
+<text x="590" y="150" text-anchor="middle" fill="#60739f" font-family="Verdana,sans-serif" font-size="13">Tournament: 2.71 goals scored / match</text>
+<text x="590" y="175" text-anchor="middle" fill="#60739f" font-family="Verdana,sans-serif" font-size="13">1.00 goals conceded / match</text>
+<text x="590" y="210" text-anchor="middle" fill="#3A5A7A" font-family="Verdana,sans-serif" font-size="12" font-weight="700">More open, more goals both ways</text>
+
+</svg>

@@ -3,6 +3,9 @@ import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
 const blogDir = join(root, 'src/pages/blog');
+const pagesDir = join(root, 'src/pages');
+/** Root-level article pages registered in standaloneBlogPosts (not under /blog/). */
+const rootArticleFiles = ['blinded-world-cup-2026.astro'];
 const distRoot = existsSync(join(root, 'dist/client')) ? join(root, 'dist/client') : join(root, 'dist');
 const distHome = join(distRoot, 'index.html');
 const distBlogIndex = join(distRoot, 'blog/index.html');
@@ -97,11 +100,31 @@ const astroPosts = astroPages.map((filename) => {
 	return {
 		path: `/blog/${slug}/`,
 		pubDate,
+		filename,
+		sourcePath: join(blogDir, filename),
+	};
+});
+
+const rootPosts = rootArticleFiles.map((filename) => {
+	const sourcePath = join(pagesDir, filename);
+	if (!existsSync(sourcePath)) {
+		throw new Error(`Root article missing: ${filename}`);
+	}
+	const source = readFileSync(sourcePath, 'utf8');
+	const slug = filename.replace(/\.astro$/, '');
+	const pubDateStr = extractConst(source, 'pubDate', filename);
+	const pubDate = new Date(`${pubDateStr} 12:00:00 UTC`);
+	return {
+		path: `/${slug}/`,
+		pubDate,
+		filename,
+		sourcePath,
+		source,
 	};
 });
 
 // Combine and identify top 6 posts
-const allPosts = [...mdPosts, ...astroPosts].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+const allPosts = [...mdPosts, ...astroPosts, ...rootPosts].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 const top6Paths = new Set(allPosts.slice(0, 6).map((p) => p.path));
 
 for (const filename of astroPages) {
@@ -129,4 +152,32 @@ for (const filename of astroPages) {
 	}
 }
 
-console.log(`Verified ${astroPages.length} standalone Astro blog pages on /blog and in sitemap (including those in homepage top 6). No bare URLs in prose.`);
+for (const post of rootPosts) {
+	const title = extractConst(post.source, 'title', post.filename);
+	const pubDate = extractConst(post.source, 'pubDate', post.filename);
+	const absoluteUrl = `https://jackmaguire.org${post.path}`;
+
+	assertNoBareUrls(post.source, post.filename);
+	assertContains(blogIndex, post.path, `${distRoot}/blog/index.html`);
+	assertContains(blogIndex, escapeHtml(title), `${distRoot}/blog/index.html`);
+
+	if (top6Paths.has(post.path)) {
+		assertContains(home, post.path, `${distRoot}/index.html`);
+		assertContains(home, escapeHtml(title), `${distRoot}/index.html`);
+	}
+
+	assertContains(sitemap, absoluteUrl, `${distRoot}/sitemap-0.xml`);
+
+	if (!/^[A-Z][a-z]+ \d{1,2}, \d{4}$/.test(pubDate)) {
+		throw new Error(`${post.filename} pubDate must use display format like May 27, 2026.`);
+	}
+
+	const distPage = join(distRoot, post.path.replace(/^\//, ''), 'index.html');
+	if (!existsSync(distPage)) {
+		throw new Error(`Built page missing for root article: ${distPage}`);
+	}
+}
+
+console.log(
+	`Verified ${astroPages.length} blog Astro pages + ${rootPosts.length} root article page(s) on /blog and in sitemap (including those in homepage top 6). No bare URLs in prose.`,
+);

@@ -1,0 +1,438 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ReadingProgressBar from '../components/ReadingProgressBar.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const title = "A Blindfolded Model on the 2026 World Cup Final";
+const description = "What happens when a World Cup final forecast is not allowed to know the team names, the players, or the vibes. Just rates, Elo, and a sealed envelope.";
+const pubDate = "Jul 19, 2026";
+const category = "Sports";
+const dateObj = new Date("2026-07-19T12:00:00Z");
+const img = "/images/blinded-world-cup-2026";
+const canonical = "https://jackmaguire.org/blinded-world-cup-2026/";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": canonical,
+      "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+      "image": new URL("/og-default.png", Astro.site).toString(),
+      "author": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+      "publisher": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+      "datePublished": "2026-07-19",
+      "dateModified": "2026-07-19"
+    })} />
+    <style>
+      .article-wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 0 1.15rem 4.5rem;
+      }
+      .article-header {
+        padding: 2.1rem 0 1.5rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        margin-bottom: 1.5rem;
+      }
+      .article-header h1 {
+        font-size: clamp(1.55rem, 3.8vw, 2.35rem);
+        line-height: 1.18;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.01em;
+      }
+      .meta {
+        font-size: 0.85rem;
+        color: rgb(var(--gray));
+        margin: 0 0 0.9rem;
+      }
+      .lede {
+        font-size: 1.08rem;
+        line-height: 1.7;
+        max-width: 46rem;
+        margin: 0;
+        color: rgb(var(--gray-dark));
+      }
+
+      .seal {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin: 0 0 0.85rem;
+        padding: 0.28rem 0.7rem;
+        border: 1px solid rgba(85, 107, 47, 0.35);
+        border-radius: 999px;
+        background: var(--paper-warm);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        font-family: var(--font-ui), sans-serif;
+      }
+
+      .scoreboard {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border: 1px solid rgb(var(--gray-light));
+        margin: 1.6rem 0 1.75rem;
+        background: var(--paper-warm);
+      }
+      .stat {
+        padding: 1.05rem 0.7rem 1rem;
+        text-align: center;
+        border-right: 1px solid rgb(var(--gray-light));
+      }
+      .stat:last-child { border-right: none; }
+      .stat .n {
+        font-family: var(--font-heading);
+        font-size: clamp(1.45rem, 3.2vw, 2rem);
+        font-weight: 700;
+        line-height: 1;
+        color: rgb(var(--black));
+      }
+      .stat.a .n { color: var(--accent); }
+      .stat.b .n { color: #3A5A7A; }
+      .stat.gold .n { color: #8B6914; }
+      .stat .l {
+        margin-top: 0.45rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgb(var(--gray));
+        line-height: 1.35;
+      }
+
+      .chart {
+        margin: 1.35rem 0 0.4rem;
+        border: 1px solid rgb(var(--gray-light));
+        background: var(--paper);
+        padding: 0.35rem;
+      }
+      .chart img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .chart-cap {
+        font-size: 0.8rem;
+        color: rgb(var(--gray));
+        margin: 0 0 1.35rem;
+        padding: 0 0.15rem;
+      }
+
+      h2 {
+        font-size: 1.28rem;
+        margin: 2.15rem 0 0.75rem;
+        padding-top: 0.35rem;
+        border-top: 1px solid rgb(var(--gray-light));
+      }
+      h2:first-of-type { border-top: none; padding-top: 0; }
+      p {
+        margin: 0 0 0.95rem;
+        max-width: 46rem;
+      }
+      ul {
+        margin: 0 0 1.1rem;
+        padding-left: 1.2rem;
+        max-width: 46rem;
+      }
+      li { margin-bottom: 0.35rem; }
+
+      .reveal {
+        border: 2px solid var(--accent);
+        background: var(--paper-warm);
+        padding: 1.15rem 1.2rem 1.2rem;
+        margin: 1.4rem 0 1.5rem;
+      }
+      .reveal h3 {
+        margin: 0 0 0.55rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+      .reveal .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      .reveal .side {
+        background: var(--paper);
+        border: 1px solid rgb(var(--gray-light));
+        padding: 0.85rem 0.9rem;
+      }
+      .reveal .side strong {
+        display: block;
+        font-size: 1.15rem;
+        margin-bottom: 0.2rem;
+      }
+      .reveal .side span {
+        font-size: 0.88rem;
+        color: rgb(var(--gray));
+      }
+
+      table.data {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin: 0.9rem 0 1.35rem;
+      }
+      table.data th,
+      table.data td {
+        text-align: left;
+        padding: 0.5rem 0.6rem;
+        border-top: 1px solid rgb(var(--gray-light));
+        border-bottom: 1px solid rgb(var(--gray-light));
+      }
+      table.data th {
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgb(var(--gray));
+        font-weight: 600;
+      }
+      table.data tr:nth-child(even) td { background: var(--paper-warm); }
+      .num { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+      .take {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border: 1px solid rgb(var(--gray-light));
+        margin: 1.25rem 0 1.4rem;
+      }
+      .take > div {
+        padding: 1rem 1.05rem 1.1rem;
+        background: var(--paper-warm);
+      }
+      .take > div + div {
+        border-left: 1px solid rgb(var(--gray-light));
+      }
+      .take h4 {
+        margin: 0 0 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+      .take p {
+        margin: 0;
+        font-size: 0.95rem;
+        max-width: none;
+      }
+
+      .more-writing {
+        margin-top: 2.4rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid rgb(var(--gray-light));
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 720px) {
+        .scoreboard { grid-template-columns: 1fr 1fr; }
+        .stat:nth-child(2) { border-right: none; }
+        .stat:nth-child(1),
+        .stat:nth-child(2) { border-bottom: 1px solid rgb(var(--gray-light)); }
+        .reveal .pair,
+        .take { grid-template-columns: 1fr; }
+        .take > div + div {
+          border-left: none;
+          border-top: 1px solid rgb(var(--gray-light));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <ReadingProgressBar />
+    <main>
+      <article class="article-wrap">
+        <header class="article-header">
+          <div class="seal">Sealed envelope · no markets · no vibes</div>
+          <h1>{title}</h1>
+          <p class="meta"><FormattedDate date={dateObj} /> · {category}</p>
+          <p class="lede">
+            On final day I wanted a forecast that could not cheat. No team names, no star players, no injury chatter, no odds board. Just tournament rates, an Elo gap, and the fact that this was the highest-intensity match in the sport. The model still picked a favorite.
+          </p>
+        </header>
+
+        <div class="scoreboard" aria-label="Headline findings">
+          <div class="stat a">
+            <div class="n">62%</div>
+            <div class="l">Side A<br />to win it all</div>
+          </div>
+          <div class="stat b">
+            <div class="n">1.32-0.87</div>
+            <div class="l">Expected<br />goals A-B</div>
+          </div>
+          <div class="stat gold">
+            <div class="n">1-0</div>
+            <div class="l">Most common<br />finished score</div>
+          </div>
+          <div class="stat">
+            <div class="n">60%</div>
+            <div class="l">A opens<br />if anyone scores</div>
+          </div>
+        </div>
+
+        <h2>The rule: keep the blindfold on</h2>
+        <p>
+          Football forecasting usually starts with names. Messi. Yamal. A coach’s reputation. A newspaper narrative about destiny. Those things may matter in life. They also make it easy to smuggle bias into a “model.”
+        </p>
+        <p>
+          So the stack was intentionally dumb about identity. Two sides labeled A and B. World Football Elo ratings from the day before. Goals scored and conceded per match in this tournament. Neutral venue. Maximum knockout intensity. Nothing else.
+        </p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_inputs.svg`} alt="Blind inputs for Side A and Side B: Elo and tournament goal rates" width="800" height="270" loading="eager" />
+        </figure>
+        <p class="chart-cap">Side A: slightly higher Elo, almost no goals conceded. Side B: more goals for, and more goals against.</p>
+
+        <h2>What it found</h2>
+        <p>
+          Over 100,000 simulated cup paths (regulation, then extra time, then penalties if needed), Side A lifts the trophy about <strong>62%</strong> of the time. Side B still wins more than one time in three. That is a favorite, not a prophecy.
+        </p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_win_prob.svg`} alt="Horizontal bar chart of champion probability for Side A and Side B" width="800" height="270" loading="lazy" />
+        </figure>
+        <p class="chart-cap">Full knockout path, not just 90 minutes.</p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_expected_goals.svg`} alt="Bar chart of expected goals for Side A and Side B" width="800" height="300" loading="lazy" />
+        </figure>
+        <p class="chart-cap">Expected end-of-play goals sit near 1.3 to 0.9. Finals stay tight.</p>
+
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Blind answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Winner</td>
+              <td><span class="num">Side A · 62.4%</span></td>
+            </tr>
+            <tr>
+              <td>Goals (expected)</td>
+              <td><span class="num">A 1.32 · B 0.87</span></td>
+            </tr>
+            <tr>
+              <td>Winning margin (in open play)</td>
+              <td><span class="num">about 1.5 goals</span></td>
+            </tr>
+            <tr>
+              <td>First to score (if anyone does)</td>
+              <td><span class="num">Side A · ~60%</span></td>
+            </tr>
+            <tr>
+              <td>Most common finished score</td>
+              <td><span class="num">1-0 to A</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Scorelines and the long way home</h2>
+        <p>
+          The single most likely 90-minute cell is a 0-0. That is the low-scoring final pattern talking. Once extra time and penalties enter, the mass shifts toward 1-0 for A. About one third of simulations still need something after the whistle.
+        </p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_scorelines.svg`} alt="Bar chart of most common finished scorelines" width="800" height="305" loading="lazy" />
+        </figure>
+        <p class="chart-cap">Finished scores after the full path. 1-1 and 0-0 often mean pens.</p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_path.svg`} alt="Stacked bar of how the champion is decided in 90 minutes, extra time, or penalties" width="800" height="255" loading="lazy" />
+        </figure>
+        <p class="chart-cap">Roughly 44% A in 90 minutes, 23% B in 90 minutes, the rest in ET or pens.</p>
+
+        <figure class="chart">
+          <img src={`${img}/chart_first_goal.svg`} alt="Pie chart of who scores first in regulation" width="800" height="290" loading="lazy" />
+        </figure>
+        <p class="chart-cap">First goal is a rate race. A’s scoring rate still edges B’s even after shrinkage.</p>
+
+        <h2>Why A, without telling a story</h2>
+        <p>
+          The Elo gap is small: 32 points. That alone is a lean, not a rout. The bigger shove is defensive rate. Side A has barely conceded in this tournament. Side B has scored more, but also leaks more. Tournament samples are short (seven games each), so the model only gives form about a quarter of the weight and leans the rest on Elo. That stops “one goal conceded in seven” from becoming a law of physics.
+        </p>
+        <p>
+          Intensity is dialed to maximum and then slightly damped for final tightness. Markets never enter. News never enters. Player names never enter.
+        </p>
+
+        <div class="take">
+          <div>
+            <h4>What favors A</h4>
+            <p>Higher Elo, extreme clean-sheet rate, lower expected goals against once form is shrunk toward the mean.</p>
+          </div>
+          <div>
+            <h4>What keeps B alive</h4>
+            <p>Higher scoring rate, knockout variance, and a one-in-three path through ET or pens where coin-flip mass grows.</p>
+          </div>
+        </div>
+
+        <h2>Open the envelope</h2>
+        <div class="reveal">
+          <h3>Identity map (operator key)</h3>
+          <div class="pair">
+            <div class="side">
+              <strong>Side A → Spain</strong>
+              <span>Elo 2232 · 13 scored, 1 conceded</span>
+            </div>
+            <div class="side">
+              <strong>Side B → Argentina</strong>
+              <span>Elo 2200 · 19 scored, 7 conceded</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          So the blind forecast says Spain is the favorite on final day, with a low-scoring shape and a real chance that the holders still spoil it. If you want the vibes version of this match, there are thousands of previews. This page is the other product: a sealed forecast that only looked at rates.
+        </p>
+
+
+        <h2>What I left out on purpose</h2>
+        <p>
+          Bookmaker prices, TV panels, and social timelines all know who is playing. That knowledge is useful for entertainment. It is also a shortcut that can wash out the statistical question I cared about: if you only know strength rates and stage intensity, who still looks better?
+        </p>
+        <p>
+          I also skipped club form beyond what Elo already encodes, skipped starting XIs, and skipped any coach reputation score that would re-introduce a name through the back door. The cost is obvious. The gain is a forecast you can read as a pure rate story.
+        </p>
+
+        <h2>A note on the math, without the textbook</h2>
+        <p>
+          Under the hood this is a standard sports stack: Elo maps to expected goals, tournament attack and defense rates get blended in with heavy shrinkage, low scores get a small dependence tweak so 0-0 and 1-1 are not underpriced, then the match is simulated to a champion. You do not need the formulas to use the charts. The point is that none of those steps required a jersey color.
+        </p>
+        <p>
+          Historical World Cup finals already tend to score less than the group-stage circus. The model leans into that with a mild final damper. That is why the expected goals look modest even when one side has been freer in the knockout rounds.
+        </p>
+
+        <h2>How much to trust it</h2>
+        <p>
+          Soccer is a low-scoring sport. A 62% favorite still loses often. The model is a classic Elo plus attack/defense plus low-score adjustment stack, not a claim that history will repeat. It also refuses the two strongest modern cheating tools in sports content: the odds board and the injury rumor mill.
+        </p>
+        <p>
+          If the final is open and ugly, that does not "break" the chart. The chart already put about 38% on the other flag.
+        </p>
+        <p>
+          Read the page as a sealed-envelope experiment, not as a betting tip. If Spain win 1-0, the blind model looked ordinary. If Argentina win on penalties, the model already priced a large minority path. Either way you get a cleaner story than a preview that starts with the star names and works backward.
+        </p>
+        <p>
+          I will watch the final with the same nerves as everyone else. The charts are just a second set of eyes that never learned the jerseys.
+        </p>
+
+        <p class="more-writing"><a href="/blog/">More writing</a></p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
