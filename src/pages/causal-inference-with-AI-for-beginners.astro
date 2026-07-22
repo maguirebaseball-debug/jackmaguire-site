@@ -1,0 +1,14 @@
+---
+import { marked } from 'marked';
+import PlainStandaloneBlog from '../layouts/PlainStandaloneBlog.astro';
+import bodyMd from './causal-inference-with-AI-for-beginners.content.md?raw';
+
+const title = 'Causal Inference With AI for Beginners: How to Model a Lead Funnel Before Optimizing It';
+const description = 'A practical guide to using AI, causal diagrams, and small business data to distinguish useful lead-funnel signals from changes that can plausibly increase revenue.';
+const pubDate = 'July 22, 2026';
+const bodyHtml = await marked.parse(bodyMd);
+---
+
+<PlainStandaloneBlog title={title} description={description} pubDate={pubDate} datePublished="2026-07-22">
+	<section set:html={bodyHtml} />
+</PlainStandaloneBlog>

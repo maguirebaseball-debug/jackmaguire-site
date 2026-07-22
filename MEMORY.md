@@ -24,4 +24,4 @@ Extended `src/pages/tylercowen-retro.astro` with a prospective guest slate built
 
 ## 2026-07-22, Causal inference with AI for beginners
 
-Added the root-level plain article `src/pages/causal-inference-with-AI-for-beginners.md`, published at `/causal-inference-with-AI-for-beginners/`. It explains how business owners can use AI to model a lead funnel without confusing prediction with causation, including DAG construction, leakage controls, maturity windows, a small-sample workflow, and experimentation. The local build and indexing checks passed before deployment.
+Added the root-level plain article shell `src/pages/causal-inference-with-AI-for-beginners.astro` and its Markdown body, published at `/causal-inference-with-AI-for-beginners/`. It explains how business owners can use AI to model a lead funnel without confusing prediction with causation, including DAG construction, leakage controls, maturity windows, a small-sample workflow, and experimentation. The local build and indexing checks passed before deployment.

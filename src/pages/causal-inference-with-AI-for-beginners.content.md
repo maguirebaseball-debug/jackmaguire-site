@@ -1,10 +1,3 @@
----
-layout: ../layouts/PlainStandaloneBlog.astro
-title: "Causal Inference With AI for Beginners: How to Model a Lead Funnel Before Optimizing It"
-description: "A practical guide to using AI, causal diagrams, and small business data to distinguish useful lead-funnel signals from changes that can plausibly increase revenue."
-pubDate: "July 22, 2026"
----
-
 Most businesses already have the raw material for a better growth model: lead timestamps, source fields, CRM statuses, sales activity, and payment records. The usual failure is not a shortage of data. It is asking a dashboard, a regression, or an AI model to answer a causal question it was never set up to answer.
 
 If 80% of paid customers spoke to a salesperson, that does not mean making more calls will create 80% more customers. People who are ready to buy are more likely to answer the phone. If one traffic source has a stronger paid rate, that does not prove the source created more demand. It may have found people who already had more urgency.
