@@ -21,3 +21,7 @@ Replaced the report's untraceable illustrative effect scores with a reproducible
 ## 2026-07-17, Conversations with Tyler 2026 guest forecast
 
 Extended `src/pages/tylercowen-retro.astro` with a prospective guest slate built from 793 primary-source items: 500 recent Marginal Revolution entries and 293 CWT archive entries. The page now presents six first-outreach choices, two ranked 25-person lists, a 22-name overlap view, transparent forecast weights, exact screening limits, and downloadable forecast, source-ledger, and exclusion-screen files. Updated the social preview to name the 2026 guest forecast. The local build, indexing check, content assertions, and prohibited-dash scan passed before deployment.
+
+## 2026-07-22, Causal inference with AI for beginners
+
+Added the root-level plain article `src/pages/causal-inference-with-AI-for-beginners.md`, published at `/causal-inference-with-AI-for-beginners/`. It explains how business owners can use AI to model a lead funnel without confusing prediction with causation, including DAG construction, leakage controls, maturity windows, a small-sample workflow, and experimentation. The local build and indexing checks passed before deployment.
