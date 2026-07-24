@@ -31,3 +31,9 @@ Added the root-level plain article shell `src/pages/causal-inference-with-AI-for
 Published the standalone personal appearance report at `/maxxing/` without adding it to site navigation, RSS, or the generated sitemap. The page and image assets live under `public/maxxing/`. Indexing controls include page-level directives for major crawlers, a Vercel `X-Robots-Tag` header, `noimageindex`, `noarchive`, `nosnippet`, a no-referrer policy, and `Disallow: /maxxing/` in `robots.txt`.
 
 Production validation passed: the route and four images returned HTTP 200, the live response included the expected crawler and referrer headers, the live page contained the matching meta directives, and `/maxxing/` was absent from the live sitemap. Public noindex reduces discovery and indexing but does not provide authentication or guarantee the absence of server logs.
+
+## 2026-07-24, Maxxing procedure option map
+
+Extended `/maxxing/` with a photograph-bounded plastic-surgery and office-procedure option map. The page ranks fractional resurfacing as the clearest visible procedural target, treats forehead neuromodulator as a possible consultation, places rhinoplasty and lower blepharoplasty in consult-only tiers, and explains why chin, jaw, buccal-fat, neck-lift, brow-lift, facelift, and transplant procedures appear poorly matched to the supplied images. It also flags nasal filler and RF microneedling risks and adds a two-surgeon consultation protocol.
+
+The extension is explicitly non-diagnostic and cites systematic reviews, FDA safety material, and American Society of Plastic Surgeons guidance. Local build, internal-reference validation, 42-link checks, image checks, and prohibited-dash checks passed. Existing noindex, crawler-header, robots, sitemap-exclusion, and referrer controls were preserved.
