@@ -25,3 +25,9 @@ Extended `src/pages/tylercowen-retro.astro` with a prospective guest slate built
 ## 2026-07-22, Causal inference with AI for beginners
 
 Added the root-level plain article shell `src/pages/causal-inference-with-AI-for-beginners.astro` and its Markdown body, published at `/causal-inference-with-AI-for-beginners/`. It explains how business owners can use AI to model a lead funnel without confusing prediction with causation, including DAG construction, leakage controls, maturity windows, a small-sample workflow, and experimentation. The local build and indexing checks passed before deployment.
+
+## 2026-07-24, Private maxxing report
+
+Published the standalone personal appearance report at `/maxxing/` without adding it to site navigation, RSS, or the generated sitemap. The page and image assets live under `public/maxxing/`. Indexing controls include page-level directives for major crawlers, a Vercel `X-Robots-Tag` header, `noimageindex`, `noarchive`, `nosnippet`, a no-referrer policy, and `Disallow: /maxxing/` in `robots.txt`.
+
+Production validation passed: the route and four images returned HTTP 200, the live response included the expected crawler and referrer headers, the live page contained the matching meta directives, and `/maxxing/` was absent from the live sitemap. Public noindex reduces discovery and indexing but does not provide authentication or guarantee the absence of server logs.
