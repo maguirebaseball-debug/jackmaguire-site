@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /maxxing/
 
 Sitemap: https://jackmaguire.org/sitemap-index.xml
