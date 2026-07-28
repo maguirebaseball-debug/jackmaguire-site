@@ -1,0 +1,1019 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Jack Maguire | Paid Social and Performance Marketing Leader';
+const description = 'Jack Maguire is a New York performance marketing leader with 12+ years of experience, $30M+ in managed media spend, and deep expertise in paid social, measurement, creative testing, and AI-enabled marketing operations.';
+
+const proofPoints = [
+	{ value: '12+', label: 'years in performance marketing' },
+	{ value: '$30M+', label: 'managed media spend' },
+	{ value: '$7M+', label: 'career-wide profitable revenue' },
+	{ value: '17K', label: 'retail locations supported' },
+];
+
+const capabilities = [
+	{
+		number: '01',
+		title: 'Paid social ownership',
+		copy: 'Channel strategy and hands-on execution across Meta, TikTok, LinkedIn, Snapchat, Pinterest, Reddit, Quora, and YouTube. I have managed daily pacing, bidding, audiences, creative rotations, and scaling decisions at more than $1M a month.',
+		evidence: 'Media strategy, platform execution, budget allocation, forecasting',
+	},
+	{
+		number: '02',
+		title: 'Measurement that reaches the business',
+		copy: 'I connect platform activity to CRM outcomes, lead quality, LTV, CAC, and profit. That has included building a Paid Social BI dashboard, defining custom KPIs, coordinating CAPI and offline conversion systems, and using holdouts to test incrementality.',
+		evidence: 'Looker BI, CAPI, pixels, offline events, LTV, holdouts',
+	},
+	{
+		number: '03',
+		title: 'Creative learning systems',
+		copy: 'I turn business questions into briefs, assets, structured tests, and a clear next decision. My role is to keep creative close to performance without reducing the work to a weekly search for whichever ad had the lowest short-term cost.',
+		evidence: 'Briefing, UGC strategy, creative QA, scoring, testing',
+	},
+	{
+		number: '04',
+		title: 'Cross-functional leadership',
+		copy: 'I have led media buyers, agency teams, vendors, and national partner networks. I am comfortable explaining a complicated performance result to a CFO, working through implementation with engineering, and bringing legal and compliance into the process early.',
+		evidence: 'Finance, creative, product, engineering, sales, legal',
+	},
+	{
+		number: '05',
+		title: 'Practical AI operations',
+		copy: 'I use AI to shorten the work around a decision: analysis, creative development, reporting, research, and workflow automation. I have led adoption of ChatGPT, video generation, predictive lead scoring, and agent-based tools while keeping business judgment in human hands.',
+		evidence: 'ChatGPT, Claude, Codex, Veo3, predictive lead scoring',
+	},
+];
+
+const roles = [
+	{
+		years: '2022 to 2026',
+		company: 'National Debt Relief',
+		role: 'Social Media Marketing Director',
+		copy: 'Owned paid social strategy and execution across Meta and TikTok, managed a $10M annual budget against profitability targets, and generated an estimated $5M in profitable revenue. Built the measurement and testing systems around the channel while leading AI adoption and working with Finance, creative, engineering, legal, and compliance.',
+	},
+	{
+		years: '2021 to 2022',
+		company: 'Good Apple',
+		role: 'Lead Senior Paid Social Media Marketing Strategist',
+		copy: 'Led three paid social managers for Dollar General and pOpshelf across 17,000 retail locations. Ran national campaigns across Meta, TikTok, Snapchat, and Instagram, then presented pacing and investment recommendations to senior client leaders.',
+	},
+	{
+		years: '2019 to 2021',
+		company: 'Visiting Angels',
+		role: 'Lead Paid Social Media Marketing Strategist',
+		copy: 'Built a national lead generation program that produced more than 10,000 leads across a 500-office franchise network. Advised more than 600 business owners on local media strategy, budgets, and performance.',
+	},
+	{
+		years: '2014 to 2019',
+		company: 'Ascension',
+		role: 'Lead Paid Social Media Marketing Manager',
+		copy: 'Generated more than 150,000 email leads, grew social presence 30x, supported ecommerce launches, and developed video topics that earned more than one million views.',
+	},
+	{
+		years: '2012 to 2014',
+		company: 'Renegade Communications',
+		role: 'Marketing and Paid Social Media Associate Account Executive',
+		copy: 'Learned the operating discipline of agency work through media buying, project management, client coordination, and campaign planning.',
+	},
+];
+
+const writing = [
+	{
+		href: '/blog/what-is-changing-in-marketing-departments-in-2026/',
+		title: 'Most marketing departments are optimizing the wrong thing',
+		copy: 'Why performance teams should move closer to Finance, sales, customer quality, and real business decisions.',
+	},
+	{
+		href: '/meta-ads-2026/',
+		title: 'How Meta Ads actually work in 2026',
+		copy: 'A practical account audit of creative diversity, budget liquidity, signal quality, and the new retrieval system.',
+	},
+	{
+		href: '/causal-inference-with-AI-for-beginners/',
+		title: 'Causal inference with AI for beginners',
+		copy: 'How to turn a messy lead funnel into better questions, cleaner measurement, and experiments a business can act on.',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} ogImage="/professional-about-me-og.png" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Person',
+			name: 'Jack Maguire',
+			url: 'https://jackmaguire.org/professional-about-me/',
+			image: 'https://jackmaguire.org/images/about/jack-cafe.jpg',
+			jobTitle: 'Performance Marketing and Paid Social Leader',
+			description,
+			email: 'mailto:maguirebaseball@gmail.com',
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality: 'New York',
+				addressRegion: 'NY',
+				addressCountry: 'US',
+			},
+			alumniOf: {
+				'@type': 'CollegeOrUniversity',
+				name: 'McGill University',
+			},
+			sameAs: ['https://www.linkedin.com/in/paidsocialdirector/'],
+			knowsAbout: [
+				'Paid social media',
+				'Performance marketing',
+				'Marketing measurement',
+				'Creative testing',
+				'Meta Ads',
+				'TikTok Ads',
+				'Marketing analytics',
+				'Artificial intelligence',
+			],
+		})} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero" aria-labelledby="page-title">
+				<div class="hero-copy">
+					<p class="eyebrow">Performance marketing operator, New York City</p>
+					<h1 id="page-title">I build paid social systems that answer to the business.</h1>
+					<p class="hero-deck">
+						I am Jack Maguire. For more than 12 years, I have worked across media buying,
+						measurement, creative strategy, and team leadership. I like the part of
+						performance marketing where the platform report ends and the real business
+						question begins.
+					</p>
+					<div class="hero-actions">
+						<a class="primary-action" href="mailto:maguirebaseball@gmail.com">Email me</a>
+						<a class="text-action" href="https://www.linkedin.com/in/paidsocialdirector/">LinkedIn <span aria-hidden="true">↗</span></a>
+					</div>
+					<p class="current-note">
+						<span>Most recently</span>
+						Social Media Marketing Director at National Debt Relief
+					</p>
+				</div>
+				<aside class="hero-profile" aria-label="Jack Maguire profile">
+					<div class="portrait-frame">
+						<img
+							src="/images/about/jack-cafe.jpg"
+							alt="Portrait of Jack Maguire"
+							width="900"
+							height="900"
+							loading="eager"
+						/>
+						<span class="portrait-caption">East Village, NYC</span>
+					</div>
+					<div class="profile-index" aria-label="Professional focus">
+						<span>Paid social</span>
+						<span>Measurement</span>
+						<span>Creative systems</span>
+						<span>AI operations</span>
+					</div>
+				</aside>
+			</section>
+
+			<section class="proof-strip" aria-label="Career highlights">
+				{proofPoints.map((point) => (
+					<div>
+						<strong>{point.value}</strong>
+						<span>{point.label}</span>
+					</div>
+				))}
+			</section>
+
+			<section class="point-of-view ruled-section" aria-labelledby="point-of-view-title">
+				<div class="section-label">
+					<span>01</span>
+					<p>Point of view</p>
+				</div>
+				<div class="section-content">
+					<h2 id="point-of-view-title">A media result is useful only when it changes a business decision.</h2>
+					<div class="two-column-copy">
+						<p>
+							Advertising platforms are very good at making their own contribution visible.
+							The operator's job is to connect that evidence to what happened in the CRM,
+							what the customer was worth, and what the company should do next.
+						</p>
+						<p>
+							That is why my work tends to reach beyond campaign setup. I care about signal
+							quality, creative learning, unit economics, incrementality, and the operating
+							system that lets a team make a better decision every week.
+						</p>
+					</div>
+					<div class="decision-line" aria-label="Performance marketing decision flow">
+						<span>Business target</span>
+						<i aria-hidden="true">→</i>
+						<span>Signal quality</span>
+						<i aria-hidden="true">→</i>
+						<span>Creative learning</span>
+						<i aria-hidden="true">→</i>
+						<span>Media decision</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="capability-section ruled-section" aria-labelledby="capabilities-title">
+				<div class="section-label">
+					<span>02</span>
+					<p>The work</p>
+				</div>
+				<div class="section-content">
+					<h2 id="capabilities-title">What I bring to a performance team</h2>
+					<div class="capability-list">
+						{capabilities.map((capability) => (
+							<article class="capability">
+								<p class="capability-number">{capability.number}</p>
+								<div>
+									<h3>{capability.title}</h3>
+									<p>{capability.copy}</p>
+									<p class="evidence">{capability.evidence}</p>
+								</div>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="career-section ruled-section" aria-labelledby="career-title">
+				<div class="section-label">
+					<span>03</span>
+					<p>Career record</p>
+				</div>
+				<div class="section-content">
+					<h2 id="career-title">Brand-side leadership, agency range, hands-on depth</h2>
+					<div class="career-list">
+						{roles.map((role) => (
+							<article class="career-item">
+								<p class="years">{role.years}</p>
+								<div class="role-heading">
+									<h3>{role.company}</h3>
+									<p>{role.role}</p>
+								</div>
+								<p class="role-copy">{role.copy}</p>
+							</article>
+						))}
+					</div>
+					<p class="education"><strong>Education:</strong> McGill University, Bachelor's in Business, Marketing, and Philosophy</p>
+				</div>
+			</section>
+
+			<section class="principles-section ruled-section" aria-labelledby="principles-title">
+				<div class="section-label">
+					<span>04</span>
+					<p>How I work</p>
+				</div>
+				<div class="section-content">
+					<h2 id="principles-title">A few operating principles</h2>
+					<ol class="principles">
+						<li>
+							<span>01</span>
+							<div>
+								<h3>Put the business metric in the room.</h3>
+								<p>CPL and ROAS are inputs. Customer quality, margin, and incremental profit decide whether the system works.</p>
+							</div>
+						</li>
+						<li>
+							<span>02</span>
+							<div>
+								<h3>Keep strategy close to execution.</h3>
+								<p>I prefer a player-coach model. The person setting direction should understand what the account is doing today.</p>
+							</div>
+						</li>
+						<li>
+							<span>03</span>
+							<div>
+								<h3>Make testing produce a decision.</h3>
+								<p>A test should change the next brief, budget, audience, offer, or measurement plan. More variants alone are not a learning agenda.</p>
+							</div>
+						</li>
+						<li>
+							<span>04</span>
+							<div>
+								<h3>Use AI where truth can push back.</h3>
+								<p>AI is excellent for speeding up analysis and production. I trust it most when the result can be checked against code, data, or a real customer outcome.</p>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</section>
+
+			<section class="writing-section ruled-section" aria-labelledby="writing-title">
+				<div class="section-label">
+					<span>05</span>
+					<p>Selected thinking</p>
+				</div>
+				<div class="section-content">
+					<h2 id="writing-title">How I think about the work</h2>
+					<div class="writing-grid">
+						{writing.map((item, index) => (
+							<a href={item.href} class="writing-card">
+								<span>0{index + 1}</span>
+								<h3>{item.title}</h3>
+								<p>{item.copy}</p>
+								<b>Read the piece →</b>
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="human-note ruled-section" aria-labelledby="human-title">
+				<div class="section-label">
+					<span>06</span>
+					<p>The person</p>
+				</div>
+				<div class="section-content human-grid">
+					<div>
+						<h2 id="human-title">Systems thinker, long-distance temperament.</h2>
+						<p>
+							I studied business, marketing, and philosophy at McGill. Before my junior
+							year, I thru-hiked the 2,178-mile Appalachian Trail in 97 days. I have run
+							marathons, read more than 300 books, and live in the East Village.
+						</p>
+					</div>
+					<blockquote>
+						<p>The common thread is simple: I like complicated systems, honest feedback, and work that rewards patience.</p>
+					</blockquote>
+				</div>
+			</section>
+
+			<section class="contact-panel" aria-labelledby="contact-title">
+				<p class="eyebrow">Open to the right performance marketing role</p>
+				<h2 id="contact-title">If you need paid social leadership that stays close to the numbers, let's talk.</h2>
+				<div class="hero-actions">
+					<a class="primary-action" href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a>
+					<a class="text-action" href="https://www.linkedin.com/in/paidsocialdirector/">View LinkedIn <span aria-hidden="true">↗</span></a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		background:
+			linear-gradient(rgba(85, 107, 47, 0.035) 1px, transparent 1px),
+			var(--paper);
+		background-size: 100% 32px;
+	}
+
+	main {
+		max-width: 1180px;
+		padding: 2.5rem 1.25rem 4rem;
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+		gap: clamp(2rem, 6vw, 5.5rem);
+		align-items: center;
+		padding: 2.5rem 0 4rem;
+	}
+
+	.eyebrow,
+	.section-label,
+	.profile-index,
+	.evidence,
+	.years,
+	.portrait-caption,
+	.writing-card > span {
+		font-family: var(--font-ui), sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 0.075em;
+	}
+
+	.eyebrow {
+		margin: 0 0 1rem;
+		color: var(--accent-dark);
+		font-size: 0.72rem;
+		font-weight: 700;
+	}
+
+	h1 {
+		max-width: 790px;
+		margin: 0;
+		font-size: clamp(3rem, 7vw, 6.35rem);
+		line-height: 0.93;
+		letter-spacing: -0.065em;
+	}
+
+	.hero-deck {
+		max-width: 730px;
+		margin: 1.75rem 0 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: clamp(1.12rem, 2vw, 1.35rem);
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1.1rem 1.4rem;
+		margin-top: 1.75rem;
+	}
+
+	.primary-action,
+	.text-action {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
+	}
+
+	.primary-action {
+		display: inline-flex;
+		align-items: center;
+		min-height: 42px;
+		padding: 0.15rem 1.05rem;
+		background: var(--accent-dark);
+		color: #fff;
+		text-decoration: none;
+		border: 1px solid var(--accent-dark);
+	}
+
+	.primary-action:hover {
+		background: #202b10;
+		color: #fff;
+	}
+
+	.text-action {
+		color: rgb(var(--black));
+		text-decoration-thickness: 1px;
+	}
+
+	.current-note {
+		display: flex;
+		gap: 0.65rem;
+		margin: 2rem 0 0;
+		font-size: 0.82rem;
+		line-height: 1.4;
+	}
+
+	.current-note span {
+		flex: 0 0 auto;
+		font-family: var(--font-ui), sans-serif;
+		font-weight: 700;
+		color: var(--accent-dark);
+	}
+
+	.hero-profile {
+		position: relative;
+	}
+
+	.portrait-frame {
+		position: relative;
+		padding: 0.75rem 0.75rem 2.2rem;
+		background: #fff;
+		border: 1px solid rgba(85, 107, 47, 0.28);
+		box-shadow: 12px 14px 0 rgba(85, 107, 47, 0.13);
+		transform: rotate(1.25deg);
+	}
+
+	.portrait-frame::before {
+		content: '';
+		position: absolute;
+		top: 0.45rem;
+		right: 0.45rem;
+		width: 10px;
+		height: 10px;
+		border-top: 2px solid #b33a2e;
+		border-right: 2px solid #b33a2e;
+	}
+
+	.portrait-frame img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 1 / 1.08;
+		object-fit: cover;
+		object-position: center 35%;
+		filter: saturate(0.78) contrast(1.02);
+	}
+
+	.portrait-caption {
+		position: absolute;
+		left: 0.8rem;
+		bottom: 0.55rem;
+		font-size: 0.6rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+	}
+
+	.profile-index {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.45rem 1rem;
+		margin-top: 1.8rem;
+		padding-top: 0.8rem;
+		border-top: 1px solid rgba(85, 107, 47, 0.35);
+		font-size: 0.58rem;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+
+	.proof-strip {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		background: #161914;
+		color: #fff;
+		border-left: 5px solid #b33a2e;
+	}
+
+	.proof-strip div {
+		min-height: 115px;
+		padding: 1.15rem 1.2rem;
+		border-right: 1px solid rgba(255, 255, 255, 0.18);
+	}
+
+	.proof-strip div:last-child {
+		border-right: 0;
+	}
+
+	.proof-strip strong,
+	.proof-strip span {
+		display: block;
+	}
+
+	.proof-strip strong {
+		font-family: var(--font-heading), sans-serif;
+		font-size: clamp(1.8rem, 4vw, 3.4rem);
+		line-height: 1;
+		letter-spacing: -0.05em;
+	}
+
+	.proof-strip span {
+		max-width: 140px;
+		margin-top: 0.45rem;
+		color: rgba(255, 255, 255, 0.75);
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.68rem;
+		line-height: 1.35;
+	}
+
+	.ruled-section {
+		display: grid;
+		grid-template-columns: 140px minmax(0, 1fr);
+		gap: clamp(1.5rem, 5vw, 4.5rem);
+		padding: 4.5rem 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.28);
+	}
+
+	.section-label {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.55rem;
+		padding-top: 0.25rem;
+		color: var(--accent-dark);
+		font-size: 0.62rem;
+		font-weight: 700;
+	}
+
+	.section-label span {
+		display: inline-grid;
+		place-items: center;
+		width: 1.8rem;
+		height: 1.8rem;
+		border: 1px solid var(--accent);
+		border-radius: 50%;
+	}
+
+	.section-label p {
+		margin: 0.45rem 0 0;
+	}
+
+	.section-content > h2,
+	.human-grid h2,
+	.contact-panel h2 {
+		margin: 0 0 1.75rem;
+		font-size: clamp(2rem, 4.6vw, 4.25rem);
+		line-height: 1;
+		letter-spacing: -0.05em;
+	}
+
+	.point-of-view .section-content > h2 {
+		max-width: 850px;
+	}
+
+	.two-column-copy {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		max-width: 860px;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 1.05rem;
+		line-height: 1.65;
+	}
+
+	.two-column-copy p {
+		margin: 0;
+	}
+
+	.decision-line {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.8rem;
+		margin-top: 2.5rem;
+		padding: 1rem;
+		background: rgba(85, 107, 47, 0.07);
+		border-top: 1px solid rgba(85, 107, 47, 0.3);
+		border-bottom: 1px solid rgba(85, 107, 47, 0.3);
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.75rem;
+		font-weight: 700;
+	}
+
+	.decision-line i {
+		color: #b33a2e;
+		font-style: normal;
+		font-size: 1.25rem;
+	}
+
+	.capability-list,
+	.career-list {
+		border-top: 1px solid rgb(var(--black));
+	}
+
+	.capability {
+		display: grid;
+		grid-template-columns: 54px minmax(0, 1fr);
+		gap: 1.15rem;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.25);
+	}
+
+	.capability-number {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 1.35rem;
+		font-style: italic;
+		color: #b33a2e;
+	}
+
+	.capability h3,
+	.career-item h3,
+	.principles h3,
+	.writing-card h3 {
+		margin: 0;
+		font-size: 1.15rem;
+		letter-spacing: -0.02em;
+	}
+
+	.capability div > p:not(.evidence) {
+		max-width: 780px;
+		margin: 0.5rem 0 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		line-height: 1.62;
+	}
+
+	.evidence {
+		margin: 0.75rem 0 0;
+		color: var(--accent-dark);
+		font-size: 0.6rem;
+		font-weight: 700;
+	}
+
+	.career-item {
+		display: grid;
+		grid-template-columns: 110px 230px minmax(0, 1fr);
+		gap: 1.5rem;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.25);
+	}
+
+	.years {
+		margin: 0.25rem 0 0;
+		color: #b33a2e;
+		font-size: 0.61rem;
+		font-weight: 700;
+	}
+
+	.role-heading p {
+		margin: 0.35rem 0 0;
+		font-size: 0.76rem;
+		line-height: 1.4;
+		color: rgb(var(--gray-dark));
+	}
+
+	.role-copy {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 0.94rem;
+		line-height: 1.6;
+	}
+
+	.education {
+		margin: 1.2rem 0 0;
+		font-size: 0.75rem;
+	}
+
+	.principles {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		border-top: 1px solid rgb(var(--black));
+	}
+
+	.principles li {
+		display: grid;
+		grid-template-columns: 38px 1fr;
+		gap: 0.6rem;
+		padding: 1.4rem 1.4rem 1.4rem 0;
+		border-bottom: 1px solid rgba(85, 107, 47, 0.25);
+	}
+
+	.principles li:nth-child(odd) {
+		border-right: 1px solid rgba(85, 107, 47, 0.25);
+	}
+
+	.principles li:nth-child(even) {
+		padding-left: 1.4rem;
+	}
+
+	.principles li > span {
+		font-family: Georgia, 'Times New Roman', serif;
+		font-style: italic;
+		color: #b33a2e;
+	}
+
+	.principles p {
+		margin: 0.45rem 0 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 0.9rem;
+		line-height: 1.55;
+	}
+
+	.writing-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+
+	.writing-card {
+		display: flex;
+		flex-direction: column;
+		min-height: 260px;
+		padding: 1.2rem;
+		color: rgb(var(--black));
+		text-decoration: none;
+		background: rgba(255, 255, 255, 0.58);
+		border: 1px solid rgba(85, 107, 47, 0.32);
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.writing-card:hover {
+		color: rgb(var(--black));
+		transform: translateY(-3px);
+		box-shadow: 5px 6px 0 rgba(85, 107, 47, 0.16);
+	}
+
+	.writing-card > span {
+		color: #b33a2e;
+		font-size: 0.6rem;
+		font-weight: 700;
+	}
+
+	.writing-card h3 {
+		margin-top: 1rem;
+		font-size: 1.2rem;
+	}
+
+	.writing-card p {
+		margin: 0.75rem 0 1.5rem;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.writing-card b {
+		margin-top: auto;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.7rem;
+		color: var(--accent-dark);
+	}
+
+	.human-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.human-grid > div > p {
+		max-width: 650px;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 1.02rem;
+		line-height: 1.65;
+	}
+
+	.human-grid blockquote {
+		margin: 0;
+		padding: 1.4rem;
+		background: var(--accent-dark);
+		color: #fff;
+		border: 0;
+		box-shadow: 8px 9px 0 rgba(179, 58, 46, 0.17);
+		transform: rotate(-1deg);
+	}
+
+	.human-grid blockquote p {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 1.05rem;
+		line-height: 1.5;
+	}
+
+	.contact-panel {
+		margin-top: 4rem;
+		padding: clamp(2rem, 6vw, 4.5rem);
+		background: #eae4d7;
+		border-top: 5px solid var(--accent-dark);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contact-panel::after {
+		content: 'JM';
+		position: absolute;
+		right: -0.25rem;
+		bottom: -2rem;
+		color: rgba(85, 107, 47, 0.08);
+		font-family: var(--font-heading), sans-serif;
+		font-size: 12rem;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.contact-panel h2 {
+		max-width: 850px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.contact-panel .hero-actions {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			grid-template-columns: 1.35fr 0.65fr;
+			gap: 2rem;
+		}
+
+		.career-item {
+			grid-template-columns: 100px 1fr;
+		}
+
+		.role-copy {
+			grid-column: 2;
+		}
+
+		.writing-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.writing-card {
+			min-height: 0;
+		}
+	}
+
+	@media (max-width: 720px) {
+		main {
+			padding: 1.5rem 1rem 3rem;
+		}
+
+		.hero {
+			grid-template-columns: 1fr;
+			padding: 1.5rem 0 3rem;
+		}
+
+		h1 {
+			font-size: clamp(3rem, 15vw, 5rem);
+		}
+
+		.hero-profile {
+			max-width: 360px;
+		}
+
+		.proof-strip {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.proof-strip div:nth-child(2) {
+			border-right: 0;
+		}
+
+		.proof-strip div:nth-child(-n + 2) {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+		}
+
+		.ruled-section {
+			grid-template-columns: 1fr;
+			gap: 1.4rem;
+			padding: 3.2rem 0;
+		}
+
+		.two-column-copy,
+		.principles,
+		.human-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.decision-line {
+			display: grid;
+			grid-template-columns: 1fr 24px 1fr;
+		}
+
+		.decision-line i:nth-of-type(2) {
+			display: none;
+		}
+
+		.decision-line span:last-child {
+			grid-column: 3;
+		}
+
+		.principles li,
+		.principles li:nth-child(even) {
+			padding: 1.25rem 0;
+			border-right: 0;
+		}
+
+		.contact-panel {
+			margin-top: 3rem;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.current-note {
+			display: block;
+		}
+
+		.current-note span {
+			display: block;
+			margin-bottom: 0.2rem;
+		}
+
+		.profile-index {
+			grid-template-columns: 1fr;
+		}
+
+		.proof-strip strong {
+			font-size: 2rem;
+		}
+
+		.proof-strip div {
+			min-height: 100px;
+			padding: 1rem;
+		}
+
+		.decision-line {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.decision-line i,
+		.decision-line i:nth-of-type(2) {
+			display: block;
+			transform: rotate(90deg);
+		}
+
+		.decision-line span:last-child {
+			grid-column: auto;
+		}
+
+		.capability {
+			grid-template-columns: 36px minmax(0, 1fr);
+			gap: 0.7rem;
+		}
+
+		.career-item {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.role-copy {
+			grid-column: 1;
+		}
+
+		.contact-panel .primary-action {
+			width: 100%;
+			box-sizing: border-box;
+			justify-content: center;
+			font-size: 0.72rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.writing-card {
+			transition: none;
+		}
+	}
+</style>
