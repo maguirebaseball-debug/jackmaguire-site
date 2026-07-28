@@ -187,6 +187,16 @@
       "permanent": true
     },
     {
+      "source": "/start/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
       "source": "/app-recommendations/",
       "destination": "/recommendations/apps/",
       "permanent": true
