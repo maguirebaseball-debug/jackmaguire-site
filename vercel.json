@@ -137,6 +137,11 @@
       "permanent": true
     },
     {
+      "source": "/causal-inference-with-AI-for-beginners/",
+      "destination": "/causal-inference-with-ai-for-beginners/",
+      "permanent": true
+    },
+    {
       "source": "/2026/02/25/mutual-parasociality-friendships-digital-world/",
       "destination": "/blog/mutual-parasociality-friendships-digital-world/",
       "permanent": true

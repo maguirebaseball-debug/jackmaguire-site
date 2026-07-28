@@ -51,3 +51,7 @@ Changed the professional page contact address and rendered it as a PNG rather th
 ## 2026-07-28, Homepage Person schema
 
 Added the canonical Person entity to the homepage at `https://jackmaguire.org/#jack`. It includes the confirmed professional portrait, title, New York address, McGill education, National Debt Relief employment, paid-social and measurement expertise, and the verified LinkedIn and Instagram profiles.
+
+## 2026-07-28, Route indexing cleanup
+
+Moved two raw Markdown article bodies out of `src/pages` so Astro no longer emits their `.content/` URLs or includes them in the sitemap. Normalized the causal-inference article to the lowercase route and added a permanent redirect from the former mixed-case URL. The existing permanent redirect from the indexed dated three-martini URL remains in place.
