@@ -189,7 +189,7 @@
     {
       "source": "/start/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/projects/",
@@ -207,7 +207,7 @@
       "permanent": true
     },
     {
-      "source": "/category/:path*",
+      "source": "/category/(.*)",
       "destination": "/blog/",
       "permanent": true
     },
