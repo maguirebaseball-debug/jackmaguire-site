@@ -189,12 +189,12 @@
     {
       "source": "/start/",
       "destination": "/about/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/projects/",
       "destination": "/blog/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/app-recommendations/",

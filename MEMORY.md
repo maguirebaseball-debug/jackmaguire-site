@@ -4,7 +4,7 @@ Append dated summaries of meaningful site changes, deployments, indexing work, a
 
 ## 2026-07-28, Legacy route redirects
 
-Added permanent Vercel redirects from `/start/` to `/about/` and `/projects/` to `/blog/`. Local build passed before deployment.
+Added HTTP 301 Vercel redirects from `/start/` to `/about/` and `/projects/` to `/blog/`. Local build passed before deployment.
 
 ## 2026-07-17, Knowledge system completion
 
