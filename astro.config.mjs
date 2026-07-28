@@ -14,8 +14,8 @@ export default defineConfig({
 	output: 'static',
 	adapter: vercel(),
 	redirects: {
-		'/2026/01/24/my-brother-is-building-a-data-platform-for-fishermen-and-its-exposing-how-broken-the-industry-really-is/': '/blog/my-brother-building-data-platform-fishermen',
-		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions',
+		'/2026/01/24/my-brother-is-building-a-data-platform-for-fishermen-and-its-exposing-how-broken-the-industry-really-is/': '/blog/my-brother-building-data-platform-fishermen/',
+		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions/',
 		'/all-writing/': '/blog/',
 		'/blog/ai-ally-betrayal/': '/blog/we-are-all-inside-different-machines/',
 		'/nycworldcupopenervenues/': '/worldcupnyc2026/',

@@ -189,7 +189,7 @@
     {
       "source": "/start/",
       "destination": "/about/",
-      "statusCode": 301
+      "permanent": true
     },
     {
       "source": "/projects/",
@@ -199,6 +199,21 @@
     {
       "source": "/app-recommendations/",
       "destination": "/recommendations/apps/",
+      "permanent": true
+    },
+    {
+      "source": "/2026/:month/:day/:slug/",
+      "destination": "/blog/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/appalachian-trail-thru-hike-thoughts/",
+      "destination": "/about/",
       "permanent": true
     },
     {

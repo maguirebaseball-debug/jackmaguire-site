@@ -6,6 +6,10 @@ Append dated summaries of meaningful site changes, deployments, indexing work, a
 
 Added HTTP 301 Vercel redirects from `/start/` to `/about/` and `/projects/` to `/blog/`. Local build passed before deployment.
 
+## 2026-07-28, Canonical identity and WordPress redirect consolidation
+
+Made `/about/` the canonical identity URL throughout site navigation and standard blog bylines. Normalized all generated internal page links to trailing-slash URLs and verified the prerendered site has no unresolved or non-trailing-slash internal page links. Added permanent Vercel redirects for dated 2026 WordPress post URLs, `/category/*`, and `/appalachian-trail-thru-hike-thoughts/` to their current destinations. Astro already enforces `trailingSlash: 'always'`.
+
 ## 2026-07-17, Knowledge system completion
 
 Added canonical brain, current state, references, resources, and wiki navigation around the existing Git repository, README, agent rules, and Google Places skill.

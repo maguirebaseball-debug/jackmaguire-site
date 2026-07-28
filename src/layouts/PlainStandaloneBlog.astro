@@ -107,6 +107,9 @@ const published = datePublished ?? pubDate;
 			.date {
 				margin: 0 0 0.75rem;
 			}
+			.byline {
+				margin: 0 0 1rem;
+			}
 			.title {
 				margin: 0 0 1rem;
 			}
@@ -128,6 +131,7 @@ const published = datePublished ?? pubDate;
 		<main>
 			<div class="title">
 				<p class="date">{pubDate}</p>
+				<p class="byline">By <a href="/about/">Jack Maguire</a></p>
 				<h1 class="layout-title">{title}</h1>
 			</div>
 			<slot />

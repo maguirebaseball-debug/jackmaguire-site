@@ -14,22 +14,22 @@ const { title, description, category, order } = Astro.props;
 
 // Static navigation array to prevent Astro.glob circular dependencies
 const guidePages = [
-	{ url: '/nyc-intern-guide/finding-sublets', title: 'Finding Sublets', description: 'How to secure short-term summer housing in NYC.', category: 'Housing & Logistics', order: 1 },
-	{ url: '/nyc-intern-guide/broker-fees', title: 'Understanding Broker Fees', description: 'Navigating the brutal reality of NYC broker fees.', category: 'Housing & Logistics', order: 2 },
-	{ url: '/nyc-intern-guide/university-dorms', title: 'University Dorms', description: 'Pros and cons of NYU and Columbia summer housing.', category: 'Housing & Logistics', order: 3 },
-	{ url: '/nyc-intern-guide/laundry-and-groceries', title: 'Laundry & Groceries', description: 'Mastering drop-off laundry and tight grocery budgets.', category: 'Housing & Logistics', order: 4 },
-	{ url: '/nyc-intern-guide/subway-etiquette', title: 'Subway Etiquette', description: 'Unwritten rules of the MTA.', category: 'Transit & Geography', order: 5 },
-	{ url: '/nyc-intern-guide/the-grid-system', title: 'The Grid System', description: 'Understanding avenues, streets, and borough geography.', category: 'Transit & Geography', order: 6 },
-	{ url: '/nyc-intern-guide/citibike-safety', title: 'CitiBike Safety', description: 'How to survive biking in Manhattan traffic.', category: 'Transit & Geography', order: 7 },
-	{ url: '/nyc-intern-guide/neighborhood-vibes', title: 'Neighborhood Vibes', description: 'East Village vs West Village vs Brooklyn for interns.', category: 'Transit & Geography', order: 8 },
-	{ url: '/nyc-intern-guide/dollar-slices', title: 'Dollar Slices & Cheap Eats', description: 'Finding genuinely cheap food without getting scammed.', category: 'Food & Drink', order: 9 },
-	{ url: '/nyc-intern-guide/networking-coffee', title: 'Networking Coffee Spots', description: 'Quiet coffee shops in Downtown Manhattan.', category: 'Food & Drink', order: 10 },
-	{ url: '/nyc-intern-guide/grocery-hacks', title: 'Grocery Shopping Hacks', description: 'Trader Joe\'s lines and bodega dynamics.', category: 'Food & Drink', order: 11 },
-	{ url: '/nyc-intern-guide/meeting-interns', title: 'Meeting Other Interns', description: 'How to socialize outside of your specific company.', category: 'Social & Nightlife', order: 12 },
-	{ url: '/nyc-intern-guide/free-summer-events', title: 'Free Summer Events', description: 'Outdoor movies, concerts, and free museum days.', category: 'Social & Nightlife', order: 13 },
-	{ url: '/nyc-intern-guide/park-dynamics', title: 'Park Dynamics', description: 'Central Park vs Washington Square Park vs Tompkins.', category: 'Social & Nightlife', order: 14 },
-	{ url: '/nyc-intern-guide/coffee-chats', title: 'Coffee Chat Etiquette', description: 'How to ask for and conduct a successful coffee chat.', category: 'Professional & Office Life', order: 15 },
-	{ url: '/nyc-intern-guide/corporate-dress', title: 'Corporate Dress Code', description: 'Dressing professionally during a humid NYC summer.', category: 'Professional & Office Life', order: 16 }
+	{ url: '/nyc-intern-guide/finding-sublets/', title: 'Finding Sublets', description: 'How to secure short-term summer housing in NYC.', category: 'Housing & Logistics', order: 1 },
+	{ url: '/nyc-intern-guide/broker-fees/', title: 'Understanding Broker Fees', description: 'Navigating the brutal reality of NYC broker fees.', category: 'Housing & Logistics', order: 2 },
+	{ url: '/nyc-intern-guide/university-dorms/', title: 'University Dorms', description: 'Pros and cons of NYU and Columbia summer housing.', category: 'Housing & Logistics', order: 3 },
+	{ url: '/nyc-intern-guide/laundry-and-groceries/', title: 'Laundry & Groceries', description: 'Mastering drop-off laundry and tight grocery budgets.', category: 'Housing & Logistics', order: 4 },
+	{ url: '/nyc-intern-guide/subway-etiquette/', title: 'Subway Etiquette', description: 'Unwritten rules of the MTA.', category: 'Transit & Geography', order: 5 },
+	{ url: '/nyc-intern-guide/the-grid-system/', title: 'The Grid System', description: 'Understanding avenues, streets, and borough geography.', category: 'Transit & Geography', order: 6 },
+	{ url: '/nyc-intern-guide/citibike-safety/', title: 'CitiBike Safety', description: 'How to survive biking in Manhattan traffic.', category: 'Transit & Geography', order: 7 },
+	{ url: '/nyc-intern-guide/neighborhood-vibes/', title: 'Neighborhood Vibes', description: 'East Village vs West Village vs Brooklyn for interns.', category: 'Transit & Geography', order: 8 },
+	{ url: '/nyc-intern-guide/dollar-slices/', title: 'Dollar Slices & Cheap Eats', description: 'Finding genuinely cheap food without getting scammed.', category: 'Food & Drink', order: 9 },
+	{ url: '/nyc-intern-guide/networking-coffee/', title: 'Networking Coffee Spots', description: 'Quiet coffee shops in Downtown Manhattan.', category: 'Food & Drink', order: 10 },
+	{ url: '/nyc-intern-guide/grocery-hacks/', title: 'Grocery Shopping Hacks', description: 'Trader Joe\'s lines and bodega dynamics.', category: 'Food & Drink', order: 11 },
+	{ url: '/nyc-intern-guide/meeting-interns/', title: 'Meeting Other Interns', description: 'How to socialize outside of your specific company.', category: 'Social & Nightlife', order: 12 },
+	{ url: '/nyc-intern-guide/free-summer-events/', title: 'Free Summer Events', description: 'Outdoor movies, concerts, and free museum days.', category: 'Social & Nightlife', order: 13 },
+	{ url: '/nyc-intern-guide/park-dynamics/', title: 'Park Dynamics', description: 'Central Park vs Washington Square Park vs Tompkins.', category: 'Social & Nightlife', order: 14 },
+	{ url: '/nyc-intern-guide/coffee-chats/', title: 'Coffee Chat Etiquette', description: 'How to ask for and conduct a successful coffee chat.', category: 'Professional & Office Life', order: 15 },
+	{ url: '/nyc-intern-guide/corporate-dress/', title: 'Corporate Dress Code', description: 'Dressing professionally during a humid NYC summer.', category: 'Professional & Office Life', order: 16 }
 ];
 
 const categories = ["Housing & Logistics", "Transit & Geography", "Food & Drink", "Social & Nightlife", "Professional & Office Life"];

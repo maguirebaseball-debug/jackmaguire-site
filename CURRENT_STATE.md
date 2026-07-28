@@ -10,6 +10,8 @@ The standalone article `causal-inference-with-AI-for-beginners` is ready for pub
 
 The legacy routes `/start/` and `/projects/` return HTTP 301 redirects to `/about/` and `/blog/`, respectively, through Vercel route rules.
 
+The canonical identity page is `/about/`. Site navigation and article bylines use that URL, and Vercel redirects legacy WordPress dated posts, category archives, and the former Appalachian Trail post into their current canonical destinations.
+
 The professional career page is implemented at `/professional-about-me/`. It is based on a review of 47 tailored role records from the ResumeAutomation project and emphasizes the recurring hiring signals across those roles: paid social ownership, measurement, creative testing, budget accountability, profitable acquisition, cross-functional leadership, signal quality, hands-on execution, and practical AI operations. It keeps the normal site header and footer and includes a bespoke social preview.
 
 The page is linked from the global navigation as `Professional Bio`. Its contact address is rendered only as a raster image, with no address in HTML, metadata, links, filenames, or alternative text. The page explicitly permits indexing and rich snippets, appears in the sitemap, and is allowed for major search and AI crawlers in `robots.txt`.
