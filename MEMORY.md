@@ -47,3 +47,7 @@ The page uses a field-notebook and performance-dashboard visual system built fro
 ## 2026-07-28, Professional bio contact and discovery update
 
 Changed the professional page contact address and rendered it as a PNG rather than machine-readable page text. The address is absent from the page HTML, structured data, links, filenames, and alternative text. Added the page to global navigation as `Professional Bio`. Added explicit index, follow, snippet, and image-preview directives, retained sitemap inclusion, and explicitly allowed major search and AI crawler user agents while preserving the private `/maxxing/` exclusion.
+
+## 2026-07-28, Homepage Person schema
+
+Added the canonical Person entity to the homepage at `https://jackmaguire.org/#jack`. It includes the confirmed professional portrait, title, New York address, McGill education, National Debt Relief employment, paid-social and measurement expertise, and the verified LinkedIn and Instagram profiles.

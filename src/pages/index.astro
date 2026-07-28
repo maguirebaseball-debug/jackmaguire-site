@@ -17,12 +17,48 @@ const markdownPosts = (await getCollection('blog')).map((post) => ({
 const posts = [...new Map([...getStandaloneBlogPosts(), ...markdownPosts].map((post) => [post.href, post])).values()]
 	.sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
 	.slice(0, 6);
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	'@id': 'https://jackmaguire.org/#jack',
+	name: 'Jack Maguire',
+	url: 'https://jackmaguire.org/',
+	image: 'https://jackmaguire.org/images/about/jack-professional-portrait.jpg',
+	jobTitle: 'Social Media Marketing Director',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'New York',
+		addressRegion: 'NY',
+		addressCountry: 'US',
+	},
+	alumniOf: {
+		'@type': 'CollegeOrUniversity',
+		name: 'McGill University',
+	},
+	worksFor: {
+		'@type': 'Organization',
+		name: 'National Debt Relief',
+	},
+	knowsAbout: [
+		'Paid social media',
+		'Meta Conversions API',
+		'Meta Pixel implementation',
+		'Conversion measurement',
+		'Creative testing',
+	],
+	sameAs: [
+		'https://www.linkedin.com/in/paidsocialdirector/',
+		'https://www.instagram.com/jack.maguire__/',
+	],
+};
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<Header />
