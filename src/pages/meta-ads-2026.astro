@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import { PERSON_ID } from '../consts';
 
 const title = 'How Meta Ads Actually Work in 2026: Andromeda, GEM, and the CTC Canon, Checked Against Independent Experts';
 const description = 'A breakdown of the CTC Canon framework for Meta advertising in 2026, Andromeda, GEM, budget liquidity, never turning off an ad, checked against Jon Loomer, Andrew Foxwell, Meta\'s own engineering blog, and 12 years of my own paid social experience.';
@@ -9,7 +10,7 @@ const pubDate = 'July 10, 2026';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} articlePublished={pubDate} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Article",
@@ -18,8 +19,8 @@ const pubDate = 'July 10, 2026';
 			"url": Astro.url.href,
 			"mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
 			"image": new URL('/og-default.png', Astro.site).toString(),
-			"author": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
-			"publisher": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+			"author": { "@id": PERSON_ID },
+			"publisher": { "@id": PERSON_ID },
 			"datePublished": "2026-07-10",
 			"dateModified": "2026-07-10"
 		})} />

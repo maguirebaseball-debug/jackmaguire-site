@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import { PERSON_ID } from '../../consts';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
@@ -15,7 +16,7 @@ const img = "/images/world-cup-third-place";
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} articlePublished={pubDate} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Article",
@@ -24,8 +25,8 @@ const img = "/images/world-cup-third-place";
       "url": Astro.url.href,
       "mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
       "image": new URL("/og-default.png", Astro.site).toString(),
-      "author": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
-      "publisher": { "@type": "Person", "name": "Jack Maguire", "url": Astro.site?.toString() },
+      "author": { "@id": PERSON_ID },
+      "publisher": { "@id": PERSON_ID },
       "datePublished": "2026-07-18",
       "dateModified": "2026-07-18"
     })} />

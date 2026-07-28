@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import { PERSON_ID } from '../../consts';
 
 const title = 'Jack Maguire — Paid Social Director for CMOs';
 const description = 'I fix broken paid social measurement (CAPI, Pixel, conversion signal) and turn it into revenue. 12 years, $30M+ managed spend, $10M+ profitable revenue driven. Available now.';
@@ -9,19 +10,11 @@ const description = 'I fix broken paid social measurement (CAPI, Pixel, conversi
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "ProfilePage",
-			"mainEntity": {
-				"@type": "Person",
-				"name": "Jack Maguire",
-				"jobTitle": "Paid Social Director",
-				"url": "https://jackmaguire.org/cmo/",
-				"sameAs": ["https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/"]
-			}
-		}
-		</script>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ProfilePage',
+			mainEntity: { '@id': PERSON_ID },
+		})} />
 	</head>
 	<body>
 		<main>

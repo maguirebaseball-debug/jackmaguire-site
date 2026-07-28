@@ -1,5 +1,6 @@
 ---
 import NewsletterSignup from './NewsletterSignup.astro';
+import { PERSON_INSTAGRAM, PERSON_LINKEDIN } from '../consts';
 const today = new Date();
 ---
 
@@ -11,7 +12,7 @@ const today = new Date();
 			&copy; {today.getFullYear()}
 		</p>
 		<p class="footer-ig">
-			More of this in photo form: <a href="https://instagram.com/jack.maguire__/" id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
+			<a href={PERSON_LINKEDIN} target="_blank" rel="noopener">Jack Maguire on LinkedIn</a> · More of this in photo form: <a href={PERSON_INSTAGRAM} id="ig-follow-link" target="_blank" rel="noopener">follow along on Instagram</a>
 		</p>
 		<NewsletterSignup idPrefix="footer" />
 	</div>

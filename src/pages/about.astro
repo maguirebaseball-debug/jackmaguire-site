@@ -2,25 +2,18 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../consts';
+import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={`About: ${SITE_TITLE}`} description="Jack Maguire is a performance marketing and paid social media director based in East Village, NYC. 12+ years managing paid social campaigns across Meta, TikTok, and Instagram." />
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Jack Maguire",
-			"url": "https://jackmaguire.org",
-			"jobTitle": "Paid Social Media Director",
-			"alumniOf": { "@type": "Organization", "name": "McGill University" },
-			"address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY" },
-			"sameAs": ["https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/"]
-		}
-		</script>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ProfilePage',
+			mainEntity: { '@id': PERSON_ID },
+		})} />
 	</head>
 	<body>
 		<Header />
@@ -56,6 +49,11 @@ import { SITE_TITLE } from '../consts';
 				</ol>
 			</section>
 			<div class="prose">
+				<h2>Which Jack Maguire?</h2>
+				<p>
+					I am Jack Maguire, the paid social director in New York, not the professional golfer or the baseball player.
+					I studied at McGill University, live in the East Village, and worked at National Debt Relief through January 2026 after Good Apple.
+				</p>
 				<p>
 					I'm Jack Maguire, a performance marketing and paid social media director based in
 					New York City. Over the past 12 years I've built and led advertising programs for
@@ -114,6 +112,7 @@ import { SITE_TITLE } from '../consts';
 				<p>
 					Email: maguirebaseball [at] gmail [dot] com
 				</p>
+				<p><a href={PERSON_LINKEDIN}>Jack Maguire on LinkedIn</a></p>
 			</div>
 		</main>
 		<Footer />

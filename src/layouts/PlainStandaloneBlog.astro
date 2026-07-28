@@ -1,23 +1,26 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import { PERSON_ID } from '../consts';
 
 type Props = {
 	title: string;
 	description: string;
 	pubDate: string;
 	datePublished?: string;
+	noindex?: boolean;
 };
 
-const { title, description, pubDate, datePublished } = Astro.props;
+const { title, description, pubDate, datePublished, noindex = false } = Astro.props;
 const published = datePublished ?? pubDate;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={`${title} | Jack Maguire`} description={description} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "Article",
+			"@type": "BlogPosting",
 			"headline": title,
 			"description": description,
 			"url": Astro.url.href,
@@ -26,16 +29,8 @@ const published = datePublished ?? pubDate;
 				"@id": Astro.url.href
 			},
 			"image": new URL('/og-default.png', Astro.site).toString(),
-			"author": {
-				"@type": "Person",
-				"name": "Jack Maguire",
-				"url": Astro.site?.toString()
-			},
-			"publisher": {
-				"@type": "Person",
-				"name": "Jack Maguire",
-				"url": Astro.site?.toString()
-			},
+			"author": { "@id": PERSON_ID },
+			"publisher": { "@id": PERSON_ID },
 			"datePublished": published,
 			"dateModified": published
 		})} />

@@ -7,6 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ReadingProgressBar from '../components/ReadingProgressBar.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import { PERSON_ID } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -31,10 +32,10 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} ogImage={ogImage} />
+		<BaseHead title={`${title} | Jack Maguire`} description={description} ogImage={ogImage} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "Article",
+			"@type": "BlogPosting",
 			"headline": title,
 			"description": description,
 			"url": Astro.url.href,
@@ -43,16 +44,8 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				"@id": Astro.url.href
 			},
 			"image": ogImage ? new URL(ogImage, Astro.site).toString() : new URL('/og-default.png', Astro.site).toString(),
-			"author": {
-				"@type": "Person",
-				"name": "Jack Maguire",
-				"url": Astro.site?.toString()
-			},
-			"publisher": {
-				"@type": "Person",
-				"name": "Jack Maguire",
-				"url": Astro.site?.toString()
-			},
+			"author": { "@id": PERSON_ID },
+			"publisher": { "@id": PERSON_ID },
 			"datePublished": pubDate.toISOString(),
 			"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
 			"keywords": tags

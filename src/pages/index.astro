@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { PERSON_ID, PERSON_INSTAGRAM, PERSON_LINKEDIN, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getStandaloneBlogPosts } from '../lib/standaloneBlogPosts';
 
 const markdownPosts = (await getCollection('blog')).map((post) => ({
@@ -21,11 +21,11 @@ const posts = [...new Map([...getStandaloneBlogPosts(), ...markdownPosts].map((p
 const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
-	'@id': 'https://jackmaguire.org/#jack',
+	'@id': PERSON_ID,
 	name: 'Jack Maguire',
 	url: 'https://jackmaguire.org/',
 	image: 'https://jackmaguire.org/images/about/jack-professional-portrait.jpg',
-	jobTitle: 'Social Media Marketing Director',
+	jobTitle: 'Paid Social Director',
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: 'New York',
@@ -36,10 +36,6 @@ const personSchema = {
 		'@type': 'CollegeOrUniversity',
 		name: 'McGill University',
 	},
-	worksFor: {
-		'@type': 'Organization',
-		name: 'National Debt Relief',
-	},
 	knowsAbout: [
 		'Paid social media',
 		'Meta Conversions API',
@@ -48,8 +44,8 @@ const personSchema = {
 		'Creative testing',
 	],
 	sameAs: [
-		'https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/',
-		'https://www.instagram.com/jack.maguire__/',
+		PERSON_LINKEDIN,
+		PERSON_INSTAGRAM,
 	],
 };
 ---
@@ -57,18 +53,20 @@ const personSchema = {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Jack Maguire | Paid Social Director in New York" description={SITE_DESCRIPTION} />
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="intro">
-				<h1>Jack Maguire</h1>
+				<img class="portrait" src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire, paid social director in New York" width="900" height="900" />
+				<h1>Jack Maguire, paid social director in New York</h1>
 				<p>
 					Paid social director in the East Village. I write field notes on performance marketing,
 					NYC restaurants, long walks, books, travel logistics, and the useful edges of AI.
 				</p>
+				<p><a href={PERSON_LINKEDIN}>Jack Maguire on LinkedIn</a></p>
 				<div class="ledger" aria-label="Site coordinates">
 					<span>East Village</span>
 					<span>Paid social</span>
@@ -131,6 +129,13 @@ const personSchema = {
 		font-size: clamp(2.15em, 8vw, 3.4em);
 		margin-bottom: 0.4em;
 	}
+	.portrait {
+		float: right;
+		width: min(10rem, 28vw);
+		height: auto;
+		margin: 0 0 1rem 1.5rem;
+		border-radius: 50%;
+	}
 	.intro p {
 		color: rgb(var(--gray-dark));
 		font-size: 1.1em;
@@ -176,6 +181,11 @@ const personSchema = {
 		color: rgb(var(--black));
 	}
 	@media (max-width: 600px) {
+		.portrait {
+			float: none;
+			margin: 0 0 1rem;
+			width: min(11rem, 55vw);
+		}
 		.recent ul li a {
 			flex-direction: column;
 			gap: 0.25em;

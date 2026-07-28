@@ -55,3 +55,7 @@ Added the canonical Person entity to the homepage at `https://jackmaguire.org/#j
 ## 2026-07-28, Route indexing cleanup
 
 Moved two raw Markdown article bodies out of `src/pages` so Astro no longer emits their `.content/` URLs or includes them in the sitemap. Normalized the causal-inference article to the lowercase route and added a permanent redirect from the former mixed-case URL. The existing permanent redirect from the indexed dated three-martini URL remains in place.
+
+## 2026-07-28, Entity and authorship consolidation
+
+Established `https://jackmaguire.org/#jack` as the sole full Person entity on the homepage. About, professional, and CMO pages now reference that node rather than redefining it. The homepage now uses the current LinkedIn profile, a consistent paid-social title, portrait, and visible LinkedIn link. Standard blog layouts and custom blog routes emit BlogPosting metadata with the canonical author ID. Sitemap generation now includes lastmod values and excludes private, thank-you, and personal one-off routes.

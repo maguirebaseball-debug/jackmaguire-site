@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { PERSON_ID } from '../consts';
 
 const title = 'Jack Maguire | Paid Social and Performance Marketing Leader';
 const description = 'Jack Maguire is a New York performance marketing leader with 12+ years of experience, $30M+ in managed media spend, and deep expertise in paid social, measurement, creative testing, and AI-enabled marketing operations.';
@@ -107,33 +108,8 @@ const writing = [
 		<meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
-			'@type': 'Person',
-			name: 'Jack Maguire',
-			url: 'https://jackmaguire.org/professional-about-me/',
-			image: 'https://jackmaguire.org/images/about/jack-professional-portrait.jpg',
-			jobTitle: 'Performance Marketing and Paid Social Leader',
-			description,
-			address: {
-				'@type': 'PostalAddress',
-				addressLocality: 'New York',
-				addressRegion: 'NY',
-				addressCountry: 'US',
-			},
-			alumniOf: {
-				'@type': 'CollegeOrUniversity',
-				name: 'McGill University',
-			},
-			sameAs: ['https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/'],
-			knowsAbout: [
-				'Paid social media',
-				'Performance marketing',
-				'Marketing measurement',
-				'Creative testing',
-				'Meta Ads',
-				'TikTok Ads',
-				'Marketing analytics',
-				'Artificial intelligence',
-			],
+			'@type': 'ProfilePage',
+			mainEntity: { '@id': PERSON_ID },
 		})} />
 	</head>
 	<body>

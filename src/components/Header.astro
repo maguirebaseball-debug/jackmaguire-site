@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
@@ -15,7 +15,7 @@ import HeaderLink from './HeaderLink.astro';
 			<span class="sep">|</span>
 			<HeaderLink href="/professional-about-me">Professional Bio</HeaderLink>
 			<span class="sep">|</span>
-			<HeaderLink href="/lactate-threshold-test">LT Test</HeaderLink>
+			<a href={PERSON_LINKEDIN} target="_blank" rel="noopener">LinkedIn</a>
 		</div>
 	</nav>
 </header>

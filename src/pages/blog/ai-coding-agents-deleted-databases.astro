@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import { PERSON_ID } from '../../consts';
 
 const title = "Three AI Coding Agents Deleted Production Databases in 16 Months";
 const description = "Three documented incidents at Replit, Amazon Kiro, and PocketOS each shared one missing infrastructure control: no approval gate before destructive database operations ran.";
@@ -8,22 +9,15 @@ const pubDate = "Jun 1, 2026";
 
 <html lang="en">
 <head>
-  <BaseHead title={title} description={description} />
+  <BaseHead title={title} description={description} articlePublished={pubDate} />
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
     "description": description,
-    "author": {
-      "@type": "Person",
-      "name": "Jack Maguire",
-      "url": "https://jackmaguire.org"
-    },
+    "author": { "@id": PERSON_ID },
     "datePublished": "2026-06-01",
-    "publisher": {
-      "@type": "Person",
-      "name": "Jack Maguire"
-    }
+    "publisher": { "@id": PERSON_ID }
   })} />
   <style>
     .article-container {
