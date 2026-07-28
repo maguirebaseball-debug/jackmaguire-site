@@ -13,6 +13,8 @@ import HeaderLink from './HeaderLink.astro';
 			<span class="sep">|</span>
 			<HeaderLink href="/about">About</HeaderLink>
 			<span class="sep">|</span>
+			<HeaderLink href="/professional-about-me">Professional Bio</HeaderLink>
+			<span class="sep">|</span>
 			<HeaderLink href="/lactate-threshold-test">LT Test</HeaderLink>
 		</div>
 	</nav>
@@ -45,6 +47,7 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		flex-wrap: wrap;
 		gap: 0.75rem;
 	}
 	.sep {
@@ -77,8 +80,8 @@ import HeaderLink from './HeaderLink.astro';
 		.internal-links {
 			width: 100%;
 			justify-content: center;
-			gap: clamp(0.42rem, 3vw, 0.9rem);
-			font-size: clamp(0.72rem, 3.35vw, 0.88rem);
+			gap: 0.35rem clamp(0.35rem, 2.1vw, 0.72rem);
+			font-size: clamp(0.68rem, 2.9vw, 0.84rem);
 		}
 		nav a {
 			padding: 0.15rem 0 0.25rem;

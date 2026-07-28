@@ -102,6 +102,9 @@ const writing = [
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} ogImage="/professional-about-me-og.png" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'Person',
@@ -110,7 +113,6 @@ const writing = [
 			image: 'https://jackmaguire.org/images/about/jack-cafe.jpg',
 			jobTitle: 'Performance Marketing and Paid Social Leader',
 			description,
-			email: 'mailto:maguirebaseball@gmail.com',
 			address: {
 				'@type': 'PostalAddress',
 				addressLocality: 'New York',
@@ -148,7 +150,15 @@ const writing = [
 						question begins.
 					</p>
 					<div class="hero-actions">
-						<a class="primary-action" href="mailto:maguirebaseball@gmail.com">Email me</a>
+						<div class="email-image">
+							<span>Email</span>
+							<img
+								src="/images/professional/contact.png"
+								alt="Jack Maguire's email address"
+								width="560"
+								height="56"
+							/>
+						</div>
 						<a class="text-action" href="https://www.linkedin.com/in/paidsocialdirector/">LinkedIn <span aria-hidden="true">↗</span></a>
 					</div>
 					<p class="current-note">
@@ -345,7 +355,15 @@ const writing = [
 				<p class="eyebrow">Open to the right performance marketing role</p>
 				<h2 id="contact-title">If you need paid social leadership that stays close to the numbers, let's talk.</h2>
 				<div class="hero-actions">
-					<a class="primary-action" href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a>
+					<div class="email-image email-image-large">
+						<span>Email</span>
+						<img
+							src="/images/professional/contact.png"
+							alt="Jack Maguire's email address"
+							width="560"
+							height="56"
+						/>
+					</div>
 					<a class="text-action" href="https://www.linkedin.com/in/paidsocialdirector/">View LinkedIn <span aria-hidden="true">↗</span></a>
 				</div>
 			</section>
@@ -445,6 +463,34 @@ const writing = [
 	.text-action {
 		color: rgb(var(--black));
 		text-decoration-thickness: 1px;
+	}
+
+	.email-image {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		padding: 0.42rem 0.75rem;
+		background: #fff;
+		border: 1px solid rgba(85, 107, 47, 0.42);
+	}
+
+	.email-image span {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.68rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+	}
+
+	.email-image img {
+		display: block;
+		width: min(260px, 48vw);
+		height: auto;
+	}
+
+	.email-image-large img {
+		width: min(340px, 58vw);
 	}
 
 	.current-note {
@@ -1003,11 +1049,10 @@ const writing = [
 			grid-column: 1;
 		}
 
-		.contact-panel .primary-action {
+		.contact-panel .email-image {
 			width: 100%;
 			box-sizing: border-box;
 			justify-content: center;
-			font-size: 0.72rem;
 		}
 	}
 
