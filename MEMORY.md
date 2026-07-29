@@ -67,3 +67,7 @@ Moved two raw Markdown article bodies out of `src/pages` so Astro no longer emit
 ## 2026-07-28, Entity and authorship consolidation
 
 Established `https://jackmaguire.org/#jack` as the sole full Person entity on the homepage. About, professional, and CMO pages now reference that node rather than redefining it. The homepage now uses the current LinkedIn profile, a consistent paid-social title, portrait, and visible LinkedIn link. Standard blog layouts and custom blog routes emit BlogPosting metadata with the canonical author ID. Sitemap generation now includes lastmod values and excludes private, thank-you, and personal one-off routes.
+
+## 2026-07-29, ProfilePage mainEntity structured-data repair
+
+Updated `/about/` and `/professional-about-me/` so each ProfilePage declares `mainEntity` as a Person with the shared canonical Person ID and name. This fixes the two Search Console examples that reported an invalid object type for `mainEntity`.

@@ -15,3 +15,5 @@ The canonical identity page is `/about/`. Site navigation and article bylines us
 The professional career page is implemented at `/professional-about-me/`. It is based on a review of 47 tailored role records from the ResumeAutomation project and emphasizes the recurring hiring signals across those roles: paid social ownership, measurement, creative testing, budget accountability, profitable acquisition, cross-functional leadership, signal quality, hands-on execution, and practical AI operations. It keeps the normal site header and footer and includes a bespoke social preview.
 
 The page is linked from the global navigation as `Professional Bio`. Its contact address is rendered only as a raster image, with no address in HTML, metadata, links, filenames, or alternative text. The page explicitly permits indexing and rich snippets, appears in the sitemap, and is allowed for major search and AI crawlers in `robots.txt`.
+
+The ProfilePage structured data on `/about/` and `/professional-about-me/` identifies its `mainEntity` as a Person, rather than an untyped ID reference. This addresses the Search Console invalid `mainEntity` object-type report for those two URLs.

@@ -12,7 +12,11 @@ import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'ProfilePage',
-			mainEntity: { '@id': PERSON_ID },
+			mainEntity: {
+				'@type': 'Person',
+				'@id': PERSON_ID,
+				name: 'Jack Maguire',
+			},
 		})} />
 	</head>
 	<body>
