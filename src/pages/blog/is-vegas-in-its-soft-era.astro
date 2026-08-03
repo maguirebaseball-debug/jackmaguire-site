@@ -1,0 +1,869 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import { PERSON_ID } from '../../consts';
+
+const title = "Is Vegas in Its Soft Era?";
+const description = "A 125-term Google Trends audit finds coffee, spas, fitness, and sober events rising without a broad decline in Las Vegas clubs or drinking.";
+const pubDate = "Aug 3, 2026";
+const category = "Travel";
+const dateObj = new Date("2026-08-03T12:00:00Z");
+
+const signals = [
+  { label: 'Best coffee Las Vegas', value: 261, group: 'soft', qualifier: 'strong, lower base' },
+  { label: 'Las Vegas nightlife', value: 245, group: 'party', qualifier: 'strong, lower base' },
+  { label: 'Las Vegas cocktails', value: 81, group: 'party', qualifier: 'reliable' },
+  { label: 'Vegas day party', value: 58, group: 'party', qualifier: 'reliable' },
+  { label: 'Las Vegas hiking', value: 58, group: 'soft', qualifier: 'reliable' },
+  { label: 'Las Vegas Pilates', value: 37, group: 'soft', qualifier: 'reliable' },
+  { label: 'Las Vegas bars', value: 33, group: 'party', qualifier: 'reliable' },
+  { label: 'Gluten free Las Vegas', value: 30, group: 'soft', qualifier: 'reliable' },
+  { label: 'XS Las Vegas', value: 25, group: 'party', qualifier: 'reliable' },
+  { label: 'Las Vegas happy hour', value: 24, group: 'party', qualifier: 'reliable' },
+  { label: 'Las Vegas massage', value: 24, group: 'soft', qualifier: 'reliable' },
+  { label: 'OMNIA Las Vegas', value: 24, group: 'party', qualifier: 'reliable' },
+  { label: 'Vegan Las Vegas', value: 21, group: 'soft', qualifier: 'reliable' },
+  { label: 'Wynn Las Vegas spa', value: 16, group: 'soft', qualifier: 'reliable' },
+  { label: 'Las Vegas hotels', value: 12, group: 'control', qualifier: 'tourism control' },
+  { label: 'Zouk Las Vegas', value: -8, group: 'party', qualifier: 'reliable' },
+];
+
+const searchGroups = [
+  ['Major clubs', 'XS, OMNIA, Marquee, LIV, Zouk'],
+  ['Dayclubs', 'Encore Beach Club, TAO Beach, Wet Republic, Palm Tree Beach Club, Ayu'],
+  ['Party intent', 'nightlife, best clubs, party packages, day parties, afterparties'],
+  ['Alcohol', 'cocktails, bars, happy hour, breweries, wine bars'],
+  ['Boozy activities', 'pub crawls, pool-party tickets, bottle-service prices, bottomless mimosas, drinking games'],
+  ['Low and no alcohol', 'mocktails, nonalcoholic Vegas, alcohol-free Vegas, sober activities, sober nightlife'],
+  ['Wellness', 'retreats, wellness hotels, wellness weekends, self-care, holistic Vegas'],
+  ['Yoga formats', 'classes, rooftop yoga, poolside yoga, retreats, festivals'],
+  ['Recovery', 'recovery spas, IV therapy, hydration, massage, saunas'],
+  ['Contrast therapy', 'cold plunges, cryotherapy, infrared saunas, breathwork, sound healing'],
+  ['Fitness', 'fitness classes, Pilates, run clubs, spin, hiking'],
+  ['Coffee', 'best coffee, specialty coffee, coffee parties, coffee festivals, coffee DJs'],
+  ['Healthy drinks', 'matcha cafes, juice cleanses, smoothie bars, tea houses, kombucha'],
+  ['Healthy food', 'healthy brunch, vegan, plant-based, organic, gluten-free'],
+  ['Daytime social life', 'morning events, daytime events, early parties, sober dance parties, daytime raves'],
+  ['Soft-clubbing language', 'soft clubbing, wellness raves, yoga raves, sober raves, conscious dance'],
+  ['Alternative social life', 'sound-bath events, ecstatic dance, dance meditation, community wellness, wellness social clubs'],
+  ['Resort spas', 'Wynn, Caesars Palace, Cosmopolitan, Fontainebleau, Resorts World'],
+  ['Venue wellness', 'AREA15 wellness, AREA15 yoga, OMNIA yoga, Marquee yoga, XS yoga'],
+  ['Tourism controls', 'things to do, vacations, hotels, restaurants, events'],
+];
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} articlePublished="2026-08-03" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description,
+      url: Astro.url.href,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': Astro.url.href },
+      image: new URL('/og-default.png', Astro.site).toString(),
+      author: { '@id': PERSON_ID },
+      publisher: { '@id': PERSON_ID },
+      datePublished: '2026-08-03',
+      dateModified: '2026-08-03',
+    })} />
+    <style>
+      :root {
+        --vegas-ink: #171528;
+        --vegas-cream: #fff9ec;
+        --vegas-pink: #eb3f67;
+        --vegas-pink-dark: #a91f43;
+        --vegas-blue: #214d9a;
+        --vegas-mint: #8dc8ad;
+        --vegas-lime: #d9e781;
+        --vegas-line: rgba(23, 21, 40, 0.18);
+      }
+
+      body {
+        background: #f2ecdf;
+        color: var(--vegas-ink);
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      .article {
+        overflow: hidden;
+      }
+
+      .hero {
+        position: relative;
+        background:
+          linear-gradient(125deg, rgba(235, 63, 103, 0.14), transparent 45%),
+          repeating-linear-gradient(90deg, transparent 0 39px, rgba(23, 21, 40, 0.035) 39px 40px),
+          var(--vegas-cream);
+        border-bottom: 1px solid var(--vegas-line);
+      }
+
+      .hero-inner,
+      .content-grid,
+      .wide-section,
+      .article-footer {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .hero-inner {
+        padding: clamp(3rem, 8vw, 7rem) 0 3.25rem;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin: 0 0 1.25rem;
+        font-family: var(--font-ui);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 2.25rem;
+        height: 3px;
+        background: var(--vegas-pink);
+      }
+
+      h1 {
+        max-width: 980px;
+        margin: 0;
+        font-size: clamp(3.2rem, 10vw, 8.4rem);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+        text-wrap: balance;
+      }
+
+      h1 .soft {
+        color: var(--vegas-pink);
+        font-family: 'Caveat', cursive;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-bottom {
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.7fr);
+        gap: 2.5rem;
+        align-items: end;
+        margin-top: 2.25rem;
+      }
+
+      .dek {
+        max-width: 720px;
+        margin: 0;
+        font-size: clamp(1.15rem, 2vw, 1.45rem);
+        line-height: 1.55;
+        color: rgba(23, 21, 40, 0.82);
+      }
+
+      .meta {
+        margin: 0;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--vegas-line);
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        line-height: 1.55;
+        color: rgba(23, 21, 40, 0.62);
+      }
+
+      .verdict-strip {
+        background: var(--vegas-ink);
+        color: #fff;
+      }
+
+      .verdict-strip .wide-section {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.6rem;
+      }
+
+      .verdict-label {
+        margin: 0;
+        color: var(--vegas-lime);
+        font-family: var(--font-ui);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .verdict-text {
+        max-width: 900px;
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+        line-height: 1.4;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 720px) minmax(250px, 320px);
+        justify-content: space-between;
+        gap: 4rem;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+      }
+
+      .prose p,
+      .prose ul,
+      .prose ol {
+        max-width: 680px;
+      }
+
+      .prose p {
+        margin: 0 0 1.25rem;
+        font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, 'Times New Roman', Times, serif;
+        font-size: 1.12rem;
+        line-height: 1.68;
+      }
+
+      .prose h2 {
+        margin: 3.2rem 0 1rem;
+        font-size: clamp(1.75rem, 3vw, 2.45rem);
+        letter-spacing: -0.025em;
+      }
+
+      .prose h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .prose h3 {
+        margin: 2.2rem 0 0.75rem;
+        font-size: 1.25rem;
+        color: var(--vegas-blue);
+      }
+
+      .pullquote {
+        margin: 2.25rem 0;
+        padding: 1.4rem 0 1.4rem 1.35rem;
+        border-top: 1px solid var(--vegas-line);
+        border-bottom: 1px solid var(--vegas-line);
+        border-left: 5px solid var(--vegas-pink);
+        font-family: var(--font-heading);
+        font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+        line-height: 1.35;
+      }
+
+      .side-rail {
+        align-self: start;
+        position: sticky;
+        top: 1rem;
+      }
+
+      .scorecard {
+        border: 1px solid var(--vegas-line);
+        background: var(--vegas-cream);
+      }
+
+      .scorecard-title {
+        margin: 0;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid var(--vegas-line);
+        font-family: var(--font-ui);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .score {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 0.85rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--vegas-line);
+      }
+
+      .score:last-child {
+        border-bottom: 0;
+      }
+
+      .score strong {
+        color: var(--vegas-pink-dark);
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      .score span {
+        font-size: 0.78rem;
+        line-height: 1.4;
+        color: rgba(23, 21, 40, 0.72);
+      }
+
+      .signal-section {
+        padding: 4rem 0;
+        background: #fff;
+        border-top: 1px solid var(--vegas-line);
+        border-bottom: 1px solid var(--vegas-line);
+      }
+
+      .section-kicker {
+        margin: 0 0 0.5rem;
+        font-family: var(--font-ui);
+        color: var(--vegas-pink-dark);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .wide-section > h2 {
+        max-width: 780px;
+        margin: 0 0 0.7rem;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.035em;
+      }
+
+      .section-dek {
+        max-width: 720px;
+        margin: 0 0 1.6rem;
+        color: rgba(23, 21, 40, 0.72);
+      }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .filter-button {
+        appearance: none;
+        border: 1px solid var(--vegas-ink);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--vegas-ink);
+        padding: 0.55rem 0.9rem;
+        font: 700 0.72rem/1 var(--font-ui);
+        cursor: pointer;
+      }
+
+      .filter-button[aria-pressed='true'] {
+        background: var(--vegas-ink);
+        color: #fff;
+      }
+
+      .signal-chart {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .signal-row {
+        display: grid;
+        grid-template-columns: minmax(160px, 240px) 1fr 74px;
+        gap: 0.85rem;
+        align-items: center;
+        min-height: 2rem;
+      }
+
+      .signal-row[hidden] {
+        display: none;
+      }
+
+      .signal-name {
+        font-size: 0.83rem;
+        line-height: 1.2;
+      }
+
+      .bar-track {
+        position: relative;
+        height: 0.8rem;
+        background: #eee9df;
+      }
+
+      .bar {
+        height: 100%;
+        min-width: 2px;
+        width: min(calc(var(--value) * 0.36%), 100%);
+        background: var(--vegas-pink);
+        transform-origin: left;
+        animation: grow 700ms ease-out both;
+      }
+
+      .signal-row[data-group='soft'] .bar {
+        background: var(--vegas-blue);
+      }
+
+      .signal-row[data-group='control'] .bar {
+        background: #7d7a86;
+      }
+
+      .signal-row.negative .bar {
+        background: #777;
+        opacity: 0.65;
+      }
+
+      .signal-value {
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .signal-value small {
+        display: block;
+        margin-top: 0.1rem;
+        font-size: 0.56rem;
+        font-weight: 400;
+        color: rgba(23, 21, 40, 0.55);
+      }
+
+      .axis-note {
+        margin: 1rem 0 0;
+        font-size: 0.75rem;
+        color: rgba(23, 21, 40, 0.58);
+      }
+
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin: 1.8rem 0 2.2rem;
+        border: 1px solid var(--vegas-line);
+      }
+
+      .evidence-card {
+        padding: 1.25rem;
+        border-right: 1px solid var(--vegas-line);
+        background: var(--vegas-cream);
+      }
+
+      .evidence-card:last-child {
+        border-right: 0;
+      }
+
+      .evidence-card .number {
+        margin: 0 0 0.5rem;
+        color: var(--vegas-pink-dark);
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .evidence-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1rem;
+      }
+
+      .evidence-card p {
+        margin: 0;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: rgba(23, 21, 40, 0.7);
+      }
+
+      .soft-language {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        margin: 2rem 0;
+        padding: 1.4rem;
+        background: var(--vegas-ink);
+        color: #fff;
+      }
+
+      .soft-language h3 {
+        margin-top: 0;
+        color: var(--vegas-lime);
+      }
+
+      .soft-language p {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.84);
+      }
+
+      .zero-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: start;
+        gap: 0.45rem;
+      }
+
+      .zero-list span {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 999px;
+        padding: 0.35rem 0.55rem;
+        font-size: 0.7rem;
+      }
+
+      .method {
+        padding: 4rem 0;
+        background: var(--vegas-cream);
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 3rem;
+      }
+
+      .method-copy p {
+        font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, 'Times New Roman', Times, serif;
+        font-size: 1.04rem;
+        line-height: 1.65;
+      }
+
+      details {
+        border-top: 1px solid var(--vegas-line);
+      }
+
+      details:last-child {
+        border-bottom: 1px solid var(--vegas-line);
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 0.85rem 0;
+        font-weight: 700;
+      }
+
+      .search-groups {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1.5rem;
+        padding: 0.3rem 0 1.1rem;
+      }
+
+      .search-group {
+        font-size: 0.77rem;
+        line-height: 1.45;
+      }
+
+      .search-group strong {
+        display: block;
+        margin-bottom: 0.15rem;
+        color: var(--vegas-blue);
+      }
+
+      .source-list {
+        margin: 0;
+        padding-left: 1.15rem;
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .article-footer {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+      }
+
+      .article-footer a {
+        font-weight: 700;
+      }
+
+      @keyframes grow {
+        from { transform: scaleX(0); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bar { animation: none; }
+      }
+
+      @media (max-width: 850px) {
+        .hero-bottom,
+        .content-grid,
+        .method-grid,
+        .soft-language {
+          grid-template-columns: 1fr;
+        }
+
+        .content-grid {
+          gap: 2.5rem;
+        }
+
+        .side-rail {
+          position: static;
+        }
+
+        .scorecard {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .scorecard-title {
+          grid-column: 1 / -1;
+        }
+
+        .score:nth-last-child(2) {
+          border-bottom: 0;
+        }
+
+        .score:nth-child(even) {
+          border-right: 1px solid var(--vegas-line);
+        }
+
+        .evidence-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .evidence-card {
+          border-right: 0;
+          border-bottom: 1px solid var(--vegas-line);
+        }
+
+        .evidence-card:last-child {
+          border-bottom: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-inner {
+          padding-top: 3rem;
+        }
+
+        h1 {
+          font-size: clamp(3.15rem, 18vw, 5.2rem);
+        }
+
+        .verdict-strip .wide-section {
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+        }
+
+        .content-grid,
+        .signal-section,
+        .method {
+          padding-top: 2.8rem;
+          padding-bottom: 2.8rem;
+        }
+
+        .prose p {
+          font-size: 1.04rem;
+        }
+
+        .signal-row {
+          grid-template-columns: 1fr 58px;
+          gap: 0.3rem 0.75rem;
+          padding-bottom: 0.45rem;
+          border-bottom: 1px solid rgba(23, 21, 40, 0.08);
+        }
+
+        .bar-track {
+          grid-column: 1 / -1;
+          grid-row: 2;
+        }
+
+        .signal-value {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .scorecard,
+        .search-groups {
+          grid-template-columns: 1fr;
+        }
+
+        .score:nth-child(even) {
+          border-right: 0;
+        }
+
+        .score:nth-last-child(2) {
+          border-bottom: 1px solid var(--vegas-line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <ReadingProgressBar />
+    <main class="article">
+      <header class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">125 Google Trends searches, five years of data</p>
+          <h1>Is Vegas in Its <span class="soft">Soft Era?</span></h1>
+          <div class="hero-bottom">
+            <p class="dek">Coffee parties, sunrise yoga, sober dancing, matcha, spas, cold plunges: the softer version of social life has reached Las Vegas. The harder question is whether any of it has replaced the city people came to misbehave in.</p>
+            <p class="meta"><FormattedDate date={dateObj} /><br />By <a href="/about/">Jack Maguire</a><br />{category}</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="verdict-strip" aria-label="Verdict">
+        <div class="wide-section">
+          <p class="verdict-label">The short answer</p>
+          <p class="verdict-text">Yes, around the edges. Vegas has built a serious morning-after economy without losing much of the night before.</p>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="prose">
+          <h2>The party city learned to sell recovery</h2>
+          <p>Vegas may be entering its soft era, although the word <em>soft</em> is doing too much work. The Strip is still selling clubs, cocktails, bottle service, bachelor weekends, and the beautiful financial mistake known as a pool cabana. Those searches are holding up.</p>
+          <p>What changed is the rest of the itinerary. Coffee, Pilates, hiking, spas, massage, vegan food, alcohol-free discovery, and occasional sober dance events now sit beside the old Vegas package. The city has found another set of things to sell people after they wake up.</p>
+          <p>A five-year audit of 125 related Google Trends terms makes the split fairly clear. Search interest for bars and nightlife did not collapse as wellness grew. Several party terms rose faster than broad Vegas tourism searches. The softer categories grew anyway, sometimes much faster.</p>
+
+          <blockquote class="pullquote">Vegas is diversifying its pleasures. It has not developed a conscience.</blockquote>
+
+          <h2>Hard Vegas is doing fine</h2>
+          <p>The cleanest way to test the soft-era thesis is to look for displacement. If visitors are replacing clubs with cold plunges and cocktails with matcha, conventional party searches should be falling relative to ordinary Vegas travel interest.</p>
+          <p>They are not. In the second round of 100 searches, the median year-over-year increase across five broad tourism controls was about 12 percent. Major-club searches that met a conservative stability test rose about 15 percent at the median. Alcohol searches rose about 33 percent. Reliable party-intent searches rose about 58 percent.</p>
+          <p><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=Las%20Vegas%20cocktails,Las%20Vegas%20bars,Las%20Vegas%20happy%20hour,Las%20Vegas%20breweries,Las%20Vegas%20wine%20bars&amp;hl=en&amp;legacy">Las Vegas bars</a> rose 33 percent in the latest 52 weeks compared with the previous 52. Cocktails rose 81 percent. Happy hour rose 24 percent. The exact numbers will move slightly when Google resamples the data, but the category direction is hard to mistake.</p>
+          <p>The named clubs tell a similar story. XS rose 25 percent, OMNIA 24 percent, and LIV 23 percent. Marquee was roughly steady at 6 percent growth. Zouk declined 8 percent. That looks like competition and venue-level movement inside a healthy category, not a citywide retreat from nightlife.</p>
+          <p>Dayclubs were less uniform. Encore Beach Club was flat year over year and below its summer 2024 level. TAO Beach rose. Wet Republic and Ayu fell sharply. Brand changes, schedules, and venue openings make individual-club terms messy, but the group provides the closest thing to genuine softness in the traditional party data.</p>
+
+          <h2>The soft layer is real</h2>
+          <p>The softer side of the search data is too large to dismiss as a few Instagram flyers. In the first 25-term round, search interest for Vegas wellness roughly doubled year over year. Yoga rose 34 percent. Vegas coffee shops rose 174 percent. Matcha rose 167 percent. Spa interest, already a large category, rose 21 percent.</p>
+          <p>The second round narrowed the wording and added controls. “Best coffee Las Vegas” rose 261 percent, albeit from a lower base. Pilates rose 37 percent, hiking 58 percent, massage 24 percent, vegan food 21 percent, and gluten-free food 30 percent. Wynn spa searches rose 16 percent. Caesars Palace spa searches also climbed, though their weekly history was less consistent.</p>
+          <p>These are not all nightlife substitutes. Hiking does not explain the fate of OMNIA, and a massage search may be caused by the nightclub rather than chosen instead of it. The useful finding is broader: visitors increasingly expect Vegas to support a healthy day as well as an unhealthy night.</p>
+
+          <div class="evidence-grid" aria-label="Three interpretations">
+            <section class="evidence-card">
+              <p class="number">+33%</p>
+              <h3>Bars kept growing</h3>
+              <p>Alcohol-related search interest rose faster than the 12 percent tourism-control baseline.</p>
+            </section>
+            <section class="evidence-card">
+              <p class="number">+261%</p>
+              <h3>Coffee broke out</h3>
+              <p>“Best coffee Las Vegas” was the fastest reliable lifestyle term in the second round.</p>
+            </section>
+            <section class="evidence-card">
+              <p class="number">23/100</p>
+              <h3>Stable signals</h3>
+              <p>Only 23 second-round terms had enough regular interest for a conservative trend estimate.</p>
+            </section>
+          </div>
+
+          <h2>One major club crossed the line</h2>
+          <p>The most persuasive evidence does not come from a trend line. It comes from an event calendar.</p>
+          <p>In summer 2026, OMNIA Dayclub at Caesars Palace hosted recurring DAYBREAKER mornings. The official <a href="https://tickets.taogroup.com/e/daybreaker-omnia-dc-las-vegas-7-12-2026/tickets">TAO Group listing</a> described a 9 a.m. yoga session, a sober dance party, complimentary nonalcoholic drinks, and admission to the normal dayclub afterward. <a href="https://www.daybreaker.com/event/las-vegas-07-12/">DAYBREAKER’s own page</a> was blunter: “No alcohol. No VIP. No bottle service.”</p>
+          <p>This is a real change in how a major Strip venue uses its space. It also occupies a small part of OMNIA’s calendar. The surrounding schedule remained full of Zedd, Fisher, DJ Snake, Chris Lake, and regular dayclub programming. Yoga arrived in the club without evicting the club.</p>
+          <p>Searches connecting other major venues directly to wellness were almost nonexistent. “OMNIA yoga” appeared in 2026, which fits the event. “XS yoga,” “Marquee yoga,” and “AREA15 yoga” produced no dependable series. The evidence supports an experiment with legs at one major venue, not an industry-wide conversion.</p>
+
+          <div class="soft-language">
+            <div>
+              <h3>The language has not caught up</h3>
+              <p>People are searching for coffee, spas, fitness, yoga, and alcohol-free options. They are rarely searching for the umbrella phrase “soft clubbing.” The behavior may be forming before the label becomes useful.</p>
+            </div>
+            <div class="zero-list" aria-label="Low-volume search terms">
+              <span>soft clubbing Las Vegas</span>
+              <span>sober rave Las Vegas</span>
+              <span>wellness rave Las Vegas</span>
+              <span>yoga rave Las Vegas</span>
+              <span>ecstatic dance Las Vegas</span>
+              <span>sober dance party Las Vegas</span>
+            </div>
+          </div>
+
+          <h2>Is there less drinking?</h2>
+          <p>There is no good search evidence for it. Bars, cocktails, happy hour, open bars, and even hangover-related searches held steady or rose. Alcohol-free Vegas interest appeared more often in 2026, but most exact sober and mocktail terms remained too intermittent to compare cleanly.</p>
+          <p>The behavioral data is suggestive but incomplete. The <a href="https://assets.simpleviewcms.com/simpleview/image/upload/v1/clients/lasvegas/2025_Las_Vegas_Visitor_Profile_Study_db57c923-1f87-4ab8-868d-d6fc0bf2f972.pdf">2025 Las Vegas Visitor Profile Study</a> found that average food-and-drink spending among spenders fell from $619.17 in 2024 to $589.36 in 2025. Food and drink is not an alcohol measure, and shorter trips or restaurant prices can move it.</p>
+          <p>The same visitor survey reported nightclub participation at 12 percent in both 2024 and 2025. Dayclub participation edged up. Nevada’s fiscal 2025 alcohol-volume statistics fell, but the <a href="https://tax.nv.gov/wp-content/uploads/2026/01/FY25_AnnualReport_FINAL.pdf">state tax report</a> warns that a reporting-system change beginning in December 2024 affected those figures. Treating that administrative break as a clean sobriety trend would be convenient and wrong.</p>
+
+          <h2>What the soft era actually means</h2>
+          <p>The phrase works if it describes expansion. Vegas can now support the friend who wants to leave the club at 4 a.m., the friend who wants a 9 a.m. yoga rave, and the friend who mainly wants an excellent cappuccino and plausible deniability about both.</p>
+          <p>The commercial logic is straightforward. A pure party destination owns the night. A resort city with spas, coffee, fitness, sports, restaurants, and alcohol-free social events can own the whole day. Wellness gives hotels more inventory to sell, gives groups more ways to compromise, and gives visitors a reason to extend a trip without extending the hangover.</p>
+          <p>So yes, Vegas is in its soft era. The softness is an added layer rather than a moral conversion. The city still wants the bottle-service table. It has simply learned to sell the green juice waiting beside the bed.</p>
+        </article>
+
+        <aside class="side-rail" aria-label="Research scorecard">
+          <div class="scorecard">
+            <p class="scorecard-title">Research scorecard</p>
+            <div class="score"><strong>125</strong><span>distinct Google Trends terms across two rounds</span></div>
+            <div class="score"><strong>5 yr</strong><span>United States search history through August 2026</span></div>
+            <div class="score"><strong>+12%</strong><span>median growth across stable tourism controls</span></div>
+            <div class="score"><strong>1</strong><span>major Strip dayclub with clearly documented recurring sober programming</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="signal-section" aria-labelledby="signals-title">
+        <div class="wide-section">
+          <p class="section-kicker">The reliable second-round signals</p>
+          <h2 id="signals-title">The soft and hard sides grew together</h2>
+          <p class="section-dek">Change in average Google Trends interest during the latest 52 weeks versus the preceding 52 weeks. Use the filters to isolate the party, lifestyle, and tourism-control terms.</p>
+          <div class="filters" aria-label="Filter trend signals">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All signals</button>
+            <button class="filter-button" type="button" data-filter="party" aria-pressed="false">Party and alcohol</button>
+            <button class="filter-button" type="button" data-filter="soft" aria-pressed="false">Coffee and wellness</button>
+            <button class="filter-button" type="button" data-filter="control" aria-pressed="false">Tourism control</button>
+          </div>
+          <div class="signal-chart">
+            {signals.map((signal) => (
+              <div class:list={['signal-row', signal.value < 0 && 'negative']} data-group={signal.group}>
+                <span class="signal-name">{signal.label}</span>
+                <span class="bar-track" aria-hidden="true"><span class="bar" style={`--value:${Math.max(signal.value, 2)}`}></span></span>
+                <span class="signal-value">{signal.value > 0 ? '+' : ''}{signal.value}%<small>{signal.qualifier}</small></span>
+              </div>
+            ))}
+          </div>
+          <p class="axis-note">Google Trends uses a normalized 0 to 100 index, not raw search counts. Percent changes are calculated within each term’s own five-year series. Large figures from lower bases deserve less precision than established, weekly terms.</p>
+        </div>
+      </section>
+
+      <section class="method" aria-labelledby="method-title">
+        <div class="wide-section method-grid">
+          <div class="method-copy">
+            <p class="section-kicker">Method and receipts</p>
+            <h2 id="method-title">How the thesis was tested</h2>
+            <p>The first round used 25 broad terms. The second used 100 new terms in 20 five-term comparisons. Every comparison covered U.S. Google searches over the previous five years, with extra attention to summer 2026.</p>
+            <p>The second-round stability screen required regular nonzero observations, adequate relative volume, and a usable prior-year baseline. Twenty-three terms passed. The other 77 remain useful as a map of emerging language, but their percentage changes are too fragile to carry the argument.</p>
+            <p>Google Trends measures search attention, not attendance, revenue, drinks consumed, or intent. Venue calendars and visitor surveys provide separate checks on the interpretation.</p>
+          </div>
+          <div>
+            <details open>
+              <summary>The 100-term second-round taxonomy</summary>
+              <div class="search-groups">
+                {searchGroups.map(([group, terms]) => (
+                  <div class="search-group"><strong>{group}</strong>{terms}</div>
+                ))}
+              </div>
+            </details>
+            <details>
+              <summary>Primary comparisons</summary>
+              <ul class="source-list">
+                <li><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=Las%20Vegas%20nightlife,best%20clubs%20in%20Vegas,Las%20Vegas%20party%20packages,Vegas%20day%20party,Vegas%20afterparty&amp;hl=en&amp;legacy">Party-intent comparison</a></li>
+                <li><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=XS%20Las%20Vegas,OMNIA%20Las%20Vegas,Marquee%20Las%20Vegas,LIV%20Las%20Vegas,Zouk%20Las%20Vegas&amp;hl=en&amp;legacy">Major-club comparison</a></li>
+                <li><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=Las%20Vegas%20cocktails,Las%20Vegas%20bars,Las%20Vegas%20happy%20hour,Las%20Vegas%20breweries,Las%20Vegas%20wine%20bars&amp;hl=en&amp;legacy">Alcohol comparison</a></li>
+                <li><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=best%20coffee%20Las%20Vegas,specialty%20coffee%20Las%20Vegas,coffee%20party%20Las%20Vegas,coffee%20festival%20Las%20Vegas,coffee%20DJ%20Las%20Vegas&amp;hl=en&amp;legacy">Coffee comparison</a></li>
+                <li><a href="https://trends.google.com/trends/explore?date=today%205-y&amp;geo=US&amp;q=things%20to%20do%20in%20Las%20Vegas,Las%20Vegas%20vacation,Las%20Vegas%20hotels,Las%20Vegas%20restaurants,Las%20Vegas%20events&amp;hl=en&amp;legacy">Tourism-control comparison</a></li>
+              </ul>
+            </details>
+            <details>
+              <summary>Supporting sources</summary>
+              <ul class="source-list">
+                <li><a href="https://tickets.taogroup.com/e/daybreaker-omnia-dc-las-vegas-7-12-2026/tickets">TAO Group: DAYBREAKER at OMNIA Dayclub</a></li>
+                <li><a href="https://www.daybreaker.com/event/las-vegas-07-12/">DAYBREAKER: Las Vegas event page</a></li>
+                <li><a href="https://www.lvcva.com/research/reports/post/las-vegas-visitor-profile-studies/">LVCVA visitor profile studies</a></li>
+                <li><a href="https://tax.nv.gov/news-publications/statistics/">Nevada Department of Taxation statistics</a></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <div class="article-footer"><a href="/blog/">More writing</a></div>
+    </main>
+    <Footer />
+
+    <script>
+      const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-button');
+      const rows = document.querySelectorAll<HTMLElement>('.signal-row');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter ?? 'all';
+          buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+          rows.forEach((row) => {
+            row.hidden = filter !== 'all' && row.dataset.group !== filter;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
