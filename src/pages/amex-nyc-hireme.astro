@@ -423,9 +423,7 @@ const description = 'A private candidacy page for Jack Maguire and the American 
 	}
 
 	.timeline article {
-		display: grid;
-		grid-template-columns: 120px 220px minmax(0, 1fr);
-		gap: 22px;
+		display: block;
 	}
 
 	.timeline h3 {
@@ -439,9 +437,10 @@ const description = 'A private candidacy page for Jack Maguire and the American 
 	}
 
 	.timeline ul {
-		margin: 0;
+		margin: 18px 0 0;
 		padding-left: 18px;
 		color: var(--amex-muted);
+		max-width: 820px;
 	}
 
 	.timeline li + li {
@@ -494,11 +493,6 @@ const description = 'A private candidacy page for Jack Maguire and the American 
 		.map-grid,
 		.requirements {
 			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.timeline article {
-			grid-template-columns: 1fr;
-			gap: 10px;
 		}
 
 		.timeline article > p {
