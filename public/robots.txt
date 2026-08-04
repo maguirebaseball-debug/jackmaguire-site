@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /maxxing/
+Disallow: /amex-nyc-hireme/
 
 User-agent: Googlebot
 User-agent: Bingbot
@@ -15,5 +16,6 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /maxxing/
+Disallow: /amex-nyc-hireme/
 
 Sitemap: https://jackmaguire.org/sitemap-index.xml

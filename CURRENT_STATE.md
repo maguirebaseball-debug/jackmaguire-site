@@ -2,6 +2,8 @@
 
 Updated: 2026-07-28
 
+The private Amex candidacy page is implemented at `/amex-nyc-hireme/`. It is excluded from sitemap generation, blocked in `robots.txt`, and protected with page-level and Vercel header-level noindex directives. It uses American Express Business-inspired blue, deep blue, neutral color, modular layout, and Benton Sans fallback styling without using official Amex logos or implying endorsement.
+
 The Astro site deploys from GitHub to Vercel on pushes to `main`. Existing agent rules define writing, layout, build, deployment, and live-check requirements. Canonical persistent-state navigation is now present.
 
 Outstanding pages and platform identifiers remain listed in `AGENTS.md`. Update this file when deployment behavior, active migrations, or major blockers change.
@@ -17,3 +19,5 @@ The professional career page is implemented at `/professional-about-me/`. It is 
 The page is linked from the global navigation as `Professional Bio`. Its contact address is rendered only as a raster image, with no address in HTML, metadata, links, filenames, or alternative text. The page explicitly permits indexing and rich snippets, appears in the sitemap, and is allowed for major search and AI crawlers in `robots.txt`.
 
 The ProfilePage structured data on `/about/` and `/professional-about-me/` identifies its `mainEntity` as a Person, rather than an untyped ID reference. This addresses the Search Console invalid `mainEntity` object-type report for those two URLs.
+
+The new plain Markdown essay `kind-rejection-approach` is drafted at `src/content/blog/kind-rejection-approach.md`. It uses Notion context about dating, ambiguity, optimization, and digital contact, and links to a supporting research ledger at `research/kind-rejection-approach.md`. Local content checks passed for prohibited dash characters and whitespace. The local environment did not expose Node or npm, so Astro build and indexing checks remain pending.

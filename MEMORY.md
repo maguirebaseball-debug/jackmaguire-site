@@ -71,3 +71,11 @@ Established `https://jackmaguire.org/#jack` as the sole full Person entity on th
 ## 2026-07-29, ProfilePage mainEntity structured-data repair
 
 Updated `/about/` and `/professional-about-me/` so each ProfilePage declares `mainEntity` as a Person with the shared canonical Person ID and name. This fixes the two Search Console examples that reported an invalid object type for `mainEntity`.
+
+## 2026-07-31, Kind rejection essay
+
+Added the plain Markdown essay `src/content/blog/kind-rejection-approach.md`, an anthropological reading of dating-app norms, polished rejection language, self-awareness, and emotional risk management. The draft uses personal context from Notion pages about digital contact, ambiguity, optimization, and dating with honesty rather than performance. Added the peer-reviewed source ledger at `research/kind-rejection-approach.md`. Prohibited-dash and whitespace checks passed; Astro build and indexing checks could not run because Node/npm are unavailable in the local PowerShell environment.
+
+## 2026-08-04, Amex candidacy landing page
+
+Added the private standalone page `src/pages/amex-nyc-hireme.astro` for the American Express Senior Analyst, Social Execution and Channel Management application. The page uses American Express Business-inspired visual direction based on blue, deep blue, neutrals, modular utility layout, and Benton Sans fallback typography, without official logos or endorsement language. Added page-level noindex tags, Vercel `X-Robots-Tag` headers, `Referrer-Policy`, sitemap exclusion, and `robots.txt` disallow rules. Local Astro route generation reached the Amex page, but the Windows environment hit the previously documented Vercel adapter symlink failure during final packaging.

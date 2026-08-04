@@ -44,6 +44,7 @@ export default defineConfig({
 				        'https://jackmaguire.org/jenny-100k/',
 				        'https://jackmaguire.org/backtestfathersdaychris/',
 				        'https://jackmaguire.org/mackinac/',
+				        'https://jackmaguire.org/amex-nyc-hireme/',
 				].includes(page),
 			serialize: (item) => ({ ...item, lastmod: item.lastmod ?? new Date() }),
 		}),
