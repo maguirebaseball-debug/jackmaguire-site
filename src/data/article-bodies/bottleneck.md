@@ -1,8 +1,14 @@
-Research date: August 6, 2026. This is a purposive corpus, not a random sample of Substack. Inclusion required a publicly readable Substack post that says model capability or intelligence is adequate, secondary, or no longer binding for the problem at hand, and identifies another constraint. I read each post's public text and assigned one primary bottleneck from the author's own framing. Where an author listed several constraints, the title, thesis, or explicit ranking broke the tie.
+The usual AI argument is about intelligence. Which model is smarter, how fast capabilities are improving, and whether the next release changes everything.
+
+That is not where these writers think the action is. I collected 100 public Substack posts that make a narrower claim: the model is good enough for some useful task, so something else is now holding things up. Each post is publicly readable and explicitly treats intelligence or model capability as adequate, secondary, or no longer binding. I read the posts and gave each one primary bottleneck based on the author's own framing. When a post named several, I used the title, thesis, or stated ranking to break the tie.
+
+This is a purposive corpus, not a random sample of Substack. It is a map of an argument that is showing up in public, not a poll of what everyone thinks. Research date: August 6, 2026.
 
 ## Result
 
-The modal diagnosis is **physical infrastructure and supply chains** (25 of 100), followed by **deployment context and operating-system design** (22 of 100) and **organizational coordination and adoption** (21 of 100). Taken together, 55% of the corpus says the constraining system is human, institutional, or operational rather than frontier-model capability.
+The most common answer was physical infrastructure and supply chains, with 25 posts. Deployment context, integration, and workflow came next with 22. Organizational coordination and adoption had 21.
+
+The cleanest takeaway is that 55 of the 100 posts locate the bottleneck in human, institutional, or operational systems rather than in frontier-model capability. That does not mean the models have stopped improving or that intelligence no longer matters. It means that once a tool clears the threshold for a job, the work moves somewhere less glamorous.
 
 | Primary bottleneck | Articles | Share |
 |---|---:|---:|
@@ -14,18 +20,25 @@ The modal diagnosis is **physical infrastructure and supply chains** (25 of 100)
 | Real-world experimentation and scientific institutions | 6 | 6% |
 | **Total** | **100** | **100%** |
 
-### What the authors mean
+### What the categories are actually saying
 
-* **Deployment and context (22%)**: The model may reason, but it lacks the company-specific facts, permissions, durable state, clean data, tool interfaces, and redesigned workflow to act productively.
-* **Organization and adoption (21%)**: Abundant output collides with scarce decision rights, management bandwidth, training, change capacity, and shared ways of working.
-* **Governance and legitimacy (12%)**: Whether AI improves society is an allocation and power question: who governs it, who accepts it, and whether institutions can create rules and accountability.
-* **Verification and judgment (14%)**: Generating plausible text, code, and plans is cheap. Establishing that an output is correct, safe, useful, and worth acting on is costly.
-* **Physical constraints (25%)**: Power, grid interconnection, memory, packaging, CPUs, fabs, and deployment hardware, rather than algorithms, set throughput.
-* **Science and experimentation (6%)**: In science and health, slow physical, serial, and institutional processes, including experiments, patients, approvals, and knowledge-sharing, dominate reasoning speed.
+The deployment writers are usually not asking for a smarter chatbot. They want company-specific facts, clean data, permissions, durable state, reliable tool interfaces, and a workflow built around the thing. A model can reason through an expense policy. It cannot reimburse an employee if nobody gave it access to the policy, the accounting system, or the authority to act.
+
+The organization writers have a related complaint. Output is abundant, but decision rights, management attention, training, and change capacity are still scarce. A team can buy the same model as its competitors and still get very little from it because no one owns the workflow, no one changes the incentives, and people do not trust the new process enough to use it.
+
+The governance group is making a broader argument. Whether AI improves society depends on who controls it, who accepts it, and whether institutions can set rules and enforce accountability. Better models do not settle questions about allocation, power, legitimacy, or political will.
+
+The verification group points to a familiar asymmetry: making a plausible answer, plan, or pull request is getting cheap. Figuring out whether it is correct, safe, useful, and worth acting on can still take real judgment. In some jobs, that second part is most of the job.
+
+The physical-constraint posts are more literal. Power, grid interconnection, memory, packaging, CPUs, fabs, and deployment hardware set the pace. The relevant bottleneck is often not an algorithmic breakthrough but a transformer, a wafer, a permit, or a supply contract.
+
+Science and health are the smallest category here, but the point is sharp. Experiments take time. Patients have to be recruited and followed. Approvals move at their own speed. Knowledge does not automatically travel between labs. Faster reasoning helps, but it does not turn physical or institutional processes into software.
 
 ## Important interpretation
 
-This corpus splits into two compatible claims. Technical and enterprise writers usually say the next value bottleneck is implementation. Civic and social writers say the bottleneck to a better society is governance, legitimacy, and human adaptation. The first claim should not be read as evidence that better models are irrelevant. These are arguments about the current marginal constraint once a useful capability threshold has been reached.
+There are really two arguments in this list. Technical and enterprise writers are saying that the next dollar of value comes from implementation. Civic and social writers are saying that a better society requires governance, legitimacy, and human adaptation.
+
+They fit together. Neither is a case for treating model progress as irrelevant. Both are claims about the marginal constraint after a model becomes useful enough. The question changes from "can it do this?" to "what has to be true for this to matter?"
 
 ## Article ledger
 
@@ -136,6 +149,6 @@ Codes: `D` deployment, context, data, and tools; `O` organizational adoption and
 
 ## Caveats
 
-1. Several posts are essays and newsletters, not peer-reviewed research. They are evidence of an argument, not independent proof that its diagnosis is true.
-2. The same author sometimes advances multiple constraints. Single-label coding is deliberately lossy and is used here to make the frequency count readable.
-3. The count is a count of distinct post URLs, not independent authors, organizations, or empirical observations.
+1. Many of these are essays and newsletters, not peer-reviewed research. They show that someone is making an argument, not that the argument has been independently proven.
+2. A lot of writers name several constraints. Assigning one primary code loses information, but it makes the count readable.
+3. This is a count of distinct post URLs, not independent authors, organizations, or empirical observations. Some writers and newsletters appear more than once.
