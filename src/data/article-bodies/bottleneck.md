@@ -1,14 +1,26 @@
-The AI argument is about intelligence. Which model has more capability, how capabilities are improving, and whether the next release changes everything.
+AI is moving from a question of whether models can do useful work to a question of what prevents that work from being used. Models can write code, summarize documents, and plan actions. Yet adoption is uneven, systems cannot act, projects stall, and power is scarce.
 
-That is not where these writers think the action is. I collected 100 public Substack posts that make this claim: the model is good enough for a task, so something else is holding things up. Each post is publicly readable and explicitly treats intelligence or model capability as adequate, secondary, or no longer binding. I read the posts and gave each one a primary bottleneck based on the author's framing. When a post named more than one, I used the title, thesis, or stated ranking to break the tie.
+The AI story is still framed as a race to make models more capable. That race continues. But once a model is good enough for a job, capability does not connect it to a database, give it authority to act, make a manager trust it, or supply the electricity needed to run it.
 
-This purposive corpus is not a random sample of Substack. It maps an argument showing up in public, rather than polling what everyone thinks. Research date: August 6, 2026.
+This article asks what people think the binding constraints are after a model clears that threshold.
 
-## Result
+## Why this research was needed
 
-The most common answer was physical infrastructure and supply chains, with 25 posts. Deployment context, integration, and workflow came next with 22. Organizational coordination and adoption had 21.
+"The bottleneck is not intelligence" has become a common line in AI discussion. It is often right, but it can also become a way to make a point without showing what the alternative bottleneck is or how often it appears.
 
-Fifty-five of the 100 posts locate the bottleneck in human, institutional, or operational systems rather than in model capability. That does not mean the models have stopped improving or that intelligence no longer matters. Once a tool clears the threshold for a job, the work moves elsewhere.
+I wanted a map of that argument. Is the main issue data and integration? Managers and adoption? Regulation? Verification? Chips and power? Science? The answers point to different work, different investments, and different reasons an AI project can fail.
+
+## What the research entailed
+
+I collected 100 public Substack posts that explicitly treat intelligence or model capability as adequate, secondary, or no longer binding for the problem under discussion. Each post had to identify another constraint. I read the public text and assigned one primary bottleneck based on the author's framing. When a post named more than one, I used the title, thesis, or stated ranking to break the tie.
+
+This is a purposive corpus, not a random sample of Substack. It maps an argument in public writing. It does not measure what everyone thinks. Research date: August 6, 2026.
+
+## What it found
+
+Physical infrastructure and supply chains were the most common answer, with 25 posts. Deployment context, integration, and workflow came next with 22. Organizational coordination and adoption had 21.
+
+Fifty-five posts locate the bottleneck in human, institutional, or operational systems rather than model capability. The count does not say models have stopped improving or that intelligence no longer matters. It says that after a tool clears the threshold for a job, the next constraint often sits elsewhere.
 
 | Primary bottleneck | Articles | Share |
 |---|---:|---:|
@@ -34,11 +46,15 @@ The physical-constraint posts are literal. Power, grid interconnection, memory, 
 
 Science and health account for six posts. Experiments take time. Patients have to be recruited and followed. Approvals move at their own speed. Knowledge does not travel between labs by itself. Faster reasoning helps, but it does not turn physical or institutional processes into software.
 
-## Important interpretation
+## What I think it means for the future of AI
 
-There are two arguments in this list. Technical and enterprise writers are saying that value comes from implementation. Civic and social writers are saying that a better society requires governance, legitimacy, and human adaptation.
+My read is that model capability will keep setting the ceiling of what AI can do, but it will become less useful as a standalone explanation for who captures value from it. A company can have access to the same model as its competitors. What separates outcomes is whether the model can reach the right data, take action in the right system, pass evaluation, and fit into a workflow that people will use.
 
-They fit together. Neither is a case for treating model progress as irrelevant. Both are claims about the marginal constraint after a model becomes useful enough. The question changes from "can it do this?" to "what has to be true for this to matter?"
+The physical side matters too. More capable models do not remove limits on power, grid connections, memory, packaging, or fabrication. In science and health, they do not remove the time required for experiments, patients, approvals, or knowledge to move between institutions.
+
+That leaves two arguments that fit together. Technical writers are saying that value comes from implementation. Civic and social writers are saying that AI's social outcomes depend on governance, legitimacy, and adaptation. Better models matter in both cases. They do not settle either one.
+
+The question is shifting from "can it do this?" to "what has to be true for this to matter?"
 
 ## Article ledger
 
