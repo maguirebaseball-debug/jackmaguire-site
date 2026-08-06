@@ -1,14 +1,14 @@
-The usual AI argument is about intelligence. Which model is smarter, how fast capabilities are improving, and whether the next release changes everything.
+The AI argument is about intelligence. Which model has more capability, how capabilities are improving, and whether the next release changes everything.
 
-That is not where these writers think the action is. I collected 100 public Substack posts that make a narrower claim: the model is good enough for some useful task, so something else is now holding things up. Each post is publicly readable and explicitly treats intelligence or model capability as adequate, secondary, or no longer binding. I read the posts and gave each one primary bottleneck based on the author's own framing. When a post named several, I used the title, thesis, or stated ranking to break the tie.
+That is not where these writers think the action is. I collected 100 public Substack posts that make this claim: the model is good enough for a task, so something else is holding things up. Each post is publicly readable and explicitly treats intelligence or model capability as adequate, secondary, or no longer binding. I read the posts and gave each one a primary bottleneck based on the author's framing. When a post named more than one, I used the title, thesis, or stated ranking to break the tie.
 
-This is a purposive corpus, not a random sample of Substack. It is a map of an argument that is showing up in public, not a poll of what everyone thinks. Research date: August 6, 2026.
+This purposive corpus is not a random sample of Substack. It maps an argument showing up in public, rather than polling what everyone thinks. Research date: August 6, 2026.
 
 ## Result
 
 The most common answer was physical infrastructure and supply chains, with 25 posts. Deployment context, integration, and workflow came next with 22. Organizational coordination and adoption had 21.
 
-The cleanest takeaway is that 55 of the 100 posts locate the bottleneck in human, institutional, or operational systems rather than in frontier-model capability. That does not mean the models have stopped improving or that intelligence no longer matters. It means that once a tool clears the threshold for a job, the work moves somewhere less glamorous.
+Fifty-five of the 100 posts locate the bottleneck in human, institutional, or operational systems rather than in model capability. That does not mean the models have stopped improving or that intelligence no longer matters. Once a tool clears the threshold for a job, the work moves elsewhere.
 
 | Primary bottleneck | Articles | Share |
 |---|---:|---:|
@@ -20,23 +20,23 @@ The cleanest takeaway is that 55 of the 100 posts locate the bottleneck in human
 | Real-world experimentation and scientific institutions | 6 | 6% |
 | **Total** | **100** | **100%** |
 
-### What the categories are actually saying
+### What the categories say
 
-The deployment writers are usually not asking for a smarter chatbot. They want company-specific facts, clean data, permissions, durable state, reliable tool interfaces, and a workflow built around the thing. A model can reason through an expense policy. It cannot reimburse an employee if nobody gave it access to the policy, the accounting system, or the authority to act.
+The deployment writers are not asking for a chatbot with more capability. They want company-specific facts, clean data, permissions, durable state, tool interfaces, and a workflow built around the thing. A model can reason through an expense policy. It cannot reimburse an employee if nobody gave it access to the policy, the accounting system, or the authority to act.
 
-The organization writers have a related complaint. Output is abundant, but decision rights, management attention, training, and change capacity are still scarce. A team can buy the same model as its competitors and still get very little from it because no one owns the workflow, no one changes the incentives, and people do not trust the new process enough to use it.
+The organization writers point to the same problem. Output is abundant, but decision rights, management attention, training, and change capacity are scarce. A team can buy the same model as its competitors and get little from it because no one owns the workflow, no one changes the incentives, and people do not trust the process enough to use it.
 
-The governance group is making a broader argument. Whether AI improves society depends on who controls it, who accepts it, and whether institutions can set rules and enforce accountability. Better models do not settle questions about allocation, power, legitimacy, or political will.
+The governance group argues that whether AI improves society depends on who controls it, who accepts it, and whether institutions can set rules and enforce accountability. Models with more capability do not settle questions about allocation, power, legitimacy, or political will.
 
-The verification group points to a familiar asymmetry: making a plausible answer, plan, or pull request is getting cheap. Figuring out whether it is correct, safe, useful, and worth acting on can still take real judgment. In some jobs, that second part is most of the job.
+The verification group points to an asymmetry: making a plausible answer, plan, or pull request is getting cheap. Figuring out whether it is correct, safe, useful, and worth acting on can take judgment. In some jobs, that second part is most of the job.
 
-The physical-constraint posts are more literal. Power, grid interconnection, memory, packaging, CPUs, fabs, and deployment hardware set the pace. The relevant bottleneck is often not an algorithmic breakthrough but a transformer, a wafer, a permit, or a supply contract.
+The physical-constraint posts are literal. Power, grid interconnection, memory, packaging, CPUs, fabs, and deployment hardware set the pace. The bottleneck is often not an algorithmic breakthrough but a transformer, a wafer, a permit, or a supply contract.
 
-Science and health are the smallest category here, but the point is sharp. Experiments take time. Patients have to be recruited and followed. Approvals move at their own speed. Knowledge does not automatically travel between labs. Faster reasoning helps, but it does not turn physical or institutional processes into software.
+Science and health account for six posts. Experiments take time. Patients have to be recruited and followed. Approvals move at their own speed. Knowledge does not travel between labs by itself. Faster reasoning helps, but it does not turn physical or institutional processes into software.
 
 ## Important interpretation
 
-There are really two arguments in this list. Technical and enterprise writers are saying that the next dollar of value comes from implementation. Civic and social writers are saying that a better society requires governance, legitimacy, and human adaptation.
+There are two arguments in this list. Technical and enterprise writers are saying that value comes from implementation. Civic and social writers are saying that a better society requires governance, legitimacy, and human adaptation.
 
 They fit together. Neither is a case for treating model progress as irrelevant. Both are claims about the marginal constraint after a model becomes useful enough. The question changes from "can it do this?" to "what has to be true for this to matter?"
 
@@ -150,5 +150,5 @@ Codes: `D` deployment, context, data, and tools; `O` organizational adoption and
 ## Caveats
 
 1. Many of these are essays and newsletters, not peer-reviewed research. They show that someone is making an argument, not that the argument has been independently proven.
-2. A lot of writers name several constraints. Assigning one primary code loses information, but it makes the count readable.
+2. Writers sometimes name multiple constraints. Assigning one primary code loses information, but it makes the count readable.
 3. This is a count of distinct post URLs, not independent authors, organizations, or empirical observations. Some writers and newsletters appear more than once.
