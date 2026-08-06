@@ -1,0 +1,15 @@
+---
+import { marked } from 'marked';
+import PlainStandaloneBlog from '../layouts/PlainStandaloneBlog.astro';
+import bodyMd from '../data/article-bodies/bottleneck.md?raw';
+
+const title = 'When Intelligence Is Not the Bottleneck: 100 Public Substack Articles';
+const description = 'A coded corpus of 100 public Substack articles arguing that AI capability is no longer the binding constraint, and what the authors say is instead.';
+const category = 'AI';
+const pubDate = 'August 6, 2026';
+const bodyHtml = await marked.parse(bodyMd);
+---
+
+<PlainStandaloneBlog title={title} description={description} pubDate={pubDate} datePublished="2026-08-06">
+	<section set:html={bodyHtml} />
+</PlainStandaloneBlog>

@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-07-28
+Updated: 2026-08-06
+
+The root-level plain article `/bottleneck/` is ready for publication. It presents a purposive, coded corpus of 100 public Substack articles about non-capability AI bottlenecks and is registered with the standalone article feed, so it appears on the homepage and `/blog/`.
 
 The private Amex candidacy page is implemented at `/amex-nyc-hireme/`. It is excluded from sitemap generation, blocked in `robots.txt`, and protected with page-level and Vercel header-level noindex directives. It uses American Express Business-inspired blue, deep blue, neutral color, modular layout, and Benton Sans fallback styling without using official Amex logos or implying endorsement.
 

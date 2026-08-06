@@ -2,6 +2,10 @@
 
 Append dated summaries of meaningful site changes, deployments, indexing work, and durable content decisions. Link to changed files and live validation. Do not paste build logs.
 
+## 2026-08-06, AI bottleneck corpus
+
+Added the root-level plain article `/bottleneck/`, based on a purposive corpus of 100 publicly readable Substack articles that diagnose a non-model AI constraint. The page keeps the complete coded ledger, method, result table, interpretation, and caveats. It is registered in `src/lib/standaloneBlogPosts.ts`, which places it on the homepage, `/blog/`, RSS, and the generated sitemap.
+
 ## 2026-07-28, Legacy route redirects
 
 Added HTTP 301 Vercel redirects from `/start/` to `/about/` and `/projects/` to `/blog/`. Local build passed before deployment.
