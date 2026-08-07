@@ -655,9 +655,36 @@ const faqItems = [
 		</div>
 
 		<script>
+			function encodeCheckoutAttribution() {
+				const fbp = readCookie('_fbp') || '';
+				const fbc = getFbc() || '';
+				if (!fbp && !fbc) return '';
+
+				const encode = (values) => btoa(values.join('|'))
+					.replace(/\+/g, '-')
+					.replace(/\//g, '_')
+					.replace(/=+$/g, '');
+				let reference = `m1_${encode([fbp, fbc])}`;
+
+				if (reference.length > 200 && fbc) reference = `m1_${encode(['', fbc])}`;
+				if (reference.length > 200 && fbp) reference = `m1_${encode([fbp, ''])}`;
+				return reference.length <= 200 ? reference : '';
+			}
+
 			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
 				link.addEventListener('click', () => {
 					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
+					const checkoutUrl = new URL(link.href);
+					const clientReferenceId = encodeCheckoutAttribution();
+					if (clientReferenceId) checkoutUrl.searchParams.set('client_reference_id', clientReferenceId);
+
+					const landingParams = new URLSearchParams(window.location.search);
+					['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
+						const value = landingParams.get(key);
+						if (value && /^[a-zA-Z0-9_-]{1,150}$/.test(value)) checkoutUrl.searchParams.set(key, value);
+					});
+					link.href = checkoutUrl.toString();
+
 					const value = Number(link.dataset.checkoutValue || 0);
 					if (typeof window.fbq === 'function') {
 						window.fbq('track', 'InitiateCheckout', {

@@ -38,6 +38,38 @@ function tokenMatches(token: string): boolean {
 	return actual.length === expected.length && crypto.timingSafeEqual(actual, expected);
 }
 
+function signatureMatches(payload: string, signatureHeader: string, secret: string): boolean {
+	const parts = signatureHeader.split(',').map((part) => part.trim().split('='));
+	const timestamp = parts.find(([key]) => key === 't')?.[1];
+	const signatures = parts.filter(([key]) => key === 'v1').map(([, value]) => value);
+	if (!timestamp || signatures.length === 0 || !/^\d+$/.test(timestamp)) return false;
+
+	const ageSeconds = Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp));
+	if (ageSeconds > 300) return false;
+
+	const expected = crypto.createHmac('sha256', secret).update(`${timestamp}.${payload}`).digest();
+	return signatures.some((signature) => {
+		if (!/^[a-f0-9]{64}$/i.test(signature)) return false;
+		const actual = Buffer.from(signature, 'hex');
+		return actual.length === expected.length && crypto.timingSafeEqual(actual, expected);
+	});
+}
+
+function decodeCheckoutAttribution(reference: unknown): { fbp?: string; fbc?: string } {
+	if (typeof reference !== 'string' || !/^m1_[A-Za-z0-9_-]{1,197}$/.test(reference)) return {};
+
+	try {
+		const decoded = Buffer.from(reference.slice(3), 'base64url').toString('utf8');
+		const [fbp, fbc] = decoded.split('|', 2);
+		return {
+			fbp: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,100}$/.test(fbp) ? fbp : undefined,
+			fbc: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,150}$/.test(fbc) ? fbc : undefined,
+		};
+	} catch {
+		return {};
+	}
+}
+
 function json(body: Record<string, unknown>, status = 200): Response {
 	return new Response(JSON.stringify(body), {
 		status,
@@ -49,8 +81,15 @@ function json(body: Record<string, unknown>, status = 200): Response {
 }
 
 export const POST: APIRoute = async ({ request, url }) => {
+	const rawPayload = await request.text();
+	const webhookSecret = import.meta.env.STRIPE_AI_AUDIT_WEBHOOK_SECRET;
+	const stripeSignature = request.headers.get('stripe-signature') ?? '';
 	const webhookToken = url.searchParams.get('token') ?? '';
-	if (!webhookToken || !tokenMatches(webhookToken)) {
+	const hasValidSignature = Boolean(
+		webhookSecret && stripeSignature && signatureMatches(rawPayload, stripeSignature, webhookSecret),
+	);
+	const hasValidLegacyToken = Boolean(webhookToken && tokenMatches(webhookToken));
+	if (!hasValidSignature && !hasValidLegacyToken) {
 		return json({ success: false, message: 'Unauthorized' }, 401);
 	}
 
@@ -62,7 +101,7 @@ export const POST: APIRoute = async ({ request, url }) => {
 	};
 
 	try {
-		event = await request.json();
+		event = JSON.parse(rawPayload);
 	} catch {
 		return json({ success: false, message: 'Invalid event body' }, 400);
 	}
@@ -96,9 +135,12 @@ export const POST: APIRoute = async ({ request, url }) => {
 
 	const email = String(session.customer_details?.email ?? session.customer_email ?? '').trim();
 	const customerId = String(session.customer ?? '').trim();
+	const attribution = decodeCheckoutAttribution(session.client_reference_id);
 	const userData: Record<string, unknown> = {};
 	if (email) userData.em = [sha256(email)];
 	if (customerId) userData.external_id = [sha256(customerId)];
+	if (attribution.fbp) userData.fbp = attribution.fbp;
+	if (attribution.fbc) userData.fbc = attribution.fbc;
 
 	const payload: Record<string, unknown> = {
 		data: [
