@@ -2,6 +2,8 @@
 
 Updated: 2026-08-06
 
+The conversion landing page `/Your-AI-Audit/` is implemented for a $999 personalized AI tools assessment. It includes the five-hour money-back guarantee, quick-win effort vs. impact framework, assessment process, custom report deliverables, ROI proof, an embedded booking request form, and a bespoke social preview. The route prerenders successfully. The documented Windows Vercel adapter symlink limitation still affects final local function packaging, so publication uses the normal GitHub to Vercel pipeline.
+
 The root-level plain article `/bottleneck/` is ready for publication. It presents a purposive, coded corpus of 100 public Substack articles about non-capability AI bottlenecks and is registered with the standalone article feed, so it appears on the homepage and `/blog/`.
 
 The private Amex candidacy page is implemented at `/amex-nyc-hireme/`. It is excluded from sitemap generation, blocked in `robots.txt`, and protected with page-level and Vercel header-level noindex directives. It uses American Express Business-inspired blue, deep blue, neutral color, modular layout, and Benton Sans fallback styling without using official Amex logos or implying endorsement.

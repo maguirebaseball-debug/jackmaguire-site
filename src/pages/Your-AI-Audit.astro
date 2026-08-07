@@ -1,0 +1,1578 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+const title = 'Your AI Audit | Reclaim 5+ Hours Every Week';
+const description = 'A personalized AI tools assessment for business owners who want to save at least five hours a week with simple, off-the-shelf software.';
+const bookingKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
+
+const painPoints = [
+	{
+		number: '01',
+		title: 'Your inbox eats the morning.',
+		copy: 'Messages pile up faster than you can sort, answer, and turn them into next steps.',
+	},
+	{
+		number: '02',
+		title: 'Lead follow-up moves too slowly.',
+		copy: 'Good prospects wait while you copy details, write replies, and update the same information twice.',
+	},
+	{
+		number: '03',
+		title: 'Meetings end without action.',
+		copy: 'You have transcripts and notes, but decisions, owners, and deadlines still need to be pulled out by hand.',
+	},
+	{
+		number: '04',
+		title: 'Reporting steals the weekend.',
+		copy: 'The data exists. You still spend hours cleaning it, organizing it, and rebuilding the same update.',
+	},
+];
+
+const process = [
+	{
+		number: '1',
+		time: '45 minutes',
+		title: 'The discovery call',
+		copy: 'Walk me through your workday, where tasks pile up, and what you dread doing. You do not need to prepare anything.',
+	},
+	{
+		number: '2',
+		time: 'Done for you',
+		title: 'The analysis',
+		copy: 'I map each bottleneck to a directory of thousands of AI tools, remove the noise, and select the 3 to 7 options that fit your business.',
+	},
+	{
+		number: '3',
+		time: '30 minutes',
+		title: 'The review call',
+		copy: 'We review your custom report on screen. You will see what each tool does, why it made the cut, and exactly how to deploy it.',
+	},
+];
+
+const reportSections = [
+	{
+		number: '01',
+		title: 'Executive summary',
+		copy: 'A one-page snapshot of your main bottlenecks and the total hours you can reclaim.',
+	},
+	{
+		number: '02',
+		title: 'Effort vs. impact matrix',
+		copy: 'A clear view of why these tools beat complex, high-effort enterprise software for your current needs.',
+	},
+	{
+		number: '03',
+		title: 'Recommended solutions',
+		copy: 'Each tool, the pain point it solves, monthly cost, estimated setup time, and expected weekly savings.',
+	},
+	{
+		number: '04',
+		title: '4-day quick start plan',
+		copy: 'A day-by-day guide that lets you deploy the full stack in four 10-minute sessions.',
+	},
+	{
+		number: '05',
+		title: 'Financial impact analysis',
+		copy: 'The net monthly return based on time saved, your effective hourly rate, and the actual tool costs.',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og.png" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: 'Personalized AI Tools Assessment',
+			description,
+			provider: {
+				'@type': 'Person',
+				name: 'Jack Maguire',
+				url: 'https://jackmaguire.org/',
+			},
+			areaServed: 'US',
+			offers: {
+				'@type': 'Offer',
+				price: '999',
+				priceCurrency: 'USD',
+				url: 'https://jackmaguire.org/Your-AI-Audit/#book',
+			},
+		})} />
+	</head>
+	<body>
+		<div class="audit-page">
+			<header class="topbar">
+				<a class="brand" href="/" aria-label="Jack Maguire home">
+					<span class="brand-mark" aria-hidden="true">JM</span>
+					<span>Your AI Audit</span>
+				</a>
+				<a class="topbar-link" href="#book">Book assessment <span>$999</span></a>
+			</header>
+
+			<main>
+				<section class="hero" aria-labelledby="hero-title">
+					<div class="hero-copy">
+						<p class="eyebrow"><span></span> AI tools assessment for owners and operators</p>
+						<h1 id="hero-title">Reclaim 5+ hours of your workweek.</h1>
+						<p class="hero-note">No coding or AI expertise required.</p>
+						<p class="hero-subhead">Get a personalized assessment that prescribes simple, off-the-shelf software for your exact operational bottlenecks.</p>
+						<div class="hero-actions">
+							<a class="button button-primary" href="#book">Book your assessment <span>$999</span></a>
+							<p><strong>100% money-back guarantee.</strong> If I cannot find a way to save you at least five hours a week, you get a full refund.</p>
+						</div>
+					</div>
+
+					<aside class="audit-card" aria-label="Typical assessment outcome">
+						<div class="audit-card-head">
+							<span>Typical outcome</span>
+							<span class="status"><i></i> Quick wins found</span>
+						</div>
+						<div class="time-number">
+							<strong>6-7</strong>
+							<span>hours saved<br />each week</span>
+						</div>
+						<div class="mini-chart" aria-hidden="true">
+							<span style="height: 28%"></span>
+							<span style="height: 36%"></span>
+							<span style="height: 47%"></span>
+							<span style="height: 61%"></span>
+							<span style="height: 75%"></span>
+							<span style="height: 91%"></span>
+						</div>
+						<div class="audit-card-foot">
+							<div><span>Tool spend</span><strong>$40-$60/mo</strong></div>
+							<div><span>Tools selected</span><strong>3-7</strong></div>
+						</div>
+					</aside>
+				</section>
+
+				<section class="ticker" aria-label="Assessment highlights">
+					<span>45-minute discovery</span>
+					<span>3-7 tools selected</span>
+					<span>Zero coding</span>
+					<span>4-day rollout</span>
+					<span>5-hour guarantee</span>
+				</section>
+
+				<section class="problem section-pad" aria-labelledby="problem-title">
+					<div class="section-intro">
+						<p class="section-label">The problem</p>
+						<h2 id="problem-title">You need leverage. You do not have time to become an AI expert.</h2>
+						<p>You are running a successful business, but the day-to-day operations are running you. The problem is rarely a lack of software. It is knowing which tool will remove a real bottleneck without creating another system to manage.</p>
+					</div>
+					<div class="pain-grid">
+						{painPoints.map((point) => (
+							<article class="pain-card">
+								<span>{point.number}</span>
+								<h3>{point.title}</h3>
+								<p>{point.copy}</p>
+							</article>
+						))}
+					</div>
+					<p class="problem-close">You do not need a custom-coded enterprise transformation. You need a few tools that fix the work slowing you down today.</p>
+				</section>
+
+				<section class="solution section-pad" aria-labelledby="solution-title">
+					<div class="solution-copy">
+						<p class="section-label">The solution</p>
+						<h2 id="solution-title">High impact. Low effort. Nothing else makes the cut.</h2>
+						<p>I act as your AI concierge. I audit your workflows and focus on the top-left quadrant of the effort vs. impact matrix: the quick wins.</p>
+						<p>These are off-the-shelf AI and SaaS tools that require no technical skill to maintain, cost an average of $40 to $60 per month in total, and start returning time within days.</p>
+						<ul class="check-list">
+							<li><span aria-hidden="true">✓</span> Fits your current team and workflow</li>
+							<li><span aria-hidden="true">✓</span> Setup measured in minutes, not months</li>
+							<li><span aria-hidden="true">✓</span> Clear owner, cost, and weekly payoff</li>
+						</ul>
+					</div>
+
+					<div class="matrix-wrap">
+						<div class="matrix-title"><span>Effort vs. impact</span><strong>Selection zone</strong></div>
+						<div class="matrix">
+							<div class="quadrant quick"><span>Quick wins</span><small>High impact<br />Low effort</small><i class="pulse one"></i><i class="pulse two"></i><i class="pulse three"></i></div>
+							<div class="quadrant project"><span>Major projects</span><small>High impact<br />High effort</small></div>
+							<div class="quadrant filler"><span>Fill-ins</span><small>Low impact<br />Low effort</small></div>
+							<div class="quadrant avoid"><span>Avoid</span><small>Low impact<br />High effort</small></div>
+						</div>
+						<div class="axis axis-y">Impact <span>Low</span><b>High</b></div>
+						<div class="axis axis-x">Effort <span>Low</span><b>High</b></div>
+					</div>
+				</section>
+
+				<section class="process section-pad" aria-labelledby="process-title">
+					<div class="section-intro compact">
+						<p class="section-label">How it works</p>
+						<h2 id="process-title">Seventy-five minutes of your time. A complete plan on the other side.</h2>
+					</div>
+					<div class="process-grid">
+						{process.map((step) => (
+							<article class="process-step">
+								<div class="step-meta"><strong>{step.number}</strong><span>{step.time}</span></div>
+								<h3>{step.title}</h3>
+								<p>{step.copy}</p>
+							</article>
+						))}
+					</div>
+				</section>
+
+				<section class="report section-pad" aria-labelledby="report-title">
+					<div class="report-head">
+						<div>
+							<p class="section-label">Inside your report</p>
+							<h2 id="report-title">A roadmap built for Monday morning.</h2>
+						</div>
+						<p>The deliverable is a clear execution plan, not a technical manual. Every recommendation includes the information you need to make a decision and put it to work.</p>
+					</div>
+					<div class="report-list">
+						{reportSections.map((item) => (
+							<article class="report-row">
+								<span>{item.number}</span>
+								<h3>{item.title}</h3>
+								<p>{item.copy}</p>
+							</article>
+						))}
+					</div>
+				</section>
+
+				<section class="roi section-pad" aria-labelledby="roi-title">
+					<div class="roi-copy">
+						<p class="section-label light">The return</p>
+						<h2 id="roi-title">The math is simple.</h2>
+						<p>Recover six hours a week and you get roughly 26 hours back every month. Your report calculates what those hours are worth at your effective rate, then subtracts the actual software cost.</p>
+					</div>
+					<div class="roi-stats">
+						<div><strong>6-7</strong><span>average weekly<br />hours saved</span></div>
+						<div><strong>$40-$60</strong><span>average total<br />monthly tool cost</span></div>
+						<div><strong>4 days</strong><span>to complete the<br />quick start plan</span></div>
+					</div>
+				</section>
+
+				<section class="guarantee section-pad" aria-labelledby="guarantee-title">
+					<div class="guarantee-badge" aria-hidden="true"><span>5+</span><small>hours</small></div>
+					<div class="guarantee-copy">
+						<p class="section-label">The guarantee</p>
+						<h2 id="guarantee-title">I find five hours, or you pay nothing.</h2>
+						<p>If I cannot identify at least five hours per week of time-saving AI implementations during your assessment, I will refund 100% of your $999 fee.</p>
+						<div class="outcomes">
+							<p><span>Worst case</span>You spend 45 minutes showing me your workflow.</p>
+							<p><span>Best case</span>You get an entire working day back every week.</p>
+						</div>
+					</div>
+				</section>
+
+				<section id="book" class="booking section-pad" aria-labelledby="book-title">
+					<div class="booking-copy">
+						<p class="section-label light">Ready when you are</p>
+						<h2 id="book-title">Reclaim your time.</h2>
+						<p>Send your details below. I will reply with available times and the next step for booking your $999 assessment.</p>
+						<ul>
+							<li>45-minute discovery call</li>
+							<li>Custom tool and ROI report</li>
+							<li>30-minute review call</li>
+							<li>Five-hour money-back guarantee</li>
+						</ul>
+					</div>
+
+					<div class="form-shell">
+						<form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
+							<input type="hidden" name="access_key" value={bookingKey} />
+							<input type="hidden" name="subject" value="New AI Audit booking request" />
+							<input type="hidden" name="from_name" value="Your AI Audit landing page" />
+							<input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
+
+							<div class="form-grid">
+								<label>
+									<span>Your name</span>
+									<input type="text" name="name" required autocomplete="name" />
+								</label>
+								<label>
+									<span>Work email</span>
+									<input type="email" name="email" required autocomplete="email" />
+								</label>
+							</div>
+
+							<label>
+								<span>Company or business</span>
+								<input type="text" name="company" required autocomplete="organization" />
+							</label>
+
+							<label>
+								<span>Where do you lose the most time?</span>
+								<select name="primary_bottleneck" required>
+									<option value="" selected disabled>Select one</option>
+									<option>Inbox and communication</option>
+									<option>Lead follow-up and sales</option>
+									<option>Meetings and project handoffs</option>
+									<option>Reporting and analytics</option>
+									<option>Something else</option>
+								</select>
+							</label>
+
+							<label>
+								<span>What keeps getting pushed to nights or weekends?</span>
+								<textarea name="notes" rows="4" placeholder="A sentence or two is enough."></textarea>
+							</label>
+
+							<button class="button button-form" type="submit">Book your assessment <span>$999</span></button>
+							<p class="form-note">No preparation required. Your information is only used to respond to this request.</p>
+							<p class="form-message" role="status" aria-live="polite" hidden></p>
+						</form>
+					</div>
+				</section>
+			</main>
+
+			<footer>
+				<a href="/">Jack Maguire</a>
+				<span>AI tools assessment</span>
+				<span>New York City</span>
+			</footer>
+		</div>
+
+		<script>
+			const form = document.getElementById('audit-form');
+
+			if (form instanceof HTMLFormElement) {
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+					const submitButton = form.querySelector('button[type="submit"]');
+					const message = form.querySelector('.form-message');
+
+					if (submitButton instanceof HTMLButtonElement) {
+						submitButton.disabled = true;
+						submitButton.textContent = 'Sending your request...';
+					}
+
+					if (message instanceof HTMLElement) message.hidden = true;
+
+					try {
+						const response = await fetch(form.action, {
+							method: 'POST',
+							headers: { Accept: 'application/json' },
+							body: new FormData(form),
+						});
+						const result = await response.json();
+						if (!result.success) throw new Error(result.message || 'Submission failed');
+
+						form.reset();
+						if (message instanceof HTMLElement) {
+							message.textContent = 'Request received. I will email you with available times and next steps.';
+							message.className = 'form-message success';
+							message.hidden = false;
+						}
+						if (submitButton instanceof HTMLButtonElement) submitButton.hidden = true;
+
+						if (typeof window.fbq === 'function') {
+							window.fbq('track', 'Lead', { content_name: 'ai_audit_booking_request', value: 999, currency: 'USD' });
+						}
+					} catch {
+						if (message instanceof HTMLElement) {
+							message.textContent = 'That did not send. Please try again, or email maguirebaseball@gmail.com.';
+							message.className = 'form-message error';
+							message.hidden = false;
+						}
+						if (submitButton instanceof HTMLButtonElement) {
+							submitButton.disabled = false;
+							submitButton.innerHTML = 'Book your assessment <span>$999</span>';
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
+
+<style>
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(html) {
+		scroll-behavior: smooth;
+		background: #f4f0e7;
+	}
+
+	:global(body) {
+		margin: 0;
+		background: #f4f0e7;
+		color: #171812;
+	}
+
+	:global(body),
+	:global(button),
+	:global(input),
+	:global(select),
+	:global(textarea) {
+		font-family: var(--font-ui), Arial, sans-serif;
+	}
+
+	.audit-page {
+		--ink: #171812;
+		--paper: #f4f0e7;
+		--paper-light: #fcfaf5;
+		--green: #b8ff43;
+		--green-dark: #5f7f24;
+		--blue: #3156f5;
+		--line: rgba(23, 24, 18, 0.19);
+		min-height: 100vh;
+		overflow: hidden;
+		background:
+			linear-gradient(rgba(23, 24, 18, 0.035) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(23, 24, 18, 0.035) 1px, transparent 1px),
+			var(--paper);
+		background-size: 36px 36px;
+	}
+
+	.audit-page > main {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.topbar,
+	.hero,
+	.section-pad,
+	footer {
+		width: min(1180px, calc(100% - 48px));
+		margin: 0 auto;
+	}
+
+	.topbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px 0;
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		color: var(--ink);
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.brand-mark {
+		display: grid;
+		width: 36px;
+		height: 36px;
+		place-items: center;
+		background: var(--ink);
+		color: var(--paper-light);
+		font-size: 0.7rem;
+	}
+
+	.topbar-link {
+		color: var(--ink);
+		font-size: 0.82rem;
+		font-weight: 800;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+		text-transform: uppercase;
+	}
+
+	.topbar-link span {
+		color: var(--green-dark);
+		margin-left: 6px;
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
+		gap: clamp(48px, 7vw, 100px);
+		align-items: center;
+		min-height: 690px;
+		padding: 78px 0 82px;
+	}
+
+	.eyebrow,
+	.section-label {
+		margin: 0 0 22px;
+		font-size: 0.76rem;
+		font-weight: 800;
+		letter-spacing: 0.13em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	.eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.eyebrow span {
+		display: block;
+		width: 28px;
+		height: 3px;
+		background: var(--blue);
+	}
+
+	.hero h1,
+	.section-intro h2,
+	.solution h2,
+	.report h2,
+	.roi h2,
+	.guarantee h2,
+	.booking h2 {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-weight: 800;
+		letter-spacing: -0.052em;
+	}
+
+	.hero h1 {
+		max-width: 790px;
+		margin: 0;
+		font-size: clamp(4rem, 7.5vw, 7.7rem);
+		line-height: 0.88;
+	}
+
+	.hero-note {
+		width: fit-content;
+		margin: 26px 0 0;
+		padding: 7px 11px;
+		background: var(--green);
+		font-size: clamp(1rem, 2vw, 1.2rem);
+		font-weight: 800;
+		transform: rotate(-1.2deg);
+	}
+
+	.hero-subhead {
+		max-width: 670px;
+		margin: 28px 0 0;
+		font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+		line-height: 1.55;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		margin-top: 34px;
+	}
+
+	.hero-actions p {
+		max-width: 330px;
+		margin: 0;
+		font-size: 0.78rem;
+		line-height: 1.5;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 28px;
+		min-height: 58px;
+		padding: 0 20px;
+		border: 1px solid var(--ink);
+		font-size: 0.88rem;
+		font-weight: 800;
+		letter-spacing: 0.01em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+	}
+
+	.button:hover,
+	.button:focus-visible {
+		transform: translate(-3px, -3px);
+		box-shadow: 6px 6px 0 var(--ink);
+	}
+
+	.button-primary {
+		min-width: 300px;
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.button-primary span {
+		color: var(--green);
+	}
+
+	.audit-card {
+		position: relative;
+		padding: 22px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+		box-shadow: 14px 14px 0 var(--blue);
+	}
+
+	.audit-card::before {
+		position: absolute;
+		top: -12px;
+		right: 22px;
+		width: 86px;
+		height: 25px;
+		background: rgba(184, 255, 67, 0.78);
+		content: '';
+		transform: rotate(2deg);
+	}
+
+	.audit-card-head,
+	.audit-card-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.audit-card-head {
+		padding-bottom: 18px;
+		border-bottom: 1px solid var(--line);
+		font-size: 0.67rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.status {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.status i {
+		width: 7px;
+		height: 7px;
+		background: var(--green-dark);
+	}
+
+	.time-number {
+		display: flex;
+		align-items: flex-end;
+		gap: 14px;
+		margin: 28px 0 22px;
+	}
+
+	.time-number strong {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(4.8rem, 8vw, 7rem);
+		letter-spacing: -0.08em;
+		line-height: 0.72;
+	}
+
+	.time-number span {
+		font-size: 0.76rem;
+		font-weight: 800;
+		line-height: 1.35;
+		text-transform: uppercase;
+	}
+
+	.mini-chart {
+		display: flex;
+		align-items: flex-end;
+		gap: 8px;
+		height: 120px;
+		padding: 12px 0 0;
+		border-top: 1px dashed var(--line);
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.mini-chart span {
+		flex: 1;
+		background: var(--green);
+		border: 1px solid var(--ink);
+		border-bottom: 0;
+	}
+
+	.audit-card-foot {
+		gap: 20px;
+		padding-top: 18px;
+	}
+
+	.audit-card-foot div {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.audit-card-foot span {
+		color: #696b61;
+		font-size: 0.67rem;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.audit-card-foot strong {
+		font-size: 0.95rem;
+	}
+
+	.ticker {
+		display: flex;
+		justify-content: center;
+		border-top: 1px solid var(--ink);
+		border-bottom: 1px solid var(--ink);
+		background: var(--green);
+		overflow: hidden;
+	}
+
+	.ticker span {
+		position: relative;
+		flex: 0 0 auto;
+		padding: 16px 34px;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.ticker span + span::before {
+		position: absolute;
+		left: 0;
+		content: '•';
+	}
+
+	.section-pad {
+		padding-top: clamp(90px, 11vw, 150px);
+		padding-bottom: clamp(90px, 11vw, 150px);
+	}
+
+	.section-intro {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
+		gap: 70px;
+		align-items: end;
+		margin-bottom: 70px;
+	}
+
+	.section-intro .section-label {
+		grid-column: 1 / -1;
+		margin-bottom: -40px;
+		color: var(--green-dark);
+	}
+
+	.section-intro h2,
+	.solution h2,
+	.report h2,
+	.roi h2,
+	.guarantee h2,
+	.booking h2 {
+		margin: 0;
+		font-size: clamp(2.7rem, 5.3vw, 5.3rem);
+		line-height: 0.98;
+	}
+
+	.section-intro > p:last-child,
+	.solution-copy > p,
+	.report-head > p,
+	.roi-copy > p:last-child,
+	.guarantee-copy > p,
+	.booking-copy > p {
+		margin: 0;
+		font-size: 1.02rem;
+		line-height: 1.72;
+	}
+
+	.pain-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		border-top: 1px solid var(--ink);
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.pain-card {
+		min-height: 285px;
+		padding: 24px;
+	}
+
+	.pain-card + .pain-card {
+		border-left: 1px solid var(--ink);
+	}
+
+	.pain-card > span,
+	.report-row > span {
+		color: var(--blue);
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+		font-size: 0.72rem;
+		font-weight: 800;
+	}
+
+	.pain-card h3 {
+		margin: 74px 0 14px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.3rem;
+		line-height: 1.15;
+	}
+
+	.pain-card p {
+		margin: 0;
+		color: #4e5048;
+		font-size: 0.88rem;
+		line-height: 1.6;
+	}
+
+	.problem-close {
+		max-width: 800px;
+		margin: 54px 0 0 auto;
+		padding-left: 28px;
+		border-left: 5px solid var(--green);
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(1.35rem, 2.4vw, 2rem);
+		font-weight: 700;
+		line-height: 1.35;
+	}
+
+	.solution {
+		display: grid;
+		grid-template-columns: minmax(0, 0.85fr) minmax(430px, 0.8fr);
+		gap: clamp(70px, 10vw, 140px);
+		align-items: center;
+		border-top: 1px solid var(--ink);
+	}
+
+	.solution .section-label,
+	.report .section-label,
+	.guarantee .section-label {
+		color: var(--green-dark);
+	}
+
+	.solution-copy > p {
+		margin-top: 25px;
+	}
+
+	.check-list {
+		display: grid;
+		gap: 12px;
+		margin: 32px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.check-list li {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		font-size: 0.88rem;
+		font-weight: 700;
+	}
+
+	.check-list span {
+		display: grid;
+		width: 23px;
+		height: 23px;
+		place-items: center;
+		background: var(--green);
+		border: 1px solid var(--ink);
+		font-size: 0.76rem;
+	}
+
+	.matrix-wrap {
+		position: relative;
+		padding: 18px 18px 58px 58px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+		box-shadow: 12px 12px 0 var(--ink);
+	}
+
+	.matrix-title {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.matrix-title strong {
+		color: var(--green-dark);
+	}
+
+	.matrix {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		aspect-ratio: 1 / 0.78;
+		border: 1px solid var(--ink);
+	}
+
+	.quadrant {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 16px;
+		overflow: hidden;
+	}
+
+	.quadrant:nth-child(odd) {
+		border-right: 1px solid var(--ink);
+	}
+
+	.quadrant:nth-child(-n + 2) {
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.quadrant span {
+		font-size: 0.72rem;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+
+	.quadrant small {
+		font-size: 0.66rem;
+		line-height: 1.35;
+	}
+
+	.quick {
+		background: var(--green);
+	}
+
+	.project,
+	.filler,
+	.avoid {
+		color: #76786f;
+	}
+
+	.avoid {
+		background: rgba(23, 24, 18, 0.05);
+	}
+
+	.pulse {
+		position: absolute;
+		width: 13px;
+		height: 13px;
+		border: 2px solid var(--ink);
+		background: var(--blue);
+		box-shadow: 0 0 0 4px rgba(49, 86, 245, 0.17);
+	}
+
+	.pulse.one { top: 52%; left: 28%; }
+	.pulse.two { top: 37%; left: 55%; }
+	.pulse.three { top: 62%; left: 70%; }
+
+	.axis {
+		position: absolute;
+		font-size: 0.62rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.axis span,
+	.axis b {
+		position: absolute;
+		font-size: 0.55rem;
+		font-weight: 700;
+	}
+
+	.axis-y {
+		bottom: 47%;
+		left: 13px;
+		transform: rotate(-90deg);
+	}
+
+	.axis-y span { right: 74px; }
+	.axis-y b { left: 62px; }
+	.axis-x {
+		bottom: 21px;
+		left: 48%;
+	}
+
+	.axis-x span { right: 65px; }
+	.axis-x b { left: 52px; }
+
+	.process {
+		border-top: 1px solid var(--ink);
+	}
+
+	.section-intro.compact {
+		display: block;
+		max-width: 850px;
+	}
+
+	.section-intro.compact .section-label {
+		margin-bottom: 22px;
+	}
+
+	.process-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 18px;
+	}
+
+	.process-step {
+		min-height: 350px;
+		padding: 25px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+	}
+
+	.process-step:nth-child(2) {
+		background: var(--ink);
+		color: #fff;
+		transform: translateY(24px);
+	}
+
+	.step-meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.step-meta strong {
+		display: grid;
+		width: 42px;
+		height: 42px;
+		place-items: center;
+		border: 1px solid currentColor;
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+	}
+
+	.step-meta span {
+		padding: 6px 9px;
+		background: var(--green);
+		color: var(--ink);
+		font-size: 0.68rem;
+		font-weight: 800;
+		text-transform: uppercase;
+	}
+
+	.process-step h3 {
+		margin: 100px 0 14px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.55rem;
+	}
+
+	.process-step p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.report {
+		border-top: 1px solid var(--ink);
+	}
+
+	.report-head {
+		display: grid;
+		grid-template-columns: 1fr 0.48fr;
+		gap: 80px;
+		align-items: end;
+		margin-bottom: 60px;
+	}
+
+	.report-list {
+		border-top: 1px solid var(--ink);
+	}
+
+	.report-row {
+		display: grid;
+		grid-template-columns: 70px minmax(220px, 0.55fr) 1fr;
+		gap: 30px;
+		align-items: center;
+		padding: 28px 0;
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.report-row h3 {
+		margin: 0;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.2rem;
+	}
+
+	.report-row p {
+		margin: 0;
+		font-size: 0.88rem;
+		line-height: 1.6;
+	}
+
+	.roi {
+		display: grid;
+		grid-template-columns: minmax(280px, 0.7fr) 1fr;
+		gap: 90px;
+		align-items: center;
+		width: 100%;
+		max-width: none;
+		padding-right: max(24px, calc((100vw - 1180px) / 2));
+		padding-left: max(24px, calc((100vw - 1180px) / 2));
+		background: var(--blue);
+		color: #fff;
+	}
+
+	.section-label.light {
+		color: var(--green);
+	}
+
+	.roi-copy > p:last-child {
+		margin-top: 25px;
+		color: rgba(255, 255, 255, 0.78);
+	}
+
+	.roi-stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		border: 1px solid #fff;
+	}
+
+	.roi-stats div {
+		display: flex;
+		min-height: 220px;
+		padding: 24px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.roi-stats div + div {
+		border-left: 1px solid #fff;
+	}
+
+	.roi-stats strong {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(2.5rem, 4vw, 4.2rem);
+		letter-spacing: -0.06em;
+		line-height: 0.95;
+	}
+
+	.roi-stats span {
+		font-size: 0.7rem;
+		font-weight: 800;
+		line-height: 1.45;
+		text-transform: uppercase;
+	}
+
+	.guarantee {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	.guarantee-badge {
+		display: grid;
+		width: 250px;
+		height: 250px;
+		place-content: center;
+		border: 2px solid var(--ink);
+		background: var(--green);
+		box-shadow: 14px 14px 0 var(--ink);
+		text-align: center;
+		transform: rotate(-3deg);
+	}
+
+	.guarantee-badge span {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 6.4rem;
+		font-weight: 800;
+		letter-spacing: -0.1em;
+		line-height: 0.78;
+	}
+
+	.guarantee-badge small {
+		margin-top: 12px;
+		font-size: 0.9rem;
+		font-weight: 800;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	.guarantee-copy > p {
+		max-width: 760px;
+		margin-top: 24px;
+	}
+
+	.outcomes {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 14px;
+		margin-top: 30px;
+	}
+
+	.outcomes p {
+		margin: 0;
+		padding: 16px;
+		border: 1px solid var(--ink);
+		font-size: 0.82rem;
+		line-height: 1.5;
+	}
+
+	.outcomes span {
+		display: block;
+		margin-bottom: 8px;
+		color: var(--blue);
+		font-size: 0.67rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.booking {
+		display: grid;
+		grid-template-columns: 0.75fr 1fr;
+		gap: 90px;
+		width: 100%;
+		max-width: none;
+		padding-right: max(24px, calc((100vw - 1180px) / 2));
+		padding-left: max(24px, calc((100vw - 1180px) / 2));
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.booking-copy > p {
+		margin-top: 25px;
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.booking-copy ul {
+		display: grid;
+		gap: 12px;
+		margin: 34px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.booking-copy li {
+		padding: 10px 0 10px 24px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+		font-size: 0.85rem;
+		font-weight: 700;
+	}
+
+	.booking-copy li::before {
+		content: '✓';
+		margin-left: -24px;
+		margin-right: 10px;
+		color: var(--green);
+	}
+
+	.form-shell {
+		padding: clamp(24px, 4vw, 44px);
+		background: var(--paper-light);
+		color: var(--ink);
+		box-shadow: 12px 12px 0 var(--green);
+	}
+
+	#audit-form {
+		display: grid;
+		gap: 19px;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+
+	#audit-form label {
+		display: grid;
+		gap: 8px;
+	}
+
+	#audit-form label > span {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+	}
+
+	#audit-form input,
+	#audit-form select,
+	#audit-form textarea {
+		width: 100%;
+		min-height: 48px;
+		padding: 11px 12px;
+		border: 1px solid var(--ink);
+		border-radius: 0;
+		background: #fff;
+		color: var(--ink);
+		font-size: 0.93rem;
+	}
+
+	#audit-form textarea {
+		min-height: 105px;
+		resize: vertical;
+	}
+
+	#audit-form input:focus,
+	#audit-form select:focus,
+	#audit-form textarea:focus {
+		outline: 3px solid var(--green);
+		outline-offset: 1px;
+	}
+
+	.botcheck {
+		position: absolute;
+		left: -9999px;
+	}
+
+	.button-form {
+		width: 100%;
+		background: var(--green);
+		color: var(--ink);
+		cursor: pointer;
+	}
+
+	.button-form:disabled {
+		cursor: wait;
+		opacity: 0.72;
+	}
+
+	.form-note,
+	.form-message {
+		margin: 0;
+		font-size: 0.72rem;
+		line-height: 1.5;
+	}
+
+	.form-message {
+		padding: 14px;
+		border: 1px solid var(--ink);
+		font-size: 0.82rem;
+		font-weight: 700;
+	}
+
+	.form-message.success {
+		background: var(--green);
+	}
+
+	.form-message.error {
+		background: #ffd6cf;
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-between;
+		padding: 28px 0;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	footer a {
+		color: var(--ink);
+	}
+
+	@media (max-width: 980px) {
+		.hero {
+			grid-template-columns: 1fr;
+			min-height: auto;
+		}
+
+		.audit-card {
+			width: min(520px, calc(100% - 14px));
+		}
+
+		.section-intro,
+		.solution,
+		.report-head,
+		.roi,
+		.guarantee,
+		.booking {
+			grid-template-columns: 1fr;
+		}
+
+		.section-intro .section-label {
+			margin-bottom: -45px;
+		}
+
+		.pain-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.pain-card:nth-child(3) {
+			border-left: 0;
+		}
+
+		.pain-card:nth-child(n + 3) {
+			border-top: 1px solid var(--ink);
+		}
+
+		.solution {
+			gap: 70px;
+		}
+
+		.matrix-wrap {
+			width: min(620px, calc(100% - 12px));
+		}
+
+		.roi,
+		.booking {
+			gap: 58px;
+		}
+
+		.roi-stats {
+			max-width: 760px;
+		}
+
+		.guarantee {
+			grid-template-columns: 230px 1fr;
+			gap: 60px;
+		}
+
+		.guarantee-badge {
+			width: 210px;
+			height: 210px;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.topbar,
+		.hero,
+		.section-pad,
+		footer {
+			width: min(100% - 30px, 1180px);
+		}
+
+		.topbar-link {
+			font-size: 0;
+		}
+
+		.topbar-link span {
+			font-size: 0.72rem;
+		}
+
+		.hero {
+			gap: 60px;
+			padding: 64px 0 76px;
+		}
+
+		.hero h1 {
+			font-size: clamp(3.6rem, 18vw, 5.7rem);
+		}
+
+		.hero-actions {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.button-primary {
+			width: 100%;
+			min-width: 0;
+		}
+
+		.ticker {
+			justify-content: flex-start;
+			overflow-x: auto;
+		}
+
+		.section-intro {
+			display: block;
+			margin-bottom: 48px;
+		}
+
+		.section-intro .section-label {
+			margin-bottom: 22px;
+		}
+
+		.section-intro h2,
+		.solution h2,
+		.report h2,
+		.roi h2,
+		.guarantee h2,
+		.booking h2 {
+			font-size: clamp(2.7rem, 13vw, 4.2rem);
+		}
+
+		.section-intro > p:last-child {
+			margin-top: 24px;
+		}
+
+		.pain-grid,
+		.process-grid,
+		.outcomes {
+			grid-template-columns: 1fr;
+		}
+
+		.pain-card,
+		.process-step {
+			min-height: auto;
+		}
+
+		.pain-card + .pain-card,
+		.pain-card:nth-child(3) {
+			border-top: 1px solid var(--ink);
+			border-left: 0;
+		}
+
+		.pain-card h3,
+		.process-step h3 {
+			margin-top: 58px;
+		}
+
+		.process-step:nth-child(2) {
+			transform: none;
+		}
+
+		.matrix-wrap {
+			padding-left: 45px;
+		}
+
+		.matrix {
+			aspect-ratio: 1;
+		}
+
+		.report-head {
+			gap: 26px;
+		}
+
+		.report-row {
+			grid-template-columns: 42px 1fr;
+			gap: 14px;
+		}
+
+		.report-row p {
+			grid-column: 2;
+		}
+
+		.roi,
+		.booking {
+			width: 100%;
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+
+		.roi-stats {
+			grid-template-columns: 1fr;
+		}
+
+		.roi-stats div {
+			min-height: 160px;
+		}
+
+		.roi-stats div + div {
+			border-top: 1px solid #fff;
+			border-left: 0;
+		}
+
+		.guarantee {
+			grid-template-columns: 1fr;
+		}
+
+		.guarantee-badge {
+			width: 180px;
+			height: 180px;
+		}
+
+		.guarantee-badge span {
+			font-size: 5rem;
+		}
+
+		.form-grid {
+			grid-template-columns: 1fr;
+		}
+
+		footer {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) {
+			scroll-behavior: auto;
+		}
+
+		.button {
+			transition: none;
+		}
+	}
+</style>
