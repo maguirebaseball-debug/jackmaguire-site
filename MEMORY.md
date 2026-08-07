@@ -16,6 +16,10 @@ Added environment-backed secure checkout hooks for all three products and a temp
 
 Added a scope-matched automatic-refund guarantee to every paid tier. The $79 Snapshot must identify one practical change projected to save at least 30 minutes per week, the $199 Mini Audit must identify at least two hours per week, and the $499 Full Audit must identify at least five hours per week. The page now defines projected weekly savings as current task time minus expected post-implementation task time, subtracts new oversight, excludes duplicated or transferred time, and clarifies that the guarantee covers the diagnostic opportunity rather than results dependent on implementation.
 
+## 2026-08-06, Your AI Audit deliverable clarity
+
+Reframed every pricing card around the artifact the buyer receives. The $79 tier delivers a one-page Snapshot PDF after an eight-question intake, the $199 tier delivers a three-page Action Memo PDF after a 25-minute call, and the $499 tier delivers a complete Custom AI Audit PDF plus a 30-minute review after a 45-minute discovery call. Each card now separates the named deliverable, report contents, buyer input, delivery timing, guarantee, and upgrade credit.
+
 ## 2026-08-06, AI bottleneck corpus
 
 Added the root-level plain article `/bottleneck/`, based on a purposive corpus of 100 publicly readable Substack articles that diagnose a non-model AI constraint. The page keeps the complete coded ledger, method, result table, interpretation, and caveats. It is registered in `src/lib/standaloneBlogPosts.ts`, which places it on the homepage, `/blog/`, RSS, and the generated sitemap.
