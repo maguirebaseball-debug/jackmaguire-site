@@ -4,7 +4,6 @@ import crypto from 'node:crypto';
 export const prerender = false;
 
 const PIXEL_ID = '1578848813945108';
-const WEBHOOK_TOKEN_SHA256 = '69c7849458ffde791d70d26994468a0c693076200801efd892ab5d7047aa3494';
 const ALLOWED_EVENTS = new Set([
 	'checkout.session.completed',
 	'checkout.session.async_payment_succeeded',
@@ -30,12 +29,6 @@ const PURCHASES = {
 
 function sha256(value: string): string {
 	return crypto.createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
-}
-
-function tokenMatches(token: string): boolean {
-	const actual = Buffer.from(sha256(token), 'hex');
-	const expected = Buffer.from(WEBHOOK_TOKEN_SHA256, 'hex');
-	return actual.length === expected.length && crypto.timingSafeEqual(actual, expected);
 }
 
 function signatureMatches(payload: string, signatureHeader: string, secret: string): boolean {
@@ -80,16 +73,14 @@ function json(body: Record<string, unknown>, status = 200): Response {
 	});
 }
 
-export const POST: APIRoute = async ({ request, url }) => {
+export const POST: APIRoute = async ({ request }) => {
 	const rawPayload = await request.text();
 	const webhookSecret = import.meta.env.STRIPE_AI_AUDIT_WEBHOOK_SECRET;
 	const stripeSignature = request.headers.get('stripe-signature') ?? '';
-	const webhookToken = url.searchParams.get('token') ?? '';
-	const hasValidSignature = Boolean(
-		webhookSecret && stripeSignature && signatureMatches(rawPayload, stripeSignature, webhookSecret),
-	);
-	const hasValidLegacyToken = Boolean(webhookToken && tokenMatches(webhookToken));
-	if (!hasValidSignature && !hasValidLegacyToken) {
+	if (!webhookSecret) {
+		return json({ success: false, message: 'Stripe webhook is not configured' }, 500);
+	}
+	if (!stripeSignature || !signatureMatches(rawPayload, stripeSignature, webhookSecret)) {
 		return json({ success: false, message: 'Unauthorized' }, 401);
 	}
 

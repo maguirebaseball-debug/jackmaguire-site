@@ -2,6 +2,14 @@
 
 Append dated summaries of meaningful site changes, deployments, indexing work, and durable content decisions. Link to changed files and live validation. Do not paste build logs.
 
+## 2026-08-07, signed Stripe to Meta Purchase tracking
+
+Expanded the AI Audit purchase webhook to cover the $79 Snapshot, $199 Mini Audit, and $499 Full Audit. Replaced the URL-token destination with a Stripe-signature-verified live endpoint subscribed only to `checkout.session.completed` and `checkout.session.async_payment_succeeded`. The retired token endpoint was disabled in Stripe.
+
+Checkout clicks now pass Meta `_fbp` and `_fbc` identifiers through Stripe's `client_reference_id`, and the webhook validates and forwards them with the hashed checkout email and Stripe customer ID. Meta receives the correct tier value, currency, content ID, order ID, and stable event ID for deduplication.
+
+Validated the complete signed endpoint with Meta dataset `1578848813945108` and Test Events code `TEST97456`. The server accepted a signed simulated $79 Checkout completion and Meta accepted the test Purchase. The test code was removed from production immediately afterward so real purchases remain live optimization events.
+
 ## 2026-08-07, AI Bottleneck Snapshot checkout and intake
 
 Created the live Stripe product, one-time $79 price, hosted Payment Link, and narrowly scoped webhook for the AI Bottleneck Snapshot. The checkout collects the buyer name and email, sends an automatic Stripe receipt, and redirects successful buyers to `/Your-AI-Audit/start/` with the Checkout Session ID and campaign parameters.
