@@ -168,15 +168,9 @@ export const POST: APIRoute = async ({ request }) => {
 		},
 	);
 
-	const metaResult = await metaResponse.json().catch(() => ({}));
 	if (!metaResponse.ok) {
 		return json({ success: false, message: 'Meta CAPI rejected the event' }, 502);
 	}
 
-	return json({
-		success: true,
-		eventId: event.id ?? null,
-		serviceTier,
-		...(testEventCode ? { metaResult } : {}),
-	});
+	return json({ success: true, eventId: event.id ?? null, serviceTier });
 };
