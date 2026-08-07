@@ -2,7 +2,9 @@
 
 Updated: 2026-08-06
 
-The conversion landing page `/Your-AI-Audit/` is implemented for a $999 personalized AI tools assessment. It includes the five-hour money-back guarantee, quick-win effort vs. impact framework, assessment process, custom report deliverables, ROI proof, an embedded booking request form, and a bespoke social preview. The route prerenders successfully. The documented Windows Vercel adapter symlink limitation still affects final local function packaging, so publication uses the normal GitHub to Vercel pipeline.
+The conversion landing page `/Your-AI-Audit/` now uses a paid three-tier offer ladder: a $79 AI Bottleneck Snapshot, a $199 Quick-Win Mini Audit, and a $499 Full AI Audit. Purchases are required before service, prior-tier fees apply in full to the next tier for 30 days, and the five-hour guarantee is scoped to the Full AI Audit. Secure checkout destinations are configured with three public environment variables; until those exist, buttons request the matching secure checkout by email. Checkout clicks send only `InitiateCheckout`, while confirmed purchases must be sent after payment succeeds. The route prerenders successfully. The documented Windows Vercel adapter symlink limitation still affects final local function packaging, so publication uses the normal GitHub to Vercel pipeline.
+
+Sitewide Meta event quality was tightened at the same time. A three-page, two-minute visitor now sends the custom `EngagedVisitor` event instead of `Lead`, and an Instagram clickout sends the custom `InstagramClickout` event instead of `Lead`. Newsletter submissions remain leads, and the existing paid meet match remains a purchase.
 
 The root-level plain article `/bottleneck/` is ready for publication. It presents a purposive, coded corpus of 100 public Substack articles about non-capability AI bottlenecks and is registered with the standalone article feed, so it appears on the homepage and `/blog/`.
 

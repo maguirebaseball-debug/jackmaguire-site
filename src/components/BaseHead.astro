@@ -110,7 +110,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 </script>
 
 <script>
-	const engagementStorageKey = 'jm_engagement_lead_v1';
+	const engagementStorageKey = 'jm_engagement_signal_v2';
 	const engagementThresholdMs = 2 * 60 * 1000;
 	const metaFbcStorageKey = 'jm_meta_fbc';
 
@@ -172,7 +172,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 			saveEngagementState(latestState);
 		};
 
-		const sendLeadIfQualified = () => {
+		const sendEngagementIfQualified = () => {
 			addActiveTime();
 			const latestState = getEngagementState();
 			if (latestState.sent || latestState.paths.length < 3 || latestState.activeMs < engagementThresholdMs) return;
@@ -180,7 +180,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 			latestState.sent = true;
 			saveEngagementState(latestState);
 			const eventId = crypto.randomUUID();
-			fbq('track', 'Lead', { content_name: 'engaged_visitor_3_pages_2_minutes' }, { eventID: eventId });
+			fbq('trackCustom', 'EngagedVisitor', { content_name: 'engaged_visitor_3_pages_2_minutes' }, { eventID: eventId });
 			fetch('/api/capi-lead/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -202,18 +202,18 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 				addActiveTime();
 				activeSince = null;
 			}
-			sendLeadIfQualified();
+			sendEngagementIfQualified();
 		};
 
 		document.addEventListener('visibilitychange', onVisibilityChange);
 		document.addEventListener('astro:page-load', () => {
 			recordCurrentPage();
-			sendLeadIfQualified();
+			sendEngagementIfQualified();
 		});
 		window.addEventListener('pagehide', () => {
 			addActiveTime();
-			sendLeadIfQualified();
+			sendEngagementIfQualified();
 		});
-		window.setInterval(sendLeadIfQualified, 10_000);
+		window.setInterval(sendEngagementIfQualified, 10_000);
 	}
 </script>

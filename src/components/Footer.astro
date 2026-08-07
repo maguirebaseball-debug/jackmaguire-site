@@ -22,7 +22,7 @@ const today = new Date();
 	const igLink = document.getElementById('ig-follow-link');
 	igLink?.addEventListener('click', () => {
 		const eventId = crypto.randomUUID();
-		fbq('track', 'Lead', { content_name: 'instagram_follow_clickout' }, { eventID: eventId });
+		fbq('trackCustom', 'InstagramClickout', { content_name: 'instagram_follow_clickout' }, { eventID: eventId });
 		fetch('/api/capi-lead/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

@@ -1,9 +1,75 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 
-const title = 'Your AI Audit | Reclaim 5+ Hours Every Week';
-const description = 'A personalized AI tools assessment for business owners who want to save at least five hours a week with simple, off-the-shelf software.';
-const bookingKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
+const title = 'Your AI Audit | Start with a $79 AI Bottleneck Snapshot';
+const description = 'Find the work AI should take off your plate. Start with a $79 bottleneck snapshot, a $199 mini audit, or a $499 full AI audit.';
+
+const checkoutConfig = {
+	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL,
+	mini: import.meta.env.PUBLIC_AI_MINI_AUDIT_CHECKOUT_URL,
+	full: import.meta.env.PUBLIC_AI_FULL_AUDIT_CHECKOUT_URL,
+};
+
+const email = 'maguirebaseball@gmail.com';
+
+const tiers = [
+	{
+		key: 'snapshot',
+		level: 'Level 1',
+		name: 'AI Bottleneck Snapshot',
+		price: 79,
+		tag: 'Best place to start',
+		fit: 'You know work is leaking time, but you do not know which workflow to fix first.',
+		turnaround: '1 business day',
+		features: [
+			'8-question workflow intake',
+			'Your highest-cost bottleneck identified',
+			'One practical AI quick win',
+			'Tool category, next step, and rough payoff',
+		],
+		credit: 'Your full $79 applies to the Mini Audit if you upgrade within 30 days.',
+	},
+	{
+		key: 'mini',
+		level: 'Level 2',
+		name: 'Quick-Win Mini Audit',
+		price: 199,
+		tag: 'More context, still fast',
+		fit: 'You have a few messy workflows and want a prioritized answer without commissioning the full audit.',
+		turnaround: '2 business days',
+		features: [
+			'25-minute workflow call',
+			'2 to 3 bottlenecks assessed',
+			'1 to 2 recommended tools',
+			'Short ROI estimate and action plan',
+		],
+		credit: 'Your full $199 applies to the Full AI Audit if you upgrade within 30 days.',
+	},
+	{
+		key: 'full',
+		level: 'Level 3',
+		name: 'Full AI Audit',
+		price: 499,
+		tag: 'Launch price',
+		fit: 'You want the complete workflow map, implementation roadmap, and financial case.',
+		turnaround: 'Delivered after discovery',
+		features: [
+			'45-minute discovery call',
+			'3 to 7 recommended tools',
+			'Full effort vs. impact and ROI report',
+			'4-day rollout plan and 30-minute review',
+		],
+		credit: 'Covered by the five-hour money-back guarantee.',
+	},
+].map((tier) => {
+	const configuredUrl = checkoutConfig[tier.key as keyof typeof checkoutConfig];
+	const fallbackUrl = `mailto:${email}?subject=${encodeURIComponent(`Send me the $${tier.price} ${tier.name} checkout`)}`;
+	return {
+		...tier,
+		checkoutUrl: configuredUrl || fallbackUrl,
+		checkoutReady: Boolean(configuredUrl),
+	};
+});
 
 const painPoints = [
 	{
@@ -31,21 +97,21 @@ const painPoints = [
 const process = [
 	{
 		number: '1',
-		time: '45 minutes',
-		title: 'The discovery call',
-		copy: 'Walk me through your workday, where tasks pile up, and what you dread doing. You do not need to prepare anything.',
+		time: 'Pay online',
+		title: 'Choose your depth',
+		copy: 'Start at $79, $199, or $499. Payment happens before the work begins, so there is no proposal loop or surprise invoice.',
 	},
 	{
 		number: '2',
-		time: 'Done for you',
-		title: 'The analysis',
-		copy: 'I map each bottleneck to a directory of thousands of AI tools, remove the noise, and select the 3 to 7 options that fit your business.',
+		time: 'Low lift',
+		title: 'Show me the friction',
+		copy: 'Complete the short intake. Mini and Full Audit buyers also get a focused call. You do not need to prepare a deck or learn any AI vocabulary.',
 	},
 	{
 		number: '3',
-		time: '30 minutes',
-		title: 'The review call',
-		copy: 'We review your custom report on screen. You will see what each tool does, why it made the cut, and exactly how to deploy it.',
+		time: 'Actionable',
+		title: 'Get the next move',
+		copy: 'Receive the recommendation, expected payoff, and implementation path included in your tier. Upgrade credit keeps starting small from costing more.',
 	},
 ];
 
@@ -81,12 +147,12 @@ const reportSections = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og.png" />
+		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og-v2.png" />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'Service',
-			name: 'Personalized AI Tools Assessment',
+			name: 'Your AI Audit',
 			description,
 			provider: {
 				'@type': 'Person',
@@ -94,12 +160,13 @@ const reportSections = [
 				url: 'https://jackmaguire.org/',
 			},
 			areaServed: 'US',
-			offers: {
+			offers: tiers.map((tier) => ({
 				'@type': 'Offer',
-				price: '999',
+				name: tier.name,
+				price: String(tier.price),
 				priceCurrency: 'USD',
-				url: 'https://jackmaguire.org/Your-AI-Audit/#book',
-			},
+				url: `https://jackmaguire.org/Your-AI-Audit/#${tier.key}`,
+			})),
 		})} />
 	</head>
 	<body>
@@ -109,52 +176,79 @@ const reportSections = [
 					<span class="brand-mark" aria-hidden="true">JM</span>
 					<span>Your AI Audit</span>
 				</a>
-				<a class="topbar-link" href="#book">Book assessment <span>$999</span></a>
+				<a class="topbar-link" href="#offers">Compare options <span>From $79</span></a>
 			</header>
 
 			<main>
 				<section class="hero" aria-labelledby="hero-title">
 					<div class="hero-copy">
-						<p class="eyebrow"><span></span> AI tools assessment for owners and operators</p>
-						<h1 id="hero-title">Reclaim 5+ hours of your workweek.</h1>
-						<p class="hero-note">No coding or AI expertise required.</p>
-						<p class="hero-subhead">Get a personalized assessment that prescribes simple, off-the-shelf software for your exact operational bottlenecks.</p>
+						<p class="eyebrow"><span></span> Paid AI workflow diagnosis for owners and operators</p>
+						<h1 id="hero-title">Find the work AI should take off your plate.</h1>
+						<p class="hero-note">Start at $79. Upgrade only if the value is obvious.</p>
+						<p class="hero-subhead">Choose the depth you need. I will diagnose the bottleneck, filter out the AI noise, and give you a practical next move using off-the-shelf tools.</p>
 						<div class="hero-actions">
-							<a class="button button-primary" href="#book">Book your assessment <span>$999</span></a>
-							<p><strong>100% money-back guarantee.</strong> If I cannot find a way to save you at least five hours a week, you get a full refund.</p>
+							<a class="button button-primary" href="#snapshot">Start with the snapshot <span>$79</span></a>
+							<p><strong>Paid before service.</strong> No sales call is required for the $79 Snapshot. Every dollar applies if you upgrade within 30 days.</p>
 						</div>
 					</div>
 
-					<aside class="audit-card" aria-label="Typical assessment outcome">
+					<aside class="audit-card" aria-label="Three ways to start">
 						<div class="audit-card-head">
-							<span>Typical outcome</span>
-							<span class="status"><i></i> Quick wins found</span>
+							<span>Choose your depth</span>
+							<span class="status"><i></i> Paid assessments</span>
 						</div>
-						<div class="time-number">
-							<strong>6-7</strong>
-							<span>hours saved<br />each week</span>
-						</div>
-						<div class="mini-chart" aria-hidden="true">
-							<span style="height: 28%"></span>
-							<span style="height: 36%"></span>
-							<span style="height: 47%"></span>
-							<span style="height: 61%"></span>
-							<span style="height: 75%"></span>
-							<span style="height: 91%"></span>
+						<div class="hero-tier-list">
+							<a href="#snapshot"><span>01</span><strong>Snapshot</strong><b>$79</b></a>
+							<a href="#mini"><span>02</span><strong>Mini Audit</strong><b>$199</b></a>
+							<a href="#full"><span>03</span><strong>Full Audit</strong><b>$499</b></a>
 						</div>
 						<div class="audit-card-foot">
-							<div><span>Tool spend</span><strong>$40-$60/mo</strong></div>
-							<div><span>Tools selected</span><strong>3-7</strong></div>
+							<div><span>Upgrade window</span><strong>30 days</strong></div>
+							<div><span>Credit applied</span><strong>100%</strong></div>
 						</div>
 					</aside>
 				</section>
 
 				<section class="ticker" aria-label="Assessment highlights">
-					<span>45-minute discovery</span>
-					<span>3-7 tools selected</span>
+					<span>Start at $79</span>
+					<span>Pay before service</span>
 					<span>Zero coding</span>
-					<span>4-day rollout</span>
-					<span>5-hour guarantee</span>
+					<span>100% upgrade credit</span>
+					<span>Full audit guaranteed</span>
+				</section>
+
+				<section id="offers" class="offers section-pad" aria-labelledby="offers-title">
+					<div class="section-intro">
+						<p class="section-label">Choose your starting point</p>
+						<h2 id="offers-title">Buy the amount of certainty you need.</h2>
+						<p>Start with one bottleneck. Go deeper only when the first answer proves useful. Upgrade credits mean you never pay twice for the same diagnosis.</p>
+					</div>
+					<div class="tier-grid">
+						{tiers.map((tier, index) => (
+							<article id={tier.key} class:list={['tier-card', { featured: index === 0, full: tier.key === 'full' }]}>
+								<div class="tier-topline"><span>{tier.level}</span><strong>{tier.tag}</strong></div>
+								<h3>{tier.name}</h3>
+								<p class="tier-price"><span>$</span>{tier.price}</p>
+								<p class="tier-fit">{tier.fit}</p>
+								<ul>
+									{tier.features.map((feature) => <li>{feature}</li>)}
+								</ul>
+								<div class="tier-turnaround"><span>Turnaround</span><strong>{tier.turnaround}</strong></div>
+								<a
+									class="button tier-button"
+									href={tier.checkoutUrl}
+									data-checkout-tier={tier.key}
+									data-checkout-value={tier.price}
+									data-checkout-ready={String(tier.checkoutReady)}
+								>
+									{tier.checkoutReady ? `Pay $${tier.price} and start` : `Request $${tier.price} checkout`}
+									<span aria-hidden="true">→</span>
+								</a>
+								<p class="tier-credit">{tier.credit}</p>
+							</article>
+						))}
+					</div>
+					<p class="payment-note"><strong>How payment works:</strong> each service is paid in full through secure online checkout before the intake or call. Your receipt confirms the purchase, and I send the next step for your tier.</p>
 				</section>
 
 				<section class="problem section-pad" aria-labelledby="problem-title">
@@ -180,7 +274,7 @@ const reportSections = [
 						<p class="section-label">The solution</p>
 						<h2 id="solution-title">High impact. Low effort. Nothing else makes the cut.</h2>
 						<p>I act as your AI concierge. I audit your workflows and focus on the top-left quadrant of the effort vs. impact matrix: the quick wins.</p>
-						<p>These are off-the-shelf AI and SaaS tools that require no technical skill to maintain, cost an average of $40 to $60 per month in total, and start returning time within days.</p>
+						<p>These are off-the-shelf AI and SaaS tools that require no technical skill to maintain, often total $40 to $60 per month, and can start returning time within days.</p>
 						<ul class="check-list">
 							<li><span aria-hidden="true">✓</span> Fits your current team and workflow</li>
 							<li><span aria-hidden="true">✓</span> Setup measured in minutes, not months</li>
@@ -204,7 +298,7 @@ const reportSections = [
 				<section class="process section-pad" aria-labelledby="process-title">
 					<div class="section-intro compact">
 						<p class="section-label">How it works</p>
-						<h2 id="process-title">Seventy-five minutes of your time. A complete plan on the other side.</h2>
+						<h2 id="process-title">A paid answer, not another sales funnel.</h2>
 					</div>
 					<div class="process-grid">
 						{process.map((step) => (
@@ -220,10 +314,10 @@ const reportSections = [
 				<section class="report section-pad" aria-labelledby="report-title">
 					<div class="report-head">
 						<div>
-							<p class="section-label">Inside your report</p>
-							<h2 id="report-title">A roadmap built for Monday morning.</h2>
+							<p class="section-label">Inside the Full AI Audit</p>
+							<h2 id="report-title">The complete roadmap, built for Monday morning.</h2>
 						</div>
-						<p>The deliverable is a clear execution plan, not a technical manual. Every recommendation includes the information you need to make a decision and put it to work.</p>
+						<p>The $499 Full AI Audit is the complete execution plan. The $79 and $199 offers deliberately stop sooner, so you can buy one useful answer before committing to the full scope.</p>
 					</div>
 					<div class="report-list">
 						{reportSections.map((item) => (
@@ -239,12 +333,12 @@ const reportSections = [
 				<section class="roi section-pad" aria-labelledby="roi-title">
 					<div class="roi-copy">
 						<p class="section-label light">The return</p>
-						<h2 id="roi-title">The math is simple.</h2>
+						<h2 id="roi-title">The value has to survive the math.</h2>
 						<p>Recover six hours a week and you get roughly 26 hours back every month. Your report calculates what those hours are worth at your effective rate, then subtracts the actual software cost.</p>
 					</div>
 					<div class="roi-stats">
-						<div><strong>6-7</strong><span>average weekly<br />hours saved</span></div>
-						<div><strong>$40-$60</strong><span>average total<br />monthly tool cost</span></div>
+						<div><strong>5+</strong><span>full audit weekly<br />savings threshold</span></div>
+						<div><strong>$40-$60</strong><span>common total<br />monthly tool cost</span></div>
 						<div><strong>4 days</strong><span>to complete the<br />quick start plan</span></div>
 					</div>
 				</section>
@@ -254,7 +348,7 @@ const reportSections = [
 					<div class="guarantee-copy">
 						<p class="section-label">The guarantee</p>
 						<h2 id="guarantee-title">I find five hours, or you pay nothing.</h2>
-						<p>If I cannot identify at least five hours per week of time-saving AI implementations during your assessment, I will refund 100% of your $999 fee.</p>
+						<p>The guarantee applies to the $499 Full AI Audit. If I cannot identify at least five hours per week of realistic time-saving implementations, I will refund 100% of the Full Audit fee.</p>
 						<div class="outcomes">
 							<p><span>Worst case</span>You spend 45 minutes showing me your workflow.</p>
 							<p><span>Best case</span>You get an entire working day back every week.</p>
@@ -262,63 +356,34 @@ const reportSections = [
 					</div>
 				</section>
 
-				<section id="book" class="booking section-pad" aria-labelledby="book-title">
+				<section id="start" class="booking section-pad" aria-labelledby="book-title">
 					<div class="booking-copy">
 						<p class="section-label light">Ready when you are</p>
-						<h2 id="book-title">Reclaim your time.</h2>
-						<p>Send your details below. I will reply with available times and the next step for booking your $999 assessment.</p>
+						<h2 id="book-title">Start small. Keep the upside.</h2>
+						<p>The $79 Snapshot is the cleanest first step for most owners. If it exposes a bigger opportunity, every dollar carries forward for 30 days.</p>
 						<ul>
-							<li>45-minute discovery call</li>
-							<li>Custom tool and ROI report</li>
-							<li>30-minute review call</li>
-							<li>Five-hour money-back guarantee</li>
+							<li>Money collected before service</li>
+							<li>No unpaid custom diagnosis</li>
+							<li>100% credit on the next tier</li>
+							<li>No coding or AI expertise required</li>
 						</ul>
 					</div>
 
-					<div class="form-shell">
-						<form id="audit-form" action="https://api.web3forms.com/submit" method="POST">
-							<input type="hidden" name="access_key" value={bookingKey} />
-							<input type="hidden" name="subject" value="New AI Audit booking request" />
-							<input type="hidden" name="from_name" value="Your AI Audit landing page" />
-							<input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
-
-							<div class="form-grid">
-								<label>
-									<span>Your name</span>
-									<input type="text" name="name" required autocomplete="name" />
-								</label>
-								<label>
-									<span>Work email</span>
-									<input type="email" name="email" required autocomplete="email" />
-								</label>
-							</div>
-
-							<label>
-								<span>Company or business</span>
-								<input type="text" name="company" required autocomplete="organization" />
-							</label>
-
-							<label>
-								<span>Where do you lose the most time?</span>
-								<select name="primary_bottleneck" required>
-									<option value="" selected disabled>Select one</option>
-									<option>Inbox and communication</option>
-									<option>Lead follow-up and sales</option>
-									<option>Meetings and project handoffs</option>
-									<option>Reporting and analytics</option>
-									<option>Something else</option>
-								</select>
-							</label>
-
-							<label>
-								<span>What keeps getting pushed to nights or weekends?</span>
-								<textarea name="notes" rows="4" placeholder="A sentence or two is enough."></textarea>
-							</label>
-
-							<button class="button button-form" type="submit">Book your assessment <span>$999</span></button>
-							<p class="form-note">No preparation required. Your information is only used to respond to this request.</p>
-							<p class="form-message" role="status" aria-live="polite" hidden></p>
-						</form>
+					<div class="checkout-shell">
+						<p class="checkout-kicker">Recommended first purchase</p>
+						<div class="checkout-price"><span>$</span><strong>79</strong></div>
+						<h3>AI Bottleneck Snapshot</h3>
+						<p>One day. One bottleneck. One practical AI quick win you can act on.</p>
+						<a
+							class="button button-form"
+							href={tiers[0].checkoutUrl}
+							data-checkout-tier="snapshot"
+							data-checkout-value="79"
+							data-checkout-ready={String(tiers[0].checkoutReady)}
+						>
+							{tiers[0].checkoutReady ? 'Pay $79 and start' : 'Request $79 checkout'} <span>→</span>
+						</a>
+						<p class="checkout-note">Secure online payment is required before delivery. Need more depth? <a href="#offers">Compare all three options.</a></p>
 					</div>
 				</section>
 			</main>
@@ -331,54 +396,20 @@ const reportSections = [
 		</div>
 
 		<script>
-			const form = document.getElementById('audit-form');
-
-			if (form instanceof HTMLFormElement) {
-				form.addEventListener('submit', async (event) => {
-					event.preventDefault();
-					const submitButton = form.querySelector('button[type="submit"]');
-					const message = form.querySelector('.form-message');
-
-					if (submitButton instanceof HTMLButtonElement) {
-						submitButton.disabled = true;
-						submitButton.textContent = 'Sending your request...';
-					}
-
-					if (message instanceof HTMLElement) message.hidden = true;
-
-					try {
-						const response = await fetch(form.action, {
-							method: 'POST',
-							headers: { Accept: 'application/json' },
-							body: new FormData(form),
+			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
+				link.addEventListener('click', () => {
+					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
+					const value = Number(link.dataset.checkoutValue || 0);
+					if (typeof window.fbq === 'function') {
+						window.fbq('track', 'InitiateCheckout', {
+							content_name: `ai_audit_${link.dataset.checkoutTier}`,
+							content_type: 'product',
+							value,
+							currency: 'USD',
 						});
-						const result = await response.json();
-						if (!result.success) throw new Error(result.message || 'Submission failed');
-
-						form.reset();
-						if (message instanceof HTMLElement) {
-							message.textContent = 'Request received. I will email you with available times and next steps.';
-							message.className = 'form-message success';
-							message.hidden = false;
-						}
-						if (submitButton instanceof HTMLButtonElement) submitButton.hidden = true;
-
-						if (typeof window.fbq === 'function') {
-							window.fbq('track', 'Lead', { content_name: 'ai_audit_booking_request', value: 999, currency: 'USD' });
-						}
-					} catch {
-						if (message instanceof HTMLElement) {
-							message.textContent = 'That did not send. Please try again, or email maguirebaseball@gmail.com.';
-							message.className = 'form-message error';
-							message.hidden = false;
-						}
-						if (submitButton instanceof HTMLButtonElement) {
-							submitButton.disabled = false;
-							submitButton.innerHTML = 'Book your assessment <span>$999</span>';
-						}
 					}
 				});
-			}
+			});
 		</script>
 	</body>
 </html>
@@ -704,6 +735,47 @@ const reportSections = [
 		font-size: 0.95rem;
 	}
 
+	.hero-tier-list {
+		display: grid;
+		margin: 20px 0;
+		border-top: 1px solid var(--ink);
+	}
+
+	.hero-tier-list a {
+		display: grid;
+		grid-template-columns: 34px 1fr auto;
+		gap: 12px;
+		align-items: center;
+		padding: 20px 4px;
+		border-bottom: 1px solid var(--ink);
+		color: var(--ink);
+		text-decoration: none;
+		transition: background 160ms ease, padding 160ms ease;
+	}
+
+	.hero-tier-list a:hover,
+	.hero-tier-list a:focus-visible {
+		padding-right: 10px;
+		padding-left: 10px;
+		background: var(--green);
+	}
+
+	.hero-tier-list span {
+		color: var(--blue);
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+		font-size: 0.68rem;
+		font-weight: 800;
+	}
+
+	.hero-tier-list strong {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.1rem;
+	}
+
+	.hero-tier-list b {
+		font-size: 1.18rem;
+	}
+
 	.ticker {
 		display: flex;
 		justify-content: center;
@@ -749,6 +821,7 @@ const reportSections = [
 	}
 
 	.section-intro h2,
+	.offers h2,
 	.solution h2,
 	.report h2,
 	.roi h2,
@@ -757,6 +830,167 @@ const reportSections = [
 		margin: 0;
 		font-size: clamp(2.7rem, 5.3vw, 5.3rem);
 		line-height: 0.98;
+	}
+
+	.offers {
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.offers .section-label {
+		color: var(--green-dark);
+	}
+
+	.tier-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	.tier-card {
+		display: flex;
+		min-height: 650px;
+		padding: 25px;
+		flex-direction: column;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+	}
+
+	.tier-card.featured {
+		background: var(--green);
+		box-shadow: 10px 10px 0 var(--ink);
+		transform: translateY(-10px);
+	}
+
+	.tier-card.full {
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.tier-card.full h3 {
+		color: #fff;
+	}
+
+	.tier-topline {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.tier-topline strong {
+		color: var(--blue);
+	}
+
+	.tier-card.full .tier-topline strong {
+		color: var(--green);
+	}
+
+	.tier-card h3 {
+		min-height: 68px;
+		margin: 42px 0 8px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+		line-height: 1.02;
+	}
+
+	.tier-price {
+		display: flex;
+		align-items: flex-start;
+		margin: 5px 0 20px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 5.2rem;
+		font-weight: 800;
+		letter-spacing: -0.08em;
+		line-height: 0.9;
+	}
+
+	.tier-price span {
+		margin: 7px 4px 0 0;
+		font-size: 1.25rem;
+		letter-spacing: 0;
+	}
+
+	.tier-fit {
+		min-height: 95px;
+		margin: 0;
+		font-size: 0.86rem;
+		line-height: 1.55;
+	}
+
+	.tier-card ul {
+		display: grid;
+		gap: 10px;
+		margin: 26px 0;
+		padding: 20px 0 0;
+		border-top: 1px solid currentColor;
+		list-style: none;
+	}
+
+	.tier-card li {
+		padding-left: 19px;
+		font-size: 0.79rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.tier-card li::before {
+		margin-left: -19px;
+		margin-right: 9px;
+		color: var(--blue);
+		content: '✓';
+	}
+
+	.tier-card.full li::before {
+		color: var(--green);
+	}
+
+	.tier-turnaround {
+		display: flex;
+		justify-content: space-between;
+		gap: 14px;
+		margin-top: auto;
+		padding: 14px 0;
+		border-top: 1px solid currentColor;
+		font-size: 0.68rem;
+		text-transform: uppercase;
+	}
+
+	.tier-turnaround span {
+		opacity: 0.65;
+	}
+
+	.tier-button {
+		width: 100%;
+		margin-top: 12px;
+		background: var(--blue);
+		border-color: currentColor;
+		color: #fff;
+	}
+
+	.tier-card.full .tier-button {
+		background: var(--green);
+		color: var(--ink);
+	}
+
+	.tier-credit {
+		margin: 15px 0 0;
+		font-size: 0.7rem;
+		font-weight: 700;
+		line-height: 1.45;
+	}
+
+	.payment-note {
+		max-width: 880px;
+		margin: 44px auto 0;
+		padding: 18px 20px;
+		border: 1px solid var(--ink);
+		background: rgba(255, 255, 255, 0.48);
+		font-size: 0.78rem;
+		line-height: 1.55;
+		text-align: center;
 	}
 
 	.section-intro > p:last-child,
@@ -1249,6 +1483,64 @@ const reportSections = [
 		box-shadow: 12px 12px 0 var(--green);
 	}
 
+	.checkout-shell {
+		padding: clamp(28px, 4vw, 48px);
+		background: var(--paper-light);
+		color: var(--ink);
+		box-shadow: 12px 12px 0 var(--green);
+	}
+
+	.checkout-kicker {
+		margin: 0 0 24px;
+		color: var(--green-dark);
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.checkout-price {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.checkout-price span {
+		margin-top: 8px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.4rem;
+		font-weight: 800;
+	}
+
+	.checkout-price strong {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(5rem, 9vw, 8rem);
+		letter-spacing: -0.09em;
+		line-height: 0.8;
+	}
+
+	.checkout-shell h3 {
+		margin: 26px 0 12px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.8rem;
+	}
+
+	.checkout-shell > p:not(.checkout-kicker):not(.checkout-note) {
+		margin: 0 0 28px;
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
+	.checkout-note {
+		margin: 17px 0 0;
+		font-size: 0.7rem;
+		line-height: 1.5;
+	}
+
+	.checkout-note a {
+		color: inherit;
+		font-weight: 800;
+	}
+
 	#audit-form {
 		display: grid;
 		gap: 19px;
@@ -1369,6 +1661,20 @@ const reportSections = [
 			grid-template-columns: 1fr;
 		}
 
+		.tier-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.tier-card,
+		.tier-card h3,
+		.tier-fit {
+			min-height: auto;
+		}
+
+		.tier-card.featured {
+			transform: none;
+		}
+
 		.section-intro .section-label {
 			margin-bottom: -45px;
 		}
@@ -1435,7 +1741,17 @@ const reportSections = [
 		}
 
 		.hero h1 {
-			font-size: clamp(3.6rem, 18vw, 5.7rem);
+			font-size: clamp(3rem, 13vw, 4.2rem);
+			overflow-wrap: break-word;
+		}
+
+		.eyebrow {
+			display: block;
+			font-size: 0.68rem;
+		}
+
+		.eyebrow span {
+			margin-bottom: 12px;
 		}
 
 		.hero-actions {
@@ -1463,6 +1779,7 @@ const reportSections = [
 		}
 
 		.section-intro h2,
+		.offers h2,
 		.solution h2,
 		.report h2,
 		.roi h2,

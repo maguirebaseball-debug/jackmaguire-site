@@ -9,8 +9,8 @@ const eventNames: Record<string, string> = {
 	lead: 'Lead',
 	lead_match: 'Purchase',
 	newsletter_signup: 'Lead',
-	engaged_visitor_3_pages_2_minutes: 'Lead',
-	instagram_follow_clickout: 'Lead',
+	engaged_visitor_3_pages_2_minutes: 'EngagedVisitor',
+	instagram_follow_clickout: 'InstagramClickout',
 };
 
 function sha256(value: string): string {

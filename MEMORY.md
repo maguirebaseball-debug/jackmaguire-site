@@ -6,6 +6,12 @@ Append dated summaries of meaningful site changes, deployments, indexing work, a
 
 Added the standalone conversion page `/Your-AI-Audit/` for a $999 personalized AI tools assessment. The page presents the five-hour weekly savings guarantee, quick-win selection matrix, three-step assessment process, five-part report, typical time and tool-cost outcomes, and an embedded Web3Forms booking request. It uses a focused editorial design derived from the site's paper palette with black, chartreuse, and cobalt accents, plus a matching social preview. Local route generation, HTTP response, metadata, form presence, and prohibited-dash checks passed. The known Windows Vercel adapter symlink limitation remains at final local packaging, so production deployment continues through the normal GitHub to Vercel flow.
 
+## 2026-08-06, Your AI Audit paid offer ladder
+
+Replaced the single $999 booking request with three paid starting points: a $79 AI Bottleneck Snapshot, a $199 Quick-Win Mini Audit, and a $499 Full AI Audit. The page now compares scope, turnaround, deliverables, upgrade credits, and guarantee coverage before the long-form explanation. The full fee from each lower tier applies to the next tier for 30 days. The five-hour refund guarantee applies only to the Full AI Audit.
+
+Added environment-backed secure checkout hooks for all three products and a temporary email fallback when a checkout destination is not configured. Real checkout clicks send `InitiateCheckout`, not `Purchase`; confirmed payment remains the required source for a purchase event. Reclassified three-page, two-minute visitors as `EngagedVisitor` and Instagram clickouts as `InstagramClickout`, preventing those soft behaviors from inflating Meta leads. Added a matching three-tier social preview. Local prerendering and content assertions passed; the known Windows Vercel adapter symlink error remained limited to final local function packaging.
+
 ## 2026-08-06, AI bottleneck corpus
 
 Added the root-level plain article `/bottleneck/`, based on a purposive corpus of 100 publicly readable Substack articles that diagnose a non-model AI constraint. The page keeps the complete coded ledger, method, result table, interpretation, and caveats. It is registered in `src/lib/standaloneBlogPosts.ts`, which places it on the homepage, `/blog/`, RSS, and the generated sitemap.
