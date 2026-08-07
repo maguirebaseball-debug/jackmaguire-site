@@ -6,8 +6,8 @@ const description = 'For owner-led service businesses: find the first workflow A
 
 const checkoutConfig = {
 	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00',
-	mini: import.meta.env.PUBLIC_AI_MINI_AUDIT_CHECKOUT_URL,
-	full: import.meta.env.PUBLIC_AI_FULL_AUDIT_CHECKOUT_URL,
+	mini: import.meta.env.PUBLIC_AI_MINI_AUDIT_CHECKOUT_URL || 'https://book.stripe.com/eVq28r6WZem7f3x3L853O01',
+	full: import.meta.env.PUBLIC_AI_FULL_AUDIT_CHECKOUT_URL || 'https://book.stripe.com/eVq5kD2GJ2Dp2gL81o53O02',
 };
 
 const email = 'maguirebaseball@gmail.com';

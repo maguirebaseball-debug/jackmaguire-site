@@ -10,6 +10,24 @@ const ALLOWED_EVENTS = new Set([
 	'checkout.session.async_payment_succeeded',
 ]);
 
+const PURCHASES = {
+	snapshot: {
+		amount: 7900,
+		offerKey: 'ai_bottleneck_snapshot',
+		name: 'AI Bottleneck Snapshot',
+	},
+	mini: {
+		amount: 19900,
+		offerKey: 'quick_win_mini_audit',
+		name: 'Quick-Win Mini Audit',
+	},
+	full: {
+		amount: 49900,
+		offerKey: 'full_ai_audit',
+		name: 'Full AI Audit',
+	},
+} as const;
+
 function sha256(value: string): string {
 	return crypto.createHash('sha256').update(value.trim().toLowerCase()).digest('hex');
 }
@@ -56,13 +74,16 @@ export const POST: APIRoute = async ({ request, url }) => {
 	const session = event.data?.object;
 	if (!session) return json({ success: false, message: 'Missing Checkout Session' }, 400);
 
-	const isExpectedPurchase =
+	const serviceTier = String(session.metadata?.service_tier ?? '') as keyof typeof PURCHASES;
+	const purchase = PURCHASES[serviceTier];
+	const isExpectedPurchase = Boolean(
+		purchase &&
 		session.livemode === true &&
 		session.payment_status === 'paid' &&
-		session.amount_total === 7900 &&
+		session.amount_total === purchase.amount &&
 		String(session.currency).toLowerCase() === 'usd' &&
-		session.metadata?.offer_key === 'ai_bottleneck_snapshot' &&
-		session.metadata?.service_tier === 'snapshot';
+		session.metadata?.offer_key === purchase.offerKey,
+	);
 
 	if (!isExpectedPurchase) {
 		return json({ success: true, ignored: true });
@@ -89,13 +110,14 @@ export const POST: APIRoute = async ({ request, url }) => {
 				event_source_url: 'https://jackmaguire.org/Your-AI-Audit/',
 				user_data: userData,
 				custom_data: {
-					value: 79,
+					value: purchase.amount / 100,
 					currency: 'USD',
-					content_name: 'AI Bottleneck Snapshot',
-					content_ids: ['ai_bottleneck_snapshot'],
+					content_name: purchase.name,
+					content_ids: [purchase.offerKey],
 					content_type: 'product',
 					num_items: 1,
 					order_id: session.id,
+					service_tier: serviceTier,
 				},
 			},
 		],
@@ -117,5 +139,5 @@ export const POST: APIRoute = async ({ request, url }) => {
 		return json({ success: false, message: 'Meta CAPI rejected the event' }, 502);
 	}
 
-	return json({ success: true, eventId: event.id ?? null });
+	return json({ success: true, eventId: event.id ?? null, serviceTier });
 };
