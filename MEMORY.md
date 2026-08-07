@@ -2,6 +2,14 @@
 
 Append dated summaries of meaningful site changes, deployments, indexing work, and durable content decisions. Link to changed files and live validation. Do not paste build logs.
 
+## 2026-08-07, AI Bottleneck Snapshot checkout and intake
+
+Created the live Stripe product, one-time $79 price, hosted Payment Link, and narrowly scoped webhook for the AI Bottleneck Snapshot. The checkout collects the buyer name and email, sends an automatic Stripe receipt, and redirects successful buyers to `/Your-AI-Audit/start/` with the Checkout Session ID and campaign parameters.
+
+Added the paid Snapshot intake as a four-step, eight-question form with inline validation, conditional fields, sensitive-data warnings, projection acknowledgement, and a one-business-day confirmation. The form sends structured answers and the Stripe session reference through the existing Web3Forms destination. The route is noindex and excluded from the sitemap.
+
+Added the server-side purchase event path. Stripe completions must be live, paid, $79 USD, and tagged with the Snapshot offer metadata before the endpoint sends Meta `Purchase`. The Stripe Checkout Session ID is the stable event key for retry deduplication. Intake progress uses custom events and never fires `Lead` or `Purchase`. Updated Meta Graph calls to v25.0 and expanded the privacy policy for the paid service flow.
+
 ## 2026-08-06, Your AI Audit landing page
 
 Added the standalone conversion page `/Your-AI-Audit/` for a $999 personalized AI tools assessment. The page presents the five-hour weekly savings guarantee, quick-win selection matrix, three-step assessment process, five-part report, typical time and tool-cost outcomes, and an embedded Web3Forms booking request. It uses a focused editorial design derived from the site's paper palette with black, chartreuse, and cobalt accents, plus a matching social preview. Local route generation, HTTP response, metadata, form presence, and prohibited-dash checks passed. The known Windows Vercel adapter symlink limitation remains at final local packaging, so production deployment continues through the normal GitHub to Vercel flow.

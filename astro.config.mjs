@@ -40,6 +40,7 @@ export default defineConfig({
 				        'https://jackmaguire.org/cmo/thank-you/',
 				        'https://jackmaguire.org/meet/thank-you/',
 				        'https://jackmaguire.org/meet/thank-you-match/',
+				        'https://jackmaguire.org/Your-AI-Audit/start/',
 				        'https://jackmaguire.org/evanjuly17/',
 				        'https://jackmaguire.org/jenny-100k/',
 				        'https://jackmaguire.org/backtestfathersdaychris/',

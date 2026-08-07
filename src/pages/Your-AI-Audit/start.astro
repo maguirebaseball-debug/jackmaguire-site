@@ -1,0 +1,415 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+
+const title = 'Start Your AI Bottleneck Snapshot';
+const description = 'Complete the eight-question intake for your paid AI Bottleneck Snapshot.';
+const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<meta name="robots" content="noindex, nofollow, noarchive" />
+	</head>
+	<body>
+		<main class="intake-shell">
+			<header class="intake-header">
+				<a href="/" class="brand" aria-label="Jack Maguire home"><span>JM</span> Your AI Audit</a>
+				<p>Paid Snapshot intake</p>
+			</header>
+
+			<section class="intro" aria-labelledby="intake-title">
+				<p class="eyebrow">Payment received</p>
+				<h1 id="intake-title">Let\'s find the first workflow worth fixing.</h1>
+				<p>Answer eight questions using rough estimates. This takes about five minutes. Your one-page Snapshot will arrive by email within one business day after you complete the form.</p>
+				<div class="privacy-note"><strong>Keep private data out.</strong> Do not include passwords, API keys, customer records, health information, financial account details, or other sensitive personal information.</div>
+			</section>
+
+			<div id="missing-order" class="order-warning" hidden>
+				<h2>Your payment reference is missing.</h2>
+				<p>Open this page from the button shown after Stripe confirms your payment. If you already paid, email <a href="mailto:maguirebaseball@gmail.com">maguirebaseball@gmail.com</a>.</p>
+			</div>
+
+			<section id="form-card" class="form-card" aria-label="AI Bottleneck Snapshot intake">
+				<div class="progress-wrap" aria-label="Form progress">
+					<div class="progress-meta"><span id="progress-label">Step 1 of 4</span><strong id="progress-percent">25%</strong></div>
+					<div class="progress-track"><span id="progress-bar"></span></div>
+				</div>
+
+				<form id="snapshot-intake" action="https://api.web3forms.com/submit" method="POST" novalidate>
+					<input type="hidden" name="access_key" value={formAccessKey} />
+					<input type="hidden" name="subject" value="Paid AI Bottleneck Snapshot intake" />
+					<input type="hidden" name="from_name" value="Your AI Audit paid intake" />
+					<input type="hidden" name="plan" value="AI Bottleneck Snapshot" />
+					<input id="session-id" type="hidden" name="stripe_checkout_session_id" value="" />
+					<input id="utm-source" type="hidden" name="utm_source" value="" />
+					<input id="utm-medium" type="hidden" name="utm_medium" value="" />
+					<input id="utm-campaign" type="hidden" name="utm_campaign" value="" />
+					<input id="utm-content" type="hidden" name="utm_content" value="" />
+					<input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
+
+					<div class="form-step is-active" data-step="1">
+						<fieldset>
+							<legend><span>01</span> What does your business do, and who does it serve?</legend>
+							<p class="help">One or two sentences is enough. Example: We are a five-person accounting firm serving independent medical practices.</p>
+							<textarea name="q1_business_and_audience" rows="4" required></textarea>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+
+						<fieldset>
+							<legend><span>02</span> Which recurring workflow do you most want off your plate?</legend>
+							<div class="radio-grid">
+								{['Inbox sorting and replies','Lead follow-up','Meeting notes and action items','Reporting and analytics','Scheduling and reminders','Proposals or quotes','Client onboarding','Invoicing or payment follow-up','Data entry or moving information between tools','Something else'].map((option) => (
+									<label><input type="radio" name="q2_workflow" value={option} required /> <span>{option}</span></label>
+								))}
+							</div>
+							<label id="workflow-other-wrap" class="conditional" hidden>What workflow?<input id="workflow-other" type="text" name="q2_workflow_other" /></label>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+					</div>
+
+					<div class="form-step" data-step="2" hidden>
+						<fieldset>
+							<legend><span>03</span> Walk me through what happens today.</legend>
+							<p class="help">Start with what triggers the task, then list the main steps until it is finished. A rough description is fine.</p>
+							<textarea name="q3_current_process" rows="7" required></textarea>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+
+						<fieldset>
+							<legend><span>04</span> About how many times does this happen in a normal week?</legend>
+							<p class="help">Use a whole number from 1 to 500. If it happens monthly, divide the monthly total by four.</p>
+							<input type="number" name="q4_weekly_frequency" min="1" max="500" step="1" inputmode="numeric" required />
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+					</div>
+
+					<div class="form-step" data-step="3" hidden>
+						<fieldset>
+							<legend><span>05</span> About how many minutes does one occurrence take?</legend>
+							<p class="help">Include time spent finding information, switching tools, checking the work, and fixing errors.</p>
+							<input type="number" name="q5_minutes_per_occurrence" min="1" max="480" step="1" inputmode="numeric" required />
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+
+						<fieldset>
+							<legend><span>06</span> What tools do you use during this workflow?</legend>
+							<p class="help">Examples: Gmail, Outlook, Google Sheets, Excel, HubSpot, QuickBooks, Zoom, or none.</p>
+							<textarea name="q6_current_tools" rows="4" required></textarea>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+					</div>
+
+					<div class="form-step" data-step="4" hidden>
+						<fieldset data-checkbox-group="q7_outcomes">
+							<legend><span>07</span> What would a useful improvement look like?</legend>
+							<p class="help">Select every outcome that matters.</p>
+							<div class="check-grid">
+								{['Spend less time doing it','Respond faster','Miss fewer follow-ups or deadlines','Reduce manual copying or data entry','Make the output more consistent','Make it easier to delegate','Get a clearer report or summary','Something else'].map((option) => (
+									<label><input type="checkbox" name="q7_outcomes" value={option} /> <span>{option}</span></label>
+								))}
+							</div>
+							<label id="outcome-other-wrap" class="conditional" hidden>What outcome matters?<input id="outcome-other" type="text" name="q7_outcome_other" /></label>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+
+						<fieldset data-checkbox-group="q8_constraints">
+							<legend><span>08</span> What constraints must the recommendation respect?</legend>
+							<p class="help">Select every constraint that applies.</p>
+							<div class="check-grid">
+								{['I do not want to change my current core software','I need the tool to work with sensitive client information','I need a no-code setup','I want to keep new software under $25 per month','I want to keep new software under $60 per month','A team member must be able to maintain it','I have no major constraints','Something else'].map((option) => (
+									<label><input type="checkbox" name="q8_constraints" value={option} /> <span>{option}</span></label>
+								))}
+							</div>
+							<label class="conditional always-visible">Anything else I should avoid or account for?<textarea name="q8_constraint_notes" rows="3"></textarea></label>
+							<p class="field-error" aria-live="polite"></p>
+						</fieldset>
+
+						<label class="confirmation"><input type="checkbox" name="projection_acknowledgement" value="Agreed" required /> <span>I understand that the savings figure is a projection based on my estimates, and the guarantee covers the opportunity identified rather than results that depend on implementation.</span></label>
+						<p id="confirmation-error" class="field-error" aria-live="polite"></p>
+					</div>
+
+					<div class="form-actions">
+						<button id="back-button" class="button secondary" type="button" hidden>Back</button>
+						<button id="next-button" class="button" type="button">Continue</button>
+						<button id="submit-button" class="button" type="submit" hidden>Create my Snapshot</button>
+					</div>
+					<p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+				</form>
+			</section>
+
+			<section id="success-card" class="success-card" hidden>
+				<p class="eyebrow">Intake complete</p>
+				<h2>Your Snapshot is underway.</h2>
+				<p>I have your answers. I will email your one-page AI Bottleneck Snapshot within one business day.</p>
+				<ul>
+					<li>Your highest-cost recurring bottleneck</li>
+					<li>Its current weekly time cost</li>
+					<li>One exact tool or workflow recommendation</li>
+					<li>Projected weekly savings, software cost, and setup steps</li>
+				</ul>
+				<p class="guarantee">If I cannot identify one practical change projected to save at least 30 minutes each week, I will automatically refund the $79 fee.</p>
+			</section>
+
+			<footer class="intake-footer">
+				<a href="/privacy-policy/">Privacy policy</a>
+				<span>Questions? maguirebaseball [at] gmail [dot] com</span>
+			</footer>
+		</main>
+
+		<script>
+			const form = document.getElementById('snapshot-intake');
+			const formCard = document.getElementById('form-card');
+			const successCard = document.getElementById('success-card');
+			const missingOrder = document.getElementById('missing-order');
+			const sessionInput = document.getElementById('session-id');
+			const steps = Array.from(document.querySelectorAll('.form-step'));
+			const nextButton = document.getElementById('next-button');
+			const backButton = document.getElementById('back-button');
+			const submitButton = document.getElementById('submit-button');
+			const progressLabel = document.getElementById('progress-label');
+			const progressPercent = document.getElementById('progress-percent');
+			const progressBar = document.getElementById('progress-bar');
+			const formStatus = document.getElementById('form-status');
+			let currentStep = 0;
+			let startedTracked = false;
+			let halfwayTracked = false;
+
+			function trackCustom(name, eventId) {
+				if (typeof window.fbq === 'function') {
+					window.fbq('trackCustom', name, { content_name: 'ai_bottleneck_snapshot' }, { eventID: eventId });
+				}
+			}
+
+			function showStep(index) {
+				currentStep = index;
+				steps.forEach((step, stepIndex) => {
+					step.hidden = stepIndex !== index;
+					step.classList.toggle('is-active', stepIndex === index);
+				});
+				const percent = Math.round(((index + 1) / steps.length) * 100);
+				if (progressLabel) progressLabel.textContent = `Step ${index + 1} of ${steps.length}`;
+				if (progressPercent) progressPercent.textContent = `${percent}%`;
+				if (progressBar instanceof HTMLElement) progressBar.style.width = `${percent}%`;
+				if (backButton instanceof HTMLButtonElement) backButton.hidden = index === 0;
+				if (nextButton instanceof HTMLButtonElement) nextButton.hidden = index === steps.length - 1;
+				if (submitButton instanceof HTMLButtonElement) submitButton.hidden = index !== steps.length - 1;
+				if (index >= 2 && !halfwayTracked) {
+					halfwayTracked = true;
+					trackCustom('AuditIntakeHalfway', `audit_intake_halfway_${Date.now()}`);
+				}
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			function setFieldError(fieldset, message) {
+				const error = fieldset?.querySelector('.field-error');
+				if (error instanceof HTMLElement) error.textContent = message;
+			}
+
+			function validateStep(index) {
+				const step = steps[index];
+				if (!(step instanceof HTMLElement)) return false;
+				let valid = true;
+				step.querySelectorAll('fieldset').forEach((fieldset) => setFieldError(fieldset, ''));
+
+				step.querySelectorAll('input[required], textarea[required]').forEach((field) => {
+					if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return;
+					if (field.type === 'radio') return;
+					if (!field.checkValidity()) {
+						valid = false;
+						const fieldset = field.closest('fieldset');
+						const message = field.type === 'number'
+							? 'Enter a whole number within the range shown above.'
+							: 'Add an answer before continuing.';
+						setFieldError(fieldset, message);
+					}
+				});
+
+				step.querySelectorAll('input[type="radio"][required]').forEach((radio) => {
+					if (!(radio instanceof HTMLInputElement)) return;
+					const checked = step.querySelector(`input[name="${radio.name}"]:checked`);
+					if (!checked) {
+						valid = false;
+						setFieldError(radio.closest('fieldset'), 'Choose one workflow before continuing.');
+					}
+				});
+
+				step.querySelectorAll('[data-checkbox-group]').forEach((fieldset) => {
+					const name = fieldset.getAttribute('data-checkbox-group');
+					if (name && !fieldset.querySelector(`input[name="${name}"]:checked`)) {
+						valid = false;
+						setFieldError(fieldset, 'Choose at least one option.');
+					}
+				});
+
+				const acknowledgement = step.querySelector('input[name="projection_acknowledgement"]');
+				const confirmationError = document.getElementById('confirmation-error');
+				if (acknowledgement instanceof HTMLInputElement && !acknowledgement.checked) {
+					valid = false;
+					if (confirmationError) confirmationError.textContent = 'Confirm the projection terms before sending your answers.';
+				} else if (confirmationError) confirmationError.textContent = '';
+
+				if (!valid) step.querySelector('input:invalid, textarea:invalid, .field-error:not(:empty)')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				return valid;
+			}
+
+			if (form instanceof HTMLFormElement && sessionInput instanceof HTMLInputElement) {
+				const params = new URLSearchParams(window.location.search);
+				const sessionId = params.get('session_id') ?? '';
+				sessionInput.value = sessionId;
+				['source', 'medium', 'campaign', 'content'].forEach((key) => {
+					const input = document.getElementById(`utm-${key}`);
+					if (input instanceof HTMLInputElement) input.value = params.get(`utm_${key}`) ?? '';
+				});
+
+				if (!sessionId.startsWith('cs_')) {
+					if (formCard instanceof HTMLElement) formCard.hidden = true;
+					if (missingOrder instanceof HTMLElement) missingOrder.hidden = false;
+				} else {
+					showStep(0);
+				}
+
+				form.addEventListener('input', () => {
+					if (!startedTracked) {
+						startedTracked = true;
+						trackCustom('AuditIntakeStarted', `audit_intake_started_${Date.now()}`);
+					}
+				});
+
+				nextButton?.addEventListener('click', () => {
+					if (validateStep(currentStep)) showStep(Math.min(currentStep + 1, steps.length - 1));
+				});
+				backButton?.addEventListener('click', () => showStep(Math.max(currentStep - 1, 0)));
+
+				form.querySelectorAll('input[name="q2_workflow"]').forEach((input) => {
+					input.addEventListener('change', () => {
+						const other = form.querySelector('input[name="q2_workflow"]:checked')?.getAttribute('value') === 'Something else';
+						const wrap = document.getElementById('workflow-other-wrap');
+						const field = document.getElementById('workflow-other');
+						if (wrap instanceof HTMLElement) wrap.hidden = !other;
+						if (field instanceof HTMLInputElement) field.required = other;
+					});
+				});
+
+				form.querySelectorAll('input[name="q7_outcomes"]').forEach((input) => {
+					input.addEventListener('change', () => {
+						const other = Boolean(form.querySelector('input[name="q7_outcomes"][value="Something else"]:checked'));
+						const wrap = document.getElementById('outcome-other-wrap');
+						const field = document.getElementById('outcome-other');
+						if (wrap instanceof HTMLElement) wrap.hidden = !other;
+						if (field instanceof HTMLInputElement) field.required = other;
+					});
+				});
+
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+					if (!validateStep(currentStep)) return;
+					if (submitButton instanceof HTMLButtonElement) {
+						submitButton.disabled = true;
+						submitButton.textContent = 'Sending your answers...';
+					}
+
+					try {
+						const response = await fetch(form.action, {
+							method: 'POST',
+							headers: { Accept: 'application/json' },
+							body: new FormData(form),
+						});
+						const result = await response.json();
+						if (!response.ok || !result.success) throw new Error(result.message || 'Submission failed');
+						trackCustom('AuditIntakeCompleted', `audit_intake_completed_${sessionId}`);
+						if (formCard instanceof HTMLElement) formCard.hidden = true;
+						if (successCard instanceof HTMLElement) successCard.hidden = false;
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+					} catch {
+						if (formStatus instanceof HTMLElement) {
+							formStatus.textContent = 'Your answers did not send. Try again, or email maguirebaseball@gmail.com.';
+							formStatus.hidden = false;
+						}
+						if (submitButton instanceof HTMLButtonElement) {
+							submitButton.disabled = false;
+							submitButton.textContent = 'Create my Snapshot';
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+	:global(html) { background: #f2efe4; scroll-behavior: smooth; }
+	:global(body) { margin: 0; background: #f2efe4; color: #171812; font-family: var(--font-ui), Arial, sans-serif; }
+	:global([hidden]) { display: none !important; }
+
+	.intake-shell { width: min(100% - 32px, 900px); margin: 0 auto; padding-bottom: 80px; }
+	.intake-header { display: flex; align-items: center; justify-content: space-between; min-height: 78px; border-bottom: 1px solid #171812; }
+	.intake-header p { margin: 0; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+	.brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; font-weight: 800; text-decoration: none; }
+	.brand span { display: grid; width: 35px; height: 35px; place-items: center; background: #171812; color: #fff; font-size: 0.75rem; }
+
+	.intro { padding: clamp(54px, 10vw, 96px) 0 48px; }
+	.eyebrow { margin: 0 0 20px; color: #3156f5; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+	h1, h2 { margin: 0; font-family: var(--font-heading), Arial, sans-serif; font-weight: 800; letter-spacing: -0.05em; line-height: 0.98; }
+	h1 { max-width: 800px; font-size: clamp(3.2rem, 9vw, 6.8rem); }
+	.intro > p:not(.eyebrow) { max-width: 700px; margin: 28px 0 0; font-size: 1rem; line-height: 1.7; }
+	.privacy-note { margin-top: 28px; padding: 16px 18px; border: 1px solid #171812; background: #fff; font-size: 0.82rem; line-height: 1.55; }
+
+	.order-warning, .success-card { padding: clamp(28px, 6vw, 55px); border: 1px solid #171812; background: #fff; box-shadow: 12px 12px 0 #b8ff43; }
+	.order-warning h2, .success-card h2 { font-size: clamp(2.5rem, 6vw, 4.8rem); }
+	.order-warning p, .success-card > p:not(.eyebrow):not(.guarantee) { max-width: 650px; margin: 24px 0 0; line-height: 1.65; }
+	.order-warning a { color: #3156f5; }
+
+	.form-card { border: 1px solid #171812; background: #fff; box-shadow: 12px 12px 0 #3156f5; }
+	.progress-wrap { padding: 22px clamp(22px, 5vw, 48px); border-bottom: 1px solid #171812; background: #171812; color: #fff; }
+	.progress-meta { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+	.progress-track { height: 8px; background: rgba(255,255,255,0.2); }
+	.progress-track span { display: block; width: 25%; height: 100%; background: #b8ff43; transition: width 180ms ease; }
+
+	form { padding: clamp(24px, 6vw, 52px); }
+	.form-step { display: grid; gap: 48px; }
+	fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+	legend { width: 100%; margin-bottom: 12px; font-family: var(--font-heading), Arial, sans-serif; font-size: clamp(1.45rem, 4vw, 2rem); font-weight: 800; line-height: 1.15; }
+	legend span { margin-right: 9px; color: #3156f5; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.72em; }
+	.help { margin: 0 0 15px; color: #5d6057; font-size: 0.8rem; line-height: 1.55; }
+	textarea, input[type="text"], input[type="number"] { width: 100%; min-height: 52px; padding: 13px 14px; border: 1px solid #171812; border-radius: 0; background: #fff; color: #171812; font: inherit; }
+	textarea { resize: vertical; line-height: 1.55; }
+	textarea:focus, input:focus { outline: 3px solid #b8ff43; outline-offset: 1px; }
+
+	.radio-grid, .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+	.radio-grid label, .check-grid label { display: flex; min-height: 52px; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #171812; cursor: pointer; font-size: 0.82rem; font-weight: 700; line-height: 1.35; }
+	.radio-grid label:has(input:checked), .check-grid label:has(input:checked) { background: #b8ff43; }
+	.radio-grid input, .check-grid input, .confirmation input { flex: 0 0 auto; width: 18px; height: 18px; accent-color: #3156f5; }
+	.conditional { display: grid; gap: 8px; margin-top: 14px; font-size: 0.76rem; font-weight: 800; }
+	.always-visible { margin-top: 18px; }
+	.field-error { min-height: 1.2em; margin: 8px 0 0; color: #a72b17; font-size: 0.75rem; font-weight: 800; }
+	.confirmation { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid #171812; background: #f2efe4; font-size: 0.8rem; line-height: 1.5; }
+	.confirmation input { margin-top: 2px; }
+
+	.form-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 50px; padding-top: 24px; border-top: 1px solid #171812; }
+	.button { min-height: 52px; padding: 0 24px; border: 1px solid #171812; border-radius: 0; background: #b8ff43; color: #171812; font: inherit; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+	.button.secondary { background: #fff; }
+	.button:disabled { cursor: wait; opacity: 0.65; }
+	.form-status { margin: 18px 0 0; padding: 14px; border: 1px solid #171812; background: #ffd6cf; font-size: 0.8rem; font-weight: 700; line-height: 1.5; }
+	.botcheck { position: absolute; left: -9999px; }
+
+	.success-card ul { display: grid; gap: 9px; margin: 28px 0; padding-left: 22px; line-height: 1.5; }
+	.guarantee { margin: 28px 0 0; padding: 18px; background: #b8ff43; font-size: 0.86rem; font-weight: 800; line-height: 1.55; }
+	.intake-footer { display: flex; justify-content: space-between; gap: 20px; padding: 34px 0 0; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+	.intake-footer a { color: inherit; }
+
+	@media (max-width: 650px) {
+		.intake-header p { display: none; }
+		.radio-grid, .check-grid { grid-template-columns: 1fr; }
+		.form-actions { flex-direction: column-reverse; }
+		.button { width: 100%; }
+		.intake-footer { align-items: flex-start; flex-direction: column; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) { scroll-behavior: auto; }
+		.progress-track span { transition: none; }
+	}
+</style>

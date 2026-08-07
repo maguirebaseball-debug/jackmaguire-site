@@ -68,7 +68,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 	};
 
 	const metaResponse = await fetch(
-		`https://graph.facebook.com/v21.0/${PIXEL_ID}/events?access_token=${accessToken}`,
+		`https://graph.facebook.com/v25.0/${PIXEL_ID}/events?access_token=${accessToken}`,
 		{
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

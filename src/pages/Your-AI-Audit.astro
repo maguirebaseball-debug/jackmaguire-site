@@ -5,7 +5,7 @@ const title = 'Your AI Audit | Start with a $79 AI Bottleneck Snapshot';
 const description = 'For owner-led service businesses: find the first workflow AI should take off your plate with a $79, one-day AI Bottleneck Snapshot. Deeper assessments are available.';
 
 const checkoutConfig = {
-	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL,
+	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00',
 	mini: import.meta.env.PUBLIC_AI_MINI_AUDIT_CHECKOUT_URL,
 	full: import.meta.env.PUBLIC_AI_FULL_AUDIT_CHECKOUT_URL,
 };
@@ -649,7 +649,7 @@ const faqItems = [
 
 			<footer>
 				<a href="/">Jack Maguire</a>
-				<span>AI tools assessment</span>
+				<a href="/privacy-policy/">Privacy</a>
 				<span>New York City</span>
 			</footer>
 		</div>
