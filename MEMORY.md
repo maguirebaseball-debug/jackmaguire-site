@@ -12,6 +12,10 @@ Replaced the single $999 booking request with three paid starting points: a $79 
 
 Added environment-backed secure checkout hooks for all three products and a temporary email fallback when a checkout destination is not configured. Real checkout clicks send `InitiateCheckout`, not `Purchase`; confirmed payment remains the required source for a purchase event. Reclassified three-page, two-minute visitors as `EngagedVisitor` and Instagram clickouts as `InstagramClickout`, preventing those soft behaviors from inflating Meta leads. Added a matching three-tier social preview. Local prerendering and content assertions passed; the known Windows Vercel adapter symlink error remained limited to final local function packaging.
 
+## 2026-08-06, Your AI Audit guarantee ladder
+
+Added a scope-matched automatic-refund guarantee to every paid tier. The $79 Snapshot must identify one practical change projected to save at least 30 minutes per week, the $199 Mini Audit must identify at least two hours per week, and the $499 Full Audit must identify at least five hours per week. The page now defines projected weekly savings as current task time minus expected post-implementation task time, subtracts new oversight, excludes duplicated or transferred time, and clarifies that the guarantee covers the diagnostic opportunity rather than results dependent on implementation.
+
 ## 2026-08-06, AI bottleneck corpus
 
 Added the root-level plain article `/bottleneck/`, based on a purposive corpus of 100 publicly readable Substack articles that diagnose a non-model AI constraint. The page keeps the complete coded ledger, method, result table, interpretation, and caveats. It is registered in `src/lib/standaloneBlogPosts.ts`, which places it on the homepage, `/blog/`, RSS, and the generated sitemap.

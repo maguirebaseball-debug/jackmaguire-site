@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 
 const title = 'Your AI Audit | Start with a $79 AI Bottleneck Snapshot';
-const description = 'Find the work AI should take off your plate. Start with a $79 bottleneck snapshot, a $199 mini audit, or a $499 full AI audit.';
+const description = 'Find the work AI should take off your plate. Start with a $79, $199, or $499 AI workflow assessment, each backed by a scope-matched money-back guarantee.';
 
 const checkoutConfig = {
 	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL,
@@ -18,7 +18,7 @@ const tiers = [
 		level: 'Level 1',
 		name: 'AI Bottleneck Snapshot',
 		price: 79,
-		tag: 'Best place to start',
+		tag: '30 min/week target',
 		fit: 'You know work is leaking time, but you do not know which workflow to fix first.',
 		turnaround: '1 business day',
 		features: [
@@ -27,6 +27,8 @@ const tiers = [
 			'One practical AI quick win',
 			'Tool category, next step, and rough payoff',
 		],
+		guaranteeTitle: 'One Quick Win Guarantee',
+		guarantee: 'One practical change projected to save at least 30 minutes each week, or I automatically refund your $79.',
 		credit: 'Your full $79 applies to the Mini Audit if you upgrade within 30 days.',
 	},
 	{
@@ -34,7 +36,7 @@ const tiers = [
 		level: 'Level 2',
 		name: 'Quick-Win Mini Audit',
 		price: 199,
-		tag: 'More context, still fast',
+		tag: '2 hrs/week target',
 		fit: 'You have a few messy workflows and want a prioritized answer without commissioning the full audit.',
 		turnaround: '2 business days',
 		features: [
@@ -43,6 +45,8 @@ const tiers = [
 			'1 to 2 recommended tools',
 			'Short ROI estimate and action plan',
 		],
+		guaranteeTitle: 'Two-Hour Opportunity Guarantee',
+		guarantee: 'Practical changes projected to save at least two hours each week, or I automatically refund your $199.',
 		credit: 'Your full $199 applies to the Full AI Audit if you upgrade within 30 days.',
 	},
 	{
@@ -50,7 +54,7 @@ const tiers = [
 		level: 'Level 3',
 		name: 'Full AI Audit',
 		price: 499,
-		tag: 'Launch price',
+		tag: '5 hrs/week target',
 		fit: 'You want the complete workflow map, implementation roadmap, and financial case.',
 		turnaround: 'Delivered after discovery',
 		features: [
@@ -59,7 +63,9 @@ const tiers = [
 			'Full effort vs. impact and ROI report',
 			'4-day rollout plan and 30-minute review',
 		],
-		credit: 'Covered by the five-hour money-back guarantee.',
+		guaranteeTitle: 'Five-Hour Opportunity Guarantee',
+		guarantee: 'Practical changes projected to save at least five hours each week, or I automatically refund your $499.',
+		credit: 'Any qualifying prior-tier credit is deducted when you upgrade within 30 days.',
 	},
 ].map((tier) => {
 	const configuredUrl = checkoutConfig[tier.key as keyof typeof checkoutConfig];
@@ -188,7 +194,7 @@ const reportSections = [
 						<p class="hero-subhead">Choose the depth you need. I will diagnose the bottleneck, filter out the AI noise, and give you a practical next move using off-the-shelf tools.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href="#snapshot">Start with the snapshot <span>$79</span></a>
-							<p><strong>Paid before service.</strong> No sales call is required for the $79 Snapshot. Every dollar applies if you upgrade within 30 days.</p>
+							<p><strong>Paid before service. Guaranteed by scope.</strong> Start with one quick win at $79, then apply every dollar if you upgrade within 30 days.</p>
 						</div>
 					</div>
 
@@ -214,7 +220,7 @@ const reportSections = [
 					<span>Pay before service</span>
 					<span>Zero coding</span>
 					<span>100% upgrade credit</span>
-					<span>Full audit guaranteed</span>
+					<span>Every tier guaranteed</span>
 				</section>
 
 				<section id="offers" class="offers section-pad" aria-labelledby="offers-title">
@@ -233,6 +239,10 @@ const reportSections = [
 								<ul>
 									{tier.features.map((feature) => <li>{feature}</li>)}
 								</ul>
+								<div class="tier-guarantee">
+									<span>{tier.guaranteeTitle}</span>
+									<p>{tier.guarantee}</p>
+								</div>
 								<div class="tier-turnaround"><span>Turnaround</span><strong>{tier.turnaround}</strong></div>
 								<a
 									class="button tier-button"
@@ -248,7 +258,7 @@ const reportSections = [
 							</article>
 						))}
 					</div>
-					<p class="payment-note"><strong>How payment works:</strong> each service is paid in full through secure online checkout before the intake or call. Your receipt confirms the purchase, and I send the next step for your tier.</p>
+					<p class="payment-note"><strong>How payment works:</strong> each service is paid in full before the intake or call. If my assessment does not reach that tier's stated savings threshold, I automatically refund the full fee.</p>
 				</section>
 
 				<section class="problem section-pad" aria-labelledby="problem-title">
@@ -334,7 +344,7 @@ const reportSections = [
 					<div class="roi-copy">
 						<p class="section-label light">The return</p>
 						<h2 id="roi-title">The value has to survive the math.</h2>
-						<p>Recover six hours a week and you get roughly 26 hours back every month. Your report calculates what those hours are worth at your effective rate, then subtracts the actual software cost.</p>
+						<p>Every recommendation shows its work: current weekly task time minus expected weekly task time after implementation equals projected weekly savings. I subtract new oversight time and do not count the same saved minutes twice.</p>
 					</div>
 					<div class="roi-stats">
 						<div><strong>5+</strong><span>full audit weekly<br />savings threshold</span></div>
@@ -344,14 +354,23 @@ const reportSections = [
 				</section>
 
 				<section class="guarantee section-pad" aria-labelledby="guarantee-title">
-					<div class="guarantee-badge" aria-hidden="true"><span>5+</span><small>hours</small></div>
+					<div class="guarantee-badge" aria-hidden="true"><span>3</span><small>guarantees</small></div>
 					<div class="guarantee-copy">
-						<p class="section-label">The guarantee</p>
-						<h2 id="guarantee-title">I find five hours, or you pay nothing.</h2>
-						<p>The guarantee applies to the $499 Full AI Audit. If I cannot identify at least five hours per week of realistic time-saving implementations, I will refund 100% of the Full Audit fee.</p>
+						<p class="section-label">The guarantees</p>
+						<h2 id="guarantee-title">Every tier has to earn its price.</h2>
+						<p>I guarantee the savings opportunity identified by the assessment, not results that depend on whether you implement the recommendation. If my analysis does not reach the threshold for your tier, I automatically refund the full fee.</p>
+						<div class="guarantee-ladder">
+							{tiers.map((tier) => (
+								<article>
+									<span>${tier.price}</span>
+									<h3>{tier.guaranteeTitle}</h3>
+									<p>{tier.guarantee}</p>
+								</article>
+							))}
+						</div>
 						<div class="outcomes">
-							<p><span>Worst case</span>You spend 45 minutes showing me your workflow.</p>
-							<p><span>Best case</span>You get an entire working day back every week.</p>
+							<p><span>What counts</span>A recurring task you currently perform, with baseline time, frequency, tool cost, new oversight time, and projected time after implementation.</p>
+							<p><span>What does not count</span>Speculative revenue gains, one-time tasks, overlapping savings, or time that simply moves from you to someone else.</p>
 						</div>
 					</div>
 				</section>
@@ -373,7 +392,7 @@ const reportSections = [
 						<p class="checkout-kicker">Recommended first purchase</p>
 						<div class="checkout-price"><span>$</span><strong>79</strong></div>
 						<h3>AI Bottleneck Snapshot</h3>
-						<p>One day. One bottleneck. One practical AI quick win you can act on.</p>
+						<p>One day. One bottleneck. One practical AI quick win projected to save at least 30 minutes a week, or I refund it.</p>
 						<a
 							class="button button-form"
 							href={tiers[0].checkoutUrl}
@@ -848,7 +867,7 @@ const reportSections = [
 
 	.tier-card {
 		display: flex;
-		min-height: 650px;
+		min-height: 760px;
 		padding: 25px;
 		flex-direction: column;
 		border: 1px solid var(--ink);
@@ -945,6 +964,38 @@ const reportSections = [
 
 	.tier-card.full li::before {
 		color: var(--green);
+	}
+
+	.tier-guarantee {
+		margin: 0 0 20px;
+		padding: 16px;
+		border: 1px solid currentColor;
+		background: rgba(255, 255, 255, 0.34);
+	}
+
+	.tier-card.full .tier-guarantee {
+		background: rgba(184, 255, 67, 0.08);
+	}
+
+	.tier-guarantee > span {
+		display: block;
+		margin-bottom: 8px;
+		color: var(--blue);
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.tier-card.full .tier-guarantee > span {
+		color: var(--green);
+	}
+
+	.tier-guarantee p {
+		margin: 0;
+		font-size: 0.75rem;
+		font-weight: 700;
+		line-height: 1.5;
 	}
 
 	.tier-turnaround {
@@ -1412,6 +1463,39 @@ const reportSections = [
 		margin-top: 24px;
 	}
 
+	.guarantee-ladder {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+		margin-top: 32px;
+	}
+
+	.guarantee-ladder article {
+		padding: 17px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+	}
+
+	.guarantee-ladder article > span {
+		color: var(--blue);
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+		font-size: 0.72rem;
+		font-weight: 800;
+	}
+
+	.guarantee-ladder h3 {
+		margin: 28px 0 10px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.15rem;
+		line-height: 1.1;
+	}
+
+	.guarantee-ladder p {
+		margin: 0;
+		font-size: 0.72rem;
+		line-height: 1.5;
+	}
+
 	.outcomes {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -1860,6 +1944,10 @@ const reportSections = [
 		}
 
 		.guarantee {
+			grid-template-columns: 1fr;
+		}
+
+		.guarantee-ladder {
 			grid-template-columns: 1fr;
 		}
 
