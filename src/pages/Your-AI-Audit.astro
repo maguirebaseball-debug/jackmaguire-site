@@ -900,22 +900,19 @@ const intakeQuestions = [
 		</div>
 
 		<script>
-			function ensureGa4() {
-				window.dataLayer = window.dataLayer || [];
-				window.gtag = window.gtag || function () {
-					window.dataLayer.push(arguments);
-				};
-				if (!window.__jmGa4Configured) {
-					window.gtag('js', new Date());
-					window.gtag('config', 'G-1697T7D92W');
-					window.__jmGa4Configured = true;
-				}
-			}
-
 			function trackAuditEvent(name, parameters = {}) {
-				ensureGa4();
 				const debugMode = new URLSearchParams(window.location.search).get('ga_debug') === '1';
-				window.gtag('event', name, { content_group: 'ai_audit', transport_type: 'beacon', ...(debugMode ? { debug_mode: true } : {}), ...parameters });
+				const gaCookie = document.cookie.match(/(?:^|; )_ga=GA\d+\.\d+\.(\d+\.\d+)/)?.[1];
+				const clientId = gaCookie || `audit.${crypto.randomUUID()}`;
+				const sessionKey = 'jm_ga4_audit_session';
+				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
+				sessionStorage.setItem(sessionKey, sessionId);
+				void fetch('/api/ga4-audit-event/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ event_name: name, params: { content_group: 'ai_audit', ...parameters }, client_id: clientId, session_id: sessionId, debug_mode: debugMode }),
+					keepalive: true,
+				}).catch(() => {});
 			}
 
 			function readCookie(name) {
