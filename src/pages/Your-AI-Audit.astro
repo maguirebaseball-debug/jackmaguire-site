@@ -173,6 +173,85 @@ const faqItems = [
 		answer: 'Upgrade within 30 days and the full $79 is applied to the $199 Mini Audit. The full $199 is applied if you then move to the $499 Full Audit within 30 days.',
 	},
 ];
+
+const sampleReports = [
+	{
+		key: 'snapshot',
+		label: '$79 Snapshot example',
+		business: 'A 6-person residential design studio',
+		bottleneck: 'Lead follow-up after consultations',
+		finding: '12 follow-ups per week × 20 minutes = 4 hours/week today.',
+		recommendation: 'Use a saved intake-to-draft workflow to turn consultation notes into a review-ready follow-up email.',
+		math: 'Projected time: 12 × 5 minutes = 1 hour/week. Estimated recovery: 3 hours/week. Tool cost: about $20/month.',
+		next: 'Set up the template, test it on one recent consultation, then use it for the next five follow-ups.',
+	},
+	{
+		key: 'mini',
+		label: '$199 Mini Audit example',
+		business: 'An 11-person commercial cleaning company',
+		bottleneck: 'Three workflow comparison: quote follow-up, scheduling, and weekly reporting',
+		finding: 'Quote follow-up is the highest-leverage fix at 5.5 hours/week, followed by reporting at 2 hours/week.',
+		recommendation: 'Prioritize a quote follow-up queue, a reusable response library, and a lightweight reporting template; defer a full CRM replacement.',
+		math: 'Projected recovery: 3.5 to 4.5 hours/week after setup. Estimated software cost: $45/month. 7-day rollout included.',
+		next: 'Day 1: map the queue. Day 2: build response templates. Day 3: test handoff. Day 7: review response time and open quotes.',
+	},
+	{
+		key: 'full',
+		label: '$499 Full Audit example',
+		business: 'A 24-person bookkeeping and tax practice',
+		bottleneck: 'End-to-end map across inbox, client onboarding, meeting actions, and monthly reporting',
+		finding: 'Four repeatable bottlenecks combine to create an estimated 11.5 hours/week of avoidable work across the owner and operations team.',
+		recommendation: 'Deploy a 4-day quick-win sequence: intake triage, meeting action capture, client-status templates, and a standardized reporting pull.',
+		math: 'Projected net recovery: 6.5 to 8 hours/week after oversight. Estimated tool cost: $60/month. Full ROI model and effort-vs-impact matrix included.',
+		next: 'The report names the owner for each step, exact setup order, constraints to preserve, and the 30-minute review-call agenda.',
+	},
+];
+
+const intakeQuestions = [
+	{
+		key: 'snapshot',
+		label: 'Level 1 · Snapshot · 8 questions · no call',
+		questions: [
+			'What does your business do, and who does it serve?',
+			'Which recurring workflow do you most want off your plate?',
+			'Walk me through what happens today.',
+			'About how many times does this happen in a normal week?',
+			'About how many minutes does one occurrence take?',
+			'What tools do you use during this workflow?',
+			'What would a useful improvement look like?',
+			'What constraints must the recommendation respect?',
+		],
+	},
+	{
+		key: 'mini',
+		label: 'Level 2 · Mini Audit · short intake + 25-minute call',
+		questions: [
+			'What does your business do, who does it serve, and how does it make money?',
+			'Who is involved in the workflows we are reviewing?',
+			'Which areas consume the most time or cause the most delay?',
+			'For each of two workflows: what triggers it, how often does it happen, and how many total staff minutes does one occurrence take?',
+			'Which tools and information does each workflow use, and where does it break down?',
+			'What must stay true after the workflow changes?',
+			'What hourly value and monthly software budget should I use?',
+			'Who will set up and maintain the recommendation, and what would make this memo worth buying?',
+		],
+	},
+	{
+		key: 'full',
+		label: 'Level 3 · Full Audit · 16 questions + 45-minute discovery call',
+		questions: [
+			'What does your business do, who does it serve, and how does it make money?',
+			'What does the team look like, and what are the three most important six-month outcomes?',
+			'What important change is happening in the business right now?',
+			'Which systems do you use, which must remain, and what data or compliance restrictions apply?',
+			'Which recurring workflows should the audit examine, and which three should we examine first?',
+			'For each selected workflow: what triggers it, what are the steps, how often does it happen, and how many staff minutes does one occurrence consume?',
+			'Who participates, where are the handoffs, what systems and information are involved, and where do delay or error enter?',
+			'What must the new workflow preserve, how painful is it today, and what hourly value, budget, setup time, and owner should I use?',
+			'What has already been tried, what would success look like 30 days after delivery, and is there anything to review before the call?',
+		],
+	},
+];
 ---
 
 <!doctype html>
@@ -404,6 +483,46 @@ const faqItems = [
 							<article><span>03</span><h3>Savings and cost</h3><p>Current time, projected time, oversight, tool price, and net weekly gain.</p></article>
 							<article><span>04</span><h3>Start checklist</h3><p>The first setup steps, written for a nontechnical owner to follow.</p></article>
 						</div>
+					</div>
+				</section>
+
+				<section class="sample-reports section-pad" aria-labelledby="sample-reports-title">
+					<div class="section-intro">
+						<p class="section-label">Review before you buy</p>
+						<h2 id="sample-reports-title">See the kind of answer each tier is designed to produce.</h2>
+						<p>These are realistic illustrative examples, not client results. Your report uses your numbers, workflows, tools, and constraints.</p>
+					</div>
+					<div class="sample-report-grid">
+						{sampleReports.map((report) => (
+							<article class:list={['sample-report-card', report.key]}>
+								<div class="sample-report-topline"><span>{report.label}</span><span>Illustrative</span></div>
+								<h3>{report.business}</h3>
+								<div class="sample-report-field"><span>What gets diagnosed</span><strong>{report.bottleneck}</strong></div>
+								<div class="sample-report-field"><span>Example finding</span><p>{report.finding}</p></div>
+								<div class="sample-report-field"><span>Recommendation</span><p>{report.recommendation}</p></div>
+								<div class="sample-report-field"><span>Savings and cost</span><p>{report.math}</p></div>
+								<div class="sample-report-next"><span>What you can do next</span><p>{report.next}</p></div>
+							</article>
+						))}
+					</div>
+				</section>
+
+				<section class="intake-questions section-pad" aria-labelledby="intake-title">
+					<div class="section-intro">
+						<p class="section-label">Know what you will answer</p>
+						<h2 id="intake-title">The questions are part of the product design.</h2>
+						<p>Every question feeds the promised deliverable. Rough estimates are welcome; you do not need to prepare a technical inventory.</p>
+					</div>
+					<div class="intake-list">
+						{intakeQuestions.map((form) => (
+							<details class:list={['intake-card', form.key]} open={form.key === 'snapshot'}>
+								<summary><span>{form.label}</span><b aria-hidden="true">+</b></summary>
+								<ol>
+									{form.questions.map((question) => <li>{question}</li>)}
+								</ol>
+								<p class="intake-note">Do not upload passwords, API keys, customer records, health information, financial account details, or other sensitive personal data. Blank, sample, or redacted material is enough.</p>
+							</details>
+						))}
 					</div>
 				</section>
 
@@ -2698,6 +2817,106 @@ const faqItems = [
 			flex-direction: column;
 			gap: 10px;
 		}
+	}
+
+	.sample-reports {
+		background: #171812;
+		color: #fcfaf5;
+		width: 100%;
+		max-width: none;
+		padding-right: max(24px, calc((100% - 1180px) / 2));
+		padding-left: max(24px, calc((100% - 1180px) / 2));
+	}
+
+	.sample-reports .section-intro { max-width: 760px; }
+	.sample-reports .section-label { color: var(--green); }
+	.sample-reports h2 { color: #fcfaf5; }
+	.sample-reports .section-intro > p:last-child { color: rgba(252, 250, 245, 0.72); }
+
+	.sample-report-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+		margin-top: 42px;
+	}
+
+	.sample-report-card {
+		padding: 24px;
+		background: #fcfaf5;
+		color: var(--ink);
+		border: 1px solid rgba(252, 250, 245, 0.2);
+		border-top: 5px solid var(--green);
+	}
+
+	.sample-report-card.mini { border-top-color: var(--blue); }
+	.sample-report-card.full { border-top-color: #ff8b5d; }
+
+	.sample-report-topline {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.sample-report-topline span:last-child { color: #7b7d74; }
+	.sample-report-card h3 { margin: 20px 0 24px; font-size: 1.3rem; line-height: 1.15; }
+
+	.sample-report-field {
+		padding: 15px 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.sample-report-field span,
+	.sample-report-next span {
+		display: block;
+		margin-bottom: 7px;
+		color: #686b61;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.sample-report-field p,
+	.sample-report-next p { margin: 0; font-size: 0.92rem; line-height: 1.55; }
+	.sample-report-field strong { display: block; font-size: 1rem; line-height: 1.35; }
+	.sample-report-next { margin-top: 12px; padding: 15px; background: #eef7d9; }
+
+	.intake-questions { padding-top: 92px; padding-bottom: 92px; }
+	.intake-questions .section-intro { max-width: 760px; }
+	.intake-list { margin-top: 34px; border-top: 1px solid var(--line); }
+	.intake-card { border-bottom: 1px solid var(--line); }
+
+	.intake-card summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 22px 0;
+		cursor: pointer;
+		list-style: none;
+		font-size: 1.08rem;
+		font-weight: 800;
+	}
+
+	.intake-card summary::-webkit-details-marker { display: none; }
+	.intake-card summary b { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-size: 1.2rem; font-weight: 400; }
+	.intake-card[open] summary b { transform: rotate(45deg); background: var(--green); border-color: var(--green); }
+	.intake-card ol { max-width: 900px; margin: 0 0 20px; padding-left: 24px; }
+	.intake-card li { padding: 7px 0 7px 8px; font-size: 0.96rem; line-height: 1.5; }
+	.intake-note { max-width: 900px; margin: 22px 0 28px; padding: 14px 16px; border-left: 3px solid var(--green); background: rgba(184, 255, 67, 0.11); font-size: 0.84rem; line-height: 1.55; }
+
+	@media (max-width: 900px) {
+		.sample-report-grid { grid-template-columns: 1fr; }
+	}
+
+	@media (max-width: 620px) {
+		.sample-reports { padding-right: 20px; padding-left: 20px; }
+		.sample-report-card { padding: 20px; }
+		.intake-card summary { font-size: 0.98rem; }
 	}
 
 	@media (prefers-reduced-motion: reduce) {
