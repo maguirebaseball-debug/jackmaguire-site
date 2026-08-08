@@ -964,6 +964,14 @@ const intakeQuestions = [
 					const value = Number(link.dataset.checkoutValue || 0);
 					const ctaLocation = link.closest('section')?.id || 'hero';
 					const itemId = `ai_audit_${tier}`;
+					if (typeof window.fbq === 'function') {
+						window.fbq('track', 'InitiateCheckout', {
+							content_name: `ai_audit_${link.dataset.checkoutTier}`,
+							content_type: 'product',
+							value,
+							currency: 'USD',
+						});
+					}
 					const gaRequests = [
 						trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation }),
 						trackAuditEvent('begin_checkout', {
@@ -987,14 +995,6 @@ const intakeQuestions = [
 					});
 					link.href = checkoutUrl.toString();
 
-					if (typeof window.fbq === 'function') {
-						window.fbq('track', 'InitiateCheckout', {
-							content_name: `ai_audit_${link.dataset.checkoutTier}`,
-							content_type: 'product',
-							value,
-							currency: 'USD',
-						});
-					}
 					window.setTimeout(() => window.location.assign(link.href), 350);
 				});
 			});
