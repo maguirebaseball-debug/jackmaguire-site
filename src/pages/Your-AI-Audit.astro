@@ -900,10 +900,21 @@ const intakeQuestions = [
 		</div>
 
 		<script>
-			function trackAuditEvent(name, parameters = {}) {
-				if (typeof window.gtag === 'function') {
-					window.gtag('event', name, { content_group: 'ai_audit', transport_type: 'beacon', ...parameters });
+			function ensureGa4() {
+				window.dataLayer = window.dataLayer || [];
+				window.gtag = window.gtag || function () {
+					window.dataLayer.push(arguments);
+				};
+				if (!window.__jmGa4Configured) {
+					window.gtag('js', new Date());
+					window.gtag('config', 'G-1697T7D92W');
+					window.__jmGa4Configured = true;
 				}
+			}
+
+			function trackAuditEvent(name, parameters = {}) {
+				ensureGa4();
+				window.gtag('event', name, { content_group: 'ai_audit', transport_type: 'beacon', ...parameters });
 			}
 
 			function readCookie(name) {
