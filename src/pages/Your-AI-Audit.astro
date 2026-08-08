@@ -572,6 +572,29 @@ const intakeQuestions = [
 					</div>
 				</section>
 
+				<section class="auditor section-pad" aria-labelledby="auditor-title">
+					<div class="auditor-intro">
+						<p class="section-label">Who will be doing the audit</p>
+						<h2 id="auditor-title">A practical operator who knows the difference between useful AI and expensive theater.</h2>
+					</div>
+					<div class="auditor-grid">
+						<div class="auditor-copy">
+							<p>I’m Jack Maguire. I’ve spent more than a decade turning messy marketing and operating questions into measurable systems—including four years leading paid social at National Debt Relief.</p>
+							<p>Across that work, I’ve managed more than $30 million in media spend, helped teams connect creative, measurement, and business goals, and built a habit of asking the question that matters here: <em>will this make the work easier to run next week?</em></p>
+							<p>My AI experience is hands-on and deliberately practical. I use AI to diagnose workflows, reduce repetitive analysis and writing, improve follow-up, and make reporting easier to maintain. I’m not selling a custom software project or asking you to become an AI expert.</p>
+						</div>
+						<div class="auditor-trust-card">
+							<p class="section-label">What that means for you</p>
+							<ul>
+								<li><strong>You work with me directly.</strong> Your answers go into the diagnosis, not a generic automated score.</li>
+								<li><strong>Your constraints stay in the recommendation.</strong> Budget, privacy, team capacity, and software you cannot replace all matter.</li>
+								<li><strong>You get a clear answer.</strong> If a workflow does not justify a tool, I will say so.</li>
+							</ul>
+							<p class="auditor-signoff">The goal is simple: give you a recommendation you can understand, trust, and actually use.</p>
+						</div>
+					</div>
+				</section>
+
 				{false && (<>
 				<section id="offers" class="offers section-pad" aria-labelledby="offers-title">
 					<div class="section-intro">
@@ -2917,6 +2940,31 @@ const intakeQuestions = [
 		.sample-reports { padding-right: 20px; padding-left: 20px; }
 		.sample-report-card { padding: 20px; }
 		.intake-card summary { font-size: 0.98rem; }
+	}
+
+	.auditor {
+		background: #eef7d9;
+		width: 100%;
+		max-width: none;
+		padding-right: max(24px, calc((100% - 1180px) / 2));
+		padding-left: max(24px, calc((100% - 1180px) / 2));
+	}
+
+	.auditor-intro { max-width: 760px; }
+	.auditor-intro h2 { max-width: 700px; }
+	.auditor-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 64px; align-items: start; margin-top: 38px; }
+	.auditor-copy { max-width: 680px; }
+	.auditor-copy p { margin: 0 0 18px; font-size: 1.08rem; line-height: 1.65; }
+	.auditor-trust-card { padding: 26px; background: #171812; color: #fcfaf5; }
+	.auditor-trust-card .section-label { color: var(--green); }
+	.auditor-trust-card ul { margin: 20px 0 0; padding: 0; list-style: none; }
+	.auditor-trust-card li { padding: 15px 0; border-top: 1px solid rgba(252, 250, 245, 0.2); line-height: 1.55; }
+	.auditor-trust-card li strong { display: block; margin-bottom: 4px; color: var(--green); }
+	.auditor-signoff { margin: 22px 0 0; color: rgba(252, 250, 245, 0.82); font-size: 0.94rem; line-height: 1.55; }
+
+	@media (max-width: 760px) {
+		.auditor { padding-right: 20px; padding-left: 20px; }
+		.auditor-grid { grid-template-columns: 1fr; gap: 28px; }
 	}
 
 	@media (prefers-reduced-motion: reduce) {
