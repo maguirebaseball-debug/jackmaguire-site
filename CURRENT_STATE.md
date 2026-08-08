@@ -20,6 +20,8 @@ The Astro site deploys from GitHub to Vercel on pushes to `main`. Existing agent
 
 Outstanding pages and platform identifiers remain listed in `AGENTS.md`. Update this file when deployment behavior, active migrations, or major blockers change.
 
+The Stripe AI Audit sandbox path is now configured and verified. A test Payment Link for the $79 Snapshot redirects to the paid intake, a sandbox webhook at `/api/stripe-ai-audit/` accepts signed test events, and a Stripe Test Mode payment returned 200 OK after the endpoint URL was corrected to include the trailing slash. Meta Test Events received a processed server-side `Purchase` with the expected $79 value and `ai_bottleneck_snapshot` content ID. The test webhook and Meta test event code remain available for future QA; live webhook validation remains strict and separate.
+
 The standalone article `causal-inference-with-AI-for-beginners` is ready for publication at its requested root URL. It uses the normal plain article layout and has passed the site build and indexing checks.
 
 The legacy routes `/start/` and `/projects/` return HTTP 301 redirects to `/about/` and `/blog/`, respectively, through Vercel route rules.
