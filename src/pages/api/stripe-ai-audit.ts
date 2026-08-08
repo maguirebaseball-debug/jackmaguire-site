@@ -76,14 +76,22 @@ function json(body: Record<string, unknown>, status = 200): Response {
 
 export const POST: APIRoute = async ({ request }) => {
 	const rawPayload = await request.text();
-	const webhookSecret = import.meta.env.STRIPE_AI_AUDIT_WEBHOOK_SECRET;
+	const liveWebhookSecret = import.meta.env.STRIPE_AI_AUDIT_WEBHOOK_SECRET;
+	const testWebhookSecret = import.meta.env.STRIPE_AI_AUDIT_TEST_WEBHOOK_SECRET;
 	const stripeSignature = request.headers.get('stripe-signature') ?? '';
-	if (!webhookSecret) {
+	const webhookSecrets = [liveWebhookSecret, testWebhookSecret].filter(
+		(secret): secret is string => Boolean(secret),
+	);
+	if (webhookSecrets.length === 0) {
 		return json({ success: false, message: 'Stripe webhook is not configured' }, 500);
 	}
-	if (!stripeSignature || !signatureMatches(rawPayload, stripeSignature, webhookSecret)) {
+	const verifiedSecret = webhookSecrets.find((secret) =>
+		stripeSignature && signatureMatches(rawPayload, stripeSignature, secret),
+	);
+	if (!verifiedSecret) {
 		return json({ success: false, message: 'Unauthorized' }, 401);
 	}
+	const isTestEvent = Boolean(testWebhookSecret && verifiedSecret === testWebhookSecret);
 
 	let event: {
 		id?: string;
@@ -105,15 +113,16 @@ export const POST: APIRoute = async ({ request }) => {
 	const session = event.data?.object;
 	if (!session) return json({ success: false, message: 'Missing Checkout Session' }, 400);
 
-	const serviceTier = String(session.metadata?.service_tier ?? '') as keyof typeof PURCHASES;
+	const metadataTier = String(session.metadata?.service_tier ?? '') as keyof typeof PURCHASES;
+	const serviceTier = (metadataTier || (isTestEvent && session.amount_total === PURCHASES.snapshot.amount ? 'snapshot' : '')) as keyof typeof PURCHASES;
 	const purchase = PURCHASES[serviceTier];
 	const isExpectedPurchase = Boolean(
 		purchase &&
-		session.livemode === true &&
+		session.livemode === !isTestEvent &&
 		session.payment_status === 'paid' &&
 		session.amount_total === purchase.amount &&
 		String(session.currency).toLowerCase() === 'usd' &&
-		session.metadata?.offer_key === purchase.offerKey,
+		(isTestEvent || session.metadata?.offer_key === purchase.offerKey),
 	);
 
 	if (!isExpectedPurchase) {
@@ -152,7 +161,7 @@ export const POST: APIRoute = async ({ request }) => {
 		],
 	};
 
-	const testEventCode = import.meta.env.META_CAPI_TEST_EVENT_CODE;
+	const testEventCode = isTestEvent ? import.meta.env.META_CAPI_TEST_EVENT_CODE : undefined;
 	if (testEventCode) metaPayload.test_event_code = testEventCode;
 
 	const gaMeasurementId = import.meta.env.GA4_MEASUREMENT_ID || 'G-1697T7D92W';
@@ -191,6 +200,7 @@ export const POST: APIRoute = async ({ request }) => {
 									value: purchase.amount / 100,
 									transaction_id: session.id,
 									service_tier: serviceTier,
+									...(isTestEvent ? { debug_mode: 1, test_mode: true } : {}),
 								},
 							},
 						],
