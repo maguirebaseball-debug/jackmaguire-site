@@ -301,6 +301,7 @@ const intakeQuestions = [
 								{tiers[0].checkoutReady ? 'Get my AI Bottleneck Snapshot' : 'Request my Snapshot checkout'} <span>$79</span>
 							</a>
 							<p><strong>Flat price. No sales call.</strong> Complete eight questions and receive a one-page PDF by email.</p>
+							<a class="process-link" href="#process-preview">See exactly what you will answer <span aria-hidden="true">&darr;</span></a>
 						</div>
 					</div>
 
@@ -422,6 +423,60 @@ const intakeQuestions = [
 							</article>
 						))}
 					</div>
+				</section>
+
+				<section id="process-preview" class="process-preview section-pad" aria-labelledby="process-preview-title">
+					<div class="process-preview-head">
+						<div>
+							<p class="section-label">More about the audit process</p>
+							<h2 id="process-preview-title">See the path before you pay.</h2>
+						</div>
+						<p><strong>No surprises.</strong> The previews below mirror the real checkout, the eight-question intake, and the one-page answer. The sample business and numbers are illustrative; your report uses your workflow and estimates.</p>
+					</div>
+					<div class="process-preview-grid">
+						<figure class="process-screen">
+							<div class="screen-window" aria-hidden="true">
+								<div class="screen-bar"><span></span><span></span><span></span><small>secure checkout</small></div>
+								<div class="screen-body checkout-preview">
+									<p class="screen-kicker">AI Bottleneck Snapshot</p>
+									<strong class="screen-price">$79.00</strong>
+									<div class="screen-label">Contact information</div>
+									<div class="screen-input">you@example.com</div>
+									<div class="screen-label">Payment method</div>
+									<div class="screen-input">Card information</div>
+									<div class="screen-button">Pay $79</div>
+								</div>
+							</div>
+							<figcaption><span>01</span><div><strong>Pay once through Stripe</strong><small>Secure checkout. No sales call or account required.</small></div></figcaption>
+						</figure>
+						<figure class="process-screen">
+							<div class="screen-window" aria-hidden="true">
+								<div class="screen-bar"><span></span><span></span><span></span><small>your-ai-audit / start</small></div>
+								<div class="screen-body intake-preview">
+									<div class="screen-progress"><strong>Step 1 of 4</strong><span>25%</span></div>
+									<div class="screen-label">01 What does your business do, and who does it serve?</div>
+									<div class="screen-textarea">One or two sentences is enough.</div>
+									<div class="screen-label">02 Which recurring workflow do you most want off your plate?</div>
+									<div class="screen-options"><span>○ Inbox sorting</span><span>○ Lead follow-up</span><span>○ Reporting</span></div>
+									<div class="screen-button">Continue</div>
+								</div>
+							</div>
+							<figcaption><span>02</span><div><strong>Answer eight practical questions</strong><small>About five minutes. Rough estimates are welcome.</small></div></figcaption>
+						</figure>
+						<figure class="process-screen">
+							<div class="screen-window" aria-hidden="true">
+								<div class="screen-bar"><span></span><span></span><span></span><small>AI Bottleneck Snapshot / example</small></div>
+								<div class="screen-body report-preview-screen">
+									<div class="report-mini-head"><strong>AI Bottleneck Snapshot</strong><span>Illustrative</span></div>
+									<div class="report-mini-hero"><span>Your bottleneck</span><strong>Lead follow-up</strong><small>12 follow-ups × 20 minutes = 4 hours/week today</small></div>
+									<div class="report-mini-grid"><div><span>Recommended fix</span><strong>Intake-to-draft workflow</strong></div><div><span>Projected recovery</span><strong>3 hours/week</strong></div></div>
+									<div class="report-mini-foot">Tool cost about $20/month · Start with one recent lead</div>
+								</div>
+							</div>
+							<figcaption><span>03</span><div><strong>Receive one decision-ready page</strong><small>Diagnosis, recommendation, savings math, and first setup steps.</small></div></figcaption>
+						</figure>
+					</div>
+					<div class="process-preview-foot"><span>What you do not need</span><strong>No passwords, API keys, customer records, technical inventory, or prep work.</strong><a href="#intake-title">See every question <span aria-hidden="true">&rarr;</span></a></div>
 				</section>
 
 				<section id="snapshot" class="snapshot-offer section-pad" aria-labelledby="snapshot-title">
@@ -1115,6 +1170,22 @@ const intakeQuestions = [
 		margin: 0;
 		font-size: 0.78rem;
 		line-height: 1.5;
+	}
+
+	.process-link {
+		align-self: center;
+		color: var(--ink);
+		font-size: 0.76rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.process-link span,
+	.process-preview-foot a span {
+		color: var(--blue);
+		font-size: 1rem;
 	}
 
 	.button {
@@ -1895,6 +1966,279 @@ const intakeQuestions = [
 		margin: 0;
 		font-size: 0.9rem;
 		line-height: 1.65;
+	}
+
+	.process-preview {
+		border-top: 1px solid var(--ink);
+	}
+
+	.process-preview-head {
+		display: grid;
+		grid-template-columns: 1fr minmax(280px, 0.55fr);
+		gap: 80px;
+		align-items: end;
+		margin-bottom: 48px;
+	}
+
+	.process-preview-head h2 {
+		max-width: 700px;
+		margin: 0;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: clamp(2.8rem, 5vw, 5rem);
+		line-height: 0.95;
+		letter-spacing: -0.052em;
+	}
+
+	.process-preview-head > p {
+		margin: 0;
+		font-size: 0.92rem;
+		line-height: 1.65;
+	}
+
+	.process-preview-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	.process-screen {
+		margin: 0;
+	}
+
+	.screen-window {
+		border: 1px solid var(--ink);
+		background: #fff;
+		box-shadow: 8px 8px 0 var(--blue);
+	}
+
+	.screen-bar {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		min-height: 31px;
+		padding: 0 10px;
+		border-bottom: 1px solid var(--line);
+		background: #ece9e1;
+	}
+
+	.screen-bar > span {
+		width: 7px;
+		height: 7px;
+		border: 1px solid var(--ink);
+		border-radius: 50%;
+		background: var(--green);
+	}
+
+	.screen-bar > span:nth-child(2) { background: #ffb548; }
+	.screen-bar > span:nth-child(3) { background: #ff7c68; }
+
+	.screen-bar small {
+		margin-left: 8px;
+		color: #6a6c64;
+		font-size: 0.56rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.screen-body {
+		min-height: 310px;
+		padding: 24px 20px;
+	}
+
+	.screen-kicker,
+	.screen-label,
+	.screen-progress,
+	.report-mini-head,
+	.report-mini-hero span,
+	.report-mini-grid span {
+		font-size: 0.58rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.screen-kicker {
+		margin: 0 0 8px;
+		color: #6a6c64;
+	}
+
+	.screen-price {
+		display: block;
+		margin-bottom: 24px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 2.2rem;
+		letter-spacing: -0.06em;
+	}
+
+	.screen-label {
+		margin: 17px 0 7px;
+		color: #54564f;
+	}
+
+	.screen-input,
+	.screen-textarea {
+		min-height: 34px;
+		padding: 9px 10px;
+		border: 1px solid #c4c5be;
+		color: #8b8d85;
+		font-size: 0.68rem;
+	}
+
+	.screen-textarea {
+		min-height: 52px;
+	}
+
+	.screen-button {
+		margin-top: 18px;
+		padding: 10px 12px;
+		background: var(--ink);
+		color: #fff;
+		font-size: 0.67rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.screen-progress {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 12px;
+		border-bottom: 3px solid var(--green);
+		color: #53554e;
+	}
+
+	.screen-options {
+		display: grid;
+		gap: 5px;
+		color: #65675f;
+		font-size: 0.67rem;
+	}
+
+	.report-preview-screen {
+		background: #f8f5ed;
+	}
+
+	.report-mini-head {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 12px;
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.report-mini-head span {
+		color: var(--blue);
+	}
+
+	.report-mini-hero {
+		padding: 32px 0 24px;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.report-mini-hero span,
+	.report-mini-grid span {
+		display: block;
+		margin-bottom: 8px;
+		color: #6b6d65;
+	}
+
+	.report-mini-hero strong {
+		display: block;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.5rem;
+		letter-spacing: -0.04em;
+	}
+
+	.report-mini-hero small {
+		display: block;
+		margin-top: 8px;
+		color: #686a62;
+		font-size: 0.68rem;
+		line-height: 1.45;
+	}
+
+	.report-mini-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 14px;
+		padding: 18px 0;
+	}
+
+	.report-mini-grid > div + div {
+		padding-left: 14px;
+		border-left: 1px solid var(--line);
+	}
+
+	.report-mini-grid strong {
+		font-size: 0.72rem;
+		line-height: 1.35;
+	}
+
+	.report-mini-foot {
+		padding: 10px;
+		background: var(--green);
+		font-size: 0.65rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.process-screen figcaption {
+		display: grid;
+		grid-template-columns: 34px 1fr;
+		gap: 12px;
+		padding: 22px 0 0;
+	}
+
+	.process-screen figcaption > span {
+		color: var(--blue);
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+		font-size: 0.72rem;
+		font-weight: 800;
+	}
+
+	.process-screen figcaption strong,
+	.process-screen figcaption small {
+		display: block;
+	}
+
+	.process-screen figcaption strong {
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 1.05rem;
+		line-height: 1.2;
+	}
+
+	.process-screen figcaption small {
+		margin-top: 7px;
+		color: #65675f;
+		font-size: 0.78rem;
+		line-height: 1.45;
+	}
+
+	.process-preview-foot {
+		display: flex;
+		align-items: center;
+		gap: 18px;
+		margin-top: 46px;
+		padding: 17px 20px;
+		border: 1px solid var(--ink);
+		background: var(--green);
+		font-size: 0.78rem;
+	}
+
+	.process-preview-foot > span {
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.process-preview-foot strong {
+		margin-right: auto;
+	}
+
+	.process-preview-foot a {
+		color: var(--ink);
+		font-weight: 800;
+		white-space: nowrap;
 	}
 
 	.report {
@@ -2915,6 +3259,7 @@ const intakeQuestions = [
 		.early-comparison-grid,
 		.alternatives-grid,
 		.process-grid,
+		.process-preview-grid,
 		.outcomes,
 		.depth-grid,
 		.preview-sheet-grid,
@@ -2940,8 +3285,28 @@ const intakeQuestions = [
 		}
 
 		.pain-card,
-		.process-step {
+		.process-step,
+		.process-screen {
 			min-height: auto;
+		}
+
+		.process-preview-head {
+			display: block;
+			margin-bottom: 38px;
+		}
+
+		.process-preview-head > p {
+			margin-top: 24px;
+		}
+
+		.process-preview-foot {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.process-preview-foot strong {
+			margin-right: 0;
 		}
 
 		.pain-card + .pain-card,
