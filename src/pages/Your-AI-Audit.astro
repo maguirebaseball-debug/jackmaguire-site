@@ -872,8 +872,9 @@ const intakeQuestions = [
 			}
 
 			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
-				link.addEventListener('click', () => {
+				link.addEventListener('click', (event) => {
 					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
+					event.preventDefault();
 					const tier = link.dataset.checkoutTier || 'unknown';
 					const value = Number(link.dataset.checkoutValue || 0);
 					const ctaLocation = link.closest('section')?.id || 'hero';
@@ -906,6 +907,7 @@ const intakeQuestions = [
 							currency: 'USD',
 						});
 					}
+					window.setTimeout(() => window.location.assign(link.href), 350);
 				});
 			});
 		</script>
