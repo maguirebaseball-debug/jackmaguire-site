@@ -221,7 +221,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 				const sessionKey = 'jm_ga4_audit_session';
 				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
 				sessionStorage.setItem(sessionKey, sessionId);
-				void fetch('/api/ga4-audit-event/', {
+				return fetch('/api/ga4-audit-event/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ event_name: name, params: { content_group: 'ai_audit', ...parameters }, client_id: clientId, session_id: sessionId, debug_mode: debugMode }),

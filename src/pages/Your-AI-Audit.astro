@@ -907,7 +907,7 @@ const intakeQuestions = [
 				const sessionKey = 'jm_ga4_audit_session';
 				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
 				sessionStorage.setItem(sessionKey, sessionId);
-				void fetch('/api/ga4-audit-event/', {
+				return fetch('/api/ga4-audit-event/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ event_name: name, params: { content_group: 'ai_audit', ...parameters }, client_id: clientId, session_id: sessionId, debug_mode: debugMode }),
@@ -957,22 +957,25 @@ const intakeQuestions = [
 			}
 
 			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
-				link.addEventListener('click', (event) => {
+				link.addEventListener('click', async (event) => {
 					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
 					event.preventDefault();
 					const tier = link.dataset.checkoutTier || 'unknown';
 					const value = Number(link.dataset.checkoutValue || 0);
 					const ctaLocation = link.closest('section')?.id || 'hero';
 					const itemId = `ai_audit_${tier}`;
-					trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation });
-					trackAuditEvent('begin_checkout', {
+					const gaRequests = [
+						trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation }),
+						trackAuditEvent('begin_checkout', {
 						tier,
 						value,
 						currency: 'USD',
 						cta_location: ctaLocation,
 						items: [{ item_id: itemId, item_name: tier, price: value, quantity: 1 }],
-					});
-					trackAuditEvent('ai_audit_checkout_started', { tier, value, currency: 'USD', cta_location: ctaLocation });
+						}),
+						trackAuditEvent('ai_audit_checkout_started', { tier, value, currency: 'USD', cta_location: ctaLocation }),
+					];
+					await Promise.all(gaRequests);
 					const checkoutUrl = new URL(link.href);
 					const clientReferenceId = encodeCheckoutAttribution();
 					if (clientReferenceId) checkoutUrl.searchParams.set('client_reference_id', clientReferenceId);
