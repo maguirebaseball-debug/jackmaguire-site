@@ -990,8 +990,12 @@ const intakeQuestions = [
 
 					const landingParams = new URLSearchParams(window.location.search);
 					['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
-						const value = landingParams.get(key);
-						if (value && /^[a-zA-Z0-9_-]{1,150}$/.test(value)) checkoutUrl.searchParams.set(key, value);
+						// Meta ad names and placements commonly contain spaces, punctuation, and
+						// parentheses. URLSearchParams safely encodes those values for Stripe.
+						const value = landingParams.get(key)?.trim();
+						if (value && value.length <= 150 && !/[\u0000-\u001F\u007F]/.test(value)) {
+							checkoutUrl.searchParams.set(key, value);
+						}
 					});
 					link.href = checkoutUrl.toString();
 
