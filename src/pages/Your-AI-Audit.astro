@@ -578,6 +578,10 @@ const intakeQuestions = [
 						<h2 id="auditor-title">A practical operator who knows the difference between useful AI and expensive theater.</h2>
 					</div>
 					<div class="auditor-grid">
+						<figure class="auditor-photo">
+							<img src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire" loading="lazy" />
+							<figcaption>Jack Maguire · Your AI Audit</figcaption>
+						</figure>
 						<div class="auditor-copy">
 							<p>I’m Jack Maguire. I’ve spent more than a decade turning messy marketing and operating questions into measurable systems—including four years leading paid social at National Debt Relief.</p>
 							<p>Across that work, I’ve managed more than $30 million in media spend, helped teams connect creative, measurement, and business goals, and built a habit of asking the question that matters here: <em>will this make the work easier to run next week?</em></p>
@@ -2952,7 +2956,10 @@ const intakeQuestions = [
 
 	.auditor-intro { max-width: 760px; }
 	.auditor-intro h2 { max-width: 700px; }
-	.auditor-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 64px; align-items: start; margin-top: 38px; }
+	.auditor-grid { display: grid; grid-template-columns: 220px minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 42px; align-items: start; margin-top: 38px; }
+	.auditor-photo { margin: 0; }
+	.auditor-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(0.9); }
+	.auditor-photo figcaption { margin-top: 10px; color: #686b61; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
 	.auditor-copy { max-width: 680px; }
 	.auditor-copy p { margin: 0 0 18px; font-size: 1.08rem; line-height: 1.65; }
 	.auditor-trust-card { padding: 26px; background: #171812; color: #fcfaf5; }
@@ -2965,6 +2972,7 @@ const intakeQuestions = [
 	@media (max-width: 760px) {
 		.auditor { padding-right: 20px; padding-left: 20px; }
 		.auditor-grid { grid-template-columns: 1fr; gap: 28px; }
+		.auditor-photo { max-width: 240px; }
 	}
 
 	@media (prefers-reduced-motion: reduce) {
