@@ -88,12 +88,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 
 <!-- Google Analytics -->
 <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1697T7D92W"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
-  window.gtag('js', new Date());
-  window.gtag('config', 'G-1697T7D92W');
-</script>
+<script is:inline src="/ga4-bootstrap.js"></script>
 
 <!-- Meta Pixel -->
 <script>
