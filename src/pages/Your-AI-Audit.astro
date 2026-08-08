@@ -851,6 +851,27 @@ const intakeQuestions = [
 				}
 			}
 
+			function readCookie(name) {
+				return document.cookie
+					.split('; ')
+					.find((cookie) => cookie.startsWith(`${name}=`))
+					?.split('=')
+					.slice(1)
+					.join('=');
+			}
+
+			function getFbc() {
+				const cookieFbc = readCookie('_fbc');
+				if (cookieFbc) return cookieFbc;
+				const storedFbc = sessionStorage.getItem('jm_meta_fbc');
+				if (storedFbc) return storedFbc;
+				const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+				if (!fbclid) return undefined;
+				const fbc = `fb.1.${Date.now()}.${fbclid}`;
+				sessionStorage.setItem('jm_meta_fbc', fbc);
+				return fbc;
+			}
+
 			function encodeCheckoutAttribution() {
 				const fbp = readCookie('_fbp') || '';
 				const fbc = getFbc() || '';
