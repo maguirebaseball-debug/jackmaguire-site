@@ -30,7 +30,7 @@ const tiers = [
 			'Expected savings, tool cost, and setup steps',
 		],
 		guaranteeTitle: 'One Quick Win Guarantee',
-		guarantee: 'One practical change projected to save at least 30 minutes each week, or I automatically refund your $79.',
+		guarantee: 'If the assessment cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $79.',
 		credit: 'Your full $79 applies to the Mini Audit if you upgrade within 30 days.',
 	},
 	{
@@ -50,7 +50,7 @@ const tiers = [
 			'A prioritized 7-day implementation plan',
 		],
 		guaranteeTitle: 'Two-Hour Opportunity Guarantee',
-		guarantee: 'Practical changes projected to save at least two hours each week, or I automatically refund your $199.',
+		guarantee: 'If the assessment cannot identify practical changes projected to save at least two hours each week, I automatically refund the full $199.',
 		credit: 'Your full $199 applies to the Full AI Audit if you upgrade within 30 days.',
 	},
 	{
@@ -70,7 +70,7 @@ const tiers = [
 			'4-day rollout plan and full financial impact model',
 		],
 		guaranteeTitle: 'Five-Hour Opportunity Guarantee',
-		guarantee: 'Practical changes projected to save at least five hours each week, or I automatically refund your $499.',
+		guarantee: 'If the assessment cannot identify practical changes projected to save at least five hours each week, I automatically refund the full $499.',
 		credit: 'Any qualifying prior-tier credit is deducted when you upgrade within 30 days.',
 	},
 ].map((tier) => {
@@ -293,9 +293,9 @@ const intakeQuestions = [
 				<section class="hero" aria-labelledby="hero-title">
 					<div class="hero-copy">
 						<p class="eyebrow"><span></span> For owner-led service businesses</p>
-						<h1 id="hero-title">Find the work AI should take off your plate.</h1>
-						<p class="hero-note">Get one useful answer in one business day.</p>
-						<p class="hero-subhead">If inbox, lead follow-up, reporting, or meeting administration consumes several hours each week, the AI Bottleneck Snapshot shows you the first workflow worth fixing.</p>
+						<h1 id="hero-title">Find the first workflow AI can save you 30 minutes a week.</h1>
+						<p class="hero-note">One useful answer in one business day.</p>
+						<p class="hero-subhead">Pay $79, answer eight questions, and get a one-page recommendation for the recurring task worth fixing first. No software shopping, sales call, or AI expertise required.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href={tiers[0].checkoutUrl} data-checkout-tier="snapshot" data-checkout-value="79" data-checkout-ready={String(tiers[0].checkoutReady)}>
 								{tiers[0].checkoutReady ? 'Get my AI Bottleneck Snapshot' : 'Request my Snapshot checkout'} <span>$79</span>
@@ -325,6 +325,34 @@ const intakeQuestions = [
 					</aside>
 				</section>
 
+				<section class="early-comparison section-pad" aria-labelledby="early-comparison-title">
+					<div class="section-intro compact">
+						<p class="section-label">Choose the right depth</p>
+						<h2 id="early-comparison-title">Start with one answer. Go broader only when you need to.</h2>
+						<p>The Snapshot is the recommended first purchase. The larger audits are available when the problem spans several workflows.</p>
+					</div>
+					<div class="early-comparison-grid">
+						<div class="early-comparison-card recommended">
+							<span>Recommended first step</span>
+							<strong>$79 Snapshot</strong>
+							<p>One bottleneck, one exact recommendation, one-page PDF, one business day.</p>
+							<a href="#snapshot">See the Snapshot <span aria-hidden="true">&rarr;</span></a>
+						</div>
+						<div class="early-comparison-card">
+							<span>For several workflows</span>
+							<strong>$199 Mini Audit</strong>
+							<p>Two to three bottlenecks, a 25-minute call, and a prioritized seven-day memo.</p>
+							<a href="#mini">See the Mini Audit <span aria-hidden="true">&rarr;</span></a>
+						</div>
+						<div class="early-comparison-card">
+							<span>For the full operating picture</span>
+							<strong>$499 Full Audit</strong>
+							<p>A complete workflow map, rollout plan, financial model, and review call.</p>
+							<a href="#full">See the Full Audit <span aria-hidden="true">&rarr;</span></a>
+						</div>
+					</div>
+				</section>
+
 				<section class="worked-example section-pad" aria-labelledby="example-title">
 					<div class="example-copy">
 						<p class="section-label light">Worked savings calculation</p>
@@ -336,13 +364,15 @@ const intakeQuestions = [
 						<div><span>With the new workflow</span><strong>12 follow-ups × 5 min</strong><b>1 hour/week</b></div>
 						<div class="calculation-result"><span>Projected difference</span><strong>240 min - 60 min</strong><b>3 hours/week</b></div>
 					</div>
-					<div class="proof-reserve" aria-label="Reserved space for verified customer proof">
+					<div class="proof-reserve" aria-label="What this assessment helps you avoid">
 						<div>
-							<p class="section-label">Verified customer proof</p>
-							<h3>Real assessment results will be added here.</h3>
-							<p>This space is reserved for attributed workflow outcomes and owner quotes as the first assessments are completed. No invented testimonials.</p>
+							<p class="section-label">Why start with a diagnosis</p>
+							<h3>Most AI waste starts with a reasonable idea aimed at the wrong task.</h3>
+							<p>The Snapshot helps you avoid buying another tool before you know what it should replace, asking a team member to maintain a system nobody owns, or spending a weekend automating work that barely recurs.</p>
 						</div>
-						<div class="proof-slots" aria-hidden="true"><span>Workflow</span><span>Before and after</span><span>Owner quote</span></div>
+						<div class="proof-slots" aria-label="Risks the assessment checks">
+							<span>Wrong workflow</span><span>Hidden tool cost</span><span>No clear owner</span>
+						</div>
 					</div>
 				</section>
 
@@ -360,6 +390,20 @@ const intakeQuestions = [
 								<p>{point.copy}</p>
 							</article>
 						))}
+					</div>
+				</section>
+
+				<section class="alternatives section-pad" aria-labelledby="alternatives-title">
+					<div class="section-intro">
+						<p class="section-label">The alternatives</p>
+						<h2 id="alternatives-title">You can keep guessing. That is usually the expensive option.</h2>
+						<p>Each alternative can make sense in the right situation. The Snapshot exists for the gap between doing nothing and commissioning a large transformation.</p>
+					</div>
+					<div class="alternatives-grid">
+						<article><span>01</span><h3>Try another AI tool</h3><p>Fast to start, but you still have to choose the workflow, learn the tool, and decide whether the time saved is real.</p></article>
+						<article><span>02</span><h3>Ask someone on the team</h3><p>They may know the process, but the work often becomes an unowned side project with no savings math or finish line.</p></article>
+						<article><span>03</span><h3>Buy a bigger system</h3><p>Useful when the whole operation is ready for change, expensive when one recurring bottleneck is the actual problem.</p></article>
+						<article><span>04</span><h3>Keep doing it manually</h3><p>There is no setup cost, but the repeated time cost compounds and the delay becomes part of how the business operates.</p></article>
 					</div>
 				</section>
 
@@ -801,6 +845,12 @@ const intakeQuestions = [
 		</div>
 
 		<script>
+			function trackAuditEvent(name, parameters = {}) {
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', name, { content_group: 'ai_audit', ...parameters });
+				}
+			}
+
 			function encodeCheckoutAttribution() {
 				const fbp = readCookie('_fbp') || '';
 				const fbc = getFbc() || '';
@@ -820,6 +870,11 @@ const intakeQuestions = [
 			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
 				link.addEventListener('click', () => {
 					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
+					const tier = link.dataset.checkoutTier || 'unknown';
+					const value = Number(link.dataset.checkoutValue || 0);
+					const ctaLocation = link.closest('section')?.id || 'hero';
+					trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation });
+					trackAuditEvent('ai_audit_checkout_started', { tier, value, currency: 'USD', cta_location: ctaLocation });
 					const checkoutUrl = new URL(link.href);
 					const clientReferenceId = encodeCheckoutAttribution();
 					if (clientReferenceId) checkoutUrl.searchParams.set('client_reference_id', clientReferenceId);
@@ -831,7 +886,6 @@ const intakeQuestions = [
 					});
 					link.href = checkoutUrl.toString();
 
-					const value = Number(link.dataset.checkoutValue || 0);
 					if (typeof window.fbq === 'function') {
 						window.fbq('track', 'InitiateCheckout', {
 							content_name: `ai_audit_${link.dataset.checkoutTier}`,
@@ -2124,6 +2178,91 @@ const intakeQuestions = [
 		content: '\2192';
 	}
 
+	.early-comparison {
+		border-top: 1px solid var(--ink);
+	}
+
+	.early-comparison-grid,
+	.alternatives-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 12px;
+	}
+
+	.early-comparison-card {
+		display: flex;
+		min-height: 230px;
+		flex-direction: column;
+		padding: 24px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+	}
+
+	.early-comparison-card.recommended {
+		background: var(--green);
+		box-shadow: 8px 8px 0 var(--blue);
+	}
+
+	.early-comparison-card span,
+	.early-comparison-card a {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+
+	.early-comparison-card strong {
+		margin-top: 22px;
+		font-family: var(--font-heading), Arial, sans-serif;
+		font-size: 2rem;
+		letter-spacing: -0.04em;
+	}
+
+	.early-comparison-card p {
+		margin: 12px 0 20px;
+		font-size: 0.86rem;
+		line-height: 1.55;
+	}
+
+	.early-comparison-card a {
+		margin-top: auto;
+		color: var(--ink);
+		text-underline-offset: 4px;
+	}
+
+	.alternatives {
+		border-top: 1px solid var(--ink);
+	}
+
+	.alternatives-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.alternatives-grid article {
+		min-height: 220px;
+		padding: 22px;
+		border: 1px solid var(--ink);
+		background: var(--paper-light);
+	}
+
+	.alternatives-grid article > span {
+		color: var(--blue);
+		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+		font-size: 0.72rem;
+		font-weight: 800;
+	}
+
+	.alternatives-grid h3 {
+		margin: 30px 0 10px;
+		font-size: 1.08rem;
+	}
+
+	.alternatives-grid p {
+		margin: 0;
+		font-size: 0.83rem;
+		line-height: 1.6;
+	}
+
 	.worked-example {
 		display: grid;
 		grid-template-columns: minmax(260px, 0.72fr) minmax(420px, 1fr);
@@ -2579,6 +2718,8 @@ const intakeQuestions = [
 		}
 
 		.section-intro,
+		.early-comparison-grid,
+		.alternatives-grid,
 		.solution,
 		.report-head,
 		.roi,
@@ -2608,6 +2749,11 @@ const intakeQuestions = [
 		}
 
 		.pain-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.early-comparison-grid,
+		.alternatives-grid {
 			grid-template-columns: 1fr 1fr;
 		}
 
@@ -2731,6 +2877,8 @@ const intakeQuestions = [
 		}
 
 		.pain-grid,
+		.early-comparison-grid,
+		.alternatives-grid,
 		.process-grid,
 		.outcomes,
 		.depth-grid,

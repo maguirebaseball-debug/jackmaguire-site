@@ -214,6 +214,12 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 				}
 			}
 
+			function trackAuditAnalytics(name, parameters = {}) {
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', name, { content_group: 'ai_audit', ...parameters });
+				}
+			}
+
 			function showStep(index) {
 				currentStep = index;
 				steps.forEach((step, stepIndex) => {
@@ -230,6 +236,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 				if (index >= 2 && !halfwayTracked) {
 					halfwayTracked = true;
 					trackCustom('AuditIntakeHalfway', `audit_intake_halfway_${Date.now()}`);
+					trackAuditAnalytics('ai_audit_intake_halfway', { step_number: index + 1 });
 				}
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 			}
@@ -300,18 +307,21 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 					if (formCard instanceof HTMLElement) formCard.hidden = true;
 					if (missingOrder instanceof HTMLElement) missingOrder.hidden = false;
 				} else if (tier === 'mini') {
+					trackAuditAnalytics('ai_audit_checkout_returned', { tier, checkout_session_present: true });
 					if (formCard instanceof HTMLElement) formCard.hidden = true;
 					if (miniNextStep instanceof HTMLElement) miniNextStep.hidden = false;
 					if (paidPlanLabel) paidPlanLabel.textContent = 'Paid Mini Audit';
 					if (intakeTitle) intakeTitle.textContent = 'Your first next step is on its way.';
 					if (intakeIntroCopy) intakeIntroCopy.textContent = 'Your payment is complete. I will use the email from checkout to send the questionnaire and private scheduling link.';
 				} else if (tier === 'full') {
+					trackAuditAnalytics('ai_audit_checkout_returned', { tier, checkout_session_present: true });
 					if (formCard instanceof HTMLElement) formCard.hidden = true;
 					if (fullNextStep instanceof HTMLElement) fullNextStep.hidden = false;
 					if (paidPlanLabel) paidPlanLabel.textContent = 'Paid Full AI Audit';
 					if (intakeTitle) intakeTitle.textContent = 'Your audit is officially underway.';
 					if (intakeIntroCopy) intakeIntroCopy.textContent = 'Your payment is complete. I will use the email from checkout to send the questionnaire and private scheduling link.';
 				} else {
+					trackAuditAnalytics('ai_audit_checkout_returned', { tier, checkout_session_present: true });
 					showStep(0);
 				}
 
@@ -319,6 +329,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 					if (!startedTracked) {
 						startedTracked = true;
 						trackCustom('AuditIntakeStarted', `audit_intake_started_${Date.now()}`);
+						trackAuditAnalytics('ai_audit_intake_started', { tier });
 					}
 				});
 
@@ -364,6 +375,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 						const result = await response.json();
 						if (!response.ok || !result.success) throw new Error(result.message || 'Submission failed');
 						trackCustom('AuditIntakeCompleted', `audit_intake_completed_${sessionId}`);
+						trackAuditAnalytics('ai_audit_intake_completed', { tier, value: tier === 'snapshot' ? 79 : tier === 'mini' ? 199 : 499, currency: 'USD' });
 						if (formCard instanceof HTMLElement) formCard.hidden = true;
 						if (successCard instanceof HTMLElement) successCard.hidden = false;
 						window.scrollTo({ top: 0, behavior: 'smooth' });

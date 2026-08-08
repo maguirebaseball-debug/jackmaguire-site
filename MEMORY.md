@@ -2,6 +2,10 @@
 
 Append dated summaries of meaningful site changes, deployments, indexing work, and durable content decisions. Link to changed files and live validation. Do not paste build logs.
 
+## 2026-08-08, AI Audit CRO and funnel instrumentation
+
+Reworked `/Your-AI-Audit/` for early conversion clarity: the hero now promises a first workflow projected to save 30 minutes per week, the three paid tiers appear near the top, alternatives and the cost of guessing are explicit, and the empty proof placeholder is replaced with a diagnosis and risk explanation. Clarified the refund guarantee language across the offer ladder. Added GA4 browser events for CTA clicks, checkout starts, post-Stripe returns, intake starts, halfway progress, and intake completion in `src/pages/Your-AI-Audit.astro` and `src/pages/Your-AI-Audit/start.astro`. Kept Meta `Purchase` optimization unchanged because server-confirmed Stripe to Meta tracking is already the correct signal at current spend. Local route generation completed; final local Vercel packaging remains blocked by the known Windows `sharp` symlink limitation.
+
 ## 2026-08-07, signed Stripe to Meta Purchase tracking
 
 Expanded the AI Audit purchase webhook to cover the $79 Snapshot, $199 Mini Audit, and $499 Full Audit. Replaced the URL-token destination with a Stripe-signature-verified live endpoint subscribed only to `checkout.session.completed` and `checkout.session.async_payment_succeeded`. The retired token endpoint was disabled in Stripe.
