@@ -87,10 +87,10 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 <meta property="twitter:image" content={ogImageUrl} />
 
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1697T7D92W"></script>
-<script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1697T7D92W"></script>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
   gtag('js', new Date());
   gtag('config', 'G-1697T7D92W');
 </script>
