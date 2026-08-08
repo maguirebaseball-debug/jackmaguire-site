@@ -48,15 +48,16 @@ function signatureMatches(payload: string, signatureHeader: string, secret: stri
 	});
 }
 
-function decodeCheckoutAttribution(reference: unknown): { fbp?: string; fbc?: string } {
+function decodeCheckoutAttribution(reference: unknown): { fbp?: string; fbc?: string; gaClientId?: string } {
 	if (typeof reference !== 'string' || !/^m1_[A-Za-z0-9_-]{1,197}$/.test(reference)) return {};
 
 	try {
 		const decoded = Buffer.from(reference.slice(3), 'base64url').toString('utf8');
-		const [fbp, fbc] = decoded.split('|', 2);
+		const [fbp, fbc, gaClientId] = decoded.split('|', 3);
 		return {
 			fbp: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,100}$/.test(fbp) ? fbp : undefined,
 			fbc: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,150}$/.test(fbc) ? fbc : undefined,
+			gaClientId: /^\d+\.\d+$/.test(gaClientId) ? gaClientId : undefined,
 		};
 	} catch {
 		return {};
@@ -170,6 +171,32 @@ export const POST: APIRoute = async ({ request }) => {
 
 	if (!metaResponse.ok) {
 		return json({ success: false, message: 'Meta CAPI rejected the event' }, 502);
+	}
+
+	const gaMeasurementId = import.meta.env.GA4_MEASUREMENT_ID || 'G-1697T7D92W';
+	const gaApiSecret = import.meta.env.GA4_API_SECRET;
+	if (gaApiSecret && attribution.gaClientId) {
+		await fetch(
+			`https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(gaMeasurementId)}&api_secret=${encodeURIComponent(gaApiSecret)}`,
+			{
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					client_id: attribution.gaClientId,
+					events: [
+						{
+							name: 'purchase',
+							params: {
+								currency: 'USD',
+								value: purchase.amount / 100,
+								transaction_id: session.id,
+								service_tier: serviceTier,
+							},
+						},
+					],
+				}),
+			},
+		);
 	}
 
 	return json({ success: true, eventId: event.id ?? null, serviceTier });

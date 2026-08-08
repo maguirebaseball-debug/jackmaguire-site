@@ -854,16 +854,20 @@ const intakeQuestions = [
 			function encodeCheckoutAttribution() {
 				const fbp = readCookie('_fbp') || '';
 				const fbc = getFbc() || '';
-				if (!fbp && !fbc) return '';
+				const gaCookie = readCookie('_ga') || '';
+				const gaMatch = gaCookie.match(/GA\d+\.\d+\.(\d+\.\d+)/);
+				const gaClientId = gaMatch?.[1] || '';
+				if (!fbp && !fbc && !gaClientId) return '';
 
 				const encode = (values) => btoa(values.join('|'))
 					.replace(/\+/g, '-')
 					.replace(/\//g, '_')
 					.replace(/=+$/g, '');
-				let reference = `m1_${encode([fbp, fbc])}`;
+				let reference = `m1_${encode([fbp, fbc, gaClientId])}`;
 
-				if (reference.length > 200 && fbc) reference = `m1_${encode(['', fbc])}`;
-				if (reference.length > 200 && fbp) reference = `m1_${encode([fbp, ''])}`;
+				if (reference.length > 200 && gaClientId) reference = `m1_${encode(['', '', gaClientId])}`;
+				if (reference.length > 200 && fbc) reference = `m1_${encode(['', fbc, ''])}`;
+				if (reference.length > 200 && fbp) reference = `m1_${encode([fbp, '', ''])}`;
 				return reference.length <= 200 ? reference : '';
 			}
 
