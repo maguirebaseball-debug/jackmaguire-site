@@ -39,6 +39,11 @@
   ],
   "redirects": [
     {
+      "source": "/your-ai-audit/",
+      "destination": "/Your-AI-Audit/",
+      "statusCode": 308
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
