@@ -847,7 +847,7 @@ const intakeQuestions = [
 		<script>
 			function trackAuditEvent(name, parameters = {}) {
 				if (typeof window.gtag === 'function') {
-					window.gtag('event', name, { content_group: 'ai_audit', ...parameters });
+					window.gtag('event', name, { content_group: 'ai_audit', transport_type: 'beacon', ...parameters });
 				}
 			}
 
@@ -877,7 +877,15 @@ const intakeQuestions = [
 					const tier = link.dataset.checkoutTier || 'unknown';
 					const value = Number(link.dataset.checkoutValue || 0);
 					const ctaLocation = link.closest('section')?.id || 'hero';
+					const itemId = `ai_audit_${tier}`;
 					trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation });
+					trackAuditEvent('begin_checkout', {
+						tier,
+						value,
+						currency: 'USD',
+						cta_location: ctaLocation,
+						items: [{ item_id: itemId, item_name: tier, price: value, quantity: 1 }],
+					});
 					trackAuditEvent('ai_audit_checkout_started', { tier, value, currency: 'USD', cta_location: ctaLocation });
 					const checkoutUrl = new URL(link.href);
 					const clientReferenceId = encodeCheckoutAttribution();

@@ -216,7 +216,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 
 			function trackAuditAnalytics(name, parameters = {}) {
 				if (typeof window.gtag === 'function') {
-					window.gtag('event', name, { content_group: 'ai_audit', ...parameters });
+					window.gtag('event', name, { content_group: 'ai_audit', transport_type: 'beacon', ...parameters });
 				}
 			}
 

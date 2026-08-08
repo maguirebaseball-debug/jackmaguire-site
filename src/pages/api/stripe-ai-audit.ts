@@ -120,11 +120,6 @@ export const POST: APIRoute = async ({ request }) => {
 		return json({ success: true, ignored: true });
 	}
 
-	const accessToken = import.meta.env.META_CAPI_ACCESS_TOKEN;
-	if (!accessToken) {
-		return json({ success: false, message: 'Meta CAPI is not configured' }, 500);
-	}
-
 	const email = String(session.customer_details?.email ?? session.customer_email ?? '').trim();
 	const customerId = String(session.customer ?? '').trim();
 	const attribution = decodeCheckoutAttribution(session.client_reference_id);
@@ -134,7 +129,7 @@ export const POST: APIRoute = async ({ request }) => {
 	if (attribution.fbp) userData.fbp = attribution.fbp;
 	if (attribution.fbc) userData.fbc = attribution.fbc;
 
-	const payload: Record<string, unknown> = {
+	const metaPayload: Record<string, unknown> = {
 		data: [
 			{
 				event_name: 'Purchase',
@@ -158,46 +153,60 @@ export const POST: APIRoute = async ({ request }) => {
 	};
 
 	const testEventCode = import.meta.env.META_CAPI_TEST_EVENT_CODE;
-	if (testEventCode) payload.test_event_code = testEventCode;
-
-	const metaResponse = await fetch(
-		`https://graph.facebook.com/v25.0/${PIXEL_ID}/events?access_token=${accessToken}`,
-		{
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(payload),
-		},
-	);
-
-	if (!metaResponse.ok) {
-		return json({ success: false, message: 'Meta CAPI rejected the event' }, 502);
-	}
+	if (testEventCode) metaPayload.test_event_code = testEventCode;
 
 	const gaMeasurementId = import.meta.env.GA4_MEASUREMENT_ID || 'G-1697T7D92W';
 	const gaApiSecret = import.meta.env.GA4_API_SECRET;
-	if (gaApiSecret && attribution.gaClientId) {
-		await fetch(
-			`https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(gaMeasurementId)}&api_secret=${encodeURIComponent(gaApiSecret)}`,
-			{
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					client_id: attribution.gaClientId,
-					events: [
-						{
-							name: 'purchase',
-							params: {
-								currency: 'USD',
-								value: purchase.amount / 100,
-								transaction_id: session.id,
-								service_tier: serviceTier,
+	const gaClientId = attribution.gaClientId || `stripe.${session.id}`;
+
+	const [metaResult, gaResult] = await Promise.allSettled([
+		(async () => {
+			const accessToken = import.meta.env.META_CAPI_ACCESS_TOKEN;
+			if (!accessToken) return { skipped: true, reason: 'META_CAPI_ACCESS_TOKEN missing' };
+			const response = await fetch(
+				`https://graph.facebook.com/v25.0/${PIXEL_ID}/events?access_token=${accessToken}`,
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(metaPayload),
+				},
+			);
+			if (!response.ok) throw new Error(`Meta CAPI rejected the event with ${response.status}`);
+			return { sent: true };
+		})(),
+		(async () => {
+			if (!gaApiSecret) return { skipped: true, reason: 'GA4_API_SECRET missing' };
+			const response = await fetch(
+				`https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(gaMeasurementId)}&api_secret=${encodeURIComponent(gaApiSecret)}`,
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						client_id: gaClientId,
+						events: [
+							{
+								name: 'purchase',
+								params: {
+									currency: 'USD',
+									value: purchase.amount / 100,
+									transaction_id: session.id,
+									service_tier: serviceTier,
+								},
 							},
-						},
-					],
-				}),
-			},
-		);
+						],
+					}),
+				},
+			);
+			if (!response.ok) throw new Error(`GA4 Measurement Protocol rejected the event with ${response.status}`);
+			return { sent: true };
+		})(),
+	]);
+
+	if (metaResult.status === 'rejected') console.error('[stripe-ai-audit] Meta CAPI delivery failed', metaResult.reason);
+	if (gaResult.status === 'rejected') console.error('[stripe-ai-audit] GA4 purchase delivery failed', gaResult.reason);
+	if (metaResult.status === 'rejected' || gaResult.status === 'rejected') {
+		return json({ success: false, message: 'One or more conversion destinations rejected the event' }, 502);
 	}
 
-	return json({ success: true, eventId: event.id ?? null, serviceTier });
+	return json({ success: true, eventId: event.id ?? null, serviceTier, meta: metaResult.value, ga4: gaResult.value });
 };
