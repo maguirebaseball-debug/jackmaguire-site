@@ -170,20 +170,80 @@ function countryUrl(country: string) {
 	return wiki(countryWiki[country] ?? country);
 }
 
-function regionUrl(region: string) {
+function regionUrl(country: string, region: string) {
 	const regionTitles: Record<string, string> = {
-		'South - Carinthia and Styria': 'Styria',
-		'South - Zeeland, Limburg, North Brabant': 'North Brabant',
-		'England - Greater London': 'London',
-		'England Thames Valley and Hampshire': 'Hampshire',
-		'Central Bohemia and Prague': 'Central Bohemian Region',
-		'Connacht and Ulster': 'Connacht',
-		'Kansai': 'Kansai region',
-		'Kantō': 'Kantō region',
-		'Western': 'Slovenia',
-		'Stockholm and Mälaren': 'Mälaren Valley',
+		'Albania|Coastal': 'Albania',
+		'Albania|Northeastern': 'Albania',
+		'Austria|South - Carinthia and Styria': 'Austria',
+		'Belgium|Flanders': 'Flanders',
+		'Belarus|Central and Northeast': 'Belarus',
+		'Brazil|São Paulo Greater City': 'São Paulo',
+		'Canada|Ontario East': 'Ontario',
+		'Canada|Ontario Peninsula': 'Ontario',
+		'Canada|Quebec East': 'Quebec',
+		'Canada|Quebec West': 'Quebec',
+		'China|Shaanxi - Central': 'Shaanxi',
+		'Colombia|Antioquia and Eje Cafetero': 'Colombia',
+		'Czechia|Central Bohemia and Prague': 'Central Bohemian Region',
+		'Denmark|Hovedstaden, Sjælland': 'Denmark',
+		'Dominican Republic|Eastern': 'Dominican Republic',
+		'Ecuador|Andes North': 'Ecuador',
+		'Ecuador|Coastal Ecuador': 'Ecuador',
+		'Estonia|Coastal': 'Estonia',
+		'Finland|Southern': 'Finland',
+		'Germany|Bavaria Northern': 'Bavaria',
+		'Germany|Bavaria Southern': 'Bavaria',
+		'Guatemala|Highlands': 'Guatemala',
+		'Guatemala|Pacific Coast': 'Guatemala',
+		'Hungary|Central - Budapest and Pest County': 'Hungary',
+		'Ireland|Connacht and Ulster': 'Ireland',
+		'Japan|Kansai - Greater Osaka': 'Kansai region',
+		'Japan|Kantō - Greater Tokyo': 'Kantō region',
+		'Latvia|North - Riga and Vidzeme': 'Latvia',
+		'Lithuania|South - Dzūkija and Suvalkija': 'Lithuania',
+		'Netherlands|South - Zeeland, Limburg, North Brabant': 'Netherlands',
+		'Norway|Eastern': 'Eastern Norway',
+		'Poland|Silesia, Lower Silesia, Opole': 'Poland',
+		'Portugal|Central': 'Centro Region',
+		'Portugal|Lisbon and Vale do Tejo': 'Portugal',
+		'Serbia|Belgrade, West': 'Belgrade',
+		'Slovakia|Western Slovakia': 'Western Slovakia',
+		'Slovenia|Western': 'Slovenia',
+		'Spain|Catalonia Eastern': 'Catalonia',
+		'Sweden|Stockholm and Mälardalen': 'Sweden',
+		'Ukraine|Central': 'Central Ukraine',
+		'United Kingdom|England - Greater London': 'Greater London',
+		'United Kingdom|England - Thames Valley and Hampshire': 'England',
+		'United States|Arizona North': 'Arizona',
+		'United States|Arizona South': 'Arizona',
+		'United States|California Extreme North': 'California',
+		'United States|California North': 'California',
+		'United States|California South': 'California',
+		'United States|Colorado East': 'Colorado',
+		'United States|Florida Central/South': 'Florida',
+		'United States|Florida Keys': 'Florida',
+		'United States|Florida North': 'Florida',
+		'United States|Georgia North': 'Georgia (U.S. state)',
+		'United States|Georgia South': 'Georgia (U.S. state)',
+		'United States|Hawaii - Big Island': 'Hawaii Island',
+		'United States|Hawaii - Oahu, Maui, Kauai': 'Hawaii',
+		'United States|Illinois Northeast': 'Illinois',
+		'United States|Illinois West/South': 'Illinois',
+		'United States|Michigan Lower Peninsula': 'Michigan',
+		'United States|New York - New York City and Long Island': 'New York (state)',
+		'United States|New York East': 'New York (state)',
+		'United States|New York West': 'New York (state)',
+		'United States|Nevada South': 'Nevada',
+		'United States|Ohio North': 'Ohio',
+		'United States|Ohio South': 'Ohio',
+		'United States|Pennsylvania East': 'Pennsylvania',
+		'United States|Pennsylvania West': 'Pennsylvania',
+		'United States|Texas Northeast': 'Texas',
+		'United States|Texas Southeast': 'Texas',
+		'United States|Washington DC': 'Washington, D.C.',
+		'United States|West Virginia': 'West Virginia',
 	};
-	const title = regionTitles[region] ?? region;
+	const title = regionTitles[`${country}|${region}`] ?? region;
 	return wiki(title);
 }
 ---
@@ -228,7 +288,7 @@ function regionUrl(region: string) {
 							<div class="region-list">
 								{countryRows.map((row) => (
 									<div class="region-row" data-row-search={row.region.toLowerCase()}>
-										<div class="region-name"><a href={regionUrl(row.region)}>{row.region}</a></div>
+										<div class="region-name"><a href={regionUrl(row.country, row.region)}>{row.region}</a></div>
 									</div>
 								))}
 							</div>
