@@ -64,6 +64,32 @@ function decodeCheckoutAttribution(reference: unknown): { fbp?: string; fbc?: st
 	}
 }
 
+function cleanMetadataValue(value: unknown, pattern: RegExp): string | undefined {
+	return typeof value === 'string' && pattern.test(value) ? value : undefined;
+}
+
+function readSessionAttribution(session: Record<string, any>): {
+	fbp?: string;
+	fbc?: string;
+	gaClientId?: string;
+	campaign?: string;
+	adName?: string;
+	placement?: string;
+	landingSessionId?: string;
+} {
+	const fallback = decodeCheckoutAttribution(session.client_reference_id);
+	const metadata = session.metadata ?? {};
+	return {
+		fbp: cleanMetadataValue(metadata.meta_fbp, /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,100}$/) ?? fallback.fbp,
+		fbc: cleanMetadataValue(metadata.meta_fbc, /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,150}$/) ?? fallback.fbc,
+		gaClientId: cleanMetadataValue(metadata.ga_client_id, /^\d+\.\d+$/) ?? fallback.gaClientId,
+		campaign: cleanMetadataValue(metadata.campaign, /^[^\u0000-\u001f]{1,200}$/),
+		adName: cleanMetadataValue(metadata.ad_name, /^[^\u0000-\u001f]{1,200}$/),
+		placement: cleanMetadataValue(metadata.placement, /^[^\u0000-\u001f]{1,200}$/),
+		landingSessionId: cleanMetadataValue(metadata.landing_session_id, /^[A-Za-z0-9._-]{1,100}$/),
+	};
+}
+
 function json(body: Record<string, unknown>, status = 200): Response {
 	return new Response(JSON.stringify(body), {
 		status,
@@ -131,7 +157,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const email = String(session.customer_details?.email ?? session.customer_email ?? '').trim();
 	const customerId = String(session.customer ?? '').trim();
-	const attribution = decodeCheckoutAttribution(session.client_reference_id);
+	const attribution = readSessionAttribution(session);
 	const userData: Record<string, unknown> = {};
 	if (email) userData.em = [sha256(email)];
 	if (customerId) userData.external_id = [sha256(customerId)];
@@ -156,6 +182,10 @@ export const POST: APIRoute = async ({ request }) => {
 					num_items: 1,
 					order_id: session.id,
 					service_tier: serviceTier,
+					...(attribution.campaign ? { campaign: attribution.campaign } : {}),
+					...(attribution.adName ? { ad_name: attribution.adName } : {}),
+					...(attribution.placement ? { placement: attribution.placement } : {}),
+					...(attribution.landingSessionId ? { landing_session_id: attribution.landingSessionId } : {}),
 				},
 			},
 		],
@@ -200,7 +230,11 @@ export const POST: APIRoute = async ({ request }) => {
 									value: purchase.amount / 100,
 									transaction_id: session.id,
 									service_tier: serviceTier,
-									...(isTestEvent ? { debug_mode: 1, test_mode: true } : {}),
+									...(attribution.campaign ? { campaign: attribution.campaign } : {}),
+									...(attribution.adName ? { ad_name: attribution.adName } : {}),
+									...(attribution.placement ? { placement: attribution.placement } : {}),
+									...(attribution.landingSessionId ? { landing_session_id: attribution.landingSessionId } : {}),
+									...(isTestEvent ? { debug_mode: 1, test_mode: true, traffic_type: 'internal' } : {}),
 								},
 							},
 						],

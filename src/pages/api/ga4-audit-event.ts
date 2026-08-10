@@ -23,6 +23,10 @@ const ALLOWED_PARAMS = new Set([
 	'checkout_session_present',
 	'transaction_id',
 	'debug_probe',
+	'campaign',
+	'ad_name',
+	'placement',
+	'landing_session_id',
 	'items',
 ]);
 
@@ -71,6 +75,7 @@ export const POST: APIRoute = async ({ request }) => {
 	params.session_id = typeof body.session_id === 'string' && /^\d{10,13}$/.test(body.session_id) ? body.session_id : String(Math.floor(Date.now() / 1000));
 	params.engagement_time_msec = 1;
 	if (body.debug_mode === true) params.debug_mode = 1;
+	if (body.debug_mode === true || body.internal_traffic === true) params.traffic_type = 'internal';
 
 	const response = await fetch(
 		`https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(MEASUREMENT_ID)}&api_secret=${encodeURIComponent(apiSecret)}`,

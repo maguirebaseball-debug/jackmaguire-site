@@ -162,3 +162,11 @@ Added locally saved map captures from NomadMania's Regions page at `public/image
 ## 2026-08-10, Canonical visited list memory
 
 Treat `/Travellist/` and `src/pages/Travellist.astro` as the canonical record of Jack's visited places for future Codex work on this machine and repository. The authoritative list is 135 normalized NomadMania regions from the 137-region profile source: Brussels and New Brunswick are explicitly excluded. Preserve the user's regional rule: single-city NomadMania regions may retain the city name, while multi-city or broader entries stay at the relevant regional, state, or province level. Do not infer or add unmentioned cities. Country and region links should use verified English Wikipedia articles, falling back to the nearest verified containing parent when a NomadMania label is informal or lacks its own article.
+
+## 2026-08-10, AI Audit paid-traffic page and measurement cleanup
+
+Shortened `/Your-AI-Audit/` to a single-offer paid-traffic page for the $79 AI Bottleneck Snapshot. The route now contains the existing savings hero, two purchase CTAs, one readable illustrative Snapshot, a short Jack credibility block, the automatic-refund guarantee, and four FAQs. Removed the three-tier ladder and long explanatory sections.
+
+In GA4 Admin, removed generic `click` and `scroll` from key events while preserving `purchase`. Confirmed the existing Internal Traffic filter is Active and excludes `traffic_type=internal`. Added a persistent `ga_internal=1` browser marker, with `ga_internal=0` as the reset, and marked debug and Stripe test events as internal.
+
+Added `/api/stripe-ai-audit-checkout/` to create hosted Stripe Checkout Sessions from the existing $79 Price and persist campaign, ad name, placement, landing-session ID, Meta click identifiers, and GA client ID in Session and PaymentIntent metadata. The Stripe purchase webhook now reads and forwards the attribution fields. Vercel still needs a least-privilege `STRIPE_AI_AUDIT_RESTRICTED_KEY`; until it is configured, the page deliberately falls back to the existing Payment Link.

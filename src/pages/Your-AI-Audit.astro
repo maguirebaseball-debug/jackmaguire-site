@@ -1,255 +1,26 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 
-const title = 'Your AI Audit | Start with a $79 AI Bottleneck Snapshot';
-const description = 'For owner-led service businesses: find the first workflow AI should take off your plate with a $79, one-day AI Bottleneck Snapshot. Deeper assessments are available.';
-
-const checkoutConfig = {
-	snapshot: import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00',
-	mini: import.meta.env.PUBLIC_AI_MINI_AUDIT_CHECKOUT_URL || 'https://book.stripe.com/eVq28r6WZem7f3x3L853O01',
-	full: import.meta.env.PUBLIC_AI_FULL_AUDIT_CHECKOUT_URL || 'https://book.stripe.com/eVq5kD2GJ2Dp2gL81o53O02',
-};
-
-const email = 'maguirebaseball@gmail.com';
-
-const tiers = [
-	{
-		key: 'snapshot',
-		level: 'Level 1',
-		name: 'AI Bottleneck Snapshot',
-		price: 79,
-		tag: '30 min/week target',
-		fit: 'You know work is leaking time, but you do not know which workflow to fix first.',
-		deliverable: 'A 1-page AI Bottleneck Snapshot PDF',
-		input: '8-question intake. No call.',
-		delivery: 'Emailed within 1 business day of your completed intake.',
-		features: [
-			'Your highest-cost recurring bottleneck',
-			'Current weekly time-cost estimate',
-			'One exact tool or workflow recommendation',
-			'Expected savings, tool cost, and setup steps',
-		],
-		guaranteeTitle: 'One Quick Win Guarantee',
-		guarantee: 'If the assessment cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $79.',
-		credit: 'Your full $79 applies to the Mini Audit if you upgrade within 30 days.',
-	},
-	{
-		key: 'mini',
-		level: 'Level 2',
-		name: 'Quick-Win Mini Audit',
-		price: 199,
-		tag: '2 hrs/week target',
-		fit: 'You have a few messy workflows and want a prioritized answer without commissioning the full audit.',
-		deliverable: 'A 3-page Quick-Win Action Memo PDF',
-		input: 'Short intake and one 25-minute workflow call.',
-		delivery: 'Emailed within 2 business days of your call.',
-		features: [
-			'Ranked assessment of 2 to 3 bottlenecks',
-			'1 to 2 exact tools with cost and setup time',
-			'Line-by-line savings math and short ROI estimate',
-			'A prioritized 7-day implementation plan',
-		],
-		guaranteeTitle: 'Two-Hour Opportunity Guarantee',
-		guarantee: 'If the assessment cannot identify practical changes projected to save at least two hours each week, I automatically refund the full $199.',
-		credit: 'Your full $199 applies to the Full AI Audit if you upgrade within 30 days.',
-	},
-	{
-		key: 'full',
-		level: 'Level 3',
-		name: 'Full AI Audit',
-		price: 499,
-		tag: '5 hrs/week target',
-		fit: 'You want the complete workflow map, implementation roadmap, and financial case.',
-		deliverable: 'A complete Custom AI Audit PDF plus review call',
-		input: 'Short intake and one 45-minute discovery call.',
-		delivery: 'PDF within 5 business days, followed by a 30-minute screen-share review.',
-		features: [
-			'Complete workflow bottleneck map',
-			'Effort vs. impact matrix and 3 to 7 exact tools',
-			'Tool costs, setup time, and savings assumptions',
-			'4-day rollout plan and full financial impact model',
-		],
-		guaranteeTitle: 'Five-Hour Opportunity Guarantee',
-		guarantee: 'If the assessment cannot identify practical changes projected to save at least five hours each week, I automatically refund the full $499.',
-		credit: 'Any qualifying prior-tier credit is deducted when you upgrade within 30 days.',
-	},
-].map((tier) => {
-	const configuredUrl = checkoutConfig[tier.key as keyof typeof checkoutConfig];
-	const fallbackUrl = `mailto:${email}?subject=${encodeURIComponent(`Send me the $${tier.price} ${tier.name} checkout`)}`;
-	return {
-		...tier,
-		checkoutUrl: configuredUrl || fallbackUrl,
-		checkoutReady: Boolean(configuredUrl),
-	};
-});
-
-const painPoints = [
-	{
-		number: '01',
-		title: 'Your inbox eats the morning.',
-		copy: 'Messages pile up faster than you can sort, answer, and turn them into next steps.',
-	},
-	{
-		number: '02',
-		title: 'Lead follow-up moves too slowly.',
-		copy: 'Good prospects wait while you copy details, write replies, and update the same information twice.',
-	},
-	{
-		number: '03',
-		title: 'Meetings end without action.',
-		copy: 'You have transcripts and notes, but decisions, owners, and deadlines still need to be pulled out by hand.',
-	},
-	{
-		number: '04',
-		title: 'Reporting steals the weekend.',
-		copy: 'The data exists. You still spend hours cleaning it, organizing it, and rebuilding the same update.',
-	},
-];
-
-const process = [
-	{
-		number: '1',
-		time: 'About 5 minutes',
-		title: 'Answer 8 questions',
-		copy: 'Tell me where work piles up, how often it happens, and roughly how long it takes. No preparation, sales call, or AI vocabulary required.',
-	},
-	{
-		number: '2',
-		time: 'Done for you',
-		title: 'I diagnose the bottleneck',
-		copy: 'I calculate the weekly time cost, screen practical off-the-shelf tools, and choose one recommendation that fits your budget and workflow.',
-	},
-	{
-		number: '3',
-		time: '1 business day',
-		title: 'Receive your Snapshot',
-		copy: 'Get a one-page PDF with the bottleneck, current time cost, exact recommendation, projected savings, tool cost, and setup steps.',
-	},
-];
-
-const reportSections = [
-	{
-		number: '01',
-		title: 'Executive summary',
-		copy: 'A one-page snapshot of your main bottlenecks and the total hours you can reclaim.',
-	},
-	{
-		number: '02',
-		title: 'Effort vs. impact matrix',
-		copy: 'A clear view of why these tools beat complex, high-effort enterprise software for your current needs.',
-	},
-	{
-		number: '03',
-		title: 'Recommended solutions',
-		copy: 'Each tool, the pain point it solves, monthly cost, estimated setup time, and expected weekly savings.',
-	},
-	{
-		number: '04',
-		title: '4-day quick start plan',
-		copy: 'A day-by-day guide that lets you deploy the full stack in four 10-minute sessions.',
-	},
-	{
-		number: '05',
-		title: 'Financial impact analysis',
-		copy: 'The net monthly return based on time saved, your effective hourly rate, and the actual tool costs.',
-	},
-];
+const title = 'Your AI Audit | $79 AI Bottleneck Snapshot';
+const description = 'Find the first recurring workflow AI should take off your plate. Pay $79, answer eight questions, and receive a one-page AI Bottleneck Snapshot within one business day.';
+const fallbackCheckoutUrl = import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00';
 
 const faqItems = [
 	{
-		question: 'What exactly am I buying for $79?',
-		answer: 'A one-page PDF diagnosis of one recurring workflow bottleneck. It includes the current weekly time cost, one exact tool or workflow recommendation, projected weekly savings, software cost, and setup steps.',
+		question: 'What exactly am I buying?',
+		answer: 'A one-page PDF diagnosing one recurring workflow. It names the bottleneck, estimates its weekly time cost, recommends one practical fix, shows the expected savings and software cost, and gives you the first setup steps.',
 	},
 	{
 		question: 'Do I need AI or coding experience?',
-		answer: 'No. Recommendations are limited to off-the-shelf tools that a nontechnical owner can maintain.',
+		answer: 'No. The recommendation is written for a nontechnical owner and limited to tools or workflow changes you can realistically maintain.',
 	},
 	{
-		question: 'What does projected time saved mean?',
-		answer: 'Current weekly task time minus expected weekly task time after implementation. New oversight time is subtracted, and the same saved minutes are never counted twice.',
+		question: 'What do I need to provide?',
+		answer: 'Eight short answers about your business and one recurring task. Rough estimates are fine. You do not need to share passwords, customer records, API keys, or a technical inventory.',
 	},
 	{
-		question: 'What if the Snapshot reveals a bigger opportunity?',
-		answer: 'Upgrade within 30 days and the full $79 is applied to the $199 Mini Audit. The full $199 is applied if you then move to the $499 Full Audit within 30 days.',
-	},
-];
-
-const sampleReports = [
-	{
-		key: 'snapshot',
-		label: '$79 Snapshot example',
-		business: 'A 6-person residential design studio',
-		bottleneck: 'Lead follow-up after consultations',
-		finding: '12 follow-ups per week × 20 minutes = 4 hours/week today.',
-		recommendation: 'Use a saved intake-to-draft workflow to turn consultation notes into a review-ready follow-up email.',
-		math: 'Projected time: 12 × 5 minutes = 1 hour/week. Estimated recovery: 3 hours/week. Tool cost: about $20/month.',
-		next: 'Set up the template, test it on one recent consultation, then use it for the next five follow-ups.',
-	},
-	{
-		key: 'mini',
-		label: '$199 Mini Audit example',
-		business: 'An 11-person commercial cleaning company',
-		bottleneck: 'Three workflow comparison: quote follow-up, scheduling, and weekly reporting',
-		finding: 'Quote follow-up is the highest-leverage fix at 5.5 hours/week, followed by reporting at 2 hours/week.',
-		recommendation: 'Prioritize a quote follow-up queue, a reusable response library, and a lightweight reporting template; defer a full CRM replacement.',
-		math: 'Projected recovery: 3.5 to 4.5 hours/week after setup. Estimated software cost: $45/month. 7-day rollout included.',
-		next: 'Day 1: map the queue. Day 2: build response templates. Day 3: test handoff. Day 7: review response time and open quotes.',
-	},
-	{
-		key: 'full',
-		label: '$499 Full Audit example',
-		business: 'A 24-person bookkeeping and tax practice',
-		bottleneck: 'End-to-end map across inbox, client onboarding, meeting actions, and monthly reporting',
-		finding: 'Four repeatable bottlenecks combine to create an estimated 11.5 hours/week of avoidable work across the owner and operations team.',
-		recommendation: 'Deploy a 4-day quick-win sequence: intake triage, meeting action capture, client-status templates, and a standardized reporting pull.',
-		math: 'Projected net recovery: 6.5 to 8 hours/week after oversight. Estimated tool cost: $60/month. Full ROI model and effort-vs-impact matrix included.',
-		next: 'The report names the owner for each step, exact setup order, constraints to preserve, and the 30-minute review-call agenda.',
-	},
-];
-
-const intakeQuestions = [
-	{
-		key: 'snapshot',
-		label: 'Level 1 · Snapshot · 8 questions · no call',
-		questions: [
-			'What does your business do, and who does it serve?',
-			'Which recurring workflow do you most want off your plate?',
-			'Walk me through what happens today.',
-			'About how many times does this happen in a normal week?',
-			'About how many minutes does one occurrence take?',
-			'What tools do you use during this workflow?',
-			'What would a useful improvement look like?',
-			'What constraints must the recommendation respect?',
-		],
-	},
-	{
-		key: 'mini',
-		label: 'Level 2 · Mini Audit · short intake + 25-minute call',
-		questions: [
-			'What does your business do, who does it serve, and how does it make money?',
-			'Who is involved in the workflows we are reviewing?',
-			'Which areas consume the most time or cause the most delay?',
-			'For each of two workflows: what triggers it, how often does it happen, and how many total staff minutes does one occurrence take?',
-			'Which tools and information does each workflow use, and where does it break down?',
-			'What must stay true after the workflow changes?',
-			'What hourly value and monthly software budget should I use?',
-			'Who will set up and maintain the recommendation, and what would make this memo worth buying?',
-		],
-	},
-	{
-		key: 'full',
-		label: 'Level 3 · Full Audit · 16 questions + 45-minute discovery call',
-		questions: [
-			'What does your business do, who does it serve, and how does it make money?',
-			'What does the team look like, and what are the three most important six-month outcomes?',
-			'What important change is happening in the business right now?',
-			'Which systems do you use, which must remain, and what data or compliance restrictions apply?',
-			'Which recurring workflows should the audit examine, and which three should we examine first?',
-			'For each selected workflow: what triggers it, what are the steps, how often does it happen, and how many staff minutes does one occurrence consume?',
-			'Who participates, where are the handoffs, what systems and information are involved, and where do delay or error enter?',
-			'What must the new workflow preserve, how painful is it today, and what hourly value, budget, setup time, and owner should I use?',
-			'What has already been tried, what would success look like 30 days after delivery, and is there anything to review before the call?',
-		],
+		question: 'How does the refund work?',
+		answer: 'If I cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $79. You do not need to implement the recommendation first.',
 	},
 ];
 ---
@@ -262,21 +33,23 @@ const intakeQuestions = [
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'Service',
-			name: 'Your AI Audit',
+			name: 'AI Bottleneck Snapshot',
 			description,
 			provider: {
 				'@type': 'Person',
+				'@id': 'https://jackmaguire.org/#jack',
 				name: 'Jack Maguire',
 				url: 'https://jackmaguire.org/',
 			},
 			areaServed: 'US',
-			offers: tiers.map((tier) => ({
+			offers: {
 				'@type': 'Offer',
-				name: tier.name,
-				price: String(tier.price),
+				name: 'AI Bottleneck Snapshot',
+				price: '79',
 				priceCurrency: 'USD',
-				url: `https://jackmaguire.org/Your-AI-Audit/#${tier.key}`,
-			})),
+				availability: 'https://schema.org/InStock',
+				url: 'https://jackmaguire.org/Your-AI-Audit/',
+			},
 		})} />
 	</head>
 	<body>
@@ -286,7 +59,7 @@ const intakeQuestions = [
 					<span class="brand-mark" aria-hidden="true">JM</span>
 					<span>Your AI Audit</span>
 				</a>
-				<a class="topbar-link" href="#snapshot">See what you get <span>$79</span></a>
+				<a class="topbar-link" href="#example">See what you get <span>$79</span></a>
 			</header>
 
 			<main>
@@ -297,24 +70,24 @@ const intakeQuestions = [
 						<p class="hero-note">One useful answer in one business day.</p>
 						<p class="hero-subhead">Pay $79, answer eight questions, and get a one-page recommendation for the recurring task worth fixing first. No software shopping, sales call, or AI expertise required.</p>
 						<div class="hero-actions">
-							<a class="button button-primary" href={tiers[0].checkoutUrl} data-checkout-tier="snapshot" data-checkout-value="79" data-checkout-ready={String(tiers[0].checkoutReady)}>
-								{tiers[0].checkoutReady ? 'Get my AI Bottleneck Snapshot' : 'Request my Snapshot checkout'} <span>$79</span>
+							<a class="button button-primary" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="hero">
+								<span class="button-label">Get my AI Bottleneck Snapshot</span>
+								<strong>$79</strong>
 							</a>
 							<p><strong>Flat price. No sales call.</strong> Complete eight questions and receive a one-page PDF by email.</p>
-							<a class="process-link" href="#process-preview">See exactly what you will answer <span aria-hidden="true">&darr;</span></a>
 						</div>
 					</div>
 
-					<aside class="audit-card snapshot-hero-card" aria-label="AI Bottleneck Snapshot deliverable">
+					<aside class="audit-card" aria-label="AI Bottleneck Snapshot deliverable">
 						<div class="audit-card-head">
-							<span>Default first step</span>
+							<span>Your purchase</span>
 							<span class="status"><i></i> One-day delivery</span>
 						</div>
-						<div class="time-number">
+						<div class="price-lockup">
 							<strong>$79</strong>
 							<span>one-page<br />PDF diagnosis</span>
 						</div>
-						<ul class="snapshot-checklist">
+						<ul>
 							<li>Highest-cost recurring bottleneck</li>
 							<li>One exact recommendation</li>
 							<li>Savings, cost, and setup math</li>
@@ -326,594 +99,128 @@ const intakeQuestions = [
 					</aside>
 				</section>
 
-				<section class="early-comparison section-pad" aria-labelledby="early-comparison-title">
-					<div class="section-intro compact">
-						<p class="section-label">Choose the right depth</p>
-						<h2 id="early-comparison-title">Start with one answer. Go broader only when you need to.</h2>
-						<p>The Snapshot is the recommended first purchase. The larger audits are available when the problem spans several workflows.</p>
+				<section id="example" class="example-section section-shell" aria-labelledby="example-title">
+					<div class="section-heading">
+						<p class="section-label">A readable example</p>
+						<h2 id="example-title">The answer fits on one page because the decision should be clear.</h2>
+						<p>This example uses an illustrative business and numbers. Your Snapshot uses your workflow, constraints, and estimates.</p>
 					</div>
-					<div class="early-comparison-grid">
-						<div class="early-comparison-card recommended">
-							<span>Recommended first step</span>
-							<strong>$79 Snapshot</strong>
-							<p>One bottleneck, one exact recommendation, one-page PDF, one business day.</p>
-							<a href="#snapshot">See the Snapshot <span aria-hidden="true">&rarr;</span></a>
-						</div>
-						<div class="early-comparison-card">
-							<span>For several workflows</span>
-							<strong>$199 Mini Audit</strong>
-							<p>Two to three bottlenecks, a 25-minute call, and a prioritized seven-day memo.</p>
-							<a href="#mini">See the Mini Audit <span aria-hidden="true">&rarr;</span></a>
-						</div>
-						<div class="early-comparison-card">
-							<span>For the full operating picture</span>
-							<strong>$499 Full Audit</strong>
-							<p>A complete workflow map, rollout plan, financial model, and review call.</p>
-							<a href="#full">See the Full Audit <span aria-hidden="true">&rarr;</span></a>
-						</div>
-					</div>
-				</section>
 
-				<section class="worked-example section-pad" aria-labelledby="example-title">
-					<div class="example-copy">
-						<p class="section-label light">Worked savings calculation</p>
-						<h2 id="example-title">See exactly how a workflow earns its hours.</h2>
-						<p>This is an illustrative calculation, not a client result. Every paid assessment uses the buyer's actual task time and frequency.</p>
-					</div>
-					<div class="calculation-card" aria-label="Lead follow-up savings example">
-						<div><span>Current workflow</span><strong>12 follow-ups × 20 min</strong><b>4 hours/week</b></div>
-						<div><span>With the new workflow</span><strong>12 follow-ups × 5 min</strong><b>1 hour/week</b></div>
-						<div class="calculation-result"><span>Projected difference</span><strong>240 min - 60 min</strong><b>3 hours/week</b></div>
-					</div>
-					<div class="proof-reserve" aria-label="What this assessment helps you avoid">
-						<div>
-							<p class="section-label">Why start with a diagnosis</p>
-							<h3>Most AI waste starts with a reasonable idea aimed at the wrong task.</h3>
-							<p>The Snapshot helps you avoid buying another tool before you know what it should replace, asking a team member to maintain a system nobody owns, or spending a weekend automating work that barely recurs.</p>
-						</div>
-						<div class="proof-slots" aria-label="Risks the assessment checks">
-							<span>Wrong workflow</span><span>Hidden tool cost</span><span>No clear owner</span>
-						</div>
-					</div>
-				</section>
-
-				<section class="problem section-pad" aria-labelledby="workflow-problems-title">
-					<div class="section-intro">
-						<p class="section-label">Where the week disappears</p>
-						<h2 id="workflow-problems-title">Built for owner-led service businesses with work piling up in four familiar places.</h2>
-						<p>If clients depend on your responsiveness and you are still the person keeping the operation moving, one of these workflows is probably costing you several hours every week.</p>
-					</div>
-					<div class="pain-grid">
-						{painPoints.map((point) => (
-							<article class="pain-card">
-								<span>{point.number}</span>
-								<h3>{point.title}</h3>
-								<p>{point.copy}</p>
-							</article>
-						))}
-					</div>
-				</section>
-
-				<section class="alternatives section-pad" aria-labelledby="alternatives-title">
-					<div class="section-intro">
-						<p class="section-label">The alternatives</p>
-						<h2 id="alternatives-title">You can keep guessing. That is usually the expensive option.</h2>
-						<p>Each alternative can make sense in the right situation. The Snapshot exists for the gap between doing nothing and commissioning a large transformation.</p>
-					</div>
-					<div class="alternatives-grid">
-						<article><span>01</span><h3>Try another AI tool</h3><p>Fast to start, but you still have to choose the workflow, learn the tool, and decide whether the time saved is real.</p></article>
-						<article><span>02</span><h3>Ask someone on the team</h3><p>They may know the process, but the work often becomes an unowned side project with no savings math or finish line.</p></article>
-						<article><span>03</span><h3>Buy a bigger system</h3><p>Useful when the whole operation is ready for change, expensive when one recurring bottleneck is the actual problem.</p></article>
-						<article><span>04</span><h3>Keep doing it manually</h3><p>There is no setup cost, but the repeated time cost compounds and the delay becomes part of how the business operates.</p></article>
-					</div>
-				</section>
-
-				<section class="process section-pad" aria-labelledby="snapshot-process-title">
-					<div class="section-intro compact">
-						<p class="section-label">How it works</p>
-						<h2 id="snapshot-process-title">Five minutes from you. One useful answer from me.</h2>
-						<p>The Snapshot is designed to diagnose one recurring bottleneck without adding another meeting to your calendar.</p>
-					</div>
-					<div class="process-grid">
-						{process.map((step) => (
-							<article class="process-step">
-								<div class="step-meta"><strong>{step.number}</strong><span>{step.time}</span></div>
-								<h3>{step.title}</h3>
-								<p>{step.copy}</p>
-							</article>
-						))}
-					</div>
-				</section>
-
-				<section id="process-preview" class="process-preview section-pad" aria-labelledby="process-preview-title">
-					<div class="process-preview-head">
-						<div>
-							<p class="section-label">More about the audit process</p>
-							<h2 id="process-preview-title">See the path before you pay.</h2>
-						</div>
-						<p><strong>No surprises.</strong> The previews below mirror the real checkout, the eight-question intake, and the one-page answer. The sample business and numbers are illustrative; your report uses your workflow and estimates.</p>
-					</div>
-					<div class="process-preview-grid">
-						<figure class="process-screen">
-							<div class="screen-window" aria-hidden="true">
-								<div class="screen-bar"><span></span><span></span><span></span><small>secure checkout</small></div>
-								<div class="screen-body checkout-preview">
-									<p class="screen-kicker">AI Bottleneck Snapshot</p>
-									<strong class="screen-price">$79.00</strong>
-									<div class="screen-label">Contact information</div>
-									<div class="screen-input">you@example.com</div>
-									<div class="screen-label">Payment method</div>
-									<div class="screen-input">Card information</div>
-									<div class="screen-button">Pay $79</div>
-								</div>
+					<article class="snapshot-sheet" aria-label="Illustrative AI Bottleneck Snapshot">
+						<header>
+							<div>
+								<p>AI Bottleneck Snapshot</p>
+								<h3>Lead follow-up after consultations</h3>
 							</div>
-							<figcaption><span>01</span><div><strong>Pay once through Stripe</strong><small>Secure checkout. No sales call or account required.</small></div></figcaption>
-						</figure>
-						<figure class="process-screen">
-							<div class="screen-window" aria-hidden="true">
-								<div class="screen-bar"><span></span><span></span><span></span><small>your-ai-audit / start</small></div>
-								<div class="screen-body intake-preview">
-									<div class="screen-progress"><strong>Step 1 of 4</strong><span>25%</span></div>
-									<div class="screen-label">01 What does your business do, and who does it serve?</div>
-									<div class="screen-textarea">One or two sentences is enough.</div>
-									<div class="screen-label">02 Which recurring workflow do you most want off your plate?</div>
-									<div class="screen-options"><span>○ Inbox sorting</span><span>○ Lead follow-up</span><span>○ Reporting</span></div>
-									<div class="screen-button">Continue</div>
-								</div>
-							</div>
-							<figcaption><span>02</span><div><strong>Answer eight practical questions</strong><small>About five minutes. Rough estimates are welcome.</small></div></figcaption>
-						</figure>
-						<figure class="process-screen">
-							<div class="screen-window" aria-hidden="true">
-								<div class="screen-bar"><span></span><span></span><span></span><small>AI Bottleneck Snapshot / example</small></div>
-								<div class="screen-body report-preview-screen">
-									<div class="report-mini-head"><strong>AI Bottleneck Snapshot</strong><span>Illustrative</span></div>
-									<div class="report-mini-hero"><span>Your bottleneck</span><strong>Lead follow-up</strong><small>12 follow-ups × 20 minutes = 4 hours/week today</small></div>
-									<div class="report-mini-grid"><div><span>Recommended fix</span><strong>Intake-to-draft workflow</strong></div><div><span>Projected recovery</span><strong>3 hours/week</strong></div></div>
-									<div class="report-mini-foot">Tool cost about $20/month · Start with one recent lead</div>
-								</div>
-							</div>
-							<figcaption><span>03</span><div><strong>Receive one decision-ready page</strong><small>Diagnosis, recommendation, savings math, and first setup steps.</small></div></figcaption>
-						</figure>
-					</div>
-					<div class="process-preview-foot"><span>What you do not need</span><strong>No passwords, API keys, customer records, technical inventory, or prep work.</strong><a href="#intake-title">See every question <span aria-hidden="true">&rarr;</span></a></div>
-				</section>
-
-				<section id="snapshot" class="snapshot-offer section-pad" aria-labelledby="snapshot-title">
-					<div class="snapshot-offer-copy">
-						<p class="section-label light">The recommended first step</p>
-						<h2 id="snapshot-title">AI Bottleneck Snapshot</h2>
-						<p class="snapshot-lead">Find the single recurring workflow most worth fixing, the tool or process to use, and the math behind the recommendation.</p>
-						<ul class="check-list light-list">
-							<li><span aria-hidden="true">&#10003;</span> Know the full price upfront</li>
-							<li><span aria-hidden="true">&#10003;</span> Get your answer without a sales call</li>
-							<li><span aria-hidden="true">&#10003;</span> Receive the PDF within one business day</li>
-							<li><span aria-hidden="true">&#10003;</span> Keep the option to go deeper later</li>
-						</ul>
-					</div>
-					<article class="snapshot-purchase-card">
-						<div class="tier-topline"><span>One-time purchase</span><strong>Best first step</strong></div>
-						<p class="tier-price"><span>$</span>79</p>
-						<div class="tier-deliverable">
-							<span>Your deliverable</span>
-							<h3>One-page AI Bottleneck Snapshot PDF</h3>
+							<span>Illustrative</span>
+						</header>
+						<div class="snapshot-grid">
+							<section>
+								<span class="report-number">01</span>
+								<p class="report-kicker">Workflow diagnosed</p>
+								<h4>A 6-person residential design studio spends four hours a week writing lead follow-ups.</h4>
+								<p>12 consultations per week x 20 minutes each = 4 hours of owner time.</p>
+							</section>
+							<section class="recommendation-cell">
+								<span class="report-number">02</span>
+								<p class="report-kicker">Recommended fix</p>
+								<h4>Use a saved intake-to-draft workflow to turn consultation notes into a review-ready email.</h4>
+								<p>Keep final approval with the owner. Replace the blank-page writing step, not the relationship.</p>
+							</section>
+							<section class="math-cell">
+								<span class="report-number">03</span>
+								<p class="report-kicker">Projected savings</p>
+								<div class="big-math"><strong>3</strong><span>hours saved<br />per week</span></div>
+								<p>12 follow-ups x 5 minutes = 1 hour. Estimated tool cost: $20 per month.</p>
+							</section>
+							<section>
+								<span class="report-number">04</span>
+								<p class="report-kicker">First action</p>
+								<h4>Build one template and test it on a recent consultation before changing the full workflow.</h4>
+								<p>The paid report names the setup steps and the assumption to verify first.</p>
+							</section>
 						</div>
-						<ul>
-							{tiers[0].features.map((feature) => <li>{feature}</li>)}
-						</ul>
-						<div class="tier-logistics">
-							<p><span>What you provide</span>{tiers[0].input}</p>
-							<p><span>How it arrives</span>{tiers[0].delivery}</p>
-						</div>
-						<div class="tier-guarantee">
-							<span>{tiers[0].guaranteeTitle}</span>
-							<p>{tiers[0].guarantee}</p>
-						</div>
-						<a class="button tier-button" href={tiers[0].checkoutUrl} data-checkout-tier="snapshot" data-checkout-value="79" data-checkout-ready={String(tiers[0].checkoutReady)}>
-							{tiers[0].checkoutReady ? 'Get my Snapshot for $79' : 'Request my $79 checkout'} <span aria-hidden="true">&rarr;</span>
-						</a>
+						<footer>
+							<span>What you receive</span>
+							<strong>Diagnosis, one recommendation, savings math, and a practical first step.</strong>
+						</footer>
 					</article>
 				</section>
 
-				<section class="authority solution section-pad" aria-labelledby="authority-title">
-					<div class="solution-copy">
+				<section class="credibility section-shell" aria-labelledby="credibility-title">
+					<figure>
+						<img src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire" loading="lazy" width="640" height="800" />
+						<figcaption>Jack Maguire, New York City</figcaption>
+					</figure>
+					<div class="credibility-copy">
 						<p class="section-label">Why Jack</p>
-						<h2 id="authority-title">I look for operational leverage, not impressive software.</h2>
-						<p>I am Jack Maguire. For more than 12 years in performance marketing and AI-enabled marketing operations, I have managed more than $30 million in media spend and advised more than 600 business owners.</p>
-						<p>That work trained me to separate useful systems from expensive distractions. Your recommendation has to fit the way your business already operates, be realistic to maintain, and return measurable time.</p>
-					</div>
-					<div class="method-card">
-						<p class="section-label">The selection method</p>
-						<h3>High impact. Low effort.</h3>
-						<p>I score each possible fix on four practical questions:</p>
-						<ol>
-							<li><strong>Frequency:</strong> How often does the task recur?</li>
-							<li><strong>Time:</strong> How many owner-hours does it consume now?</li>
-							<li><strong>Effort:</strong> How hard is the fix to set up and maintain?</li>
-							<li><strong>Net gain:</strong> What remains after cost and oversight?</li>
-						</ol>
-						<p class="method-rule">If the projected time saving cannot be shown with your numbers, it does not make the report.</p>
-					</div>
-				</section>
-
-				<section id="offers" class="depth-options section-pad" aria-labelledby="depth-title">
-					<div class="section-intro">
-						<p class="section-label">Need more depth?</p>
-						<h2 id="depth-title">Choose a broader assessment only when the Snapshot is not enough.</h2>
-						<p>The Mini and Full options cover more workflows, add live discussion, and produce a larger implementation plan.</p>
-					</div>
-					<div class="depth-grid">
-						{tiers.slice(1).map((tier) => (
-							<article id={tier.key} class:list={['tier-card', { full: tier.key === 'full' }]}>
-								<div class="tier-topline"><span>{tier.level}</span><strong>{tier.tag}</strong></div>
-								<h3>{tier.name}</h3>
-								<p class="tier-price"><span>$</span>{tier.price}</p>
-								<p class="tier-fit">{tier.fit}</p>
-								<div class="tier-deliverable"><span>Your deliverable</span><h4>{tier.deliverable}</h4></div>
-								<p class="tier-includes">What is inside</p>
-								<ul>{tier.features.map((feature) => <li>{feature}</li>)}</ul>
-								<div class="tier-logistics">
-									<p><span>What you provide</span>{tier.input}</p>
-									<p><span>How it arrives</span>{tier.delivery}</p>
-								</div>
-								<div class="tier-guarantee"><span>{tier.guaranteeTitle}</span><p>{tier.guarantee}</p></div>
-								<a class="button tier-button" href={tier.checkoutUrl} data-checkout-tier={tier.key} data-checkout-value={tier.price} data-checkout-ready={String(tier.checkoutReady)}>
-									{tier.checkoutReady ? `Choose the ${tier.name} for $${tier.price}` : `Request my $${tier.price} checkout`} <span aria-hidden="true">&rarr;</span>
-								</a>
-							</article>
-						))}
-					</div>
-					<p class="upgrade-note"><strong>Upgrade credit:</strong> move from Snapshot to Mini, or Mini to Full, within 30 days and your prior payment is credited in full.</p>
-				</section>
-
-				<section class="deliverable-preview section-pad" aria-labelledby="preview-title">
-					<div class="report-head">
-						<div>
-							<p class="section-label">Deliverable preview</p>
-							<h2 id="preview-title">A decision document, not an AI encyclopedia.</h2>
-						</div>
-						<p>The Snapshot fits on one page so you can see the diagnosis, recommendation, economics, and first action without hunting through a technical report.</p>
-					</div>
-					<div class="preview-sheet" aria-label="Example structure of the AI Bottleneck Snapshot">
-						<div class="preview-sheet-head"><span>AI Bottleneck Snapshot</span><small>Example layout</small></div>
-						<div class="preview-sheet-grid">
-							<article><span>01</span><h3>Workflow diagnosed</h3><p>The recurring task, current owner, frequency, and baseline weekly time.</p></article>
-							<article><span>02</span><h3>Recommended fix</h3><p>One exact tool or workflow change, why it fits, and what it replaces.</p></article>
-							<article><span>03</span><h3>Savings and cost</h3><p>Current time, projected time, oversight, tool price, and net weekly gain.</p></article>
-							<article><span>04</span><h3>Start checklist</h3><p>The first setup steps, written for a nontechnical owner to follow.</p></article>
+						<h2 id="credibility-title">A practical operator looking for leverage, not impressive software.</h2>
+						<p>I am Jack Maguire. For more than 12 years in performance marketing and AI-enabled operations, I have managed more than $30 million in media spend and advised more than 600 business owners.</p>
+						<p>I use the same discipline here: find the repeated cost, check the economics, and recommend the smallest useful change. If your workflow does not justify another tool, the report will say so.</p>
+						<div class="proof-row" aria-label="Jack Maguire credentials">
+							<div><strong>12+</strong><span>years in marketing and operations</span></div>
+							<div><strong>$30M+</strong><span>in managed media spend</span></div>
+							<div><strong>600+</strong><span>business owners advised</span></div>
 						</div>
 					</div>
 				</section>
 
-				<section class="sample-reports section-pad" aria-labelledby="sample-reports-title">
-					<div class="section-intro">
-						<p class="section-label">Review before you buy</p>
-						<h2 id="sample-reports-title">See the kind of answer each tier is designed to produce.</h2>
-						<p>These are realistic illustrative examples, not client results. Your report uses your numbers, workflows, tools, and constraints.</p>
+				<section class="guarantee-section section-shell" aria-labelledby="guarantee-title">
+					<div class="guarantee-card">
+						<p class="section-label section-label-dark">One Quick Win Guarantee</p>
+						<div class="guarantee-number"><strong>30</strong><span>minutes saved<br />each week</span></div>
+						<h2 id="guarantee-title">Or I automatically refund the full $79.</h2>
+						<p>The recommendation must show a practical change projected to save at least 30 minutes each week using your current task time, expected new task time, tool cost, and oversight.</p>
 					</div>
-					<div class="sample-report-grid">
-						{sampleReports.map((report) => (
-							<article class:list={['sample-report-card', report.key]}>
-								<div class="sample-report-topline"><span>{report.label}</span><span>Illustrative</span></div>
-								<h3>{report.business}</h3>
-								<div class="sample-report-field"><span>What gets diagnosed</span><strong>{report.bottleneck}</strong></div>
-								<div class="sample-report-field"><span>Example finding</span><p>{report.finding}</p></div>
-								<div class="sample-report-field"><span>Recommendation</span><p>{report.recommendation}</p></div>
-								<div class="sample-report-field"><span>Savings and cost</span><p>{report.math}</p></div>
-								<div class="sample-report-next"><span>What you can do next</span><p>{report.next}</p></div>
-							</article>
-						))}
-					</div>
-				</section>
 
-				<section class="intake-questions section-pad" aria-labelledby="intake-title">
-					<div class="section-intro">
-						<p class="section-label">Know what you will answer</p>
-						<h2 id="intake-title">The questions are part of the product design.</h2>
-						<p>Every question feeds the promised deliverable. Rough estimates are welcome; you do not need to prepare a technical inventory.</p>
-					</div>
-					<div class="intake-list">
-						{intakeQuestions.map((form) => (
-							<details class:list={['intake-card', form.key]} open={form.key === 'snapshot'}>
-								<summary><span>{form.label}</span><b aria-hidden="true">+</b></summary>
-								<ol>
-									{form.questions.map((question) => <li>{question}</li>)}
-								</ol>
-								<p class="intake-note">Do not upload passwords, API keys, customer records, health information, financial account details, or other sensitive personal data. Blank, sample, or redacted material is enough.</p>
-							</details>
-						))}
-					</div>
-				</section>
-
-				<section class="guarantee section-pad" aria-labelledby="scope-guarantee-title">
-					<div class="guarantee-badge" aria-hidden="true"><span>3</span><small>clear thresholds</small></div>
-					<div class="guarantee-copy">
-						<p class="section-label">Scope-matched guarantee</p>
-						<h2 id="scope-guarantee-title">The size of the guarantee grows with the depth of the assessment.</h2>
-						<p>The guarantee covers the time-saving opportunity identified in your assessment. It does not depend on you buying or implementing the recommendation.</p>
-						<div class="guarantee-ladder">
-							{tiers.map((tier) => (
-								<article><span>${tier.price}</span><h3>{tier.guaranteeTitle}</h3><p>{tier.guarantee}</p></article>
+					<div class="faq-block">
+						<p class="section-label">Short FAQ</p>
+						<h2>Everything worth knowing before you pay.</h2>
+						<div class="faq-list">
+							{faqItems.map((item, index) => (
+								<details open={index === 0}>
+									<summary>{item.question}<span aria-hidden="true">+</span></summary>
+									<p>{item.answer}</p>
+								</details>
 							))}
 						</div>
-						<div class="faq-block">
-							<p class="section-label">Short FAQ</p>
-							<div class="faq-list">
-								{faqItems.map((item) => (
-									<details><summary>{item.question}</summary><p>{item.answer}</p></details>
-								))}
-							</div>
-						</div>
 					</div>
 				</section>
 
-				<section id="start" class="booking section-pad" aria-labelledby="final-cta-title">
-					<div class="booking-copy">
-						<p class="section-label light">Start with one bottleneck</p>
-						<h2 id="final-cta-title">Find the first hours hiding in your workweek.</h2>
-						<p>Complete eight questions. Receive one exact recommendation and its savings math within one business day.</p>
+				<section class="final-cta section-shell" aria-labelledby="final-title">
+					<div>
+						<p class="section-label section-label-light">Start with one bottleneck</p>
+						<h2 id="final-title">Find the first recurring task worth taking off your plate.</h2>
+						<p>Pay once, answer eight questions, and receive one specific recommendation with the math behind it within one business day.</p>
+					</div>
+					<aside class="checkout-card">
+						<span>AI Bottleneck Snapshot</span>
+						<div><strong>$79</strong><small>one-time purchase</small></div>
 						<ul>
-							<li>One-page PDF deliverable</li>
-							<li>No sales call required</li>
-							<li>Clear 30-minute weekly savings guarantee</li>
-							<li>No coding or AI expertise required</li>
+							<li>One-page PDF</li>
+							<li>No sales call</li>
+							<li>Automatic refund if no 30-minute opportunity is found</li>
 						</ul>
-					</div>
-					<div class="checkout-shell">
-						<p class="checkout-kicker">Recommended first purchase</p>
-						<div class="checkout-price"><span>$</span><strong>79</strong></div>
-						<h3>AI Bottleneck Snapshot</h3>
-						<p>Know which recurring workflow to fix first, what to use, what it should save, and how to start.</p>
-						<a class="button button-form" href={tiers[0].checkoutUrl} data-checkout-tier="snapshot" data-checkout-value="79" data-checkout-ready={String(tiers[0].checkoutReady)}>
-							{tiers[0].checkoutReady ? 'Get my Snapshot for $79' : 'Request my $79 checkout'} <span>&rarr;</span>
+						<a class="button button-light" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="final">
+							<span class="button-label">Pay $79 and start</span>
+							<strong aria-hidden="true">&#8594;</strong>
 						</a>
-						<p class="checkout-note">Flat price. One business day. <a href="#snapshot">Review the deliverable.</a></p>
-					</div>
+						<p>Secure checkout through Stripe.</p>
+					</aside>
 				</section>
-
-				<section class="auditor section-pad" aria-labelledby="auditor-title">
-					<div class="auditor-intro">
-						<p class="section-label">Who will be doing the audit</p>
-						<h2 id="auditor-title">A practical operator who knows the difference between useful AI and expensive theater.</h2>
-					</div>
-					<div class="auditor-grid">
-						<figure class="auditor-photo">
-							<img src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire" loading="lazy" />
-							<figcaption>Jack Maguire · Your AI Audit</figcaption>
-						</figure>
-						<div class="auditor-copy">
-							<p>I’m Jack Maguire. I’ve spent more than a decade turning messy marketing and operating questions into measurable systems—including four years leading paid social at National Debt Relief.</p>
-							<p>Across that work, I’ve managed more than $30 million in media spend, helped teams connect creative, measurement, and business goals, and built a habit of asking the question that matters here: <em>will this make the work easier to run next week?</em></p>
-							<p>My AI experience is hands-on and deliberately practical. I use AI to diagnose workflows, reduce repetitive analysis and writing, improve follow-up, and make reporting easier to maintain. I’m not selling a custom software project or asking you to become an AI expert.</p>
-						</div>
-						<div class="auditor-trust-card">
-							<p class="section-label">What that means for you</p>
-							<ul>
-								<li><strong>You work with me directly.</strong> Your answers go into the diagnosis, not a generic automated score.</li>
-								<li><strong>Your constraints stay in the recommendation.</strong> Budget, privacy, team capacity, and software you cannot replace all matter.</li>
-								<li><strong>You get a clear answer.</strong> If a workflow does not justify a tool, I will say so.</li>
-							</ul>
-							<p class="auditor-signoff">The goal is simple: give you a recommendation you can understand, trust, and actually use.</p>
-						</div>
-					</div>
-				</section>
-
-				{false && (<>
-				<section id="offers" class="offers section-pad" aria-labelledby="offers-title">
-					<div class="section-intro">
-						<p class="section-label">Choose your starting point</p>
-						<h2 id="offers-title">Buy the amount of certainty you need.</h2>
-						<p>Each tier below names the document you receive, what is inside it, what you need to provide, and when it arrives. Upgrade credits mean you never pay twice for the same diagnosis.</p>
-					</div>
-					<div class="tier-grid">
-						{tiers.map((tier, index) => (
-							<article id={tier.key} class:list={['tier-card', { featured: index === 0, full: tier.key === 'full' }]}>
-								<div class="tier-topline"><span>{tier.level}</span><strong>{tier.tag}</strong></div>
-								<h3>{tier.name}</h3>
-								<p class="tier-price"><span>$</span>{tier.price}</p>
-								<p class="tier-fit">{tier.fit}</p>
-								<div class="tier-deliverable">
-									<span>Your deliverable</span>
-									<h4>{tier.deliverable}</h4>
-								</div>
-								<p class="tier-includes">What is inside</p>
-								<ul>
-									{tier.features.map((feature) => <li>{feature}</li>)}
-								</ul>
-								<div class="tier-logistics">
-									<p><span>What you provide</span>{tier.input}</p>
-									<p><span>How it arrives</span>{tier.delivery}</p>
-								</div>
-								<div class="tier-guarantee">
-									<span>{tier.guaranteeTitle}</span>
-									<p>{tier.guarantee}</p>
-								</div>
-								<a
-									class="button tier-button"
-									href={tier.checkoutUrl}
-									data-checkout-tier={tier.key}
-									data-checkout-value={tier.price}
-									data-checkout-ready={String(tier.checkoutReady)}
-								>
-									{tier.checkoutReady ? `Pay $${tier.price} and start` : `Request $${tier.price} checkout`}
-									<span aria-hidden="true">→</span>
-								</a>
-								<p class="tier-credit">{tier.credit}</p>
-							</article>
-						))}
-					</div>
-					<p class="payment-note"><strong>Know the full price upfront:</strong> choose the scope that fits, complete its intake, and receive the stated deliverable on the stated timeline.</p>
-				</section>
-
-				<section class="problem section-pad" aria-labelledby="problem-title">
-					<div class="section-intro">
-						<p class="section-label">The problem</p>
-						<h2 id="problem-title">You need leverage. You do not have time to become an AI expert.</h2>
-						<p>You are running a successful business, but the day-to-day operations are running you. The problem is rarely a lack of software. It is knowing which tool will remove a real bottleneck without creating another system to manage.</p>
-					</div>
-					<div class="pain-grid">
-						{painPoints.map((point) => (
-							<article class="pain-card">
-								<span>{point.number}</span>
-								<h3>{point.title}</h3>
-								<p>{point.copy}</p>
-							</article>
-						))}
-					</div>
-					<p class="problem-close">You do not need a custom-coded enterprise transformation. You need a few tools that fix the work slowing you down today.</p>
-				</section>
-
-				<section class="solution section-pad" aria-labelledby="solution-title">
-					<div class="solution-copy">
-						<p class="section-label">The solution</p>
-						<h2 id="solution-title">High impact. Low effort. Nothing else makes the cut.</h2>
-						<p>I act as your AI concierge. I audit your workflows and focus on the top-left quadrant of the effort vs. impact matrix: the quick wins.</p>
-						<p>These are off-the-shelf AI and SaaS tools that require no technical skill to maintain, often total $40 to $60 per month, and can start returning time within days.</p>
-						<ul class="check-list">
-							<li><span aria-hidden="true">✓</span> Fits your current team and workflow</li>
-							<li><span aria-hidden="true">✓</span> Setup measured in minutes, not months</li>
-							<li><span aria-hidden="true">✓</span> Clear owner, cost, and weekly payoff</li>
-						</ul>
-					</div>
-
-					<div class="matrix-wrap">
-						<div class="matrix-title"><span>Effort vs. impact</span><strong>Selection zone</strong></div>
-						<div class="matrix">
-							<div class="quadrant quick"><span>Quick wins</span><small>High impact<br />Low effort</small><i class="pulse one"></i><i class="pulse two"></i><i class="pulse three"></i></div>
-							<div class="quadrant project"><span>Major projects</span><small>High impact<br />High effort</small></div>
-							<div class="quadrant filler"><span>Fill-ins</span><small>Low impact<br />Low effort</small></div>
-							<div class="quadrant avoid"><span>Avoid</span><small>Low impact<br />High effort</small></div>
-						</div>
-						<div class="axis axis-y">Impact <span>Low</span><b>High</b></div>
-						<div class="axis axis-x">Effort <span>Low</span><b>High</b></div>
-					</div>
-				</section>
-
-				<section class="process section-pad" aria-labelledby="process-title">
-					<div class="section-intro compact">
-						<p class="section-label">How it works</p>
-						<h2 id="process-title">Get your answer with a clear scope and timeline.</h2>
-					</div>
-					<div class="process-grid">
-						{process.map((step) => (
-							<article class="process-step">
-								<div class="step-meta"><strong>{step.number}</strong><span>{step.time}</span></div>
-								<h3>{step.title}</h3>
-								<p>{step.copy}</p>
-							</article>
-						))}
-					</div>
-				</section>
-
-				<section class="report section-pad" aria-labelledby="report-title">
-					<div class="report-head">
-						<div>
-							<p class="section-label">Inside the Full AI Audit</p>
-							<h2 id="report-title">The complete roadmap, built for Monday morning.</h2>
-						</div>
-						<p>The $499 Full AI Audit is the complete execution plan. The $79 and $199 offers deliberately stop sooner, so you can buy one useful answer before committing to the full scope.</p>
-					</div>
-					<div class="report-list">
-						{reportSections.map((item) => (
-							<article class="report-row">
-								<span>{item.number}</span>
-								<h3>{item.title}</h3>
-								<p>{item.copy}</p>
-							</article>
-						))}
-					</div>
-				</section>
-
-				<section class="roi section-pad" aria-labelledby="roi-title">
-					<div class="roi-copy">
-						<p class="section-label light">The return</p>
-						<h2 id="roi-title">The value has to survive the math.</h2>
-						<p>Every recommendation shows its work: current weekly task time minus expected weekly task time after implementation equals projected weekly savings. I subtract new oversight time and do not count the same saved minutes twice.</p>
-					</div>
-					<div class="roi-stats">
-						<div><strong>5+</strong><span>full audit weekly<br />savings threshold</span></div>
-						<div><strong>$40-$60</strong><span>common total<br />monthly tool cost</span></div>
-						<div><strong>4 days</strong><span>to complete the<br />quick start plan</span></div>
-					</div>
-				</section>
-
-				<section class="guarantee section-pad" aria-labelledby="guarantee-title">
-					<div class="guarantee-badge" aria-hidden="true"><span>3</span><small>guarantees</small></div>
-					<div class="guarantee-copy">
-						<p class="section-label">The guarantees</p>
-						<h2 id="guarantee-title">Every tier has to earn its price.</h2>
-						<p>I guarantee the savings opportunity identified by the assessment, not results that depend on whether you implement the recommendation. If my analysis does not reach the threshold for your tier, I automatically refund the full fee.</p>
-						<div class="guarantee-ladder">
-							{tiers.map((tier) => (
-								<article>
-									<span>${tier.price}</span>
-									<h3>{tier.guaranteeTitle}</h3>
-									<p>{tier.guarantee}</p>
-								</article>
-							))}
-						</div>
-						<div class="outcomes">
-							<p><span>What counts</span>A recurring task you currently perform, with baseline time, frequency, tool cost, new oversight time, and projected time after implementation.</p>
-							<p><span>What does not count</span>Speculative revenue gains, one-time tasks, overlapping savings, or time that simply moves from you to someone else.</p>
-						</div>
-					</div>
-				</section>
-
-				<section id="start" class="booking section-pad" aria-labelledby="book-title">
-					<div class="booking-copy">
-						<p class="section-label light">Ready when you are</p>
-						<h2 id="book-title">Start small. Keep the upside.</h2>
-						<p>The $79 Snapshot is the cleanest first step for most owners. If it exposes a bigger opportunity, every dollar carries forward for 30 days.</p>
-						<ul>
-							<li>Know the full price upfront</li>
-							<li>Get your answer without a sales call</li>
-							<li>100% credit on the next tier</li>
-							<li>No coding or AI expertise required</li>
-						</ul>
-					</div>
-
-					<div class="checkout-shell">
-						<p class="checkout-kicker">Recommended first purchase</p>
-						<div class="checkout-price"><span>$</span><strong>79</strong></div>
-						<h3>AI Bottleneck Snapshot</h3>
-						<p>Complete the 8-question intake and receive a 1-page PDF with your primary bottleneck, one exact recommendation, savings estimate, tool cost, and setup steps.</p>
-						<a
-							class="button button-form"
-							href={tiers[0].checkoutUrl}
-							data-checkout-tier="snapshot"
-							data-checkout-value="79"
-							data-checkout-ready={String(tiers[0].checkoutReady)}
-						>
-							{tiers[0].checkoutReady ? 'Pay $79 and start' : 'Request $79 checkout'} <span>→</span>
-						</a>
-						<p class="checkout-note">Flat price and a clearly defined deliverable. Need more depth? <a href="#offers">Compare all three options.</a></p>
-					</div>
-				</section>
-				</>)}
 			</main>
 
-			<footer>
+			<footer class="page-footer">
 				<a href="/">Jack Maguire</a>
 				<a href="/privacy-policy/">Privacy</a>
 				<span>New York City</span>
 			</footer>
 		</div>
 
-		<script>
-			function trackAuditEvent(name, parameters = {}) {
-				const debugMode = new URLSearchParams(window.location.search).get('ga_debug') === '1';
-				const gaCookie = document.cookie.match(/(?:^|; )_ga=GA\d+\.\d+\.(\d+\.\d+)/)?.[1];
-				const clientId = gaCookie || `audit.${crypto.randomUUID()}`;
-				const sessionKey = 'jm_ga4_audit_session';
-				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
-				sessionStorage.setItem(sessionKey, sessionId);
-				return fetch('/api/ga4-audit-event/', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ event_name: name, params: { content_group: 'ai_audit', ...parameters }, client_id: clientId, session_id: sessionId, debug_mode: debugMode }),
-					keepalive: true,
-				}).catch(() => {});
-			}
+		<script define:vars={{ fallbackCheckoutUrl }}>
+			const attributionStorageKey = 'jm_ai_audit_attribution_v2';
+			const landingSessionKey = 'jm_ai_audit_landing_session';
+			const internalTrafficKey = 'jm_ga_internal';
 
 			function readCookie(name) {
 				return document.cookie
@@ -921,7 +228,7 @@ const intakeQuestions = [
 					.find((cookie) => cookie.startsWith(`${name}=`))
 					?.split('=')
 					.slice(1)
-					.join('=');
+					.join('=') || '';
 			}
 
 			function getFbc() {
@@ -930,76 +237,146 @@ const intakeQuestions = [
 				const storedFbc = sessionStorage.getItem('jm_meta_fbc');
 				if (storedFbc) return storedFbc;
 				const fbclid = new URLSearchParams(window.location.search).get('fbclid');
-				if (!fbclid) return undefined;
+				if (!fbclid) return '';
 				const fbc = `fb.1.${Date.now()}.${fbclid}`;
 				sessionStorage.setItem('jm_meta_fbc', fbc);
 				return fbc;
 			}
 
-			function encodeCheckoutAttribution() {
-				const fbp = readCookie('_fbp') || '';
-				const fbc = getFbc() || '';
-				const gaCookie = readCookie('_ga') || '';
-				const gaMatch = gaCookie.match(/GA\d+\.\d+\.(\d+\.\d+)/);
-				const gaClientId = gaMatch?.[1] || '';
-				if (!fbp && !fbc && !gaClientId) return '';
-
-				const encode = (values) => btoa(values.join('|'))
-					.replace(/\+/g, '-')
-					.replace(/\//g, '_')
-					.replace(/=+$/g, '');
-				let reference = `m1_${encode([fbp, fbc, gaClientId])}`;
-
-				if (reference.length > 200 && gaClientId) reference = `m1_${encode(['', '', gaClientId])}`;
-				if (reference.length > 200 && fbc) reference = `m1_${encode(['', fbc, ''])}`;
-				if (reference.length > 200 && fbp) reference = `m1_${encode([fbp, '', ''])}`;
-				return reference.length <= 200 ? reference : '';
+			function safeStoredAttribution() {
+				try {
+					return JSON.parse(sessionStorage.getItem(attributionStorageKey) || '{}');
+				} catch {
+					return {};
+				}
 			}
 
-			document.querySelectorAll('[data-checkout-tier]').forEach((link) => {
+			function getLandingAttribution() {
+				const params = new URLSearchParams(window.location.search);
+				const stored = safeStoredAttribution();
+				const landingSessionId = sessionStorage.getItem(landingSessionKey) || crypto.randomUUID();
+				sessionStorage.setItem(landingSessionKey, landingSessionId);
+				const gaMatch = readCookie('_ga').match(/GA\d+\.\d+\.(\d+\.\d+)/);
+				const next = {
+					utm_source: params.get('utm_source') || stored.utm_source || '',
+					utm_medium: params.get('utm_medium') || stored.utm_medium || '',
+					campaign: params.get('utm_campaign') || stored.campaign || '',
+					ad_name: params.get('utm_content') || stored.ad_name || '',
+					placement: params.get('utm_term') || stored.placement || '',
+					landing_session_id: landingSessionId,
+					meta_fbclid: params.get('fbclid') || stored.meta_fbclid || '',
+					meta_fbp: readCookie('_fbp') || stored.meta_fbp || '',
+					meta_fbc: getFbc() || stored.meta_fbc || '',
+					ga_client_id: gaMatch?.[1] || stored.ga_client_id || '',
+				};
+				sessionStorage.setItem(attributionStorageKey, JSON.stringify(next));
+				return next;
+			}
+
+			function encodeClientReference(attribution) {
+				const values = [attribution.meta_fbp || '', attribution.meta_fbc || '', attribution.ga_client_id || ''];
+				if (!values.some(Boolean)) return '';
+				const encoded = btoa(values.join('|')).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+				return encoded.length <= 197 ? `m1_${encoded}` : '';
+			}
+
+			function trackAuditEvent(name, parameters = {}) {
+				const params = new URLSearchParams(window.location.search);
+				const debugMode = params.get('ga_debug') === '1';
+				const internalTraffic = debugMode || localStorage.getItem(internalTrafficKey) === '1';
+				const attribution = getLandingAttribution();
+				const clientId = attribution.ga_client_id || `audit.${crypto.randomUUID()}`;
+				const sessionKey = 'jm_ga4_audit_session';
+				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
+				sessionStorage.setItem(sessionKey, sessionId);
+				return fetch('/api/ga4-audit-event/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						event_name: name,
+						params: {
+							content_group: 'ai_audit',
+							campaign: attribution.campaign,
+							ad_name: attribution.ad_name,
+							placement: attribution.placement,
+							landing_session_id: attribution.landing_session_id,
+							...parameters,
+						},
+						client_id: clientId,
+						session_id: sessionId,
+						debug_mode: debugMode,
+						internal_traffic: internalTraffic,
+					}),
+					keepalive: true,
+				}).catch(() => {});
+			}
+
+			function buildFallbackUrl(attribution) {
+				const url = new URL(fallbackCheckoutUrl);
+				const reference = encodeClientReference(attribution);
+				if (reference) url.searchParams.set('client_reference_id', reference);
+				const values = {
+					utm_source: attribution.utm_source,
+					utm_medium: attribution.utm_medium,
+					utm_campaign: attribution.campaign,
+					utm_content: attribution.ad_name,
+					utm_term: attribution.placement,
+				};
+				Object.entries(values).forEach(([key, value]) => {
+					if (value) url.searchParams.set(key, value);
+				});
+				return url.toString();
+			}
+
+			document.querySelectorAll('[data-audit-checkout]').forEach((link) => {
 				link.addEventListener('click', async (event) => {
-					if (!(link instanceof HTMLAnchorElement) || link.dataset.checkoutReady !== 'true') return;
+					if (!(link instanceof HTMLAnchorElement) || link.dataset.loading === 'true') return;
 					event.preventDefault();
-					const tier = link.dataset.checkoutTier || 'unknown';
-					const value = Number(link.dataset.checkoutValue || 0);
-					const ctaLocation = link.closest('section')?.id || 'hero';
-					const itemId = `ai_audit_${tier}`;
+					link.dataset.loading = 'true';
+					link.setAttribute('aria-busy', 'true');
+					const label = link.querySelector('.button-label');
+					if (label) label.textContent = 'Opening secure checkout...';
+
+					const attribution = getLandingAttribution();
+					const ctaLocation = link.dataset.ctaLocation || 'unknown';
 					if (typeof window.fbq === 'function') {
 						window.fbq('track', 'InitiateCheckout', {
-							content_name: `ai_audit_${link.dataset.checkoutTier}`,
+							content_name: 'ai_audit_snapshot',
 							content_type: 'product',
-							value,
+							value: 79,
 							currency: 'USD',
 						});
 					}
-					const gaRequests = [
-						trackAuditEvent('ai_audit_cta_clicked', { tier, value, currency: 'USD', cta_location: ctaLocation }),
+
+					await Promise.all([
+						trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: 79, currency: 'USD', cta_location: ctaLocation }),
 						trackAuditEvent('begin_checkout', {
-						tier,
-						value,
-						currency: 'USD',
-						cta_location: ctaLocation,
-						items: [{ item_id: itemId, item_name: tier, price: value, quantity: 1 }],
+							tier: 'snapshot',
+							value: 79,
+							currency: 'USD',
+							cta_location: ctaLocation,
+							items: [{ item_id: 'ai_audit_snapshot', item_name: 'AI Bottleneck Snapshot', price: 79, quantity: 1 }],
 						}),
-						trackAuditEvent('ai_audit_checkout_started', { tier, value, currency: 'USD', cta_location: ctaLocation }),
-					];
-					await Promise.all(gaRequests);
-					const checkoutUrl = new URL(link.href);
-					const clientReferenceId = encodeCheckoutAttribution();
-					if (clientReferenceId) checkoutUrl.searchParams.set('client_reference_id', clientReferenceId);
+						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: 79, currency: 'USD', cta_location: ctaLocation }),
+					]);
 
-					const landingParams = new URLSearchParams(window.location.search);
-					['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
-						// Meta ad names and placements commonly contain spaces, punctuation, and
-						// parentheses. URLSearchParams safely encodes those values for Stripe.
-						const value = landingParams.get(key)?.trim();
-						if (value && value.length <= 150 && !/[\u0000-\u001F\u007F]/.test(value)) {
-							checkoutUrl.searchParams.set(key, value);
-						}
-					});
-					link.href = checkoutUrl.toString();
-
-					window.setTimeout(() => window.location.assign(link.href), 350);
+					try {
+						const response = await fetch('/api/stripe-ai-audit-checkout/', {
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json' },
+							body: JSON.stringify({
+								tier: 'snapshot',
+								...attribution,
+								client_reference_id: encodeClientReference(attribution),
+							}),
+						});
+						if (!response.ok) throw new Error('Checkout Session could not be created');
+						const result = await response.json();
+						if (!result.url || !result.url.startsWith('https://checkout.stripe.com/')) throw new Error('Invalid Checkout URL');
+						window.location.assign(result.url);
+					} catch {
+						window.location.assign(buildFallbackUrl(attribution));
+					}
 				});
 			});
 		</script>
@@ -1007,37 +384,18 @@ const intakeQuestions = [
 </html>
 
 <style>
-	:global(*) {
-		box-sizing: border-box;
-	}
-
-	:global(html) {
-		scroll-behavior: smooth;
-		background: #f4f0e7;
-	}
-
-	:global(body) {
-		margin: 0;
-		background: #f4f0e7;
-		color: #171812;
-	}
-
-	:global(body),
-	:global(button),
-	:global(input),
-	:global(select),
-	:global(textarea) {
-		font-family: var(--font-ui), Arial, sans-serif;
-	}
+	:global(*) { box-sizing: border-box; }
+	:global(html) { scroll-behavior: smooth; background: #f4f0e7; }
+	:global(body) { margin: 0; background: #f4f0e7; color: #171812; }
+	:global(body), :global(button), :global(input), :global(select), :global(textarea) { font-family: var(--font-ui), Arial, sans-serif; }
 
 	.audit-page {
 		--ink: #171812;
 		--paper: #f4f0e7;
 		--paper-light: #fcfaf5;
 		--green: #b8ff43;
-		--green-dark: #5f7f24;
 		--blue: #3156f5;
-		--line: rgba(23, 24, 18, 0.19);
+		--line: rgba(23, 24, 18, 0.2);
 		min-height: 100vh;
 		overflow: hidden;
 		background:
@@ -1047,2505 +405,176 @@ const intakeQuestions = [
 		background-size: 36px 36px;
 	}
 
-	.audit-page > main {
-		width: 100%;
-		max-width: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.topbar,
-	.hero,
-	.section-pad,
-	footer {
-		width: min(1180px, calc(100% - 48px));
-		margin: 0 auto;
-	}
+	.audit-page > main { width: 100%; max-width: none; margin: 0; padding: 0; }
+	.topbar, .hero, .section-shell, .page-footer { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
 	.topbar {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 24px 0;
+		min-height: 82px;
 		border-bottom: 1px solid var(--ink);
 	}
 
-	.brand {
-		display: inline-flex;
-		align-items: center;
-		gap: 12px;
-		color: var(--ink);
-		font-size: 0.82rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-decoration: none;
-		text-transform: uppercase;
-	}
-
-	.brand-mark {
-		display: grid;
-		width: 36px;
-		height: 36px;
-		place-items: center;
-		background: var(--ink);
-		color: var(--paper-light);
-		font-size: 0.7rem;
-	}
-
-	.topbar-link {
-		color: var(--ink);
-		font-size: 0.82rem;
-		font-weight: 800;
-		text-decoration-thickness: 1px;
-		text-underline-offset: 4px;
-		text-transform: uppercase;
-	}
-
-	.topbar-link span {
-		color: var(--green-dark);
-		margin-left: 6px;
-	}
+	.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+	.brand-mark { display: grid; width: 36px; height: 36px; place-items: center; background: var(--ink); color: white; font-size: 11px; }
+	.topbar-link { color: var(--ink); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+	.topbar-link span { margin-left: 8px; color: #486700; }
 
 	.hero {
 		display: grid;
-		grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
-		gap: clamp(48px, 7vw, 100px);
+		grid-template-columns: minmax(0, 1.65fr) minmax(330px, 0.75fr);
+		gap: 74px;
 		align-items: center;
-		min-height: 690px;
-		padding: 78px 0 82px;
-	}
-
-	.eyebrow,
-	.section-label {
-		margin: 0 0 22px;
-		font-size: 0.76rem;
-		font-weight: 800;
-		letter-spacing: 0.13em;
-		line-height: 1.4;
-		text-transform: uppercase;
-	}
-
-	.eyebrow {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	}
-
-	.eyebrow span {
-		display: block;
-		width: 28px;
-		height: 3px;
-		background: var(--blue);
-	}
-
-	.hero h1,
-	.section-intro h2,
-	.solution h2,
-	.report h2,
-	.roi h2,
-	.guarantee h2,
-	.booking h2 {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-weight: 800;
-		letter-spacing: -0.052em;
-	}
-
-	.hero h1 {
-		max-width: 790px;
-		margin: 0;
-		font-size: clamp(4rem, 7.5vw, 7.7rem);
-		line-height: 0.88;
-	}
-
-	.hero-note {
-		width: fit-content;
-		margin: 26px 0 0;
-		padding: 7px 11px;
-		background: var(--green);
-		font-size: clamp(1rem, 2vw, 1.2rem);
-		font-weight: 800;
-		transform: rotate(-1.2deg);
-	}
-
-	.hero-subhead {
-		max-width: 670px;
-		margin: 28px 0 0;
-		font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-		line-height: 1.55;
-	}
-
-	.hero-actions {
-		display: flex;
-		align-items: center;
-		gap: 24px;
-		margin-top: 34px;
-	}
-
-	.hero-actions p {
-		max-width: 330px;
-		margin: 0;
-		font-size: 0.78rem;
-		line-height: 1.5;
-	}
-
-	.process-link {
-		align-self: center;
-		color: var(--ink);
-		font-size: 0.76rem;
-		font-weight: 800;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		white-space: nowrap;
-	}
-
-	.process-link span,
-	.process-preview-foot a span {
-		color: var(--blue);
-		font-size: 1rem;
-	}
-
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 28px;
-		min-height: 58px;
-		padding: 0 20px;
-		border: 1px solid var(--ink);
-		font-size: 0.88rem;
-		font-weight: 800;
-		letter-spacing: 0.01em;
-		text-decoration: none;
-		text-transform: uppercase;
-		transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-	}
-
-	.button:hover,
-	.button:focus-visible {
-		transform: translate(-3px, -3px);
-		box-shadow: 6px 6px 0 var(--ink);
-	}
-
-	.button-primary {
-		min-width: 300px;
-		background: var(--ink);
-		color: #fff;
-	}
-
-	.button-primary span {
-		color: var(--green);
-	}
-
-	.audit-card {
-		position: relative;
-		padding: 22px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 14px 14px 0 var(--blue);
-	}
-
-	.audit-card::before {
-		position: absolute;
-		top: -12px;
-		right: 22px;
-		width: 86px;
-		height: 25px;
-		background: rgba(184, 255, 67, 0.78);
-		content: '';
-		transform: rotate(2deg);
-	}
-
-	.audit-card-head,
-	.audit-card-foot {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.audit-card-head {
-		padding-bottom: 18px;
-		border-bottom: 1px solid var(--line);
-		font-size: 0.67rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.status {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-	}
-
-	.status i {
-		width: 7px;
-		height: 7px;
-		background: var(--green-dark);
-	}
-
-	.time-number {
-		display: flex;
-		align-items: flex-end;
-		gap: 14px;
-		margin: 28px 0 22px;
-	}
-
-	.time-number strong {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(4.8rem, 8vw, 7rem);
-		letter-spacing: -0.08em;
-		line-height: 0.72;
-	}
-
-	.time-number span {
-		font-size: 0.76rem;
-		font-weight: 800;
-		line-height: 1.35;
-		text-transform: uppercase;
-	}
-
-	.mini-chart {
-		display: flex;
-		align-items: flex-end;
-		gap: 8px;
-		height: 120px;
-		padding: 12px 0 0;
-		border-top: 1px dashed var(--line);
+		min-height: 780px;
+		padding: 76px 0;
 		border-bottom: 1px solid var(--ink);
 	}
 
-	.mini-chart span {
-		flex: 1;
-		background: var(--green);
-		border: 1px solid var(--ink);
-		border-bottom: 0;
-	}
-
-	.audit-card-foot {
-		gap: 20px;
-		padding-top: 18px;
-	}
-
-	.audit-card-foot div {
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-	}
-
-	.audit-card-foot span {
-		color: #696b61;
-		font-size: 0.67rem;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
-
-	.audit-card-foot strong {
-		font-size: 0.95rem;
-	}
-
-	.hero-tier-list {
-		display: grid;
-		margin: 20px 0;
-		border-top: 1px solid var(--ink);
-	}
-
-	.hero-tier-list a {
-		display: grid;
-		grid-template-columns: 34px 1fr auto;
-		gap: 12px;
-		align-items: center;
-		padding: 20px 4px;
-		border-bottom: 1px solid var(--ink);
-		color: var(--ink);
-		text-decoration: none;
-		transition: background 160ms ease, padding 160ms ease;
-	}
-
-	.hero-tier-list a:hover,
-	.hero-tier-list a:focus-visible {
-		padding-right: 10px;
-		padding-left: 10px;
-		background: var(--green);
-	}
-
-	.hero-tier-list span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.68rem;
-		font-weight: 800;
-	}
-
-	.hero-tier-list strong {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.1rem;
-	}
-
-	.hero-tier-list b {
-		font-size: 1.18rem;
-	}
-
-	.ticker {
-		display: flex;
-		justify-content: center;
-		border-top: 1px solid var(--ink);
-		border-bottom: 1px solid var(--ink);
-		background: var(--green);
-		overflow: hidden;
-	}
-
-	.ticker span {
-		position: relative;
-		flex: 0 0 auto;
-		padding: 16px 34px;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.ticker span + span::before {
-		position: absolute;
-		left: 0;
-		content: '•';
-	}
-
-	.section-pad {
-		padding-top: clamp(90px, 11vw, 150px);
-		padding-bottom: clamp(90px, 11vw, 150px);
-	}
-
-	.section-intro {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
-		gap: 70px;
-		align-items: end;
-		margin-bottom: 70px;
-	}
-
-	.section-intro .section-label {
-		grid-column: 1 / -1;
-		margin-bottom: -40px;
-		color: var(--green-dark);
-	}
-
-	.section-intro h2,
-	.offers h2,
-	.solution h2,
-	.report h2,
-	.roi h2,
-	.guarantee h2,
-	.booking h2 {
-		margin: 0;
-		font-size: clamp(2.7rem, 5.3vw, 5.3rem);
-		line-height: 0.98;
-	}
-
-	.offers {
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.offers .section-label {
-		color: var(--green-dark);
-	}
-
-	.tier-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
-	}
-
-	.tier-card {
-		display: flex;
-		min-height: 980px;
-		padding: 25px;
-		flex-direction: column;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-	}
-
-	.tier-card.featured {
-		background: var(--green);
-		box-shadow: 10px 10px 0 var(--ink);
-		transform: translateY(-10px);
-	}
-
-	.tier-card.full {
-		background: var(--ink);
-		color: #fff;
-	}
-
-	.tier-card.full h3 {
-		color: #fff;
-	}
-
-	.tier-topline {
-		display: flex;
-		justify-content: space-between;
-		gap: 10px;
-		font-size: 0.65rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.tier-topline strong {
-		color: var(--blue);
-	}
-
-	.tier-card.full .tier-topline strong {
-		color: var(--green);
-	}
-
-	.tier-card h3 {
-		min-height: 68px;
-		margin: 42px 0 8px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(1.65rem, 2.4vw, 2.25rem);
-		line-height: 1.02;
-	}
-
-	.tier-price {
-		display: flex;
-		align-items: flex-start;
-		margin: 5px 0 20px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 5.2rem;
-		font-weight: 800;
-		letter-spacing: -0.08em;
-		line-height: 0.9;
-	}
-
-	.tier-price span {
-		margin: 7px 4px 0 0;
-		font-size: 1.25rem;
-		letter-spacing: 0;
-	}
-
-	.tier-fit {
-		min-height: 95px;
-		margin: 0;
-		font-size: 0.86rem;
-		line-height: 1.55;
-	}
-
-	.tier-deliverable {
-		min-height: 118px;
-		margin-top: 24px;
-		padding: 16px;
-		border: 1px solid currentColor;
-		background: rgba(255, 255, 255, 0.42);
-	}
-
-	.tier-card.full .tier-deliverable {
-		background: rgba(184, 255, 67, 0.08);
-	}
-
-	.tier-deliverable span,
-	.tier-includes,
-	.tier-logistics span {
-		display: block;
-		font-size: 0.62rem;
-		font-weight: 800;
-		letter-spacing: 0.07em;
-		text-transform: uppercase;
-	}
-
-	.tier-deliverable span,
-	.tier-includes {
-		color: var(--blue);
-	}
-
-	.tier-card.full .tier-deliverable span,
-	.tier-card.full .tier-includes {
-		color: var(--green);
-	}
-
-	.tier-deliverable h4 {
-		margin: 24px 0 0;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.18rem;
-		line-height: 1.15;
-	}
-
-	.tier-includes {
-		margin: 22px 0 -12px;
-	}
-
-	.tier-card ul {
-		display: grid;
-		gap: 10px;
-		margin: 26px 0;
-		padding: 20px 0 0;
-		border-top: 1px solid currentColor;
-		list-style: none;
-	}
-
-	.tier-card li {
-		padding-left: 19px;
-		font-size: 0.79rem;
-		font-weight: 700;
-		line-height: 1.4;
-	}
-
-	.tier-card li::before {
-		margin-left: -19px;
-		margin-right: 9px;
-		color: var(--blue);
-		content: '✓';
-	}
-
-	.tier-card.full li::before {
-		color: var(--green);
-	}
-
-	.tier-logistics {
-		display: grid;
-		gap: 10px;
-		margin-bottom: 18px;
-	}
-
-	.tier-logistics p {
-		margin: 0;
-		padding: 13px 0 0;
-		border-top: 1px solid currentColor;
-		font-size: 0.73rem;
-		font-weight: 700;
-		line-height: 1.5;
-	}
-
-	.tier-logistics span {
-		margin-bottom: 5px;
-		opacity: 0.58;
-	}
-
-	.tier-guarantee {
-		margin: 0 0 20px;
-		padding: 16px;
-		border: 1px solid currentColor;
-		background: rgba(255, 255, 255, 0.34);
-	}
-
-	.tier-card.full .tier-guarantee {
-		background: rgba(184, 255, 67, 0.08);
-	}
-
-	.tier-guarantee > span {
-		display: block;
-		margin-bottom: 8px;
-		color: var(--blue);
-		font-size: 0.65rem;
-		font-weight: 800;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.tier-card.full .tier-guarantee > span {
-		color: var(--green);
-	}
-
-	.tier-guarantee p {
-		margin: 0;
-		font-size: 0.75rem;
-		font-weight: 700;
-		line-height: 1.5;
-	}
-
-	.tier-turnaround {
-		display: flex;
-		justify-content: space-between;
-		gap: 14px;
-		margin-top: auto;
-		padding: 14px 0;
-		border-top: 1px solid currentColor;
-		font-size: 0.68rem;
-		text-transform: uppercase;
-	}
-
-	.tier-turnaround span {
-		opacity: 0.65;
-	}
-
-	.tier-button {
-		width: 100%;
-		margin-top: auto;
-		background: var(--blue);
-		border-color: currentColor;
-		color: #fff;
-	}
-
-	.tier-card.full .tier-button {
-		background: var(--green);
-		color: var(--ink);
-	}
-
-	.tier-credit {
-		margin: 15px 0 0;
-		font-size: 0.7rem;
-		font-weight: 700;
-		line-height: 1.45;
-	}
-
-	.payment-note {
-		max-width: 880px;
-		margin: 44px auto 0;
-		padding: 18px 20px;
-		border: 1px solid var(--ink);
-		background: rgba(255, 255, 255, 0.48);
-		font-size: 0.78rem;
-		line-height: 1.55;
-		text-align: center;
-	}
-
-	.section-intro > p:last-child,
-	.solution-copy > p,
-	.report-head > p,
-	.roi-copy > p:last-child,
-	.guarantee-copy > p,
-	.booking-copy > p {
-		margin: 0;
-		font-size: 1.02rem;
-		line-height: 1.72;
-	}
-
-	.pain-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		border-top: 1px solid var(--ink);
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.pain-card {
-		min-height: 285px;
-		padding: 24px;
-	}
-
-	.pain-card + .pain-card {
-		border-left: 1px solid var(--ink);
-	}
-
-	.pain-card > span,
-	.report-row > span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.pain-card h3 {
-		margin: 74px 0 14px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.3rem;
-		line-height: 1.15;
-	}
-
-	.pain-card p {
-		margin: 0;
-		color: #4e5048;
-		font-size: 0.88rem;
-		line-height: 1.6;
-	}
-
-	.problem-close {
-		max-width: 800px;
-		margin: 54px 0 0 auto;
-		padding-left: 28px;
-		border-left: 5px solid var(--green);
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(1.35rem, 2.4vw, 2rem);
-		font-weight: 700;
-		line-height: 1.35;
-	}
-
-	.solution {
-		display: grid;
-		grid-template-columns: minmax(0, 0.85fr) minmax(430px, 0.8fr);
-		gap: clamp(70px, 10vw, 140px);
-		align-items: center;
-		border-top: 1px solid var(--ink);
-	}
-
-	.solution .section-label,
-	.report .section-label,
-	.guarantee .section-label {
-		color: var(--green-dark);
-	}
-
-	.solution-copy > p {
-		margin-top: 25px;
-	}
-
-	.check-list {
-		display: grid;
-		gap: 12px;
-		margin: 32px 0 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.check-list li {
-		display: flex;
-		align-items: center;
-		gap: 11px;
-		font-size: 0.88rem;
-		font-weight: 700;
-	}
-
-	.check-list span {
-		display: grid;
-		width: 23px;
-		height: 23px;
-		place-items: center;
-		background: var(--green);
-		border: 1px solid var(--ink);
-		font-size: 0.76rem;
-	}
-
-	.matrix-wrap {
-		position: relative;
-		padding: 18px 18px 58px 58px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 12px 12px 0 var(--ink);
-	}
-
-	.matrix-title {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 15px;
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.matrix-title strong {
-		color: var(--green-dark);
-	}
-
-	.matrix {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		aspect-ratio: 1 / 0.78;
-		border: 1px solid var(--ink);
-	}
-
-	.quadrant {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 16px;
-		overflow: hidden;
-	}
-
-	.quadrant:nth-child(odd) {
-		border-right: 1px solid var(--ink);
-	}
-
-	.quadrant:nth-child(-n + 2) {
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.quadrant span {
-		font-size: 0.72rem;
-		font-weight: 800;
-		text-transform: uppercase;
-	}
-
-	.quadrant small {
-		font-size: 0.66rem;
-		line-height: 1.35;
-	}
-
-	.quick {
-		background: var(--green);
-	}
-
-	.project,
-	.filler,
-	.avoid {
-		color: #76786f;
-	}
-
-	.avoid {
-		background: rgba(23, 24, 18, 0.05);
-	}
-
-	.pulse {
-		position: absolute;
-		width: 13px;
-		height: 13px;
-		border: 2px solid var(--ink);
-		background: var(--blue);
-		box-shadow: 0 0 0 4px rgba(49, 86, 245, 0.17);
-	}
-
-	.pulse.one { top: 52%; left: 28%; }
-	.pulse.two { top: 37%; left: 55%; }
-	.pulse.three { top: 62%; left: 70%; }
-
-	.axis {
-		position: absolute;
-		font-size: 0.62rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.axis span,
-	.axis b {
-		position: absolute;
-		font-size: 0.55rem;
-		font-weight: 700;
-	}
-
-	.axis-y {
-		bottom: 47%;
-		left: 13px;
-		transform: rotate(-90deg);
-	}
-
-	.axis-y span { right: 74px; }
-	.axis-y b { left: 62px; }
-	.axis-x {
-		bottom: 21px;
-		left: 48%;
-	}
-
-	.axis-x span { right: 65px; }
-	.axis-x b { left: 52px; }
-
-	.process {
-		border-top: 1px solid var(--ink);
-	}
-
-	.section-intro.compact {
-		display: block;
-		max-width: 850px;
-	}
-
-	.section-intro.compact .section-label {
-		margin-bottom: 22px;
-	}
-
-	.process-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 18px;
-	}
-
-	.process-step {
-		min-height: 350px;
-		padding: 25px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-	}
-
-	.process-step:nth-child(2) {
-		background: var(--ink);
-		color: #fff;
-		transform: translateY(24px);
-	}
-
-	.step-meta {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.step-meta strong {
-		display: grid;
-		width: 42px;
-		height: 42px;
-		place-items: center;
-		border: 1px solid currentColor;
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-	}
-
-	.step-meta span {
-		padding: 6px 9px;
-		background: var(--green);
-		color: var(--ink);
-		font-size: 0.68rem;
-		font-weight: 800;
-		text-transform: uppercase;
-	}
-
-	.process-step h3 {
-		margin: 100px 0 14px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.55rem;
-	}
-
-	.process-step p {
-		margin: 0;
-		font-size: 0.9rem;
-		line-height: 1.65;
-	}
-
-	.process-preview {
-		border-top: 1px solid var(--ink);
-	}
-
-	.process-preview-head {
-		display: grid;
-		grid-template-columns: 1fr minmax(280px, 0.55fr);
-		gap: 80px;
-		align-items: end;
-		margin-bottom: 48px;
-	}
-
-	.process-preview-head h2 {
-		max-width: 700px;
-		margin: 0;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(2.8rem, 5vw, 5rem);
-		line-height: 0.95;
-		letter-spacing: -0.052em;
-	}
-
-	.process-preview-head > p {
-		margin: 0;
-		font-size: 0.92rem;
-		line-height: 1.65;
-	}
-
-	.process-preview-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
-	}
-
-	.process-screen {
-		margin: 0;
-	}
-
-	.screen-window {
-		border: 1px solid var(--ink);
-		background: #fff;
-		box-shadow: 8px 8px 0 var(--blue);
-	}
-
-	.screen-bar {
-		display: flex;
-		align-items: center;
-		gap: 5px;
-		min-height: 31px;
-		padding: 0 10px;
-		border-bottom: 1px solid var(--line);
-		background: #ece9e1;
-	}
-
-	.screen-bar > span {
-		width: 7px;
-		height: 7px;
-		border: 1px solid var(--ink);
-		border-radius: 50%;
-		background: var(--green);
-	}
-
-	.screen-bar > span:nth-child(2) { background: #ffb548; }
-	.screen-bar > span:nth-child(3) { background: #ff7c68; }
-
-	.screen-bar small {
-		margin-left: 8px;
-		color: #6a6c64;
-		font-size: 0.56rem;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-	}
-
-	.screen-body {
-		min-height: 310px;
-		padding: 24px 20px;
-	}
-
-	.screen-kicker,
-	.screen-label,
-	.screen-progress,
-	.report-mini-head,
-	.report-mini-hero span,
-	.report-mini-grid span {
-		font-size: 0.58rem;
-		font-weight: 800;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.screen-kicker {
-		margin: 0 0 8px;
-		color: #6a6c64;
-	}
-
-	.screen-price {
-		display: block;
-		margin-bottom: 24px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 2.2rem;
-		letter-spacing: -0.06em;
-	}
-
-	.screen-label {
-		margin: 17px 0 7px;
-		color: #54564f;
-	}
-
-	.screen-input,
-	.screen-textarea {
-		min-height: 34px;
-		padding: 9px 10px;
-		border: 1px solid #c4c5be;
-		color: #8b8d85;
-		font-size: 0.68rem;
-	}
-
-	.screen-textarea {
-		min-height: 52px;
-	}
-
-	.screen-button {
-		margin-top: 18px;
-		padding: 10px 12px;
-		background: var(--ink);
-		color: #fff;
-		font-size: 0.67rem;
-		font-weight: 800;
-		letter-spacing: 0.04em;
-		text-align: center;
-		text-transform: uppercase;
-	}
-
-	.screen-progress {
-		display: flex;
-		justify-content: space-between;
-		padding-bottom: 12px;
-		border-bottom: 3px solid var(--green);
-		color: #53554e;
-	}
-
-	.screen-options {
-		display: grid;
-		gap: 5px;
-		color: #65675f;
-		font-size: 0.67rem;
-	}
-
-	.report-preview-screen {
-		background: #f8f5ed;
-	}
-
-	.report-mini-head {
-		display: flex;
-		justify-content: space-between;
-		padding-bottom: 12px;
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.report-mini-head span {
-		color: var(--blue);
-	}
-
-	.report-mini-hero {
-		padding: 32px 0 24px;
-		border-bottom: 1px solid var(--line);
-	}
-
-	.report-mini-hero span,
-	.report-mini-grid span {
-		display: block;
-		margin-bottom: 8px;
-		color: #6b6d65;
-	}
-
-	.report-mini-hero strong {
-		display: block;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.5rem;
-		letter-spacing: -0.04em;
-	}
-
-	.report-mini-hero small {
-		display: block;
-		margin-top: 8px;
-		color: #686a62;
-		font-size: 0.68rem;
-		line-height: 1.45;
-	}
-
-	.report-mini-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-		padding: 18px 0;
-	}
-
-	.report-mini-grid > div + div {
-		padding-left: 14px;
-		border-left: 1px solid var(--line);
-	}
-
-	.report-mini-grid strong {
-		font-size: 0.72rem;
-		line-height: 1.35;
-	}
-
-	.report-mini-foot {
-		padding: 10px;
-		background: var(--green);
-		font-size: 0.65rem;
-		font-weight: 700;
-		line-height: 1.4;
-	}
-
-	.process-screen figcaption {
-		display: grid;
-		grid-template-columns: 34px 1fr;
-		gap: 12px;
-		padding: 22px 0 0;
-	}
-
-	.process-screen figcaption > span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.process-screen figcaption strong,
-	.process-screen figcaption small {
-		display: block;
-	}
-
-	.process-screen figcaption strong {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.05rem;
-		line-height: 1.2;
-	}
-
-	.process-screen figcaption small {
-		margin-top: 7px;
-		color: #65675f;
-		font-size: 0.78rem;
-		line-height: 1.45;
-	}
-
-	.process-preview-foot {
-		display: flex;
-		align-items: center;
-		gap: 18px;
-		margin-top: 46px;
-		padding: 17px 20px;
-		border: 1px solid var(--ink);
-		background: var(--green);
-		font-size: 0.78rem;
-	}
-
-	.process-preview-foot > span {
-		font-weight: 800;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-	}
-
-	.process-preview-foot strong {
-		margin-right: auto;
-	}
-
-	.process-preview-foot a {
-		color: var(--ink);
-		font-weight: 800;
-		white-space: nowrap;
-	}
-
-	.report {
-		border-top: 1px solid var(--ink);
-	}
-
-	.report-head {
-		display: grid;
-		grid-template-columns: 1fr 0.48fr;
-		gap: 80px;
-		align-items: end;
-		margin-bottom: 60px;
-	}
-
-	.report-list {
-		border-top: 1px solid var(--ink);
-	}
-
-	.report-row {
-		display: grid;
-		grid-template-columns: 70px minmax(220px, 0.55fr) 1fr;
-		gap: 30px;
-		align-items: center;
-		padding: 28px 0;
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.report-row h3 {
-		margin: 0;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.2rem;
-	}
-
-	.report-row p {
-		margin: 0;
-		font-size: 0.88rem;
-		line-height: 1.6;
-	}
-
-	.roi {
-		display: grid;
-		grid-template-columns: minmax(280px, 0.7fr) 1fr;
-		gap: 90px;
-		align-items: center;
-		width: 100%;
-		max-width: none;
-		padding-right: max(24px, calc((100vw - 1180px) / 2));
-		padding-left: max(24px, calc((100vw - 1180px) / 2));
-		background: var(--blue);
-		color: #fff;
-	}
-
-	.section-label.light {
-		color: var(--green);
-	}
-
-	.roi-copy > p:last-child {
-		margin-top: 25px;
-		color: rgba(255, 255, 255, 0.78);
-	}
-
-	.roi-stats {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		border: 1px solid #fff;
-	}
-
-	.roi-stats div {
-		display: flex;
-		min-height: 220px;
-		padding: 24px;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.roi-stats div + div {
-		border-left: 1px solid #fff;
-	}
-
-	.roi-stats strong {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(2.5rem, 4vw, 4.2rem);
-		letter-spacing: -0.06em;
-		line-height: 0.95;
-	}
-
-	.roi-stats span {
-		font-size: 0.7rem;
-		font-weight: 800;
-		line-height: 1.45;
-		text-transform: uppercase;
-	}
-
-	.guarantee {
-		display: grid;
-		grid-template-columns: 280px 1fr;
-		gap: 80px;
-		align-items: center;
-	}
-
-	.guarantee-badge {
-		display: grid;
-		width: 250px;
-		height: 250px;
-		place-content: center;
-		border: 2px solid var(--ink);
-		background: var(--green);
-		box-shadow: 14px 14px 0 var(--ink);
-		text-align: center;
-		transform: rotate(-3deg);
-	}
-
-	.guarantee-badge span {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 6.4rem;
-		font-weight: 800;
-		letter-spacing: -0.1em;
-		line-height: 0.78;
-	}
-
-	.guarantee-badge small {
-		margin-top: 12px;
-		font-size: 0.9rem;
-		font-weight: 800;
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-	}
-
-	.guarantee-copy > p {
-		max-width: 760px;
-		margin-top: 24px;
-	}
-
-	.guarantee-ladder {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 12px;
-		margin-top: 32px;
-	}
-
-	.guarantee-ladder article {
-		padding: 17px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-	}
-
-	.guarantee-ladder article > span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.guarantee-ladder h3 {
-		margin: 28px 0 10px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.15rem;
-		line-height: 1.1;
-	}
-
-	.guarantee-ladder p {
-		margin: 0;
-		font-size: 0.72rem;
-		line-height: 1.5;
-	}
-
-	.outcomes {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-		margin-top: 30px;
-	}
-
-	.outcomes p {
-		margin: 0;
-		padding: 16px;
-		border: 1px solid var(--ink);
-		font-size: 0.82rem;
-		line-height: 1.5;
-	}
-
-	.outcomes span {
-		display: block;
-		margin-bottom: 8px;
-		color: var(--blue);
-		font-size: 0.67rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.booking {
-		display: grid;
-		grid-template-columns: 0.75fr 1fr;
-		gap: 90px;
-		width: 100%;
-		max-width: none;
-		padding-right: max(24px, calc((100vw - 1180px) / 2));
-		padding-left: max(24px, calc((100vw - 1180px) / 2));
-		background: var(--ink);
-		color: #fff;
-	}
-
-	.booking-copy > p {
-		margin-top: 25px;
-		color: rgba(255, 255, 255, 0.75);
-	}
-
-	.booking-copy ul {
-		display: grid;
-		gap: 12px;
-		margin: 34px 0 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.booking-copy li {
-		padding: 10px 0 10px 24px;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-		font-size: 0.85rem;
-		font-weight: 700;
-	}
-
-	.booking-copy li::before {
-		content: '✓';
-		margin-left: -24px;
-		margin-right: 10px;
-		color: var(--green);
-	}
-
-	.form-shell {
-		padding: clamp(24px, 4vw, 44px);
-		background: var(--paper-light);
-		color: var(--ink);
-		box-shadow: 12px 12px 0 var(--green);
-	}
-
-	.checkout-shell {
-		padding: clamp(28px, 4vw, 48px);
-		background: var(--paper-light);
-		color: var(--ink);
-		box-shadow: 12px 12px 0 var(--green);
-	}
-
-	.checkout-kicker {
-		margin: 0 0 24px;
-		color: var(--green-dark);
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-	}
-
-	.checkout-price {
-		display: flex;
-		align-items: flex-start;
-	}
-
-	.checkout-price span {
-		margin-top: 8px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.4rem;
-		font-weight: 800;
-	}
-
-	.checkout-price strong {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(5rem, 9vw, 8rem);
-		letter-spacing: -0.09em;
-		line-height: 0.8;
-	}
-
-	.checkout-shell h3 {
-		margin: 26px 0 12px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.8rem;
-	}
-
-	.checkout-shell > p:not(.checkout-kicker):not(.checkout-note) {
-		margin: 0 0 28px;
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
-
-	.checkout-note {
-		margin: 17px 0 0;
-		font-size: 0.7rem;
-		line-height: 1.5;
-	}
-
-	.checkout-note a {
-		color: inherit;
-		font-weight: 800;
-	}
-
-	.snapshot-checklist {
-		display: grid;
-		gap: 0;
-		margin: 20px 0 4px;
-		padding: 0;
-		border-top: 1px solid var(--ink);
-		list-style: none;
-	}
-
-	.snapshot-checklist li {
-		padding: 11px 0 11px 22px;
-		border-bottom: 1px solid var(--line);
-		font-size: 0.78rem;
-		font-weight: 700;
-	}
-
-	.snapshot-checklist li::before {
-		margin-left: -22px;
-		margin-right: 10px;
-		color: var(--blue);
-		content: '\2192';
-	}
-
-	.early-comparison {
-		border-top: 1px solid var(--ink);
-	}
-
-	.early-comparison-grid,
-	.alternatives-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 12px;
-	}
-
-	.early-comparison-card {
-		display: flex;
-		min-height: 230px;
-		flex-direction: column;
-		padding: 24px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-	}
-
-	.early-comparison-card.recommended {
-		background: var(--green);
-		box-shadow: 8px 8px 0 var(--blue);
-	}
-
-	.early-comparison-card span,
-	.early-comparison-card a {
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.07em;
-		text-transform: uppercase;
-	}
-
-	.early-comparison-card strong {
-		margin-top: 22px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 2rem;
-		letter-spacing: -0.04em;
-	}
-
-	.early-comparison-card p {
-		margin: 12px 0 20px;
-		font-size: 0.86rem;
-		line-height: 1.55;
-	}
-
-	.early-comparison-card a {
-		margin-top: auto;
-		color: var(--ink);
-		text-underline-offset: 4px;
-	}
-
-	.alternatives {
-		border-top: 1px solid var(--ink);
-	}
-
-	.alternatives-grid {
-		grid-template-columns: repeat(4, 1fr);
-	}
-
-	.alternatives-grid article {
-		min-height: 220px;
-		padding: 22px;
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-	}
-
-	.alternatives-grid article > span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.alternatives-grid h3 {
-		margin: 30px 0 10px;
-		font-size: 1.08rem;
-	}
-
-	.alternatives-grid p {
-		margin: 0;
-		font-size: 0.83rem;
-		line-height: 1.6;
-	}
-
-	.worked-example {
-		display: grid;
-		grid-template-columns: minmax(260px, 0.72fr) minmax(420px, 1fr);
-		gap: 70px;
-		align-items: start;
-		border-top: 1px solid var(--ink);
-	}
-
-	.worked-example h2,
-	.snapshot-offer h2,
-	.authority h2,
-	.depth-options h2,
-	.deliverable-preview h2 {
-		margin: 0;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(2.7rem, 5.3vw, 5.3rem);
-		font-weight: 800;
-		letter-spacing: -0.052em;
-		line-height: 0.98;
-	}
-
-	.example-copy > p:last-child {
-		margin: 25px 0 0;
-		font-size: 1rem;
-		line-height: 1.7;
-	}
-
-	.calculation-card {
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 10px 10px 0 var(--blue);
-	}
-
-	.calculation-card > div {
-		display: grid;
-		grid-template-columns: 0.72fr 1fr auto;
-		gap: 16px;
-		align-items: center;
-		padding: 22px;
-	}
-
-	.calculation-card > div + div {
-		border-top: 1px solid var(--ink);
-	}
-
-	.calculation-card span {
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.07em;
-		text-transform: uppercase;
-	}
-
-	.calculation-card strong {
-		font-size: 0.85rem;
-	}
-
-	.calculation-card b {
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.2rem;
-	}
-
-	.calculation-result {
-		background: var(--green);
-	}
-
-	.proof-reserve {
-		display: grid;
-		grid-column: 1 / -1;
-		grid-template-columns: 1fr 0.8fr;
-		gap: 50px;
-		align-items: center;
-		margin-top: 4px;
-		padding: 30px;
-		border: 1px dashed var(--ink);
-		background: rgba(255, 255, 255, 0.32);
-	}
-
-	.proof-reserve h3 {
-		margin: 0 0 10px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.55rem;
-	}
-
-	.proof-reserve p:last-child {
-		margin: 0;
-		font-size: 0.85rem;
-		line-height: 1.6;
-	}
-
-	.proof-slots {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 8px;
-	}
-
-	.proof-slots span {
-		display: grid;
-		min-height: 72px;
-		place-items: center;
-		border: 1px dashed var(--line);
-		color: #6b6d64;
-		font-size: 0.65rem;
-		font-weight: 800;
-		text-align: center;
-		text-transform: uppercase;
-	}
-
-	.snapshot-offer {
-		display: grid;
-		grid-template-columns: minmax(280px, 0.78fr) minmax(420px, 1fr);
-		gap: 90px;
-		align-items: center;
-		width: 100%;
-		max-width: none;
-		padding-right: max(24px, calc((100vw - 1180px) / 2));
-		padding-left: max(24px, calc((100vw - 1180px) / 2));
-		background: var(--blue);
-		color: #fff;
-	}
-
-	.snapshot-lead {
-		margin: 26px 0 0;
-		color: rgba(255, 255, 255, 0.82);
-		font-size: 1.04rem;
-		line-height: 1.72;
-	}
-
-	.light-list li {
-		color: #fff;
-	}
-
-	.snapshot-purchase-card {
-		padding: clamp(26px, 4vw, 44px);
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 12px 12px 0 var(--green);
-		color: var(--ink);
-	}
-
-	.snapshot-purchase-card > ul {
-		display: grid;
-		gap: 11px;
-		margin: 24px 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.snapshot-purchase-card > ul li {
-		padding-left: 21px;
-		font-size: 0.84rem;
-		font-weight: 700;
-		line-height: 1.45;
-	}
-
-	.snapshot-purchase-card > ul li::before {
-		margin-left: -21px;
-		margin-right: 9px;
-		color: var(--blue);
-		content: '\2713';
-	}
-
-	.snapshot-purchase-card .tier-button {
-		margin-top: 22px;
-	}
-
-	.authority {
-		border-top: 0;
-	}
-
-	.method-card {
-		padding: clamp(26px, 4vw, 42px);
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 12px 12px 0 var(--green);
-	}
-
-	.method-card h3 {
-		margin: 0 0 16px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: clamp(2rem, 4vw, 3.2rem);
-		line-height: 1;
-	}
-
-	.method-card > p:not(.section-label):not(.method-rule) {
-		margin: 0;
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
-
-	.method-card ol {
-		display: grid;
-		gap: 0;
-		margin: 24px 0;
-		padding: 0;
-		border-top: 1px solid var(--ink);
-		list-style: none;
-		counter-reset: method;
-	}
-
-	.method-card li {
-		padding: 15px 0 15px 38px;
-		border-bottom: 1px solid var(--line);
-		font-size: 0.82rem;
-		line-height: 1.5;
-		counter-increment: method;
-	}
-
-	.method-card li::before {
-		margin-left: -38px;
-		margin-right: 14px;
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-weight: 800;
-		content: '0' counter(method);
-	}
-
-	.method-rule {
-		margin: 0;
-		padding: 15px;
-		background: var(--green);
-		font-size: 0.82rem;
-		font-weight: 800;
-		line-height: 1.5;
-	}
-
-	.depth-options,
-	.deliverable-preview {
-		border-top: 1px solid var(--ink);
-	}
-
-	.depth-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 20px;
-		max-width: 900px;
-		margin: 0 auto;
-	}
-
-	.depth-grid .tier-card {
-		min-height: 900px;
-	}
-
-	.upgrade-note {
-		max-width: 900px;
-		margin: 28px auto 0;
-		padding: 18px 20px;
-		border: 1px solid var(--ink);
-		background: var(--green);
-		font-size: 0.8rem;
-		line-height: 1.55;
-		text-align: center;
-	}
-
-	.preview-sheet {
-		border: 1px solid var(--ink);
-		background: var(--paper-light);
-		box-shadow: 12px 12px 0 var(--blue);
-	}
-
-	.preview-sheet-head {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 20px 24px;
-		border-bottom: 1px solid var(--ink);
-		background: var(--ink);
-		color: #fff;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.preview-sheet-head small {
-		color: var(--green);
-		font: inherit;
-	}
-
-	.preview-sheet-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.preview-sheet-grid article {
-		min-height: 220px;
-		padding: 28px;
-	}
-
-	.preview-sheet-grid article:nth-child(even) {
-		border-left: 1px solid var(--ink);
-	}
-
-	.preview-sheet-grid article:nth-child(n + 3) {
-		border-top: 1px solid var(--ink);
-	}
-
-	.preview-sheet-grid span {
-		color: var(--blue);
-		font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.preview-sheet-grid h3 {
-		margin: 58px 0 12px;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.35rem;
-	}
-
-	.preview-sheet-grid p {
-		margin: 0;
-		font-size: 0.85rem;
-		line-height: 1.6;
-	}
-
-	.faq-block {
-		margin-top: 46px;
-	}
-
-	.faq-list {
-		border-top: 1px solid var(--ink);
-	}
-
-	.faq-list details {
-		border-bottom: 1px solid var(--ink);
-	}
-
-	.faq-list summary {
-		padding: 19px 34px 19px 0;
-		font-family: var(--font-heading), Arial, sans-serif;
-		font-size: 1.15rem;
-		font-weight: 700;
-		cursor: pointer;
-	}
-
-	.faq-list details p {
-		max-width: 780px;
-		margin: 0;
-		padding: 0 34px 20px 0;
-		font-size: 0.84rem;
-		line-height: 1.65;
-	}
-
-	#audit-form {
-		display: grid;
-		gap: 19px;
-	}
-
-	.form-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 16px;
-	}
-
-	#audit-form label {
-		display: grid;
-		gap: 8px;
-	}
-
-	#audit-form label > span {
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.03em;
-		text-transform: uppercase;
-	}
-
-	#audit-form input,
-	#audit-form select,
-	#audit-form textarea {
-		width: 100%;
-		min-height: 48px;
-		padding: 11px 12px;
-		border: 1px solid var(--ink);
-		border-radius: 0;
-		background: #fff;
-		color: var(--ink);
-		font-size: 0.93rem;
-	}
-
-	#audit-form textarea {
-		min-height: 105px;
-		resize: vertical;
-	}
-
-	#audit-form input:focus,
-	#audit-form select:focus,
-	#audit-form textarea:focus {
-		outline: 3px solid var(--green);
-		outline-offset: 1px;
-	}
-
-	.botcheck {
-		position: absolute;
-		left: -9999px;
-	}
-
-	.button-form {
-		width: 100%;
-		background: var(--green);
-		color: var(--ink);
-		cursor: pointer;
-	}
-
-	.button-form:disabled {
-		cursor: wait;
-		opacity: 0.72;
-	}
-
-	.form-note,
-	.form-message {
-		margin: 0;
-		font-size: 0.72rem;
-		line-height: 1.5;
-	}
-
-	.form-message {
-		padding: 14px;
-		border: 1px solid var(--ink);
-		font-size: 0.82rem;
-		font-weight: 700;
-	}
-
-	.form-message.success {
-		background: var(--green);
-	}
-
-	.form-message.error {
-		background: #ffd6cf;
-	}
-
-	footer {
-		display: flex;
-		justify-content: space-between;
-		padding: 28px 0;
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	footer a {
-		color: var(--ink);
-	}
-
-	@media (max-width: 980px) {
-		.hero {
-			grid-template-columns: 1fr;
-			min-height: auto;
-		}
-
-		.audit-card {
-			width: min(520px, calc(100% - 14px));
-		}
-
-		.section-intro,
-		.early-comparison-grid,
-		.alternatives-grid,
-		.solution,
-		.report-head,
-		.roi,
-		.guarantee,
-		.booking,
-		.worked-example,
-		.snapshot-offer {
-			grid-template-columns: 1fr;
-		}
-
-		.tier-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.tier-card,
-		.tier-card h3,
-		.tier-fit {
-			min-height: auto;
-		}
-
-		.tier-card.featured {
-			transform: none;
-		}
-
-		.section-intro .section-label {
-			margin-bottom: -45px;
-		}
-
-		.pain-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.early-comparison-grid,
-		.alternatives-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.pain-card:nth-child(3) {
-			border-left: 0;
-		}
-
-		.pain-card:nth-child(n + 3) {
-			border-top: 1px solid var(--ink);
-		}
-
-		.solution {
-			gap: 70px;
-		}
-
-		.worked-example,
-		.snapshot-offer {
-			gap: 58px;
-		}
-
-		.matrix-wrap {
-			width: min(620px, calc(100% - 12px));
-		}
-
-		.roi,
-		.booking {
-			gap: 58px;
-		}
-
-		.roi-stats {
-			max-width: 760px;
-		}
-
-		.guarantee {
-			grid-template-columns: 230px 1fr;
-			gap: 60px;
-		}
-
-		.guarantee-badge {
-			width: 210px;
-			height: 210px;
-		}
-	}
-
-	@media (max-width: 720px) {
-		.topbar,
-		.hero,
-		.section-pad,
-		footer {
-			width: min(100% - 30px, 1180px);
-		}
-
-		.topbar-link {
-			font-size: 0;
-		}
-
-		.topbar-link span {
-			font-size: 0.72rem;
-		}
-
-		.hero {
-			gap: 60px;
-			padding: 64px 0 76px;
-		}
-
-		.hero h1 {
-			font-size: clamp(3rem, 13vw, 4.2rem);
-			overflow-wrap: break-word;
-		}
-
-		.eyebrow {
-			display: block;
-			font-size: 0.68rem;
-		}
-
-		.eyebrow span {
-			margin-bottom: 12px;
-		}
-
-		.hero-actions {
-			align-items: flex-start;
-			flex-direction: column;
-		}
-
-		.button-primary {
-			width: 100%;
-			min-width: 0;
-		}
-
-		.ticker {
-			justify-content: flex-start;
-			overflow-x: auto;
-		}
-
-		.section-intro {
-			display: block;
-			margin-bottom: 48px;
-		}
-
-		.section-intro .section-label {
-			margin-bottom: 22px;
-		}
-
-		.section-intro h2,
-		.offers h2,
-		.solution h2,
-		.report h2,
-		.roi h2,
-		.guarantee h2,
-		.booking h2,
-		.worked-example h2,
-		.snapshot-offer h2,
-		.authority h2,
-		.depth-options h2,
-		.deliverable-preview h2 {
-			font-size: clamp(2.7rem, 13vw, 4.2rem);
-		}
-
-		.section-intro > p:last-child {
-			margin-top: 24px;
-		}
-
-		.pain-grid,
-		.early-comparison-grid,
-		.alternatives-grid,
-		.process-grid,
-		.process-preview-grid,
-		.outcomes,
-		.depth-grid,
-		.preview-sheet-grid,
-		.proof-reserve {
-			grid-template-columns: 1fr;
-		}
-
-		.calculation-card > div {
-			grid-template-columns: 1fr;
-			gap: 7px;
-		}
-
-		.proof-slots {
-			grid-template-columns: 1fr;
-		}
-
-		.preview-sheet-grid article:nth-child(even) {
-			border-left: 0;
-		}
-
-		.preview-sheet-grid article + article {
-			border-top: 1px solid var(--ink);
-		}
-
-		.pain-card,
-		.process-step,
-		.process-screen {
-			min-height: auto;
-		}
-
-		.process-preview-head {
-			display: block;
-			margin-bottom: 38px;
-		}
-
-		.process-preview-head > p {
-			margin-top: 24px;
-		}
-
-		.process-preview-foot {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 10px;
-		}
-
-		.process-preview-foot strong {
-			margin-right: 0;
-		}
-
-		.pain-card + .pain-card,
-		.pain-card:nth-child(3) {
-			border-top: 1px solid var(--ink);
-			border-left: 0;
-		}
-
-		.pain-card h3,
-		.process-step h3 {
-			margin-top: 58px;
-		}
-
-		.process-step:nth-child(2) {
-			transform: none;
-		}
-
-		.matrix-wrap {
-			padding-left: 45px;
-		}
-
-		.matrix {
-			aspect-ratio: 1;
-		}
-
-		.report-head {
-			gap: 26px;
-		}
-
-		.report-row {
-			grid-template-columns: 42px 1fr;
-			gap: 14px;
-		}
-
-		.report-row p {
-			grid-column: 2;
-		}
-
-		.roi,
-		.booking,
-		.snapshot-offer {
-			width: 100%;
-			padding-right: 15px;
-			padding-left: 15px;
-		}
-
-		.roi-stats {
-			grid-template-columns: 1fr;
-		}
-
-		.roi-stats div {
-			min-height: 160px;
-		}
-
-		.roi-stats div + div {
-			border-top: 1px solid #fff;
-			border-left: 0;
-		}
-
-		.guarantee {
-			grid-template-columns: 1fr;
-		}
-
-		.guarantee-ladder {
-			grid-template-columns: 1fr;
-		}
-
-		.guarantee-badge {
-			width: 180px;
-			height: 180px;
-		}
-
-		.guarantee-badge span {
-			font-size: 5rem;
-		}
-
-		.form-grid {
-			grid-template-columns: 1fr;
-		}
-
-		footer {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 10px;
-		}
-	}
-
-	.sample-reports {
-		background: #171812;
-		color: #fcfaf5;
-		width: 100%;
-		max-width: none;
-		padding-right: max(24px, calc((100% - 1180px) / 2));
-		padding-left: max(24px, calc((100% - 1180px) / 2));
-	}
-
-	.sample-reports .section-intro { max-width: 760px; }
-	.sample-reports .section-label { color: var(--green); }
-	.sample-reports h2 { color: #fcfaf5; }
-	.sample-reports .section-intro > p:last-child { color: rgba(252, 250, 245, 0.72); }
-
-	.sample-report-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 16px;
-		margin-top: 42px;
-	}
-
-	.sample-report-card {
-		padding: 24px;
-		background: #fcfaf5;
-		color: var(--ink);
-		border: 1px solid rgba(252, 250, 245, 0.2);
-		border-top: 5px solid var(--green);
-	}
-
-	.sample-report-card.mini { border-top-color: var(--blue); }
-	.sample-report-card.full { border-top-color: #ff8b5d; }
-
-	.sample-report-topline {
-		display: flex;
-		justify-content: space-between;
-		gap: 12px;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.sample-report-topline span:last-child { color: #7b7d74; }
-	.sample-report-card h3 { margin: 20px 0 24px; font-size: 1.3rem; line-height: 1.15; }
-
-	.sample-report-field {
-		padding: 15px 0;
-		border-top: 1px solid var(--line);
-	}
-
-	.sample-report-field span,
-	.sample-report-next span {
-		display: block;
-		margin-bottom: 7px;
-		color: #686b61;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.sample-report-field p,
-	.sample-report-next p { margin: 0; font-size: 0.92rem; line-height: 1.55; }
-	.sample-report-field strong { display: block; font-size: 1rem; line-height: 1.35; }
-	.sample-report-next { margin-top: 12px; padding: 15px; background: #eef7d9; }
-
-	.intake-questions { padding-top: 92px; padding-bottom: 92px; }
-	.intake-questions .section-intro { max-width: 760px; }
-	.intake-list { margin-top: 34px; border-top: 1px solid var(--line); }
-	.intake-card { border-bottom: 1px solid var(--line); }
-
-	.intake-card summary {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 20px;
-		padding: 22px 0;
-		cursor: pointer;
-		list-style: none;
-		font-size: 1.08rem;
-		font-weight: 800;
-	}
-
-	.intake-card summary::-webkit-details-marker { display: none; }
-	.intake-card summary b { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-size: 1.2rem; font-weight: 400; }
-	.intake-card[open] summary b { transform: rotate(45deg); background: var(--green); border-color: var(--green); }
-	.intake-card ol { max-width: 900px; margin: 0 0 20px; padding-left: 24px; }
-	.intake-card li { padding: 7px 0 7px 8px; font-size: 0.96rem; line-height: 1.5; }
-	.intake-note { max-width: 900px; margin: 22px 0 28px; padding: 14px 16px; border-left: 3px solid var(--green); background: rgba(184, 255, 67, 0.11); font-size: 0.84rem; line-height: 1.55; }
+	.eyebrow, .section-label { margin: 0 0 24px; color: #3e570b; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+	.eyebrow span { width: 28px; height: 3px; background: var(--blue); }
+	.hero h1 { max-width: 820px; margin: 0; font-size: clamp(58px, 6.1vw, 94px); font-weight: 720; letter-spacing: -0.065em; line-height: 0.93; }
+	.hero-note { display: inline-block; margin: 34px 0 20px; padding: 8px 12px; background: var(--green); font-size: 20px; font-weight: 700; transform: rotate(-1deg); }
+	.hero-subhead { max-width: 720px; margin: 0; font-size: 21px; line-height: 1.5; }
+	.hero-actions { display: grid; grid-template-columns: minmax(260px, 330px) minmax(180px, 1fr); gap: 22px; align-items: center; margin-top: 44px; }
+	.hero-actions > p { margin: 0; font-size: 14px; line-height: 1.5; }
+
+	.button { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 60px; padding: 17px 20px; border: 1px solid var(--ink); font-size: 13px; font-weight: 850; letter-spacing: 0.025em; line-height: 1.3; text-decoration: none; text-transform: uppercase; transition: transform 140ms ease, box-shadow 140ms ease; }
+	.button:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--blue); }
+	.button-primary { background: var(--ink); color: white; }
+	.button-primary strong { color: var(--green); }
+	.button[aria-busy='true'] { opacity: 0.72; pointer-events: none; }
+
+	.audit-card { position: relative; padding: 28px; border: 1px solid var(--ink); background: var(--paper-light); box-shadow: 14px 14px 0 var(--blue); }
+	.audit-card::before { position: absolute; top: -14px; right: 18px; width: 84px; height: 24px; background: rgba(184, 255, 67, 0.75); content: ''; transform: rotate(2deg); }
+	.audit-card-head, .audit-card-foot { display: flex; justify-content: space-between; gap: 16px; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+	.audit-card-head { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+	.status { display: flex; align-items: center; gap: 7px; }
+	.status i { width: 7px; height: 7px; background: #5b7f16; }
+	.price-lockup { display: flex; align-items: flex-end; gap: 18px; padding: 28px 0 20px; border-bottom: 1px solid var(--ink); }
+	.price-lockup strong { font-size: 76px; letter-spacing: -0.07em; line-height: 0.85; }
+	.price-lockup span { font-size: 12px; font-weight: 800; line-height: 1.2; text-transform: uppercase; }
+	.audit-card ul { margin: 0; padding: 12px 0; list-style: none; }
+	.audit-card li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 700; }
+	.audit-card li::before { margin-right: 9px; color: var(--blue); content: '\2192'; }
+	.audit-card-foot { padding-top: 22px; }
+	.audit-card-foot div { display: grid; gap: 7px; }
+	.audit-card-foot span { color: #6e6f66; }
+	.audit-card-foot strong { font-size: 13px; }
+
+	.section-shell { padding: 104px 0; border-bottom: 1px solid var(--ink); }
+	.section-heading { display: grid; grid-template-columns: 0.85fr 1.6fr; gap: 28px 70px; align-items: start; margin-bottom: 52px; }
+	.section-heading .section-label { grid-row: 1 / 3; }
+	.section-heading h2, .credibility h2, .faq-block > h2, .final-cta h2 { margin: 0; font-size: clamp(40px, 4.6vw, 68px); letter-spacing: -0.05em; line-height: 0.98; }
+	.section-heading > p:last-child { max-width: 700px; margin: 0; font-size: 17px; line-height: 1.55; }
+
+	.snapshot-sheet { border: 1px solid var(--ink); background: var(--paper-light); box-shadow: 12px 12px 0 var(--green); }
+	.snapshot-sheet > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding: 28px 32px; border-bottom: 1px solid var(--ink); }
+	.snapshot-sheet header p { margin: 0 0 8px; color: #3e570b; font-size: 11px; font-weight: 850; letter-spacing: 0.11em; text-transform: uppercase; }
+	.snapshot-sheet header h3 { margin: 0; font-size: clamp(28px, 3vw, 44px); letter-spacing: -0.035em; }
+	.snapshot-sheet header > span { padding: 7px 10px; border: 1px solid var(--ink); font-size: 10px; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+	.snapshot-grid { display: grid; grid-template-columns: 1fr 1fr; }
+	.snapshot-grid section { position: relative; min-height: 290px; padding: 34px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+	.snapshot-grid section:nth-child(even) { border-right: 0; }
+	.report-number { position: absolute; top: 28px; right: 28px; color: rgba(23, 24, 18, 0.18); font-size: 42px; font-weight: 850; }
+	.report-kicker { margin: 0 0 34px; color: #3e570b; font-size: 11px; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+	.snapshot-grid h4 { max-width: 520px; margin: 0 0 20px; font-size: 23px; letter-spacing: -0.025em; line-height: 1.18; }
+	.snapshot-grid section > p:last-child { max-width: 520px; margin: 0; color: #4d4f47; font-size: 15px; line-height: 1.55; }
+	.recommendation-cell { background: #edf0ff; }
+	.math-cell { background: var(--green); }
+	.big-math { display: flex; align-items: flex-end; gap: 14px; margin: -8px 0 20px; }
+	.big-math strong { font-size: 88px; letter-spacing: -0.08em; line-height: 0.8; }
+	.big-math span { font-size: 13px; font-weight: 850; line-height: 1.2; text-transform: uppercase; }
+	.snapshot-sheet > footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 32px; }
+	.snapshot-sheet footer span { color: #3e570b; font-size: 11px; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+	.snapshot-sheet footer strong { max-width: 720px; font-size: 14px; text-align: right; }
+
+	.credibility { display: grid; grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr); gap: 76px; align-items: center; }
+	.credibility figure { margin: 0; }
+	.credibility img { display: block; width: 100%; max-height: 520px; border: 1px solid var(--ink); object-fit: cover; filter: grayscale(1); }
+	.credibility figcaption { padding-top: 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+	.credibility-copy > p:not(.section-label) { max-width: 760px; margin: 28px 0 0; font-size: 18px; line-height: 1.6; }
+	.proof-row { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 42px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+	.proof-row div { display: grid; gap: 7px; padding: 22px; border-right: 1px solid var(--ink); }
+	.proof-row div:last-child { border-right: 0; }
+	.proof-row strong { font-size: 30px; letter-spacing: -0.04em; }
+	.proof-row span { font-size: 11px; line-height: 1.35; text-transform: uppercase; }
+
+	.guarantee-section { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 72px; align-items: start; }
+	.guarantee-card { padding: 42px; background: var(--ink); color: white; box-shadow: 12px 12px 0 var(--green); }
+	.section-label-dark { color: var(--green); }
+	.guarantee-number { display: flex; align-items: flex-end; gap: 18px; padding: 16px 0 30px; border-bottom: 1px solid rgba(255,255,255,0.35); }
+	.guarantee-number strong { color: var(--green); font-size: 112px; letter-spacing: -0.08em; line-height: 0.76; }
+	.guarantee-number span { font-size: 15px; font-weight: 850; line-height: 1.18; text-transform: uppercase; }
+	.guarantee-card h2 { margin: 34px 0 20px; font-size: 46px; letter-spacing: -0.045em; line-height: 1; }
+	.guarantee-card > p:last-child { margin: 0; color: #d9d9d3; font-size: 16px; line-height: 1.6; }
+	.faq-block > h2 { margin-bottom: 36px; font-size: clamp(36px, 4vw, 56px); }
+	.faq-list { border-top: 1px solid var(--ink); }
+	.faq-list details { border-bottom: 1px solid var(--ink); }
+	.faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 21px 0; cursor: pointer; font-size: 17px; font-weight: 800; list-style: none; }
+	.faq-list summary::-webkit-details-marker { display: none; }
+	.faq-list summary span { font-size: 22px; transition: transform 140ms ease; }
+	.faq-list details[open] summary span { transform: rotate(45deg); }
+	.faq-list details p { margin: -4px 0 22px; padding-right: 40px; color: #4d4f47; font-size: 15px; line-height: 1.6; }
+
+	.final-cta { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr); gap: 74px; align-items: center; background: var(--blue); box-shadow: 0 0 0 100vmax var(--blue); color: white; clip-path: inset(0 -100vmax); }
+	.section-label-light { color: var(--green); }
+	.final-cta > div > p:last-child { max-width: 680px; margin: 28px 0 0; font-size: 19px; line-height: 1.55; }
+	.checkout-card { padding: 30px; border: 1px solid white; background: var(--paper-light); color: var(--ink); box-shadow: 12px 12px 0 var(--green); }
+	.checkout-card > span { font-size: 11px; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+	.checkout-card > div { display: flex; align-items: flex-end; gap: 15px; padding: 24px 0; border-bottom: 1px solid var(--ink); }
+	.checkout-card div strong { font-size: 74px; letter-spacing: -0.07em; line-height: 0.8; }
+	.checkout-card div small { font-size: 11px; font-weight: 800; text-transform: uppercase; }
+	.checkout-card ul { margin: 0; padding: 18px 0 22px; list-style: none; }
+	.checkout-card li { padding: 8px 0; font-size: 14px; font-weight: 700; }
+	.checkout-card li::before { margin-right: 9px; color: #486700; content: '\2713'; }
+	.button-light { background: var(--ink); color: white; }
+	.button-light:hover { box-shadow: 5px 5px 0 var(--green); }
+	.checkout-card > p { margin: 14px 0 0; color: #66685f; font-size: 11px; text-align: center; }
+
+	.page-footer { display: flex; gap: 24px; padding: 28px 0 44px; font-size: 11px; font-weight: 750; text-transform: uppercase; }
+	.page-footer a { color: var(--ink); }
+	.page-footer span { margin-left: auto; }
 
 	@media (max-width: 900px) {
-		.sample-report-grid { grid-template-columns: 1fr; }
+		.hero { grid-template-columns: 1fr; min-height: auto; }
+		.audit-card { max-width: 560px; }
+		.section-heading { grid-template-columns: 1fr; }
+		.section-heading .section-label { grid-row: auto; }
+		.credibility, .guarantee-section, .final-cta { grid-template-columns: 1fr; }
+		.credibility figure { max-width: 520px; }
 	}
 
-	@media (max-width: 620px) {
-		.sample-reports { padding-right: 20px; padding-left: 20px; }
-		.sample-report-card { padding: 20px; }
-		.intake-card summary { font-size: 0.98rem; }
-	}
-
-	.auditor {
-		background: #eef7d9;
-		width: 100%;
-		max-width: none;
-		padding-right: max(24px, calc((100% - 1180px) / 2));
-		padding-left: max(24px, calc((100% - 1180px) / 2));
-	}
-
-	.auditor-intro { max-width: 760px; }
-	.auditor-intro h2 { max-width: 700px; }
-	.auditor-grid { display: grid; grid-template-columns: 220px minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 42px; align-items: start; margin-top: 38px; }
-	.auditor-photo { margin: 0; }
-	.auditor-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(0.9); }
-	.auditor-photo figcaption { margin-top: 10px; color: #686b61; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
-	.auditor-copy { max-width: 680px; }
-	.auditor-copy p { margin: 0 0 18px; font-size: 1.08rem; line-height: 1.65; }
-	.auditor-trust-card { padding: 26px; background: #171812; color: #fcfaf5; }
-	.auditor-trust-card .section-label { color: var(--green); }
-	.auditor-trust-card ul { margin: 20px 0 0; padding: 0; list-style: none; }
-	.auditor-trust-card li { padding: 15px 0; border-top: 1px solid rgba(252, 250, 245, 0.2); line-height: 1.55; }
-	.auditor-trust-card li strong { display: block; margin-bottom: 4px; color: var(--green); }
-	.auditor-signoff { margin: 22px 0 0; color: rgba(252, 250, 245, 0.82); font-size: 0.94rem; line-height: 1.55; }
-
-	@media (max-width: 760px) {
-		.auditor { padding-right: 20px; padding-left: 20px; }
-		.auditor-grid { grid-template-columns: 1fr; gap: 28px; }
-		.auditor-photo { max-width: 240px; }
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		:global(html) {
-			scroll-behavior: auto;
-		}
-
-		.button {
-			transition: none;
-		}
+	@media (max-width: 680px) {
+		.topbar, .hero, .section-shell, .page-footer { width: min(100% - 28px, 1180px); }
+		.topbar { min-height: 68px; }
+		.topbar-link { font-size: 10px; }
+		.hero { gap: 52px; padding: 54px 0 64px; }
+		.hero h1 { font-size: clamp(48px, 15vw, 68px); }
+		.hero-note { font-size: 17px; }
+		.hero-subhead { font-size: 18px; }
+		.hero-actions { grid-template-columns: 1fr; }
+		.audit-card { padding: 22px; box-shadow: 8px 8px 0 var(--blue); }
+		.price-lockup strong { font-size: 64px; }
+		.section-shell { padding: 72px 0; }
+		.section-heading { gap: 16px; margin-bottom: 34px; }
+		.section-heading h2, .credibility h2, .final-cta h2 { font-size: 42px; }
+		.snapshot-sheet { box-shadow: 7px 7px 0 var(--green); }
+		.snapshot-sheet > header, .snapshot-sheet > footer { align-items: flex-start; flex-direction: column; padding: 22px; }
+		.snapshot-grid { grid-template-columns: 1fr; }
+		.snapshot-grid section { min-height: auto; padding: 28px 22px; border-right: 0; }
+		.snapshot-sheet footer strong { text-align: left; }
+		.credibility { gap: 42px; }
+		.proof-row { grid-template-columns: 1fr; }
+		.proof-row div { border-right: 0; border-bottom: 1px solid var(--ink); }
+		.proof-row div:last-child { border-bottom: 0; }
+		.guarantee-section { gap: 56px; }
+		.guarantee-card { padding: 28px 22px; box-shadow: 7px 7px 0 var(--green); }
+		.guarantee-number strong { font-size: 92px; }
+		.guarantee-card h2 { font-size: 38px; }
+		.checkout-card { padding: 24px 20px; box-shadow: 7px 7px 0 var(--green); }
+		.page-footer { flex-wrap: wrap; }
+		.page-footer span { width: 100%; margin-left: 0; }
 	}
 </style>
