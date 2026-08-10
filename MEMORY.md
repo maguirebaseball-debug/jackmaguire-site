@@ -133,4 +133,32 @@ The paid test session was then taken through the entire four-step intake using d
 
 ## 2026-08-08, Transparent AI Audit process previews
 
+The AI Audit browser GA4 helpers were first changed to self-initialize `window.dataLayer` and `window.gtag`, but the connected Chrome DebugView session still showed zero debug devices and zero events. The funnel was then moved to the server-backed GA4 endpoint described below.
+
+## 2026-08-08, GA4 AI Audit server event repair
+
+Added `/api/ga4-audit-event/`, an allowlisted Vercel endpoint that sends AI Audit funnel events to GA4 Measurement Protocol using the configured `GA4_API_SECRET`. The landing-page CTA now waits for all three checkout events before navigating to Stripe. A live `ga_debug=1` test showed `ai_audit_cta_clicked`, `begin_checkout`, and `ai_audit_checkout_started` in GA4 DebugView. The endpoint preserves the GA4 client and session identifiers and keeps debug mode limited to the explicit test query.
+
+## 2026-08-08, Edgewell application thank-you campaign
+
+Created the Edgewell Thank You tab in the existing Google Sheets YAMM workbook 222 outreach. Added 88 personalized, long-form thank-you notes from the supplied verified Apollo export, with role-specific emphasis on paid social, measurement, finance, systems, operations, commercial leadership, or people and talent work. All rows are marked SEND; no messages were sent.
+
 Added a no-surprises process section to `/Your-AI-Audit/` immediately before the recommended Snapshot offer. It links from the hero and shows three browser-style previews of the Stripe checkout, the real eight-question intake structure, and an illustrative one-page Snapshot. The copy clearly labels the report example as illustrative and states what the buyer does not need to provide. Live deployment verified the new section and hero link.
+
+## 2026-08-10, NomadMania travel list normalization
+
+Rebuilt `/Travellist/` from the live NomadMania profile endpoint, which currently reports 137 visited region IDs. Normalized single-city regions to city names and kept multi-city entries at their regional level. Omitted Brussels at Jack's request while retaining Flanders, producing 136 displayed rows. Removed the prior NomadMania embed and kept the page searchable, filterable, and linked to Wikipedia.
+
+## 2026-08-10, Travel Wikipedia link audit
+
+Audited the 141 unique Wikipedia targets rendered by `/Travellist/` against Wikipedia's API. Replaced generic or semantically wrong targets with verified containing regions, states, or countries, including parent links for composite NomadMania regions and U.S. subregions. The rendered page still contains 136 rows and no missing Wikipedia targets.
+
+Removed New Brunswick from `/Travellist/` at Jack's request. The page now displays 135 entries.
+
+## 2026-08-10, Travel continental map sections
+
+Added locally saved map captures from NomadMania's Regions page at `public/images/travel/regions/`. The travel list now groups its 135 rows into Europe, North America, South America, and Asia, with a responsive, attributed map above each group. Search and country filtering hide empty continental sections as results change.
+
+## 2026-08-10, Canonical visited list memory
+
+Treat `/Travellist/` and `src/pages/Travellist.astro` as the canonical record of Jack's visited places for future Codex work on this machine and repository. The authoritative list is 135 normalized NomadMania regions from the 137-region profile source: Brussels and New Brunswick are explicitly excluded. Preserve the user's regional rule: single-city NomadMania regions may retain the city name, while multi-city or broader entries stay at the relevant regional, state, or province level. Do not infer or add unmentioned cities. Country and region links should use verified English Wikipedia articles, falling back to the nearest verified containing parent when a NomadMania label is informal or lacks its own article.
