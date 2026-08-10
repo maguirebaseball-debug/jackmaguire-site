@@ -271,7 +271,9 @@ function regionUrl(country: string, region: string) {
 		'United States|Washington DC': 'Washington, D.C.',
 		'United States|West Virginia': 'West Virginia',
 	};
-	const title = regionTitles[`${country}|${region}`] ?? region;
+	// Unmapped NomadMania labels can be informal or too granular for Wikipedia.
+	// The country article is the verified containing parent and stays useful.
+	const title = regionTitles[`${country}|${region}`] ?? countryWiki[country] ?? country;
 	return wiki(title);
 }
 ---
