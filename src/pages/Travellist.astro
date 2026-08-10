@@ -8,129 +8,120 @@ const description = 'A record of places Jack Maguire has visited, organized by c
 const pubDate = 'August 10, 2026';
 const category = 'Travel';
 
-// Keep the source compact and editable while preserving NomadMania-style regions.
-// A place token can use "Visible name::Wikipedia title" when a disambiguation is needed.
+// This is intentionally a regional record. City names are not displayed or used as data.
 const rawRows = `
-Albania|Coastal|Durrës, Vlorë, Fier
-Albania|Northeastern|Tirana, Shkodër
-Austria|South - Carinthia and Styria|Graz, Klagenfurt
-Belgium|Flanders|Antwerp, Ghent, Bruges, Ostend, Leuven, Hasselt
-Canada|Ontario East|Ottawa, Sudbury, Timmins
-Canada|Ontario Peninsula|Toronto, Hamilton, Kitchener
-Canada|New Brunswick|Saint John, Moncton
-Canada|Quebec East|Quebec City, Montmagny, Sept-Îles
-Canada|Quebec West|Montreal, Saint-Jérôme, Trois-Rivières, Sherbrooke
-China||Chongqing
-China||Hong Kong
-China|Shaanxi Central|Xi'an
-China||Shanghai
-Czechia|Central Bohemia and Prague|Prague
-Czechia|Moravia|Brno, Olomouc, Zlín
-Dominican Republic|Eastern|Santo Domingo, Punta Cana
-Ecuador|Andes North|Quito, Riobamba, Latacunga, Ibarra
-Ecuador||Guayaquil, Machala, Milagro, Manta, Esmeraldas
-Germany|Bavaria Southern|Munich, Augsburg
-Greece|Ionian Islands|Corfu, Zakynthos, Kefalonia
-Guatemala|Highlands|Guatemala City, Antigua Guatemala::Antigua Guatemala, Quetzaltenango
-Guatemala|Pacific Coast|Escuintla, Coatepeque
-Ireland|Connacht and Ulster|Galway
-Ireland|Munster|Cork
-Ireland|Leinster|Dublin, Kilkenny, Drogheda
-Italy|Tuscany|Florence, Pisa, Siena, Prato, Livorno, Arezzo
-Italy|Veneto|Venice, Verona, Vicenza, Treviso
-Japan|Kansai Greater Osaka|Osaka, Kyoto
-Japan|Kanto Greater Tokyo|Tokyo
-Mexico|Ciudad de México Federal District|Mexico City
-Netherlands|Randstad|Amsterdam, Rotterdam, Utrecht
-Netherlands|South - Zeeland, Limburg, North Brabant|Eindhoven
-Poland|Silesia, Lower Silesia, Opole|Katowice, Wrocław, Częstochowa
-Portugal|Central|Fátima
-Russia||Saint Petersburg
-Slovakia||Bratislava, Nitra, Trnava, Trenčín
-Slovenia|Western|Ljubljana, Kranj, Koper
-Spain|Castilla-La Mancha|Toledo
-Spain||Extremadura
-Spain||Madrid
-Spain|Basque Country|Bilbao, San Sebastián, Vitoria-Gasteiz::Vitoria-Gasteiz
-Spain|Catalonia Eastern|Barcelona, Girona
-Sweden|Stockholm and Mälaren Valley|Örebro, Uppsala, Norrköping
-Switzerland|Romandy|Geneva, Lausanne, Fribourg, Montreux, Neuchâtel
-United Kingdom|England Thames Valley and Hampshire|Southampton
-United Kingdom|Northern Ireland|Enniskillen
-United Kingdom|England - Greater London|London
-United States|Alabama|Birmingham, Mobile, Montgomery, Huntsville
-United States|Arizona North|Grand Canyon, Flagstaff
-United States|Arizona South|Phoenix, Tucson, Yuma
-United States|Arkansas|Little Rock, Fort Smith
-United States|California Extreme North|Eureka, Redding, Ukiah, Chico
-United States|California North|San Francisco, Sacramento, Napa
-United States|California South|Los Angeles, San Diego, San Luis Obispo
-United States|Colorado East|Denver, Colorado Springs, Fort Collins
-United States|Connecticut|Hartford, New Haven, New London, Danbury
-United States|Delaware|Wilmington, Dover, Rehoboth Beach
-United States|District of Columbia|Washington, D.C.
-United States|Florida Central and South|Miami, Tampa, Orlando, Fort Myers
-United States|Florida Keys|Key Largo, Key West
-United States|Florida North|Jacksonville, Tallahassee, Pensacola, Ocala
-United States|Georgia North|Atlanta, Macon, Augusta, Athens
-United States|Georgia South|Columbus, Savannah, Albany
-United States|Hawaii|Big Island::Hawaii (island)
-United States|Hawaii|Oahu, Maui, Kauai
-United States|Illinois Northeast|Chicago, Naperville, Aurora
-United States|Illinois West and South|Springfield, Rockford, Peoria, Normal
-United States|Indiana|Indianapolis, Evansville, Fort Wayne
-United States|Kansas|Wichita, Topeka, Dodge City
-United States|Kentucky|Louisville, Lexington, Bowling Green
-United States|Louisiana|New Orleans, Baton Rouge, Shreveport, Lafayette
-United States|Maine|Portland, Augusta, Bangor, Presque Isle
-United States|Maryland|Baltimore, Annapolis, Frederick, Hagerstown
-United States|Massachusetts|Boston, Springfield, Salem, Worcester
-United States|Michigan Lower Peninsula|Detroit, Lansing, Grand Rapids
-United States|Minnesota|Minneapolis, Duluth, Bemidji
-United States|Mississippi|Jackson, Gulfport, Biloxi, Hattiesburg
-United States|Missouri|St. Louis, Kansas City, Springfield
-United States|Nebraska|Omaha, Lincoln, Scottsbluff, Kearney
-United States|Nevada South|Las Vegas
-United States|New Hampshire|Concord, Manchester, Keene
-United States|New Jersey|Trenton, Newark, Atlantic City, Toms River
-United States|New York - New York City and Long Island|New York City, Long Island
-United States|New York East|Albany, Plattsburgh, Utica, Watertown
-United States|New York West|Buffalo, Syracuse, Binghamton, Ithaca
-United States|North Carolina|Charlotte, Raleigh, Greensboro, Durham
-United States|North Dakota|Fargo, Grand Forks, Bismarck
-United States|Ohio North|Cleveland, Toledo, Youngstown, Canton, Akron
-United States|Ohio South|Columbus, Cincinnati, Dayton, Athens
-United States|Oklahoma|Oklahoma City, Tulsa, Lawton, Broken Arrow
-United States|Oregon|Portland::Portland, Oregon, Eugene, Medford, Bend
-United States|Pennsylvania East|Philadelphia, Harrisburg, Scranton
-United States|Pennsylvania West|Pittsburgh, Altoona, Erie
-United States|Puerto Rico|San Juan, Bayamón, Ponce
-United States|Rhode Island|Providence, Newport, Warwick
-United States|South Carolina|Columbia, Charleston, Greenville, Myrtle Beach
-United States|Tennessee|Memphis, Nashville, Chattanooga, Knoxville
-United States|Texas Northeast|Dallas, Fort Worth, Austin
-United States|Texas Southeast|Houston, San Antonio, Corpus Christi
-United States|Utah|Salt Lake City, Provo, Ogden
-United States|Vermont|Burlington, Montpelier, Derby
-United States|Virginia|Richmond, Arlington, Norfolk, Roanoke, Harrisonburg
-United States|Washington|Seattle, Tacoma, Spokane, Yakima
-United States|West Virginia|Charleston, Morgantown, Parkersburg
-United States|Wisconsin|Milwaukee, Madison, Green Bay, Eau Claire
-United States|Wyoming|Cheyenne, Yellowstone, Casper, Jackson
-Venezuela|Northeast|Anzoátegui, Monagas, Sucre
+Albania|Southern Albania
+Albania|Tirana County
+Austria|Greater Vienna
+Austria|South - Carinthia and Styria
+Belgium|Flanders
+Canada|Ontario East
+Canada|Ontario Peninsula
+Canada|Quebec East
+Canada|Quebec West
+China|Beijing Municipality
+China|Chongqing Municipality
+China|Hong Kong
+China|Shaanxi
+China|Shanghai Municipality
+Czechia|Central Bohemia and Prague
+Czechia|Moravia
+Dominican Republic|Santo Domingo
+Ecuador|Guayas
+Ecuador|Manabí
+Ecuador|Tungurahua
+Germany|Bavaria
+Germany|Berlin
+Germany|Hesse
+Greece|Attica
+Greece|Ionian Islands
+Guatemala|Highlands
+Ireland|Connacht and Ulster
+Ireland|Munster
+Ireland|Leinster
+Italy|Lazio
+Italy|Tuscany
+Italy|Umbria
+Italy|Veneto
+Japan|Kansai
+Japan|Kantō
+Mexico|Ciudad de México
+Mexico|Quintana Roo
+Mexico|Yucatán
+Netherlands|Randstad
+Netherlands|South - Zeeland, Limburg, North Brabant
+Poland|Lesser Poland
+Poland|Mazovia and Łódź
+Poland|Pomerania
+Poland|Silesia, Lower Silesia, Opole
+Portugal|Central
+Portugal|Lisbon and Vale do Tejo
+Russia|Saint Petersburg Federal City
+Slovakia|Bratislava
+Slovenia|Western
+Spain|Basque Country
+Spain|Castilla-La Mancha
+Spain|Catalonia Eastern
+Spain|Extremadura
+Spain|Madrid
+Sweden|Stockholm and Mälaren
+Switzerland|Romandie
+United Kingdom|Cheshire
+United Kingdom|England - Greater London
+United Kingdom|England Thames Valley and Hampshire
+United Kingdom|Northern Ireland
+United States|Alabama
+United States|Arizona
+United States|Arkansas
+United States|California
+United States|Colorado
+United States|Connecticut
+United States|Delaware
+United States|Florida
+United States|Georgia
+United States|Hawaii
+United States|Illinois
+United States|Indiana
+United States|Kansas
+United States|Kentucky
+United States|Louisiana
+United States|Maine
+United States|Maryland
+United States|Massachusetts
+United States|Michigan
+United States|Minnesota
+United States|Mississippi
+United States|Missouri
+United States|Nebraska
+United States|Nevada
+United States|New Hampshire
+United States|New Jersey
+United States|New York
+United States|North Carolina
+United States|North Dakota
+United States|Ohio
+United States|Oklahoma
+United States|Oregon
+United States|Pennsylvania
+United States|Rhode Island
+United States|Tennessee
+United States|Texas
+United States|Utah
+United States|Vermont
+United States|Virginia
+United States|Washington
+United States|West Virginia
+United States|Wisconsin
+United States|Wyoming
 `.trim();
 
 const rows = rawRows.split('\n').map((line) => {
-	const [country, region, placeText] = line.split('|');
-	const places = placeText.split(', ').map((token) => {
-		const [name, wikiTitle] = token.split('::');
-		return { name, wikiTitle: wikiTitle ?? name };
-	});
-	return { country, region, places };
+	const [country, region] = line.split('|');
+	return { country, region };
 });
 
 const countries = [...new Set(rows.map((row) => row.country))];
-const placeCount = rows.reduce((sum, row) => sum + row.places.length, 0);
+const regionCount = rows.length;
 const countryWiki: Record<string, string> = {
 	'Czechia': 'Czechia',
 	'United Kingdom': 'United Kingdom',
@@ -146,7 +137,19 @@ function countryUrl(country: string) {
 }
 
 function regionUrl(region: string) {
-	const title = region.replace(/^South - /, '').replace(/^England - /, 'England, ');
+	const regionTitles: Record<string, string> = {
+		'South - Carinthia and Styria': 'Styria',
+		'South - Zeeland, Limburg, North Brabant': 'North Brabant',
+		'England - Greater London': 'London',
+		'England Thames Valley and Hampshire': 'Hampshire',
+		'Central Bohemia and Prague': 'Central Bohemian Region',
+		'Connacht and Ulster': 'Connacht',
+		'Kansai': 'Kansai region',
+		'Kantō': 'Kantō region',
+		'Western': 'Slovenia',
+		'Stockholm and Mälaren': 'Mälaren Valley',
+	};
+	const title = regionTitles[region] ?? region;
 	return wiki(title);
 }
 ---
@@ -162,16 +165,15 @@ function regionUrl(region: string) {
 			<header class="page-intro">
 				<p class="kicker">A personal atlas</p>
 				<h1>{title}</h1>
-				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search for a city or region.</p>
+				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search for a region.</p>
 				<div class="stats" aria-label="Travel list statistics">
-					<span><strong>{countries.length}</strong> countries and territories</span>
-					<span><strong>{placeCount}</strong> place entries</span>
+					<span><strong>{regionCount}</strong> regional entries</span>
 				</div>
 			</header>
 
 			<section class="controls" aria-label="Travel list controls">
-				<label for="place-search">Find a place</label>
-				<input id="place-search" type="search" placeholder="Search cities, regions, or countries" autocomplete="off" />
+				<label for="region-search">Find a region</label>
+				<input id="region-search" type="search" placeholder="Search regions or countries" autocomplete="off" />
 				<label for="country-filter" class="sr-only">Filter by country</label>
 				<select id="country-filter">
 					<option value="all">All countries</option>
@@ -183,20 +185,16 @@ function regionUrl(region: string) {
 			<section class="country-list" aria-label="Visited places">
 				{countries.map((country) => {
 					const countryRows = rows.filter((row) => row.country === country);
-					const countryPlaces = countryRows.reduce((sum, row) => sum + row.places.length, 0);
 					return (
-						<article class="country-section" data-country={country} data-search={`${country} ${countryRows.map((row) => `${row.region} ${row.places.map((place) => place.name).join(' ')}`).join(' ')}`.toLowerCase()}>
+						<article class="country-section" data-country={country} data-search={`${country} ${countryRows.map((row) => row.region).join(' ')}`.toLowerCase()}>
 							<div class="country-heading">
 								<h2><a href={countryUrl(country)}>{country}</a></h2>
-								<span>{countryPlaces} {countryPlaces === 1 ? 'place' : 'places'}</span>
+								<span>{countryRows.length} {countryRows.length === 1 ? 'region' : 'regions'}</span>
 							</div>
 							<div class="region-list">
 								{countryRows.map((row) => (
-									<div class="region-row" data-row-search={`${row.region} ${row.places.map((place) => place.name).join(' ')}`.toLowerCase()}>
-										<div class="region-name">{row.region ? <a href={regionUrl(row.region)}>{row.region}</a> : <span>Places visited</span>}</div>
-										<div class="place-links">
-											{row.places.map((place, index) => <><a href={wiki(place.wikiTitle)}>{place.name}</a>{index < row.places.length - 1 && <span>, </span>}</>)}
-										</div>
+									<div class="region-row" data-row-search={row.region.toLowerCase()}>
+										<div class="region-name"><a href={regionUrl(row.region)}>{row.region}</a></div>
 									</div>
 								))}
 							</div>
@@ -204,12 +202,12 @@ function regionUrl(region: string) {
 					);
 				})}
 			</section>
-			<p id="no-results" class="no-results" hidden>No places match that search.</p>
-			<p class="source-note">Place names link to their English Wikipedia entries. Region labels follow the original travel record.</p>
+			<p id="no-results" class="no-results" hidden>No regions match that search.</p>
+			<p class="source-note">Country and regional names link to their English Wikipedia entries. City names are intentionally omitted.</p>
 		</main>
 		<Footer />
 		<script>
-			const search = document.querySelector('#place-search');
+			const search = document.querySelector('#region-search');
 			const filter = document.querySelector('#country-filter');
 			const sections = [...document.querySelectorAll('.country-section')];
 			const resultCount = document.querySelector('#result-count');
@@ -351,8 +349,7 @@ function regionUrl(region: string) {
 	}
 	.region-row {
 		display: grid;
-		grid-template-columns: minmax(13rem, 0.7fr) 1.6fr;
-		gap: 1rem;
+		grid-template-columns: 1fr;
 		padding: 0.8rem 0;
 		border-bottom: 1px solid rgba(var(--gray-light), 0.8);
 		font-size: 0.94rem;
@@ -367,12 +364,6 @@ function regionUrl(region: string) {
 	}
 	.region-name a {
 		color: inherit;
-	}
-	.place-links {
-		line-height: 1.7;
-	}
-	.place-links a {
-		text-underline-offset: 0.18em;
 	}
 	.no-results {
 		padding: 2rem 0;
