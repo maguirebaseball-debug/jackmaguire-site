@@ -4,84 +4,84 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 
 const title = 'Travel list';
-const description = 'A record of places Jack Maguire has visited, organized by country and region.';
+const description = 'A record of places Jack Maguire has visited, organized by country and NomadMania region.';
 const pubDate = 'August 10, 2026';
 const category = 'Travel';
-const nomadmaniaUrl = 'https://nomadmania.com/profile/85270/nm/nm/by/2026';
 
-// This is intentionally a regional record. City names are not displayed or used as data.
+// This follows the 137 visited region IDs returned by NomadMania for this profile.
+// Brussels is omitted at Jack's request. Single-city regions remain city names.
 const rawRows = `
-Albania|Southern Albania
-Albania|Tirana County
-Austria|Greater Vienna
-Austria|South - Carinthia and Styria
-Belgium|Flanders
-Canada|Ontario East
-Canada|Ontario Peninsula
-Canada|Quebec East
-Canada|Quebec West
-China|Beijing Municipality
-China|Chongqing Municipality
-China|Hong Kong
-China|Shaanxi
-China|Shanghai Municipality
-Czechia|Central Bohemia and Prague
-Czechia|Moravia
-Dominican Republic|Santo Domingo
-Ecuador|Guayas
-Ecuador|Manabí
-Ecuador|Tungurahua
-Germany|Bavaria
-Germany|Berlin
-Germany|Hesse
-Greece|Attica
 Greece|Ionian Islands
-Guatemala|Highlands
-Ireland|Connacht and Ulster
-Ireland|Munster
-Ireland|Leinster
 Italy|Lazio
 Italy|Tuscany
-Italy|Umbria
 Italy|Veneto
-Japan|Kansai
-Japan|Kantō
-Mexico|Ciudad de México
-Mexico|Quintana Roo
-Mexico|Yucatán
-Netherlands|Randstad
-Netherlands|South - Zeeland, Limburg, North Brabant
-Poland|Lesser Poland
-Poland|Mazovia and Łódź
-Poland|Pomerania
-Poland|Silesia, Lower Silesia, Opole
-Portugal|Central
-Portugal|Lisbon and Vale do Tejo
-Russia|Saint Petersburg Federal City
-Slovakia|Bratislava
+Serbia|Belgrade, West
 Slovenia|Western
+Spain|Balearic Islands
 Spain|Basque Country
 Spain|Castilla-La Mancha
 Spain|Catalonia Eastern
 Spain|Extremadura
 Spain|Madrid
-Sweden|Stockholm and Mälaren
+Austria|South - Carinthia and Styria
+Belgium|Flanders
+France|Paris
+Germany|Bavaria Southern
+Germany|Bavaria Northern
+Germany|Berlin
+Germany|Hesse
 Switzerland|Romandie
-United Kingdom|Cheshire
-United Kingdom|England - Greater London
-United Kingdom|England Thames Valley and Hampshire
+Ireland|Leinster
+Ireland|Munster
+Ireland|Connacht and Ulster
+Sweden|Stockholm and Mälardalen
+United Kingdom|Greater London
+United Kingdom|England - Thames Valley and Hampshire
 United Kingdom|Northern Ireland
+Denmark|Hovedstaden, Sjælland
+Finland|Southern
+Norway|Eastern
+Belarus|Central and Northeast
+Czechia|Moravia
+Estonia|Coastal
+Latvia|North - Riga and Vidzeme
+Lithuania|South - Dzūkija and Suvalkija
+Poland|Silesia, Lower Silesia, Opole
+Poland|Mazovia
+Romania|Muntenia
+Slovakia|Western Slovakia
+Russia|St. Petersburg
+Ukraine|Central
+China|Beijing
+China|Chongqing
+China|Hong Kong
+China|Shanghai
+China|Shaanxi - Central
+Japan|Kantō - Greater Tokyo
+Japan|Kansai - Greater Osaka
+Canada|Ontario East
+Canada|Ontario Peninsula
+Canada|New Brunswick
+Canada|Quebec East
+Canada|Quebec West
 United States|Alabama
-United States|Arizona
+United States|Arizona South
+United States|Arizona North
 United States|Arkansas
-United States|California
-United States|Colorado
+United States|California North
+United States|California South
+United States|California Extreme North
+United States|Colorado East
 United States|Connecticut
 United States|Delaware
-United States|Florida
-United States|Georgia
-United States|Hawaii
-United States|Illinois
+United States|Washington DC
+United States|Florida Central/South
+United States|Florida North
+United States|Florida Keys
+United States|Georgia North
+United States|Georgia South
+United States|Illinois Northeast
+United States|Illinois West/South
 United States|Indiana
 United States|Kansas
 United States|Kentucky
@@ -89,24 +89,30 @@ United States|Louisiana
 United States|Maine
 United States|Maryland
 United States|Massachusetts
-United States|Michigan
+United States|Michigan Lower Peninsula
 United States|Minnesota
 United States|Mississippi
 United States|Missouri
 United States|Nebraska
-United States|Nevada
-United States|New Hampshire
+United States|Las Vegas
 United States|New Jersey
-United States|New York
+United States|New Hampshire
+United States|New York - New York City and Long Island
+United States|New York East
+United States|New York West
 United States|North Carolina
 United States|North Dakota
-United States|Ohio
+United States|Ohio North
+United States|Ohio South
 United States|Oklahoma
 United States|Oregon
-United States|Pennsylvania
+United States|Pennsylvania East
+United States|Pennsylvania West
 United States|Rhode Island
+United States|South Carolina
 United States|Tennessee
-United States|Texas
+United States|Texas Northeast
+United States|Texas Southeast
 United States|Utah
 United States|Vermont
 United States|Virginia
@@ -114,6 +120,33 @@ United States|Washington
 United States|West Virginia
 United States|Wisconsin
 United States|Wyoming
+Guatemala|Highlands
+Guatemala|Pacific Coast
+Mexico|Mexico City
+Mexico|Quintana Roo
+Mexico|Mérida
+United States|Puerto Rico
+Colombia|Antioquia and Eje Cafetero
+Colombia|Caribbean
+Ecuador|Coastal Ecuador
+Ecuador|Andes North
+Argentina|Buenos Aires
+Brazil|Rio de Janeiro
+Brazil|Santa Catarina
+Brazil|São Paulo Greater City
+United States|Hawaii - Big Island
+United States|Hawaii - Oahu, Maui, Kauai
+Portugal|Lisbon and Vale do Tejo
+Portugal|Central
+Czechia|Central Bohemia and Prague
+Hungary|Central - Budapest and Pest County
+Austria|Vienna
+Albania|Northeastern
+Albania|Coastal
+Dominican Republic|Eastern
+Netherlands|Eindhoven
+Netherlands|Randstad
+Greece|Athens
 `.trim();
 
 const rows = rawRows.split('\n').map((line) => {
@@ -166,30 +199,11 @@ function regionUrl(region: string) {
 			<header class="page-intro">
 				<p class="kicker">A personal atlas</p>
 				<h1>{title}</h1>
-				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search for a region.</p>
+				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search the 136 entries drawn from my NomadMania list.</p>
 				<div class="stats" aria-label="Travel list statistics">
 					<span><strong>{regionCount}</strong> regional entries</span>
 				</div>
 			</header>
-
-			<section class="nomadmania-embed" aria-labelledby="nomadmania-title">
-				<div class="embed-heading">
-					<div>
-						<p class="kicker">Source record</p>
-						<h2 id="nomadmania-title">NomadMania map and lists</h2>
-					</div>
-					<a href={nomadmaniaUrl}>Open on NomadMania</a>
-				</div>
-				<div class="embed-frame">
-					<iframe
-						src={nomadmaniaUrl}
-						title="Jack Maguire's NomadMania map and regional lists"
-						loading="lazy"
-						referrerpolicy="strict-origin-when-cross-origin"
-					></iframe>
-				</div>
-				<p class="embed-note">The interactive map and source lists are provided by NomadMania. If the embedded view does not load, use the link above.</p>
-			</section>
 
 			<section class="controls" aria-label="Travel list controls">
 				<label for="region-search">Find a region</label>
@@ -223,7 +237,7 @@ function regionUrl(region: string) {
 				})}
 			</section>
 			<p id="no-results" class="no-results" hidden>No regions match that search.</p>
-			<p class="source-note">Country and regional names link to their English Wikipedia entries. City names are intentionally omitted.</p>
+			<p class="source-note">Country and regional names link to their English Wikipedia entries. A single-city NomadMania region keeps its city name; multi-city regions stay at the regional level.</p>
 		</main>
 		<Footer />
 		<script>
@@ -273,49 +287,6 @@ function regionUrl(region: string) {
 		font-size: clamp(2.4rem, 8vw, 5rem);
 		letter-spacing: -0.05em;
 		margin: 0 0 0.65rem;
-	}
-	.nomadmania-embed {
-		margin: 0 0 2.5rem;
-		padding: 1.2rem;
-		border: 1px solid rgba(85, 107, 47, 0.25);
-		background: rgba(245, 239, 227, 0.55);
-	}
-	.embed-heading {
-		display: flex;
-		justify-content: space-between;
-		align-items: end;
-		gap: 1rem;
-		margin-bottom: 1rem;
-	}
-	.embed-heading .kicker {
-		margin-bottom: 0.35rem;
-	}
-	.embed-heading h2 {
-		margin: 0;
-		font-size: 1.35rem;
-	}
-	.embed-heading > a {
-		font-size: 0.85rem;
-		white-space: nowrap;
-	}
-	.embed-frame {
-		width: 100%;
-		height: min(72rem, 78vh);
-		min-height: 34rem;
-		background: #fff;
-		border: 1px solid rgba(var(--gray), 0.25);
-		overflow: hidden;
-	}
-	.embed-frame iframe {
-		width: 100%;
-		height: 100%;
-		border: 0;
-		background: #fff;
-	}
-	.embed-note {
-		margin: 0.75rem 0 0;
-		font-size: 0.78rem;
-		color: rgb(var(--gray));
 	}
 	.lede {
 		max-width: 37rem;
@@ -454,17 +425,6 @@ function regionUrl(region: string) {
 			align-items: flex-start;
 			flex-direction: column;
 			gap: 0.25rem;
-		}
-		.nomadmania-embed {
-			padding: 0.8rem;
-		}
-		.embed-heading {
-			align-items: flex-start;
-			flex-direction: column;
-		}
-		.embed-frame {
-			height: 70vh;
-			min-height: 28rem;
 		}
 	}
 </style>
