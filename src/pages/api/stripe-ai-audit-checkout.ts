@@ -2,8 +2,8 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-const SNAPSHOT_PRICE_ID = import.meta.env.STRIPE_AI_SNAPSHOT_PRICE_ID || 'price_1U1m14FVkBlWBiJ6a9AhK0N3';
-const SNAPSHOT_FALLBACK_URL = import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00';
+const SNAPSHOT_PRICE_ID = 'price_1U30DYFVkBlWBiJ6l8HQ0D5M';
+const SNAPSHOT_FALLBACK_URL = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 const SITE_ORIGIN = 'https://jackmaguire.org';
 
 type CheckoutAttribution = {
@@ -145,6 +145,7 @@ export const POST: APIRoute = async ({ request }) => {
 		offer_key: 'ai_bottleneck_snapshot',
 		service_tier: 'snapshot',
 		source_site: 'jackmaguire.org',
+		price_strategy: 'launch_signal_frontier',
 		utm_source: attribution.utm_source,
 		utm_medium: attribution.utm_medium,
 		campaign: attribution.campaign,

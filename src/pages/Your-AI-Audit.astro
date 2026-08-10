@@ -1,9 +1,10 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 
-const title = 'Your AI Audit | $79 AI Bottleneck Snapshot';
-const description = 'Find the first recurring workflow AI should take off your plate. Pay $79, answer eight questions, and receive a one-page AI Bottleneck Snapshot within one business day.';
-const fallbackCheckoutUrl = import.meta.env.PUBLIC_AI_SNAPSHOT_CHECKOUT_URL || 'https://buy.stripe.com/14A4gz5SV91NcVp95s53O00';
+const snapshotPrice = 59;
+const title = `Your AI Audit | $${snapshotPrice} AI Bottleneck Snapshot`;
+const description = `Find the first recurring workflow AI should take off your plate. Pay $${snapshotPrice}, answer eight questions, and receive a one-page AI Bottleneck Snapshot within one business day.`;
+const fallbackCheckoutUrl = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 
 const faqItems = [
 	{
@@ -20,7 +21,7 @@ const faqItems = [
 	},
 	{
 		question: 'How does the refund work?',
-		answer: 'If I cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $79. You do not need to implement the recommendation first.',
+		answer: `If I cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $${snapshotPrice}. You do not need to implement the recommendation first.`,
 	},
 ];
 ---
@@ -28,7 +29,7 @@ const faqItems = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og-v2.png" />
+		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og-v3.png" />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
@@ -45,7 +46,7 @@ const faqItems = [
 			offers: {
 				'@type': 'Offer',
 				name: 'AI Bottleneck Snapshot',
-				price: '79',
+				price: String(snapshotPrice),
 				priceCurrency: 'USD',
 				availability: 'https://schema.org/InStock',
 				url: 'https://jackmaguire.org/Your-AI-Audit/',
@@ -59,7 +60,7 @@ const faqItems = [
 					<span class="brand-mark" aria-hidden="true">JM</span>
 					<span>Your AI Audit</span>
 				</a>
-				<a class="topbar-link" href="#example">See what you get <span>$79</span></a>
+				<a class="topbar-link" href="#example">See what you get <span>${snapshotPrice}</span></a>
 			</header>
 
 			<main>
@@ -68,11 +69,11 @@ const faqItems = [
 						<p class="eyebrow"><span></span> For owner-led service businesses</p>
 						<h1 id="hero-title">Find the first workflow AI can save you 30 minutes a week.</h1>
 						<p class="hero-note">One useful answer in one business day.</p>
-						<p class="hero-subhead">Pay $79, answer eight questions, and get a one-page recommendation for the recurring task worth fixing first. No software shopping, sales call, or AI expertise required.</p>
+						<p class="hero-subhead">Pay ${snapshotPrice}, answer eight questions, and get a one-page recommendation for the recurring task worth fixing first. No software shopping, sales call, or AI expertise required.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="hero">
 								<span class="button-label">Get my AI Bottleneck Snapshot</span>
-								<strong>$79</strong>
+								<strong>${snapshotPrice}</strong>
 							</a>
 							<p><strong>Flat price. No sales call.</strong> Complete eight questions and receive a one-page PDF by email.</p>
 						</div>
@@ -84,11 +85,11 @@ const faqItems = [
 							<span class="status"><i></i> One-day delivery</span>
 						</div>
 						<div class="price-lockup">
-							<strong>$79</strong>
+							<strong>${snapshotPrice}</strong>
 							<span>one-page<br />PDF diagnosis</span>
 						</div>
 						<ul>
-							<li>Highest-cost recurring bottleneck</li>
+							<li>The recurring workflow you submit</li>
 							<li>One exact recommendation</li>
 							<li>Savings, cost, and setup math</li>
 						</ul>
@@ -169,7 +170,7 @@ const faqItems = [
 					<div class="guarantee-card">
 						<p class="section-label section-label-dark">One Quick Win Guarantee</p>
 						<div class="guarantee-number"><strong>30</strong><span>minutes saved<br />each week</span></div>
-						<h2 id="guarantee-title">Or I automatically refund the full $79.</h2>
+						<h2 id="guarantee-title">Or I automatically refund the full ${snapshotPrice}.</h2>
 						<p>The recommendation must show a practical change projected to save at least 30 minutes each week using your current task time, expected new task time, tool cost, and oversight.</p>
 					</div>
 
@@ -195,14 +196,14 @@ const faqItems = [
 					</div>
 					<aside class="checkout-card">
 						<span>AI Bottleneck Snapshot</span>
-						<div><strong>$79</strong><small>one-time purchase</small></div>
+						<div><strong>${snapshotPrice}</strong><small>one-time purchase</small></div>
 						<ul>
 							<li>One-page PDF</li>
 							<li>No sales call</li>
 							<li>Automatic refund if no 30-minute opportunity is found</li>
 						</ul>
 						<a class="button button-light" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="final">
-							<span class="button-label">Pay $79 and start</span>
+							<span class="button-label">Pay ${snapshotPrice} and start</span>
 							<strong aria-hidden="true">&#8594;</strong>
 						</a>
 						<p>Secure checkout through Stripe.</p>
@@ -217,7 +218,7 @@ const faqItems = [
 			</footer>
 		</div>
 
-		<script define:vars={{ fallbackCheckoutUrl }}>
+		<script define:vars={{ fallbackCheckoutUrl, snapshotPrice }}>
 			const attributionStorageKey = 'jm_ai_audit_attribution_v2';
 			const landingSessionKey = 'jm_ai_audit_landing_session';
 			const internalTrafficKey = 'jm_ga_internal';
@@ -343,21 +344,21 @@ const faqItems = [
 						window.fbq('track', 'InitiateCheckout', {
 							content_name: 'ai_audit_snapshot',
 							content_type: 'product',
-							value: 79,
+							value: snapshotPrice,
 							currency: 'USD',
 						});
 					}
 
 					await Promise.all([
-						trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: 79, currency: 'USD', cta_location: ctaLocation }),
+						trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation }),
 						trackAuditEvent('begin_checkout', {
 							tier: 'snapshot',
-							value: 79,
+							value: snapshotPrice,
 							currency: 'USD',
 							cta_location: ctaLocation,
-							items: [{ item_id: 'ai_audit_snapshot', item_name: 'AI Bottleneck Snapshot', price: 79, quantity: 1 }],
+							items: [{ item_id: 'ai_audit_snapshot', item_name: 'AI Bottleneck Snapshot', price: snapshotPrice, quantity: 1 }],
 						}),
-						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: 79, currency: 'USD', cta_location: ctaLocation }),
+						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation }),
 					]);
 
 					try {

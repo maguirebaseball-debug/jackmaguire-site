@@ -170,3 +170,9 @@ Shortened `/Your-AI-Audit/` to a single-offer paid-traffic page for the $79 AI B
 In GA4 Admin, removed generic `click` and `scroll` from key events while preserving `purchase`. Confirmed the existing Internal Traffic filter is Active and excludes `traffic_type=internal`. Added a persistent `ga_internal=1` browser marker, with `ga_internal=0` as the reset, and marked debug and Stripe test events as internal.
 
 Added `/api/stripe-ai-audit-checkout/` to create hosted Stripe Checkout Sessions from the existing $79 Price and persist campaign, ad name, placement, landing-session ID, Meta click identifiers, and GA client ID in Session and PaymentIntent metadata. The Stripe purchase webhook now reads and forwards the attribution fields. Vercel still needs a least-privilege `STRIPE_AI_AUDIT_RESTRICTED_KEY`; until it is configured, the page deliberately falls back to the existing Payment Link.
+
+## 2026-08-10, AI Audit $59 launch price
+
+Repriced the AI Bottleneck Snapshot from $79 to $59 after confirming that Stripe had zero completed live Checkout Sessions. The price is an informed launch prior, not an observed optimum. A simple semilog demand model places $59 at the signal-weighted knee: roughly 22 percent more expected paid Purchase events with roughly 9 percent less expected front-end revenue than $79 for the same ad spend. Jack's current priority is learning from first customers, each audit takes about 20 minutes, and fulfillment capacity is not constrained.
+
+Created a new live Stripe $59 Price and Payment Link, made the new Price the product default, updated all visible, schema, checkout, intake, GA4, and Meta values, and replaced the stale three-tier social image. The Stripe webhook now emits the actual paid Session amount and temporarily accepts both 5900 and 7900 for Snapshot purchases during cutover. The pricing rationale and precommitted test rules are recorded in `research/ai-audit-pricing-frontier-2026-08-10.md`.

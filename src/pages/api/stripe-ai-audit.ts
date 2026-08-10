@@ -11,17 +11,17 @@ const ALLOWED_EVENTS = new Set([
 
 const PURCHASES = {
 	snapshot: {
-		amount: 7900,
+		amounts: [5900, 7900],
 		offerKey: 'ai_bottleneck_snapshot',
 		name: 'AI Bottleneck Snapshot',
 	},
 	mini: {
-		amount: 19900,
+		amounts: [19900],
 		offerKey: 'quick_win_mini_audit',
 		name: 'Quick-Win Mini Audit',
 	},
 	full: {
-		amount: 49900,
+		amounts: [49900],
 		offerKey: 'full_ai_audit',
 		name: 'Full AI Audit',
 	},
@@ -140,13 +140,13 @@ export const POST: APIRoute = async ({ request }) => {
 	if (!session) return json({ success: false, message: 'Missing Checkout Session' }, 400);
 
 	const metadataTier = String(session.metadata?.service_tier ?? '') as keyof typeof PURCHASES;
-	const serviceTier = (metadataTier || (isTestEvent && session.amount_total === PURCHASES.snapshot.amount ? 'snapshot' : '')) as keyof typeof PURCHASES;
+	const serviceTier = (metadataTier || (isTestEvent && PURCHASES.snapshot.amounts.includes(session.amount_total) ? 'snapshot' : '')) as keyof typeof PURCHASES;
 	const purchase = PURCHASES[serviceTier];
 	const isExpectedPurchase = Boolean(
 		purchase &&
 		session.livemode === !isTestEvent &&
 		session.payment_status === 'paid' &&
-		session.amount_total === purchase.amount &&
+		purchase.amounts.includes(session.amount_total) &&
 		String(session.currency).toLowerCase() === 'usd' &&
 		(isTestEvent || session.metadata?.offer_key === purchase.offerKey),
 	);
@@ -174,7 +174,7 @@ export const POST: APIRoute = async ({ request }) => {
 				event_source_url: 'https://jackmaguire.org/Your-AI-Audit/',
 				user_data: userData,
 				custom_data: {
-					value: purchase.amount / 100,
+					value: session.amount_total / 100,
 					currency: 'USD',
 					content_name: purchase.name,
 					content_ids: [purchase.offerKey],
@@ -227,7 +227,7 @@ export const POST: APIRoute = async ({ request }) => {
 								name: 'purchase',
 								params: {
 									currency: 'USD',
-									value: purchase.amount / 100,
+									value: session.amount_total / 100,
 									transaction_id: session.id,
 									service_tier: serviceTier,
 									...(attribution.campaign ? { campaign: attribution.campaign } : {}),

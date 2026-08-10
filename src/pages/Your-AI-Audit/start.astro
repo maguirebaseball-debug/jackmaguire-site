@@ -176,7 +176,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 					<li>One exact tool or workflow recommendation</li>
 					<li>Projected weekly savings, software cost, and setup steps</li>
 				</ul>
-				<p class="guarantee">If I cannot identify one practical change projected to save at least 30 minutes each week, I will automatically refund the $79 fee.</p>
+				<p class="guarantee">If I cannot identify one practical change projected to save at least 30 minutes each week, I will automatically refund the $59 fee.</p>
 			</section>
 
 			<footer class="intake-footer">
@@ -384,7 +384,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 						const result = await response.json();
 						if (!response.ok || !result.success) throw new Error(result.message || 'Submission failed');
 						trackCustom('AuditIntakeCompleted', `audit_intake_completed_${sessionId}`);
-						trackAuditAnalytics('ai_audit_intake_completed', { tier, value: tier === 'snapshot' ? 79 : tier === 'mini' ? 199 : 499, currency: 'USD' });
+						trackAuditAnalytics('ai_audit_intake_completed', { tier, value: tier === 'snapshot' ? 59 : tier === 'mini' ? 199 : 499, currency: 'USD' });
 						if (formCard instanceof HTMLElement) formCard.hidden = true;
 						if (successCard instanceof HTMLElement) successCard.hidden = false;
 						window.scrollTo({ top: 0, behavior: 'smooth' });
