@@ -5,7 +5,7 @@ const root = new URL('..', import.meta.url).pathname;
 const blogDir = join(root, 'src/pages/blog');
 const pagesDir = join(root, 'src/pages');
 /** Root-level article pages registered in standaloneBlogPosts (not under /blog/). */
-const rootArticleFiles = ['blinded-world-cup-2026.astro'];
+const rootArticleFiles = ['blinded-world-cup-2026.astro', 'Travellist.astro'];
 const distRoot = existsSync(join(root, 'dist/client')) ? join(root, 'dist/client') : join(root, 'dist');
 const distHome = join(distRoot, 'index.html');
 const distBlogIndex = join(distRoot, 'blog/index.html');

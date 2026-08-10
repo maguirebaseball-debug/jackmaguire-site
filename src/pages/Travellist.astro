@@ -1,0 +1,405 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Travel list';
+const description = 'A record of places Jack Maguire has visited, organized by country and region.';
+const pubDate = 'August 10, 2026';
+const category = 'Travel';
+
+// Keep the source compact and editable while preserving NomadMania-style regions.
+// A place token can use "Visible name::Wikipedia title" when a disambiguation is needed.
+const rawRows = `
+Albania|Coastal|Durrës, Vlorë, Fier
+Albania|Northeastern|Tirana, Shkodër
+Austria|South - Carinthia and Styria|Graz, Klagenfurt
+Belgium|Flanders|Antwerp, Ghent, Bruges, Ostend, Leuven, Hasselt
+Canada|Ontario East|Ottawa, Sudbury, Timmins
+Canada|Ontario Peninsula|Toronto, Hamilton, Kitchener
+Canada|New Brunswick|Saint John, Moncton
+Canada|Quebec East|Quebec City, Montmagny, Sept-Îles
+Canada|Quebec West|Montreal, Saint-Jérôme, Trois-Rivières, Sherbrooke
+China||Chongqing
+China||Hong Kong
+China|Shaanxi Central|Xi'an
+China||Shanghai
+Czechia|Central Bohemia and Prague|Prague
+Czechia|Moravia|Brno, Olomouc, Zlín
+Dominican Republic|Eastern|Santo Domingo, Punta Cana
+Ecuador|Andes North|Quito, Riobamba, Latacunga, Ibarra
+Ecuador||Guayaquil, Machala, Milagro, Manta, Esmeraldas
+Germany|Bavaria Southern|Munich, Augsburg
+Greece|Ionian Islands|Corfu, Zakynthos, Kefalonia
+Guatemala|Highlands|Guatemala City, Antigua Guatemala::Antigua Guatemala, Quetzaltenango
+Guatemala|Pacific Coast|Escuintla, Coatepeque
+Ireland|Connacht and Ulster|Galway
+Ireland|Munster|Cork
+Ireland|Leinster|Dublin, Kilkenny, Drogheda
+Italy|Tuscany|Florence, Pisa, Siena, Prato, Livorno, Arezzo
+Italy|Veneto|Venice, Verona, Vicenza, Treviso
+Japan|Kansai Greater Osaka|Osaka, Kyoto
+Japan|Kanto Greater Tokyo|Tokyo
+Mexico|Ciudad de México Federal District|Mexico City
+Netherlands|Randstad|Amsterdam, Rotterdam, Utrecht
+Netherlands|South - Zeeland, Limburg, North Brabant|Eindhoven
+Poland|Silesia, Lower Silesia, Opole|Katowice, Wrocław, Częstochowa
+Portugal|Central|Fátima
+Russia||Saint Petersburg
+Slovakia||Bratislava, Nitra, Trnava, Trenčín
+Slovenia|Western|Ljubljana, Kranj, Koper
+Spain|Castilla-La Mancha|Toledo
+Spain||Extremadura
+Spain||Madrid
+Spain|Basque Country|Bilbao, San Sebastián, Vitoria-Gasteiz::Vitoria-Gasteiz
+Spain|Catalonia Eastern|Barcelona, Girona
+Sweden|Stockholm and Mälaren Valley|Örebro, Uppsala, Norrköping
+Switzerland|Romandy|Geneva, Lausanne, Fribourg, Montreux, Neuchâtel
+United Kingdom|England Thames Valley and Hampshire|Southampton
+United Kingdom|Northern Ireland|Enniskillen
+United Kingdom|England - Greater London|London
+United States|Alabama|Birmingham, Mobile, Montgomery, Huntsville
+United States|Arizona North|Grand Canyon, Flagstaff
+United States|Arizona South|Phoenix, Tucson, Yuma
+United States|Arkansas|Little Rock, Fort Smith
+United States|California Extreme North|Eureka, Redding, Ukiah, Chico
+United States|California North|San Francisco, Sacramento, Napa
+United States|California South|Los Angeles, San Diego, San Luis Obispo
+United States|Colorado East|Denver, Colorado Springs, Fort Collins
+United States|Connecticut|Hartford, New Haven, New London, Danbury
+United States|Delaware|Wilmington, Dover, Rehoboth Beach
+United States|District of Columbia|Washington, D.C.
+United States|Florida Central and South|Miami, Tampa, Orlando, Fort Myers
+United States|Florida Keys|Key Largo, Key West
+United States|Florida North|Jacksonville, Tallahassee, Pensacola, Ocala
+United States|Georgia North|Atlanta, Macon, Augusta, Athens
+United States|Georgia South|Columbus, Savannah, Albany
+United States|Hawaii|Big Island::Hawaii (island)
+United States|Hawaii|Oahu, Maui, Kauai
+United States|Illinois Northeast|Chicago, Naperville, Aurora
+United States|Illinois West and South|Springfield, Rockford, Peoria, Normal
+United States|Indiana|Indianapolis, Evansville, Fort Wayne
+United States|Kansas|Wichita, Topeka, Dodge City
+United States|Kentucky|Louisville, Lexington, Bowling Green
+United States|Louisiana|New Orleans, Baton Rouge, Shreveport, Lafayette
+United States|Maine|Portland, Augusta, Bangor, Presque Isle
+United States|Maryland|Baltimore, Annapolis, Frederick, Hagerstown
+United States|Massachusetts|Boston, Springfield, Salem, Worcester
+United States|Michigan Lower Peninsula|Detroit, Lansing, Grand Rapids
+United States|Minnesota|Minneapolis, Duluth, Bemidji
+United States|Mississippi|Jackson, Gulfport, Biloxi, Hattiesburg
+United States|Missouri|St. Louis, Kansas City, Springfield
+United States|Nebraska|Omaha, Lincoln, Scottsbluff, Kearney
+United States|Nevada South|Las Vegas
+United States|New Hampshire|Concord, Manchester, Keene
+United States|New Jersey|Trenton, Newark, Atlantic City, Toms River
+United States|New York - New York City and Long Island|New York City, Long Island
+United States|New York East|Albany, Plattsburgh, Utica, Watertown
+United States|New York West|Buffalo, Syracuse, Binghamton, Ithaca
+United States|North Carolina|Charlotte, Raleigh, Greensboro, Durham
+United States|North Dakota|Fargo, Grand Forks, Bismarck
+United States|Ohio North|Cleveland, Toledo, Youngstown, Canton, Akron
+United States|Ohio South|Columbus, Cincinnati, Dayton, Athens
+United States|Oklahoma|Oklahoma City, Tulsa, Lawton, Broken Arrow
+United States|Oregon|Portland::Portland, Oregon, Eugene, Medford, Bend
+United States|Pennsylvania East|Philadelphia, Harrisburg, Scranton
+United States|Pennsylvania West|Pittsburgh, Altoona, Erie
+United States|Puerto Rico|San Juan, Bayamón, Ponce
+United States|Rhode Island|Providence, Newport, Warwick
+United States|South Carolina|Columbia, Charleston, Greenville, Myrtle Beach
+United States|Tennessee|Memphis, Nashville, Chattanooga, Knoxville
+United States|Texas Northeast|Dallas, Fort Worth, Austin
+United States|Texas Southeast|Houston, San Antonio, Corpus Christi
+United States|Utah|Salt Lake City, Provo, Ogden
+United States|Vermont|Burlington, Montpelier, Derby
+United States|Virginia|Richmond, Arlington, Norfolk, Roanoke, Harrisonburg
+United States|Washington|Seattle, Tacoma, Spokane, Yakima
+United States|West Virginia|Charleston, Morgantown, Parkersburg
+United States|Wisconsin|Milwaukee, Madison, Green Bay, Eau Claire
+United States|Wyoming|Cheyenne, Yellowstone, Casper, Jackson
+Venezuela|Northeast|Anzoátegui, Monagas, Sucre
+`.trim();
+
+const rows = rawRows.split('\n').map((line) => {
+	const [country, region, placeText] = line.split('|');
+	const places = placeText.split(', ').map((token) => {
+		const [name, wikiTitle] = token.split('::');
+		return { name, wikiTitle: wikiTitle ?? name };
+	});
+	return { country, region, places };
+});
+
+const countries = [...new Set(rows.map((row) => row.country))];
+const placeCount = rows.reduce((sum, row) => sum + row.places.length, 0);
+const countryWiki: Record<string, string> = {
+	'Czechia': 'Czechia',
+	'United Kingdom': 'United Kingdom',
+	'United States': 'United States',
+};
+
+function wiki(title: string) {
+	return `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`;
+}
+
+function countryUrl(country: string) {
+	return wiki(countryWiki[country] ?? country);
+}
+
+function regionUrl(region: string) {
+	const title = region.replace(/^South - /, '').replace(/^England - /, 'England, ');
+	return wiki(title);
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | Jack Maguire`} description={description} articlePublished={pubDate} />
+	</head>
+	<body>
+		<Header />
+		<main class="travel-page">
+			<header class="page-intro">
+				<p class="kicker">A personal atlas</p>
+				<h1>{title}</h1>
+				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search for a city or region.</p>
+				<div class="stats" aria-label="Travel list statistics">
+					<span><strong>{countries.length}</strong> countries and territories</span>
+					<span><strong>{placeCount}</strong> place entries</span>
+				</div>
+			</header>
+
+			<section class="controls" aria-label="Travel list controls">
+				<label for="place-search">Find a place</label>
+				<input id="place-search" type="search" placeholder="Search cities, regions, or countries" autocomplete="off" />
+				<label for="country-filter" class="sr-only">Filter by country</label>
+				<select id="country-filter">
+					<option value="all">All countries</option>
+					{countries.map((country) => <option value={country}>{country}</option>)}
+				</select>
+				<p id="result-count" class="result-count" aria-live="polite">Showing all {countries.length} countries</p>
+			</section>
+
+			<section class="country-list" aria-label="Visited places">
+				{countries.map((country) => {
+					const countryRows = rows.filter((row) => row.country === country);
+					const countryPlaces = countryRows.reduce((sum, row) => sum + row.places.length, 0);
+					return (
+						<article class="country-section" data-country={country} data-search={`${country} ${countryRows.map((row) => `${row.region} ${row.places.map((place) => place.name).join(' ')}`).join(' ')}`.toLowerCase()}>
+							<div class="country-heading">
+								<h2><a href={countryUrl(country)}>{country}</a></h2>
+								<span>{countryPlaces} {countryPlaces === 1 ? 'place' : 'places'}</span>
+							</div>
+							<div class="region-list">
+								{countryRows.map((row) => (
+									<div class="region-row" data-row-search={`${row.region} ${row.places.map((place) => place.name).join(' ')}`.toLowerCase()}>
+										<div class="region-name">{row.region ? <a href={regionUrl(row.region)}>{row.region}</a> : <span>Places visited</span>}</div>
+										<div class="place-links">
+											{row.places.map((place, index) => <><a href={wiki(place.wikiTitle)}>{place.name}</a>{index < row.places.length - 1 && <span>, </span>}</>)}
+										</div>
+									</div>
+								))}
+							</div>
+						</article>
+					);
+				})}
+			</section>
+			<p id="no-results" class="no-results" hidden>No places match that search.</p>
+			<p class="source-note">Place names link to their English Wikipedia entries. Region labels follow the original travel record.</p>
+		</main>
+		<Footer />
+		<script>
+			const search = document.querySelector('#place-search');
+			const filter = document.querySelector('#country-filter');
+			const sections = [...document.querySelectorAll('.country-section')];
+			const resultCount = document.querySelector('#result-count');
+			const noResults = document.querySelector('#no-results');
+			function updateList() {
+				const query = search.value.trim().toLowerCase();
+				const selectedCountry = filter.value;
+				let visible = 0;
+				sections.forEach((section) => {
+					const matchesCountry = selectedCountry === 'all' || section.dataset.country === selectedCountry;
+					const matchesSearch = !query || section.dataset.search.includes(query);
+					const show = matchesCountry && matchesSearch;
+					section.hidden = !show;
+					if (show) visible += 1;
+				});
+				resultCount.textContent = visible === sections.length ? `Showing all ${visible} countries` : `Showing ${visible} ${visible === 1 ? 'country' : 'countries'}`;
+				noResults.hidden = visible !== 0;
+			}
+			search.addEventListener('input', updateList);
+			filter.addEventListener('change', updateList);
+		</script>
+	</body>
+</html>
+
+<style>
+	.travel-page {
+		max-width: 920px;
+	}
+	.page-intro {
+		max-width: 45rem;
+		padding: 2.75rem 0 2.25rem;
+	}
+	.kicker {
+		margin: 0 0 0.6rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--accent-dark);
+	}
+	.page-intro h1 {
+		font-size: clamp(2.4rem, 8vw, 5rem);
+		letter-spacing: -0.05em;
+		margin: 0 0 0.65rem;
+	}
+	.lede {
+		max-width: 37rem;
+		margin: 0;
+		font-size: clamp(1.05rem, 2vw, 1.25rem);
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.75rem;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	.stats strong {
+		color: var(--accent-dark);
+		font-size: 1.15rem;
+		margin-right: 0.3rem;
+	}
+	.controls {
+		display: grid;
+		grid-template-columns: 1fr 13rem;
+		gap: 0.65rem 0.85rem;
+		align-items: center;
+		padding: 1rem 0;
+		margin-bottom: 2.2rem;
+		border-top: 1px solid rgba(85, 107, 47, 0.3);
+		border-bottom: 1px solid rgba(var(--gray-light), 0.9);
+	}
+	.controls label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+	}
+	.controls input,
+	.controls select {
+		box-sizing: border-box;
+		min-height: 2.85rem;
+		border: 1px solid rgba(var(--gray), 0.38);
+		border-radius: 0;
+		background: rgba(255, 255, 255, 0.45);
+		padding: 0.65rem 0.75rem;
+		font: inherit;
+		color: rgb(var(--black));
+	}
+	.controls input:focus,
+	.controls select:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.result-count {
+		grid-column: 1 / -1;
+		margin: 0;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	.country-section {
+		margin-bottom: 2.6rem;
+	}
+	.country-heading {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 0.45rem;
+	}
+	.country-heading h2 {
+		margin: 0;
+		font-size: 1.45rem;
+		letter-spacing: -0.02em;
+	}
+	.country-heading h2 a {
+		color: rgb(var(--black));
+		text-decoration: none;
+	}
+	.country-heading h2 a:hover {
+		color: var(--accent);
+	}
+	.country-heading > span {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.7rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+		white-space: nowrap;
+	}
+	.region-row {
+		display: grid;
+		grid-template-columns: minmax(13rem, 0.7fr) 1.6fr;
+		gap: 1rem;
+		padding: 0.8rem 0;
+		border-bottom: 1px solid rgba(var(--gray-light), 0.8);
+		font-size: 0.94rem;
+	}
+	.region-name {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	.region-name a {
+		color: inherit;
+	}
+	.place-links {
+		line-height: 1.7;
+	}
+	.place-links a {
+		text-underline-offset: 0.18em;
+	}
+	.no-results {
+		padding: 2rem 0;
+		font-size: 1.1rem;
+	}
+	.source-note {
+		margin: 3rem 0 1rem;
+		border-top: 1px solid rgba(var(--gray-light), 0.9);
+		padding-top: 1rem;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+	}
+	@media (max-width: 650px) {
+		.page-intro {
+			padding-top: 1.75rem;
+		}
+		.controls {
+			grid-template-columns: 1fr;
+		}
+		.region-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+		.country-heading {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+	}
+</style>

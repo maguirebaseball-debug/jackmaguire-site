@@ -5,7 +5,7 @@ const blogPageSources = import.meta.glob('../pages/blog/*.astro', {
 });
 
 /** Root-level article pages that should appear on /blog and homepage feeds. */
-const rootArticleSources = import.meta.glob('../pages/{blinded-world-cup-2026,bottleneck}.astro', {
+const rootArticleSources = import.meta.glob('../pages/{Travellist,blinded-world-cup-2026,bottleneck}.astro', {
 	query: '?raw',
 	import: 'default',
 	eager: true,
