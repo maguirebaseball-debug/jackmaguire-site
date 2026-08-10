@@ -78,16 +78,16 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 
 					<div class="form-step is-active" data-step="1">
 						<fieldset>
-							<legend><span>01</span> What does your business do, and who does it serve?</legend>
-							<p class="help">One or two sentences is enough. Example: We are a five-person accounting firm serving independent medical practices.</p>
-							<textarea name="q1_business_and_audience" rows="4" required></textarea>
+							<legend><span>01</span> What does your week involve, and where does this task fit?</legend>
+							<p class="help">One or two sentences is enough. Example: I manage a busy household and spend Sunday evening sorting appointments, email, and receipts.</p>
+							<textarea name="q1_weekly_context" rows="4" required></textarea>
 							<p class="field-error" aria-live="polite"></p>
 						</fieldset>
 
 						<fieldset>
 							<legend><span>02</span> Which recurring workflow do you most want off your plate?</legend>
 							<div class="radio-grid">
-								{['Inbox sorting and replies','Lead follow-up','Meeting notes and action items','Reporting and analytics','Scheduling and reminders','Proposals or quotes','Client onboarding','Invoicing or payment follow-up','Data entry or moving information between tools','Something else'].map((option) => (
+								{['Inbox sorting and replies','Meeting notes and action items','Spreadsheet updates or reporting','Scheduling and reminders','Recurring research or summaries','Drafting routine messages or documents','Personal or household admin','Expense or receipt sorting','Data entry or moving information between tools','Something else'].map((option) => (
 									<label><input type="radio" name="q2_workflow" value={option} required /> <span>{option}</span></label>
 								))}
 							</div>
@@ -145,7 +145,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 							<legend><span>08</span> What constraints must the recommendation respect?</legend>
 							<p class="help">Select every constraint that applies.</p>
 							<div class="check-grid">
-								{['I do not want to change my current core software','I need the tool to work with sensitive client information','I need a no-code setup','I want to keep new software under $25 per month','I want to keep new software under $60 per month','A team member must be able to maintain it','I have no major constraints','Something else'].map((option) => (
+								{['I do not want to change my current core software','The task involves sensitive personal or client information','I need a no-code setup','I want to keep new software under $25 per month','I want to keep new software under $60 per month','Someone else must be able to maintain it','I have no major constraints','Something else'].map((option) => (
 									<label><input type="checkbox" name="q8_constraints" value={option} /> <span>{option}</span></label>
 								))}
 							</div>
@@ -171,7 +171,7 @@ const formAccessKey = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 				<h2>Your Snapshot is underway.</h2>
 				<p>I have your answers. I will email your one-page AI Bottleneck Snapshot within one business day.</p>
 				<ul>
-					<li>Your highest-cost recurring bottleneck</li>
+					<li>The recurring workflow you submitted</li>
 					<li>Its current weekly time cost</li>
 					<li>One exact tool or workflow recommendation</li>
 					<li>Projected weekly savings, software cost, and setup steps</li>

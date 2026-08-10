@@ -2,8 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 
 const snapshotPrice = 59;
-const title = `Your AI Audit | $${snapshotPrice} AI Bottleneck Snapshot`;
-const description = `Find the first recurring workflow AI should take off your plate. Pay $${snapshotPrice}, answer eight questions, and receive a one-page AI Bottleneck Snapshot within one business day.`;
+const title = `Your AI Audit | One AI Recommendation for $${snapshotPrice}`;
+const description = `Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $${snapshotPrice} back.`;
 const fallbackCheckoutUrl = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 
 const faqItems = [
@@ -13,11 +13,11 @@ const faqItems = [
 	},
 	{
 		question: 'Do I need AI or coding experience?',
-		answer: 'No. The recommendation is written for a nontechnical owner and limited to tools or workflow changes you can realistically maintain.',
+		answer: 'No. The recommendation is written for a nontechnical person and limited to tools or workflow changes you can realistically maintain.',
 	},
 	{
 		question: 'What do I need to provide?',
-		answer: 'Eight short answers about your business and one recurring task. Rough estimates are fine. You do not need to share passwords, customer records, API keys, or a technical inventory.',
+		answer: 'Eight short answers about your routine and one recurring task. Rough estimates are fine. You do not need to share passwords, personal records, API keys, or a technical inventory.',
 	},
 	{
 		question: 'How does the refund work?',
@@ -66,10 +66,10 @@ const faqItems = [
 			<main>
 				<section class="hero" aria-labelledby="hero-title">
 					<div class="hero-copy">
-						<p class="eyebrow"><span></span> For owner-led service businesses</p>
-						<h1 id="hero-title">Find the first workflow AI can save you 30 minutes a week.</h1>
-						<p class="hero-note">One useful answer in one business day.</p>
-						<p class="hero-subhead">Pay ${snapshotPrice}, answer eight questions, and get a one-page recommendation for the recurring task worth fixing first. No software shopping, sales call, or AI expertise required.</p>
+						<p class="eyebrow"><span></span> For anyone with a repetitive weekly task</p>
+						<h1 id="hero-title">One practical AI fix for the task you repeat every week.</h1>
+						<p class="hero-note">One recommendation in one business day.</p>
+						<p class="hero-subhead">Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="hero">
 								<span class="button-label">Get my AI Bottleneck Snapshot</span>
@@ -89,7 +89,7 @@ const faqItems = [
 							<span>one-page<br />PDF diagnosis</span>
 						</div>
 						<ul>
-							<li>The recurring workflow you submit</li>
+							<li>The weekly task you submit</li>
 							<li>One exact recommendation</li>
 							<li>Savings, cost, and setup math</li>
 						</ul>
@@ -100,18 +100,34 @@ const faqItems = [
 					</aside>
 				</section>
 
+				<section class="task-examples section-shell" aria-labelledby="task-examples-title">
+					<div class="section-heading">
+						<p class="section-label">Tasks worth submitting</p>
+						<h2 id="task-examples-title">What do you do every week that you wish would do itself?</h2>
+						<p>Work tasks count. Personal admin counts too. Submit one repeated task with a clear trigger, a few repeatable steps, and enough weekly time to be worth fixing.</p>
+					</div>
+					<div class="task-grid">
+						<article><strong>Inbox replies</strong><p>Sort messages, identify what needs an answer, and draft routine responses for your review.</p></article>
+						<article><strong>Meeting notes</strong><p>Turn rough notes or transcripts into decisions, action items, and follow-up drafts.</p></article>
+						<article><strong>Spreadsheet updates</strong><p>Clean repeated exports, move information into the right columns, and prepare a weekly summary.</p></article>
+						<article><strong>Scheduling</strong><p>Collect dates, find conflicts, send reminders, and keep a recurring plan current.</p></article>
+						<article><strong>Research roundups</strong><p>Gather the same sources each week and turn them into one short, useful digest.</p></article>
+						<article><strong>Personal admin</strong><p>Sort receipts, update a budget, organize appointments, or build a weekly household checklist.</p></article>
+					</div>
+				</section>
+
 				<section id="example" class="example-section section-shell" aria-labelledby="example-title">
 					<div class="section-heading">
 						<p class="section-label">A readable example</p>
 						<h2 id="example-title">The answer fits on one page because the decision should be clear.</h2>
-						<p>This example uses an illustrative business and numbers. Your Snapshot uses your workflow, constraints, and estimates.</p>
+						<p>This example uses an illustrative weekly routine and numbers. Your Snapshot uses your task, constraints, and estimates.</p>
 					</div>
 
 					<article class="snapshot-sheet" aria-label="Illustrative AI Bottleneck Snapshot">
 						<header>
 							<div>
 								<p>AI Bottleneck Snapshot</p>
-								<h3>Lead follow-up after consultations</h3>
+								<h3>Sunday inbox and calendar reset</h3>
 							</div>
 							<span>Illustrative</span>
 						</header>
@@ -119,25 +135,25 @@ const faqItems = [
 							<section>
 								<span class="report-number">01</span>
 								<p class="report-kicker">Workflow diagnosed</p>
-								<h4>A 6-person residential design studio spends four hours a week writing lead follow-ups.</h4>
-								<p>12 consultations per week x 20 minutes each = 4 hours of owner time.</p>
+								<h4>The submitted routine takes 90 minutes every Sunday across email, a calendar, and a handwritten list.</h4>
+								<p>15 flagged emails x 4 minutes, plus 30 minutes copying dates and building the week's checklist.</p>
 							</section>
 							<section class="recommendation-cell">
 								<span class="report-number">02</span>
 								<p class="report-kicker">Recommended fix</p>
-								<h4>Use a saved intake-to-draft workflow to turn consultation notes into a review-ready email.</h4>
-								<p>Keep final approval with the owner. Replace the blank-page writing step, not the relationship.</p>
+								<h4>Use a saved email-to-week-plan workflow to summarize flagged messages, extract dates, and draft one checklist.</h4>
+								<p>Keep final approval with the person. Replace the sorting and copying, not the decisions.</p>
 							</section>
 							<section class="math-cell">
 								<span class="report-number">03</span>
 								<p class="report-kicker">Projected savings</p>
-								<div class="big-math"><strong>3</strong><span>hours saved<br />per week</span></div>
-								<p>12 follow-ups x 5 minutes = 1 hour. Estimated tool cost: $20 per month.</p>
+								<div class="big-math"><strong>55</strong><span>minutes saved<br />per week</span></div>
+								<p>Estimated new review time: 35 minutes. Estimated tool cost: $0 to $20 per month.</p>
 							</section>
 							<section>
 								<span class="report-number">04</span>
 								<p class="report-kicker">First action</p>
-								<h4>Build one template and test it on a recent consultation before changing the full workflow.</h4>
+								<h4>Test the workflow on last week's flagged messages before using it for the coming week.</h4>
 								<p>The paid report names the setup steps and the assumption to verify first.</p>
 							</section>
 						</div>
@@ -191,8 +207,8 @@ const faqItems = [
 				<section class="final-cta section-shell" aria-labelledby="final-title">
 					<div>
 						<p class="section-label section-label-light">Start with one bottleneck</p>
-						<h2 id="final-title">Find the first recurring task worth taking off your plate.</h2>
-						<p>Pay once, answer eight questions, and receive one specific recommendation with the math behind it within one business day.</p>
+						<h2 id="final-title">One repeated task. One practical AI recommendation.</h2>
+						<p>Get it in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
 					</div>
 					<aside class="checkout-card">
 						<span>AI Bottleneck Snapshot</span>
@@ -470,6 +486,13 @@ const faqItems = [
 	.section-heading h2, .credibility h2, .faq-block > h2, .final-cta h2 { margin: 0; font-size: clamp(40px, 4.6vw, 68px); letter-spacing: -0.05em; line-height: 0.98; }
 	.section-heading > p:last-child { max-width: 700px; margin: 0; font-size: 17px; line-height: 1.55; }
 
+	.task-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+	.task-grid article { min-height: 190px; padding: 28px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper-light); }
+	.task-grid article:nth-child(2), .task-grid article:nth-child(6) { background: var(--green); }
+	.task-grid article:nth-child(4) { background: #edf0ff; }
+	.task-grid strong { display: block; margin-bottom: 28px; font-size: 25px; letter-spacing: -0.035em; line-height: 1; }
+	.task-grid p { margin: 0; font-size: 15px; line-height: 1.5; }
+
 	.snapshot-sheet { border: 1px solid var(--ink); background: var(--paper-light); box-shadow: 12px 12px 0 var(--green); }
 	.snapshot-sheet > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding: 28px 32px; border-bottom: 1px solid var(--ink); }
 	.snapshot-sheet header p { margin: 0 0 8px; color: #3e570b; font-size: 11px; font-weight: 850; letter-spacing: 0.11em; text-transform: uppercase; }
@@ -545,6 +568,7 @@ const faqItems = [
 		.section-heading .section-label { grid-row: auto; }
 		.credibility, .guarantee-section, .final-cta { grid-template-columns: 1fr; }
 		.credibility figure { max-width: 520px; }
+		.task-grid { grid-template-columns: repeat(2, 1fr); }
 	}
 
 	@media (max-width: 680px) {
@@ -566,6 +590,8 @@ const faqItems = [
 		.snapshot-grid { grid-template-columns: 1fr; }
 		.snapshot-grid section { min-height: auto; padding: 28px 22px; border-right: 0; }
 		.snapshot-sheet footer strong { text-align: left; }
+		.task-grid { grid-template-columns: 1fr; }
+		.task-grid article { min-height: auto; }
 		.credibility { gap: 42px; }
 		.proof-row { grid-template-columns: 1fr; }
 		.proof-row div { border-right: 0; border-bottom: 1px solid var(--ink); }
