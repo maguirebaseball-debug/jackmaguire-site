@@ -155,6 +155,35 @@ const rows = rawRows.split('\n').map((line) => {
 
 const countries = [...new Set(rows.map((row) => row.country))].sort((a, b) => a.localeCompare(b));
 const regionCount = rows.length;
+const continentGroups = [
+	{
+		name: 'Europe',
+		image: '/images/travel/regions/europe.png',
+		alt: 'NomadMania map view of Europe',
+		countries: ['Albania', 'Austria', 'Belarus', 'Belgium', 'Czechia', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Ukraine', 'United Kingdom'],
+	},
+	{
+		name: 'North America',
+		image: '/images/travel/regions/north-america.png',
+		alt: 'NomadMania map view of North America',
+		countries: ['Canada', 'Dominican Republic', 'Guatemala', 'Mexico', 'United States'],
+	},
+	{
+		name: 'South America',
+		image: '/images/travel/regions/south-america.png',
+		alt: 'NomadMania map view of South America',
+		countries: ['Argentina', 'Brazil', 'Colombia', 'Ecuador'],
+	},
+	{
+		name: 'Asia',
+		image: '/images/travel/regions/asia.png',
+		alt: 'NomadMania map view of Asia',
+		countries: ['China', 'Japan'],
+	},
+].map((continent) => ({
+	...continent,
+	countries: continent.countries.filter((country) => countries.includes(country)),
+}));
 const countryWiki: Record<string, string> = {
 	'Czechia': 'Czechia',
 	'United Kingdom': 'United Kingdom',
@@ -258,7 +287,7 @@ function regionUrl(country: string, region: string) {
 			<header class="page-intro">
 				<p class="kicker">A personal atlas</p>
 				<h1>{title}</h1>
-				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by country, or search the 136 entries drawn from my NomadMania list.</p>
+				<p class="lede">Places I’ve visited, kept as a working list rather than a bucket list. Browse by continent, country, or search the {regionCount} entries drawn from my NomadMania list.</p>
 				<div class="stats" aria-label="Travel list statistics">
 					<span><strong>{regionCount}</strong> regional entries</span>
 				</div>
@@ -276,33 +305,51 @@ function regionUrl(country: string, region: string) {
 			</section>
 
 			<section class="country-list" aria-label="Visited places">
-				{countries.map((country) => {
-					const countryRows = rows.filter((row) => row.country === country);
-					return (
-						<article class="country-section" data-country={country} data-search={`${country} ${countryRows.map((row) => row.region).join(' ')}`.toLowerCase()}>
-							<div class="country-heading">
-								<h2><a href={countryUrl(country)}>{country}</a></h2>
-								<span>{countryRows.length} {countryRows.length === 1 ? 'region' : 'regions'}</span>
+				{continentGroups.map((continent) => (
+					<section class="continent-section" data-continent={continent.name}>
+						<div class="continent-heading">
+							<div>
+								<p class="continent-kicker">Continental view</p>
+								<h2>{continent.name}</h2>
 							</div>
-							<div class="region-list">
-								{countryRows.map((row) => (
-									<div class="region-row" data-row-search={row.region.toLowerCase()}>
-										<div class="region-name"><a href={regionUrl(row.country, row.region)}>{row.region}</a></div>
-									</div>
-								))}
-							</div>
-						</article>
-					);
-				})}
+							<span>{continent.countries.length} {continent.countries.length === 1 ? 'country' : 'countries'}</span>
+						</div>
+						<figure class="continent-map">
+							<img src={continent.image} alt={continent.alt} loading="lazy" decoding="async" />
+							<figcaption>Map view captured from <a href="https://nomadmania.com/regions/">NomadMania’s Regions page</a>.</figcaption>
+						</figure>
+						<div class="continent-countries">
+							{continent.countries.map((country) => {
+								const countryRows = rows.filter((row) => row.country === country);
+								return (
+									<article class="country-section" data-country={country} data-search={`${country} ${countryRows.map((row) => row.region).join(' ')}`.toLowerCase()}>
+										<div class="country-heading">
+											<h3><a href={countryUrl(country)}>{country}</a></h3>
+											<span>{countryRows.length} {countryRows.length === 1 ? 'region' : 'regions'}</span>
+										</div>
+										<div class="region-list">
+											{countryRows.map((row) => (
+												<div class="region-row" data-row-search={row.region.toLowerCase()}>
+													<div class="region-name"><a href={regionUrl(row.country, row.region)}>{row.region}</a></div>
+												</div>
+											))}
+										</div>
+									</article>
+								);
+							})}
+						</div>
+					</section>
+				))}
 			</section>
 			<p id="no-results" class="no-results" hidden>No regions match that search.</p>
-			<p class="source-note">Country and regional names link to their English Wikipedia entries. A single-city NomadMania region keeps its city name; multi-city regions stay at the regional level.</p>
+			<p class="source-note">Map captures are from <a href="https://nomadmania.com/regions/">NomadMania’s Regions page</a>. Country and regional names link to their English Wikipedia entries. A single-city NomadMania region keeps its city name; multi-city regions stay at the regional level.</p>
 		</main>
 		<Footer />
 		<script>
 			const search = document.querySelector('#region-search');
 			const filter = document.querySelector('#country-filter');
 			const sections = [...document.querySelectorAll('.country-section')];
+			const continentSections = [...document.querySelectorAll('.continent-section')];
 			const resultCount = document.querySelector('#result-count');
 			const noResults = document.querySelector('#no-results');
 			function updateList() {
@@ -315,6 +362,9 @@ function regionUrl(country: string, region: string) {
 					const show = matchesCountry && matchesSearch;
 					section.hidden = !show;
 					if (show) visible += 1;
+				});
+				continentSections.forEach((continent) => {
+					continent.hidden = !continent.querySelector('.country-section:not([hidden])');
 				});
 				resultCount.textContent = visible === sections.length ? `Showing all ${visible} countries` : `Showing ${visible} ${visible === 1 ? 'country' : 'countries'}`;
 				noResults.hidden = visible !== 0;
@@ -409,6 +459,58 @@ function regionUrl(country: string, region: string) {
 		font-size: 0.8rem;
 		color: rgb(var(--gray));
 	}
+	.continent-section {
+		margin-bottom: 4.5rem;
+	}
+	.continent-heading {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+		gap: 1rem;
+		margin-bottom: 1rem;
+		padding-bottom: 0.65rem;
+		border-bottom: 3px solid var(--accent-dark);
+	}
+	.continent-heading h2 {
+		margin: 0;
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		letter-spacing: -0.04em;
+	}
+	.continent-heading > span {
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.7rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	.continent-kicker {
+		margin: 0 0 0.25rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent-dark);
+	}
+	.continent-map {
+		margin: 0 0 2rem;
+		border: 1px solid rgba(var(--gray-light), 0.95);
+		background: rgb(var(--gray-light));
+	}
+	.continent-map img {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-height: 22rem;
+		object-fit: cover;
+	}
+	.continent-map figcaption {
+		padding: 0.55rem 0.7rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.68rem;
+		line-height: 1.4;
+		color: rgb(var(--gray));
+	}
 	.country-section {
 		margin-bottom: 2.6rem;
 	}
@@ -420,16 +522,16 @@ function regionUrl(country: string, region: string) {
 		border-bottom: 2px solid var(--accent);
 		padding-bottom: 0.45rem;
 	}
-	.country-heading h2 {
+	.country-heading h3 {
 		margin: 0;
 		font-size: 1.45rem;
 		letter-spacing: -0.02em;
 	}
-	.country-heading h2 a {
+	.country-heading h3 a {
 		color: rgb(var(--black));
 		text-decoration: none;
 	}
-	.country-heading h2 a:hover {
+	.country-heading h3 a:hover {
 		color: var(--accent);
 	}
 	.country-heading > span {
@@ -470,6 +572,15 @@ function regionUrl(country: string, region: string) {
 		color: rgb(var(--gray));
 	}
 	@media (max-width: 650px) {
+		.continent-section {
+			margin-bottom: 3.5rem;
+		}
+		.continent-heading {
+			align-items: baseline;
+		}
+		.continent-map img {
+			max-height: 15rem;
+		}
 		.page-intro {
 			padding-top: 1.75rem;
 		}
