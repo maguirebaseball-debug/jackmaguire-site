@@ -153,7 +153,7 @@ const rows = rawRows.split('\n').map((line) => {
 	return { country, region };
 });
 
-const countries = [...new Set(rows.map((row) => row.country))];
+const countries = [...new Set(rows.map((row) => row.country))].sort((a, b) => a.localeCompare(b));
 const regionCount = rows.length;
 const countryWiki: Record<string, string> = {
 	'Czechia': 'Czechia',
