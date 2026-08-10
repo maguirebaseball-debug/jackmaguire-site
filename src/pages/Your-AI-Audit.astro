@@ -2,26 +2,34 @@
 import BaseHead from '../components/BaseHead.astro';
 
 const snapshotPrice = 59;
-const title = `Your AI Audit | One AI Recommendation for $${snapshotPrice}`;
+const title = `One-Task AI Plan | One Recommendation for $${snapshotPrice}`;
 const description = `Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $${snapshotPrice} back.`;
 const fallbackCheckoutUrl = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 
 const faqItems = [
 	{
 		question: 'What exactly am I buying?',
-		answer: 'A one-page PDF diagnosing one recurring workflow. It names the bottleneck, estimates its weekly time cost, recommends one practical fix, shows the expected savings and software cost, and gives you the first setup steps.',
+		answer: 'A personally reviewed one-page PDF about one recurring computer task. It shows your current time cost, one selected recommendation, projected savings and software cost, three setup steps, the first test, and the assumptions behind the projection.',
+	},
+	{
+		question: 'Do you install the automation?',
+		answer: 'No. You receive the recommendation and setup plan. I do not log into accounts, install software, configure integrations, or build custom software.',
 	},
 	{
 		question: 'Do I need AI or coding experience?',
-		answer: 'No. The recommendation is written for a nontechnical person and limited to tools or workflow changes you can realistically maintain.',
+		answer: 'No. Recommendations are limited to practical no-code or built-in tool options that fit the constraints you provide.',
 	},
 	{
-		question: 'What do I need to provide?',
-		answer: 'Eight short answers about your routine and one recurring task. Rough estimates are fine. You do not need to share passwords, personal records, API keys, or a technical inventory.',
+		question: 'Will I need to buy software?',
+		answer: 'Not necessarily. I may recommend a feature in a tool you already use. If a paid tool is justified, the PDF states the estimated monthly cost.',
+	},
+	{
+		question: 'When will it arrive?',
+		answer: 'By the end of the next business day after you submit the completed intake. Business days are Monday through Friday, excluding U.S. federal holidays.',
 	},
 	{
 		question: 'How does the refund work?',
-		answer: `If I cannot identify a practical change projected to save at least 30 minutes each week, I automatically refund the full $${snapshotPrice}. You do not need to implement the recommendation first.`,
+		answer: `If I cannot support a practical 30-minute weekly projection from your completed intake, I initiate a full $${snapshotPrice} refund to the original payment method. You do not need to request it. The guarantee covers the recommendation, not results after implementation.`,
 	},
 ];
 ---
@@ -34,7 +42,7 @@ const faqItems = [
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'Service',
-			name: 'AI Bottleneck Snapshot',
+			name: 'One-Task AI Plan',
 			description,
 			provider: {
 				'@type': 'Person',
@@ -45,7 +53,7 @@ const faqItems = [
 			areaServed: 'US',
 			offers: {
 				'@type': 'Offer',
-				name: 'AI Bottleneck Snapshot',
+				name: 'One-Task AI Plan',
 				price: String(snapshotPrice),
 				priceCurrency: 'USD',
 				availability: 'https://schema.org/InStock',
@@ -58,75 +66,89 @@ const faqItems = [
 			<header class="topbar">
 				<a class="brand" href="/" aria-label="Jack Maguire home">
 					<span class="brand-mark" aria-hidden="true">JM</span>
-					<span>Your AI Audit</span>
+					<span>Your One-Task AI Plan</span>
 				</a>
-				<a class="topbar-link" href="#example">See what you get <span>${snapshotPrice}</span></a>
+				<a class="topbar-link" href="#what-you-get">See what you get <span>${snapshotPrice}</span></a>
 			</header>
+			<p id="checkout-cancelled" class="checkout-notice" hidden><strong>Checkout canceled.</strong> You were not charged.</p>
 
 			<main>
 				<section class="hero" aria-labelledby="hero-title">
 					<div class="hero-copy">
-						<p class="eyebrow"><span></span> For anyone with a repetitive weekly task</p>
-						<h1 id="hero-title">One practical AI fix for the task you repeat every week.</h1>
-						<p class="hero-note">One recommendation in one business day.</p>
+						<p class="eyebrow"><span></span> Personally reviewed one-page plan</p>
+						<h1 id="hero-title">One task you repeat. One practical plan to make it faster.</h1>
 						<p class="hero-subhead">Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
+						<p class="hero-qualifier">I review your completed intake myself. If I cannot support the 30-minute projection, I initiate a full refund. This is a recommendation and setup plan, not installation.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="hero">
-								<span class="button-label">Get my AI Bottleneck Snapshot</span>
+								<span class="button-label">Get my one-task plan</span>
 								<strong>${snapshotPrice}</strong>
 							</a>
-							<p><strong>Flat price. No sales call.</strong> Complete eight questions and receive a one-page PDF by email.</p>
+							<p><strong>Five-minute intake.</strong> No call or subscription. Delivered by email by the end of the next business day after intake.</p>
 						</div>
 					</div>
 
-					<aside class="audit-card" aria-label="AI Bottleneck Snapshot deliverable">
+					<aside class="audit-card" aria-label="One-task AI plan deliverable">
 						<div class="audit-card-head">
-							<span>Your purchase</span>
-							<span class="status"><i></i> One-day delivery</span>
+							<span>What arrives</span>
+							<span class="status"><i></i> Personally reviewed</span>
 						</div>
 						<div class="price-lockup">
-							<strong>${snapshotPrice}</strong>
-							<span>one-page<br />PDF diagnosis</span>
+							<strong>1</strong>
+							<span>one-page<br />PDF plan</span>
 						</div>
 						<ul>
-							<li>The weekly task you submit</li>
-							<li>One exact recommendation</li>
-							<li>Savings, cost, and setup math</li>
+							<li>Current workflow and weekly time</li>
+							<li>One selected recommendation</li>
+							<li>Savings, setup, and software cost</li>
+							<li>The first test to run</li>
 						</ul>
 						<div class="audit-card-foot">
-							<div><span>Your input</span><strong>8 questions</strong></div>
-							<div><span>Calls required</span><strong>None</strong></div>
+							<div><span>Prepared by</span><strong>Jack</strong></div>
+							<div><span>Price</span><strong>${snapshotPrice}</strong></div>
 						</div>
 					</aside>
 				</section>
 
-				<section class="task-examples section-shell" aria-labelledby="task-examples-title">
+				<section id="what-you-get" class="deliverable-section section-shell" aria-labelledby="deliverable-title">
 					<div class="section-heading">
-						<p class="section-label">Tasks worth submitting</p>
-						<h2 id="task-examples-title">What do you do every week that you wish would do itself?</h2>
-						<p>Work tasks count. Personal admin counts too. Submit one repeated task with a clear trigger, a few repeatable steps, and enough weekly time to be worth fixing.</p>
+						<p class="section-label">Exactly what you get</p>
+						<h2 id="deliverable-title">One page. Four decisions already made.</h2>
+						<p>You receive one recommendation for one task. Installation, account access, and custom software are not included.</p>
 					</div>
-					<div class="task-grid">
-						<article><strong>Inbox replies</strong><p>Sort messages, identify what needs an answer, and draft routine responses for your review.</p></article>
-						<article><strong>Meeting notes</strong><p>Turn rough notes or transcripts into decisions, action items, and follow-up drafts.</p></article>
-						<article><strong>Spreadsheet updates</strong><p>Clean repeated exports, move information into the right columns, and prepare a weekly summary.</p></article>
-						<article><strong>Scheduling</strong><p>Collect dates, find conflicts, send reminders, and keep a recurring plan current.</p></article>
-						<article><strong>Research roundups</strong><p>Gather the same sources each week and turn them into one short, useful digest.</p></article>
-						<article><strong>Personal admin</strong><p>Sort receipts, update a budget, organize appointments, or build a weekly household checklist.</p></article>
+					<div class="decision-grid">
+						<article><span>01</span><strong>Your task now</strong><p>The steps and estimated weekly time in your current workflow.</p></article>
+						<article><span>02</span><strong>What to change</strong><p>One no-code AI or automation workflow selected for your tools and constraints.</p></article>
+						<article><span>03</span><strong>Whether it is worth it</strong><p>Projected savings, one-time setup, ongoing review, and estimated software cost.</p></article>
+						<article><span>04</span><strong>What to test first</strong><p>The smallest way to test the recommendation before changing your routine.</p></article>
 					</div>
+				</section>
+
+				<section class="process-section section-shell" aria-labelledby="process-title">
+					<div class="section-heading">
+						<p class="section-label">How it works</p>
+						<h2 id="process-title">From payment to plan in three steps.</h2>
+						<p>The delivery clock starts after you submit the completed intake, not when checkout ends.</p>
+					</div>
+					<div class="process-grid">
+						<article><span>1</span><strong>Pay ${snapshotPrice}</strong><p>Stripe sends you straight to the eight-question intake.</p></article>
+						<article><span>2</span><strong>Describe one task</strong><p>Share the steps, tools, time, desired outcome, and constraints. Rough estimates are fine.</p></article>
+						<article><span>3</span><strong>I email the PDF</strong><p>I personally review your answers and send the plan by the end of the next business day.</p></article>
+					</div>
+					<p class="privacy-strip"><strong>Keep private data out.</strong> Do not provide passwords, API keys, files, customer records, health information, or financial account details. A high-level description is enough.</p>
 				</section>
 
 				<section id="example" class="example-section section-shell" aria-labelledby="example-title">
 					<div class="section-heading">
-						<p class="section-label">A readable example</p>
-						<h2 id="example-title">The answer fits on one page because the decision should be clear.</h2>
-						<p>This example uses an illustrative weekly routine and numbers. Your Snapshot uses your task, constraints, and estimates.</p>
+						<p class="section-label">Illustrative example</p>
+						<h2 id="example-title">This is the structure you receive.</h2>
+						<p>This example uses fictional details and assumptions. Your PDF uses your task, constraints, and estimates.</p>
 					</div>
 
-					<article class="snapshot-sheet" aria-label="Illustrative AI Bottleneck Snapshot">
+					<article class="snapshot-sheet" aria-label="Illustrative One-Task AI Plan">
 						<header>
 							<div>
-								<p>AI Bottleneck Snapshot</p>
+								<p>One-Task AI Plan</p>
 								<h3>Sunday inbox and calendar reset</h3>
 							</div>
 							<span>Illustrative</span>
@@ -134,34 +156,57 @@ const faqItems = [
 						<div class="snapshot-grid">
 							<section>
 								<span class="report-number">01</span>
-								<p class="report-kicker">Workflow diagnosed</p>
+								<p class="report-kicker">Your task now</p>
 								<h4>The submitted routine takes 90 minutes every Sunday across email, a calendar, and a handwritten list.</h4>
 								<p>15 flagged emails x 4 minutes, plus 30 minutes copying dates and building the week's checklist.</p>
 							</section>
 							<section class="recommendation-cell">
 								<span class="report-number">02</span>
-								<p class="report-kicker">Recommended fix</p>
-								<h4>Use a saved email-to-week-plan workflow to summarize flagged messages, extract dates, and draft one checklist.</h4>
-								<p>Keep final approval with the person. Replace the sorting and copying, not the decisions.</p>
+								<p class="report-kicker">One recommendation</p>
+								<h4>Use a Gmail label called Sunday Review and a saved five-field AI prompt to extract the action, date, owner, source, and urgency into one draft checklist.</h4>
+								<p>Keep calendar edits and final approval manual. Do not send sensitive email content to an unapproved AI account.</p>
 							</section>
 							<section class="math-cell">
 								<span class="report-number">03</span>
 								<p class="report-kicker">Projected savings</p>
 								<div class="big-math"><strong>55</strong><span>minutes saved<br />per week</span></div>
-								<p>Estimated new review time: 35 minutes. Estimated tool cost: $0 to $20 per month.</p>
+								<p>90 minutes now minus 35 minutes for review and approval. Estimated added software cost: $0 to $20 per month.</p>
 							</section>
 							<section>
 								<span class="report-number">04</span>
-								<p class="report-kicker">First action</p>
-								<h4>Test the workflow on last week's flagged messages before using it for the coming week.</h4>
-								<p>The paid report names the setup steps and the assumption to verify first.</p>
+								<p class="report-kicker">Three setup steps</p>
+								<h4>Label last week's messages. Save the five-field prompt. Run the draft checklist before using it on the current week.</h4>
+								<p>First test: verify extracted dates and owners. Key assumption: the person still spends no more than 35 minutes reviewing the result.</p>
 							</section>
 						</div>
 						<footer>
 							<span>What you receive</span>
-							<strong>Diagnosis, one recommendation, savings math, and a practical first step.</strong>
+							<strong>Your PDF uses this same structure and states the assumptions behind the projection.</strong>
 						</footer>
 					</article>
+				</section>
+
+				<section class="diy-section section-shell" aria-labelledby="diy-title">
+					<div>
+						<p class="section-label">Why pay for it?</p>
+						<h2 id="diy-title">Why not just ask ChatGPT?</h2>
+					</div>
+					<div class="diy-copy">
+						<p>You can. ChatGPT is good at producing options. I narrow those options to one change that fits your task, tools, budget, privacy needs, and setup tolerance, then check whether the projected savings justify the work.</p>
+						<p>You pay for the diagnosis and decision, not a list of AI apps. If you already know what to automate, which tool to use, and how to test it, you probably do not need this.</p>
+					</div>
+				</section>
+
+				<section class="task-examples section-shell" aria-labelledby="task-examples-title">
+					<div class="section-heading">
+						<p class="section-label">Good fit</p>
+						<h2 id="task-examples-title">One repeated computer task.</h2>
+						<p>Good candidates usually take at least 45 minutes a week and follow similar steps each time. Work and personal tasks both count.</p>
+					</div>
+					<div class="task-chips" aria-label="Suitable task examples">
+						<span>Inbox replies</span><span>Meeting notes</span><span>Spreadsheet updates</span><span>Recurring research</span><span>Scheduling and reminders</span><span>Routine documents</span><span>Personal admin</span>
+					</div>
+					<p class="not-fit"><strong>Not a fit:</strong> physical chores, one-off projects, company-wide audits, custom software, account setup, or workflows that require sensitive records.</p>
 				</section>
 
 				<section class="credibility section-shell" aria-labelledby="credibility-title">
@@ -171,9 +216,9 @@ const faqItems = [
 					</figure>
 					<div class="credibility-copy">
 						<p class="section-label">Why Jack</p>
-						<h2 id="credibility-title">A practical operator looking for leverage, not impressive software.</h2>
-						<p>I am Jack Maguire. For more than 12 years in performance marketing and AI-enabled operations, I have managed more than $30 million in media spend and advised more than 600 business owners.</p>
-						<p>I use the same discipline here: find the repeated cost, check the economics, and recommend the smallest useful change. If your workflow does not justify another tool, the report will say so.</p>
+						<h2 id="credibility-title">One practical answer, not the most impressive tool.</h2>
+						<p>I am Jack Maguire. For more than 12 years, I have worked in performance marketing and operations, managed more than $30 million in media spend, and advised more than 600 business owners.</p>
+						<p>I personally prepare every recommendation and compare the repeated cost, setup burden, ongoing review, and expected payoff before recommending anything.</p>
 						<div class="proof-row" aria-label="Jack Maguire credentials">
 							<div><strong>12+</strong><span>years in marketing and operations</span></div>
 							<div><strong>$30M+</strong><span>in managed media spend</span></div>
@@ -184,18 +229,18 @@ const faqItems = [
 
 				<section class="guarantee-section section-shell" aria-labelledby="guarantee-title">
 					<div class="guarantee-card">
-						<p class="section-label section-label-dark">One Quick Win Guarantee</p>
+						<p class="section-label section-label-dark">30-Minute Opportunity Guarantee</p>
 						<div class="guarantee-number"><strong>30</strong><span>minutes saved<br />each week</span></div>
-						<h2 id="guarantee-title">Or I automatically refund the full ${snapshotPrice}.</h2>
-						<p>The recommendation must show a practical change projected to save at least 30 minutes each week using your current task time, expected new task time, tool cost, and oversight.</p>
+						<h2 id="guarantee-title">If I cannot support the projection, I refund the ${snapshotPrice}.</h2>
+						<p>I use your task frequency, current time, expected new time, setup burden, and ongoing review to make the projection. If the completed intake does not support one practical change projected to save at least 30 minutes per week, I initiate a full refund without you asking. The guarantee covers the opportunity identified, not results after implementation. Refunds return to the original payment method, and bank timing varies.</p>
 					</div>
 
 					<div class="faq-block">
-						<p class="section-label">Short FAQ</p>
+						<p class="section-label">Before you pay</p>
 						<h2>Everything worth knowing before you pay.</h2>
 						<div class="faq-list">
-							{faqItems.map((item, index) => (
-								<details open={index === 0}>
+							{faqItems.map((item) => (
+								<details>
 									<summary>{item.question}<span aria-hidden="true">+</span></summary>
 									<p>{item.answer}</p>
 								</details>
@@ -206,23 +251,23 @@ const faqItems = [
 
 				<section class="final-cta section-shell" aria-labelledby="final-title">
 					<div>
-						<p class="section-label section-label-light">Start with one bottleneck</p>
-						<h2 id="final-title">One repeated task. One practical AI recommendation.</h2>
+						<p class="section-label section-label-light">Start with one task</p>
+						<h2 id="final-title">One repeated task. One clear next step.</h2>
 						<p>Get it in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
 					</div>
 					<aside class="checkout-card">
-						<span>AI Bottleneck Snapshot</span>
+						<span>One-Task AI Plan</span>
 						<div><strong>${snapshotPrice}</strong><small>one-time purchase</small></div>
 						<ul>
-							<li>One-page PDF</li>
-							<li>No sales call</li>
-							<li>Automatic refund if no 30-minute opportunity is found</li>
+							<li>Personally reviewed one-page PDF</li>
+							<li>Due by the end of the next business day after intake</li>
+							<li>Full refund if no qualifying 30-minute projection</li>
 						</ul>
 						<a class="button button-light" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="final">
-							<span class="button-label">Pay ${snapshotPrice} and start</span>
+							<span class="button-label">Get my one-task plan, ${snapshotPrice}</span>
 							<strong aria-hidden="true">&#8594;</strong>
 						</a>
-						<p>Secure checkout through Stripe.</p>
+						<p>One-time payment through Stripe. No subscription.</p>
 					</aside>
 				</section>
 			</main>
@@ -235,8 +280,12 @@ const faqItems = [
 		</div>
 
 		<script define:vars={{ fallbackCheckoutUrl, snapshotPrice }}>
+			const offerId = 'ai_bottleneck_snapshot';
+			const offerName = 'One-Task AI Plan';
 			const attributionStorageKey = 'jm_ai_audit_attribution_v2';
 			const landingSessionKey = 'jm_ai_audit_landing_session';
+			const gaClientKey = 'jm_ga4_audit_client';
+			const gaSessionKey = 'jm_ga4_audit_session';
 			const internalTrafficKey = 'jm_ga_internal';
 
 			function readCookie(name) {
@@ -268,23 +317,44 @@ const faqItems = [
 				}
 			}
 
+			function getStableGaIdentity() {
+				let clientId = sessionStorage.getItem(gaClientKey) || '';
+				let sessionId = sessionStorage.getItem(gaSessionKey) || '';
+				if (!clientId) {
+					const gaMatch = readCookie('_ga').match(/GA\d+\.\d+\.(\d+\.\d+)/);
+					clientId = gaMatch?.[1] || `${Math.floor(Math.random() * 1_000_000_000)}.${Math.floor(Date.now() / 1000)}`;
+					sessionStorage.setItem(gaClientKey, clientId);
+				}
+				if (!sessionId) {
+					sessionId = String(Math.floor(Date.now() / 1000));
+					sessionStorage.setItem(gaSessionKey, sessionId);
+				}
+				return { clientId, sessionId };
+			}
+
 			function getLandingAttribution() {
 				const params = new URLSearchParams(window.location.search);
 				const stored = safeStoredAttribution();
 				const landingSessionId = sessionStorage.getItem(landingSessionKey) || crypto.randomUUID();
 				sessionStorage.setItem(landingSessionKey, landingSessionId);
-				const gaMatch = readCookie('_ga').match(/GA\d+\.\d+\.(\d+\.\d+)/);
+				const gaIdentity = getStableGaIdentity();
 				const next = {
 					utm_source: params.get('utm_source') || stored.utm_source || '',
 					utm_medium: params.get('utm_medium') || stored.utm_medium || '',
 					campaign: params.get('utm_campaign') || stored.campaign || '',
+					campaign_id: params.get('utm_id') || stored.campaign_id || '',
 					ad_name: params.get('utm_content') || stored.ad_name || '',
+					adset_id: params.get('adset_id') || stored.adset_id || '',
+					ad_id: params.get('ad_id') || stored.ad_id || '',
 					placement: params.get('utm_term') || stored.placement || '',
+					site_source_name: params.get('site_source_name') || stored.site_source_name || '',
 					landing_session_id: landingSessionId,
 					meta_fbclid: params.get('fbclid') || stored.meta_fbclid || '',
 					meta_fbp: readCookie('_fbp') || stored.meta_fbp || '',
 					meta_fbc: getFbc() || stored.meta_fbc || '',
-					ga_client_id: gaMatch?.[1] || stored.ga_client_id || '',
+					ga_client_id: gaIdentity.clientId,
+					ga_session_id: gaIdentity.sessionId,
+					first_landing_at: stored.first_landing_at || new Date().toISOString(),
 				};
 				sessionStorage.setItem(attributionStorageKey, JSON.stringify(next));
 				return next;
@@ -302,10 +372,9 @@ const faqItems = [
 				const debugMode = params.get('ga_debug') === '1';
 				const internalTraffic = debugMode || localStorage.getItem(internalTrafficKey) === '1';
 				const attribution = getLandingAttribution();
-				const clientId = attribution.ga_client_id || `audit.${crypto.randomUUID()}`;
-				const sessionKey = 'jm_ga4_audit_session';
-				const sessionId = sessionStorage.getItem(sessionKey) || String(Math.floor(Date.now() / 1000));
-				sessionStorage.setItem(sessionKey, sessionId);
+				const gaIdentity = getStableGaIdentity();
+				const clientId = attribution.ga_client_id || gaIdentity.clientId;
+				const sessionId = attribution.ga_session_id || gaIdentity.sessionId;
 				return fetch('/api/ga4-audit-event/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
@@ -326,6 +395,36 @@ const faqItems = [
 					}),
 					keepalive: true,
 				}).catch(() => {});
+			}
+
+			const landingAttribution = getLandingAttribution();
+			if (new URLSearchParams(window.location.search).get('checkout') === 'cancelled') {
+				const notice = document.getElementById('checkout-cancelled');
+				if (notice) notice.hidden = false;
+				const cancelledKey = 'jm_ai_audit_checkout_cancelled';
+				if (sessionStorage.getItem(cancelledKey) !== '1') {
+					sessionStorage.setItem(cancelledKey, '1');
+					trackAuditEvent('ai_audit_checkout_cancelled', { tier: 'snapshot', checkout_path: 'dynamic' });
+				}
+			}
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'view_item', {
+					currency: 'USD',
+					value: snapshotPrice,
+					items: [{ item_id: offerId, item_name: offerName, price: snapshotPrice, quantity: 1 }],
+					campaign: landingAttribution.campaign,
+					ad_name: landingAttribution.ad_name,
+					placement: landingAttribution.placement,
+				});
+			}
+			if (typeof window.fbq === 'function') {
+				window.fbq('track', 'ViewContent', {
+					content_ids: [offerId],
+					content_name: offerName,
+					content_type: 'product',
+					value: snapshotPrice,
+					currency: 'USD',
+				});
 			}
 
 			function buildFallbackUrl(attribution) {
@@ -356,26 +455,28 @@ const faqItems = [
 
 					const attribution = getLandingAttribution();
 					const ctaLocation = link.dataset.ctaLocation || 'unknown';
+					const checkoutAttemptId = crypto.randomUUID();
 					if (typeof window.fbq === 'function') {
 						window.fbq('track', 'InitiateCheckout', {
-							content_name: 'ai_audit_snapshot',
+							content_ids: [offerId],
+							content_name: offerName,
 							content_type: 'product',
 							value: snapshotPrice,
 							currency: 'USD',
 						});
 					}
 
-					await Promise.all([
-						trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation }),
-						trackAuditEvent('begin_checkout', {
+					trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId });
+					if (typeof window.gtag === 'function') {
+						window.gtag('event', 'begin_checkout', {
 							tier: 'snapshot',
 							value: snapshotPrice,
 							currency: 'USD',
 							cta_location: ctaLocation,
-							items: [{ item_id: 'ai_audit_snapshot', item_name: 'AI Bottleneck Snapshot', price: snapshotPrice, quantity: 1 }],
-						}),
-						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation }),
-					]);
+							checkout_attempt_id: checkoutAttemptId,
+							items: [{ item_id: offerId, item_name: offerName, price: snapshotPrice, quantity: 1 }],
+						});
+					}
 
 					try {
 						const response = await fetch('/api/stripe-ai-audit-checkout/', {
@@ -390,8 +491,10 @@ const faqItems = [
 						if (!response.ok) throw new Error('Checkout Session could not be created');
 						const result = await response.json();
 						if (!result.url || !result.url.startsWith('https://checkout.stripe.com/')) throw new Error('Invalid Checkout URL');
+						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'dynamic' });
 						window.location.assign(result.url);
 					} catch {
+						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'payment_link' });
 						window.location.assign(buildFallbackUrl(attribution));
 					}
 				});
@@ -432,6 +535,7 @@ const faqItems = [
 		min-height: 82px;
 		border-bottom: 1px solid var(--ink);
 	}
+	.checkout-notice { width: min(1180px, calc(100% - 48px)); margin: 18px auto 0; padding: 14px 18px; border: 1px solid var(--ink); background: var(--green); font-size: 14px; }
 
 	.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
 	.brand-mark { display: grid; width: 36px; height: 36px; place-items: center; background: var(--ink); color: white; font-size: 11px; }
@@ -453,8 +557,9 @@ const faqItems = [
 	.eyebrow span { width: 28px; height: 3px; background: var(--blue); }
 	.hero h1 { max-width: 820px; margin: 0; font-size: clamp(58px, 6.1vw, 94px); font-weight: 720; letter-spacing: -0.065em; line-height: 0.93; }
 	.hero-note { display: inline-block; margin: 34px 0 20px; padding: 8px 12px; background: var(--green); font-size: 20px; font-weight: 700; transform: rotate(-1deg); }
-	.hero-subhead { max-width: 720px; margin: 0; font-size: 21px; line-height: 1.5; }
-	.hero-actions { display: grid; grid-template-columns: minmax(260px, 330px) minmax(180px, 1fr); gap: 22px; align-items: center; margin-top: 44px; }
+	.hero-subhead { max-width: 720px; margin: 30px 0 0; font-size: 21px; font-weight: 700; line-height: 1.5; }
+	.hero-qualifier { max-width: 720px; margin: 16px 0 0; color: #4d4f47; font-size: 15px; line-height: 1.55; }
+	.hero-actions { display: grid; grid-template-columns: minmax(260px, 330px) minmax(180px, 1fr); gap: 22px; align-items: center; margin-top: 32px; }
 	.hero-actions > p { margin: 0; font-size: 14px; line-height: 1.5; }
 
 	.button { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 60px; padding: 17px 20px; border: 1px solid var(--ink); font-size: 13px; font-weight: 850; letter-spacing: 0.025em; line-height: 1.3; text-decoration: none; text-transform: uppercase; transition: transform 140ms ease, box-shadow 140ms ease; }
@@ -485,6 +590,29 @@ const faqItems = [
 	.section-heading .section-label { grid-row: 1 / 3; }
 	.section-heading h2, .credibility h2, .faq-block > h2, .final-cta h2 { margin: 0; font-size: clamp(40px, 4.6vw, 68px); letter-spacing: -0.05em; line-height: 0.98; }
 	.section-heading > p:last-child { max-width: 700px; margin: 0; font-size: 17px; line-height: 1.55; }
+
+	.decision-grid, .process-grid { display: grid; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+	.decision-grid { grid-template-columns: repeat(4, 1fr); }
+	.process-grid { grid-template-columns: repeat(3, 1fr); }
+	.decision-grid article, .process-grid article { min-height: 220px; padding: 28px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper-light); }
+	.decision-grid article:nth-child(2), .process-grid article:nth-child(2) { background: #edf0ff; }
+	.decision-grid article:nth-child(3) { background: var(--green); }
+	.decision-grid article > span, .process-grid article > span { display: block; margin-bottom: 34px; color: #486700; font-size: 12px; font-weight: 850; letter-spacing: 0.1em; }
+	.process-grid article > span { display: grid; width: 36px; height: 36px; margin-bottom: 32px; place-items: center; background: var(--ink); color: white; }
+	.decision-grid strong, .process-grid strong { display: block; margin-bottom: 16px; font-size: 23px; letter-spacing: -0.03em; line-height: 1.05; }
+	.decision-grid p, .process-grid p { margin: 0; color: #4d4f47; font-size: 15px; line-height: 1.5; }
+	.privacy-strip { margin: 24px 0 0; padding: 18px 20px; border: 1px solid var(--ink); background: var(--green); font-size: 14px; line-height: 1.55; }
+
+	.diy-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 74px; align-items: start; }
+	.diy-section h2 { max-width: 560px; margin: 0; font-size: clamp(40px, 4.6vw, 68px); letter-spacing: -0.05em; line-height: 0.98; }
+	.diy-copy { padding-left: 36px; border-left: 6px solid var(--green); }
+	.diy-copy p { max-width: 720px; margin: 0 0 22px; font-size: 19px; line-height: 1.6; }
+	.diy-copy p:last-child { margin-bottom: 0; }
+
+	.task-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+	.task-chips span { padding: 13px 16px; border: 1px solid var(--ink); background: var(--paper-light); font-size: 14px; font-weight: 800; }
+	.task-chips span:nth-child(2n) { background: var(--green); }
+	.not-fit { max-width: 920px; margin: 28px 0 0; padding-top: 24px; border-top: 1px solid var(--ink); color: #4d4f47; font-size: 15px; line-height: 1.6; }
 
 	.task-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
 	.task-grid article { min-height: 190px; padding: 28px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper-light); }
@@ -566,19 +694,22 @@ const faqItems = [
 		.audit-card { max-width: 560px; }
 		.section-heading { grid-template-columns: 1fr; }
 		.section-heading .section-label { grid-row: auto; }
-		.credibility, .guarantee-section, .final-cta { grid-template-columns: 1fr; }
+		.credibility, .guarantee-section, .final-cta, .diy-section { grid-template-columns: 1fr; }
 		.credibility figure { max-width: 520px; }
-		.task-grid { grid-template-columns: repeat(2, 1fr); }
+		.task-grid, .decision-grid { grid-template-columns: repeat(2, 1fr); }
+		.diy-copy { padding-left: 24px; }
 	}
 
 	@media (max-width: 680px) {
 		.topbar, .hero, .section-shell, .page-footer { width: min(100% - 28px, 1180px); }
+		.checkout-notice { width: min(100% - 28px, 1180px); }
 		.topbar { min-height: 68px; }
 		.topbar-link { font-size: 10px; }
-		.hero { gap: 52px; padding: 54px 0 64px; }
-		.hero h1 { font-size: clamp(48px, 15vw, 68px); }
+		.hero { gap: 44px; padding: 42px 0 56px; }
+		.hero h1 { font-size: clamp(44px, 13vw, 58px); }
 		.hero-note { font-size: 17px; }
 		.hero-subhead { font-size: 18px; }
+		.hero-qualifier { font-size: 14px; }
 		.hero-actions { grid-template-columns: 1fr; }
 		.audit-card { padding: 22px; box-shadow: 8px 8px 0 var(--blue); }
 		.price-lockup strong { font-size: 64px; }
@@ -590,8 +721,12 @@ const faqItems = [
 		.snapshot-grid { grid-template-columns: 1fr; }
 		.snapshot-grid section { min-height: auto; padding: 28px 22px; border-right: 0; }
 		.snapshot-sheet footer strong { text-align: left; }
-		.task-grid { grid-template-columns: 1fr; }
+		.task-grid, .decision-grid, .process-grid { grid-template-columns: 1fr; }
 		.task-grid article { min-height: auto; }
+		.decision-grid article, .process-grid article { min-height: auto; }
+		.diy-section { gap: 34px; }
+		.diy-copy { padding-left: 18px; }
+		.diy-copy p { font-size: 17px; }
 		.credibility { gap: 42px; }
 		.proof-row { grid-template-columns: 1fr; }
 		.proof-row div { border-right: 0; border-bottom: 1px solid var(--ink); }

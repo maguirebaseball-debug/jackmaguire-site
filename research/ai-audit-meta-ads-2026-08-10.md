@@ -2,38 +2,155 @@
 
 Date: 2026-08-10
 
-## Shared copy
+## Campaign purpose
 
-Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $59 back.
+The first campaign tests three recurring task-family hypotheses while keeping the price, product contract, CTA, landing page, audience, optimization event, and measurement rules stable.
+
+Meta continues to optimize for Purchase. The business decision metric is an eligible paid order: a Purchase followed by completed intake, excluding a no-fit refund.
+
+## Shared offer and CTA
+
+Every asset uses this offer sentence verbatim:
+
+> Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $59 back.
+
+Every asset uses this CTA:
+
+> Get my one-task plan for $59
+
+The buyer-facing product name is `One-Task AI Plan`. `ai_bottleneck_snapshot` remains the internal analytics and Stripe offer identifier, but it is not the main ad label.
 
 ## Deliverables
 
-| Concept | Square | Vertical |
-|---|---|---|
-| Task ledger | `public/meta-ads/ai-audit/ad-01-task-ledger-square-1080.png` | `public/meta-ads/ai-audit/ad-01-task-ledger-vertical-1080x1920.png` |
-| Weekly question | `public/meta-ads/ai-audit/ad-02-weekly-question-square-1080.png` | `public/meta-ads/ai-audit/ad-02-weekly-question-vertical-1080x1920.png` |
-| Practical fix | `public/meta-ads/ai-audit/ad-03-practical-fix-square-1080.png` | `public/meta-ads/ai-audit/ad-03-practical-fix-vertical-1080x1920.png` |
+| Ad | Task-family hypothesis | Square | Vertical |
+|---|---|---|---|
+| 1 | Communication admin | `public/meta-ads/ai-audit/ad-01-task-ledger-square-1080.png` | `public/meta-ads/ai-audit/ad-01-task-ledger-vertical-1080x1920.png` |
+| 2 | Spreadsheet and reporting | `public/meta-ads/ai-audit/ad-02-weekly-question-square-1080.png` | `public/meta-ads/ai-audit/ad-02-weekly-question-vertical-1080x1920.png` |
+| 3 | Planning and personal admin | `public/meta-ads/ai-audit/ad-03-practical-fix-square-1080.png` | `public/meta-ads/ai-audit/ad-03-practical-fix-vertical-1080x1920.png` |
 
-Squares are exactly 1080 by 1080 pixels. Vertical assets are exactly 1080 by 1920 pixels. The vertical files have no readable elements in the bottom 384 pixels. Their readable elements also remain inside the central area with at least 108 pixels of side clearance.
+Squares are exactly 1080 by 1080 pixels. Vertical assets are exactly 1080 by 1920 pixels. Each vertical file keeps the bottom 384 pixels free of readable elements and keeps readable elements at least 108 pixels from each side.
 
-## Concept prompts
+The square and vertical version of an ad use the same copy hierarchy and task-family hypothesis. The format changes only for placement.
 
-All six assets used the built-in image generation workflow. Each format received a separate generation call.
+## Exact ad copy and UTM contract
 
-### 1. Task ledger
+### Ad 1: Communication admin
 
-Create a high-contrast editorial receipt or task ledger. Use matte black, warm paper, acid lime, condensed typography, and tactile print texture. Make the offer sentence the hero. Add examples for inbox replies, meeting notes, spreadsheet updates, and scheduling. Avoid people, charts, screenshots, logos, robots, brains, circuits, and generic AI graphics.
+Headline:
 
-### 2. Weekly question
+> Still writing the same kinds of emails and follow-ups every week?
 
-Create a bold marked-up weekly to-do list. Use cobalt blue, black, white, and fluorescent orange. Lead with: `WHAT DO YOU DO EVERY WEEK THAT YOU WISH WOULD DO ITSELF?` Put the offer sentence in a clean high-contrast block. Add email, notes, reports, scheduling, and data entry as examples. Use only typography, rules, and simple checkboxes.
+Support line:
 
-### 3. Practical fix
+> Inbox replies. Meeting follow-ups. Routine messages.
 
-Create an honest one-page memo with warm yellow, burgundy, cream, and electric pink. Lead with: `ONE REPETITIVE TASK. ONE PRACTICAL AI FIX.` Use typewriter and bold grotesk typography. Add `SORT IT.`, `SUMMARIZE IT.`, and `DRAFT IT.` Avoid data graphics and generic AI imagery.
+Offer:
 
-For every vertical prompt, reserve 10 percent on each side and 20 percent at the bottom for placement controls. Render the shared offer sentence verbatim and keep all text readable at mobile size.
+> Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $59 back.
 
-## Landing-page alignment
+CTA:
 
-The landing page and paid intake now address anyone with a recurring weekly task. Examples cover inbox replies, meeting notes, spreadsheet updates, scheduling, research roundups, and personal admin. The detailed illustrative Snapshot uses a Sunday inbox and calendar reset instead of an owner-led business workflow.
+> Get my one-task plan for $59
+
+Creative name: `ai_audit_communication_admin_v1`
+
+UTM URL:
+
+`https://jackmaguire.org/Your-AI-Audit/?utm_source=meta&utm_medium=paid_social&utm_campaign=ai_audit_launch_59&utm_content=communication_admin&utm_term={{placement}}`
+
+### Ad 2: Spreadsheet and reporting
+
+Headline:
+
+> Still copying the same information into the same report every week?
+
+Support line:
+
+> Export cleanup. Spreadsheet updates. Recurring summaries.
+
+Offer:
+
+> Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $59 back.
+
+CTA:
+
+> Get my one-task plan for $59
+
+Creative name: `ai_audit_spreadsheet_reporting_v1`
+
+UTM URL:
+
+`https://jackmaguire.org/Your-AI-Audit/?utm_source=meta&utm_medium=paid_social&utm_campaign=ai_audit_launch_59&utm_content=spreadsheet_reporting&utm_term={{placement}}`
+
+### Ad 3: Planning and personal admin
+
+Headline:
+
+> Still rebuilding next week's plan every Sunday?
+
+Support line:
+
+> Calendar cleanup. Reminders. Research and personal admin.
+
+Offer:
+
+> Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $59 back.
+
+CTA:
+
+> Get my one-task plan for $59
+
+Creative name: `ai_audit_planning_admin_v1`
+
+UTM URL:
+
+`https://jackmaguire.org/Your-AI-Audit/?utm_source=meta&utm_medium=paid_social&utm_campaign=ai_audit_launch_59&utm_content=planning_admin&utm_term={{placement}}`
+
+## Visual contract
+
+- Use high-contrast, text-heavy composition.
+- Keep the task-family headline, shared offer, and CTA readable at mobile size.
+- Do not use charts, robots, brains, circuits, dashboards, screenshots, or generic AI graphics.
+- Use typography, rules, highlights, checkboxes, labels, or a simple task ledger only when they support the text hierarchy.
+- Keep the product promise more prominent than decorative elements.
+- Use the same underlying layout system across the three ads when practical. If the existing visual styles remain for launch speed, treat performance as directional rather than a controlled task-family test.
+
+## Landing-page and fulfillment alignment
+
+The ads and page must describe the same contract:
+
+- One recurring digital task.
+- One human-selected AI tool or workflow.
+- Three first setup steps.
+- Estimated software cost and projected weekly time saved.
+- One-page plan within one business day after completed intake.
+- No implementation or account access.
+- Full $59 no-fit refund if the report cannot project a 30-minute weekly opportunity.
+- Opportunity guarantee, not a results guarantee.
+
+The detailed sample on the page must be no more elaborate than the report Jack can consistently produce in about 20 minutes.
+
+## Measurement contract
+
+- `utm_source=meta`
+- `utm_medium=paid_social`
+- `utm_campaign=ai_audit_launch_59`
+- `utm_content` equals the stable task-family identifier.
+- `utm_term={{placement}}`
+- Browser Pixel and CAPI Purchase use the same event ID for deduplication.
+- Purchase value is 59 and currency is USD.
+- BeginCheckout remains a diagnostic event.
+- Refund and no-fit status is recorded in the founder learning sheet even if Meta receives no refund event.
+
+## Initial risk cap and review rules
+
+Do not spend $10,000 before purchase proof. The initial paid risk cap is the lesser of $590 or an amount Jack can comfortably lose. Because Jack is unemployed, the practical cap should likely be lower. The cap is a ceiling, not a target.
+
+- At 50 landing page views for one ad with zero checkout starts, revise its hook or page match.
+- At five checkout starts and zero purchases, inspect checkout function, trust, and offer clarity.
+- At 100 total landing page views and zero purchases, pause paid traffic and revise the funnel.
+- After five paid orders, tighten fit copy if two or more become no-fit refunds.
+- Do not reprice before five eligible reports are delivered.
+- After ten eligible delivered orders, choose a narrower task wedge only if one task family clearly leads on eligible purchases, no-fit rate, and setup attempts.
+
+The full five-round rationale and ship/defer decisions are in `research/ai-audit-five-round-funnel-review-2026-08-10.md`.

@@ -1,8 +1,8 @@
 import type { APIRoute } from 'astro';
+import { AI_AUDIT_OFFER_ID, AI_AUDIT_PRICE_ID, AI_AUDIT_TIER } from '../../lib/ai-audit-order';
 
 export const prerender = false;
 
-const SNAPSHOT_PRICE_ID = 'price_1U30DYFVkBlWBiJ6l8HQ0D5M';
 const SNAPSHOT_FALLBACK_URL = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 const SITE_ORIGIN = 'https://jackmaguire.org';
 
@@ -10,13 +10,19 @@ type CheckoutAttribution = {
 	utm_source?: string;
 	utm_medium?: string;
 	campaign?: string;
+	campaign_id?: string;
 	ad_name?: string;
+	adset_id?: string;
+	ad_id?: string;
 	placement?: string;
+	site_source_name?: string;
 	landing_session_id?: string;
+	first_landing_at?: string;
 	meta_fbclid?: string;
 	meta_fbp?: string;
 	meta_fbc?: string;
 	ga_client_id?: string;
+	ga_session_id?: string;
 	client_reference_id?: string;
 };
 
@@ -51,7 +57,19 @@ function cleanFbc(value: unknown): string {
 
 function cleanGaClientId(value: unknown): string {
 	const cleaned = cleanText(value, 100);
-	return /^\d+\.\d+$/.test(cleaned) ? cleaned : '';
+	return /^(?:\d+\.\d+|audit\.[A-Za-z0-9._-]{8,90})$/.test(cleaned) ? cleaned : '';
+}
+
+function cleanGaSessionId(value: unknown): string {
+	const cleaned = cleanText(value, 20);
+	return /^\d{10,13}$/.test(cleaned) ? cleaned : '';
+}
+
+function cleanTimestamp(value: unknown): string {
+	const cleaned = cleanText(value, 40);
+	if (!cleaned) return '';
+	const timestamp = Date.parse(cleaned);
+	return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : '';
 }
 
 function cleanClientReference(value: unknown): string {
@@ -74,6 +92,10 @@ function addAttributionToUrl(url: URL, attribution: Record<string, string>): voi
 		utm_campaign: attribution.campaign,
 		utm_content: attribution.ad_name,
 		utm_term: attribution.placement,
+		utm_id: attribution.campaign_id,
+		adset_id: attribution.adset_id,
+		ad_id: attribution.ad_id,
+		site_source_name: attribution.site_source_name,
 	};
 	for (const [key, value] of Object.entries(values)) {
 		if (value) url.searchParams.set(key, value);
@@ -111,13 +133,19 @@ export const POST: APIRoute = async ({ request }) => {
 		utm_source: cleanText(input.utm_source, 100),
 		utm_medium: cleanText(input.utm_medium, 100),
 		campaign: cleanText(input.campaign, 150),
+		campaign_id: cleanId(input.campaign_id, 100),
 		ad_name: cleanText(input.ad_name, 150),
+		adset_id: cleanId(input.adset_id, 100),
+		ad_id: cleanId(input.ad_id, 100),
 		placement: cleanText(input.placement, 100),
+		site_source_name: cleanId(input.site_source_name, 50),
 		landing_session_id: cleanId(input.landing_session_id, 150),
+		first_landing_at: cleanTimestamp(input.first_landing_at),
 		meta_fbclid: cleanText(input.meta_fbclid, 500),
 		meta_fbp: cleanFbp(input.meta_fbp),
 		meta_fbc: cleanFbc(input.meta_fbc),
 		ga_client_id: cleanGaClientId(input.ga_client_id),
+		ga_session_id: cleanGaSessionId(input.ga_session_id),
 	};
 	const clientReferenceId = cleanClientReference(input.client_reference_id);
 
@@ -131,7 +159,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const stripeParams = new URLSearchParams();
 	stripeParams.set('mode', 'payment');
-	stripeParams.set('line_items[0][price]', SNAPSHOT_PRICE_ID);
+	stripeParams.set('line_items[0][price]', AI_AUDIT_PRICE_ID);
 	stripeParams.set('line_items[0][quantity]', '1');
 	stripeParams.set('success_url', successUrl.toString());
 	stripeParams.set('cancel_url', cancelUrl.toString());
@@ -142,20 +170,27 @@ export const POST: APIRoute = async ({ request }) => {
 	if (clientReferenceId) stripeParams.set('client_reference_id', clientReferenceId);
 
 	setMetadata(stripeParams, {
-		offer_key: 'ai_bottleneck_snapshot',
-		service_tier: 'snapshot',
+		offer_key: AI_AUDIT_OFFER_ID,
+		service_tier: AI_AUDIT_TIER,
 		source_site: 'jackmaguire.org',
 		price_strategy: 'launch_signal_frontier',
+		checkout_path: 'dynamic',
 		utm_source: attribution.utm_source,
 		utm_medium: attribution.utm_medium,
 		campaign: attribution.campaign,
+		campaign_id: attribution.campaign_id,
 		ad_name: attribution.ad_name,
+		adset_id: attribution.adset_id,
+		ad_id: attribution.ad_id,
 		placement: attribution.placement,
+		site_source_name: attribution.site_source_name,
 		landing_session_id: attribution.landing_session_id,
+		first_landing_at: attribution.first_landing_at,
 		meta_fbclid: attribution.meta_fbclid,
 		meta_fbp: attribution.meta_fbp,
 		meta_fbc: attribution.meta_fbc,
 		ga_client_id: attribution.ga_client_id,
+		ga_session_id: attribution.ga_session_id,
 	});
 
 	const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {

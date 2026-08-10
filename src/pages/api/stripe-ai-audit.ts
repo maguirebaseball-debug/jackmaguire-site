@@ -1,5 +1,13 @@
 import type { APIRoute } from 'astro';
 import crypto from 'node:crypto';
+import {
+	AI_AUDIT_ALLOWED_AMOUNTS,
+	AI_AUDIT_OFFER_ID,
+	AI_AUDIT_OFFER_NAME,
+	AI_AUDIT_TIER,
+	isAuditCheckoutSessionId,
+	verifyAuditOrder,
+} from '../../lib/ai-audit-order';
 
 export const prerender = false;
 
@@ -7,13 +15,16 @@ const PIXEL_ID = '1578848813945108';
 const ALLOWED_EVENTS = new Set([
 	'checkout.session.completed',
 	'checkout.session.async_payment_succeeded',
+	'refund.created',
+	'refund.updated',
+	'refund.failed',
 ]);
 
 const PURCHASES = {
 	snapshot: {
-		amounts: [5900, 7900],
-		offerKey: 'ai_bottleneck_snapshot',
-		name: 'AI Bottleneck Snapshot',
+		amounts: AI_AUDIT_ALLOWED_AMOUNTS,
+		offerKey: AI_AUDIT_OFFER_ID,
+		name: AI_AUDIT_OFFER_NAME,
 	},
 	mini: {
 		amounts: [19900],
@@ -57,7 +68,7 @@ function decodeCheckoutAttribution(reference: unknown): { fbp?: string; fbc?: st
 		return {
 			fbp: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,100}$/.test(fbp) ? fbp : undefined,
 			fbc: /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,150}$/.test(fbc) ? fbc : undefined,
-			gaClientId: /^\d+\.\d+$/.test(gaClientId) ? gaClientId : undefined,
+			gaClientId: /^(?:\d+\.\d+|audit\.[A-Za-z0-9._-]{8,90})$/.test(gaClientId) ? gaClientId : undefined,
 		};
 	} catch {
 		return {};
@@ -76,17 +87,27 @@ function readSessionAttribution(session: Record<string, any>): {
 	adName?: string;
 	placement?: string;
 	landingSessionId?: string;
+	campaignId?: string;
+	adsetId?: string;
+	adId?: string;
+	siteSourceName?: string;
+	gaSessionId?: string;
 } {
 	const fallback = decodeCheckoutAttribution(session.client_reference_id);
 	const metadata = session.metadata ?? {};
 	return {
 		fbp: cleanMetadataValue(metadata.meta_fbp, /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,100}$/) ?? fallback.fbp,
 		fbc: cleanMetadataValue(metadata.meta_fbc, /^fb\.1\.\d{10,14}\.[A-Za-z0-9._-]{1,150}$/) ?? fallback.fbc,
-		gaClientId: cleanMetadataValue(metadata.ga_client_id, /^\d+\.\d+$/) ?? fallback.gaClientId,
+		gaClientId: cleanMetadataValue(metadata.ga_client_id, /^(?:\d+\.\d+|audit\.[A-Za-z0-9._-]{8,90})$/) ?? fallback.gaClientId,
 		campaign: cleanMetadataValue(metadata.campaign, /^[^\u0000-\u001f]{1,200}$/),
 		adName: cleanMetadataValue(metadata.ad_name, /^[^\u0000-\u001f]{1,200}$/),
 		placement: cleanMetadataValue(metadata.placement, /^[^\u0000-\u001f]{1,200}$/),
 		landingSessionId: cleanMetadataValue(metadata.landing_session_id, /^[A-Za-z0-9._-]{1,100}$/),
+		campaignId: cleanMetadataValue(metadata.campaign_id, /^[A-Za-z0-9._:-]{1,100}$/),
+		adsetId: cleanMetadataValue(metadata.adset_id, /^[A-Za-z0-9._:-]{1,100}$/),
+		adId: cleanMetadataValue(metadata.ad_id, /^[A-Za-z0-9._:-]{1,100}$/),
+		siteSourceName: cleanMetadataValue(metadata.site_source_name, /^[A-Za-z0-9._:-]{1,50}$/),
+		gaSessionId: cleanMetadataValue(metadata.ga_session_id, /^\d{10,13}$/),
 	};
 }
 
@@ -98,6 +119,95 @@ function json(body: Record<string, unknown>, status = 200): Response {
 			'Cache-Control': 'no-store',
 		},
 	});
+}
+
+type ResolvedRefund = {
+	transactionId: string;
+	amount: number;
+	gaClientId: string;
+	gaSessionId?: string;
+};
+
+async function resolveRefund(
+	refund: Record<string, any>,
+	stripeKey: string | undefined,
+): Promise<ResolvedRefund | null> {
+	const amount = Number(refund.amount);
+	const metadata = refund.metadata ?? {};
+	const directSessionId = metadata.checkout_session_id;
+	const directMappingIsReliable =
+		isAuditCheckoutSessionId(directSessionId) &&
+		metadata.offer_key === AI_AUDIT_OFFER_ID &&
+		metadata.service_tier === AI_AUDIT_TIER &&
+		AI_AUDIT_ALLOWED_AMOUNTS.includes(amount as 5900 | 7900);
+	if (directMappingIsReliable) {
+		return {
+			transactionId: directSessionId,
+			amount,
+			gaClientId: cleanMetadataValue(metadata.ga_client_id, /^(?:\d+\.\d+|audit\.[A-Za-z0-9._-]{8,90})$/) || `stripe.${directSessionId}`,
+			gaSessionId: cleanMetadataValue(metadata.ga_session_id, /^\d{10,13}$/),
+		};
+	}
+
+	const paymentIntentId = typeof refund.payment_intent === 'string' ? refund.payment_intent : '';
+	if (!stripeKey || !/^pi_[A-Za-z0-9_]{8,220}$/.test(paymentIntentId)) return null;
+
+	let response: Response;
+	try {
+		const url = new URL('https://api.stripe.com/v1/checkout/sessions');
+		url.searchParams.set('payment_intent', paymentIntentId);
+		url.searchParams.set('limit', '1');
+		response = await fetch(url, { headers: { Authorization: `Bearer ${stripeKey}` } });
+	} catch {
+		return null;
+	}
+	if (!response.ok) return null;
+	const result = await response.json().catch(() => ({})) as { data?: Array<{ id?: string }> };
+	const sessionId = result.data?.[0]?.id;
+	if (!sessionId) return null;
+	const verification = await verifyAuditOrder(sessionId, stripeKey);
+	if (verification.status !== 'verified' || amount !== verification.order.amountTotal) return null;
+	const combinedMetadata = { ...verification.order.paymentIntentMetadata, ...verification.order.metadata };
+	return {
+		transactionId: verification.order.sessionId,
+		amount,
+		gaClientId: cleanMetadataValue(combinedMetadata.ga_client_id, /^(?:\d+\.\d+|audit\.[A-Za-z0-9._-]{8,90})$/) || `stripe.${verification.order.sessionId}`,
+		gaSessionId: cleanMetadataValue(combinedMetadata.ga_session_id, /^\d{10,13}$/),
+	};
+}
+
+async function sendGaRefund(refund: ResolvedRefund, isTestEvent: boolean): Promise<{ sent?: boolean; skipped?: boolean; reason?: string }> {
+	const gaApiSecret = import.meta.env.GA4_API_SECRET;
+	if (!gaApiSecret) return { skipped: true, reason: 'GA4_API_SECRET missing' };
+	const gaMeasurementId = import.meta.env.GA4_MEASUREMENT_ID || 'G-1697T7D92W';
+	const response = await fetch(
+		`https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(gaMeasurementId)}&api_secret=${encodeURIComponent(gaApiSecret)}`,
+		{
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				client_id: refund.gaClientId,
+				events: [{
+					name: 'refund',
+					params: {
+						currency: 'USD',
+						value: refund.amount / 100,
+						transaction_id: refund.transactionId,
+						...(refund.gaSessionId ? { session_id: refund.gaSessionId } : {}),
+						items: [{
+							item_id: AI_AUDIT_OFFER_ID,
+							item_name: AI_AUDIT_OFFER_NAME,
+							price: refund.amount / 100,
+							quantity: 1,
+						}],
+						...(isTestEvent ? { debug_mode: 1, test_mode: true, traffic_type: 'internal' } : {}),
+					},
+				}],
+			}),
+		},
+	);
+	if (!response.ok) throw new Error(`GA4 refund rejected with ${response.status}`);
+	return { sent: true };
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -136,7 +246,38 @@ export const POST: APIRoute = async ({ request }) => {
 		return json({ success: true, ignored: true });
 	}
 
-	const session = event.data?.object;
+	const eventObject = event.data?.object;
+	if (!eventObject) return json({ success: false, message: 'Missing Stripe event object' }, 400);
+
+	if (event.type.startsWith('refund.')) {
+		const refund = eventObject;
+		if (refund.livemode !== !isTestEvent || String(refund.currency).toLowerCase() !== 'usd') {
+			return json({ success: true, ignored: true });
+		}
+		if (event.type === 'refund.failed' || refund.status === 'failed') {
+			console.error('[stripe-ai-audit] Stripe refund failed', refund.id ?? 'unknown', refund.failure_reason ?? 'unknown');
+			return json({ success: true, refund_status: 'failed', refund_id: refund.id ?? null });
+		}
+		if (refund.status !== 'succeeded') {
+			return json({ success: true, refund_status: String(refund.status || 'pending'), refund_id: refund.id ?? null });
+		}
+
+		const resolved = await resolveRefund(refund, import.meta.env.STRIPE_AI_AUDIT_RESTRICTED_KEY);
+		if (!resolved) {
+			console.error('[stripe-ai-audit] Succeeded refund could not be mapped reliably', refund.id ?? 'unknown');
+			return json({ success: true, ignored: true, reason: 'refund_unmapped', refund_id: refund.id ?? null });
+		}
+
+		try {
+			const ga4 = await sendGaRefund(resolved, isTestEvent);
+			return json({ success: true, refund_status: 'succeeded', refund_id: refund.id ?? null, transaction_id: resolved.transactionId, ga4 });
+		} catch (error) {
+			console.error('[stripe-ai-audit] GA4 refund delivery failed', error);
+			return json({ success: false, message: 'GA4 refund delivery failed' }, 502);
+		}
+	}
+
+	const session = eventObject;
 	if (!session) return json({ success: false, message: 'Missing Checkout Session' }, 400);
 
 	const metadataTier = String(session.metadata?.service_tier ?? '') as keyof typeof PURCHASES;
@@ -186,6 +327,10 @@ export const POST: APIRoute = async ({ request }) => {
 					...(attribution.adName ? { ad_name: attribution.adName } : {}),
 					...(attribution.placement ? { placement: attribution.placement } : {}),
 					...(attribution.landingSessionId ? { landing_session_id: attribution.landingSessionId } : {}),
+					...(attribution.campaignId ? { campaign_id: attribution.campaignId } : {}),
+					...(attribution.adsetId ? { adset_id: attribution.adsetId } : {}),
+					...(attribution.adId ? { ad_id: attribution.adId } : {}),
+					...(attribution.siteSourceName ? { site_source_name: attribution.siteSourceName } : {}),
 				},
 			},
 		],
@@ -230,9 +375,20 @@ export const POST: APIRoute = async ({ request }) => {
 									value: session.amount_total / 100,
 									transaction_id: session.id,
 									service_tier: serviceTier,
+									...(attribution.gaSessionId ? { session_id: attribution.gaSessionId } : {}),
+									items: [{
+										item_id: purchase.offerKey,
+										item_name: purchase.name,
+										price: session.amount_total / 100,
+										quantity: 1,
+									}],
 									...(attribution.campaign ? { campaign: attribution.campaign } : {}),
+									...(attribution.campaignId ? { campaign_id: attribution.campaignId } : {}),
 									...(attribution.adName ? { ad_name: attribution.adName } : {}),
+									...(attribution.adsetId ? { adset_id: attribution.adsetId } : {}),
+									...(attribution.adId ? { ad_id: attribution.adId } : {}),
 									...(attribution.placement ? { placement: attribution.placement } : {}),
+									...(attribution.siteSourceName ? { site_source_name: attribution.siteSourceName } : {}),
 									...(attribution.landingSessionId ? { landing_session_id: attribution.landingSessionId } : {}),
 									...(isTestEvent ? { debug_mode: 1, test_mode: true, traffic_type: 'internal' } : {}),
 								},
