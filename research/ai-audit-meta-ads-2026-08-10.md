@@ -162,6 +162,7 @@ Added a fourth visual concept, `aa59_c04_calmnia_plan`, as a theme variant of th
 Assets:
 
 - `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_1x1.png`, 1080 by 1080
+- `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_4x5.png`, 1080 by 1350
 - `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_9x16.png`, 1080 by 1920
 - `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_16x9.png`, 1920 by 1080
 
