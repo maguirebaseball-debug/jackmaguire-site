@@ -154,3 +154,15 @@ Do not spend $10,000 before purchase proof. The initial paid risk cap is the les
 - After ten eligible delivered orders, choose a narrower task wedge only if one task family clearly leads on eligible purchases, no-fit rate, and setup attempts.
 
 The full five-round rationale and ship/defer decisions are in `research/ai-audit-five-round-funnel-review-2026-08-10.md`.
+
+## Ad 4: Calm guided plan
+
+Added a fourth visual concept, `aa59_c04_calmnia_plan`, as a theme variant of the one-page-plan concept. It keeps the same $59 offer and report contents while using a pale lavender field, periwinkle accents, high-contrast serif typography, and a rounded white plan card inspired by the current AI Audit landing-page direction.
+
+Assets:
+
+- `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_1x1.png`, 1080 by 1080
+- `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_9x16.png`, 1080 by 1920
+- `public/meta-ads/ai-audit/aa59_c04_calmnia_plan_16x9.png`, 1920 by 1080
+
+The vertical version keeps the lower placement-control area free of important text. This is a visual theme test, not a new offer or task-family hypothesis.
