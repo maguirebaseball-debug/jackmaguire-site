@@ -191,4 +191,8 @@ Rebuilt the landing page around the exact deliverable, a three-step process, a f
 
 Created revised Meta assets at `public/meta-ads/ai-audit/` for task ledger, weekly question, and one-page plan concepts in exact square and vertical dimensions. Their final copy, primary text, UTMs, five-round decisions, and first-cohort stop rules are recorded in `research/ai-audit-meta-ads-2026-08-10.md` and `research/ai-audit-five-round-funnel-review-2026-08-10.md`. Do not spend $10,000 as the first validation test. Use a hard loss cap of no more than $590, likely less while Jack is unemployed, and pause at 100 qualified landing visits with no purchase.
 
+## 2026-08-10, AI plan horizontal Meta assets
+
+Added true landscape versions of all three Meta ad concepts under `public/meta-ads/ai-audit/`. The task ledger, weekly question, and one-page plan files are exact 1920 by 1080 PNGs. Each keeps the same offer, refund condition, palette, and concept identity as its square and vertical counterparts. Commit `1f47aad` deployed the three assets and all public image URLs returned 200.
+
 The remaining operational blocker is `STRIPE_AI_AUDIT_RESTRICTED_KEY`. Without explicit authorization to create and configure this least-privilege live key, Checkout uses the current Payment Link fallback and intake submissions are labeled pending manual verification. Do not describe them as automatically verified. Exact concurrent intake idempotency also requires durable storage; the first-cohort implementation only suppresses sequential repeats through Stripe metadata when the key is available.
