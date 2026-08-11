@@ -38,6 +38,9 @@ const faqItems = [
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} ogImage="/your-ai-audit-og-v3.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
 		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
@@ -948,7 +951,7 @@ const faqItems = [
 	.eyebrow { display: none; }
 	.hero h1 {
 		max-width: 690px;
-		font-family: Georgia, 'Times New Roman', serif;
+		font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 		font-size: clamp(54px, 6.3vw, 92px);
 		font-weight: 700;
 		letter-spacing: -0.055em;
@@ -988,7 +991,7 @@ const faqItems = [
 	.audit-card-head { padding-bottom: 20px; border-bottom: 1px solid var(--line); color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
 	.status i { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #9698f2; }
 	.price-lockup { padding: 27px 0 22px; border-bottom: 1px solid var(--line); }
-	.price-lockup strong { font-family: Georgia, 'Times New Roman', serif; font-size: 82px; font-weight: 700; }
+	.price-lockup strong { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 82px; font-weight: 400; }
 	.price-lockup span { color: var(--muted); font-size: 12px; font-weight: 400; }
 	.audit-card li { padding: 13px 0; border-bottom: 1px solid var(--line); color: #424357; font-size: 13px; font-weight: 400; }
 	.audit-card li::before { color: #8588ed; content: '\2713'; }
@@ -999,7 +1002,7 @@ const faqItems = [
 	.section-heading { display: block; max-width: 680px; margin: 0 auto 54px; text-align: center; }
 	.section-label { display: none; }
 	.section-heading h2, .credibility h2, .faq-block > h2, .final-cta h2, .diy-section h2 {
-		font-family: Georgia, 'Times New Roman', serif;
+		font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 		font-weight: 700;
 		letter-spacing: -0.045em;
 	}
@@ -1019,9 +1022,9 @@ const faqItems = [
 	}
 	.decision-grid article:nth-child(2), .process-grid article:nth-child(2), .decision-grid article:nth-child(3) { background: rgba(255,255,255,0.75); }
 	.decision-grid article:nth-child(3) { box-shadow: 0 15px 35px rgba(95, 95, 155, 0.08); }
-	.decision-grid article > span, .process-grid article > span { margin-bottom: 28px; color: #9698ed; font-family: Georgia, 'Times New Roman', serif; font-size: 29px; font-weight: 700; }
+	.decision-grid article > span, .process-grid article > span { margin-bottom: 28px; color: #9698ed; font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 29px; font-weight: 400; }
 	.process-grid article > span { display: block; width: auto; height: auto; margin-bottom: 29px; padding: 0; background: transparent; color: #9698ed; }
-	.decision-grid strong, .process-grid strong { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; }
+	.decision-grid strong, .process-grid strong { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: 400; letter-spacing: -0.025em; }
 	.decision-grid p, .process-grid p { color: var(--muted); font-size: 13px; line-height: 1.55; }
 	.privacy-strip { border: 0; border-radius: 16px; background: rgba(255,255,255,0.55); color: var(--muted); font-size: 13px; }
 
@@ -1037,18 +1040,18 @@ const faqItems = [
 	.snapshot-sheet { border: 1px solid rgba(255,255,255,0.95); border-radius: 28px; background: rgba(255,255,255,0.78); box-shadow: 0 24px 55px rgba(93,93,153,0.13); overflow: hidden; }
 	.snapshot-sheet > header { padding: 30px 34px; border-bottom: 1px solid var(--line); }
 	.snapshot-sheet header p { color: #9698ed; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
-	.snapshot-sheet header h3 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(28px, 3vw, 46px); font-weight: 700; letter-spacing: -0.045em; }
+	.snapshot-sheet header h3 { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: clamp(28px, 3vw, 46px); font-weight: 400; letter-spacing: -0.045em; }
 	.snapshot-sheet header > span { padding: 8px 12px; border: 1px solid rgba(123,127,232,0.2); border-radius: 999px; color: #7a7ca7; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
 	.snapshot-grid { gap: 15px; padding: 15px; }
 	.snapshot-grid section { min-height: 292px; padding: 28px; border: 1px solid rgba(255,255,255,0.95); border-radius: 20px; background: rgba(248,248,255,0.82); }
 	.snapshot-grid section:nth-child(even) { border-right: 1px solid rgba(255,255,255,0.95); }
-	.report-number { top: 22px; right: 25px; color: rgba(123,127,232,0.18); font-family: Georgia, 'Times New Roman', serif; font-size: 42px; }
+	.report-number { top: 22px; right: 25px; color: rgba(123,127,232,0.18); font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 42px; }
 	.report-kicker { margin-bottom: 29px; color: #8b8de7; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
-	.snapshot-grid h4 { font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: 700; letter-spacing: -0.025em; }
+	.snapshot-grid h4 { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: 400; letter-spacing: -0.025em; }
 	.snapshot-grid section > p:last-child { color: var(--muted); font-size: 13px; }
 	.recommendation-cell { background: #f4f4ff !important; }
 	.math-cell { background: #e7e6ff !important; }
-	.big-math strong { font-family: Georgia, 'Times New Roman', serif; font-size: 84px; }
+	.big-math strong { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 84px; }
 	.snapshot-sheet > footer { padding: 24px 34px; }
 	.snapshot-sheet footer span { color: #8b8de7; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
 	.snapshot-sheet footer strong { color: #505168; font-size: 13px; font-weight: 400; }
@@ -1060,15 +1063,15 @@ const faqItems = [
 	.proof-row { gap: 10px; margin-top: 36px; border: 0; }
 	.proof-row div { padding: 18px; border: 1px solid rgba(255,255,255,0.9); border-radius: 18px; background: rgba(255,255,255,0.65); box-shadow: 0 8px 20px rgba(95,95,155,0.06); }
 	.proof-row div:last-child { border-right: 1px solid rgba(255,255,255,0.9); }
-	.proof-row strong { color: #7d80df; font-family: Georgia, 'Times New Roman', serif; font-size: 26px; }
+	.proof-row strong { color: #7d80df; font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 26px; }
 	.proof-row span { color: var(--muted); font-size: 10px; }
 
 	.guarantee-section { gap: 70px; }
 	.guarantee-card { padding: 40px; border: 1px solid rgba(255,255,255,0.9); border-radius: 28px; background: rgba(255,255,255,0.74); color: var(--ink); box-shadow: 0 24px 55px rgba(93,93,153,0.12); }
 	.guarantee-number { border-bottom: 1px solid var(--line); }
-	.guarantee-number strong { color: #8588e7; font-family: Georgia, 'Times New Roman', serif; font-size: 104px; }
+	.guarantee-number strong { color: #8588e7; font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 104px; }
 	.guarantee-number span { color: var(--muted); font-size: 13px; }
-	.guarantee-card h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 40px; }
+	.guarantee-card h2 { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 40px; }
 	.guarantee-card > p:last-child { color: var(--muted); font-size: 14px; }
 	.faq-list { border-top: 1px solid var(--line); }
 	.faq-list details { border-bottom: 1px solid var(--line); }
@@ -1080,7 +1083,7 @@ const faqItems = [
 	.checkout-card { padding: 30px; border: 1px solid rgba(255,255,255,0.95); border-radius: 26px; background: rgba(255,255,255,0.84); color: var(--ink); box-shadow: 0 24px 55px rgba(93,93,153,0.13); }
 	.checkout-card > span { color: #8588e7; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
 	.checkout-card > div { border-bottom: 1px solid var(--line); }
-	.checkout-card div strong { font-family: Georgia, 'Times New Roman', serif; font-size: 74px; }
+	.checkout-card div strong { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: 74px; }
 	.checkout-card div small { color: var(--muted); font-size: 10px; }
 	.checkout-card li { color: #505168; font-size: 13px; font-weight: 400; }
 	.checkout-card li::before { color: #8588e7; }
