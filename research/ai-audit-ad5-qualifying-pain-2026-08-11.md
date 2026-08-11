@@ -17,11 +17,14 @@ The cost-of-delay language is a practical inference from research on fragmented 
 
 ## Meta creative
 
-Asset: `public/meta-ads/ai-audit/aa59_c05_qualifying_pain_4x5.png`
+Assets:
 
-Dimensions: 1080 by 1350.
+- `public/meta-ads/ai-audit/aa59_c05_qualifying_pain_1x1.png`, 1080 by 1080
+- `public/meta-ads/ai-audit/aa59_c05_qualifying_pain_4x5.png`, 1080 by 1350
+- `public/meta-ads/ai-audit/aa59_c05_qualifying_pain_9x16.png`, 1080 by 1920
+- `public/meta-ads/ai-audit/aa59_c05_qualifying_pain_16x9.png`, 1920 by 1080
 
-Visual direction: Calm lavender field, periwinkle glow, high-contrast serif type, rounded white plan card, soft shadow, and four mechanism rows. This continues the `aa59_c04_calmnia_plan` visual system while changing the message angle.
+Visual direction: Calm lavender field, periwinkle glow, high-contrast serif type, rounded white plan card, soft shadow, and four mechanism rows. This continues the `aa59_c04_calmnia_plan` visual system while changing the message angle. The square, 4:5, vertical, and landscape compositions were generated separately and resized to exact placement dimensions.
 
 ## Copy
 
