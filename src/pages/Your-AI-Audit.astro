@@ -2,8 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 
 const snapshotPrice = 59;
-const title = `One-Task AI Plan | One Recommendation for $${snapshotPrice}`;
-const description = `Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your $${snapshotPrice} back.`;
+const title = `One-Task AI Workflow Plan | $${snapshotPrice}`;
+const description = `Describe one repetitive computer task. Get one practical AI workflow plan by the end of the next business day, or a full refund if I cannot support a 30-minute weekly savings projection.`;
 const fallbackCheckoutUrl = 'https://buy.stripe.com/aFa14neprdi32gLbdA53O03';
 
 const faqItems = [
@@ -79,15 +79,15 @@ const faqItems = [
 				<section class="hero" aria-labelledby="hero-title">
 					<div class="hero-copy">
 					<p class="eyebrow"><span></span> CASE FILE 001 / PERSONALLY REVIEWED</p>
-						<h1 id="hero-title">One task you repeat. One practical plan to make it faster.</h1>
-						<p class="hero-subhead">Get one AI recommendation in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
-						<p class="hero-qualifier">I review your completed intake myself. If I cannot support the 30-minute projection, I initiate a full refund. This is a recommendation and setup plan, not installation.</p>
+						<h1 id="hero-title">Stop paying for the same computer task every week.</h1>
+						<p class="hero-subhead">Describe one repetitive task that takes 45 minutes or more each week. I will choose one practical AI workflow and send you a one-page plan with your current steps, projected savings, software cost, and first test.</p>
+						<p class="hero-qualifier">Pay ${snapshotPrice}, complete a five-minute intake, and get your plan by the end of the next business day after you submit it. If I cannot support a projection of at least 30 minutes saved each week, I initiate a full refund.</p>
 						<div class="hero-actions">
 							<a class="button button-primary" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="hero">
 								<span class="button-label">Get my one-task plan</span>
 								<strong>${snapshotPrice}</strong>
 							</a>
-							<p><strong>Five-minute intake.</strong> No call or subscription. Delivered by email by the end of the next business day after intake.</p>
+							<p><strong>No call or subscription.</strong> This is a recommendation and setup plan, not installation.</p>
 						</div>
 					</div>
 
@@ -116,12 +116,12 @@ const faqItems = [
 				<section id="what-you-get" class="deliverable-section section-shell" aria-labelledby="deliverable-title">
 					<div class="section-heading">
 						<p class="section-label" data-notation="01">01 / CURRENT TASK</p>
-						<h2 id="deliverable-title">One page. Four decisions already made.</h2>
-						<p>You receive one recommendation for one task. Installation, account access, and custom software are not included.</p>
+						<h2 id="deliverable-title">One page that tells you whether the change is worth making.</h2>
+						<p>You receive one recommendation for one task, with the numbers and first steps needed to make a decision. Installation, account access, and custom software are not included.</p>
 					</div>
 					<div class="decision-grid">
 						<article><span>01</span><strong>Your task now</strong><p>The steps and estimated weekly time in your current workflow.</p></article>
-						<article><span>02</span><strong>What to change</strong><p>One no-code AI or automation workflow selected for your tools and constraints.</p></article>
+						<article><span>02</span><strong>The workflow to use</strong><p>One practical no-code AI or automation workflow selected for your tools and constraints.</p></article>
 						<article><span>03</span><strong>Whether it is worth it</strong><p>Projected savings, one-time setup, ongoing review, and estimated software cost.</p></article>
 						<article><span>04</span><strong>What to test first</strong><p>The smallest way to test the recommendation before changing your routine.</p></article>
 					</div>
@@ -136,7 +136,7 @@ const faqItems = [
 					<div class="process-grid">
 						<article><span>1</span><strong>Pay ${snapshotPrice}</strong><p>Stripe sends you straight to the eight-question intake.</p></article>
 						<article><span>2</span><strong>Describe one task</strong><p>Share the steps, tools, time, desired outcome, and constraints. Rough estimates are fine.</p></article>
-						<article><span>3</span><strong>I email the PDF</strong><p>I personally review your answers and send the plan by the end of the next business day.</p></article>
+						<article><span>3</span><strong>I email the PDF</strong><p>I personally review your answers and send the plan by the end of the next business day after you submit the completed intake.</p></article>
 					</div>
 					<p class="privacy-strip"><strong>Keep private data out.</strong> Do not provide passwords, API keys, files, customer records, health information, or financial account details. A high-level description is enough.</p>
 				</section>
@@ -203,7 +203,7 @@ const faqItems = [
 				<section class="task-examples section-shell" aria-labelledby="task-examples-title">
 					<div class="section-heading">
 						<p class="section-label" data-notation="01">01 / CURRENT TASK</p>
-						<h2 id="task-examples-title">One repeated computer task.</h2>
+						<h2 id="task-examples-title">Pick the task you keep losing time to.</h2>
 						<p>Good candidates usually take at least 45 minutes a week and follow similar steps each time. Work and personal tasks both count.</p>
 					</div>
 					<div class="task-chips" aria-label="Suitable task examples">
@@ -255,15 +255,15 @@ const faqItems = [
 				<section class="final-cta section-shell" aria-labelledby="final-title">
 					<div>
 						<p class="section-label section-label-light" data-notation="05">05 / SUBMIT FOR REVIEW</p>
-						<h2 id="final-title">One repeated task. One clear next step.</h2>
-						<p>Get it in one business day, projected to save 30+ minutes a week, or your ${snapshotPrice} back.</p>
+						<h2 id="final-title">Which task are you tired of paying for every week?</h2>
+						<p>Describe it once. Get one practical plan by the end of the next business day after you submit the completed intake.</p>
 					</div>
 					<aside class="checkout-card">
 						<span>One-Task AI Plan</span>
 						<div><strong>${snapshotPrice}</strong><small>one-time purchase</small></div>
 						<ul>
 							<li>Personally reviewed one-page PDF</li>
-							<li>Due by the end of the next business day after intake</li>
+							<li>Due by the end of the next business day after you submit the completed intake</li>
 							<li>Full refund if no qualifying 30-minute projection</li>
 						</ul>
 						<a class="button button-light" href={fallbackCheckoutUrl} data-audit-checkout data-cta-location="final">
@@ -272,6 +272,28 @@ const faqItems = [
 						</a>
 						<p>One-time payment through Stripe. No subscription.</p>
 					</aside>
+				</section>
+
+				<section class="question-section section-shell" aria-labelledby="question-title">
+					<div class="question-copy">
+						<h2 id="question-title">Questions before you buy?</h2>
+						<p>If you are unsure whether your task is a fit, send me a short description. Do not include passwords, files, customer information, or other private data. I will reply by email.</p>
+					</div>
+					<form id="audit-question-form" class="question-form" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="0d5ededb-778b-452f-b8f0-72ebb2e4e461" />
+						<input type="hidden" name="subject" value="Question about the One-Task AI Plan" />
+						<input type="hidden" name="from_name" value="jackmaguire.org AI Audit" />
+						<input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
+						<label for="audit-question-name">Name</label>
+						<input id="audit-question-name" type="text" name="name" required autocomplete="name" />
+						<label for="audit-question-email">Email</label>
+						<input id="audit-question-email" type="email" name="email" required autocomplete="email" />
+						<label for="audit-question-message">What would you like to ask?</label>
+						<textarea id="audit-question-message" name="message" rows="4" required></textarea>
+						<button type="submit">Ask Jack</button>
+						<p class="question-note">This form is for questions only. To order the plan, use the ${snapshotPrice} checkout above. No newsletter. <a href="/privacy-policy/">Privacy</a></p>
+						<p class="question-status" role="status" aria-live="polite"></p>
+					</form>
 				</section>
 			</main>
 
@@ -530,6 +552,39 @@ const faqItems = [
 					}
 				});
 			});
+		</script>
+		<script>
+			const questionForm = document.getElementById('audit-question-form');
+			if (questionForm instanceof HTMLFormElement) {
+				questionForm.addEventListener('submit', async (event) => {
+					event.preventDefault();
+					const submitButton = questionForm.querySelector('button[type="submit"]');
+					const status = questionForm.querySelector('.question-status');
+					if (submitButton instanceof HTMLButtonElement) {
+						submitButton.disabled = true;
+						submitButton.textContent = 'Sending...';
+					}
+					if (status instanceof HTMLElement) status.textContent = '';
+					try {
+						const response = await fetch(questionForm.action, {
+							method: 'POST',
+							headers: { Accept: 'application/json' },
+							body: new FormData(questionForm),
+						});
+						const result = await response.json();
+						if (!response.ok || !result.success) throw new Error('Submission failed');
+						questionForm.reset();
+						if (status instanceof HTMLElement) status.textContent = 'Thanks. I will reply by email.';
+					} catch {
+						if (status instanceof HTMLElement) status.textContent = 'That did not send. Email maguirebaseball@gmail.com instead.';
+					} finally {
+						if (submitButton instanceof HTMLButtonElement) {
+							submitButton.disabled = false;
+							submitButton.textContent = 'Ask Jack';
+						}
+					}
+				});
+			}
 		</script>
 	</body>
 </html>
@@ -1117,6 +1172,28 @@ const faqItems = [
 	.checkout-card li::before { color: #8588e7; }
 	.button-light { background: var(--ink); color: white; }
 	.checkout-card > p { color: var(--muted); }
+	.question-section {
+		display: grid;
+		grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1.2fr);
+		gap: 70px;
+		align-items: start;
+		padding-top: 68px;
+		padding-bottom: 84px;
+		border-top: 1px solid var(--line);
+	}
+	.question-copy h2 { margin: 0; font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: clamp(34px, 3.8vw, 52px); letter-spacing: -0.04em; line-height: 1; }
+	.question-copy p { max-width: 470px; margin: 22px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+	.question-form { display: grid; grid-template-columns: 1fr; gap: 9px; padding: 26px; border: 1px solid rgba(255,255,255,0.95); border-radius: 22px; background: rgba(255,255,255,0.58); }
+	.question-form .botcheck { position: absolute; left: -9999px; }
+	.question-form label { color: #505168; font-size: 12px; font-weight: 700; }
+	.question-form input, .question-form textarea { width: 100%; padding: 12px 13px; border: 1px solid rgba(38,38,61,0.16); border-radius: 10px; background: rgba(255,255,255,0.9); color: var(--ink); font: inherit; }
+	.question-form input:focus, .question-form textarea:focus { border-color: #7b7fe8; outline: 2px solid rgba(123,127,232,0.18); outline-offset: 1px; }
+	.question-form textarea { min-height: 104px; resize: vertical; }
+	.question-form button { justify-self: start; min-width: 120px; padding: 13px 20px; border: 0; border-radius: 999px; background: var(--ink); color: white; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; }
+	.question-form button:disabled { cursor: wait; opacity: 0.65; }
+	.question-note, .question-status { margin: 3px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+	.question-note a { color: inherit; }
+	.question-status { min-height: 17px; color: #5558b2; font-weight: 700; }
 	.page-footer { padding: 30px 0 46px; border-top: 1px solid var(--line); color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 11px; text-transform: none; }
 	.page-footer a { color: var(--muted); }
 
@@ -1128,6 +1205,7 @@ const faqItems = [
 		.audit-card { width: min(100%, 520px); margin: 0 auto; }
 		.diy-section { grid-template-columns: 1fr; gap: 34px; }
 		.diy-section h2 { max-width: 680px; margin: 0 auto; text-align: center; }
+		.question-section { grid-template-columns: 1fr; gap: 36px; }
 	}
 	@media (max-width: 680px) {
 		.topbar, .hero, .section-shell, .page-footer { width: min(100% - 32px, 1180px); }
@@ -1153,5 +1231,8 @@ const faqItems = [
 		.guarantee-card { padding: 28px 24px; border-radius: 22px; }
 		.guarantee-card h2 { font-size: 35px; }
 		.checkout-card { padding: 24px; border-radius: 22px; }
+		.question-section { padding-top: 56px; padding-bottom: 64px; }
+		.question-form { grid-template-columns: 1fr; padding: 20px; }
+		.question-form label, .question-form input, .question-form textarea, .question-form button, .question-note, .question-status { grid-column: 1; }
 	}
 </style>
