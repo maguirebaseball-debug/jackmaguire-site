@@ -1,0 +1,263 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { PERSON_ID } from '../../consts';
+import mapData from '../../data/chatgpt-nyc-map.json';
+
+const title = 'How ChatGPT Sees New York City';
+const description = 'An interactive map of the people ChatGPT imagines across 25 parts of contemporary New York City.';
+const category = 'Interactive';
+const pubDate = 'August 12, 2026';
+const datePublished = '2026-08-12';
+const imageBase = '/images/chatgpt-nyc';
+
+const allCoordinates = mapData.features.flatMap((feature) =>
+	feature.polygons.flatMap((polygon) => polygon.flat()),
+);
+const minLon = Math.min(...allCoordinates.map(([lon]) => lon));
+const maxLon = Math.max(...allCoordinates.map(([lon]) => lon));
+const minLat = Math.min(...allCoordinates.map(([, lat]) => lat));
+const maxLat = Math.max(...allCoordinates.map(([, lat]) => lat));
+const width = 760;
+const height = 820;
+const padding = 18;
+const xScale = (width - padding * 2) / (maxLon - minLon);
+const yScale = (height - padding * 2) / (maxLat - minLat);
+const scale = Math.min(xScale, yScale);
+const renderedWidth = (maxLon - minLon) * scale;
+const renderedHeight = (maxLat - minLat) * scale;
+const xOffset = (width - renderedWidth) / 2;
+const yOffset = (height - renderedHeight) / 2;
+
+function point([lon, lat]: number[]) {
+	const x = xOffset + (lon - minLon) * scale;
+	const y = yOffset + (maxLat - lat) * scale;
+	return [x, y];
+}
+
+function ringPath(ring: number[][]) {
+	return ring.map((coordinate, index) => {
+		const [x, y] = point(coordinate);
+		return `${index === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`;
+	}).join(' ') + ' Z';
+}
+
+const features = mapData.features.map((feature) => ({
+	...feature,
+	d: feature.polygons.map((polygon) => polygon.map(ringPath).join(' ')).join(' '),
+}));
+
+const areaById = Object.fromEntries(mapData.areas.map((area) => [area.id, area]));
+const initialArea = areaById['east-village'];
+const areaJson = JSON.stringify(areaById);
+const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			ogImage={`${imageBase}/east-village.webp`}
+			articlePublished={datePublished}
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Article',
+			headline: title,
+			description,
+			url: articleUrl,
+			mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+			image: new URL(`${imageBase}/east-village.webp`, Astro.site).toString(),
+			author: { '@id': PERSON_ID },
+			publisher: { '@id': PERSON_ID },
+			datePublished,
+			dateModified: datePublished,
+		})} />
+	</head>
+	<body>
+		<main>
+			<header class="intro">
+				<p class="date">August 12, 2026</p>
+				<p class="byline">By <a href="/about/">Jack Maguire</a></p>
+				<h1>How ChatGPT sees New York City</h1>
+				<p class="dek">I asked ChatGPT to picture seven people from each part of New York, then put the answers on a map.</p>
+				<details>
+					<summary>What this did</summary>
+					<div class="method-copy">
+						<p>The city is divided into 25 clusters. Together they cover all five boroughs without overlap. Each cluster follows New York City Planning's 2020 Neighborhood Tabulation Areas, grouped into larger areas so the full map remains usable in one frame.</p>
+						<p>For each area, ChatGPT received the same core prompt:</p>
+						<blockquote>Generate an amateur photograph of seven people who live in contemporary [neighborhood], doing what they do in contemporary [neighborhood], [borough], NYC.</blockquote>
+						<p>The people are synthetic. The pictures show the model's associations, including its shortcuts and stereotypes. They are not claims about who actually lives in a neighborhood. Neighborhood borders are disputed, so these are practical editorial clusters, not official definitions.</p>
+					</div>
+				</details>
+			</header>
+
+			<section class="atlas" aria-label="Interactive map of ChatGPT's New York City">
+				<div class="map-panel">
+					<div class="map-toolbar">
+						<p><span class="desktop-instruction">Hover to explore. Click to hold.</span><span class="mobile-instruction">Tap an area to explore.</span></p>
+						<label>
+							<span class="sr-only">Choose an area</span>
+							<select id="area-select">
+								{mapData.areas.map((area) => <option value={area.id} selected={area.id === initialArea.id}>{area.name}</option>)}
+							</select>
+						</label>
+					</div>
+
+					<svg class="nyc-map" viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby="map-title map-description">
+						<title id="map-title">New York City divided into 25 image areas</title>
+						<desc id="map-description">Hover, focus, or click a neighborhood area to show the image ChatGPT generated for it.</desc>
+						<g class="map-features">
+							{features.map((feature) => (
+								<path
+									class:list={['map-shape', { selected: feature.area === initialArea.id }]}
+									d={feature.d}
+									fill-rule="evenodd"
+									data-area={feature.area}
+									data-official-name={feature.officialName}
+									tabindex="0"
+									role="button"
+									aria-label={`${areaById[feature.area].name}. City Planning area: ${feature.officialName}`}
+								/>
+							))}
+						</g>
+					</svg>
+					<div class="borough-key" aria-hidden="true">
+						<span>Staten Island</span><span>Brooklyn</span><span>Manhattan</span><span>Bronx</span><span>Queens</span>
+					</div>
+				</div>
+
+				<article class="portrait-card" aria-live="polite">
+					<div class="image-wrap">
+						<img id="area-image" src={`${imageBase}/${initialArea.image}.webp`} alt={`ChatGPT generated scene for ${initialArea.name}`} width="720" height="720" />
+						<div class="loading" id="image-loading" hidden>Loading image</div>
+					</div>
+					<div class="portrait-copy">
+						<p class="borough" id="area-borough">{initialArea.borough}</p>
+						<h2 id="area-name">{initialArea.name}</h2>
+						<p class="official-area" id="official-area">City Planning area: East Village</p>
+						<p class="prompt" id="area-prompt">Generate an amateur photograph of seven people who live in contemporary {initialArea.name}, doing what they do in contemporary {initialArea.name}, {initialArea.borough}, NYC.</p>
+					</div>
+				</article>
+			</section>
+
+			<footer class="source-note">
+				<p>Boundary source: <a href="https://www.nyc.gov/content/planning/pages/resources/datasets/neighborhood-tabulation">New York City Department of City Planning, 2020 Neighborhood Tabulation Areas</a>.</p>
+				<a href="/blog/">More writing</a>
+			</footer>
+		</main>
+
+		<script define:vars={{ areaJson, imageBase }}>
+			const areas = JSON.parse(areaJson);
+			const shapes = [...document.querySelectorAll('.map-shape')];
+			const image = document.querySelector('#area-image');
+			const imageLoading = document.querySelector('#image-loading');
+			const areaName = document.querySelector('#area-name');
+			const areaBorough = document.querySelector('#area-borough');
+			const officialArea = document.querySelector('#official-area');
+			const prompt = document.querySelector('#area-prompt');
+			const select = document.querySelector('#area-select');
+			let pinnedArea = 'east-village';
+			let currentArea = pinnedArea;
+
+			function setArea(id, officialName = '') {
+				if (!areas[id] || currentArea === id && !officialName) return;
+				currentArea = id;
+				const area = areas[id];
+				shapes.forEach((shape) => shape.classList.toggle('selected', shape.dataset.area === id));
+				areaName.textContent = area.name;
+				areaBorough.textContent = area.borough;
+				officialArea.textContent = officialName ? `City Planning area: ${officialName}` : 'Move within the cluster to see its City Planning areas.';
+				prompt.textContent = `Generate an amateur photograph of seven people who live in contemporary ${area.name}, doing what they do in contemporary ${area.name}, ${area.borough}, NYC.`;
+				select.value = id;
+				const nextSrc = `${imageBase}/${area.image}.webp`;
+				if (!image.src.endsWith(nextSrc)) {
+					imageLoading.hidden = false;
+					image.classList.add('is-loading');
+					image.onload = () => { imageLoading.hidden = true; image.classList.remove('is-loading'); };
+					image.src = nextSrc;
+					image.alt = `ChatGPT generated scene for ${area.name}`;
+				}
+			}
+
+			shapes.forEach((shape) => {
+				shape.addEventListener('pointerenter', () => setArea(shape.dataset.area, shape.dataset.officialName));
+				shape.addEventListener('pointerleave', () => setArea(pinnedArea));
+				shape.addEventListener('focus', () => setArea(shape.dataset.area, shape.dataset.officialName));
+				shape.addEventListener('click', () => { pinnedArea = shape.dataset.area; setArea(pinnedArea, shape.dataset.officialName); });
+				shape.addEventListener('keydown', (event) => {
+					if (event.key === 'Enter' || event.key === ' ') {
+						event.preventDefault();
+						pinnedArea = shape.dataset.area;
+						setArea(pinnedArea, shape.dataset.officialName);
+					}
+				});
+			});
+
+			select.addEventListener('change', () => { pinnedArea = select.value; setArea(pinnedArea); });
+		</script>
+	</body>
+</html>
+
+<style>
+	:global(html) { background: #f3f0e8; }
+	:global(body) { margin: 0; background: #f3f0e8; color: #151515; font-family: Arial, Helvetica, sans-serif; }
+	main { min-height: 100vh; }
+	.intro { max-width: 920px; margin: 0 auto; padding: 36px 24px 24px; }
+	.date, .byline { margin: 0 0 5px; font-family: Georgia, 'Times New Roman', serif; font-size: 15px; }
+	.byline { margin-bottom: 28px; }
+	h1 { max-width: 860px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(46px, 7vw, 92px); font-weight: 400; line-height: .92; letter-spacing: -.045em; }
+	.dek { max-width: 720px; margin: 28px 0 22px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.3; }
+	details { max-width: 760px; border-top: 1px solid #aaa69d; border-bottom: 1px solid #aaa69d; }
+	summary { padding: 13px 0; cursor: pointer; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+	.method-copy { padding: 0 0 12px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.45; }
+	.method-copy p { margin: 0 0 14px; }
+	blockquote { margin: 12px 0 18px; padding-left: 18px; border-left: 3px solid #1e3a34; font-style: italic; }
+	.atlas { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr); min-height: min(820px, calc(100vh - 24px)); border-top: 1px solid #1c1c1c; border-bottom: 1px solid #1c1c1c; background: #e8e5dc; }
+	.map-panel { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 16px 18px 10px; border-right: 1px solid #1c1c1c; }
+	.map-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 40px; }
+	.map-toolbar p { margin: 0; font-size: 13px; color: #4b4943; }
+	select { max-width: 300px; padding: 8px 30px 8px 10px; border: 1px solid #7c7971; border-radius: 0; background: #f3f0e8; color: #151515; font: inherit; font-size: 13px; }
+	.nyc-map { display: block; width: 100%; min-height: 0; flex: 1; overflow: visible; }
+	.map-shape { fill: #d3cec2; stroke: #77736a; stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill 120ms ease, opacity 120ms ease; }
+	.map-shape:hover, .map-shape:focus, .map-shape.selected { fill: #c93b32; stroke: #171717; stroke-width: 1.2; outline: none; }
+	.map-features:has(.map-shape:hover) .map-shape:not(:hover), .map-features:has(.map-shape:focus) .map-shape:not(:focus) { opacity: .58; }
+	.borough-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; padding-top: 4px; font-size: 11px; color: #666158; }
+	.borough-key span::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 5px; border: 1px solid #77736a; background: #d3cec2; }
+	.portrait-card { display: flex; flex-direction: column; min-width: 0; background: #f7f4ed; }
+	.image-wrap { position: relative; aspect-ratio: 1; overflow: hidden; background: #d8d3c9; }
+	.image-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; transition: opacity 100ms ease; }
+	.image-wrap img.is-loading { opacity: .45; }
+	.loading { position: absolute; inset: auto 14px 14px auto; padding: 5px 7px; background: rgba(247, 244, 237, .9); font-size: 12px; }
+	.portrait-copy { padding: 20px 24px 26px; }
+	.borough { margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6b675f; }
+	h2 { margin: 0 0 8px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(26px, 3vw, 42px); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; }
+	.official-area { margin: 0 0 18px; font-size: 12px; color: #6b675f; }
+	.prompt { margin: 0; padding-top: 15px; border-top: 1px solid #bbb7ae; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; line-height: 1.4; font-style: italic; color: #4b4943; }
+	.source-note { max-width: 920px; margin: 0 auto; padding: 28px 24px 46px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; line-height: 1.45; }
+	.source-note p { margin: 0 0 28px; }
+	a { color: inherit; }
+	.mobile-instruction { display: none; }
+	.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+	@media (max-width: 820px) {
+		.intro { padding-top: 24px; }
+		.atlas { grid-template-columns: 1fr; }
+		.map-panel { min-height: 66vh; border-right: 0; border-bottom: 1px solid #1c1c1c; }
+		.portrait-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+		.portrait-copy { align-self: center; }
+		.desktop-instruction { display: none; }
+		.mobile-instruction { display: inline; }
+	}
+	@media (max-width: 560px) {
+		h1 { font-size: 48px; }
+		.intro { padding-left: 18px; padding-right: 18px; }
+		.map-panel { min-height: 62vh; padding: 12px 10px 8px; }
+		.map-toolbar { align-items: flex-start; flex-direction: column; gap: 6px; }
+		select { width: 100%; max-width: none; }
+		.portrait-card { display: block; }
+		.portrait-copy { padding: 18px; }
+		.source-note { padding-left: 18px; padding-right: 18px; }
+	}
+	@media (prefers-reduced-motion: reduce) { .map-shape, .image-wrap img { transition: none; } }
+</style>
