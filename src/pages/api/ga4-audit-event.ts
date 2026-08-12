@@ -35,6 +35,10 @@ const ALLOWED_PARAMS = new Set([
 	'debug_probe',
 	'campaign',
 	'campaign_id',
+	'source',
+	'medium',
+	'content',
+	'term',
 	'ad_name',
 	'adset_id',
 	'ad_id',
@@ -44,6 +48,8 @@ const ALLOWED_PARAMS = new Set([
 	'ga_session_id',
 	'first_landing_at',
 	'event_id',
+	'page_location',
+	'page_referrer',
 	'items',
 ]);
 

@@ -227,6 +227,10 @@ const description = 'Complete the eight-question intake for your paid one-page A
 			}
 
 			function stableGaIdentity() {
+				if (window.jmGa4Identity?.getSync) {
+					const identity = window.jmGa4Identity.getSync();
+					return { clientId: identity.clientId, analyticsSessionId: identity.sessionId };
+				}
 				let clientId = sessionStorage.getItem(gaClientKey) || '';
 				let analyticsSessionId = sessionStorage.getItem(gaSessionKey) || '';
 				if (!clientId) {
@@ -241,16 +245,29 @@ const description = 'Complete the eight-question intake for your paid one-page A
 				return { clientId, analyticsSessionId };
 			}
 
+			async function resolvedGaIdentity() {
+				if (window.jmGa4Identity?.resolve) {
+					const identity = await window.jmGa4Identity.resolve();
+					return { clientId: identity.clientId, analyticsSessionId: identity.sessionId };
+				}
+				return stableGaIdentity();
+			}
+
 			function trackCustom(name, eventId) {
 				if (typeof window.fbq === 'function') {
 					window.fbq('trackCustom', name, { content_ids: ['ai_bottleneck_snapshot'], content_name: 'One-Task AI Plan' }, { eventID: eventId });
 				}
 			}
 
-			function trackAuditAnalytics(name, parameters = {}) {
+			async function trackAuditAnalytics(name, parameters = {}) {
 				const debugMode = params.get('ga_debug') === '1';
-				const { clientId, analyticsSessionId } = stableGaIdentity();
+				const { clientId, analyticsSessionId } = await resolvedGaIdentity();
 				const stored = storedAttribution();
+				const source = params.get('utm_source') || stored.utm_source || '';
+				const medium = params.get('utm_medium') || stored.utm_medium || '';
+				const campaign = params.get('utm_campaign') || stored.campaign || '';
+				const content = params.get('utm_content') || stored.ad_name || '';
+				const term = params.get('utm_term') || stored.placement || '';
 				return fetch('/api/ga4-audit-event/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
@@ -258,15 +275,21 @@ const description = 'Complete the eight-question intake for your paid one-page A
 						event_name: name,
 						params: {
 							content_group: 'ai_audit',
-							campaign: params.get('utm_campaign') || stored.campaign || '',
+							campaign,
 							campaign_id: params.get('utm_id') || stored.campaign_id || '',
-							ad_name: params.get('utm_content') || stored.ad_name || '',
+							source,
+							medium,
+							content,
+							term,
+							ad_name: content,
 							adset_id: params.get('adset_id') || stored.adset_id || '',
 							ad_id: params.get('ad_id') || stored.ad_id || '',
-							placement: params.get('utm_term') || stored.placement || '',
+							placement: term,
 							site_source_name: params.get('site_source_name') || stored.site_source_name || '',
 							landing_session_id: stored.landing_session_id || '',
 							first_landing_at: stored.first_landing_at || '',
+							page_location: window.location.href,
+							page_referrer: document.referrer,
 							...parameters,
 						},
 						client_id: clientId,

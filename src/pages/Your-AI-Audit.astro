@@ -321,6 +321,7 @@ const faqItems = [
 			}
 
 			function getStableGaIdentity() {
+				if (window.jmGa4Identity?.getSync) return window.jmGa4Identity.getSync();
 				let clientId = sessionStorage.getItem(gaClientKey) || '';
 				let sessionId = sessionStorage.getItem(gaSessionKey) || '';
 				if (!clientId) {
@@ -333,6 +334,15 @@ const faqItems = [
 					sessionStorage.setItem(gaSessionKey, sessionId);
 				}
 				return { clientId, sessionId };
+			}
+
+			async function resolveGaIdentity() {
+				const identity = window.jmGa4Identity?.resolve
+					? await window.jmGa4Identity.resolve()
+					: getStableGaIdentity();
+				sessionStorage.setItem(gaClientKey, identity.clientId);
+				sessionStorage.setItem(gaSessionKey, identity.sessionId);
+				return identity;
 			}
 
 			function getLandingAttribution() {
@@ -370,14 +380,20 @@ const faqItems = [
 				return encoded.length <= 197 ? `m1_${encoded}` : '';
 			}
 
-			function trackAuditEvent(name, parameters = {}) {
+			async function resolveLandingAttribution() {
+				const gaIdentity = await resolveGaIdentity();
+				const attribution = getLandingAttribution();
+				attribution.ga_client_id = gaIdentity.clientId;
+				attribution.ga_session_id = gaIdentity.sessionId;
+				sessionStorage.setItem(attributionStorageKey, JSON.stringify(attribution));
+				return attribution;
+			}
+
+			async function trackAuditEvent(name, parameters = {}) {
 				const params = new URLSearchParams(window.location.search);
 				const debugMode = params.get('ga_debug') === '1';
 				const internalTraffic = debugMode || localStorage.getItem(internalTrafficKey) === '1';
-				const attribution = getLandingAttribution();
-				const gaIdentity = getStableGaIdentity();
-				const clientId = attribution.ga_client_id || gaIdentity.clientId;
-				const sessionId = attribution.ga_session_id || gaIdentity.sessionId;
+				const attribution = await resolveLandingAttribution();
 				return fetch('/api/ga4-audit-event/', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
@@ -386,13 +402,23 @@ const faqItems = [
 						params: {
 							content_group: 'ai_audit',
 							campaign: attribution.campaign,
+							campaign_id: attribution.campaign_id,
+							source: attribution.utm_source,
+							medium: attribution.utm_medium,
+							content: attribution.ad_name,
+							term: attribution.placement,
 							ad_name: attribution.ad_name,
+							adset_id: attribution.adset_id,
+							ad_id: attribution.ad_id,
 							placement: attribution.placement,
+							site_source_name: attribution.site_source_name,
 							landing_session_id: attribution.landing_session_id,
+							page_location: window.location.href,
+							page_referrer: document.referrer,
 							...parameters,
 						},
-						client_id: clientId,
-						session_id: sessionId,
+						client_id: attribution.ga_client_id,
+						session_id: attribution.ga_session_id,
 						debug_mode: debugMode,
 						internal_traffic: internalTraffic,
 					}),
@@ -456,7 +482,7 @@ const faqItems = [
 					const label = link.querySelector('.button-label');
 					if (label) label.textContent = 'Opening secure checkout...';
 
-					const attribution = getLandingAttribution();
+					const attribution = await resolveLandingAttribution();
 					const ctaLocation = link.dataset.ctaLocation || 'unknown';
 					const checkoutAttemptId = crypto.randomUUID();
 					if (typeof window.fbq === 'function') {
@@ -469,7 +495,7 @@ const faqItems = [
 						});
 					}
 
-					trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId });
+					const ctaEvent = trackAuditEvent('ai_audit_cta_clicked', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId });
 					if (typeof window.gtag === 'function') {
 						window.gtag('event', 'begin_checkout', {
 							tier: 'snapshot',
@@ -494,10 +520,12 @@ const faqItems = [
 						if (!response.ok) throw new Error('Checkout Session could not be created');
 						const result = await response.json();
 						if (!result.url || !result.url.startsWith('https://checkout.stripe.com/')) throw new Error('Invalid Checkout URL');
-						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'dynamic' });
+						const checkoutEvent = trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'dynamic' });
+						await Promise.allSettled([ctaEvent, checkoutEvent]);
 						window.location.assign(result.url);
 					} catch {
-						trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'payment_link' });
+						const checkoutEvent = trackAuditEvent('ai_audit_checkout_started', { tier: 'snapshot', value: snapshotPrice, currency: 'USD', cta_location: ctaLocation, checkout_attempt_id: checkoutAttemptId, checkout_path: 'payment_link' });
+						await Promise.allSettled([ctaEvent, checkoutEvent]);
 						window.location.assign(buildFallbackUrl(attribution));
 					}
 				});
