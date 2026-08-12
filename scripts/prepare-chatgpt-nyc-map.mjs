@@ -110,6 +110,8 @@ function simplifyGeometry(geometry) {
 const features = geojson.features.map((feature) => ({
   code: feature.properties.NTA2020,
   officialName: feature.properties.NTAName,
+  borough: feature.properties.BoroName,
+  image: feature.properties.NTA2020.toLowerCase(),
   area: areaFor(feature.properties.NTA2020),
   polygons: simplifyGeometry(feature.geometry),
 }));

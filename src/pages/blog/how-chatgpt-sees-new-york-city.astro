@@ -4,11 +4,11 @@ import { PERSON_ID } from '../../consts';
 import mapData from '../../data/chatgpt-nyc-map.json';
 
 const title = 'How ChatGPT Sees New York City';
-const description = 'An interactive map of the people ChatGPT imagines across 25 parts of contemporary New York City.';
+const description = 'An interactive map of the people ChatGPT imagines across all 262 official New York City Neighborhood Tabulation Areas.';
 const category = 'Interactive';
 const pubDate = 'August 12, 2026';
 const datePublished = '2026-08-12';
-const imageBase = '/images/chatgpt-nyc';
+const imageBase = '/images/chatgpt-nyc-nta';
 
 const allCoordinates = mapData.features.flatMap((feature) =>
 	feature.polygons.flatMap((polygon) => polygon.flat()),
@@ -46,9 +46,15 @@ const features = mapData.features.map((feature) => ({
 	d: feature.polygons.map((polygon) => polygon.map(ringPath).join(' ')).join(' '),
 }));
 
-const areaById = Object.fromEntries(mapData.areas.map((area) => [area.id, area]));
-const initialArea = areaById['east-village'];
-const areaJson = JSON.stringify(areaById);
+const featureByCode = Object.fromEntries(features.map((feature) => [feature.code, feature]));
+const initialFeature = featureByCode['MN0303'];
+const featureJson = JSON.stringify(Object.fromEntries(features.map((feature) => [feature.code, {
+	code: feature.code,
+	name: feature.officialName,
+	borough: feature.borough,
+	image: feature.image,
+}])));
+const boroughs = ['Manhattan', 'Bronx', 'Brooklyn', 'Queens', 'Staten Island'];
 const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).toString();
 ---
 
@@ -58,7 +64,7 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 		<BaseHead
 			title={title}
 			description={description}
-			ogImage={`${imageBase}/east-village.webp`}
+			ogImage={`${imageBase}/${initialFeature.image}.webp`}
 			articlePublished={datePublished}
 		/>
 		<script type="application/ld+json" set:html={JSON.stringify({
@@ -68,7 +74,7 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 			description,
 			url: articleUrl,
 			mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
-			image: new URL(`${imageBase}/east-village.webp`, Astro.site).toString(),
+			image: new URL(`${imageBase}/${initialFeature.image}.webp`, Astro.site).toString(),
 			author: { '@id': PERSON_ID },
 			publisher: { '@id': PERSON_ID },
 			datePublished,
@@ -81,14 +87,14 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 				<p class="date">August 12, 2026</p>
 				<p class="byline">By <a href="/about/">Jack Maguire</a></p>
 				<h1>How ChatGPT sees New York City</h1>
-				<p class="dek">I asked ChatGPT to picture seven people from each part of New York, then put the answers on a map.</p>
+				<p class="dek">I asked ChatGPT to picture seven people from each of New York City's 262 official neighborhood areas, then put the answers on a map.</p>
 				<details>
 					<summary>What this did</summary>
 					<div class="method-copy">
-						<p>The city is divided into 25 clusters. Together they cover all five boroughs without overlap. Each cluster follows New York City Planning's 2020 Neighborhood Tabulation Areas, grouped into larger areas so the full map remains usable in one frame.</p>
+						<p>The city is divided into all 262 of New York City Planning's 2020 Neighborhood Tabulation Areas. Together they cover all five boroughs without overlap. Each polygon has its own independently generated image.</p>
 						<p>For each area, ChatGPT received the same core prompt:</p>
 						<blockquote>Generate an amateur photograph of seven people who live in contemporary [neighborhood], doing what they do in contemporary [neighborhood], [borough], NYC.</blockquote>
-						<p>The people are synthetic. The pictures show the model's associations, including its shortcuts and stereotypes. They are not claims about who actually lives in a neighborhood. Neighborhood borders are disputed, so these are practical editorial clusters, not official definitions.</p>
+						<p>The people are synthetic. The pictures show the model's associations, including its shortcuts and stereotypes. They are not claims about who actually lives in a neighborhood. The boundaries are official statistical areas, not definitive neighborhood borders.</p>
 					</div>
 				</details>
 			</header>
@@ -100,25 +106,31 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 						<label>
 							<span class="sr-only">Choose an area</span>
 							<select id="area-select">
-								{mapData.areas.map((area) => <option value={area.id} selected={area.id === initialArea.id}>{area.name}</option>)}
+								{boroughs.map((borough) => (
+									<optgroup label={borough}>
+										{features.filter((feature) => feature.borough === borough).map((feature) => (
+											<option value={feature.code} selected={feature.code === initialFeature.code}>{feature.officialName}</option>
+										))}
+									</optgroup>
+								))}
 							</select>
 						</label>
 					</div>
 
 					<svg class="nyc-map" viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby="map-title map-description">
-						<title id="map-title">New York City divided into 25 image areas</title>
+						<title id="map-title">New York City divided into 262 official neighborhood areas</title>
 						<desc id="map-description">Hover, focus, or click a neighborhood area to show the image ChatGPT generated for it.</desc>
 						<g class="map-features">
 							{features.map((feature) => (
 								<path
-									class:list={['map-shape', { selected: feature.area === initialArea.id }]}
+									class:list={['map-shape', { selected: feature.code === initialFeature.code }]}
 									d={feature.d}
 									fill-rule="evenodd"
-									data-area={feature.area}
+									data-code={feature.code}
 									data-official-name={feature.officialName}
 									tabindex="0"
 									role="button"
-									aria-label={`${areaById[feature.area].name}. City Planning area: ${feature.officialName}`}
+									aria-label={`${feature.officialName}, ${feature.borough}`}
 								/>
 							))}
 						</g>
@@ -130,14 +142,14 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 
 				<article class="portrait-card" aria-live="polite">
 					<div class="image-wrap">
-						<img id="area-image" src={`${imageBase}/${initialArea.image}.webp`} alt={`ChatGPT generated scene for ${initialArea.name}`} width="720" height="720" />
+						<img id="area-image" src={`${imageBase}/${initialFeature.image}.webp`} alt={`ChatGPT generated scene for ${initialFeature.officialName}`} width="720" height="720" />
 						<div class="loading" id="image-loading" hidden>Loading image</div>
 					</div>
 					<div class="portrait-copy">
-						<p class="borough" id="area-borough">{initialArea.borough}</p>
-						<h2 id="area-name">{initialArea.name}</h2>
-						<p class="official-area" id="official-area">City Planning area: East Village</p>
-						<p class="prompt" id="area-prompt">Generate an amateur photograph of seven people who live in contemporary {initialArea.name}, doing what they do in contemporary {initialArea.name}, {initialArea.borough}, NYC.</p>
+						<p class="borough" id="area-borough">{initialFeature.borough}</p>
+						<h2 id="area-name">{initialFeature.officialName}</h2>
+						<p class="official-area" id="official-area">Official NTA code: {initialFeature.code}</p>
+						<p class="prompt" id="area-prompt">Generate an amateur photograph of seven people who live in contemporary {initialFeature.officialName}, doing what they do in contemporary {initialFeature.officialName}, {initialFeature.borough}, NYC.</p>
 					</div>
 				</article>
 			</section>
@@ -148,8 +160,8 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 			</footer>
 		</main>
 
-		<script define:vars={{ areaJson, imageBase }}>
-			const areas = JSON.parse(areaJson);
+		<script define:vars={{ featureJson, imageBase }}>
+			const features = JSON.parse(featureJson);
 			const shapes = [...document.querySelectorAll('.map-shape')];
 			const image = document.querySelector('#area-image');
 			const imageLoading = document.querySelector('#image-loading');
@@ -158,44 +170,50 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 			const officialArea = document.querySelector('#official-area');
 			const prompt = document.querySelector('#area-prompt');
 			const select = document.querySelector('#area-select');
-			let pinnedArea = 'east-village';
-			let currentArea = pinnedArea;
+			let pinnedCode = 'MN0303';
+			let currentCode = pinnedCode;
+			let hoverTimer;
 
-			function setArea(id, officialName = '') {
-				if (!areas[id] || currentArea === id && !officialName) return;
-				currentArea = id;
-				const area = areas[id];
-				shapes.forEach((shape) => shape.classList.toggle('selected', shape.dataset.area === id));
-				areaName.textContent = area.name;
-				areaBorough.textContent = area.borough;
-				officialArea.textContent = officialName ? `City Planning area: ${officialName}` : 'Move within the cluster to see its City Planning areas.';
-				prompt.textContent = `Generate an amateur photograph of seven people who live in contemporary ${area.name}, doing what they do in contemporary ${area.name}, ${area.borough}, NYC.`;
-				select.value = id;
-				const nextSrc = `${imageBase}/${area.image}.webp`;
+			function setArea(code) {
+				if (!features[code] || currentCode === code) return;
+				currentCode = code;
+				const feature = features[code];
+				shapes.forEach((shape) => shape.classList.toggle('selected', shape.dataset.code === code));
+				areaName.textContent = feature.name;
+				areaBorough.textContent = feature.borough;
+				officialArea.textContent = `Official NTA code: ${feature.code}`;
+				prompt.textContent = `Generate an amateur photograph of seven people who live in contemporary ${feature.name}, doing what they do in contemporary ${feature.name}, ${feature.borough}, NYC.`;
+				select.value = code;
+				const nextSrc = `${imageBase}/${feature.image}.webp`;
 				if (!image.src.endsWith(nextSrc)) {
 					imageLoading.hidden = false;
 					image.classList.add('is-loading');
 					image.onload = () => { imageLoading.hidden = true; image.classList.remove('is-loading'); };
 					image.src = nextSrc;
-					image.alt = `ChatGPT generated scene for ${area.name}`;
+					image.alt = `ChatGPT generated scene for ${feature.name}`;
 				}
 			}
 
+			function previewArea(code) {
+				clearTimeout(hoverTimer);
+				hoverTimer = setTimeout(() => setArea(code), 70);
+			}
+
 			shapes.forEach((shape) => {
-				shape.addEventListener('pointerenter', () => setArea(shape.dataset.area, shape.dataset.officialName));
-				shape.addEventListener('pointerleave', () => setArea(pinnedArea));
-				shape.addEventListener('focus', () => setArea(shape.dataset.area, shape.dataset.officialName));
-				shape.addEventListener('click', () => { pinnedArea = shape.dataset.area; setArea(pinnedArea, shape.dataset.officialName); });
+				shape.addEventListener('pointerenter', () => previewArea(shape.dataset.code));
+				shape.addEventListener('focus', () => setArea(shape.dataset.code));
+				shape.addEventListener('click', () => { clearTimeout(hoverTimer); pinnedCode = shape.dataset.code; setArea(pinnedCode); });
 				shape.addEventListener('keydown', (event) => {
 					if (event.key === 'Enter' || event.key === ' ') {
 						event.preventDefault();
-						pinnedArea = shape.dataset.area;
-						setArea(pinnedArea, shape.dataset.officialName);
+						pinnedCode = shape.dataset.code;
+						setArea(pinnedCode);
 					}
 				});
 			});
 
-			select.addEventListener('change', () => { pinnedArea = select.value; setArea(pinnedArea); });
+			document.querySelector('.nyc-map').addEventListener('pointerleave', () => { clearTimeout(hoverTimer); setArea(pinnedCode); });
+			select.addEventListener('change', () => { clearTimeout(hoverTimer); pinnedCode = select.value; setArea(pinnedCode); });
 		</script>
 	</body>
 </html>
@@ -220,9 +238,8 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 	.map-toolbar p { margin: 0; font-size: 13px; color: #4b4943; }
 	select { max-width: 300px; padding: 8px 30px 8px 10px; border: 1px solid #7c7971; border-radius: 0; background: #f3f0e8; color: #151515; font: inherit; font-size: 13px; }
 	.nyc-map { display: block; width: 100%; min-height: 0; flex: 1; overflow: visible; }
-	.map-shape { fill: #d3cec2; stroke: #77736a; stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill 120ms ease, opacity 120ms ease; }
-	.map-shape:hover, .map-shape:focus, .map-shape.selected { fill: #c93b32; stroke: #171717; stroke-width: 1.2; outline: none; }
-	.map-features:has(.map-shape:hover) .map-shape:not(:hover), .map-features:has(.map-shape:focus) .map-shape:not(:focus) { opacity: .58; }
+	.map-shape { fill: #d3cec2; stroke: #77736a; stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; }
+	.map-shape:hover, .map-shape:focus, .map-shape.selected { fill: #c93b32; stroke: #171717; outline: none; }
 	.borough-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; padding-top: 4px; font-size: 11px; color: #666158; }
 	.borough-key span::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 5px; border: 1px solid #77736a; background: #d3cec2; }
 	.portrait-card { display: flex; flex-direction: column; min-width: 0; background: #f7f4ed; }
@@ -259,5 +276,5 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 		.portrait-copy { padding: 18px; }
 		.source-note { padding-left: 18px; padding-right: 18px; }
 	}
-	@media (prefers-reduced-motion: reduce) { .map-shape, .image-wrap img { transition: none; } }
+	@media (prefers-reduced-motion: reduce) { .image-wrap img { transition: none; } }
 </style>
