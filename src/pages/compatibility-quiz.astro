@@ -1,0 +1,193 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'The Jack Maguire Compatibility Quiz';
+const description = 'A short, behavior-based compatibility quiz for people curious about dating Jack Maguire.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main class="compatibility-page">
+			<section class="quiz-hero">
+				<p class="kicker">A field guide to a possible second date</p>
+				<h1>Could you and Jack make a good little world together?</h1>
+				<p class="hero-copy">This is a compatibility quiz, not a personality test. It asks about the texture of ordinary life: how you handle teasing, uncertainty, quiet, curiosity, and the occasional over-planned walk through New York.</p>
+				<div class="hero-note"><strong>How it works</strong><span>16 questions · about 4 minutes · no email required</span></div>
+			</section>
+
+			<section class="quiz-shell" aria-labelledby="quiz-title">
+				<div class="section-heading">
+					<p class="kicker">The quiz</p>
+					<h2 id="quiz-title">Choose the answer that feels most like you.</h2>
+					<p>The options are deliberately mixed. There is no prize for reverse-engineering the answer.</p>
+				</div>
+				<form id="compatibility-form">
+					<div id="question-list"></div>
+					<button class="submit-button" type="submit">Show my compatibility report <span aria-hidden="true">→</span></button>
+				</form>
+				<p class="form-note">Your answers stay in this browser. They are used to make the report below and are not sent anywhere.</p>
+			</section>
+
+			<section id="report" class="report-section" hidden aria-live="polite"></section>
+
+			<section class="wiki-section" id="matchmaker-wiki">
+				<div class="section-heading">
+					<p class="kicker">The full brief</p>
+					<h2>What Jack is actually looking for</h2>
+					<p>This is the matchmaker's working wiki. It describes the difference between a person who looks good on paper and a person who makes a relationship feel alive.</p>
+				</div>
+
+				<div class="wiki-grid">
+					<article class="wiki-card wide"><h3>Core match profile</h3><p>A strong match is likely to have most of these qualities:</p><ol><li><strong>Sharp, warm humor.</strong> She can tease and be teased, handle irreverent or slightly dark jokes, make callbacks, and give as good as she gets.</li><li><strong>Direct communication.</strong> She says uncomfortable things plainly and can say “you’re being mean right now” without cruelty.</li><li><strong>Emotional strength with softness.</strong> She has boundaries without becoming cold and can be tender without collapsing.</li><li><strong>Granular attention.</strong> She remembers specific moments, preferences, sounds, routines, and phrases. Generic attentiveness is not enough.</li><li><strong>Otherness.</strong> Her background, discipline, culture, or life path expands Jack’s default frame and creates a shared world with its own references.</li><li><strong>Genuine unimpressibility.</strong> She is not awed by ambition, competence, money, intelligence, or dominance. She can lovingly roll her eyes.</li><li><strong>A warm family ecosystem.</strong> She has close ties with family or chosen family and makes integration feel lived rather than theoretical.</li><li><strong>Ordinary-life completeness.</strong> A couch evening, simple meal, walk, or shared routine feels emotionally alive.</li><li><strong>Accountability with context.</strong> She can see anxiety underneath sharp or controlling stress behavior while still naming the behavior clearly.</li><li><strong>Intellectual range.</strong> She wants to talk about ideas, from psychology and cities to economics, technology, culture, philosophy, media, or whatever is alive that day.</li></ol></article>
+					<article class="wiki-card"><h3>Current non-negotiables</h3><ul><li>Sweet to Jack</li><li>Really sharp</li><li>Close with friends and/or family</li><li>Comfortable taking things slowly</li><li>Able to genuinely enjoy relaxing</li><li>Sincerely curious about Jack and his life</li><li>Direct enough to reduce ambiguity</li><li>Emotionally brave in hard conversations</li><li>Capable of playful banter</li><li>Someone Jack is excited to see again</li></ul><p class="small-note">There is no height requirement. The quiz asks separately whether someone is comfortable dating a guy under 5'5", because attraction and practical fit still deserve an honest answer.</p></article>
+					<article class="wiki-card"><h3>Attraction rule</h3><p>Paper fit cannot carry the match. Jack has to feel real pull and want to see her again. “She seems perfect” is not the same as “I am excited to see her.”</p><h3 class="subhead">Nice, but not core</h3><p>Hot, dresses well, socially polished, and conventionally impressive can help. They should never drive selection.</p></article>
+					<article class="wiki-card wide"><h3>Early screening criteria</h3><div class="signal-grid"><div><h4>Humor</h4><p class="good">Strong: natural teasing, callbacks, escalation, light roasting, reciprocal play.</p><p class="weak">Weak: polite laughter, brittle reactions, performance instead of play, or deference.</p></div><div><h4>Directness</h4><p class="good">Strong: clear answers, stated preferences, disagreement without drama, named discomfort.</p><p class="weak">Weak: hints, “I’m fine” when she is not, passive aggression, or making Jack chase clarity.</p></div><div><h4>Curiosity</h4><p class="good">Strong: specific follow-ups, remembered details, interest in work, routines, friends, tastes, and ideas.</p><p class="weak">Weak: generic questions, surface conversation, or enjoying pursuit without investigating him back.</p></div><div><h4>Relaxation</h4><p class="good">Strong: a walk, quiet bar, meal, couch, or unplanned moment can be enough.</p><p class="weak">Weak: restlessness with ordinary intimacy, constant phone checking, or needing every plan to be novel.</p></div></div></article>
+					<article class="wiki-card wide"><h3>The relationship dynamic</h3><div class="two-column"><div><h4>Emotional experience</h4><ul><li>Clear mutual choosing</li><li>Physical closeness that is sexual and tender</li><li>Safety for honesty</li><li>Shared values and mutual effort</li><li>Long-horizon commitment</li><li>Care that does not require performance</li><li>A feeling of being on the same team</li></ul></div><div><h4>Daily texture</h4><ul><li>Playful, competitive banter</li><li>Shared walks and neighborhood plans</li><li>Small rituals and private language</li><li>Cooking, shows, food, and drink</li><li>Integration with friends and family</li><li>Quiet domestic moments that feel chosen</li></ul></div></div><p>Jack expresses love by building specific shared experiences: a walk-to-bar-to-food arc, a place with atmosphere, a neighborhood, a recurring reference, or a domestic evening that feels intentional. A strong match receives this as romantic rather than excessive management.</p></article>
+					<article class="wiki-card"><h3>Matchmaker operating rules</h3><ol><li>Do not overweight paper fit.</li><li>Treat banter as diagnostic.</li><li>Keep directness non-negotiable.</li><li>Look for sweetness with strength.</li><li>Avoid hot-but-empty matches.</li><li>Be cautious with traveler or temporary fantasy dynamics.</li><li>Favor slow-building intimacy.</li></ol></article>
+					<article class="wiki-card"><h3>Risk patterns</h3><ul><li><strong>Ambiguity intolerance:</strong> prefer naturally clear partners.</li><li><strong>Over-functioning:</strong> favor mutual initiative and load-carrying.</li><li><strong>Constraint-amplified intensity:</strong> test ordinary, available, low-drama conditions.</li><li><strong>Stability aversion:</strong> use gradual commitment and explicit pacing.</li><li><strong>Relationship blitz:</strong> avoid going from independence to constant togetherness without a ramp.</li><li><strong>Fantasy maintenance:</strong> prioritize viable, present, emotionally available candidates.</li></ul></article>
+					<article class="wiki-card wide"><h3>Date design instructions</h3><p><strong>Best format:</strong> a walk, an atmospheric drink or coffee, optional food if chemistry is strong, and an easy exit.</p><p><strong>Good ingredients:</strong> a neighborhood, bookstore, market, park, waterfront, unusual street, specific food stop, and room for a detour.</p><p><strong>Avoid:</strong> static dinner-only dates, formal settings, loud venues, generic drinks with no surrounding texture, errands, or premature couple-like intensity.</p><p><strong>Observe:</strong> Does she tease him? Ask real questions? Notice things? Enjoy wandering? Make the ordinary better? Does Jack relax? Does he want to make out? Does he want to see her again without arguing himself into it?</p></article>
+					<article class="wiki-card wide scorecard"><h3>Candidate evaluation scorecard</h3><p>Rate each category from 1 to 5 after a date, based on observed behavior rather than projected potential.</p><div class="score-list"><span>Humor and banter</span><span>Direct communication</span><span>Emotional strength and softness</span><span>Attention to detail</span><span>Curiosity about Jack</span><span>Intellectual depth and range</span><span>Friends and family ecosystem</span><span>Ordinary-life potential</span><span>Independent world of her own</span><span>Pacing and availability</span><span>Reciprocal effort</span><span>Physical and romantic pull</span></div><p class="small-note"><strong>4.5 to 5.0:</strong> strong match. <strong>3.8 to 4.4:</strong> explore if attraction is real. <strong>3.0 to 3.7:</strong> continue only with clear chemistry and unusually strong signals. <strong>Below 3.0:</strong> deprioritize. Any score without real attraction does not advance.</p></article>
+					<article class="wiki-card"><h3>Red flags</h3><ul><li>Indirect communication or emotional punishment</li><li>Fragility around teasing</li><li>Excessive deference</li><li>Lack of curiosity about Jack</li><li>Status attraction without engagement</li><li>Constant need for stimulation</li><li>High attraction with low viability</li><li>Fast pressure for intense commitment</li><li>Passive receipt of effort</li><li>Ambiguity used as control</li></ul></article>
+					<article class="wiki-card"><h3>Green flags</h3><ul><li>Warm teasing early</li><li>Pushback without coldness</li><li>Specific questions and remembered details</li><li>A real world of her own</li><li>Loyalty and integrity</li><li>Ideas, affection, and clear boundaries</li><li>Slow development without avoidance</li><li>Feeling challenged and cared for</li><li>Excitement that feels calm and joyful</li></ul></article>
+					<article class="wiki-card wide final-rule"><h3>Final match decision</h3><p>A match is viable only when all four conditions are present:</p><div class="four-rules"><strong>1. Real pull</strong><strong>2. Alive banter</strong><strong>3. Clear communication</strong><strong>4. Good ordinary life</strong></div><p>If one is missing, proceed cautiously. If two or more are missing, do not advance the match.</p></article>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+	type Question = { id: string; category: string; text: string; options: string[]; scores: number[] };
+	const questions: Question[] = [
+		{ id: 'banter', category: 'Banter', text: 'Someone you like makes a lightly irreverent joke at your expense. What usually makes the moment work?', options: ['They quickly reassure me they are kidding.', 'I can return the energy and add something of my own.', 'They save that kind of humor for people they know well.', 'I would rather keep early conversation straightforward.'], scores: [1, 4, 2, 0] },
+		{ id: 'conflict', category: 'Clarity', text: 'You notice a small thing from last night still bothering you. What is most natural?', options: ['Wait to see whether the feeling passes before mentioning it.', 'Mention the specific thing and what it brought up.', 'Make a joke about it and see if they pick up the signal.', 'Ask a friend whether bringing it up would make things worse.'], scores: [1, 4, 2, 1] },
+		{ id: 'quiet', category: 'Ordinary life', text: 'A good Saturday unexpectedly loses its main plan. The replacement that sounds best is:', options: ['A new activity found at the last minute.', 'A neighborhood walk, something good to eat, and plenty of room to drift.', 'A quiet afternoon alone, followed by a planned evening.', 'Whatever keeps the day from feeling wasted.'], scores: [2, 4, 3, 1] },
+		{ id: 'curiosity', category: 'Curiosity', text: 'When a new person describes a job or interest you do not know much about, you tend to:', options: ['Ask what they enjoy about it and follow the interesting thread.', 'Ask enough to understand the basic outline.', 'Share a related story from your own life.', 'Let them bring it up again if they want to go deeper.'], scores: [4, 3, 2, 1] },
+		{ id: 'detail', category: 'Attention', text: 'Which kind of romantic gesture tends to stay with you?', options: ['A well-chosen surprise that feels impressive.', 'Someone remembering a small detail I mentioned weeks ago.', 'A long message explaining exactly how they feel.', 'A practical favor that makes a difficult day easier.'], scores: [2, 4, 2, 3] },
+		{ id: 'pace', category: 'Pacing', text: 'A promising connection is developing. The pace that feels healthiest is:', options: ['Frequent contact so neither person has to guess.', 'Clear interest, gradual integration, and room for each person’s existing life.', 'Letting it remain undefined until feelings are undeniable.', 'Making a strong commitment early so the relationship has direction.'], scores: [3, 4, 1, 2] },
+		{ id: 'independence', category: 'Independence', text: 'In a relationship, independence is best described as:', options: ['Having enough separate interests that reunion stays interesting.', 'Being able to solve most things without asking for help.', 'Keeping emotional needs private until trust is established.', 'Having a full life while still making the relationship a real priority.'], scores: [3, 2, 1, 4] },
+		{ id: 'ideas', category: 'Depth', text: 'The conversation you are most likely to lose track of time in involves:', options: ['People, motives, and what makes cities or groups behave strangely.', 'A shared personal story that keeps opening new memories.', 'A practical plan that turns a vague idea into something real.', 'A funny account of something that happened recently.'], scores: [4, 3, 3, 2] },
+		{ id: 'family', category: 'Community', text: 'The role of family or chosen family in your adult life is closest to:', options: ['Important, though mostly separate from romantic relationships.', 'A real source of warmth that I like partners to gradually know.', 'Something I define for myself through close friends and community.', 'A private area that does not need much integration.'], scores: [2, 4, 3, 1] },
+		{ id: 'effort', category: 'Reciprocity', text: 'When someone plans a thoughtful date, your instinct is to:', options: ['Enjoy being taken care of and let them lead for a while.', 'Notice the specifics, say what worked, and plan something thoughtful too.', 'Wonder whether the amount of planning signals pressure.', 'Offer to split everything so neither person feels obligated.'], scores: [2, 4, 2, 2] },
+		{ id: 'accountability', category: 'Emotional strength', text: 'If your partner tells you that your tone has become sharp, the response most likely to help is:', options: ['Taking a little space so you can decide whether the criticism is fair.', 'Asking what landed badly, owning the tone if it is there, and continuing the conversation.', 'Explaining the stress that caused it before discussing the tone.', 'Apologizing quickly so the tension ends.'], scores: [2, 4, 2, 1] },
+		{ id: 'stimulation', category: 'Ordinary life', text: 'A relationship feels most alive to you when:', options: ['There is always a new place, trip, or event on the horizon.', 'Even routine errands have a private joke or small ritual attached to them.', 'You have plenty of time apart to miss each other.', 'The two of you are accomplishing something together.'], scores: [2, 4, 3, 3] },
+		{ id: 'unimpressed', category: 'Independence', text: 'When someone you are dating is unusually accomplished, your natural role is to:', options: ['Be impressed and let them know it.', 'Be interested, while still treating them like a normal person.', 'Look for the part of their life where they are less certain.', 'Let them bring up the accomplishment if it matters to them.'], scores: [1, 4, 3, 2] },
+		{ id: 'height', category: 'Practical fit', text: 'How would you feel about dating a guy who is under 5\'5\"?', options: ['That would be a genuine dealbreaker for me.', 'I am open to it if the person and connection are right.', 'I would have questions about how it might feel socially, but I would not rule it out.', 'Height is not something I use to screen a romantic connection.'], scores: [0, 4, 3, 4] },
+		{ id: 'pull', category: 'Attraction', text: 'After a good first date, which thought is most useful to you?', options: ['They checked many of the boxes I usually look for.', 'I keep replaying a few specific moments and want another one.', 'I can imagine the relationship working if we both put in effort.', 'I felt comfortable enough that I would be happy to see them again.'], scores: [2, 4, 2, 3] },
+		{ id: 'desire', category: 'Attraction', text: 'What most distinguishes a date worth continuing from a pleasant date?', options: ['The person seems like an excellent long-term prospect.', 'I feel both calmer and more interested by the time it ends.', 'The conversation never runs out, even if it stays light.', 'I leave feeling that they liked me.'], scores: [2, 4, 3, 1] },
+	];
+
+	const list = document.querySelector('#question-list');
+	const form = document.querySelector('#compatibility-form') as HTMLFormElement;
+	const report = document.querySelector('#report') as HTMLElement;
+	if (list) {
+		list.innerHTML = questions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="answer-grid">${q.options.map((option, optionIndex) => `<label><input type="radio" name="${q.id}" value="${optionIndex}" required><span>${option}</span></label>`).join('')}</div></fieldset>`).join('');
+	}
+
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		const data = new FormData(form);
+		const scores = questions.map((q) => q.scores[Number(data.get(q.id))]);
+		const total = scores.reduce((sum, score) => sum + score, 0);
+		const percent = Math.round((total / (questions.length * 4)) * 100);
+		const categoryScores = questions.reduce((acc, q, index) => {
+			acc[q.category] ??= [];
+			acc[q.category].push(scores[index]);
+			return acc;
+		}, {} as Record<string, number[]>);
+		const categoryMarkup = Object.entries(categoryScores).map(([category, values]) => {
+			const value = Math.round((values.reduce((a, b) => a + b, 0) / (values.length * 4)) * 100);
+			return `<div class="result-row"><span>${category}</span><div class="bar"><i style="width:${value}%"></i></div><strong>${value}%</strong></div>`;
+		}).join('');
+		const verdict = percent >= 78 ? ['Strong possibility', 'You seem unusually aligned with the shape of relationship Jack is trying to build. The next test is less theoretical: does the banter feel alive in person, and does the attraction have a pulse?'] : percent >= 60 ? ['Worth a real date', 'There is enough overlap to make a date worthwhile. Pay attention to the categories that scored lower, especially whether the gap is a preference or something you would feel in daily life.'] : percent >= 42 ? ['Interesting, with questions', 'You may have some strong points of contact, but the fit is not automatic. Chemistry, clarity, and the way you handle ordinary time together matter more than the headline score.'] : ['Probably a better conversation than a match', 'The quiz found several meaningful differences from Jack’s current brief. That does not say anything bad about either person. It suggests the connection would need unusually strong chemistry to overcome the structural gaps.'];
+		report.hidden = false;
+		report.innerHTML = `<div class="report-inner"><p class="kicker">Your report</p><div class="report-head"><div><h2>${verdict[0]}</h2><p>${verdict[1]}</p></div><div class="score-number"><strong>${percent}</strong><span>compatibility</span></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>The real decision rule</strong><p>Jack is looking for four things at once: real pull, alive banter, clear communication, and ordinary-life potential. A quiz can point at those conditions. It cannot replace the feeling of wanting to see someone again.</p></div><a class="report-link" href="#matchmaker-wiki">Read the full matchmaker wiki <span aria-hidden="true">↓</span></a></div>`;
+		report.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	});
+</script>
+
+<style>
+	:global(body) { background: #f7f6f1; color: #1c1d1b; }
+	.compatibility-page { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+	.quiz-hero { padding: 6rem 0 4rem; max-width: 850px; }
+	.kicker { margin: 0 0 .8rem; color: #69713b; font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+	h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -.04em; }
+	.quiz-hero h1 { max-width: 800px; margin: 0; font-size: clamp(3.2rem, 8vw, 7.5rem); line-height: .91; }
+	.hero-copy { max-width: 650px; margin: 2rem 0 0; font-size: 1.15rem; line-height: 1.6; }
+	.hero-note { display: flex; gap: 1rem; align-items: baseline; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #cfd1c7; font-size: .86rem; }
+	.hero-note span { color: #6c6e66; }
+	.quiz-shell, .report-inner { background: #fff; border: 1px solid #dcded6; padding: clamp(1.4rem, 4vw, 3.5rem); }
+	.section-heading { max-width: 660px; margin-bottom: 2.5rem; }
+	.section-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.8rem); line-height: .98; }
+	.section-heading p:last-child { margin-bottom: 0; color: #666961; }
+	.question-card { margin: 0; padding: 2rem 0; border: 0; border-top: 1px solid #e0e1da; }
+	.question-card legend { width: 100%; padding: 0 0 1.2rem; font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; line-height: 1.2; }
+	.question-card legend span { display: inline-block; width: 2rem; color: #9ba08c; font-size: .75rem; letter-spacing: .08em; vertical-align: .18em; }
+	.answer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+	.answer-grid label { display: flex; min-height: 68px; cursor: pointer; }
+	.answer-grid input { position: absolute; opacity: 0; }
+	.answer-grid label span { width: 100%; padding: 1rem 1.1rem; border: 1px solid #d9dbd2; color: #52554c; font-size: .95rem; line-height: 1.4; transition: .15s ease; }
+	.answer-grid label:hover span, .answer-grid input:focus-visible + span { border-color: #69713b; }
+	.answer-grid input:checked + span { border-color: #69713b; background: #eef0e5; color: #24261f; box-shadow: inset 4px 0 #69713b; }
+	.submit-button { margin-top: 1.5rem; padding: 1rem 1.25rem; border: 0; background: #1c1d1b; color: #fff; cursor: pointer; font: 700 .95rem var(--font-heading); }
+	.submit-button span, .report-link span { margin-left: 1.5rem; }
+	.submit-button:hover { background: #69713b; }
+	.form-note, .small-note { color: #777a70; font-size: .82rem; line-height: 1.5; }
+	.form-note { margin: 1rem 0 0; }
+	.report-section { padding: 4rem 0 0; scroll-margin-top: 1rem; }
+	.report-head { display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; }
+	.report-head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .9; }
+	.report-head p { max-width: 650px; color: #5f6259; line-height: 1.6; }
+	.score-number { min-width: 130px; padding: 1rem; border: 1px solid #d9dbd2; text-align: center; }
+	.score-number strong { display: block; font: 700 3.5rem/.9 var(--font-heading); }
+	.score-number span { display: block; margin-top: .5rem; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	.category-results { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dcded6; }
+	.category-results h3 { margin: 0 0 1.3rem; font-size: 1.4rem; }
+	.result-row { display: grid; grid-template-columns: 160px 1fr 48px; gap: 1rem; align-items: center; margin: .85rem 0; font-size: .88rem; }
+	.result-row strong { text-align: right; }
+	.bar { height: 8px; background: #e8e9e1; }
+	.bar i { display: block; height: 100%; background: #9da56f; }
+	.report-callout { margin-top: 2.5rem; padding: 1.25rem; background: #eef0e5; }
+	.report-callout p { margin-bottom: 0; line-height: 1.55; }
+	.report-link { display: inline-block; margin-top: 2rem; color: #454c25; font-weight: 700; }
+	.wiki-section { padding-top: 7rem; }
+	.wiki-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+	.wiki-card { padding: 1.6rem; border-top: 3px solid #a2a875; background: #fff; }
+	.wiki-card.wide { grid-column: 1 / -1; }
+	.wiki-card h3 { margin: 0 0 1rem; font-size: 1.6rem; }
+	.wiki-card h4 { margin: 0 0 .5rem; font-size: 1.05rem; letter-spacing: -.02em; }
+	.wiki-card p, .wiki-card li { color: #5d6057; font-size: .92rem; line-height: 1.6; }
+	.wiki-card ol, .wiki-card ul { margin: 0; padding-left: 1.2rem; }
+	.wiki-card li { margin: .45rem 0; }
+	.wiki-card strong { color: #292b25; }
+	.subhead { margin-top: 2rem !important; }
+	.signal-grid, .two-column { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+	.signal-grid > div { padding-top: 1rem; border-top: 1px solid #dcded6; }
+	.signal-grid p { margin: .45rem 0 0; }
+	.signal-grid .good::before { content: 'Strong  '; color: #69713b; font-weight: 800; }
+	.signal-grid .weak::before { content: 'Weak  '; color: #9b6d50; font-weight: 800; }
+	.score-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem 1rem; margin: 1.5rem 0; }
+	.score-list span { padding: .55rem .65rem; background: #f0f1eb; color: #55594e; font-size: .82rem; }
+	.four-rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin: 1.5rem 0; }
+	.four-rules strong { padding: 1rem; background: #1c1d1b; color: #fff; font-size: .9rem; }
+	@media (max-width: 700px) {
+		.compatibility-page { padding-inline: 1rem; }
+		.quiz-hero { padding-top: 4rem; }
+		.hero-note, .report-head { display: block; }
+		.hero-note span { display: block; margin-top: .4rem; }
+		.answer-grid, .wiki-grid, .signal-grid, .two-column { grid-template-columns: 1fr; }
+		.wiki-card.wide { grid-column: auto; }
+		.score-list { grid-template-columns: repeat(2, 1fr); }
+		.four-rules { grid-template-columns: repeat(2, 1fr); }
+		.score-number { margin-top: 1.5rem; width: 130px; }
+		.result-row { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
+	}
+</style>
