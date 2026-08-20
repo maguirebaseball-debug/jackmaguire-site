@@ -1,0 +1,17 @@
+﻿---
+import { getEntry, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+const title = "What to Order at The Ox Tavern in Brooklyn: A Flavor-Maximized Field Guide";
+const description = "The exact four-item order for two people at The Ox Tavern in Ditmas Park, Brooklyn. Grounded in burger meat physics, birria immersion, and scratch-kitchen chemistry.";
+const pubDate = "August 20, 2026";
+const category = "Food";
+
+const post = await getEntry('blog', 'the-ox-tavern-brooklyn-order-guide');
+if (!post) throw new Error('Missing blog post for the-ox-tavern-brooklyn-order-guide');
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>
