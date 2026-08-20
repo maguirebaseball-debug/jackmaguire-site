@@ -192,3 +192,37 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		:global(.result-row) { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
 	}
 </style>
+
+<style is:global>
+	.question-card { margin: 0; padding: 2rem 0; border: 0; border-top: 1px solid #e0e1da; }
+	.question-card legend { width: 100%; padding: 0 0 1.2rem; font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; line-height: 1.2; }
+	.question-card legend span { display: inline-block; width: 2rem; color: #9ba08c; font-size: .75rem; letter-spacing: .08em; vertical-align: .18em; }
+	.answer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+	.answer-grid label { display: flex; min-height: 68px; cursor: pointer; }
+	.answer-grid input { position: absolute; opacity: 0; }
+	.answer-grid label span { width: 100%; padding: 1rem 1.1rem; border: 1px solid #d9dbd2; color: #52554c; font-size: .95rem; line-height: 1.4; transition: .15s ease; }
+	.answer-grid label:hover span, .answer-grid input:focus-visible + span { border-color: #69713b; }
+	.answer-grid input:checked + span { border-color: #69713b; background: #eef0e5; color: #24261f; box-shadow: inset 4px 0 #69713b; }
+	.report-inner { background: #fff; border: 1px solid #dcded6; padding: clamp(1.4rem, 4vw, 3.5rem); }
+	.report-head { display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; }
+	.report-head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .9; }
+	.report-head p { max-width: 650px; color: #5f6259; line-height: 1.6; }
+	.score-number { min-width: 130px; padding: 1rem; border: 1px solid #d9dbd2; text-align: center; }
+	.score-number strong { display: block; font: 700 3.5rem/.9 var(--font-heading); }
+	.score-number span { display: block; margin-top: .5rem; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	.category-results { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dcded6; }
+	.category-results h3 { margin: 0 0 1.3rem; font-size: 1.4rem; }
+	.result-row { display: grid; grid-template-columns: 160px 1fr 48px; gap: 1rem; align-items: center; margin: .85rem 0; font-size: .88rem; }
+	.result-row strong { text-align: right; }
+	.bar { height: 8px; background: #e8e9e1; }
+	.bar i { display: block; height: 100%; background: #9da56f; }
+	.report-callout { margin-top: 2.5rem; padding: 1.25rem; background: #eef0e5; }
+	.report-callout p { margin-bottom: 0; line-height: 1.55; }
+	.report-link { display: inline-block; margin-top: 2rem; color: #454c25; font-weight: 700; }
+	@media (max-width: 700px) {
+		.answer-grid { grid-template-columns: 1fr; }
+		.report-head { display: block; }
+		.score-number { margin-top: 1.5rem; width: 130px; }
+		.result-row { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
+	}
+</style>
