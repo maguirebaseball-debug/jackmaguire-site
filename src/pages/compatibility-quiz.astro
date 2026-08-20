@@ -128,36 +128,37 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.section-heading { max-width: 660px; margin-bottom: 2.5rem; }
 	.section-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.8rem); line-height: .98; }
 	.section-heading p:last-child { margin-bottom: 0; color: #666961; }
-	.question-card { margin: 0; padding: 2rem 0; border: 0; border-top: 1px solid #e0e1da; }
-	.question-card legend { width: 100%; padding: 0 0 1.2rem; font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; line-height: 1.2; }
-	.question-card legend span { display: inline-block; width: 2rem; color: #9ba08c; font-size: .75rem; letter-spacing: .08em; vertical-align: .18em; }
-	.answer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
-	.answer-grid label { display: flex; min-height: 68px; cursor: pointer; }
-	.answer-grid input { position: absolute; opacity: 0; }
-	.answer-grid label span { width: 100%; padding: 1rem 1.1rem; border: 1px solid #d9dbd2; color: #52554c; font-size: .95rem; line-height: 1.4; transition: .15s ease; }
-	.answer-grid label:hover span, .answer-grid input:focus-visible + span { border-color: #69713b; }
-	.answer-grid input:checked + span { border-color: #69713b; background: #eef0e5; color: #24261f; box-shadow: inset 4px 0 #69713b; }
+	:global(.question-card) { margin: 0; padding: 2rem 0; border: 0; border-top: 1px solid #e0e1da; }
+	:global(.question-card legend) { width: 100%; padding: 0 0 1.2rem; font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; line-height: 1.2; }
+	:global(.question-card legend span) { display: inline-block; width: 2rem; color: #9ba08c; font-size: .75rem; letter-spacing: .08em; vertical-align: .18em; }
+	:global(.answer-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+	:global(.answer-grid label) { display: flex; min-height: 68px; cursor: pointer; }
+	:global(.answer-grid input) { position: absolute; opacity: 0; }
+	:global(.answer-grid label span) { width: 100%; padding: 1rem 1.1rem; border: 1px solid #d9dbd2; color: #52554c; font-size: .95rem; line-height: 1.4; transition: .15s ease; }
+	:global(.answer-grid label:hover span), :global(.answer-grid input:focus-visible + span) { border-color: #69713b; }
+	:global(.answer-grid input:checked + span) { border-color: #69713b; background: #eef0e5; color: #24261f; box-shadow: inset 4px 0 #69713b; }
 	.submit-button { margin-top: 1.5rem; padding: 1rem 1.25rem; border: 0; background: #1c1d1b; color: #fff; cursor: pointer; font: 700 .95rem var(--font-heading); }
 	.submit-button span, .report-link span { margin-left: 1.5rem; }
 	.submit-button:hover { background: #69713b; }
 	.form-note, .small-note { color: #777a70; font-size: .82rem; line-height: 1.5; }
 	.form-note { margin: 1rem 0 0; }
-	.report-section { padding: 4rem 0 0; scroll-margin-top: 1rem; }
-	.report-head { display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; }
-	.report-head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .9; }
-	.report-head p { max-width: 650px; color: #5f6259; line-height: 1.6; }
-	.score-number { min-width: 130px; padding: 1rem; border: 1px solid #d9dbd2; text-align: center; }
-	.score-number strong { display: block; font: 700 3.5rem/.9 var(--font-heading); }
-	.score-number span { display: block; margin-top: .5rem; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-	.category-results { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dcded6; }
-	.category-results h3 { margin: 0 0 1.3rem; font-size: 1.4rem; }
-	.result-row { display: grid; grid-template-columns: 160px 1fr 48px; gap: 1rem; align-items: center; margin: .85rem 0; font-size: .88rem; }
-	.result-row strong { text-align: right; }
-	.bar { height: 8px; background: #e8e9e1; }
-	.bar i { display: block; height: 100%; background: #9da56f; }
-	.report-callout { margin-top: 2.5rem; padding: 1.25rem; background: #eef0e5; }
-	.report-callout p { margin-bottom: 0; line-height: 1.55; }
-	.report-link { display: inline-block; margin-top: 2rem; color: #454c25; font-weight: 700; }
+	:global(.report-section) { padding: 4rem 0 0; scroll-margin-top: 1rem; }
+	:global(.report-inner) { background: #fff; border: 1px solid #dcded6; padding: clamp(1.4rem, 4vw, 3.5rem); }
+	:global(.report-head) { display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; }
+	:global(.report-head h2) { margin: 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .9; }
+	:global(.report-head p) { max-width: 650px; color: #5f6259; line-height: 1.6; }
+	:global(.score-number) { min-width: 130px; padding: 1rem; border: 1px solid #d9dbd2; text-align: center; }
+	:global(.score-number strong) { display: block; font: 700 3.5rem/.9 var(--font-heading); }
+	:global(.score-number span) { display: block; margin-top: .5rem; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	:global(.category-results) { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dcded6; }
+	:global(.category-results h3) { margin: 0 0 1.3rem; font-size: 1.4rem; }
+	:global(.result-row) { display: grid; grid-template-columns: 160px 1fr 48px; gap: 1rem; align-items: center; margin: .85rem 0; font-size: .88rem; }
+	:global(.result-row strong) { text-align: right; }
+	:global(.bar) { height: 8px; background: #e8e9e1; }
+	:global(.bar i) { display: block; height: 100%; background: #9da56f; }
+	:global(.report-callout) { margin-top: 2.5rem; padding: 1.25rem; background: #eef0e5; }
+	:global(.report-callout p) { margin-bottom: 0; line-height: 1.55; }
+	:global(.report-link) { display: inline-block; margin-top: 2rem; color: #454c25; font-weight: 700; }
 	.wiki-section { padding-top: 7rem; }
 	.wiki-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 	.wiki-card { padding: 1.6rem; border-top: 3px solid #a2a875; background: #fff; }
@@ -183,11 +184,11 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		.quiz-hero { padding-top: 4rem; }
 		.hero-note, .report-head { display: block; }
 		.hero-note span { display: block; margin-top: .4rem; }
-		.answer-grid, .wiki-grid, .signal-grid, .two-column { grid-template-columns: 1fr; }
+		:global(.answer-grid), .wiki-grid, .signal-grid, .two-column { grid-template-columns: 1fr; }
 		.wiki-card.wide { grid-column: auto; }
 		.score-list { grid-template-columns: repeat(2, 1fr); }
 		.four-rules { grid-template-columns: repeat(2, 1fr); }
-		.score-number { margin-top: 1.5rem; width: 130px; }
-		.result-row { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
+		:global(.score-number) { margin-top: 1.5rem; width: 130px; }
+		:global(.result-row) { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
 	}
 </style>
