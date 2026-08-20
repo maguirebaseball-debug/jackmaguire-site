@@ -1,687 +1,82 @@
-﻿---
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
-import { PERSON_ID, PERSON_LINKEDIN } from '../../consts';
+---
+import PlainStandaloneBlog from '../../layouts/PlainStandaloneBlog.astro';
 
-const title = "What to Order at The Ox Tavern in Brooklyn: A Flavor-Maximized Field Guide";
-const description = "The exact four-item order for two people at The Ox Tavern in Ditmas Park, Brooklyn. Grounded in burger meat physics, birria immersion, and scratch-kitchen chemistry.";
+const title = "What to order at The Ox Tavern in Brooklyn";
+const description = "A three-dish order for two people at The Ox Tavern in Ditmas Park, with the few modifications that are worth asking for.";
 const pubDate = "August 20, 2026";
-const category = "Food";
-const dateObj = new Date("2026-08-20T12:00:00Z");
-
-const masterOrder = [
-  {
-    course: "Starter",
-    name: "Crispy Togarashi Brussels Sprouts",
-    price: "$13",
-    mod: "Mayo on the side, fresh lime wedge",
-    tag: "Acid & Char Primer",
-    desc: "Flash-blistered cruciferous leaves tossed in Japanese 7-spice. The charred bitterness and capsaicin heat wake up oral receptors without heavy starch load.",
-    color: "patina",
-  },
-  {
-    course: "Burger Anchor",
-    name: "The Good Ol' Boy Burger",
-    price: "$20",
-    mod: "Medium-Rare (132°F), cut in half with skewers",
-    tag: "Nucleotide Umami Peak",
-    desc: "80/20 butcher blend of chuck, brisket, and short rib under a sharp cheddar cheese sheath with crisp bacon and butter-seared cremini mushrooms.",
-    color: "gold",
-  },
-  {
-    course: "Signature Main",
-    name: "Quesabirria Tacos (Set of 3)",
-    price: "$18",
-    mod: "With warm spiced dipping consommé",
-    tag: "Collagen & Chili Broth",
-    desc: "Slow-braised beef chuck inside corn tortillas fried in spiced birria tallow with molten Oaxaca cheese. Dipped directly into hot bone broth.",
-    color: "gold",
-  },
-  {
-    course: "Starch Alpha",
-    name: "Extra Crispy House Fries",
-    price: "Included",
-    mod: "Side ramekin of House Chimichurri",
-    tag: "Dual-Dip Starch Hack",
-    desc: "Double-dipped into hot birria consommé (French-dip potato frites) and scratch parsley-garlic chimichurri (immediate fat cutter).",
-    color: "patina",
-  },
-];
-
-const burgerBoard = [
-  {
-    name: "Good Ol' Boy",
-    toppings: "Sharp cheddar, smoked bacon, sautéed cremini mushrooms",
-    profile: "Glutamate + Guanylate + Inosinate",
-    verdict: "Pure Flavor Peak (#1 Pick)",
-    recommended: true,
-  },
-  {
-    name: "The Alamo",
-    toppings: "Beer-battered onion ring, fried egg, chipotle BBQ, pepper jack",
-    profile: "Textural crunch + runny yolk fat wash",
-    verdict: "Best Textural Contrast (#2 Pick)",
-    recommended: false,
-  },
-  {
-    name: "La Vaca",
-    toppings: "Fried chipotle, pickled pico de gallo, queso Oaxaca",
-    profile: "Mexican-gastropub smoke and chili heat",
-    verdict: "Solid, but Birria Tacos are superior",
-    recommended: false,
-  },
-  {
-    name: "The Ox (Classic)",
-    toppings: "Lettuce, beefsteak tomato, red onion, house aioli",
-    profile: "Standard diner baseline",
-    verdict: "Skips the kitchen's culinary alpha",
-    recommended: false,
-  },
-];
-
-const traps = [
-  {
-    trap: "The Double-Burger Order",
-    risk: "High Palate Fatigue (80% risk)",
-    fix: "Order one burger + one Quesabirria taco order. You get handheld burger craft plus immersion broth with zero carb redundancy.",
-  },
-  {
-    trap: "The Westwood Nachos Bloat",
-    risk: "Premature Satiety (~1,200 kcal)",
-    fix: "Skip the heavy beans and crema. The Togarashi Brussels Sprouts deliver intense flavor while keeping your appetite primed.",
-  },
-  {
-    trap: "The Simultaneous Drop",
-    risk: "Cold Burger Coagulation (<115°F)",
-    fix: "Stage tickets: fire Brussels Sprouts first, then fire burger and tacos when the starter hits the table.",
-  },
-  {
-    trap: "The Medium / Well-Done Order",
-    risk: "22% Cellular Moisture Expulsion",
-    fix: "Order strictly Medium-Rare (132°F). The 80/20 butcher grind renders its fat cleanly without drying out.",
-  },
-];
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} articlePublished="2026-08-20" />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: title,
-      description,
-      url: Astro.url.href,
-      mainEntityOfPage: { '@type': 'WebPage', '@id': Astro.url.href },
-      image: new URL('/og-default.png', Astro.site).toString(),
-      author: { '@id': PERSON_ID },
-      publisher: { '@id': PERSON_ID },
-      datePublished: '2026-08-20',
-      dateModified: '2026-08-20',
-    })} />
-    <style>
-      :root {
-        --ox-bg: #0e0e11;
-        --ox-surface: #17171d;
-        --ox-surface-raised: #1f1f27;
-        --ox-gold: #e5b95c;
-        --ox-gold-pale: #f4dc9e;
-        --ox-patina: #4ecdc4;
-        --ox-ink: #f0f0f2;
-        --ox-muted: #a0a0ab;
-        --ox-faint: #60606b;
-        --ox-border: rgba(229, 185, 92, 0.18);
-        --ox-border-strong: rgba(229, 185, 92, 0.45);
-        --ox-vermilion: #ff6b6b;
-      }
-
-      body {
-        background: var(--ox-bg);
-        color: var(--ox-ink);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        line-height: 1.65;
-        margin: 0;
-        padding: 0;
-      }
-
-      .ox-wrap {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2.5rem 1.25rem 6rem;
-      }
-
-      .ox-header {
-        border-bottom: 1px solid var(--ox-border);
-        padding-bottom: 2rem;
-        margin-bottom: 3rem;
-      }
-
-      .ox-eyebrow {
-        color: var(--ox-patina);
-        font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        margin: 0 0 0.75rem;
-      }
-
-      h1.ox-title {
-        font-size: clamp(2rem, 5vw, 3.25rem);
-        line-height: 1.1;
-        font-weight: 700;
-        color: #fff;
-        margin: 0 0 1rem;
-        letter-spacing: -0.02em;
-      }
-
-      .ox-meta {
-        display: flex;
-        align-items: center;
-        gap: 1.25rem;
-        color: var(--ox-muted);
-        font-size: 0.85rem;
-      }
-
-      .ox-meta a {
-        color: var(--ox-gold);
-        text-decoration: none;
-      }
-
-      .ox-bento {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
-        margin: 2.5rem 0;
-      }
-
-      .ox-card {
-        background: var(--ox-surface);
-        border: 1px solid var(--ox-border);
-        border-radius: 8px;
-        padding: 1.5rem;
-        position: relative;
-        transition: transform 0.2s ease, border-color 0.2s ease;
-      }
-
-      .ox-card:hover {
-        transform: translateY(-2px);
-        border-color: var(--ox-border-strong);
-      }
-
-      .ox-card-badge {
-        font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        display: inline-block;
-        margin-bottom: 0.75rem;
-      }
-
-      .ox-card-badge.gold {
-        background: rgba(229, 185, 92, 0.15);
-        color: var(--ox-gold);
-        border: 1px solid rgba(229, 185, 92, 0.3);
-      }
-
-      .ox-card-badge.patina {
-        background: rgba(78, 205, 196, 0.15);
-        color: var(--ox-patina);
-        border: 1px solid rgba(78, 205, 196, 0.3);
-      }
-
-      .ox-card-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #fff;
-        margin: 0 0 0.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-
-      .ox-card-price {
-        font-family: "SFMono-Regular", Consolas, monospace;
-        color: var(--ox-gold-pale);
-        font-size: 0.95rem;
-      }
-
-      .ox-card-mod {
-        font-size: 0.85rem;
-        color: var(--ox-gold);
-        margin: 0 0 0.75rem;
-        font-weight: 500;
-      }
-
-      .ox-card-desc {
-        font-size: 0.9rem;
-        color: var(--ox-muted);
-        margin: 0;
-        line-height: 1.5;
-      }
-
-      .ox-prose {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        color: var(--ox-ink);
-      }
-
-      .ox-prose h2 {
-        font-size: 1.85rem;
-        font-weight: 700;
-        color: #fff;
-        margin: 3rem 0 1.25rem;
-        border-bottom: 1px solid var(--ox-border);
-        padding-bottom: 0.5rem;
-      }
-
-      .ox-prose h3 {
-        font-size: 1.35rem;
-        font-weight: 600;
-        color: var(--ox-gold-pale);
-        margin: 2rem 0 0.75rem;
-      }
-
-      .ox-prose p {
-        margin: 0 0 1.5rem;
-      }
-
-      .ox-prose ul {
-        margin: 0 0 1.75rem;
-        padding-left: 1.5rem;
-      }
-
-      .ox-prose li {
-        margin-bottom: 0.75rem;
-        color: var(--ox-ink);
-      }
-
-      .ox-prose strong {
-        color: #fff;
-      }
-
-      .ox-table-wrap {
-        overflow-x: auto;
-        margin: 2rem 0;
-        border: 1px solid var(--ox-border);
-        border-radius: 8px;
-        background: var(--ox-surface);
-      }
-
-      table.ox-table {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: left;
-        font-size: 0.9rem;
-      }
-
-      table.ox-table th {
-        background: var(--ox-surface-raised);
-        color: var(--ox-gold);
-        padding: 0.85rem 1rem;
-        font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        border-bottom: 1px solid var(--ox-border-strong);
-      }
-
-      table.ox-table td {
-        padding: 0.85rem 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        color: var(--ox-muted);
-      }
-
-      table.ox-table tr.highlight td {
-        background: rgba(229, 185, 92, 0.08);
-        color: #fff;
-      }
-
-      .ox-callout {
-        background: var(--ox-surface);
-        border-left: 4px solid var(--ox-gold);
-        padding: 1.5rem;
-        border-radius: 0 8px 8px 0;
-        margin: 2.5rem 0;
-      }
-
-      .ox-callout.patina {
-        border-left-color: var(--ox-patina);
-      }
-
-      .ox-callout.vermilion {
-        border-left-color: var(--ox-vermilion);
-      }
-
-      .ox-callout-title {
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: #fff;
-        margin: 0 0 0.5rem;
-      }
-
-      .ox-callout p {
-        margin: 0;
-        font-size: 0.95rem;
-        color: var(--ox-muted);
-      }
-
-      .ox-script-box {
-        background: #09090c;
-        border: 1px solid var(--ox-gold);
-        border-radius: 8px;
-        padding: 1.75rem;
-        margin: 2.5rem 0;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-      }
-
-      .ox-script-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid rgba(229, 185, 92, 0.2);
-        padding-bottom: 0.5rem;
-      }
-
-      .ox-script-tag {
-        font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 0.75rem;
-        color: var(--ox-gold);
-        text-transform: uppercase;
-      }
-
-      .ox-script-quote {
-        font-size: 1.15rem;
-        font-style: italic;
-        color: #fff;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      .ox-grid-2 {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.25rem;
-        margin: 2rem 0;
-      }
-
-      .ox-stat-card {
-        background: var(--ox-surface);
-        border: 1px solid var(--ox-border);
-        border-radius: 8px;
-        padding: 1.25rem;
-      }
-
-      .ox-stat-num {
-        font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: var(--ox-gold);
-        margin: 0 0 0.25rem;
-      }
-
-      .ox-stat-label {
-        font-size: 0.85rem;
-        color: var(--ox-muted);
-        margin: 0;
-      }
-
-      .ox-footer-nav {
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--ox-border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .ox-footer-nav a {
-        color: var(--ox-gold);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .ox-footer-nav a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <ReadingProgressBar />
-    <Header />
-
-    <main class="ox-wrap">
-      <header class="ox-header">
-        <p class="ox-eyebrow">Brooklyn Dining Field Guide · Ditmas Park</p>
-        <h1 class="ox-title">{title}</h1>
-        <div class="ox-meta">
-          <span>By <a href="/about/">Jack Maguire</a></span>
-          <span>•</span>
-          <FormattedDate date={dateObj} />
-          <span>•</span>
-          <span>5 min read</span>
-        </div>
-      </header>
-
-      <div class="ox-grid-2">
-        <div class="ox-stat-card">
-          <p class="ox-stat-num">$51 Total</p>
-          <p class="ox-stat-label">Total food bill for 2 diners ($25.50 / person)</p>
-        </div>
-        <div class="ox-stat-card">
-          <p class="ox-stat-num">8x Umami</p>
-          <p class="ox-stat-label">Synergistic multiplier: Beef + Bacon + Cremini mushrooms</p>
-        </div>
-      </div>
-
-      <div class="ox-prose">
-        <p>
-          If you find yourself on Foster Avenue in Ditmas Park with a friend and a table at <strong>The Ox Tavern</strong> (1715 Foster Ave, sharing space with Westwood Bar), you are looking at a menu with two distinct operational engines: the legacy of the neighborhood's legendary <em>Ox Cart Tavern</em> butcher-blend burgers, and Chef Julio Salazar's scratch Mexican and global bistro plates.
-        </p>
-        <p>
-          Most diners treat it as either a generic neighborhood burger bar or a standard craft beer pub. Both approaches leave serious flavor on the table.
-        </p>
-        <p>
-          If you don't care about forced "category diversity" and strictly want the <strong>purest expression of peak deliciousness, textural contrast, and flavor velocity</strong>, here is the exact order for two people, the food science behind why it works, and the operational protocol to make sure the kitchen executes it flawlessly.
-        </p>
-      </div>
-
-      <section class="ox-bento">
-        {masterOrder.map((item) => (
-          <div class="ox-card">
-            <span class={`ox-card-badge ${item.color}`}>{item.tag}</span>
-            <div class="ox-card-title">
-              <span>{item.name}</span>
-              <span class="ox-card-price">{item.price}</span>
-            </div>
-            <p class="ox-card-mod">Mod: {item.mod}</p>
-            <p class="ox-card-desc">{item.desc}</p>
-          </div>
-        ))}
-      </section>
-
-      <div class="ox-prose">
-        <h2>1. The Burger Board: Why The "Good Ol' Boy" Dominates</h2>
-        <p>
-          The Ox Tavern offers a respectable Burger Board. But when testing for pure flavor density rather than novelty, the <strong>Good Ol' Boy</strong> stands unchallenged:
-        </p>
-      </div>
-
-      <div class="ox-table-wrap">
-        <table class="ox-table">
-          <thead>
-            <tr>
-              <th>Burger</th>
-              <th>Toppings</th>
-              <th>Flavor Mechanism</th>
-              <th>Verdict</th>
-            </tr>
-          </thead>
-          <tbody>
-            {burgerBoard.map((b) => (
-              <tr class={b.recommended ? "highlight" : ""}>
-                <td><strong>{b.name}</strong></td>
-                <td>{b.toppings}</td>
-                <td>{b.profile}</td>
-                <td>{b.verdict}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="ox-prose">
-        <h3>The Culinary Mechanics Behind The Good Ol' Boy</h3>
-        <ul>
-          <li>
-            <strong>The Triple Nucleotide-Glutamate Multiplier:</strong> The burger patty is an 80/20 coarse butcher grind of chuck, brisket, and short rib. When you combine seared beef (glutamic acid) with sautéed cremini mushrooms (guanylic acid) and thick-cut smoked bacon (inosinic acid), you trigger a textbook nucleotide synergy. Food science demonstrates that pairing these three compounds multiplies perceived savoriness by up to 8x compared to beef alone.
-          </li>
-          <li>
-            <strong>The Cheese Sheath:</strong> Sharp aged cheddar melted under a basting dome directly over the patty creates an elastic dairy seal, locking the sautéed mushroom caps to the meat crown and preventing topping fallout.
-          </li>
-          <li>
-            <strong>The Medium-Rare Requirement (132°F):</strong> Do not order this Medium. An 80/20 butcher grind renders its intramuscular fat perfectly at medium-rare while preserving intracellular moisture. Pushing past 140°F expels cellular water and leaves the patty dense.
-          </li>
-          <li>
-            <strong>The Butter-Toasted Brioche Heel:</strong> The kitchen toasts the brioche on the flat-top with butter, forming a hydrophobic crust that repels mushroom juices and prevents bottom-bun sogginess.
-          </li>
-        </ul>
-
-        <div class="ox-callout">
-          <p class="ox-callout-title">The Execution Call</p>
-          <p>
-            Ask your server to have the kitchen <strong>cut the burger in half with sandwich skewers</strong>. Halving it hot in the kitchen with a commercial serrated blade seals the bun crumb cleanly; trying to saw through thick bacon and mushrooms at a small table with a dull butter knife crushes the burger.
-          </p>
-        </div>
-
-        <h2>2. The Heavyweight: Quesabirria Tacos & Consommé Immersion</h2>
-        <p>
-          Skipping the seafood entrees (like the salmon or fish and chips) frees you up to order what the kitchen does with supreme scratch confidence: <strong>Quesabirria Tacos</strong>.
-        </p>
-        <ul>
-          <li>
-            <strong>The Shell:</strong> Corn tortillas dipped in spiced birria fat and griddled hard on the flat-top, yielding a brittle, crunchy exterior with melted, elastic Oaxaca cheese inside.
-          </li>
-          <li>
-            <strong>The Braise:</strong> Hours of slow-simmering beef chuck with guajillo, ancho, and Mexican oregano break down tough connective tissue into succulent, gelatin-coated shreds.
-          </li>
-          <li>
-            <strong>The Double-Dip Technique:</strong> Submerge each taco bite into the piping-hot bone broth consommé, take a bite, and then dip the newly exposed shredded beef edge back into the broth for second-bite juicy saturation.
-          </li>
-        </ul>
-
-        <h2>3. The Starch Alpha: The Dual-Dip French Fry</h2>
-        <p>
-          The Good Ol' Boy comes with house-cut fries. Request them <strong>extra crispy</strong>. This extra minute in the fryer drives out core water, giving the potato crust a 20-minute crispness lifespan rather than going limp after eight minutes.
-        </p>
-        <p>
-          Here is the move: <strong>Dip your fries directly into the hot Quesabirria consommé.</strong>
-        </p>
-        <p>
-          The salted potato starch drinks in the spiced beef-tallow broth like a French dip sandwich. Follow that with a dip into a side ramekin of <strong>fresh scratch chimichurri</strong> (the parsley-garlic-vinegar sauce made for the skirt steak—ask for a side ramekin nicely). The sharp red wine vinegar and raw parsley immediately slice through the beef fat.
-        </p>
-
-        <div class="ox-callout patina">
-          <p class="ox-callout-title">Pro-Tip: The Leftover Broth Fusion</p>
-          <p>
-            Stir a spoonful of chimichurri directly into the remaining birria broth halfway through. The raw garlic and red wine vinegar brighten the rich beef tallow instantly.
-          </p>
-        </div>
-
-        <h2>4. The Palate Primer: Crispy Togarashi Brussels Sprouts</h2>
-        <p>
-          A meal with this much mammalian fat requires an aggressive bitter-and-acid counterweight.
-        </p>
-        <p>
-          The <strong>Crispy Brussels Sprouts</strong> are flash-fried until the exterior leaves blister into paper-thin, charred crisps. The kitchen tosses them in <em>Shichimi Togarashi</em> (Japanese 7-spice: red chili, sansho pepper, dried orange peel, nori, and sesame seeds).
-        </p>
-        <ul>
-          <li>
-            <strong>The Rule:</strong> Ask for the chipotle mayo <strong>on the side</strong>. Drizzling warm mayo over fried sprouts wilts the delicate charred leaves within four minutes. Keeping it on the side lets you dip as needed while preserving maximum crunch.
-          </li>
-          <li>
-            <strong>The Acid Activation:</strong> Squeeze the fresh lime wedge across the entire bowl immediately upon arrival. Citric acid cuts through the natural glucosinolate bitterness and creates a bright glaze over the togarashi seasoning.
-          </li>
-        </ul>
-
-        <h2>5. Beverage Mechanics: Stripping Tongue Tallow</h2>
-        <p>
-          Between sharp cheddar, smoked bacon, 80/20 ground beef, braised birria, and Oaxaca cheese, your palate will experience fat fatigue if you drink water alone.
-        </p>
-        <ul>
-          <li>
-            <strong>Craft IPA (The Bitter Stripper):</strong> The alpha-acid humulones in a local dry/hoppy IPA physically break the surface tension of melted fat on your tongue, clearing your taste buds for the next bite.
-          </li>
-          <li>
-            <strong>Mezcalita (The Smoke & Acid Echo):</strong> The agave smoke notes match the woodsmoke of the bacon and birria, while the lime juice keeps the finish crisp.
-          </li>
-          <li>
-            <strong>Non-Alcoholic Pick:</strong> Club soda with fresh lime juice. The carbonic acid bubbles lift oil off the palate cleanly without adding sugar.
-          </li>
-        </ul>
-
-        <h2>The 4 Costly Ordering Traps to Avoid</h2>
-      </div>
-
-      <div class="ox-bento">
-        {traps.map((t) => (
-          <div class="ox-card">
-            <span class="ox-card-badge" style="background: rgba(255, 107, 107, 0.15); color: var(--ox-vermilion); border: 1px solid rgba(255, 107, 107, 0.3);">
-              {t.risk}
-            </span>
-            <div class="ox-card-title">
-              <span>{t.trap}</span>
-            </div>
-            <p class="ox-card-desc">{t.fix}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="ox-prose">
-        <h2>Tactical Pacing & Logistics</h2>
-        <ul>
-          <li>
-            <strong>Target Timing:</strong> Arrive between <strong>5:15 PM and 6:00 PM</strong>. You avoid the line rush, get the line cook's full attention on your burger sear, and capture <strong>Happy Hour</strong> ($6 draft beers, $8 cocktails).
-          </li>
-          <li>
-            <strong>Transit Geometry:</strong> Take the <strong>Q Train to Newkirk Plaza</strong>. Walk 3 minutes north on East 17th Street to Foster Avenue.
-          </li>
-          <li>
-            <strong>Table Location:</strong> Ask for a center booth. It shields your table from cold drafts coming through the front door, keeping your consommé and burger cheese hot.
-          </li>
-          <li>
-            <strong>Pacing:</strong> Tell the server you'd like the <strong>Brussels Sprouts fired first</strong>, and you'll put your mains in when the sprouts arrive.
-          </li>
-        </ul>
-      </div>
-
-      <section class="ox-script-box" aria-label="Exact Server Verbal Script">
-        <div class="ox-script-header">
-          <span class="ox-script-tag">Exact Server Script</span>
-          <span style="color: var(--ox-muted); font-size: 0.8rem;">Read verbatim</span>
-        </div>
-        <p class="ox-script-quote">
-          "We'll start with a craft IPA, a Mezcalita, and the Crispy Brussels Sprouts with the chipotle mayo on the side. We'd also love a small side ramekin of your house chimichurri. For our mains, one Good Ol' Boy Burger Medium-Rare with extra crispy fries cut in half with skewers, and one order of Quesabirria Tacos."
-        </p>
-      </section>
-
-      <div class="ox-prose">
-        <h2>The Post-Meal Protocol</h2>
-        <p>
-          Skip the heavy flour cakes or brownies: adding refined sugar on top of ~1,100 kcal of savory umami triggers postprandial lethargy. Instead, close with a double espresso or a neat pour of Italian amaro. The bitter herbs stimulate hepatic bile flow, accelerating lipid digestion and leaving you energized for the walk back through Ditmas Park.
-        </p>
-      </div>
-
-      <footer class="ox-footer-nav">
-        <a href="/blog/">← Back to all writing</a>
-        <a href="/recommendations/nyc-restaurants/">NYC Restaurant Guide →</a>
-      </footer>
-    </main>
-
-    <Footer />
-  </body>
-</html>
+<PlainStandaloneBlog
+	title={title}
+	description={description}
+	pubDate={pubDate}
+	datePublished="2026-08-20"
+>
+	<p>
+		The Ox Tavern sits at 1715 Foster Avenue in Ditmas Park. For two people, order the crispy
+		Brussels sprouts, the Good Ol' Boy burger, and the quesabirria tacos. The burger comes with
+		fries. The food total is about $51 before tax and tip.
+	</p>
+
+	<h2>The order</h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>What to ask for</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Crispy Brussels sprouts</td>
+				<td>Chipotle mayo on the side</td>
+			</tr>
+			<tr>
+				<td>Good Ol' Boy burger</td>
+				<td>Medium rare, cut in half, fries extra crispy</td>
+			</tr>
+			<tr>
+				<td>Quesabirria tacos</td>
+				<td>As served, with the consommé</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		Ask for a small side of chimichurri if it is available. It is good on the fries, especially
+		after a dip in the birria consommé.
+	</p>
+
+	<h2>Why this order works</h2>
+
+	<p>
+		The Good Ol' Boy is the burger to get if you want the richest option. It has sharp cheddar,
+		smoked bacon, and sautéed mushrooms. Splitting one is enough once the tacos and fries arrive.
+	</p>
+
+	<p>
+		The quesabirria tacos bring a crisp corn tortilla, braised beef, Oaxaca cheese, and a cup of
+		consommé. They also give you something useful to do with the fries. Dip them in the broth,
+		then the chimichurri.
+	</p>
+
+	<p>
+		The Brussels sprouts keep the meal from becoming nothing but beef, cheese, and potatoes. The
+		togarashi and lime add heat and acidity. Keeping the mayo on the side helps the fried leaves
+		stay crisp.
+	</p>
+
+	<h2>How to pace it</h2>
+
+	<p>
+		Have the sprouts come out first, then order the burger and tacos. This is more useful than
+		asking the kitchen to land everything at once and watching the burger cool while you finish
+		the starter.
+	</p>
+
+	<p>
+		An IPA, a mezcalita, or club soda with lime all fit the meal. If you are going for happy hour,
+		check the current hours before you leave.
+	</p>
+</PlainStandaloneBlog>
