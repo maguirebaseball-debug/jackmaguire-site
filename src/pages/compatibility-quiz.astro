@@ -113,13 +113,39 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const analyticsWindow = window as Window & { gtag?: (command: string, eventName: string, eventParams?: Record<string, string | number>) => void };
 		analyticsWindow.gtag?.('event', name, params);
 	};
-	track('compatibility_quiz_view', { quiz_version: 'ranked-v1' });
+	const QUIZ_VERSION = 'ranked-v2-seeded-shuffle';
+	const SHUFFLE_ALGORITHM = 'fisher-yates-mulberry32-v1';
+	const attemptId = window.crypto.randomUUID();
+	const seedBytes = new Uint32Array(2);
+	window.crypto.getRandomValues(seedBytes);
+	const shuffleSeed = (seedBytes[0] ^ seedBytes[1]) >>> 0;
+	track('compatibility_quiz_view', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 	const WEB3FORMS_ACCESS_KEY = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
-	const QUIZ_VERSION = 'ranked-v1';
 	const questionWeights: Record<string, number> = { banter: 1.5, conflict: 1.5, quiet: 1.25, curiosity: 1.25, detail: 1, pace: 1.25, independence: 1, ideas: .75, family: .75, effort: 1, accountability: 1.5, stimulation: 1.25, unimpressed: .75, height: .5, pull: 1.5, desire: 1.5 };
 	const coreQuestions = new Set(['banter', 'conflict', 'quiet', 'accountability', 'pull']);
 	const optionHash = (value: string) => [...value].reduce((hash, character) => ((hash << 5) - hash + character.charCodeAt(0)) | 0, 0);
-	const displayOptions = (question: Question) => [...question.options].sort((a, b) => optionHash(`${question.id}:${a.id}`) - optionHash(`${question.id}:${b.id}`));
+	const deriveSeed = (scope: string) => (optionHash(`${shuffleSeed}:${scope}`) >>> 0);
+	const mulberry32 = (seed: number) => () => {
+		let value = (seed += 0x6D2B79F5);
+		value = Math.imul(value ^ (value >>> 15), value | 1);
+		value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+		return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+	};
+	const seededShuffle = <T,>(items: T[], seed: number) => {
+		const shuffled = [...items];
+		const random = mulberry32(seed);
+		for (let index = shuffled.length - 1; index > 0; index -= 1) {
+			const swapIndex = Math.floor(random() * (index + 1));
+			[shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+		}
+		return shuffled;
+	};
+	const attemptQuestions = seededShuffle(questions, deriveSeed('questions'));
+	const optionOrders = new Map(attemptQuestions.map((question) => [question.id, seededShuffle(question.options, deriveSeed(`options:${question.id}`))]));
+	const displayOptions = (question: Question) => optionOrders.get(question.id) ?? question.options;
+	const questionOrder = attemptQuestions.map((question) => question.id);
+	const optionOrder = Object.fromEntries(attemptQuestions.map((question) => [question.id, displayOptions(question).map((option) => option.id)]));
+	track('compatibility_quiz_attempt_started', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed, shuffle_algorithm: SHUFFLE_ALGORITHM, question_order: questionOrder.join(',') });
 	const calculateResult = (data: FormData) => {
 		const questionScores = questions.map((question) => {
 			const idealRanks = new Map(question.options.map((option, index) => [option.id, index + 1]));
@@ -146,7 +172,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		return { questionScores, categoryValues, percent: cappedPercent, rawPercent: percent, coreFloor, heightRank, verdict };
 	};
 	if (list && form) {
-		list.innerHTML = questions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('');
+		list.innerHTML = attemptQuestions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('');
 		form.noValidate = true;
 		const cards = Array.from(list.querySelectorAll<HTMLElement>('.question-card'));
 		let currentStep = 0;
@@ -195,7 +221,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const pageIsComplete = () => {
 			const pageSize = getPageSize();
 			const start = currentStep * pageSize;
-			return questions.slice(start, start + pageSize).every((question) => {
+			return attemptQuestions.slice(start, start + pageSize).every((question) => {
 				const values = question.options.map((option) => form.elements.namedItem(`${question.id}__${option.id}`) as HTMLSelectElement).map((select) => select?.value).filter(Boolean);
 				return values.length === 4 && new Set(values).size === 4;
 			});
@@ -205,14 +231,14 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			const firstIncomplete = cards[currentStep * pageSize]?.querySelector<HTMLSelectElement>('select:not(:valid)') ?? cards[currentStep * pageSize]?.querySelector<HTMLSelectElement>('select');
 			firstIncomplete?.focus();
 		};
-		questions.forEach((q) => form.querySelectorAll<HTMLSelectElement>(`select[name^="${q.id}__"]`).forEach((select) => select.addEventListener('change', () => { syncRankChoices(q.id); updateQuestionStatus(q.id); })));
+		attemptQuestions.forEach((q) => form.querySelectorAll<HTMLSelectElement>(`select[name^="${q.id}__"]`).forEach((select) => select.addEventListener('change', () => { syncRankChoices(q.id); updateQuestionStatus(q.id); })));
 		nextButton?.addEventListener('click', () => { if (!pageIsComplete()) { showPageError(); return; } currentStep += 1; renderStep(); });
-		questions.forEach((q) => updateQuestionStatus(q.id));
+		attemptQuestions.forEach((q) => updateQuestionStatus(q.id));
 	}
 
 	form?.addEventListener('submit', (event) => {
 		event.preventDefault();
-		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION });
+		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 		const data = new FormData(form);
 		const hasInvalidRanking = questions.some((question) => {
 			const ranks = question.options.map((option) => data.get(`${question.id}__${option.id}`)).filter(Boolean);
@@ -234,6 +260,11 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('from_name', 'jackmaguire.org compatibility quiz');
 		payload.append('quiz_name', 'jack_compatibility');
 		payload.append('quiz_version', QUIZ_VERSION);
+		payload.append('attempt_id', attemptId);
+		payload.append('shuffle_seed', String(shuffleSeed));
+		payload.append('shuffle_algorithm', SHUFFLE_ALGORITHM);
+		payload.append('question_order', questionOrder.join(','));
+		payload.append('option_order', JSON.stringify(optionOrder));
 		payload.append('submitted_at', new Date().toISOString());
 		payload.append('page_url', window.location.href);
 		payload.append('referrer', document.referrer);
@@ -251,18 +282,18 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			.then(async (response) => {
 				const resultBody = await response.json().catch(() => ({})) as { success?: boolean };
 				if (!response.ok || resultBody.success !== true) throw new Error('Submission failed');
-				track('compatibility_quiz_web3forms_success', { quiz_version: QUIZ_VERSION });
+				track('compatibility_quiz_web3forms_success', { quiz_version: QUIZ_VERSION, attempt_id: attemptId });
 				if (submissionStatus) submissionStatus.textContent = 'Your answers were recorded. Your report is below.';
 			})
 			.catch(() => {
-				track('compatibility_quiz_web3forms_failure', { quiz_version: QUIZ_VERSION });
+				track('compatibility_quiz_web3forms_failure', { quiz_version: QUIZ_VERSION, attempt_id: attemptId });
 				if (submissionStatus) submissionStatus.textContent = 'The report is ready, but the answers could not be recorded. Please try submitting once more.';
 			})
 			.finally(() => {
 				report.hidden = false;
 				report.tabIndex = -1;
 				report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${result.verdict[0]}</h2><p>${result.verdict[1]}</p></div><div class="score-number"><strong>${result.percent}</strong><span>Jack fit score</span></div></div><div class="result-insights"><div><span>Strongest alignment</span><strong>${strongest.category}</strong><b>${strongest.score}%</b></div><div><span>Biggest difference</span><strong>${biggestGap.category}</strong><b>${biggestGap.score}%</b></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>Jack also needs mutual attraction, reciprocal humor, clear communication, and ordinary time that both people enjoy. A quiz can test ranked preferences. It cannot tell whether two people want another date.</p></div><div class="report-actions"><button class="share-button" id="share-result" type="button">Share this result</button><span id="share-status" role="status" aria-live="polite"></span></div><a class="report-link" href="#matchmaker-wiki">Open the matchmaker wiki <span aria-hidden="true">&darr;</span></a></div>`;
-				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, score: result.percent });
+				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, score: result.percent });
 				wiki.hidden = false;
 				wiki.removeAttribute('aria-hidden');
 				report.focus({ preventScroll: true });
