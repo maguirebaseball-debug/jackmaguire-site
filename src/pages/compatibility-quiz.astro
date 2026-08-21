@@ -17,14 +17,14 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		<main class="compatibility-page">
 			<section class="quiz-hero">
 				<h1>Would you and Jack get along?</h1>
-				<p class="hero-copy">This is a compatibility quiz, not a personality test. It asks how you handle teasing, uncertainty, quiet, curiosity, and the occasional over-planned walk through New York.</p>
+				<p class="hero-copy">A short interview about the texture of being together: how you handle teasing, uncertainty, quiet, curiosity, and the occasional over-planned walk through New York.</p>
 				<div class="hero-note"><strong>How it works</strong><span>16 questions · about 4 minutes · no email required</span></div>
 			</section>
 
 			<section class="quiz-shell" aria-labelledby="quiz-title">
 				<div class="section-heading">
-					<h2 id="quiz-title">Choose the answer that feels most like you.</h2>
-					<p>Most options describe a healthy relationship. Rank what you would actually enjoy, from most like you to least like you.</p>
+					<h2 id="quiz-title">Rank the version of us you would actually enjoy.</h2>
+					<p>Each question gives you four plausible answers. Put them in order: first the one that feels most natural, last the one you would least want to live with.</p>
 					<div class="quiz-expectation"><span><strong>Rank 1–4</strong> in every question.</span><span>You can move back and change any answer.</span></div>
 				</div>
 				<form id="compatibility-form">
@@ -40,7 +40,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 					</div>
 					<button class="submit-button" type="submit">Show my compatibility report <span aria-hidden="true">→</span></button>
 				</form>
-				<p class="form-note">Rank all four options in every question. No email is required. On submission, your answers are sent anonymously to Jack's Web3Forms inbox so he can review the quiz data.</p>
+				<p class="form-note">No email is required. Your completed answers are sent anonymously to Jack's Web3Forms inbox for review.</p>
 				<p id="submission-status" class="form-note" role="status" aria-live="polite"></p>
 			</section>
 
@@ -48,8 +48,8 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 
 			<section class="wiki-section" id="matchmaker-wiki" hidden aria-hidden="true">
 				<div class="section-heading">
-					<h2>What Jack is looking for</h2>
-					<p>These notes describe the difference between a person who looks good on paper and a person Jack wants to keep seeing.</p>
+					<h2>What the answers are pointing toward</h2>
+					<p>The private notes behind the result: the difference between someone who looks good on paper and someone Jack wants to keep seeing.</p>
 				</div>
 
 				<details class="wiki-disclosure">
@@ -326,7 +326,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.quiz-progress strong { color: #1c1d1b; }
 	.quiz-progress-mode { color: #777a70; }
 	.quiz-progress-track { height: 4px; margin-top: .7rem; background: #e8e9e1; }
-	.quiz-progress-track span { display: block; height: 100%; background: #69713b; transition: width .2s ease; }
+	.quiz-progress-track span { display: block; height: 100%; background: #69713b; }
 	.quiz-navigation { display: flex; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; }
 	.secondary-button { min-height: 44px; padding: .75rem 1rem; border: 1px solid #cfd2c7; background: #fff; color: #24261f; cursor: pointer; font: 700 .9rem var(--font-heading); }
 	.secondary-button:hover:not(:disabled), .secondary-button:focus-visible { border-color: #69713b; color: #454c25; }
@@ -409,6 +409,85 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	}
 </style>
 
+<style>
+	:global(body) { background: #f4f0e8; color: #171717; }
+	.compatibility-page { max-width: 1180px; padding-bottom: 8rem; }
+	.quiz-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr); gap: clamp(2rem, 8vw, 8rem); max-width: none; padding: clamp(5rem, 11vw, 9rem) 0 clamp(3rem, 7vw, 6rem); border-bottom: 2px solid #171717; }
+	.compatibility-page h1, .compatibility-page h2, .compatibility-page h3, .compatibility-page h4 { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.045em; }
+	.quiz-hero h1 { max-width: 9ch; font-size: clamp(3.8rem, 9vw, 7.8rem); line-height: .82; text-wrap: balance; }
+	.hero-copy { max-width: 36ch; margin: 0; align-self: end; font-size: 1.05rem; line-height: 1.55; }
+	.hero-note { grid-column: 2; display: block; max-width: 36ch; margin: 0; padding-top: .85rem; border-top: 1px solid #171717; font-size: .8rem; }
+	.hero-note strong { display: block; margin-bottom: .35rem; font: 700 1.05rem Georgia, 'Times New Roman', serif; }
+	.hero-note span { color: #6f6a61; }
+	.quiz-shell, .report-inner { background: transparent; border: 0; padding: clamp(4rem, 8vw, 8rem) 0 0; }
+	.section-heading { max-width: 58rem; margin-bottom: clamp(3rem, 7vw, 6rem); }
+	.section-heading h2 { max-width: 15ch; font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: .88; }
+	.section-heading p:last-child { max-width: 52ch; margin-top: 1.5rem; color: #625e57; line-height: 1.6; }
+	.quiz-expectation { gap: .5rem 2rem; margin-top: 1.5rem; color: #b43a2e; font-size: .78rem; }
+	.quiz-expectation strong { color: #171717; }
+	.quiz-progress { margin: 0 0 1rem; padding: .8rem 0; border-top: 1px solid #171717; border-bottom: 1px solid #c9c1b7; }
+	.quiz-progress > div:first-child { color: #171717; font-size: .78rem; letter-spacing: .02em; text-transform: none; }
+	.quiz-progress strong { font-weight: 700; }
+	.quiz-progress-mode { color: #6f6a61; }
+	.quiz-progress-track { display: none; }
+	:global(.question-card) { padding: clamp(3rem, 7vw, 6rem) 0; border-top: 1px solid #171717; }
+	:global(.question-card legend) { max-width: 20ch; padding-bottom: 1.25rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 4vw, 4rem); line-height: .92; }
+	:global(.question-card legend > span) { margin-bottom: .8rem; color: #b43a2e; font: 700 .76rem/1 var(--font-body); letter-spacing: .08em; }
+	:global(.question-meta) { margin: 0 0 1.5rem; color: #6f6a61; font-size: .72rem; letter-spacing: .04em; text-transform: none; }
+	:global(.question-status) { color: #b43a2e; }
+	:global(.rank-grid) { counter-reset: option; gap: 0; border-top: 1px solid #c9c1b7; }
+	:global(.rank-row) { grid-template-columns: 2.5rem minmax(0, 1fr) 82px; gap: .75rem; align-items: stretch; counter-increment: option; border-bottom: 1px solid #c9c1b7; }
+	:global(.rank-row::before) { content: counter(option, decimal-leading-zero); display: flex; align-items: center; color: #b43a2e; font-size: .72rem; }
+	:global(.rank-option) { grid-column: 2; padding: 1.2rem 0; border: 0; color: #292725; font-size: 1rem; }
+	:global(.rank-row select) { grid-column: 3; align-self: center; padding: .45rem 0; border: 0; border-bottom: 1px solid #171717; border-radius: 0; background: transparent; color: #171717; font-size: .85rem; }
+	:global(.rank-row select:hover), :global(.rank-row select:focus-visible) { border-color: #b43a2e; outline: 2px solid rgba(180, 58, 46, .22); outline-offset: 3px; }
+	:global(.rank-row select:valid) { background: transparent; color: #b43a2e; }
+	.quiz-navigation { justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #171717; }
+	.secondary-button { padding: .75rem 0; border: 0; background: transparent; color: #171717; text-decoration: underline; text-underline-offset: .25em; }
+	.secondary-button:hover:not(:disabled), .secondary-button:focus-visible { border: 0; color: #b43a2e; }
+	.submit-button { min-height: 52px; margin-top: 3rem; padding: 1rem 1.25rem; background: #171717; color: #fff; font-family: var(--font-body); }
+	.submit-button:hover { background: #b43a2e; }
+	.form-note, .small-note { color: #6f6a61; }
+	:global(.report-section) { padding-top: clamp(5rem, 10vw, 9rem); border-top: 2px solid #171717; }
+	:global(.report-inner) { padding-top: 0; }
+	:global(.report-head) { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 2rem 5rem; }
+	:global(.report-head h2) { max-width: 12ch; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 7rem); line-height: .82; }
+	:global(.report-head p) { max-width: 54ch; color: #625e57; line-height: 1.6; }
+	:global(.score-number) { min-width: 0; padding: .9rem 0 0; border: 0; border-top: 4px solid #b43a2e; text-align: left; }
+	:global(.score-number strong) { font-family: Georgia, 'Times New Roman', serif; font-size: 4.5rem; }
+	:global(.score-number span) { color: #b43a2e; }
+	:global(.result-insights) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; margin-top: 4rem; }
+	:global(.result-insights > div) { padding: 1.25rem 0; border-top: 1px solid #171717; border-bottom: 0; }
+	:global(.result-insights span) { color: #b43a2e; }
+	:global(.result-insights strong) { font-family: Georgia, 'Times New Roman', serif; font-size: 1.35rem; }
+	:global(.result-insights b) { color: #b43a2e; }
+	:global(.category-results) { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid #171717; }
+	:global(.bar) { height: 4px; background: #d7cfc5; }
+	:global(.bar i) { background: #b43a2e; }
+	:global(.report-callout) { margin-top: 4rem; padding: 1.5rem 0; border-top: 2px solid #b43a2e; border-bottom: 1px solid #b43a2e; background: transparent; }
+	:global(.share-button) { border: 0; border-bottom: 1px solid #171717; border-radius: 0; background: transparent; color: #171717; }
+	:global(.share-button:hover), :global(.share-button:focus-visible) { background: transparent; color: #b43a2e; }
+	.wiki-section { padding-top: clamp(6rem, 13vw, 12rem); border-top: 2px solid #171717; }
+	.wiki-disclosure summary { border-color: #171717; color: #171717; font-family: var(--font-body); }
+	.wiki-disclosure summary:hover { color: #b43a2e; }
+	.wiki-card { border-color: #171717; }
+	.wiki-card h3 { font-family: Georgia, 'Times New Roman', serif; }
+	.final-rule { padding: clamp(1.5rem, 4vw, 3rem); border-top: 0; background: #171717; }
+	@media (max-width: 700px) {
+		.quiz-hero { display: block; padding-top: 4rem; }
+		.quiz-hero h1 { max-width: 8ch; font-size: clamp(3.8rem, 18vw, 6rem); }
+		.hero-copy { margin-top: 2rem; }
+		.hero-note { margin-top: 2.5rem; }
+		.quiz-shell, .report-inner { padding-top: 4rem; }
+		:global(.question-card legend) { max-width: 11ch; font-size: clamp(2.25rem, 12vw, 4rem); }
+		:global(.rank-row) { grid-template-columns: 2rem minmax(0, 1fr) 66px; gap: .5rem; }
+		:global(.rank-option) { font-size: .94rem; }
+		:global(.report-head) { display: block; }
+		:global(.result-insights) { grid-template-columns: 1fr; }
+		.quiz-navigation { position: static; margin-inline: 0; padding-bottom: 0; background: transparent; }
+	}
+</style>
+
 <style is:global>
 	.question-card { margin: 0; padding: clamp(2rem, 4vw, 3rem) 0; border: 0; border-top: 1px solid #d9dbd2; }
 	.question-card legend { box-sizing: border-box; width: 100%; max-width: 36ch; padding: 0 0 1.35rem; font-family: var(--font-heading); font-size: clamp(1.25rem, 2.2vw, 1.7rem); font-weight: 700; line-height: 1.22; text-wrap: pretty; }
@@ -452,5 +531,33 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		.score-number span { margin: 0 0 0 .75rem; }
 		.result-row { grid-template-columns: minmax(88px, 110px) minmax(60px, 1fr) 38px; gap: .55rem; font-size: .78rem; }
 		.submit-button { width: 100%; }
+	}
+</style>
+
+<style>
+	:global(.report-inner) { background: transparent; border: 0; padding: 0; }
+	:global(.question-card) { padding: clamp(3rem, 7vw, 6rem) 0; border-top: 1px solid #171717; }
+	:global(.question-card legend) { max-width: 20ch; padding-bottom: 1.25rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 4vw, 4rem); line-height: .92; }
+	:global(.question-card legend > span) { margin-bottom: .8rem; color: #b43a2e; font: 700 .76rem/1 var(--font-body); letter-spacing: .08em; }
+	:global(.rank-grid) { gap: 0; border-top: 1px solid #c9c1b7; }
+	:global(.rank-row) { grid-template-columns: 2.5rem minmax(0, 1fr) 82px; gap: .75rem; border-bottom: 1px solid #c9c1b7; }
+	:global(.rank-option) { grid-column: 2; padding: 1.2rem 0; border: 0; }
+	:global(.rank-row select) { grid-column: 3; padding: .45rem 0; border: 0; border-bottom: 1px solid #171717; border-radius: 0; background: transparent; }
+	:global(.rank-row select:valid) { background: transparent; color: #b43a2e; }
+	:global(.report-head) { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 2rem 5rem; }
+	:global(.report-head h2) { max-width: 12ch; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3rem, 7vw, 7rem); line-height: .82; }
+	:global(.score-number) { min-width: 0; padding: .9rem 0 0; border: 0; border-top: 4px solid #b43a2e; text-align: left; }
+	:global(.score-number strong) { font-family: Georgia, 'Times New Roman', serif; font-size: 4.5rem; }
+	:global(.result-insights) { gap: 0 3rem; margin-top: 4rem; }
+	:global(.result-insights > div) { padding: 1.25rem 0; border-top: 1px solid #171717; border-bottom: 0; }
+	:global(.result-insights span), :global(.result-insights b) { color: #b43a2e; }
+	:global(.bar) { height: 4px; background: #d7cfc5; }
+	:global(.bar i) { background: #b43a2e; }
+	:global(.report-callout) { padding: 1.5rem 0; border-top: 2px solid #b43a2e; border-bottom: 1px solid #b43a2e; background: transparent; }
+	@media (max-width: 700px) {
+		:global(.question-card legend) { max-width: 11ch; font-size: clamp(2.25rem, 12vw, 4rem); }
+		:global(.rank-row) { grid-template-columns: 2rem minmax(0, 1fr) 66px; gap: .5rem; }
+		:global(.report-head) { display: block; }
+		:global(.result-insights) { grid-template-columns: 1fr; }
 	}
 </style>
