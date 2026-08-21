@@ -9,6 +9,41 @@ const description = 'A ranked guide to 25 NYC cheese blintzes at Polish restaura
 const pubDate = 'August 20, 2026';
 const category = 'NYC Food';
 
+const photos = {
+	1: {
+		src: '/images/cheese-blintzes/polonica-cheese-blintzes.jpg',
+		width: 680,
+		height: 510,
+		alt: 'Two browned cheese blintzes with sour cream and applesauce at Polonica.',
+		credit: 'Photo via Polonica',
+		creditUrl: 'https://polonicarestaurantny.com/gallery',
+	},
+	3: {
+		src: '/images/cheese-blintzes/lox-cafe-bergson-cheese-blintzes.jpg',
+		width: 700,
+		height: 500,
+		alt: 'Three golden cheese blintzes with jam and sour cream at LOX at Cafe Bergson.',
+		credit: 'Photo via the Museum of Jewish Heritage',
+		creditUrl: 'https://mjhnyc.org/visitor-information/lox-at-cafe-bergson/',
+	},
+	5: {
+		src: '/images/cheese-blintzes/baku-palace-exterior.jpg',
+		width: 1200,
+		height: 553,
+		alt: 'The illuminated Baku Palace exterior at night.',
+		credit: 'Photo via Baku Palace',
+		creditUrl: 'https://www.bakupalace.com/gallery_item/baku-palace-gallery/',
+	},
+	6: {
+		src: '/images/cheese-blintzes/manhattan-diner-sign.jpg',
+		width: 1920,
+		height: 1081,
+		alt: 'Manhattan Diner logos on the restaurant windows.',
+		credit: 'Photo via Manhattan Diner',
+		creditUrl: 'https://manhattandiner.nyc/',
+	},
+} as const;
+
 const [rankingMd, beforeMd = ''] = bodyMd.split(/^## Before you go\s*$/m);
 const [introMd, ...entryBlocks] = rankingMd.split(/^## (?=\d+\.\s)/m);
 
@@ -37,6 +72,7 @@ const entries = entryBlocks.map((block) => {
 		location,
 		order,
 		menu,
+		photo: photos[rank as keyof typeof photos],
 		proseHtml: marked.parse(proseMd),
 	};
 });
@@ -195,6 +231,19 @@ const itemListSchema = {
 									<div class="entry-main">
 										<h3>{entry.name}</h3>
 										<div class="entry-prose" set:html={entry.proseHtml} />
+										{entry.photo && (
+											<figure class="entry-photo">
+												<img
+													src={entry.photo.src}
+													width={entry.photo.width}
+													height={entry.photo.height}
+													alt={entry.photo.alt}
+													loading="lazy"
+													decoding="async"
+												/>
+												<figcaption><a href={entry.photo.creditUrl}>{entry.photo.credit}</a></figcaption>
+											</figure>
+										)}
 									</div>
 									<div class="entry-facts">
 										<p><span>Where</span>{entry.location}</p>
@@ -639,6 +688,31 @@ const itemListSchema = {
 
 	.entry-prose :global(p) {
 		margin: 0;
+	}
+
+	.entry-photo {
+		margin: 1.5rem 0 0;
+	}
+
+	.entry-photo img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid #171714;
+		background: #f1e3c4;
+	}
+
+	.entry-photo figcaption {
+		margin-top: 0.55rem;
+		font-family: var(--font-ui);
+		font-size: 0.68rem;
+		line-height: 1.4;
+		color: #5d5b54;
+	}
+
+	.entry-photo figcaption a {
+		color: inherit;
+		text-underline-offset: 0.16em;
 	}
 
 	.entry-facts {
