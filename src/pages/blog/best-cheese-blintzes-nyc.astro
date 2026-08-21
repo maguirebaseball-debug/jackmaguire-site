@@ -1,0 +1,920 @@
+---
+import { marked } from 'marked';
+import BaseHead from '../../components/BaseHead.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import bodyMd from '../../data/article-bodies/best-cheese-blintzes-nyc.md?raw';
+
+const title = 'The 25 Best Cheese Blintzes in NYC, Ranked';
+const description = 'A ranked guide to 25 NYC cheese blintzes at Polish restaurants, kosher dairy cafes, diners, and one dedicated blintz counter.';
+const pubDate = 'August 20, 2026';
+const category = 'NYC Food';
+
+const [rankingMd, beforeMd = ''] = bodyMd.split(/^## Before you go\s*$/m);
+const [introMd, ...entryBlocks] = rankingMd.split(/^## (?=\d+\.\s)/m);
+
+const entries = entryBlocks.map((block) => {
+	const heading = block.match(/^(\d+)\.\s+(.+)\r?\n/);
+	if (!heading) throw new Error(`Could not parse blintz entry heading: ${block.slice(0, 80)}`);
+
+	const rank = Number(heading[1]);
+	const name = heading[2].trim();
+	const body = block.slice(heading[0].length).trim();
+	const location = body.match(/^\*\*(?!Order this:)(.+?)\*\*\s*$/m)?.[1];
+	const order = body.match(/^\*\*Order this:\*\*\s*(.+?)\s*$/m)?.[1];
+	const menu = body.match(/^\[Menu and details\]\((https?:\/\/[^)]+)\)\s*$/m)?.[1];
+
+	if (!location || !order || !menu) throw new Error(`Missing facts for ${name}`);
+
+	const proseMd = body
+		.replace(/^\*\*(?!Order this:).+?\*\*\s*$/m, '')
+		.replace(/^\*\*Order this:\*\*.+?\s*$/m, '')
+		.replace(/^\[Menu and details\]\(https?:\/\/[^)]+\)\s*$/m, '')
+		.trim();
+
+	return {
+		rank,
+		name,
+		location,
+		order,
+		menu,
+		proseHtml: marked.parse(proseMd),
+	};
+});
+
+if (entries.length !== 25) throw new Error(`Expected 25 blintz entries, found ${entries.length}`);
+
+const introHtml = marked.parse(introMd.trim());
+const beforeHtml = marked.parse(beforeMd.trim());
+
+const shortcuts = [
+	{ label: 'Best overall', rank: 1, name: 'Polonica' },
+	{ label: 'Blintz specialist', rank: 2, name: 'Blintz Box' },
+	{ label: 'Family recipe', rank: 3, name: 'LOX at Cafe Bergson' },
+	{ label: 'Best value plate', rank: 4, name: 'Fallsburg Bagels + Cafe' },
+	{ label: 'Best fruit filling', rank: 5, name: 'Baku Palace' },
+	{ label: 'Best diner blend', rank: 6, name: 'Manhattan Diner' },
+];
+
+const areas = [
+	{ name: 'Manhattan', ranks: [2, 3, 6, 10, 11, 17, 18] },
+	{ name: 'Brooklyn', ranks: [1, 4, 5, 7, 9, 13, 14, 15, 16, 21, 22, 23, 24] },
+	{ name: 'Queens', ranks: [12, 20, 25] },
+	{ name: 'The Bronx', ranks: [8] },
+	{ name: 'Staten Island', ranks: [19] },
+];
+
+const itemListSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: title,
+	numberOfItems: entries.length,
+	itemListOrder: 'https://schema.org/ItemListOrderAscending',
+	itemListElement: entries.map((entry) => ({
+		'@type': 'ListItem',
+		position: entry.rank,
+		name: entry.name,
+		url: entry.menu,
+	})),
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			ogImage="/og-cheese-blintzes-nyc.png"
+			articlePublished="2026-08-20"
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+	</head>
+	<body>
+		<ReadingProgressBar />
+		<a class="skip-link" href="#ranking">Skip to the ranking</a>
+
+		<header class="site-strap">
+			<a class="site-name" href="/">Jack Maguire</a>
+			<nav aria-label="Article breadcrumb">
+				<a href="/blog/">Writing</a>
+				<span aria-hidden="true">/</span>
+				<span>NYC Food</span>
+			</nav>
+		</header>
+
+		<main>
+			<article>
+				<header class="hero">
+					<div class="hero-copy">
+						<p class="kicker">A citywide field guide <span>{pubDate}</span></p>
+						<h1>{title}</h1>
+						<p class="dek">{description}</p>
+					</div>
+
+					<div class="hero-art">
+						<svg viewBox="0 0 620 620" role="img" aria-labelledby="blintz-art-title blintz-art-desc">
+							<title id="blintz-art-title">A folded cheese blintz diagram</title>
+							<desc id="blintz-art-desc">A flat cream-colored crepe folds around farmer cheese with sour cherry sauce beside it.</desc>
+							<path class="plate" d="M55 354C55 255 160 176 310 176s255 79 255 178-105 178-255 178S55 453 55 354Z" />
+							<path class="plate-line" d="M87 356c0-75 89-139 223-139s223 64 223 139-89 139-223 139S87 431 87 356Z" />
+							<path class="cherry" d="M414 409c47-12 89 4 98 35 8 28-20 59-65 69-48 11-90-5-97-36-7-29 20-57 64-68Z" />
+							<g class="blintz">
+								<path d="M143 198 337 127l149 135-43 165-214 36-118-120Z" />
+								<path class="fold-shadow" d="m143 198 181 143-95 122-118-120Z" />
+								<path class="fold-light" d="m337 127-13 214 162-79Z" />
+								<path class="cheese" d="M188 252c38-30 87-33 127-4 34 25 63 29 105 16l-31 104c-46 21-100 20-145-8-35-22-68-25-105-10Z" />
+								<path class="crease" d="m143 198 181 143 162-79M324 341l-95 122" />
+							</g>
+							<g class="labels" aria-hidden="true">
+								<path d="M42 106h134l48 69" />
+								<text x="42" y="90">THIN CREPE</text>
+								<path d="M432 98v92l-51 66" />
+								<text x="430" y="82">FARMER CHEESE</text>
+								<path d="M446 510v48H324" />
+								<text x="451" y="572">SOUR CHERRY</text>
+							</g>
+						</svg>
+					</div>
+				</header>
+
+				<div class="fold-rail" aria-hidden="true"></div>
+
+				<section class="report-note" aria-label="About this guide" set:html={introHtml} />
+
+				<section class="start-here" id="start-here" aria-labelledby="start-heading">
+					<div class="section-label">
+						<p>Six ways in</p>
+						<h2 id="start-heading">Start here</h2>
+					</div>
+					<ol role="list">
+						{shortcuts.map((item) => (
+							<li>
+								<a href={`#rank-${item.rank}`}>
+									<span class="shortcut-rank">{String(item.rank).padStart(2, '0')}</span>
+									<span><b>{item.label}</b><small>{item.name}</small></span>
+								</a>
+							</li>
+						))}
+					</ol>
+				</section>
+
+				<nav class="mobile-jump" aria-label="Guide sections">
+					<a href="#start-here">Top picks</a>
+					<a href="#areas">Areas</a>
+					<a href="#ranking">Ranking</a>
+				</nav>
+
+				<div class="guide-grid">
+					<aside class="area-rail" id="areas">
+						<h2>Jump by borough</h2>
+						{areas.map((area) => (
+							<div class="area-group">
+								<h3>{area.name}</h3>
+								<p>
+									{area.ranks.map((rank, index) => (
+										<>
+											<a href={`#rank-${rank}`} aria-label={`${area.name}, rank ${rank}`}>{String(rank).padStart(2, '0')}</a>
+											{index < area.ranks.length - 1 && <span aria-hidden="true">, </span>}
+										</>
+									))}
+								</p>
+							</div>
+						))}
+					</aside>
+
+					<section class="ranking" id="ranking" aria-labelledby="ranking-heading">
+						<div class="ranking-head">
+							<p>All 25, in order</p>
+							<h2 id="ranking-heading">The ranking</h2>
+						</div>
+
+						<ol role="list">
+							{entries.map((entry) => (
+								<li class:list={['ranking-entry', { featured: entry.rank <= 8 }]} id={`rank-${entry.rank}`}>
+									<div class="rank-number" aria-label={`Rank ${entry.rank}`}>{String(entry.rank).padStart(2, '0')}</div>
+									<div class="entry-main">
+										<h3>{entry.name}</h3>
+										<div class="entry-prose" set:html={entry.proseHtml} />
+									</div>
+									<div class="entry-facts">
+										<p><span>Where</span>{entry.location}</p>
+										<p><span>Order this</span>{entry.order}</p>
+										<a href={entry.menu}>Menu and details</a>
+									</div>
+								</li>
+							))}
+						</ol>
+					</section>
+				</div>
+
+				<section class="before-you-go" aria-labelledby="before-heading">
+					<p>One last check</p>
+					<h2 id="before-heading">Before you go</h2>
+					<div set:html={beforeHtml} />
+				</section>
+			</article>
+		</main>
+
+		<footer class="article-footer">
+			<a href="/blog/">More writing</a>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:global(html) {
+		scroll-behavior: smooth;
+		background: #fffdf8;
+	}
+
+	:global(body) {
+		margin: 0;
+		background: #fffdf8;
+		color: #171714;
+		font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, 'Times New Roman', Times, serif;
+	}
+
+	main {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	article {
+		position: relative;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(a:focus-visible),
+	:global(summary:focus-visible) {
+		outline: 3px solid #b8203e;
+		outline-offset: 4px;
+	}
+
+	.skip-link {
+		position: fixed;
+		z-index: 100;
+		top: 0.75rem;
+		left: 0.75rem;
+		transform: translateY(-200%);
+		background: #171714;
+		color: #fffdf8;
+		padding: 0.65rem 0.85rem;
+		font-family: var(--font-ui);
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
+	.site-strap {
+		max-width: 1360px;
+		margin: 0 auto;
+		padding: 1.25rem 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border-bottom: 1px solid #171714;
+		font-family: var(--font-ui);
+		font-size: 0.82rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+
+	.site-strap a {
+		color: inherit;
+	}
+
+	.site-name {
+		font-weight: 800;
+		text-decoration: none;
+	}
+
+	.site-strap nav {
+		display: flex;
+		gap: 0.55rem;
+	}
+
+	.hero {
+		position: relative;
+		max-width: 1360px;
+		min-height: 660px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: minmax(0, 1.02fr) minmax(430px, 0.98fr);
+		border-bottom: 1px solid #171714;
+		overflow: hidden;
+	}
+
+	.hero-copy {
+		position: relative;
+		z-index: 2;
+		padding: clamp(3rem, 6vw, 6.5rem) 2rem 3rem;
+	}
+
+	.kicker,
+	.section-label p,
+	.ranking-head p,
+	.before-you-go > p {
+		margin: 0 0 1rem;
+		font-family: var(--font-ui);
+		font-size: 0.76rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: #b8203e;
+	}
+
+	.kicker span {
+		color: #245a78;
+		margin-left: 0.5rem;
+	}
+
+	h1 {
+		max-width: 760px;
+		margin: 0;
+		font-family: var(--font-heading);
+		font-size: clamp(3.6rem, 6.8vw, 7.6rem);
+		font-weight: 800;
+		line-height: 0.9;
+		letter-spacing: -0.065em;
+	}
+
+	.dek {
+		max-width: 620px;
+		margin: 2rem 0 0;
+		font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+		line-height: 1.45;
+	}
+
+	.hero-art {
+		position: relative;
+		background: #245a78;
+		clip-path: polygon(21% 0, 100% 0, 100% 100%, 0 100%);
+		display: grid;
+		place-items: center;
+		padding: 2rem 1rem 1rem 4rem;
+	}
+
+	.hero-art svg {
+		width: min(100%, 650px);
+		height: auto;
+		overflow: visible;
+	}
+
+	.plate {
+		fill: #fffdf8;
+	}
+
+	.plate-line,
+	.crease,
+	.labels path {
+		fill: none;
+		stroke: #245a78;
+		stroke-width: 4;
+	}
+
+	.cherry {
+		fill: #b8203e;
+	}
+
+	.blintz > path:first-child {
+		fill: #f1e3c4;
+		stroke: #171714;
+		stroke-width: 5;
+	}
+
+	.fold-shadow {
+		fill: #d8bd84;
+	}
+
+	.fold-light {
+		fill: #fff4d8;
+	}
+
+	.cheese {
+		fill: #fffdf8;
+		stroke: #171714;
+		stroke-width: 4;
+	}
+
+	.crease {
+		stroke: #171714;
+		stroke-width: 3;
+	}
+
+	.labels path {
+		stroke: #fffdf8;
+		stroke-width: 2;
+	}
+
+	.labels text {
+		fill: #fffdf8;
+		font-family: var(--font-ui);
+		font-size: 18px;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+	}
+
+	.fold-rail {
+		position: absolute;
+		z-index: 0;
+		top: 66px;
+		left: calc(50% + 60px);
+		height: 1330px;
+		border-left: 1px dashed #b8203e;
+		transform: rotate(-11deg);
+		transform-origin: top;
+		pointer-events: none;
+		opacity: 0.75;
+	}
+
+	.report-note,
+	.start-here,
+	.guide-grid,
+	.before-you-go {
+		position: relative;
+		z-index: 1;
+		max-width: 1240px;
+		margin-inline: auto;
+	}
+
+	.report-note {
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 2rem;
+		border-bottom: 1px solid #171714;
+		font-size: 1.05rem;
+		line-height: 1.55;
+	}
+
+	.report-note :global(p) {
+		margin: 0;
+	}
+
+	.start-here {
+		display: grid;
+		grid-template-columns: 250px 1fr;
+		gap: 2rem;
+		padding: 3rem 2rem;
+		border-bottom: 4px solid #171714;
+	}
+
+	.section-label h2,
+	.ranking-head h2,
+	.before-you-go h2 {
+		margin: 0;
+		font-family: var(--font-heading);
+		font-size: clamp(2rem, 4vw, 4rem);
+		line-height: 1;
+		letter-spacing: -0.04em;
+	}
+
+	.start-here ol,
+	.ranking ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.start-here ol {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		border-top: 1px solid #171714;
+	}
+
+	.start-here li {
+		border-bottom: 1px solid #171714;
+	}
+
+	.start-here li:nth-child(odd) {
+		background: #f1e3c4;
+	}
+
+	.start-here a {
+		min-height: 92px;
+		display: grid;
+		grid-template-columns: 44px 1fr;
+		align-items: center;
+		gap: 0.8rem;
+		padding: 1rem;
+		color: #171714;
+		text-decoration: none;
+	}
+
+	.start-here a:hover {
+		background: #245a78;
+		color: #fffdf8;
+	}
+
+	.shortcut-rank {
+		font-family: var(--font-heading);
+		font-size: 1.45rem;
+		font-weight: 800;
+		color: #b8203e;
+	}
+
+	.start-here a:hover .shortcut-rank {
+		color: #fffdf8;
+	}
+
+	.start-here b,
+	.start-here small {
+		display: block;
+		font-family: var(--font-ui);
+	}
+
+	.start-here b {
+		font-size: 0.85rem;
+	}
+
+	.start-here small {
+		margin-top: 0.25rem;
+		font-size: 0.72rem;
+	}
+
+	.mobile-jump {
+		display: none;
+	}
+
+	.guide-grid {
+		display: grid;
+		grid-template-columns: 190px minmax(0, 1fr);
+		gap: 3rem;
+		padding: 4rem 2rem 0;
+	}
+
+	.area-rail {
+		align-self: start;
+		position: sticky;
+		top: 1rem;
+		padding-top: 0.4rem;
+		font-family: var(--font-ui);
+	}
+
+	.area-rail h2 {
+		margin: 0 0 1.4rem;
+		font-size: 0.82rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+
+	.area-group {
+		padding: 0.85rem 0;
+		border-top: 1px solid #171714;
+	}
+
+	.area-group h3,
+	.area-group p {
+		margin: 0;
+	}
+
+	.area-group h3 {
+		font-size: 0.82rem;
+	}
+
+	.area-group p {
+		margin-top: 0.35rem;
+		font-size: 0.78rem;
+		line-height: 1.65;
+	}
+
+	.area-group a {
+		color: #245a78;
+	}
+
+	.ranking-head {
+		padding-bottom: 2rem;
+		border-bottom: 4px solid #171714;
+	}
+
+	#start-here,
+	#areas,
+	#ranking,
+	.ranking-entry {
+		scroll-margin-top: 1rem;
+	}
+
+	.ranking-entry {
+		display: grid;
+		grid-template-columns: 90px minmax(0, 1fr) 230px;
+		gap: 1.5rem;
+		padding: 2.1rem 0;
+		border-bottom: 1px solid #171714;
+	}
+
+	.ranking-entry.featured {
+		padding: 3.1rem 0;
+	}
+
+	.rank-number {
+		font-family: var(--font-heading);
+		font-size: clamp(2.8rem, 5vw, 5rem);
+		font-weight: 800;
+		line-height: 0.85;
+		letter-spacing: -0.06em;
+		color: #b8203e;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.entry-main h3 {
+		margin: -0.18em 0 1rem;
+		font-family: var(--font-heading);
+		font-size: clamp(1.8rem, 3.3vw, 3.3rem);
+		line-height: 1;
+		letter-spacing: -0.045em;
+	}
+
+	.entry-prose {
+		max-width: 670px;
+		font-size: 1.08rem;
+		line-height: 1.58;
+	}
+
+	.entry-prose :global(p) {
+		margin: 0;
+	}
+
+	.entry-facts {
+		font-family: var(--font-ui);
+		font-size: 0.84rem;
+		line-height: 1.45;
+	}
+
+	.entry-facts p {
+		margin: 0 0 1rem;
+	}
+
+	.entry-facts span {
+		display: block;
+		margin-bottom: 0.22rem;
+		font-size: 0.68rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #b8203e;
+	}
+
+	.entry-facts a {
+		display: inline-block;
+		color: #245a78;
+		font-weight: 700;
+		text-underline-offset: 0.2em;
+	}
+
+	.entry-facts a span {
+		display: inline;
+		margin: 0 0 0 0.15rem;
+		font-size: inherit;
+		color: inherit;
+	}
+
+	.before-you-go {
+		margin-top: 5rem;
+		padding: 3rem 2rem 5rem calc(190px + 5rem);
+		border-top: 4px solid #171714;
+	}
+
+	.before-you-go :global(p) {
+		max-width: 720px;
+		margin: 1.25rem 0 0;
+		font-size: 1.05rem;
+		line-height: 1.55;
+	}
+
+	.article-footer {
+		max-width: 1240px;
+		margin: 0 auto;
+		padding: 2rem;
+		border-top: 1px solid #171714;
+		font-family: var(--font-ui);
+	}
+
+	.article-footer a {
+		color: #245a78;
+		font-weight: 700;
+	}
+
+	@media (max-width: 960px) {
+		.hero {
+			min-height: 0;
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		.hero-copy,
+		.hero-art {
+			min-width: 0;
+		}
+
+		.hero-copy {
+			padding-bottom: 2rem;
+		}
+
+		.hero-art {
+			clip-path: polygon(0 13%, 100% 0, 100% 100%, 0 100%);
+			padding: 5rem 1.5rem 1rem;
+		}
+
+		.hero-art svg {
+			max-height: 520px;
+		}
+
+		.fold-rail {
+			display: none;
+		}
+
+		.start-here {
+			grid-template-columns: 1fr;
+		}
+
+		.guide-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.area-rail {
+			position: static;
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 0 1rem;
+		}
+
+		.area-rail h2 {
+			grid-column: 1 / -1;
+		}
+
+		.before-you-go {
+			padding-left: 2rem;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.site-strap {
+			padding: 1rem;
+			font-size: 0.7rem;
+		}
+
+		.hero-copy {
+			padding: 2.5rem 1rem 1.5rem;
+		}
+
+		h1 {
+			font-size: clamp(3.3rem, 16vw, 5rem);
+		}
+
+		.dek {
+			font-size: 1.05rem;
+		}
+
+		.hero-art {
+			padding-top: 3.5rem;
+		}
+
+		.labels {
+			display: none;
+		}
+
+		.report-note {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			padding: 1.5rem 1rem;
+			font-size: 1rem;
+		}
+
+		.start-here {
+			padding: 2.25rem 1rem;
+		}
+
+		.start-here ol {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.start-here a {
+			min-height: 88px;
+			grid-template-columns: 34px 1fr;
+			padding: 0.8rem;
+		}
+
+		.mobile-jump {
+			position: sticky;
+			z-index: 20;
+			top: 0;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			background: #245a78;
+			font-family: var(--font-ui);
+		}
+
+		.mobile-jump a {
+			min-height: 46px;
+			display: grid;
+			place-items: center;
+			color: #fffdf8;
+			font-size: 0.74rem;
+			font-weight: 700;
+			text-decoration: none;
+			border-right: 1px solid #fffdf8;
+		}
+
+		.mobile-jump a:last-child {
+			border-right: 0;
+		}
+
+		.guide-grid {
+			gap: 2rem;
+			padding: 2.5rem 1rem 0;
+		}
+
+		.area-rail {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.area-group a {
+			min-width: 44px;
+			min-height: 44px;
+			display: inline-grid;
+			place-items: center;
+		}
+
+		#start-here,
+		#areas,
+		#ranking,
+		.ranking-entry {
+			scroll-margin-top: 62px;
+		}
+
+		.ranking-entry,
+		.ranking-entry.featured {
+			grid-template-columns: 58px minmax(0, 1fr);
+			gap: 0.85rem;
+			padding: 2rem 0;
+		}
+
+		.rank-number {
+			font-size: 2.8rem;
+		}
+
+		.entry-main h3 {
+			font-size: clamp(1.75rem, 9vw, 2.6rem);
+		}
+
+		.entry-prose {
+			font-size: 1rem;
+		}
+
+		.entry-facts {
+			grid-column: 2;
+			padding-top: 1rem;
+			border-top: 1px solid #d8bd84;
+		}
+
+		.before-you-go {
+			margin-top: 3rem;
+			padding: 2.5rem 1rem 4rem;
+		}
+	}
+
+	@media (max-width: 390px) {
+		.start-here ol,
+		.area-rail {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) {
+			scroll-behavior: auto;
+		}
+	}
+
+	@media print {
+		.site-strap,
+		.mobile-jump,
+		.area-rail,
+		.article-footer,
+		.fold-rail {
+			display: none;
+		}
+
+		.hero {
+			min-height: 0;
+			grid-template-columns: 1fr 0.6fr;
+		}
+
+		.guide-grid {
+			display: block;
+			padding: 1rem 0;
+		}
+
+		.ranking-entry,
+		.ranking-entry.featured {
+			break-inside: avoid;
+			padding: 1rem 0;
+		}
+	}
+</style>
