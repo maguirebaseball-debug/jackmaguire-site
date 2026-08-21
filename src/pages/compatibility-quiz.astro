@@ -24,23 +24,36 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			<section class="quiz-shell" aria-labelledby="quiz-title">
 				<div class="section-heading">
 					<h2 id="quiz-title">Choose the answer that feels most like you.</h2>
-					<p>Most options describe a healthy relationship. Choose what you would actually enjoy, not what sounds most admirable.</p>
+					<p>Most options describe a healthy relationship. Rank what you would actually enjoy, from most like you to least like you.</p>
+					<div class="quiz-expectation"><span><strong>Rank 1–4</strong> in every question.</span><span>You can move back and change any answer.</span></div>
 				</div>
 				<form id="compatibility-form">
+					<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden />
+					<div class="quiz-progress" aria-live="polite">
+						<div><strong id="quiz-progress-label">Questions 1–4 of 16</strong><span id="quiz-progress-mode">Desktop view</span></div>
+						<div class="quiz-progress-track" aria-hidden="true"><span id="quiz-progress-fill"></span></div>
+					</div>
 					<div id="question-list"></div>
+					<div class="quiz-navigation">
+						<button class="secondary-button" id="quiz-back" type="button" disabled>Back</button>
+						<button class="secondary-button" id="quiz-next" type="button">Next questions <span aria-hidden="true">→</span></button>
+					</div>
 					<button class="submit-button" type="submit">Show my compatibility report <span aria-hidden="true">→</span></button>
 				</form>
-				<p class="form-note">Your answers stay in this browser. They are used to make the report below and are not sent anywhere.</p>
+				<p class="form-note">Rank all four options in every question. No email is required. On submission, your answers are sent anonymously to Jack's Web3Forms inbox so he can review the quiz data.</p>
+				<p id="submission-status" class="form-note" role="status" aria-live="polite"></p>
 			</section>
 
 			<section id="report" class="report-section" hidden aria-live="polite"></section>
 
-			<section class="wiki-section" id="matchmaker-wiki">
+			<section class="wiki-section" id="matchmaker-wiki" hidden aria-hidden="true">
 				<div class="section-heading">
 					<h2>What Jack is looking for</h2>
 					<p>These notes describe the difference between a person who looks good on paper and a person Jack wants to keep seeing.</p>
 				</div>
 
+				<details class="wiki-disclosure">
+					<summary>Read the full matchmaker wiki <span aria-hidden="true">→</span></summary>
 				<div class="wiki-grid">
 					<article class="wiki-card wide"><h3>Core match profile</h3><p>A strong match will usually have most of these qualities:</p><ol><li><strong>Sharp, warm humor.</strong> She can tease and be teased, handle irreverent or slightly dark jokes, make callbacks, and give as good as she gets.</li><li><strong>Direct communication.</strong> She says uncomfortable things plainly and can say “you’re being mean right now” without cruelty.</li><li><strong>Emotional strength with softness.</strong> She has boundaries without becoming cold and can be tender without collapsing.</li><li><strong>Attention to detail.</strong> She remembers specific moments, preferences, sounds, routines, and phrases. Generic attentiveness is not enough.</li><li><strong>A different point of view.</strong> Her background, discipline, culture, or life path expands Jack’s default frame and gives the relationship its own references.</li><li><strong>Not easily impressed.</strong> She is not awed by ambition, competence, money, intelligence, or dominance. She can lovingly roll her eyes.</li><li><strong>Warm ties to family or chosen family.</strong> She has close relationships and makes integration feel normal.</li><li><strong>Good ordinary life.</strong> A couch evening, simple meal, walk, or shared routine feels good.</li><li><strong>Accountability with context.</strong> She can see anxiety underneath sharp or controlling stress behavior while still naming the behavior clearly.</li><li><strong>Intellectual range.</strong> She wants to talk about ideas, from psychology and cities to economics, technology, culture, philosophy, media, or whatever is interesting that day.</li></ol></article>
 					<article class="wiki-card"><h3>Current non-negotiables</h3><ul><li>Sweet to Jack</li><li>Really sharp</li><li>Close with friends and/or family</li><li>Comfortable taking things slowly</li><li>Able to genuinely enjoy relaxing</li><li>Sincerely curious about Jack and his life</li><li>Direct enough to reduce ambiguity</li><li>Emotionally brave in hard conversations</li><li>Capable of playful banter</li><li>Someone Jack is excited to see again</li></ul><p class="small-note">There is no height requirement. The quiz asks separately whether someone is comfortable dating a guy under 5'5", because attraction and practical fit still deserve an honest answer.</p></article>
@@ -55,59 +68,219 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 					<article class="wiki-card"><h3>Green flags</h3><ul><li>Warm teasing early</li><li>Pushback without coldness</li><li>Specific questions and remembered details</li><li>A real world of her own</li><li>Loyalty and integrity</li><li>Ideas, affection, and clear boundaries</li><li>Slow development without avoidance</li><li>Feeling challenged and cared for</li><li>Excitement that feels calm and joyful</li></ul></article>
 					<article class="wiki-card wide final-rule"><h3>Final match decision</h3><p>A match is viable only when all four conditions are present:</p><div class="four-rules"><strong>1. Real attraction</strong><strong>2. Reciprocal humor</strong><strong>3. Clear communication</strong><strong>4. Good ordinary life</strong></div><p>If one is missing, proceed cautiously. If two or more are missing, do not advance the match.</p></article>
 				</div>
+				</details>
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
 
+
 <script>
-	type Question = { id: string; category: string; text: string; options: string[]; scores: number[] };
+	type Option = { id: string; label: string };
+	type Question = { id: string; category: string; text: string; options: Option[] };
 	const questions: Question[] = [
-		{ id: 'banter', category: 'Banter', text: 'A person you are dating teases you about one of your habits. Which response sounds most natural?', options: ['Smile and explain the habit. I prefer jokes that do not put either person on the spot.', 'Tease them back and bring the joke up again later.', 'Laugh and move on. I enjoy warmth more than verbal sparring.', 'Say whether it landed, then keep the mood easy.'], scores: [2, 4, 2, 2] },
-		{ id: 'conflict', category: 'Clarity', text: 'You leave a date unsure whether one comment bothered you. What would you usually do next?', options: ['Sleep on it and mention it only if it still matters the next day.', 'Talk it through with a friend before deciding whether to raise it.', 'See whether the same thing happens again before treating it as a problem.', 'Tell the person which comment stayed with you and ask what they meant.'], scores: [2, 2, 2, 4] },
-		{ id: 'quiet', category: 'Ordinary life', text: 'You and your partner have a free Saturday with no plans. Which day sounds best?', options: ['Walk around the neighborhood, buy something for dinner, and spend the rest of the day at home.', 'Handle separate errands or projects, then meet for dinner.', 'Find a concert, exhibit, or neighborhood event that neither of you has tried.', 'Pick a useful project and work on it together.'], scores: [4, 2, 2, 2] },
-		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about work or an interest you know little about. How do you tend to respond?', options: ['Ask practical questions until you understand what their day is like.', 'Share a similar experience so the conversation has common ground.', 'Pick one detail that interests you and keep asking about it.', 'Listen closely and let them decide how much they want to explain.'], scores: [2, 2, 4, 2] },
-		{ id: 'detail', category: 'Attention', text: 'Which gesture makes you feel most cared for?', options: ['Taking an annoying task off my plate when I am busy.', 'Planning a surprise that took real effort.', 'Saying plainly what they appreciate about me.', 'Remembering an offhand preference and using it weeks later.'], scores: [2, 2, 2, 4] },
-		{ id: 'pace', category: 'Pacing', text: 'The first month is going well. What amount of contact would you prefer?', options: ['Text throughout the day and spend most free evenings together.', 'Make clear plans and show affection while both people keep their normal routines.', 'Go on a few dates each week but keep texting fairly light.', 'Spend a lot of time together early, then adjust if either person needs more room.'], scores: [2, 4, 2, 2] },
-		{ id: 'independence', category: 'Independence', text: 'When a relationship becomes serious, what should remain separate?', options: ['Friendships should remain separate, while most other parts of life combine.', 'Each person should keep some hobbies and time alone.', 'Both people should keep a full life and deliberately set aside regular time together.', 'Most free time should become shared, with either person able to ask for space.'], scores: [2, 2, 4, 2] },
-		{ id: 'ideas', category: 'Depth', text: 'Which long conversation would you most want to have with a partner?', options: ['An argument about why people, cities, technology, or culture work the way they do.', 'A conversation about personal history and how it shaped both of you.', 'A practical conversation about the life you want to build.', 'A night of funny stories, gossip, and cultural references.'], scores: [4, 2, 2, 2] },
-		{ id: 'family', category: 'Community', text: 'How involved should a partner become with your friends or family?', options: ['The relationships can stay mostly separate as long as everyone is respectful.', 'A partner should gradually become a real part of that world.', 'The couple should build a new shared social circle while each person keeps older ties.', 'It should depend on the people involved rather than follow a fixed expectation.'], scores: [2, 4, 2, 2] },
-		{ id: 'effort', category: 'Reciprocity', text: 'One person plans a thoughtful date. What should the balance look like over time?', options: ['The person who enjoys planning can keep doing it, while the other shows clear appreciation.', 'The couple should alternate turns so the work stays even.', 'The other person should notice what made it thoughtful and plan something equally specific next.', 'Plans should stay mostly spontaneous, with both people deciding in the moment.'], scores: [2, 2, 4, 2] },
-		{ id: 'accountability', category: 'Emotional strength', text: 'During a stressful night, your partner says your tone has become sharp. What response feels most like you?', options: ['Ask what landed badly, own the tone, and explain the stress after that.', 'Take a break and return to the conversation later that evening.', 'Apologize and repair the mood, then discuss the cause another time.', 'Explain the pressure and agree on a phrase either person can use before the tone gets worse.'], scores: [4, 2, 2, 2] },
-		{ id: 'stimulation', category: 'Ordinary life', text: 'Which kind of shared week sounds best?', options: ['Two busy independent lives with one date both people look forward to.', 'Several social plans and at least one new place to try.', 'Time spent working toward a shared goal or project.', 'A few routine nights together, a walk or meal, and one planned outing.'], scores: [2, 2, 2, 4] },
-		{ id: 'unimpressed', category: 'Independence', text: 'You are dating someone unusually accomplished. How would you show interest?', options: ['Ask about the work and celebrate the wins with them.', 'Let them lead when the subject is in their area of expertise.', 'Stay curious, disagree when you do, and tease them as freely as anyone else.', 'Focus mostly on the parts of their life that have nothing to do with achievement.'], scores: [2, 2, 4, 2] },
-		{ id: 'height', category: 'Practical fit', text: 'How would you feel about dating a guy who is under 5\'5\"?', options: ['I usually prefer taller men, but chemistry could outweigh that preference.', 'Height has very little effect on whether I find someone attractive.', 'I could date him, though the height difference might stay on my mind.', 'I know I would not be attracted, so I would rather be honest about it.'], scores: [2, 4, 2, 0] },
-		{ id: 'pull', category: 'Attraction', text: 'After a first date, what is the strongest reason to say yes to a second?', options: ['Our values and the direction of our lives seem compatible.', 'The conversation was easy and I noticed no serious concerns.', 'They were thoughtful, kind, and clearly interested.', 'I found myself wanting more time with them and more physical closeness.'], scores: [2, 2, 2, 4] },
-		{ id: 'desire', category: 'Attraction', text: 'Three months into a relationship, which sign would matter most to you?', options: ['An ordinary evening together is something I want to repeat.', 'We can disagree without either person becoming cruel or shutting down.', 'We support each other’s goals and can make plans for the future.', 'Our friends and routines fit together without much friction.'], scores: [4, 2, 2, 2] },
+		{ id: 'banter', category: 'Banter', text: 'A person you are dating teases you about one of your habits. Rank the responses from most natural to least natural for you.', options: [{ id: 'tease_back', label: 'Tease them back and bring the joke up again later.' }, { id: 'name_landing', label: 'Say whether it landed, then keep the mood easy.' }, { id: 'explain_habit', label: 'Smile and explain the habit. I prefer jokes that do not put either person on the spot.' }, { id: 'laugh_move_on', label: 'Laugh and move on. I enjoy warmth more than verbal sparring.' }] },
+		{ id: 'conflict', category: 'Clarity', text: 'You leave a date unsure whether one comment bothered you. Rank what you would be most likely to do next.', options: [{ id: 'ask_directly', label: 'Tell the person which comment stayed with you and ask what they meant.' }, { id: 'sleep_on_it', label: 'Sleep on it and mention it only if it still matters the next day.' }, { id: 'talk_friend', label: 'Talk it through with a friend before deciding whether to raise it.' }, { id: 'wait_pattern', label: 'See whether the same thing happens again before treating it as a problem.' }] },
+		{ id: 'quiet', category: 'Ordinary life', text: 'You and your partner have a free Saturday with no plans. Rank the days from most appealing to least appealing.', options: [{ id: 'walk_home', label: 'Walk around the neighborhood, buy something for dinner, and spend the rest of the day at home.' }, { id: 'separate_errands', label: 'Handle separate errands or projects, then meet for dinner.' }, { id: 'new_event', label: 'Find a concert, exhibit, or neighborhood event that neither of you has tried.' }, { id: 'shared_project', label: 'Pick a useful project and work on it together.' }] },
+		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about work or an interest you know little about. Rank the responses from most like you to least like you.', options: [{ id: 'specific_detail', label: 'Pick one detail that interests you and keep asking about it.' }, { id: 'practical_questions', label: 'Ask practical questions until you understand what their day is like.' }, { id: 'common_ground', label: 'Share a similar experience so the conversation has common ground.' }, { id: 'let_them_lead', label: 'Listen closely and let them decide how much they want to explain.' }] },
+		{ id: 'detail', category: 'Attention', text: 'Which gesture makes you feel most cared for? Rank these from most meaningful to least meaningful.', options: [{ id: 'remember_preference', label: 'Remembering an offhand preference and using it weeks later.' }, { id: 'remove_task', label: 'Taking an annoying task off my plate when I am busy.' }, { id: 'plain_appreciation', label: 'Saying plainly what they appreciate about me.' }, { id: 'effortful_surprise', label: 'Planning a surprise that took real effort.' }] },
+		{ id: 'pace', category: 'Pacing', text: 'The first month is going well. Rank these contact patterns from most comfortable to least comfortable.', options: [{ id: 'clear_routines', label: 'Make clear plans and show affection while both people keep their normal routines.' }, { id: 'light_texting', label: 'Go on a few dates each week but keep texting fairly light.' }, { id: 'early_intensity', label: 'Spend a lot of time together early, then adjust if either person needs more room.' }, { id: 'constant_contact', label: 'Text throughout the day and spend most free evenings together.' }] },
+		{ id: 'independence', category: 'Independence', text: 'When a relationship becomes serious, rank the ways of preserving independence from most appealing to least appealing.', options: [{ id: 'full_lives_time', label: 'Both people should keep a full life and deliberately set aside regular time together.' }, { id: 'some_hobbies', label: 'Each person should keep some hobbies and time alone.' }, { id: 'separate_friends', label: 'Friendships should remain separate, while most other parts of life combine.' }, { id: 'mostly_shared', label: 'Most free time should become shared, with either person able to ask for space.' }] },
+		{ id: 'ideas', category: 'Depth', text: 'Which long conversation would you most want to have with a partner? Rank these from most appealing to least appealing.', options: [{ id: 'ideas_argument', label: 'An argument about why people, cities, technology, or culture work the way they do.' }, { id: 'funny_references', label: 'A night of funny stories, gossip, and cultural references.' }, { id: 'personal_history', label: 'A conversation about personal history and how it shaped both of you.' }, { id: 'life_plan', label: 'A practical conversation about the life you want to build.' }] },
+		{ id: 'family', category: 'Community', text: 'How involved should a partner become with your friends or family? Rank these from most appealing to least appealing.', options: [{ id: 'gradual_integration', label: 'A partner should gradually become a real part of that world.' }, { id: 'depends_people', label: 'It should depend on the people involved rather than follow a fixed expectation.' }, { id: 'shared_circle', label: 'The couple should build a new shared social circle while each person keeps older ties.' }, { id: 'mostly_separate', label: 'The relationships can stay mostly separate as long as everyone is respectful.' }] },
+		{ id: 'effort', category: 'Reciprocity', text: 'One person plans a thoughtful date. Rank the forms of balance from most desirable to least desirable over time.', options: [{ id: 'specific_return', label: 'The other person should notice what made it thoughtful and plan something equally specific next.' }, { id: 'alternate_turns', label: 'The couple should alternate turns so the work stays even.' }, { id: 'planner_leads', label: 'The person who enjoys planning can keep doing it, while the other shows clear appreciation.' }, { id: 'stay_spontaneous', label: 'Plans should stay mostly spontaneous, with both people deciding in the moment.' }] },
+		{ id: 'accountability', category: 'Emotional strength', text: 'During a stressful night, your partner says your tone has become sharp. Rank the responses from most like you to least like you.', options: [{ id: 'own_explain', label: 'Ask what landed badly, own the tone, and explain the stress after that.' }, { id: 'repair_now', label: 'Apologize and repair the mood, then discuss the cause another time.' }, { id: 'shared_signal', label: 'Explain the pressure and agree on a phrase either person can use before the tone gets worse.' }, { id: 'take_break', label: 'Take a break and return to the conversation later that evening.' }] },
+		{ id: 'stimulation', category: 'Ordinary life', text: 'Which kind of shared week sounds best? Rank these from most appealing to least appealing.', options: [{ id: 'routine_outing', label: 'A few routine nights together, a walk or meal, and one planned outing.' }, { id: 'independent_date', label: 'Two busy independent lives with one date both people look forward to.' }, { id: 'shared_goal', label: 'Time spent working toward a shared goal or project.' }, { id: 'many_new_plans', label: 'Several social plans and at least one new place to try.' }] },
+		{ id: 'unimpressed', category: 'Independence', text: 'You are dating someone unusually accomplished. Rank the ways of showing interest from most natural to least natural.', options: [{ id: 'disagree_tease', label: 'Stay curious, disagree when you do, and tease them as freely as anyone else.' }, { id: 'life_beyond_work', label: 'Focus mostly on the parts of their life that have nothing to do with achievement.' }, { id: 'ask_work', label: 'Ask about the work and celebrate the wins with them.' }, { id: 'let_lead', label: 'Let them lead when the subject is in their area of expertise.' }] },
+		{ id: 'height', category: 'Practical fit', text: 'How would you feel about dating a guy who is under 5\'5"? Rank these responses from most honest for you to least honest for you.', options: [{ id: 'height_neutral', label: 'Height has very little effect on whether I find someone attractive.' }, { id: 'chemistry_overweighs', label: 'I usually prefer taller men, but chemistry could outweigh that preference.' }, { id: 'height_on_mind', label: 'I could date him, though the height difference might stay on my mind.' }, { id: 'not_attracted', label: 'I know I would not be attracted, so I would rather be honest about it.' }] },
+		{ id: 'pull', category: 'Attraction', text: 'After a first date, rank the strongest reasons to say yes to a second.', options: [{ id: 'want_more', label: 'I found myself wanting more time with them and more physical closeness.' }, { id: 'kind_interest', label: 'They were thoughtful, kind, and clearly interested.' }, { id: 'easy_conversation', label: 'The conversation was easy and I noticed no serious concerns.' }, { id: 'life_values', label: 'Our values and the direction of our lives seem compatible.' }] },
+		{ id: 'desire', category: 'Attraction', text: 'Three months into a relationship, rank the signs that would matter most to you.', options: [{ id: 'repeat_evening', label: 'An ordinary evening together is something I want to repeat.' }, { id: 'disagree_well', label: 'We can disagree without either person becoming cruel or shutting down.' }, { id: 'friends_routines', label: 'Our friends and routines fit together without much friction.' }, { id: 'future_plans', label: 'We support each other\'s goals and can make plans for the future.' }] },
 	];
 
 	const list = document.querySelector('#question-list');
 	const form = document.querySelector('#compatibility-form') as HTMLFormElement;
 	const report = document.querySelector('#report') as HTMLElement;
-	if (list) {
-		list.innerHTML = questions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="answer-grid">${q.options.map((option, optionIndex) => `<label><input type="radio" name="${q.id}" value="${optionIndex}" required><span class="answer-option"><span class="answer-control" aria-hidden="true"></span><span class="answer-copy">${option}</span></span></label>`).join('')}</div></fieldset>`).join('');
+	const wiki = document.querySelector('#matchmaker-wiki') as HTMLElement;
+	const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+	const backButton = document.querySelector('#quiz-back') as HTMLButtonElement;
+	const nextButton = document.querySelector('#quiz-next') as HTMLButtonElement;
+	const progressLabel = document.querySelector('#quiz-progress-label') as HTMLElement;
+	const progressMode = document.querySelector('#quiz-progress-mode') as HTMLElement;
+	const progressFill = document.querySelector('#quiz-progress-fill') as HTMLElement;
+	const submissionStatus = document.querySelector('#submission-status') as HTMLElement;
+	const track = (name: string, params: Record<string, string | number> = {}) => {
+		const analyticsWindow = window as Window & { gtag?: (command: string, eventName: string, eventParams?: Record<string, string | number>) => void };
+		analyticsWindow.gtag?.('event', name, params);
+	};
+	track('compatibility_quiz_view', { quiz_version: 'ranked-v1' });
+	const WEB3FORMS_ACCESS_KEY = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
+	const QUIZ_VERSION = 'ranked-v1';
+	const questionWeights: Record<string, number> = { banter: 1.5, conflict: 1.5, quiet: 1.25, curiosity: 1.25, detail: 1, pace: 1.25, independence: 1, ideas: .75, family: .75, effort: 1, accountability: 1.5, stimulation: 1.25, unimpressed: .75, height: .5, pull: 1.5, desire: 1.5 };
+	const coreQuestions = new Set(['banter', 'conflict', 'quiet', 'accountability', 'pull']);
+	const optionHash = (value: string) => [...value].reduce((hash, character) => ((hash << 5) - hash + character.charCodeAt(0)) | 0, 0);
+	const displayOptions = (question: Question) => [...question.options].sort((a, b) => optionHash(`${question.id}:${a.id}`) - optionHash(`${question.id}:${b.id}`));
+	const calculateResult = (data: FormData) => {
+		const questionScores = questions.map((question) => {
+			const idealRanks = new Map(question.options.map((option, index) => [option.id, index + 1]));
+			const ranks = question.options.map((option) => Number(data.get(`${question.id}__${option.id}`)));
+			const distance = question.options.reduce((sum, option) => sum + Math.abs(Number(data.get(`${question.id}__${option.id}`)) - (idealRanks.get(option.id) ?? 1)), 0);
+			const score = Math.round(100 * (1 - distance / 8));
+			return { question, score, ranks, weight: questionWeights[question.id] ?? 1 };
+		});
+		const weightedTotal = questionScores.reduce((sum, item) => sum + item.score * item.weight, 0);
+		const totalWeight = questionScores.reduce((sum, item) => sum + item.weight, 0);
+		const percent = Math.round(weightedTotal / totalWeight);
+		const categoryScores = questionScores.reduce((categories, item) => {
+			const current = categories[item.question.category] ?? { total: 0, weight: 0 };
+			current.total += item.score * item.weight;
+			current.weight += item.weight;
+			categories[item.question.category] = current;
+			return categories;
+		}, {} as Record<string, { total: number; weight: number }>);
+		const categoryValues = Object.entries(categoryScores).map(([category, value]) => ({ category, score: Math.round(value.total / value.weight) })).sort((a, b) => b.score - a.score);
+		const coreFloor = Math.min(...questionScores.filter((item) => coreQuestions.has(item.question.id)).map((item) => item.score));
+		const heightRank = Number(data.get('height__not_attracted'));
+		const cappedPercent = coreFloor < 50 ? Math.min(percent, 54) : heightRank === 1 ? Math.min(percent, 54) : heightRank === 2 ? Math.min(percent, 69) : percent;
+		const verdict = cappedPercent >= 85 ? ['Strong possibility', 'Your ranked preferences line up closely with Jack\'s across the core parts of a relationship. A date would still need to answer the attraction and chemistry questions the quiz cannot settle.'] : cappedPercent >= 70 ? ['Worth a real date', 'You share the same relationship style with Jack in several important areas, with some differences worth noticing in person.'] : cappedPercent >= 55 ? ['Mixed fit', 'Your answers describe a healthy relationship, but several of your preferences differ from Jack\'s. A strong in-person connection would have to do more of the work.'] : ['Probably not a match', 'Your ranked preferences describe a relationship style that differs substantially from what Jack is looking for. The score is about fit with one person, not relationship quality.'];
+		return { questionScores, categoryValues, percent: cappedPercent, rawPercent: percent, coreFloor, heightRank, verdict };
+	};
+	if (list && form) {
+		list.innerHTML = questions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('');
+		form.noValidate = true;
+		const cards = Array.from(list.querySelectorAll<HTMLElement>('.question-card'));
+		let currentStep = 0;
+		let pageSize = window.matchMedia('(max-width: 700px)').matches ? 1 : 4;
+		const getPageSize = () => window.matchMedia('(max-width: 700px)').matches ? 1 : 4;
+		const renderStep = () => {
+			const totalSteps = Math.ceil(cards.length / pageSize);
+			currentStep = Math.min(currentStep, totalSteps - 1);
+			const start = currentStep * pageSize;
+			const end = Math.min(start + pageSize, cards.length);
+			cards.forEach((card, index) => {
+				const visible = index >= start && index < end;
+				card.hidden = !visible;
+				card.setAttribute('aria-hidden', String(!visible));
+			});
+			if (progressLabel) progressLabel.textContent = `Questions ${start + 1}–${end} of ${cards.length}`;
+			if (progressMode) progressMode.textContent = pageSize === 1 ? 'One question at a time' : 'Four questions at a time';
+			if (progressFill) progressFill.style.width = `${(end / cards.length) * 100}%`;
+			if (backButton) backButton.disabled = currentStep === 0;
+			if (nextButton) nextButton.hidden = currentStep === totalSteps - 1;
+			if (submitButton) submitButton.hidden = currentStep !== totalSteps - 1;
+		};
+		backButton?.addEventListener('click', () => { currentStep -= 1; renderStep(); });
+		window.addEventListener('resize', () => {
+			const nextPageSize = getPageSize();
+			if (nextPageSize !== pageSize) {
+				currentStep = Math.floor((currentStep * pageSize) / nextPageSize);
+				pageSize = nextPageSize;
+			}
+			renderStep();
+		});
+		renderStep();
+		const syncRankChoices = (questionId: string) => {
+			const selects = Array.from(form.querySelectorAll<HTMLSelectElement>(`select[name^="${questionId}__"]`));
+			const used = new Set(selects.map((select) => select.value).filter(Boolean));
+			selects.forEach((select) => Array.from(select.options).forEach((option) => {
+				option.disabled = option.value !== '' && option.value !== select.value && used.has(option.value);
+			}));
+		};
+		const updateQuestionStatus = (questionId: string) => {
+			const selects = Array.from(form.querySelectorAll<HTMLSelectElement>(`select[name^="${questionId}__"]`));
+			const ranked = selects.filter((select) => select.value).length;
+			const status = list.querySelector<HTMLElement>(`[data-question-status="${questionId}"]`);
+			if (status) status.textContent = ranked === 4 ? 'Complete' : `${ranked} of 4 ranked`;
+		};
+		const pageIsComplete = () => {
+			const pageSize = getPageSize();
+			const start = currentStep * pageSize;
+			return questions.slice(start, start + pageSize).every((question) => {
+				const values = question.options.map((option) => form.elements.namedItem(`${question.id}__${option.id}`) as HTMLSelectElement).map((select) => select?.value).filter(Boolean);
+				return values.length === 4 && new Set(values).size === 4;
+			});
+		};
+		const showPageError = () => {
+			if (submissionStatus) submissionStatus.textContent = 'Rank all four options before moving on.';
+			const firstIncomplete = cards[currentStep * pageSize]?.querySelector<HTMLSelectElement>('select:not(:valid)') ?? cards[currentStep * pageSize]?.querySelector<HTMLSelectElement>('select');
+			firstIncomplete?.focus();
+		};
+		questions.forEach((q) => form.querySelectorAll<HTMLSelectElement>(`select[name^="${q.id}__"]`).forEach((select) => select.addEventListener('change', () => { syncRankChoices(q.id); updateQuestionStatus(q.id); })));
+		nextButton?.addEventListener('click', () => { if (!pageIsComplete()) { showPageError(); return; } currentStep += 1; renderStep(); });
+		questions.forEach((q) => updateQuestionStatus(q.id));
 	}
 
 	form?.addEventListener('submit', (event) => {
 		event.preventDefault();
+		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION });
 		const data = new FormData(form);
-		const scores = questions.map((q) => q.scores[Number(data.get(q.id))]);
-		const total = scores.reduce((sum, score) => sum + score, 0);
-		const percent = Math.round((total / (questions.length * 4)) * 100);
-		const categoryScores = questions.reduce((acc, q, index) => {
-			acc[q.category] ??= [];
-			acc[q.category].push(scores[index]);
-			return acc;
-		}, {} as Record<string, number[]>);
-		const categoryMarkup = Object.entries(categoryScores).map(([category, values]) => {
-			const value = Math.round((values.reduce((a, b) => a + b, 0) / (values.length * 4)) * 100);
-			return `<div class="result-row"><span>${category}</span><div class="bar"><i style="width:${value}%"></i></div><strong>${value}%</strong></div>`;
-		}).join('');
-		const verdict = percent >= 82 ? ['Strong possibility', 'Your preferences match Jack’s on most of the situations in this quiz. A date would still need to answer two questions the quiz cannot: do you enjoy each other’s humor, and is there mutual attraction?'] : percent >= 69 ? ['Worth a real date', 'You prefer the same relationship style as Jack in several areas, with some differences in how you would spend time or handle closeness.'] : percent >= 56 ? ['Mixed fit', 'Your answers describe a healthy relationship, but several of your preferences differ from Jack’s. A strong in-person connection would have to do more of the work.'] : ['Probably not a match', 'Your answers describe a reasonable way to date, but it is different from the relationship Jack wants. The score is about fit with one person, not relationship quality.'];
-		report.hidden = false;
-		report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${verdict[0]}</h2><p>${verdict[1]}</p></div><div class="score-number"><strong>${percent}</strong><span>Jack fit score</span></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>Jack also needs mutual attraction, reciprocal humor, clear communication, and ordinary time that both people enjoy. A quiz can test stated preferences. It cannot tell whether two people want another date.</p></div><a class="report-link" href="#matchmaker-wiki">Read the full matchmaker wiki <span aria-hidden="true">↓</span></a></div>`;
-		report.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		const hasInvalidRanking = questions.some((question) => {
+			const ranks = question.options.map((option) => data.get(`${question.id}__${option.id}`)).filter(Boolean);
+			return ranks.length !== 4 || new Set(ranks).size !== 4;
+		});
+		if (hasInvalidRanking) {
+			track('compatibility_quiz_invalid_ranking', { quiz_version: QUIZ_VERSION });
+			if (submissionStatus) submissionStatus.textContent = 'Use each rank exactly once in every question.';
+			(form.querySelector<HTMLSelectElement>('select:not(:valid)') ?? form.querySelector<HTMLSelectElement>('select'))?.focus();
+			return;
+		}
+		const result = calculateResult(data);
+		const categoryMarkup = result.categoryValues.map(({ category, score }) => `<div class="result-row"><span>${category}</span><div class="bar"><i style="width:${score}%"></i></div><strong>${score}%</strong></div>`).join('');
+		const strongest = result.categoryValues[0];
+		const biggestGap = result.categoryValues[result.categoryValues.length - 1];
+		const payload = new FormData(form);
+		payload.append('access_key', WEB3FORMS_ACCESS_KEY);
+		payload.append('subject', 'Compatibility quiz submission');
+		payload.append('from_name', 'jackmaguire.org compatibility quiz');
+		payload.append('quiz_name', 'jack_compatibility');
+		payload.append('quiz_version', QUIZ_VERSION);
+		payload.append('submitted_at', new Date().toISOString());
+		payload.append('page_url', window.location.href);
+		payload.append('referrer', document.referrer);
+		payload.append('overall_score', String(result.percent));
+		payload.append('raw_score_before_caps', String(result.rawPercent));
+		payload.append('verdict', result.verdict[0]);
+		payload.append('core_floor', String(result.coreFloor));
+		payload.append('height_rank', String(result.heightRank));
+		payload.append('category_scores', JSON.stringify(Object.fromEntries(result.categoryValues.map(({ category, score }) => [category, score]))));
+		const params = new URLSearchParams(window.location.search);
+		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => payload.append(name, params.get(name) ?? ''));
+		if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Recording...'; }
+		if (submissionStatus) submissionStatus.textContent = '';
+		fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: payload })
+			.then(async (response) => {
+				const resultBody = await response.json().catch(() => ({})) as { success?: boolean };
+				if (!response.ok || resultBody.success !== true) throw new Error('Submission failed');
+				track('compatibility_quiz_web3forms_success', { quiz_version: QUIZ_VERSION });
+				if (submissionStatus) submissionStatus.textContent = 'Your answers were recorded. Your report is below.';
+			})
+			.catch(() => {
+				track('compatibility_quiz_web3forms_failure', { quiz_version: QUIZ_VERSION });
+				if (submissionStatus) submissionStatus.textContent = 'The report is ready, but the answers could not be recorded. Please try submitting once more.';
+			})
+			.finally(() => {
+				report.hidden = false;
+				report.tabIndex = -1;
+				report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${result.verdict[0]}</h2><p>${result.verdict[1]}</p></div><div class="score-number"><strong>${result.percent}</strong><span>Jack fit score</span></div></div><div class="result-insights"><div><span>Strongest alignment</span><strong>${strongest.category}</strong><b>${strongest.score}%</b></div><div><span>Biggest difference</span><strong>${biggestGap.category}</strong><b>${biggestGap.score}%</b></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>Jack also needs mutual attraction, reciprocal humor, clear communication, and ordinary time that both people enjoy. A quiz can test ranked preferences. It cannot tell whether two people want another date.</p></div><div class="report-actions"><button class="share-button" id="share-result" type="button">Share this result</button><span id="share-status" role="status" aria-live="polite"></span></div><a class="report-link" href="#matchmaker-wiki">Open the matchmaker wiki <span aria-hidden="true">&darr;</span></a></div>`;
+				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, score: result.percent });
+				wiki.hidden = false;
+				wiki.removeAttribute('aria-hidden');
+				report.focus({ preventScroll: true });
+				document.querySelector<HTMLButtonElement>('#share-result')?.addEventListener('click', async () => {
+					const shareText = `I got ${result.percent}% on the Jack Maguire compatibility quiz: ${result.verdict[0]}.`;
+					const shareUrl = `${window.location.href.split('#')[0]}#compatibility-result`;
+					const shareStatus = document.querySelector<HTMLElement>('#share-status');
+					try {
+						if (navigator.share) await navigator.share({ title: 'My Jack Maguire compatibility result', text: shareText, url: shareUrl });
+						else await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
+						track('compatibility_quiz_share', { quiz_version: QUIZ_VERSION, score: result.percent });
+						if (shareStatus) shareStatus.textContent = navigator.share ? 'Share sheet opened.' : 'Result copied to your clipboard.';
+					} catch { if (shareStatus) shareStatus.textContent = 'Sharing was cancelled.'; }
+				});
+				document.querySelector('.wiki-disclosure')?.addEventListener('toggle', (event) => { if ((event.target as HTMLDetailsElement).open) track('compatibility_quiz_wiki_open', { quiz_version: QUIZ_VERSION }); });
+				if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Submit again'; }
+				report.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
 	});
 </script>
 
@@ -124,9 +297,19 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.section-heading { max-width: 68ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 	.section-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.8rem); line-height: .98; }
 	.section-heading p:last-child { margin: 1rem 0 0; color: #666961; line-height: 1.6; }
+	.quiz-expectation { display: flex; flex-wrap: wrap; gap: .55rem 1.5rem; margin-top: 1.25rem; color: #69713b; font-size: .8rem; }
+	.quiz-expectation strong { color: #1c1d1b; }
 	:global(.question-card) { margin: 0; padding: 2rem 0; border: 0; border-top: 1px solid #e0e1da; }
 	:global(.question-card legend) { width: 100%; padding: 0 0 1.2rem; font-family: var(--font-heading); font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; line-height: 1.2; }
 	:global(.question-card legend span) { display: inline-block; width: 2rem; color: #9ba08c; font-size: .75rem; letter-spacing: .08em; vertical-align: .18em; }
+	:global(.question-meta) { display: flex; justify-content: space-between; gap: 1rem; margin: -.4rem 0 1.2rem; color: #69713b; font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; }
+	:global(.question-status) { color: #777a70; font-weight: 400; }
+	:global(.rank-grid) { display: grid; gap: .7rem; }
+	:global(.rank-row) { display: grid; grid-template-columns: minmax(0, 1fr) 92px; gap: .8rem; align-items: stretch; }
+	:global(.rank-option) { display: flex; align-items: center; min-width: 0; padding: 1rem 1.1rem; border: 1px solid #d9dbd2; color: #52554c; font-size: .95rem; line-height: 1.4; }
+	:global(.rank-row select) { min-width: 0; padding: .8rem .65rem; border: 1px solid #d9dbd2; background: #fff; color: #24261f; font: inherit; cursor: pointer; }
+	:global(.rank-row select:focus-visible), :global(.rank-row select:hover) { border-color: #69713b; outline: 2px solid rgba(105, 113, 59, .2); outline-offset: 2px; }
+	:global(.rank-row select:valid) { background: #eef0e5; }
 	:global(.answer-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
 	:global(.answer-grid label) { display: flex; min-height: 68px; cursor: pointer; }
 	:global(.answer-grid input) { position: absolute; opacity: 0; }
@@ -138,6 +321,16 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.submit-button:hover { background: #69713b; }
 	.form-note, .small-note { color: #777a70; font-size: .82rem; line-height: 1.5; }
 	.form-note { margin: 1rem 0 0; }
+	.quiz-progress { margin: 0 0 1rem; padding: .9rem 0 1.1rem; border-bottom: 1px solid #dcded6; }
+	.quiz-progress > div:first-child { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; color: #69713b; font-size: .76rem; letter-spacing: .05em; text-transform: uppercase; }
+	.quiz-progress strong { color: #1c1d1b; }
+	.quiz-progress-mode { color: #777a70; }
+	.quiz-progress-track { height: 4px; margin-top: .7rem; background: #e8e9e1; }
+	.quiz-progress-track span { display: block; height: 100%; background: #69713b; transition: width .2s ease; }
+	.quiz-navigation { display: flex; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; }
+	.secondary-button { min-height: 44px; padding: .75rem 1rem; border: 1px solid #cfd2c7; background: #fff; color: #24261f; cursor: pointer; font: 700 .9rem var(--font-heading); }
+	.secondary-button:hover:not(:disabled), .secondary-button:focus-visible { border-color: #69713b; color: #454c25; }
+	.secondary-button:disabled { cursor: not-allowed; opacity: .45; }
 	:global(.report-section) { padding: 4rem 0 0; scroll-margin-top: 1rem; }
 	:global(.report-inner) { background: #fff; border: 1px solid #dcded6; padding: clamp(1.4rem, 4vw, 3.5rem); }
 	:global(.report-head) { display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; }
@@ -146,6 +339,11 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	:global(.score-number) { min-width: 130px; padding: 1rem; border: 1px solid #d9dbd2; text-align: center; }
 	:global(.score-number strong) { display: block; font: 700 3.5rem/.9 var(--font-heading); }
 	:global(.score-number span) { display: block; margin-top: .5rem; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	:global(.result-insights) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+	:global(.result-insights > div) { display: grid; grid-template-columns: 1fr auto; gap: .25rem 1rem; padding: 1rem 0; border-top: 1px solid #cfd2c7; border-bottom: 1px solid #cfd2c7; }
+	:global(.result-insights span) { grid-column: 1 / -1; color: #69713b; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	:global(.result-insights strong) { font-family: var(--font-heading); font-size: 1.15rem; }
+	:global(.result-insights b) { color: #69713b; font-size: .9rem; }
 	:global(.category-results) { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #dcded6; }
 	:global(.category-results h3) { margin: 0 0 1.3rem; font-size: 1.4rem; }
 	:global(.result-row) { display: grid; grid-template-columns: 160px 1fr 48px; gap: 1rem; align-items: center; margin: .85rem 0; font-size: .88rem; }
@@ -154,8 +352,17 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	:global(.bar i) { display: block; height: 100%; background: #9da56f; }
 	:global(.report-callout) { margin-top: 2.5rem; padding: 1.25rem; background: #eef0e5; }
 	:global(.report-callout p) { margin-bottom: 0; line-height: 1.55; }
+	:global(.report-actions) { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; margin-top: 1.5rem; }
+	:global(.share-button) { min-height: 44px; padding: .7rem 1rem; border: 1px solid #69713b; background: #fff; color: #454c25; cursor: pointer; font: 700 .9rem var(--font-heading); }
+	:global(.share-button:hover), :global(.share-button:focus-visible) { background: #eef0e5; }
+	:global(#share-status) { color: #69713b; font-size: .82rem; }
 	:global(.report-link) { display: inline-block; margin-top: 2rem; color: #454c25; font-weight: 700; }
 	.wiki-section { padding-top: clamp(6rem, 12vw, 10rem); }
+	.wiki-disclosure { margin-top: 2rem; }
+	.wiki-disclosure summary { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 52px; padding: .75rem 0; border-top: 1px solid #69713b; border-bottom: 1px solid #69713b; color: #454c25; cursor: pointer; font: 700 1.1rem var(--font-heading); list-style: none; }
+	.wiki-disclosure summary::-webkit-details-marker { display: none; }
+	.wiki-disclosure summary span { font-family: var(--font-body); font-size: 1.25rem; }
+	.wiki-disclosure[open] summary { margin-bottom: clamp(2rem, 5vw, 4rem); }
 	.wiki-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(3rem, 7vw, 6rem) clamp(2rem, 6vw, 5rem); }
 	.wiki-card { min-width: 0; padding: 1.5rem 0 0; border-top: 1px solid #9fa58d; background: transparent; }
 	.wiki-card.wide { grid-column: 1 / -1; }
@@ -184,12 +391,18 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		.quiz-hero { padding-top: 4rem; }
 		.hero-note, .report-head { display: block; }
 		.hero-note span { display: block; margin-top: .4rem; }
+		.quiz-expectation { display: block; }
+		.quiz-expectation span { display: block; margin-top: .35rem; }
 		:global(.answer-grid), .wiki-grid, .signal-grid, .two-column { grid-template-columns: 1fr; }
 		.wiki-card.wide { grid-column: auto; }
 		.score-list { grid-template-columns: 1fr; }
 		.four-rules { grid-template-columns: repeat(2, 1fr); }
 		:global(.score-number) { margin-top: 1.5rem; width: 130px; }
 		:global(.result-row) { grid-template-columns: 120px 1fr 42px; gap: .6rem; font-size: .78rem; }
+		:global(.result-insights) { grid-template-columns: 1fr; }
+		.quiz-progress > div:first-child { display: block; }
+		.quiz-progress-mode { display: block; margin-top: .35rem; }
+		.quiz-navigation { position: sticky; bottom: 0; z-index: 2; margin-inline: -1.25rem; padding: .75rem 1.25rem max(.75rem, env(safe-area-inset-bottom)); background: rgba(255, 255, 255, .96); border-top: 1px solid #dcded6; }
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.compatibility-page *, .compatibility-page *::before, .compatibility-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -228,6 +441,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.report-link { display: inline-block; min-height: 44px; margin-top: 2rem; color: #454c25; font-weight: 700; line-height: 44px; }
 	@media (max-width: 700px) {
 		.answer-grid { grid-template-columns: 1fr; }
+		.rank-row { grid-template-columns: minmax(0, 1fr) 76px; gap: .55rem; }
 		.question-card { padding: 2.25rem 0; }
 		.question-card legend { max-width: none; padding-bottom: 1.15rem; }
 		.answer-grid label { min-height: 64px; }
