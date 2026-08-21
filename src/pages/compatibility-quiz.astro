@@ -80,21 +80,21 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	type Option = { id: string; label: string };
 	type Question = { id: string; category: string; text: string; options: Option[] };
 	const questions: Question[] = [
-		{ id: 'banter', category: 'Banter', text: 'A person you are dating teases you about one of your habits. Rank the responses from most natural to least natural for you.', options: [{ id: 'tease_back', label: 'Tease them back and bring the joke up again later.' }, { id: 'name_landing', label: 'Say whether it landed, then keep the mood easy.' }, { id: 'explain_habit', label: 'Smile and explain the habit. I prefer jokes that do not put either person on the spot.' }, { id: 'laugh_move_on', label: 'Laugh and move on. I enjoy warmth more than verbal sparring.' }] },
-		{ id: 'conflict', category: 'Clarity', text: 'You leave a date unsure whether one comment bothered you. Rank what you would be most likely to do next.', options: [{ id: 'ask_directly', label: 'Tell the person which comment stayed with you and ask what they meant.' }, { id: 'sleep_on_it', label: 'Sleep on it and mention it only if it still matters the next day.' }, { id: 'talk_friend', label: 'Talk it through with a friend before deciding whether to raise it.' }, { id: 'wait_pattern', label: 'See whether the same thing happens again before treating it as a problem.' }] },
-		{ id: 'quiet', category: 'Ordinary life', text: 'You and your partner have a free Saturday with no plans. Rank the days from most appealing to least appealing.', options: [{ id: 'walk_home', label: 'Walk around the neighborhood, buy something for dinner, and spend the rest of the day at home.' }, { id: 'separate_errands', label: 'Handle separate errands or projects, then meet for dinner.' }, { id: 'new_event', label: 'Find a concert, exhibit, or neighborhood event that neither of you has tried.' }, { id: 'shared_project', label: 'Pick a useful project and work on it together.' }] },
-		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about work or an interest you know little about. Rank the responses from most like you to least like you.', options: [{ id: 'specific_detail', label: 'Pick one detail that interests you and keep asking about it.' }, { id: 'practical_questions', label: 'Ask practical questions until you understand what their day is like.' }, { id: 'common_ground', label: 'Share a similar experience so the conversation has common ground.' }, { id: 'let_them_lead', label: 'Listen closely and let them decide how much they want to explain.' }] },
-		{ id: 'detail', category: 'Attention', text: 'Which gesture makes you feel most cared for? Rank these from most meaningful to least meaningful.', options: [{ id: 'remember_preference', label: 'Remembering an offhand preference and using it weeks later.' }, { id: 'remove_task', label: 'Taking an annoying task off my plate when I am busy.' }, { id: 'plain_appreciation', label: 'Saying plainly what they appreciate about me.' }, { id: 'effortful_surprise', label: 'Planning a surprise that took real effort.' }] },
-		{ id: 'pace', category: 'Pacing', text: 'The first month is going well. Rank these contact patterns from most comfortable to least comfortable.', options: [{ id: 'clear_routines', label: 'Make clear plans and show affection while both people keep their normal routines.' }, { id: 'light_texting', label: 'Go on a few dates each week but keep texting fairly light.' }, { id: 'early_intensity', label: 'Spend a lot of time together early, then adjust if either person needs more room.' }, { id: 'constant_contact', label: 'Text throughout the day and spend most free evenings together.' }] },
-		{ id: 'independence', category: 'Independence', text: 'When a relationship becomes serious, rank the ways of preserving independence from most appealing to least appealing.', options: [{ id: 'full_lives_time', label: 'Both people should keep a full life and deliberately set aside regular time together.' }, { id: 'some_hobbies', label: 'Each person should keep some hobbies and time alone.' }, { id: 'separate_friends', label: 'Friendships should remain separate, while most other parts of life combine.' }, { id: 'mostly_shared', label: 'Most free time should become shared, with either person able to ask for space.' }] },
+		{ id: 'banter', category: 'Banter', text: 'Someone you are dating makes a playful joke about one of your habits. Rank the responses from most natural to least natural for you.', options: [{ id: 'tease_back', label: 'Tease them back and bring the joke up again later.' }, { id: 'name_landing', label: 'Say whether it landed, then keep the mood easy.' }, { id: 'explain_habit', label: 'Smile and explain the habit. I prefer jokes that do not put either person on the spot.' }, { id: 'laugh_move_on', label: 'Laugh and move on. I enjoy warmth more than verbal sparring.' }] },
+		{ id: 'conflict', category: 'Clarity', text: 'A comment from a date stays with you, but you are not sure how it was meant. Rank what you would be most likely to do next.', options: [{ id: 'ask_directly', label: 'Tell the person which comment stayed with you and ask what they meant.' }, { id: 'sleep_on_it', label: 'Sleep on it and mention it only if it still matters the next day.' }, { id: 'talk_friend', label: 'Talk it through with a friend before deciding whether to raise it.' }, { id: 'wait_pattern', label: 'See whether the same thing happens again before treating it as a problem.' }] },
+		{ id: 'quiet', category: 'Ordinary life', text: 'You and your partner have a free Saturday with no plans. Rank these versions of the day from most appealing to least appealing.', options: [{ id: 'walk_home', label: 'Walk around the neighborhood, buy something for dinner, and spend the rest of the day at home.' }, { id: 'separate_errands', label: 'Handle separate errands or projects, then meet for dinner.' }, { id: 'new_event', label: 'Find a concert, exhibit, or neighborhood event that neither of you has tried.' }, { id: 'shared_project', label: 'Pick a useful project and work on it together.' }] },
+		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about work or an interest you know little about. Rank the ways you would most naturally join the conversation.', options: [{ id: 'specific_detail', label: 'Pick one detail that interests you and keep asking about it.' }, { id: 'practical_questions', label: 'Ask practical questions until you understand what their day is like.' }, { id: 'common_ground', label: 'Share a similar experience so the conversation has common ground.' }, { id: 'let_them_lead', label: 'Listen closely and let them decide how much they want to explain.' }] },
+		{ id: 'detail', category: 'Attention', text: 'Which gesture would make you feel most understood? Rank these from most meaningful to least meaningful.', options: [{ id: 'remember_preference', label: 'Remembering an offhand preference and using it weeks later.' }, { id: 'remove_task', label: 'Taking an annoying task off my plate when I am busy.' }, { id: 'plain_appreciation', label: 'Saying plainly what they appreciate about me.' }, { id: 'effortful_surprise', label: 'Planning a surprise that took real effort.' }] },
+		{ id: 'pace', category: 'Pacing', text: 'The first month is going well. Rank these ways of building contact from most comfortable to least comfortable.', options: [{ id: 'clear_routines', label: 'Make clear plans and show affection while both people keep their normal routines.' }, { id: 'light_texting', label: 'Go on a few dates each week but keep texting fairly light.' }, { id: 'early_intensity', label: 'Spend a lot of time together early, then adjust if either person needs more room.' }, { id: 'constant_contact', label: 'Text throughout the day and spend most free evenings together.' }] },
+		{ id: 'independence', category: 'Independence', text: 'When a relationship becomes serious, rank these ways of keeping a life of your own from most appealing to least appealing.', options: [{ id: 'full_lives_time', label: 'Both people should keep a full life and deliberately set aside regular time together.' }, { id: 'some_hobbies', label: 'Each person should keep some hobbies and time alone.' }, { id: 'separate_friends', label: 'Friendships should remain separate, while most other parts of life combine.' }, { id: 'mostly_shared', label: 'Most free time should become shared, with either person able to ask for space.' }] },
 		{ id: 'ideas', category: 'Depth', text: 'Which long conversation would you most want to have with a partner? Rank these from most appealing to least appealing.', options: [{ id: 'ideas_argument', label: 'An argument about why people, cities, technology, or culture work the way they do.' }, { id: 'funny_references', label: 'A night of funny stories, gossip, and cultural references.' }, { id: 'personal_history', label: 'A conversation about personal history and how it shaped both of you.' }, { id: 'life_plan', label: 'A practical conversation about the life you want to build.' }] },
-		{ id: 'family', category: 'Community', text: 'How involved should a partner become with your friends or family? Rank these from most appealing to least appealing.', options: [{ id: 'gradual_integration', label: 'A partner should gradually become a real part of that world.' }, { id: 'depends_people', label: 'It should depend on the people involved rather than follow a fixed expectation.' }, { id: 'shared_circle', label: 'The couple should build a new shared social circle while each person keeps older ties.' }, { id: 'mostly_separate', label: 'The relationships can stay mostly separate as long as everyone is respectful.' }] },
-		{ id: 'effort', category: 'Reciprocity', text: 'One person plans a thoughtful date. Rank the forms of balance from most desirable to least desirable over time.', options: [{ id: 'specific_return', label: 'The other person should notice what made it thoughtful and plan something equally specific next.' }, { id: 'alternate_turns', label: 'The couple should alternate turns so the work stays even.' }, { id: 'planner_leads', label: 'The person who enjoys planning can keep doing it, while the other shows clear appreciation.' }, { id: 'stay_spontaneous', label: 'Plans should stay mostly spontaneous, with both people deciding in the moment.' }] },
-		{ id: 'accountability', category: 'Emotional strength', text: 'During a stressful night, your partner says your tone has become sharp. Rank the responses from most like you to least like you.', options: [{ id: 'own_explain', label: 'Ask what landed badly, own the tone, and explain the stress after that.' }, { id: 'repair_now', label: 'Apologize and repair the mood, then discuss the cause another time.' }, { id: 'shared_signal', label: 'Explain the pressure and agree on a phrase either person can use before the tone gets worse.' }, { id: 'take_break', label: 'Take a break and return to the conversation later that evening.' }] },
-		{ id: 'stimulation', category: 'Ordinary life', text: 'Which kind of shared week sounds best? Rank these from most appealing to least appealing.', options: [{ id: 'routine_outing', label: 'A few routine nights together, a walk or meal, and one planned outing.' }, { id: 'independent_date', label: 'Two busy independent lives with one date both people look forward to.' }, { id: 'shared_goal', label: 'Time spent working toward a shared goal or project.' }, { id: 'many_new_plans', label: 'Several social plans and at least one new place to try.' }] },
-		{ id: 'unimpressed', category: 'Independence', text: 'You are dating someone unusually accomplished. Rank the ways of showing interest from most natural to least natural.', options: [{ id: 'disagree_tease', label: 'Stay curious, disagree when you do, and tease them as freely as anyone else.' }, { id: 'life_beyond_work', label: 'Focus mostly on the parts of their life that have nothing to do with achievement.' }, { id: 'ask_work', label: 'Ask about the work and celebrate the wins with them.' }, { id: 'let_lead', label: 'Let them lead when the subject is in their area of expertise.' }] },
+		{ id: 'family', category: 'Community', text: 'How should a partner fit into your friends or family life? Rank these approaches from most appealing to least appealing.', options: [{ id: 'gradual_integration', label: 'A partner should gradually become a real part of that world.' }, { id: 'depends_people', label: 'It should depend on the people involved rather than follow a fixed expectation.' }, { id: 'shared_circle', label: 'The couple should build a new shared social circle while each person keeps older ties.' }, { id: 'mostly_separate', label: 'The relationships can stay mostly separate as long as everyone is respectful.' }] },
+		{ id: 'effort', category: 'Reciprocity', text: 'One person plans a thoughtful date. Rank these ways of sharing effort over time from most desirable to least desirable.', options: [{ id: 'specific_return', label: 'The other person should notice what made it thoughtful and plan something equally specific next.' }, { id: 'alternate_turns', label: 'The couple should alternate turns so the work stays even.' }, { id: 'planner_leads', label: 'The person who enjoys planning can keep doing it, while the other shows clear appreciation.' }, { id: 'stay_spontaneous', label: 'Plans should stay mostly spontaneous, with both people deciding in the moment.' }] },
+		{ id: 'accountability', category: 'Emotional strength', text: 'During a stressful night, your partner says your tone has become sharp. Rank the ways you would most naturally respond.', options: [{ id: 'own_explain', label: 'Ask what landed badly, own the tone, and explain the stress after that.' }, { id: 'repair_now', label: 'Apologize and repair the mood, then discuss the cause another time.' }, { id: 'shared_signal', label: 'Explain the pressure and agree on a phrase either person can use before the tone gets worse.' }, { id: 'take_break', label: 'Take a break and return to the conversation later that evening.' }] },
+		{ id: 'stimulation', category: 'Ordinary life', text: 'Which kind of shared week sounds best? Rank these rhythms from most appealing to least appealing.', options: [{ id: 'routine_outing', label: 'A few routine nights together, a walk or meal, and one planned outing.' }, { id: 'independent_date', label: 'Two busy independent lives with one date both people look forward to.' }, { id: 'shared_goal', label: 'Time spent working toward a shared goal or project.' }, { id: 'many_new_plans', label: 'Several social plans and at least one new place to try.' }] },
+		{ id: 'unimpressed', category: 'Independence', text: 'You are dating someone unusually accomplished. Rank these ways of showing interest from most natural to least natural.', options: [{ id: 'disagree_tease', label: 'Stay curious, disagree when you do, and tease them as freely as anyone else.' }, { id: 'life_beyond_work', label: 'Focus mostly on the parts of their life that have nothing to do with achievement.' }, { id: 'ask_work', label: 'Ask about the work and celebrate the wins with them.' }, { id: 'let_lead', label: 'Let them lead when the subject is in their area of expertise.' }] },
 		{ id: 'height', category: 'Practical fit', text: 'How would you feel about dating a guy who is under 5\'5"? Rank these responses from most honest for you to least honest for you.', options: [{ id: 'height_neutral', label: 'Height has very little effect on whether I find someone attractive.' }, { id: 'chemistry_overweighs', label: 'I usually prefer taller men, but chemistry could outweigh that preference.' }, { id: 'height_on_mind', label: 'I could date him, though the height difference might stay on my mind.' }, { id: 'not_attracted', label: 'I know I would not be attracted, so I would rather be honest about it.' }] },
-		{ id: 'pull', category: 'Attraction', text: 'After a first date, rank the strongest reasons to say yes to a second.', options: [{ id: 'want_more', label: 'I found myself wanting more time with them and more physical closeness.' }, { id: 'kind_interest', label: 'They were thoughtful, kind, and clearly interested.' }, { id: 'easy_conversation', label: 'The conversation was easy and I noticed no serious concerns.' }, { id: 'life_values', label: 'Our values and the direction of our lives seem compatible.' }] },
+		{ id: 'pull', category: 'Attraction', text: 'After a first date, rank the strongest reasons you would say yes to a second.', options: [{ id: 'want_more', label: 'I found myself wanting more time with them and more physical closeness.' }, { id: 'kind_interest', label: 'They were thoughtful, kind, and clearly interested.' }, { id: 'easy_conversation', label: 'The conversation was easy and I noticed no serious concerns.' }, { id: 'life_values', label: 'Our values and the direction of our lives seem compatible.' }] },
 		{ id: 'desire', category: 'Attraction', text: 'Three months into a relationship, rank the signs that would matter most to you.', options: [{ id: 'repeat_evening', label: 'An ordinary evening together is something I want to repeat.' }, { id: 'disagree_well', label: 'We can disagree without either person becoming cruel or shutting down.' }, { id: 'friends_routines', label: 'Our friends and routines fit together without much friction.' }, { id: 'future_plans', label: 'We support each other\'s goals and can make plans for the future.' }] },
 	];
 
@@ -113,16 +113,35 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const analyticsWindow = window as Window & { gtag?: (command: string, eventName: string, eventParams?: Record<string, string | number>) => void };
 		analyticsWindow.gtag?.('event', name, params);
 	};
-	const QUIZ_VERSION = 'ranked-v2-seeded-shuffle';
+	const QUIZ_VERSION = 'ranked-v3-preference-rubric';
+	const RUBRIC_VERSION = 'preference-v1';
 	const SHUFFLE_ALGORITHM = 'fisher-yates-mulberry32-v1';
 	const attemptId = window.crypto.randomUUID();
 	const seedBytes = new Uint32Array(2);
 	window.crypto.getRandomValues(seedBytes);
 	const shuffleSeed = (seedBytes[0] ^ seedBytes[1]) >>> 0;
-	track('compatibility_quiz_view', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
+	track('compatibility_quiz_view', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 	const WEB3FORMS_ACCESS_KEY = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 	const questionWeights: Record<string, number> = { banter: 1.5, conflict: 1.5, quiet: 1.25, curiosity: 1.25, detail: 1, pace: 1.25, independence: 1, ideas: .75, family: .75, effort: 1, accountability: 1.5, stimulation: 1.25, unimpressed: .75, height: .5, pull: 1.5, desire: 1.5 };
 	const coreQuestions = new Set(['banter', 'conflict', 'quiet', 'accountability', 'pull']);
+	const preferenceAlignment: Record<string, Record<string, number>> = {
+		banter: { tease_back: 4, name_landing: 3, laugh_move_on: 2, explain_habit: 0.5 },
+		conflict: { ask_directly: 4, sleep_on_it: 3, talk_friend: 1.5, wait_pattern: 1 },
+		quiet: { walk_home: 4, new_event: 3, shared_project: 2, separate_errands: 1 },
+		curiosity: { specific_detail: 4, practical_questions: 3.5, common_ground: 2, let_them_lead: 1 },
+		detail: { remember_preference: 4, plain_appreciation: 3, effortful_surprise: 2, remove_task: 1.5 },
+		pace: { clear_routines: 4, light_texting: 3, early_intensity: 1.5, constant_contact: 0.5 },
+		independence: { full_lives_time: 4, some_hobbies: 3.5, separate_friends: 2, mostly_shared: 1 },
+		ideas: { ideas_argument: 4, personal_history: 3, funny_references: 2.5, life_plan: 2 },
+		family: { gradual_integration: 4, depends_people: 3, shared_circle: 2, mostly_separate: 1 },
+		effort: { specific_return: 4, planner_leads: 3, alternate_turns: 2.5, stay_spontaneous: 1.5 },
+		accountability: { own_explain: 4, shared_signal: 3.5, repair_now: 3, take_break: 2 },
+		stimulation: { routine_outing: 4, shared_goal: 3, independent_date: 2, many_new_plans: 1.5 },
+		unimpressed: { disagree_tease: 4, life_beyond_work: 3.5, ask_work: 2, let_lead: 1 },
+		height: { height_neutral: 4, chemistry_overweighs: 3, height_on_mind: 1.5, not_attracted: 0.5 },
+		pull: { want_more: 4, easy_conversation: 3, kind_interest: 2.5, life_values: 2 },
+		desire: { repeat_evening: 4, disagree_well: 3.5, future_plans: 3, friends_routines: 2.5 },
+	};
 	const optionHash = (value: string) => [...value].reduce((hash, character) => ((hash << 5) - hash + character.charCodeAt(0)) | 0, 0);
 	const deriveSeed = (scope: string) => (optionHash(`${shuffleSeed}:${scope}`) >>> 0);
 	const mulberry32 = (seed: number) => () => {
@@ -145,13 +164,27 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	const displayOptions = (question: Question) => optionOrders.get(question.id) ?? question.options;
 	const questionOrder = attemptQuestions.map((question) => question.id);
 	const optionOrder = Object.fromEntries(attemptQuestions.map((question) => [question.id, displayOptions(question).map((option) => option.id)]));
-	track('compatibility_quiz_attempt_started', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed, shuffle_algorithm: SHUFFLE_ALGORITHM, question_order: questionOrder.join(',') });
+	track('compatibility_quiz_attempt_started', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed, shuffle_algorithm: SHUFFLE_ALGORITHM, question_order: questionOrder.join(',') });
+	const getAlignment = (question: Question, option: Option) => preferenceAlignment[question.id]?.[option.id] ?? 2;
+	const calculateQuestionScore = (question: Question, data: FormData) => {
+		const ranks = new Map(question.options.map((option) => [option.id, Number(data.get(`${question.id}__${option.id}`))]));
+		let earned = 0;
+		let possible = 0;
+		question.options.forEach((firstOption, firstIndex) => question.options.slice(firstIndex + 1).forEach((secondOption) => {
+			const alignmentDifference = getAlignment(question, firstOption) - getAlignment(question, secondOption);
+			if (alignmentDifference === 0) return;
+			const pairWeight = Math.abs(alignmentDifference);
+			possible += pairWeight;
+			const firstShouldComeFirst = alignmentDifference > 0;
+			const firstComesFirst = (ranks.get(firstOption.id) ?? 0) < (ranks.get(secondOption.id) ?? 0);
+			if (firstComesFirst === firstShouldComeFirst) earned += pairWeight;
+		}));
+		return possible ? Math.round((earned / possible) * 100) : 50;
+	};
 	const calculateResult = (data: FormData) => {
 		const questionScores = questions.map((question) => {
-			const idealRanks = new Map(question.options.map((option, index) => [option.id, index + 1]));
 			const ranks = question.options.map((option) => Number(data.get(`${question.id}__${option.id}`)));
-			const distance = question.options.reduce((sum, option) => sum + Math.abs(Number(data.get(`${question.id}__${option.id}`)) - (idealRanks.get(option.id) ?? 1)), 0);
-			const score = Math.round(100 * (1 - distance / 8));
+			const score = calculateQuestionScore(question, data);
 			return { question, score, ranks, weight: questionWeights[question.id] ?? 1 };
 		});
 		const weightedTotal = questionScores.reduce((sum, item) => sum + item.score * item.weight, 0);
@@ -238,7 +271,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 
 	form?.addEventListener('submit', (event) => {
 		event.preventDefault();
-		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
+		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 		const data = new FormData(form);
 		const hasInvalidRanking = questions.some((question) => {
 			const ranks = question.options.map((option) => data.get(`${question.id}__${option.id}`)).filter(Boolean);
@@ -260,6 +293,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('from_name', 'jackmaguire.org compatibility quiz');
 		payload.append('quiz_name', 'jack_compatibility');
 		payload.append('quiz_version', QUIZ_VERSION);
+		payload.append('rubric_version', RUBRIC_VERSION);
 		payload.append('attempt_id', attemptId);
 		payload.append('shuffle_seed', String(shuffleSeed));
 		payload.append('shuffle_algorithm', SHUFFLE_ALGORITHM);
@@ -273,6 +307,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('verdict', result.verdict[0]);
 		payload.append('core_floor', String(result.coreFloor));
 		payload.append('height_rank', String(result.heightRank));
+		payload.append('question_scores', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, score }) => [question.id, score]))));
 		payload.append('category_scores', JSON.stringify(Object.fromEntries(result.categoryValues.map(({ category, score }) => [category, score]))));
 		const params = new URLSearchParams(window.location.search);
 		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => payload.append(name, params.get(name) ?? ''));
@@ -282,18 +317,18 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			.then(async (response) => {
 				const resultBody = await response.json().catch(() => ({})) as { success?: boolean };
 				if (!response.ok || resultBody.success !== true) throw new Error('Submission failed');
-				track('compatibility_quiz_web3forms_success', { quiz_version: QUIZ_VERSION, attempt_id: attemptId });
+				track('compatibility_quiz_web3forms_success', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId });
 				if (submissionStatus) submissionStatus.textContent = 'Your answers were recorded. Your report is below.';
 			})
 			.catch(() => {
-				track('compatibility_quiz_web3forms_failure', { quiz_version: QUIZ_VERSION, attempt_id: attemptId });
+				track('compatibility_quiz_web3forms_failure', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId });
 				if (submissionStatus) submissionStatus.textContent = 'The report is ready, but the answers could not be recorded. Please try submitting once more.';
 			})
 			.finally(() => {
 				report.hidden = false;
 				report.tabIndex = -1;
 				report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${result.verdict[0]}</h2><p>${result.verdict[1]}</p></div><div class="score-number"><strong>${result.percent}</strong><span>Jack fit score</span></div></div><div class="result-insights"><div><span>Strongest alignment</span><strong>${strongest.category}</strong><b>${strongest.score}%</b></div><div><span>Biggest difference</span><strong>${biggestGap.category}</strong><b>${biggestGap.score}%</b></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>Jack also needs mutual attraction, reciprocal humor, clear communication, and ordinary time that both people enjoy. A quiz can test ranked preferences. It cannot tell whether two people want another date.</p></div><div class="report-actions"><button class="share-button" id="share-result" type="button">Share this result</button><span id="share-status" role="status" aria-live="polite"></span></div><a class="report-link" href="#matchmaker-wiki">Open the matchmaker wiki <span aria-hidden="true">&darr;</span></a></div>`;
-				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, attempt_id: attemptId, score: result.percent });
+				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, score: result.percent });
 				wiki.hidden = false;
 				wiki.removeAttribute('aria-hidden');
 				report.focus({ preventScroll: true });
