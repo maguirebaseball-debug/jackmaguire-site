@@ -310,6 +310,10 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('height_rank', String(result.heightRank));
 		payload.append('question_scores', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, score }) => [question.id, score]))));
 		payload.append('category_scores', JSON.stringify(Object.fromEntries(result.categoryValues.map(({ category, score }) => [category, score]))));
+		payload.append('answer_codes', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, ranks }) => [
+			question.id,
+			question.options.map((option, index) => ({ id: option.id, rank: ranks[index] })).sort((a, b) => a.rank - b.rank).map((entry) => entry.id),
+		]))));
 		payload.append('how_to_read_these_numbers', [
 			'overall_score: the final 0-100 compatibility percentage shown in the report, after any caps below are applied.',
 			'raw_score_before_caps: the same 0-100 score before caps, i.e. what the person would have scored on preference alignment alone.',
@@ -317,6 +321,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			'height_rank: the rank (1-4) this person gave to the most dismissive height answer ("I know I would not be attracted"). Rank 1 caps overall_score at 54; rank 2 caps it at 69; rank 3 or 4 applies no height cap.',
 			'question_scores: a 0-100 alignment score per question, showing how closely that single answer\'s ranking matched the preferred ranking.',
 			'category_scores: question_scores averaged (weighted) by category, e.g. Banter, Clarity, Ordinary life. These are the bars shown in the emailed report.',
+			'answer_codes: per question, the option codes this person picked in order from 1st choice to 4th choice, e.g. banter: [tease_back, name_landing, laugh_move_on, explain_habit]. Use this to see the exact options someone ranked, not just the resulting score.',
 		].join(' | '));
 		const params = new URLSearchParams(window.location.search);
 		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => payload.append(name, params.get(name) ?? ''));
