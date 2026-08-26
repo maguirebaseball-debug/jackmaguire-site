@@ -204,8 +204,9 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const verdict = cappedPercent >= 85 ? ['Strong possibility', 'Your ranked preferences line up closely with Jack\'s across the core parts of a relationship. A date would still need to answer the attraction and chemistry questions the quiz cannot settle.'] : cappedPercent >= 70 ? ['Worth a real date', 'You share the same relationship style with Jack in several important areas, with some differences worth noticing in person.'] : cappedPercent >= 55 ? ['Mixed fit', 'Your answers describe a healthy relationship, but several of your preferences differ from Jack\'s. A strong in-person connection would have to do more of the work.'] : ['Probably not a match', 'Your ranked preferences describe a relationship style that differs substantially from what Jack is looking for. The score is about fit with one person, not relationship quality.'];
 		return { questionScores, categoryValues, percent: cappedPercent, rawPercent: percent, coreFloor, heightRank, verdict };
 	};
+	const contactCardMarkup = `<fieldset class="question-card contact-card"><legend><span>Optional</span>Want Jack to be able to follow up?</legend><div class="question-meta"><span>Contact info</span></div><p class="contact-hint">Leave your name or a way to reach you if you would like Jack to see who this result belongs to. This is optional and the quiz works the same either way.</p><div class="contact-fields"><label class="contact-field"><span>Name (optional)</span><input type="text" name="respondent_name" autocomplete="name" placeholder="Your name" /></label><label class="contact-field"><span>Email, phone, or Instagram (optional)</span><input type="text" name="respondent_contact" autocomplete="email" placeholder="How Jack can reach you" /></label></div></fieldset>`;
 	if (list && form) {
-		list.innerHTML = attemptQuestions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('');
+		list.innerHTML = attemptQuestions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('') + contactCardMarkup;
 		form.noValidate = true;
 		const cards = Array.from(list.querySelectorAll<HTMLElement>('.question-card'));
 		let currentStep = 0;
@@ -309,6 +310,19 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('height_rank', String(result.heightRank));
 		payload.append('question_scores', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, score }) => [question.id, score]))));
 		payload.append('category_scores', JSON.stringify(Object.fromEntries(result.categoryValues.map(({ category, score }) => [category, score]))));
+		payload.append('answer_codes', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, ranks }) => [
+			question.id,
+			question.options.map((option, index) => ({ id: option.id, rank: ranks[index] })).sort((a, b) => a.rank - b.rank).map((entry) => entry.id),
+		]))));
+		payload.append('how_to_read_these_numbers', [
+			'overall_score: the final 0-100 compatibility percentage shown in the report, after any caps below are applied.',
+			'raw_score_before_caps: the same 0-100 score before caps, i.e. what the person would have scored on preference alignment alone.',
+			'core_floor: the lowest score among the five core questions (banter, conflict, quiet, accountability, pull). If this drops below 50, overall_score is capped at 54 regardless of the rest of the answers.',
+			'height_rank: the rank (1-4) this person gave to the most dismissive height answer ("I know I would not be attracted"). Rank 1 caps overall_score at 54; rank 2 caps it at 69; rank 3 or 4 applies no height cap.',
+			'question_scores: a 0-100 alignment score per question, showing how closely that single answer\'s ranking matched the preferred ranking.',
+			'category_scores: question_scores averaged (weighted) by category, e.g. Banter, Clarity, Ordinary life. These are the bars shown in the emailed report.',
+			'answer_codes: per question, the option codes this person picked in order from 1st choice to 4th choice, e.g. banter: [tease_back, name_landing, laugh_move_on, explain_habit]. Use this to see the exact options someone ranked, not just the resulting score.',
+		].join(' | '));
 		const params = new URLSearchParams(window.location.search);
 		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => payload.append(name, params.get(name) ?? ''));
 		if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Recording...'; }
@@ -472,6 +486,14 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.compatibility-page *, .compatibility-page *::before, .compatibility-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+	}
+	.contact-hint { max-width: 60ch; margin: 0 0 1.5rem; color: #666961; font-size: .92rem; line-height: 1.55; }
+	.contact-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+	.contact-field { display: flex; flex-direction: column; gap: .4rem; font-size: .8rem; color: #52554c; }
+	.contact-field input { padding: .8rem .9rem; border: 1px solid #d9dbd2; background: #fff; color: #24261f; font: inherit; }
+	.contact-field input:focus-visible { border-color: #69713b; outline: 2px solid rgba(105, 113, 59, .2); outline-offset: 2px; }
+	@media (max-width: 700px) {
+		.contact-fields { grid-template-columns: 1fr; }
 	}
 </style>
 
