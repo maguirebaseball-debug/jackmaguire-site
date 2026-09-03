@@ -354,6 +354,22 @@ const description = 'A current Philadelphia happy-hour table with drink and appe
 			@media (max-width: 600px) {
 				main { padding: 24px 12px 40px; }
 				h1 { font-size: 26px; }
+				.table-wrap { overflow: visible; }
+				table { min-width: 0; width: 100%; }
+				thead { display: none; }
+				tbody, tr, td { display: block; }
+				tbody tr { border: 1px solid #999; margin: 0 0 16px; }
+				td { border: 0; border-bottom: 1px solid #ccc; padding: 9px 10px; }
+				td:last-child { border-bottom: 0; }
+				td::before {
+					content: attr(data-label);
+					display: block;
+					font-weight: 700;
+					margin-bottom: 3px;
+				}
+				td.venue::before { display: none; }
+				.links { white-space: normal; }
+				.photo, .photo img { max-width: 100%; }
 			}
 		</style>
 	</head>
@@ -381,15 +397,15 @@ const description = 'A current Philadelphia happy-hour table with drink and appe
 							<tbody>
 								{deals.filter((deal) => deal.neighborhood === neighborhood).map((deal) => (
 									<tr>
-										<td class="venue">
+										<td class="venue" data-label="Venue">
 											<strong>{deal.venue}</strong>
 											<div class="address">{deal.address}</div>
 										</td>
-										<td><p class="cell-text">{deal.hours}</p></td>
-										<td><p class="cell-text">{deal.drinks}</p></td>
-										<td><p class="cell-text">{deal.food}</p></td>
-										<td><p class="cell-text">{deal.stipulations}</p></td>
-										<td>
+										<td data-label="Deal hours"><p class="cell-text">{deal.hours}</p></td>
+										<td data-label="Booze and prices"><p class="cell-text">{deal.drinks}</p></td>
+										<td data-label="Appetizers and food prices"><p class="cell-text">{deal.food}</p></td>
+										<td data-label="Stipulations"><p class="cell-text">{deal.stipulations}</p></td>
+										<td data-label="Links and photo">
 											<div class="links"><a href={deal.website}>Venue</a><a href={mapsUrl(deal.query)}>Google Maps</a></div>
 											{deal.photo && (
 												<figure class="photo">
