@@ -1,0 +1,416 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+type Deal = {
+	venue: string;
+	neighborhood: string;
+	address: string;
+	website: string;
+	hours: string;
+	drinks: string;
+	food: string;
+	stipulations: string;
+	query: string;
+	photo?: string;
+	photoSource?: string;
+};
+
+const mapsUrl = (query: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+
+const deals: Deal[] = [
+	{
+		venue: 'Sampan / Graffiti Bar', neighborhood: 'Midtown Village', address: '124 S 13th St', website: 'https://www.sampanphilly.com/menu',
+		hours: 'Every day, 4-7pm',
+		drinks: '$5 drink features: specialty cocktail, featured beer, house red or white wine, or house sake. Named cocktails $9. Scorpion Bowl $25.',
+		food: '$8 crispy items, satay, and sides. $9 dumplings and buns, including Kobe slider, pork bao, and chili crisp chicken bao.',
+		stipulations: 'Graffiti Bar is the enclosed rear patio next to Sampan. The official location page says it is open year-round.',
+		query: 'Sampan 124 S 13th St Philadelphia PA', photo: '/images/philly-happy-hours/sampan-storefront.jpg', photoSource: 'https://www.sampanphilly.com/location'
+	},
+	{
+		venue: 'Double Knot', neighborhood: 'Midtown Village', address: '120 S 13th St', website: 'https://www.doubleknotphilly.com/menu',
+		hours: 'Every day, 4-7pm',
+		drinks: '$5 Lucky Streak beer. $6 Chardonnay, red blend, rosé, or junmai. $7 Tautline Hitch or Sheet Bend cocktails.',
+		food: '$5 chicken thigh, maitake mushroom, or chicken wing. $7 short rib, salmon scallion, or ribeye scallion. $8 rolls, handrolls, shrimp taco, or tofu. $9 dumplings, bao, Japanese fried chicken, or potstickers.',
+		stipulations: 'Walk-in only during happy hour. Items marked with an asterisk cannot be made gluten-free.',
+		query: 'Double Knot 120 S 13th St Philadelphia PA', photo: '/images/philly-happy-hours/double-knot-storefront.jpeg', photoSource: 'https://www.doubleknotphilly.com/about'
+	},
+	{
+		venue: 'Top Tomato Bar & Pizza', neighborhood: 'Midtown Village', address: '116 S 11th St', website: 'https://toptomatophilly.com/',
+		hours: 'Mon-Fri, 4:30-6:30pm',
+		drinks: '$5 select draft beer. $5 well mixed drinks. $6 house wine. $8 select cocktails.',
+		food: '$5 select appetizers. $7 sliders. $10 small cheese pizza.',
+		stipulations: 'The official page calls this a $5 happy hour, but not every food or drink category is $5.',
+		query: 'Top Tomato Bar and Pizza 116 S 11th St Philadelphia PA'
+	},
+	{
+		venue: 'El Camino Real', neighborhood: 'Northern Liberties', address: '1040 N 2nd St', website: 'https://elcaminophilly.com/',
+		hours: 'Mon-Fri, 5-7pm',
+		drinks: 'Half-price El Camino Margaritas, excluding the Cadillac Margarita. $3 select beers.',
+		food: '$5 select appetizers on Monday, Wednesday, Thursday, and Friday. No $5 appetizer offer is listed for Tuesday.',
+		stipulations: 'The appetizer discount has a weekday exception.',
+		query: 'El Camino Real 1040 N 2nd St Philadelphia PA'
+	},
+	{
+		venue: 'Yanaga Kappo Izakaya', neighborhood: 'Northern Liberties', address: '637 N 3rd St', website: 'https://www.ykisushi.com/',
+		hours: 'Monday, 4-9pm during kitchen service. Tuesday-Sunday, 4-6pm',
+		drinks: 'April 2026 menu reporting lists beer $6, wine $9, and a rotating cocktail $12.',
+		food: 'Small plates reported at $3-$12, including a $10 spicy pork ragu ramen and other Japanese bar food.',
+		stipulations: 'Prices are supported by the April 2026 Infatuation listing. Recheck the current menu PDF before going.',
+		query: 'Yanaga Kappo Izakaya 637 N 3rd St Philadelphia PA'
+	},
+	{
+		venue: 'Urban Village Brewing', neighborhood: 'Northern Liberties', address: '1001 N 2nd St', website: 'https://www.urbanvillagebrewing.com/',
+		hours: 'Mon-Fri, 3-6pm',
+		drinks: 'Money Light Pilsner $4. Beers $5. Aperol Spritz, sangria, and house wines $6. Old Fashioned $8.',
+		food: 'Mixed olives $3. Cheese fries or truffle fries $5. Two pierogies or two arancini $6. Spicy cauliflower or tomato pie $8. Classic pies $10.',
+		stipulations: 'Kitchen and bar hours are listed separately. Happy hour ends at 6pm.',
+		query: 'Urban Village Brewing 1001 N 2nd St Philadelphia PA', photo: '/images/philly-happy-hours/urban-village-storefront.jpg', photoSource: 'https://www.urbanvillagebrewing.com/'
+	},
+	{
+		venue: 'Yards Brewing Taproom', neighborhood: 'Northern Liberties', address: '500 Spring Garden St', website: 'https://yardsbrewing.com/pages/taproom',
+		hours: 'Mon-Fri, 3-6pm',
+		drinks: 'Select 20-ounce beers $6. Select cocktails and wine $9.',
+		food: 'Hummus plate, IPA pretzel, Bricklayer\'s nachos, and everything bagel deviled eggs $6. Philly wing pounders $12.',
+		stipulations: 'This taproom happy-hour menu is separate from monthly specials and the full food menu.',
+		query: 'Yards Brewing Taproom 500 Spring Garden St Philadelphia PA'
+	},
+	{
+		venue: 'SET NoLibs', neighborhood: 'Northern Liberties', address: '1030 N 2nd St #101-102', website: 'https://www.setclubhouse.com/happy-hour',
+		hours: 'Mon-Fri, 4-6pm',
+		drinks: 'Domestic draft beer and bottles $5. Wine $8. Moscow Mule $10. SET Sangria $8. Margarita $12. Island Buzz $8.',
+		food: 'Six wings $12. Skewers with one steak, one chicken, and one shrimp $12. Nachos $12.',
+		stipulations: 'Dine in only. Wings cannot be mixed and matched, Thai chili wings are excluded, and additions to nachos cost extra.',
+		query: 'SET NoLibs 1030 N 2nd St Philadelphia PA'
+	},
+	{
+		venue: "Jerry's Bar", neighborhood: 'Northern Liberties', address: '129 W Laurel St', website: 'https://jerrysbarphilly.com/menus/happy-hour/',
+		hours: 'Mon-Fri, 4-7pm',
+		drinks: '$5 drafts, house wine, Old Fashioned, City Wide, and selected mocktails. Specialty cocktail pitcher $20.',
+		food: 'Chef\'s selection of tapas, rotating. The official happy-hour menu does not give a tapas price.',
+		stipulations: 'A 20% gratuity is added to all checks and distributed to the service team. Ask for the current tapas price.',
+		query: "Jerry's Bar 129 W Laurel St Philadelphia PA"
+	},
+	{
+		venue: 'National Mechanics', neighborhood: 'Old City', address: '22 S 3rd St', website: 'https://www.nationalmechanics.com/',
+		hours: 'Mon-Fri, 4-7pm. Late night: Fri-Sat, 9-11pm, and Sun, 8-10pm',
+		drinks: 'Weekday: $5 draft cocktail, half-price drafts, and $2 off specialty cocktails and wines by the glass. Late night: $5 draft cocktail, $5 select draft, and $7 well drinks.',
+		food: 'Weekday: $8 burger or vegetable sliders, quesadilla, or chicken tenders.',
+		stipulations: 'The late-night offer has a separate schedule from the weekday happy hour.',
+		query: 'National Mechanics 22 S 3rd St Philadelphia PA'
+	},
+	{
+		venue: 'Independence Beer Garden', neighborhood: 'Old City', address: '100 S Independence Mall West', website: 'https://www.phlbeergarden.com/restaurant',
+		hours: 'Daily, 3-7pm',
+		drinks: 'Miller Lite $5. Kenwood Original $6. House wine $6. Down the Shore cocktail $7.',
+		food: 'Fries $6. Pretzel bites $7. Al pastor tacos and cheeseburger slider $7. Chips and guac, spicy Caesar, chicken wings, and grilled cheese $8.',
+		stipulations: 'Seasonal outdoor venue. Weather and operating dates matter.',
+		query: 'Independence Beer Garden 100 S Independence Mall West Philadelphia PA'
+	},
+	{
+		venue: 'Harp & Crown', neighborhood: 'Center City', address: '1525 Sansom St', website: 'https://harpcrown.com/menu',
+		hours: 'The official site lists 4-7pm but does not spell out the days in the current page text',
+		drinks: '$5 featured beer. $6 featured wine. $7 Sansom Soda and Sunset Kiss.',
+		food: 'All listed plates are $8: spicy chicken sandwich, cheeseburger, salmon ceviche, whipped ricotta, hush puppy, lamb meatball, spicy fried chicken wing, mac and cheese, and daily pizza.',
+		stipulations: 'Walk-in at the bar and lounge. Confirm the day schedule before going.',
+		query: 'Harp and Crown 1525 Sansom St Philadelphia PA', photo: '/images/philly-happy-hours/harp-crown-storefront.jpg', photoSource: 'https://harpcrown.com/menu'
+	},
+	{
+		venue: 'Rhythm & Spirits', neighborhood: 'Center City', address: '1617 JFK Blvd', website: 'https://rhythmandspirits.com/',
+		hours: 'Wed-Sun, 4-6pm',
+		drinks: '$9 wine by the glass. $7 Aperol or Zeide Spritz.',
+		food: '$5 cicchetti: Boardwalk fries, Mama\'s meatball slider, four-cheese empanada, South Philly roast pork slider, or shrimp taco.',
+		stipulations: 'Above Suburban Station at One Penn Center. Closed Monday and Tuesday.',
+		query: 'Rhythm and Spirits 1617 JFK Blvd Philadelphia PA'
+	},
+	{
+		venue: 'Bellini', neighborhood: 'Center City', address: '220 S 16th St', website: 'https://belliniphiladelphia.com/happy-hour',
+		hours: 'Mon-Fri, 4-6pm',
+		drinks: 'Miller Lite $5. Pinot Grigio or Pinot Noir $6. Bellini or Aperol Spritz $7. Gin Fizz $9. Forza Azzurri $10.',
+		food: 'Caesar salad or bruschetta $6. Filomena\'s meatballs $7. Ricotta gnocchi $8. Mussels or fried calamari $9.',
+		stipulations: 'Dinner hours are listed separately from the happy-hour page.',
+		query: 'Bellini 220 S 16th St Philadelphia PA'
+	},
+	{
+		venue: 'Osteria', neighborhood: 'Fairmount', address: '640 N Broad St', website: 'https://www.osteriaphilly.com/',
+		hours: 'Mon-Thu, 5-7pm. Fri-Sat, 4-7pm. Sun, 4-6pm',
+		drinks: 'Lo-Life $9. Bianco Spritz $9. Draft beer or glass of wine $7. Daily cocktail $8.',
+		food: 'Involtini $10. Arancini $12. Filet spiedini $9. Broccolini Caesar $12. Grilled octopus $11. Beef tartare $12. Rigatoni $10. Bucatini cacio e pepe $11. Margherita pizza $10. Pizza del giorno $12.',
+		stipulations: 'Bar, kitchen counter, and outdoor seating only. Menu items are seasonal.',
+		query: 'Osteria 640 N Broad St Philadelphia PA'
+	},
+	{
+		venue: 'The Goat Rittenhouse', neighborhood: 'Rittenhouse', address: '1907 Sansom St', website: 'https://www.thegoatrittenhouse.com/menus?menu=happy-hour',
+		hours: 'Mon-Fri, 4-6pm',
+		drinks: 'Yards Pale Ale and Michelob Ultra $5. House wine $7. Champagne Cocktail, Orange Smash, Aperol Spritz, Paloma, and Birdie Blues $9. Mix-and-match City Wide $12.',
+		food: 'Mixed olives, spiced nuts, and fries $5. Fig and Brie or Cherry Gorgonzola crostinis $8. Hummus $10. Three BBQ chicken sliders $12.',
+		stipulations: 'The City Wide price includes listed beer and shot choices.',
+		query: 'The Goat Rittenhouse 1907 Sansom St Philadelphia PA'
+	},
+	{
+		venue: 'Good Dog Bar', neighborhood: 'Rittenhouse', address: '224 S 15th St', website: 'https://gooddogbar.com/menu/',
+		hours: 'Mon-Fri, 3-6pm',
+		drinks: 'Half-price draughts. Mixed drinks $5. Wines $6.',
+		food: 'Half-price small bites. Current menu examples: fried mozzarella and mac and cheese $5, mussels $8, wings or Bang Bang Shrimp $8.50.',
+		stipulations: 'Happy-hour prices are subject to change. The food menu adds a 20% gratuity for parties of six or more and tabs left open at the end of the night.',
+		query: 'Good Dog Bar 224 S 15th St Philadelphia PA'
+	},
+	{
+		venue: "Cavanaugh's Rittenhouse", neighborhood: 'Rittenhouse', address: '1921 Sansom St', website: 'https://www.cavsrittenhouse.com/specials',
+		hours: 'Mon-Fri, 5-7pm',
+		drinks: 'Michelob Ultra drafts $4. Sauza tequila drinks $5. -196 vodka seltzers $6. Select wines $6.',
+		food: 'Personal nachos $6. Pierogies $6. Half-pound chicken nuggets $6.',
+		stipulations: 'Food specials are dine-in only and available 11:30am-9pm. Substitutions and additions can change the price. The venue site says 1921 Sansom St; Maps currently displays 1913 Sansom St.',
+		query: "Cavanaugh's Rittenhouse Philadelphia PA"
+	},
+	{
+		venue: 'Loch Bar', neighborhood: 'Avenue of the Arts', address: '301 S Broad St', website: 'https://lochbar.com/philly/our-menus/',
+		hours: 'Mon-Fri, 3-6pm',
+		drinks: 'Draft beer $6. House red, white, or rosé $8. Classic cocktails $11. Crushes $10.',
+		food: 'Oysters $2 each. Shrimp cocktail $5 each. Gumbo $8. Fried or roasted oysters, three for $9. Mussels $10. Fish and chips $11.',
+		stipulations: 'Official menu says patio and inside bar only. The current PDF describes the offer as bar only, so check seating availability.',
+		query: 'Loch Bar 301 S Broad St Philadelphia PA'
+	},
+	{
+		venue: 'Jaffa Bar', neighborhood: 'Olde Kensington', address: '1625 N Howard St', website: 'https://www.jaffabarphilly.com/about-us',
+		hours: 'Wed-Fri, 5-6pm and 9-10pm. Sat-Sun, 2-5pm',
+		drinks: '$6 Philly City Wide or Tel Aviv City Wide. $8 oyster shooter. $9 Frozen Jaffa Orange, Dry Martini, Green Eyed Lady, Today\'s the Night, or select wines.',
+		food: 'Weekend midday raw-bar deals: $2 oysters, $2 New Jersey top neck clams, and $2 shrimp cocktail.',
+		stipulations: 'The weekday windows are short. A 20% service charge is included in the bill.',
+		query: 'Jaffa Bar 1625 N Howard St Philadelphia PA'
+	},
+	{
+		venue: 'Tattooed Mom', neighborhood: 'South Street', address: '530 South St', website: 'https://www.tattooedmomphilly.com/menu/',
+		hours: 'Daily, 4-6pm for regular happy hour',
+		drinks: 'All drafts $4.',
+		food: 'Thursday pierogies are 75 cents each all day. Wednesday smash burgers are $6. Tuesday beef or bean tacos are $1.50.',
+		stipulations: 'The burger and taco prices are weekly specials, not the standard happy-hour menu. Specials and hours can change. Groups of eight or more in the first-floor dining room receive a 20% automatic gratuity.',
+		query: 'Tattooed Mom 530 South St Philadelphia PA'
+	},
+	{
+		venue: 'Gatehouse', neighborhood: 'South Philadelphia', address: '4503 S Broad St', website: 'https://www.gatehousephilly.com/menu/happy-hour/',
+		hours: 'Mon-Thu, 4:30-6:30pm. Fri, 3-6:30pm',
+		drinks: '$5 select draft beer. $8 house wine. $8 select cocktails.',
+		food: '$2 off all shares.',
+		stipulations: 'The official page gives the discount formula rather than an itemized happy-hour food menu.',
+		query: 'Gatehouse 4503 S Broad St Philadelphia PA'
+	},
+	{
+		venue: 'Lloyd Whiskey Bar', neighborhood: 'Fishtown', address: '529 E Girard Ave', website: 'https://lloydwhiskeybar.com/philadelphia-girard-lloyd-whiskey-bar-happy-hours-menu',
+		hours: 'Mon-Fri, 4-6pm. Late night: Sun-Thu, 10-11pm, and Fri-Sat, 11pm-midnight',
+		drinks: 'Old Fashioned, Negroni, or Moscow Mule $7. Red blend or Sauvignon Blanc $7. $1 off drafts and City Wides.',
+		food: 'Chicken bites, nachos, or mac and cheese $7. Jalapeño and bacon burger slider, cheesesteak empanada, and vegan empanada $5.',
+		stipulations: 'Late-night food is described as fries, wings, and other $5-$7 snacks. Verify the exact late-night list.',
+		query: 'Lloyd Whiskey Bar 529 E Girard Ave Philadelphia PA'
+	},
+	{
+		venue: 'LMNO', neighborhood: 'Fishtown', address: '1739-1749 N Front St, entrance on West Palmer St', website: 'https://lmnophilly.com/menu/?type=drink',
+		hours: 'Mon-Fri, 4-6pm',
+		drinks: 'Tecate $3. Selected beer $4-$5. Classic Margarita $8. Lone Ranger $7. Sangria $8. House wine $8. Shots $7.',
+		food: 'Vegan aguachile $6. Esquite fries $6. Chicken taquitos $7. Aguachile of the day $8. Grilled wings $10.',
+		stipulations: 'Bar and patio only. Use the West Palmer Street entrance.',
+		query: 'LMNO 1739 N Front St Philadelphia PA'
+	},
+	{
+		venue: 'Fette Sau', neighborhood: 'Fishtown', address: '1208 Frankford Ave', website: 'https://fettesauphilly.com/',
+		hours: 'Mon-Fri, 5-7pm. Sat-Sun, 2-4pm',
+		drinks: '$2 off select draft beer pints. $2 off specialty cocktails. My First Rodeo whiskey flight $14.50.',
+		food: 'Deviled eggs $3. Chicken legs with spicy slaw $4. Burnt ends sandwich with spicy slaw $8. Sausage sandwich with pickled peppers and smoked mayo $8.',
+		stipulations: 'Order at the counter when dining in. Ask about daily specials.',
+		query: 'Fette Sau 1208 Frankford Ave Philadelphia PA'
+	},
+	{
+		venue: 'Frankford Hall', neighborhood: 'Fishtown', address: '1210 Frankford Ave', website: 'https://frankfordhall.com/',
+		hours: 'Mon-Fri, 4-6pm. Sun, 8-10pm',
+		drinks: 'Half-liter German drafts $6. One-liter German drafts $12. German wheat or lager flight $10. Mystery can $6. Rotating wine $7. Mulled wine $8.',
+		food: 'Sweet or savory pretzel bites $4. Currywurst with fries $6. Bavarian cheesesteak $10.',
+		stipulations: 'The official page shows the happy hour alongside current menu content.',
+		query: 'Frankford Hall 1210 Frankford Ave Philadelphia PA'
+	},
+	{
+		venue: 'Dock Street Fishtown', neighborhood: 'Fishtown', address: '1229 N Front St', website: 'https://www.dockstreetbeer.com/dock-street-fishtown-menu',
+		hours: 'The happy-hour menu lists Thu-Sat, 5-7pm',
+		drinks: 'Any 10-ounce draft beer $3. City Wide $6. World Wide $11. Rotating select cocktail $10.',
+		food: 'Classic grilled cheese $3. Vegan grilled cheese $4. Fancy rotating grilled cheese $7. House popcorn $3. Pretzel $6. House roasted nuts $6.',
+		stipulations: 'The same page introduces Fishtown as open Friday and Saturday while the happy-hour heading includes Thursday. Verify Thursday service.',
+		query: 'Dock Street Fishtown 1229 N Front St Philadelphia PA'
+	},
+	{
+		venue: 'Picnic', neighborhood: 'Fishtown', address: '2421 Martha St', website: 'https://www.picnicphilly.com/menu',
+		hours: 'Mon-Fri, 5-6:30pm. All day Sunday',
+		drinks: 'Cocktails $9. Wine $9. Draft beer $5.',
+		food: 'Oysters $2. Chicken slider $6. French fries $6.',
+		stipulations: 'The Sunday offer is all day. Check the restaurant hours alongside the happy-hour menu.',
+		query: 'Picnic 2421 Martha St Philadelphia PA'
+	},
+	{
+		venue: 'The International Bar', neighborhood: 'Fishtown', address: '1624 N Front St', website: 'https://www.theintlbar.com/',
+		hours: 'Mon-Fri, 4-6pm',
+		drinks: 'Rotating draft beer $5. Draft wine $6. Cocktails $7.',
+		food: 'The current directory lists a glizzy dog $7 and other hot-dog options. The official menu is a non-text embed, so confirm current food prices.',
+		stipulations: 'Outdoor seating is first come, first served. The entrance has a 13-inch step; the sidewalk cafe table is the accessible food and drink option. Item prices are secondary evidence.',
+		query: 'The International Bar 1624 N Front St Philadelphia PA', photo: '/images/philly-happy-hours/international-bar-storefront.jpg', photoSource: 'https://www.theintlbar.com/'
+	},
+	{
+		venue: 'CO-OP Restaurant & Bar', neighborhood: 'University City', address: '20 S 33rd St, inside The Study', website: 'https://www.coopphilly.com/menu/happy-hour/',
+		hours: 'Mon-Fri, 3-6pm',
+		drinks: 'Select beer $5: Miller Lite, Peroni, or Dogfish 60 Minute. House red or white wine $7. Two Robbers vodka soda $6.',
+		food: 'Deviled eggs $8. Wings $12. Focaccia tomato pie $12.',
+		stipulations: 'Inside The Study at University City hotel. The official page also lists a separate daily bar menu from 2-4pm.',
+		query: 'CO-OP Restaurant and Bar 20 S 33rd St Philadelphia PA'
+	},
+	{
+		venue: 'White Dog Cafe University City', neighborhood: 'University City', address: '3420 Sansom St', website: 'https://www.whitedog.com/cmsAdmin/uploads/wduc-happy-hour-menu-3-18-26.pdf',
+		hours: 'Sun-Fri, 3-6pm',
+		drinks: 'Wine by the glass $8. Cocktails $9. Draft beer $6.',
+		food: 'Small plates $6, including fried pickles, truffle parmesan fries, mushroom soup, carrot ginger bisque, and deviled eggs. Medium plates $9 include beet and arugula salad, Caesar salad, French onion soup, baby spinach salad, and caramelized onion dip. Large plates $13 include artisan cheese, tuna tartare, oysters, whipped feta, Nashville hot chicken sandwich, and the White Dog burger.',
+		stipulations: 'Bar and patio, weather permitting. The current 2026 PDF adds a 3% credit-card surcharge unless using debit or cash and 20% gratuity for parties of five or more. Seasonal menu.',
+		query: 'White Dog Cafe University City 3420 Sansom St Philadelphia PA'
+	},
+	{
+		venue: 'Louie Louie', neighborhood: 'University City', address: '3611 Walnut St', website: 'https://louie-louie.restaurant/happenings/',
+		hours: 'Mon-Fri, 3-6pm. Wednesday extends from 3pm to close at the bar and lounge',
+		drinks: 'Cocktails $9. Seasonal beer $6. Wine by the glass $8.',
+		food: 'Crispy artichokes $10. Truffled pommes frites $8. Onion soup gratinée $10. House potato chips $8. Marinated olives $8. Macaroni au gratin $8. Short rib poutine $10. Moules $12. Tuna tartare $14. Steak tartare $12.',
+		stipulations: 'Bar, lounge, and select outdoor tables. First come, first served. The August 5, 2026 menu adds a 3% credit-card surcharge unless using debit or cash and a raw-food warning.',
+		query: 'Louie Louie 3611 Walnut St Philadelphia PA'
+	},
+	{
+		venue: 'Corio', neighborhood: 'University City', address: '3675 Market St', website: 'https://www.coriophilly.com/copy-of-contact-1',
+		hours: 'Daily menu lists 3-6pm; practical service is Mon-Sat because Sunday is closed',
+		drinks: 'House red or white $9. Cocktails $10. Neshaminy Creek Post Up Pils $5.',
+		food: 'Italian meatballs $8. Caesar salad $9. Crispy potatoes $6. Calabrian chili wings $10.',
+		stipulations: 'Join at the bar. Walk-ins welcome.',
+		query: 'Corio 3675 Market St Philadelphia PA'
+	},
+	{
+		venue: 'New Deck Tavern', neighborhood: 'University City', address: '3408 Sansom St', website: 'https://www.newdecktavern.com/specials/',
+		hours: 'Tue-Fri, 4-6pm',
+		drinks: 'Select beers $5. House wines $7. Margaritas $8.',
+		food: 'Nachos Supreme $8. Chicken tenders $8.',
+		stipulations: 'The official weekly-specials page also lists Taco Tuesday from 5-11pm with $4 tacos and $5 Coronas, separate from happy hour.',
+		query: 'New Deck Tavern 3408 Sansom St Philadelphia PA'
+	}
+];
+
+const neighborhoods = [...new Set(deals.map((deal) => deal.neighborhood))];
+const description = 'A current Philadelphia happy-hour table with drink and appetizer prices, deal hours, venue links, Google Maps links, and verified storefront photos where available.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Philadelphia Happy Hours 2026: Booze and Appetizer Deals | ${SITE_TITLE}`} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Philadelphia happy hours 2026',
+			description,
+			itemListElement: deals.map((deal, index) => ({
+				'@type': 'ListItem', position: index + 1, name: deal.venue,
+			})),
+		})} />
+		<style>
+			:global(html) { background: #fff; }
+			:global(body) {
+				background: #fff;
+				color: #111;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				line-height: 1.45;
+				margin: 0;
+			}
+			main {
+				box-sizing: border-box;
+				max-width: 1500px;
+				margin: 0 auto;
+				padding: 32px 24px 56px;
+			}
+			h1, h2 { font-family: Arial, Helvetica, sans-serif; font-weight: 400; color: #111; }
+			h1 { font-size: 30px; margin: 0 0 10px; }
+			h2 { font-size: 22px; margin: 36px 0 10px; }
+			.intro, .last-checked, .seasonal { max-width: 900px; }
+			.intro { margin: 0 0 8px; }
+			.last-checked { color: #444; font-size: 14px; margin: 0 0 28px; }
+			.table-wrap { overflow-x: auto; margin: 0 0 28px; }
+			table { border-collapse: collapse; min-width: 1180px; width: 100%; }
+			th, td { border: 1px solid #999; padding: 10px; text-align: left; vertical-align: top; }
+			th { background: #f4f4f4; font-weight: 700; }
+			.venue { min-width: 150px; }
+			.hours { min-width: 145px; }
+			.drinks { min-width: 220px; }
+			.food { min-width: 260px; }
+			.stipulations { min-width: 230px; }
+			.cell-text { margin: 0; white-space: pre-line; }
+			.address { color: #444; font-size: 14px; margin-top: 6px; }
+			.links { margin-top: 8px; white-space: nowrap; }
+			.links a { margin-right: 8px; }
+			.photo { margin: 10px 0 0; width: 150px; }
+			.photo img { display: block; height: auto; max-width: 150px; }
+			.photo figcaption { color: #444; font-size: 12px; margin-top: 3px; }
+			.seasonal { border-top: 1px solid #999; border-bottom: 1px solid #999; padding: 12px 0; }
+			.seasonal p { margin: 0 0 8px; }
+			.seasonal p:last-child { margin-bottom: 0; }
+			@media (max-width: 600px) {
+				main { padding: 24px 12px 40px; }
+				h1 { font-size: 26px; }
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Philadelphia happy hours in 2026</h1>
+			<p class="intro">Drink and appetizer deals, organized by neighborhood. Prices and hours were checked September 3, 2026. Every venue row below has a Google Maps listing that did not show a permanent or temporary closure notice when checked.</p>
+			<p class="last-checked">Deals can change without notice. Open the venue menu before leaving, especially for seasonal menus, patio-only service, and the rows marked for confirmation.</p>
+
+			{neighborhoods.map((neighborhood) => (
+				<section aria-labelledby={`${neighborhood.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-heading`}>
+					<h2 id={`${neighborhood.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-heading`}>{neighborhood}</h2>
+					<div class="table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th class="venue">Venue</th>
+									<th class="hours">Deal hours</th>
+									<th class="drinks">Booze and prices</th>
+									<th class="food">Appetizers and food prices</th>
+									<th class="stipulations">Stipulations</th>
+									<th>Links and photo</th>
+								</tr>
+							</thead>
+							<tbody>
+								{deals.filter((deal) => deal.neighborhood === neighborhood).map((deal) => (
+									<tr>
+										<td class="venue">
+											<strong>{deal.venue}</strong>
+											<div class="address">{deal.address}</div>
+										</td>
+										<td><p class="cell-text">{deal.hours}</p></td>
+										<td><p class="cell-text">{deal.drinks}</p></td>
+										<td><p class="cell-text">{deal.food}</p></td>
+										<td><p class="cell-text">{deal.stipulations}</p></td>
+										<td>
+											<div class="links"><a href={deal.website}>Venue</a><a href={mapsUrl(deal.query)}>Google Maps</a></div>
+											{deal.photo && (
+												<figure class="photo">
+													<img src={deal.photo} alt={`Exterior storefront of ${deal.venue}`} loading="lazy" />
+													<figcaption><a href={deal.photoSource}>Venue exterior photo</a></figcaption>
+												</figure>
+											)}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			))}
+
+			<h2>Seasonal program</h2>
+			<div class="seasonal">
+				<p><a href="https://fishtowndistrict.com/events/fishtown-taps/">Fishtown TAPS</a> runs every Tuesday from 5-7pm through September 29, 2026. The program lists $5 beer, $6 wine, $7 cocktails, and appetizer specials at participating stops. Individual stops and specials can change, so use the program page for the current crawl.</p>
+				<p>The program is separate from the regular venue deals above. It is a good way to combine Fishtown stops such as LMNO, Frankford Hall, Barcade, The International, and Lloyd when they are participating.</p>
+			</div>
+		</main>
+	</body>
+</html>
