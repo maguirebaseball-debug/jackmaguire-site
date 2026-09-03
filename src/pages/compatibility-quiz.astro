@@ -18,17 +18,36 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			<section class="quiz-hero">
 				<h1>Would you and Jack get along?</h1>
 				<p class="hero-copy">A short interview about the texture of being together: how you handle teasing, uncertainty, quiet, curiosity, and the occasional over-planned walk through New York.</p>
-				<div class="hero-note"><strong>How it works</strong><span>16 questions · about 4 minutes · no email required</span></div>
+				<div class="hero-note"><strong>How it works</strong><span>16 questions plus 2 practical fit checks · about 4 minutes · no email required</span></div>
 			</section>
 
 			<section class="quiz-shell" aria-labelledby="quiz-title">
 				<div class="section-heading">
 					<h2 id="quiz-title">Rank the version of us you would actually enjoy.</h2>
-					<p>Each question gives you four plausible answers. Put them in order: first the one that feels most natural, last the one you would least want to live with. There are no bad answers here. Each one describes a relationship style that works for some people, but may or may not fit Jack.</p>
+					<p>Each question gives you four plausible answers. Put them in order: first the one that feels most natural, last the one you would least want to live with. There are no bad answers here. Each one describes a relationship style that works for some people, but may or may not fit Jack. The two practical fit checks are separate and do not change the relationship-style score.</p>
 					<div class="quiz-expectation"><span><strong>Rank 1–4</strong> in every question.</span><span>You can move back and change any answer.</span></div>
 				</div>
 				<form id="compatibility-form">
 					<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden />
+					<fieldset class="practical-gates" aria-describedby="practical-gates-note">
+						<legend>Two practical fit checks</legend>
+						<p id="practical-gates-note">These answers are not character judgments. They only check whether the basic situation is workable.</p>
+						<div class="gate-grid">
+							<fieldset class="gate-card">
+								<legend>What are you open to right now?</legend>
+								<label><input type="radio" name="relationship_intent" value="long_term" required /> <span>I am looking for a long-term relationship.</span></label>
+								<label><input type="radio" name="relationship_intent" value="open" /> <span>I am open to a relationship if it develops.</span></label>
+								<label><input type="radio" name="relationship_intent" value="casual" /> <span>I am looking for something casual or short-term.</span></label>
+								<label><input type="radio" name="relationship_intent" value="not_now" /> <span>I am not looking for a relationship right now.</span></label>
+							</fieldset>
+							<fieldset class="gate-card">
+								<legend>Would you be open to dating a man who is 5'3"?</legend>
+								<label><input type="radio" name="height_fit" value="yes" required /> <span>Yes, I am open to it.</span></label>
+								<label><input type="radio" name="height_fit" value="maybe" /> <span>Possibly, if the connection is strong.</span></label>
+								<label><input type="radio" name="height_fit" value="no" /> <span>No, I know that height would be a problem for me.</span></label>
+							</fieldset>
+						</div>
+					</fieldset>
 					<div class="quiz-progress" aria-live="polite">
 						<div><strong id="quiz-progress-label">Questions 1–4 of 16</strong><span id="quiz-progress-mode">Desktop view</span></div>
 						<div class="quiz-progress-track" aria-hidden="true"><span id="quiz-progress-fill"></span></div>
@@ -64,7 +83,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 					<summary>Read the full matchmaker wiki <span aria-hidden="true">→</span></summary>
 				<div class="wiki-grid">
 					<article class="wiki-card wide"><h3>Core match profile</h3><p>A strong match will usually have most of these qualities:</p><ol><li><strong>Sharp, warm humor.</strong> She can tease and be teased, handle irreverent or slightly dark jokes, make callbacks, and give as good as she gets.</li><li><strong>Direct communication.</strong> She says uncomfortable things plainly and can say “you’re being mean right now” without cruelty.</li><li><strong>Emotional strength with softness.</strong> She has boundaries without becoming cold and can be tender without collapsing.</li><li><strong>Attention to detail.</strong> She remembers specific moments, preferences, sounds, routines, and phrases. Generic attentiveness is not enough.</li><li><strong>A different point of view.</strong> Her background, discipline, culture, or life path expands Jack’s default frame and gives the relationship its own references.</li><li><strong>Not easily impressed.</strong> She is not awed by ambition, competence, money, intelligence, or dominance. She can lovingly roll her eyes.</li><li><strong>Warm ties to family or chosen family.</strong> She has close relationships and makes integration feel normal.</li><li><strong>Good ordinary life.</strong> A couch evening, simple meal, walk, or shared routine feels good.</li><li><strong>Accountability with context.</strong> She can see anxiety underneath sharp or controlling stress behavior while still naming the behavior clearly.</li><li><strong>Intellectual range.</strong> She wants to talk about ideas, from psychology and cities to economics, technology, culture, philosophy, media, or whatever is interesting that day.</li></ol></article>
-					<article class="wiki-card"><h3>Current non-negotiables</h3><ul><li>Sweet to Jack</li><li>Really sharp</li><li>Close with friends and/or family</li><li>Comfortable taking things slowly</li><li>Able to genuinely enjoy relaxing</li><li>Sincerely curious about Jack and his life</li><li>Direct enough to reduce ambiguity</li><li>Emotionally brave in hard conversations</li><li>Capable of playful banter</li><li>Someone Jack is excited to see again</li></ul><p class="small-note">There is no height requirement. The quiz asks separately whether someone is comfortable dating a guy under 5'5", because attraction and practical fit still deserve an honest answer.</p></article>
+					<article class="wiki-card"><h3>Current non-negotiables</h3><ul><li>Sweet to Jack</li><li>Really sharp</li><li>Close with friends and/or family</li><li>Comfortable taking things slowly</li><li>Able to genuinely enjoy relaxing</li><li>Sincerely curious about Jack and his life</li><li>Direct enough to reduce ambiguity</li><li>Emotionally brave in hard conversations</li><li>Capable of playful banter</li><li>Someone Jack is excited to see again</li></ul><p class="small-note">Jack is 5'3". The quiz asks separately whether someone is open to dating a man that height, because attraction and practical fit still deserve an honest answer.</p></article>
 					<article class="wiki-card"><h3>Attraction rule</h3><p>Paper fit cannot carry the match. Jack has to feel real pull and want to see her again. “She seems perfect” is not the same as “I am excited to see her.”</p><h3 class="subhead">Nice, but not core</h3><p>Hot, dresses well, socially polished, and conventionally impressive can help. They should never drive selection.</p></article>
 					<article class="wiki-card wide"><h3>Early screening criteria</h3><div class="signal-grid"><div><h4>Humor</h4><p class="good">Strong: natural teasing, callbacks, escalation, light roasting, reciprocal play.</p><p class="weak">Weak: polite laughter, brittle reactions, performance instead of play, or deference.</p></div><div><h4>Directness</h4><p class="good">Strong: clear answers, stated preferences, disagreement without drama, named discomfort.</p><p class="weak">Weak: hints, “I’m fine” when she is not, passive aggression, or making Jack chase clarity.</p></div><div><h4>Curiosity</h4><p class="good">Strong: specific follow-ups, remembered details, interest in work, routines, friends, tastes, and ideas.</p><p class="weak">Weak: generic questions, surface conversation, or enjoying pursuit without investigating him back.</p></div><div><h4>Relaxation</h4><p class="good">Strong: a walk, quiet bar, meal, couch, or unplanned moment can be enough.</p><p class="weak">Weak: restlessness with ordinary intimacy, constant phone checking, or needing every plan to be novel.</p></div></div></article>
 					<article class="wiki-card wide"><h3>The relationship dynamic</h3><div class="two-column"><div><h4>Emotional experience</h4><ul><li>Clear mutual choosing</li><li>Physical closeness that is sexual and tender</li><li>Safety for honesty</li><li>Shared values and mutual effort</li><li>Long-horizon commitment</li><li>Care that does not require performance</li><li>A feeling of being on the same team</li></ul></div><div><h4>Daily texture</h4><ul><li>Playful, competitive banter</li><li>Shared walks and neighborhood plans</li><li>Small rituals and private language</li><li>Cooking, shows, food, and drink</li><li>Integration with friends and family</li><li>Quiet domestic moments that feel chosen</li></ul></div></div><p>Jack expresses love by building specific shared experiences: a walk-to-bar-to-food arc, a place with atmosphere, a neighborhood, a recurring reference, or a domestic evening that feels intentional. A strong match receives this as romantic rather than excessive management.</p></article>
@@ -91,17 +110,17 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		{ id: 'banter', category: 'Banter', text: 'Someone you are dating makes a playful joke about one of your habits. Rank the responses from most natural to least natural for you.', options: [{ id: 'tease_back', label: 'Tease them back and bring the joke up again later.' }, { id: 'name_landing', label: 'Say whether it landed, then keep the mood easy.' }, { id: 'explain_habit', label: 'Smile and explain the habit. I prefer jokes that do not put either person on the spot.' }, { id: 'laugh_move_on', label: 'Laugh and move on. I enjoy warmth more than verbal sparring.' }] },
 		{ id: 'conflict', category: 'Clarity', text: 'A comment from a date stays with you, but you are not sure how it was meant. Rank what you would be most likely to do next.', options: [{ id: 'ask_directly', label: 'Tell the person which comment stayed with you and ask what they meant.' }, { id: 'sleep_on_it', label: 'Take the night to think, then mention it if it still matters the next day.' }, { id: 'talk_friend', label: 'Talk it through with a friend before deciding what conversation to have.' }, { id: 'wait_pattern', label: 'Pay attention to whether it changes how you feel before deciding whether to raise it.' }] },
 		{ id: 'quiet', category: 'Ordinary life', text: 'You and your partner have a free Saturday with no plans. Rank these versions of the day from most appealing to least appealing.', options: [{ id: 'walk_home', label: 'Walk around the neighborhood, buy something for dinner, and spend the rest of the day at home.' }, { id: 'separate_errands', label: 'Handle separate errands or projects, then meet for dinner.' }, { id: 'new_event', label: 'Find a concert, exhibit, or neighborhood event that neither of you has tried.' }, { id: 'shared_project', label: 'Pick a useful project and work on it together.' }] },
-		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about work or an interest you know little about. Rank the ways you would most naturally join the conversation.', options: [{ id: 'specific_detail', label: 'Pick one detail that interests you and keep asking about it.' }, { id: 'practical_questions', label: 'Ask practical questions until you understand what their day is like.' }, { id: 'common_ground', label: 'Share a similar experience so the conversation has common ground.' }, { id: 'let_them_lead', label: 'Listen closely and let them decide how much they want to explain.' }] },
+		{ id: 'warmth', category: 'Warmth', text: 'Someone you care about is having a difficult week. Rank the ways you would most naturally respond.', options: [{ id: 'specific_care', label: 'Notice what would make their day easier, offer something concrete, and check back in.' }, { id: 'present_tender', label: 'Spend time with them, offer affection, and let them talk or be quiet.' }, { id: 'practical_space', label: 'Give them room and help if they ask.' }, { id: 'avoid_big_feelings', label: 'Keep the mood light and avoid making it a big emotional conversation.' }] },
+		{ id: 'curiosity', category: 'Curiosity', text: 'Someone tells you about a small preference, work detail, or interest. Rank the ways you would most naturally respond.', options: [{ id: 'remember_detail', label: 'Remember one small detail, ask a good follow-up, and bring it up again later.' }, { id: 'practical_questions', label: 'Ask practical questions until you understand what their day is like.' }, { id: 'common_ground', label: 'Share a similar experience so the conversation has common ground.' }, { id: 'let_them_lead', label: 'Listen closely and let them decide how much they want to explain.' }] },
 		{ id: 'intimacy', category: 'Intimacy', text: 'As a relationship grows, which kind of physical connection feels most natural to you? Rank these from most appealing to least appealing.', options: [{ id: 'mutual_engagement', label: 'A sexual connection that is mutual, engaged, and easy to talk about.' }, { id: 'trust_first', label: 'Affection first, with sex developing as trust and comfort grow.' }, { id: 'separate_closeness', label: 'A strong physical relationship, while sex and emotional closeness remain somewhat separate.' }, { id: 'unspoken_spontaneity', label: 'Physical intimacy that stays spontaneous and mostly unspoken.' }] },
 		{ id: 'pace', category: 'Pacing', text: 'The first month is going well. Rank these ways of building contact from most comfortable to least comfortable.', options: [{ id: 'clear_routines', label: 'Make clear plans and show affection while both people keep their normal routines.' }, { id: 'light_texting', label: 'Go on a few dates each week but keep texting fairly light.' }, { id: 'early_intensity', label: 'Spend a lot of time together early, then adjust if either person needs more room.' }, { id: 'constant_contact', label: 'Text throughout the day and spend most free evenings together.' }] },
 		{ id: 'independence', category: 'Independence', text: 'When a relationship becomes serious, rank these ways of keeping a life of your own from most appealing to least appealing.', options: [{ id: 'full_lives_time', label: 'Both people should keep a full life and deliberately set aside regular time together.' }, { id: 'some_hobbies', label: 'Each person should keep some hobbies and time alone.' }, { id: 'separate_friends', label: 'Friendships should remain separate, while most other parts of life combine.' }, { id: 'mostly_shared', label: 'Most free time should become shared, with either person able to ask for space.' }] },
 		{ id: 'ideas', category: 'Depth', text: 'Which long conversation would you most want to have with a partner? Rank these from most appealing to least appealing.', options: [{ id: 'ideas_argument', label: 'A conversation about why people, cities, technology, or culture work the way they do.' }, { id: 'funny_references', label: 'A night of funny stories, gossip, and cultural references.' }, { id: 'personal_history', label: 'A conversation about personal history and how it shaped both of you.' }, { id: 'life_plan', label: 'A practical conversation about the life you want to build.' }] },
 		{ id: 'family', category: 'Community', text: 'How should a partner fit into your friends or family life? Rank these approaches from most appealing to least appealing.', options: [{ id: 'gradual_integration', label: 'A partner should gradually become a real part of that world.' }, { id: 'depends_people', label: 'It should depend on the people involved rather than follow a fixed expectation.' }, { id: 'shared_circle', label: 'The couple should build a new shared social circle while each person keeps older ties.' }, { id: 'mostly_separate', label: 'The relationships can stay mostly separate as long as everyone is respectful.' }] },
 		{ id: 'effort', category: 'Reciprocity', text: 'One person plans a thoughtful date. Rank these ways of sharing effort over time from most desirable to least desirable.', options: [{ id: 'specific_return', label: 'The other person should notice what made it thoughtful and plan something equally specific next.' }, { id: 'alternate_turns', label: 'The couple should alternate turns so the work stays even.' }, { id: 'planner_leads', label: 'The person who enjoys planning can keep doing it, while the other shows clear appreciation.' }, { id: 'stay_spontaneous', label: 'Plans should stay mostly spontaneous, with both people deciding in the moment.' }] },
-		{ id: 'accountability', category: 'Emotional strength', text: 'During a stressful night, your partner says your tone has become sharp. Rank the ways you would most naturally respond.', options: [{ id: 'own_explain', label: 'Ask what landed badly, own the tone, and explain the stress after that.' }, { id: 'repair_now', label: 'Apologize and repair the mood, then discuss the cause another time.' }, { id: 'shared_signal', label: 'Explain the pressure and agree on a phrase either person can use before the tone gets worse.' }, { id: 'take_break', label: 'Take a break and return to the conversation later that evening.' }] },
+		{ id: 'accountability', category: 'Emotional strength', text: 'Your partner gets stressed and speaks sharply to you. Rank what you would most naturally do next.', options: [{ id: 'name_impact', label: 'Name that the tone hurt, hold the boundary, and stay open to a calm conversation about the stress.' }, { id: 'ask_then_talk', label: 'Ask what is going on, then talk through the impact once things settle.' }, { id: 'take_break', label: 'Take a short break and return to the conversation later that evening.' }, { id: 'let_it_pass', label: 'Let it pass if the stress seems understandable, even if the pattern continues.' }] },
 		{ id: 'stimulation', category: 'Ordinary life', text: 'Which kind of shared week sounds best? Rank these rhythms from most appealing to least appealing.', options: [{ id: 'routine_outing', label: 'A few routine nights together, a walk or meal, and one planned outing.' }, { id: 'independent_date', label: 'Two busy independent lives with one date both people look forward to.' }, { id: 'shared_goal', label: 'Time spent working toward a shared goal or project.' }, { id: 'many_new_plans', label: 'Several social plans and at least one new place to try.' }] },
 		{ id: 'unimpressed', category: 'Independence', text: 'You are dating someone unusually accomplished. Rank these ways of showing interest from most natural to least natural.', options: [{ id: 'disagree_tease', label: 'Stay curious, disagree when you do, and tease them as freely as anyone else.' }, { id: 'life_beyond_work', label: 'Focus mostly on the parts of their life that have nothing to do with achievement.' }, { id: 'ask_work', label: 'Ask about the work and celebrate the wins with them.' }, { id: 'let_lead', label: 'Let them lead when the subject is in their area of expertise.' }] },
-		{ id: 'height', category: 'Practical fit', text: 'How would you feel about dating a guy who is under 5\'5"? Rank these responses from most honest for you to least honest for you.', options: [{ id: 'height_neutral', label: 'Height has very little effect on whether I find someone attractive.' }, { id: 'chemistry_overweighs', label: 'I usually prefer taller men, but chemistry could outweigh that preference.' }, { id: 'height_on_mind', label: 'I could date him, though the height difference might stay on my mind.' }, { id: 'not_attracted', label: 'I know I would not be attracted, so I would rather be honest about it.' }] },
 		{ id: 'pull', category: 'Attraction', text: 'After a first date, rank the strongest reasons you would say yes to a second.', options: [{ id: 'want_more', label: 'I found myself wanting more time with them and more physical closeness.' }, { id: 'kind_interest', label: 'They were thoughtful, kind, and clearly interested.' }, { id: 'easy_conversation', label: 'The conversation was easy and I noticed no serious concerns.' }, { id: 'life_values', label: 'Our values and the direction of our lives seem compatible.' }] },
 		{ id: 'desire', category: 'Attraction', text: 'Three months into a relationship, rank the signs that would matter most to you.', options: [{ id: 'repeat_evening', label: 'An ordinary evening together is something I want to repeat.' }, { id: 'disagree_well', label: 'We can disagree without either person becoming cruel or shutting down.' }, { id: 'friends_routines', label: 'Our friends and routines fit together without much friction.' }, { id: 'future_plans', label: 'We support each other\'s goals and can make plans for the future.' }] },
 	];
@@ -121,8 +140,8 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const analyticsWindow = window as Window & { gtag?: (command: string, eventName: string, eventParams?: Record<string, string | number>) => void };
 		analyticsWindow.gtag?.('event', name, params);
 	};
-	const QUIZ_VERSION = 'ranked-v4-preference-rubric';
-	const RUBRIC_VERSION = 'preference-v2';
+	const QUIZ_VERSION = 'ranked-v5-preference-rubric';
+	const RUBRIC_VERSION = 'preference-v3';
 	const SHUFFLE_ALGORITHM = 'fisher-yates-mulberry32-v1';
 	const attemptId = window.crypto.randomUUID();
 	const seedBytes = new Uint32Array(2);
@@ -130,23 +149,24 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	const shuffleSeed = (seedBytes[0] ^ seedBytes[1]) >>> 0;
 	track('compatibility_quiz_view', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 	const WEB3FORMS_ACCESS_KEY = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
-	const questionWeights: Record<string, number> = { banter: 1.5, conflict: 1.5, quiet: 1.25, curiosity: 1.25, intimacy: 1.25, pace: 1.25, independence: 1, ideas: .75, family: .75, effort: 1, accountability: 1.5, stimulation: 1.25, unimpressed: .75, height: .5, pull: 1.5, desire: 1.5 };
-	const coreQuestions = new Set(['banter', 'conflict', 'quiet', 'accountability', 'pull', 'intimacy']);
+	const questionWeights: Record<string, number> = { banter: 1.5, conflict: 1.5, quiet: 1.25, warmth: 1.25, curiosity: 1.25, intimacy: 1.25, pace: 1.25, independence: 1, ideas: 1, family: 1, effort: 1, accountability: 1.5, stimulation: 1.25, unimpressed: 1, pull: 1.5, desire: 1.25 };
+	const coreQuestions = new Set(['banter', 'conflict', 'accountability', 'pull', 'intimacy', 'quiet', 'warmth']);
+	const questionLabels: Record<string, string> = { banter: 'warm reciprocal banter', conflict: 'direct conflict', quiet: 'ordinary-life comfort', warmth: 'warmth and softness', curiosity: 'specific curiosity and attention', intimacy: 'sexual and tender intimacy', pace: 'pacing', independence: 'independence', ideas: 'intellectual range', family: 'family and community integration', effort: 'reciprocal effort', accountability: 'warm accountability', stimulation: 'rooted novelty', unimpressed: 'being genuinely unimpressed', pull: 'romantic pull', desire: 'wanting to repeat ordinary life' };
 	const preferenceAlignment: Record<string, Record<string, number>> = {
 		banter: { tease_back: 4, name_landing: 3, laugh_move_on: 2, explain_habit: 0.5 },
 		conflict: { ask_directly: 4, sleep_on_it: 3, talk_friend: 1.5, wait_pattern: 1 },
 		quiet: { walk_home: 4, new_event: 3, shared_project: 2, separate_errands: 1 },
-		curiosity: { specific_detail: 4, practical_questions: 3.5, common_ground: 2, let_them_lead: 1 },
+		warmth: { specific_care: 4, present_tender: 3.5, practical_space: 2.5, avoid_big_feelings: 1 },
+		curiosity: { remember_detail: 4, practical_questions: 3, common_ground: 2, let_them_lead: 1 },
 		intimacy: { mutual_engagement: 4, trust_first: 3.5, separate_closeness: 2, unspoken_spontaneity: 1.5 },
 		pace: { clear_routines: 4, light_texting: 3, early_intensity: 1.5, constant_contact: 0.5 },
 		independence: { full_lives_time: 4, some_hobbies: 3.5, separate_friends: 2, mostly_shared: 1 },
 		ideas: { ideas_argument: 4, personal_history: 3, funny_references: 2.5, life_plan: 2 },
 		family: { gradual_integration: 4, depends_people: 3, shared_circle: 2, mostly_separate: 1 },
 		effort: { specific_return: 4, planner_leads: 3, alternate_turns: 2.5, stay_spontaneous: 1.5 },
-		accountability: { own_explain: 4, shared_signal: 3.5, repair_now: 3, take_break: 2 },
+		accountability: { name_impact: 4, ask_then_talk: 3.5, take_break: 3, let_it_pass: 1 },
 		stimulation: { routine_outing: 4, shared_goal: 3, independent_date: 2, many_new_plans: 1.5 },
 		unimpressed: { disagree_tease: 4, life_beyond_work: 3.5, ask_work: 2, let_lead: 1 },
-		height: { height_neutral: 4, chemistry_overweighs: 3, height_on_mind: 1.5, not_attracted: 0.5 },
 		pull: { want_more: 4, easy_conversation: 3, kind_interest: 2.5, life_values: 2 },
 		desire: { repeat_evening: 4, disagree_well: 3.5, future_plans: 3, friends_routines: 2.5 },
 	};
@@ -189,6 +209,20 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		}));
 		return possible ? Math.round((earned / possible) * 100) : 50;
 	};
+	const getPracticalFit = (data: FormData) => {
+		const relationshipIntent = String(data.get('relationship_intent') ?? '');
+		const heightFit = String(data.get('height_fit') ?? '');
+		const intentLabels: Record<string, string> = { long_term: 'Looking for a long-term relationship', open: 'Open to a relationship if it develops', casual: 'Looking for something casual or short-term', not_now: 'Not looking for a relationship right now' };
+		const heightLabels: Record<string, string> = { yes: 'Open to dating a 5\'3" man', maybe: 'Height depends on the connection', no: 'Height would be a problem' };
+		const practicalFlags: string[] = [];
+		const practicalCaveats: string[] = [];
+		if (relationshipIntent === 'casual') practicalFlags.push('relationship intent is casual or short-term');
+		if (relationshipIntent === 'not_now') practicalFlags.push('not looking for a relationship right now');
+		if (heightFit === 'no') practicalFlags.push('height is a practical mismatch');
+		if (relationshipIntent === 'open') practicalCaveats.push('long-term intent needs a conversation');
+		if (heightFit === 'maybe') practicalCaveats.push('height needs an honest conversation');
+		return { relationshipIntent, heightFit, intentLabel: intentLabels[relationshipIntent] ?? 'Intent not recorded', heightLabel: heightLabels[heightFit] ?? 'Height preference not recorded', practicalFlags, practicalCaveats, hardGate: practicalFlags.length > 0 };
+	};
 	const calculateResult = (data: FormData) => {
 		const questionScores = questions.map((question) => {
 			const ranks = question.options.map((option) => Number(data.get(`${question.id}__${option.id}`)));
@@ -207,14 +241,14 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		}, {} as Record<string, { total: number; weight: number }>);
 		const categoryValues = Object.entries(categoryScores).map(([category, value]) => ({ category, score: Math.round(value.total / value.weight) })).sort((a, b) => b.score - a.score);
 		const coreFloor = Math.min(...questionScores.filter((item) => coreQuestions.has(item.question.id)).map((item) => item.score));
-		const heightRank = Number(data.get('height__not_attracted'));
-		const cappedPercent = coreFloor < 50 ? Math.min(percent, 54) : heightRank === 1 ? Math.min(percent, 54) : heightRank === 2 ? Math.min(percent, 69) : percent;
-		const verdict = cappedPercent >= 85 ? ['Strong possibility', 'Your ranked preferences line up closely with Jack\'s across the core parts of a relationship. A date would still need to answer the attraction and chemistry questions the quiz cannot settle.'] : cappedPercent >= 70 ? ['Worth a real date', 'You share the same relationship style with Jack in several important areas, with some differences worth noticing in person.'] : cappedPercent >= 55 ? ['Mixed fit', 'Your answers describe a healthy relationship, but several of your preferences differ from Jack\'s. A strong in-person connection would have to do more of the work.'] : ['Probably not a match', 'Your ranked preferences describe a relationship style that differs substantially from what Jack is looking for. The score is about fit with one person, not relationship quality.'];
-		return { questionScores, categoryValues, percent: cappedPercent, rawPercent: percent, coreFloor, heightRank, verdict };
+		const coreConcerns = questionScores.filter((item) => coreQuestions.has(item.question.id) && item.score < 50).sort((a, b) => a.score - b.score).map((item) => ({ id: item.question.id, score: item.score, label: questionLabels[item.question.id] ?? item.question.category }));
+		const practical = getPracticalFit(data);
+		const verdict: [string, string] = practical.hardGate ? ['Practical mismatch', `The relationship-style score is ${percent}%, but ${practical.practicalFlags.join(' and ')}. That basic condition would need to change before the rest of the fit matters.`] : coreConcerns.length >= 2 ? ['Probably not a match', `Two or more core relationship conditions scored below 50%. The main areas to investigate are ${coreConcerns.map((concern) => concern.label).join(' and ')}.`] : percent >= 85 ? ['Strong possibility', 'Your ranked preferences line up closely with Jack\'s across the core parts of a relationship. A date would still need to answer the attraction and chemistry questions the quiz cannot settle.'] : percent >= 70 ? ['Worth a real date', coreConcerns.length === 1 ? `You share the same relationship style with Jack in several important areas. One core answer, ${coreConcerns[0].label}, needs a real conversation rather than a snap judgment.` : 'You share the same relationship style with Jack in several important areas, with some differences worth noticing in person.'] : ['Mixed fit', coreConcerns.length === 1 ? `There is some alignment here, but ${coreConcerns[0].label} needs a real conversation. Treat one weak answer as something to investigate, not a verdict.` : 'Your answers describe a healthy relationship, but several of your preferences differ from Jack\'s. A strong in-person connection would have to do more of the work.'];
+		const practicalSummary = practical.hardGate ? 'Mismatch' : practical.practicalCaveats.length ? 'Discuss' : 'Aligned';
+		return { questionScores, categoryValues, percent, rawPercent: percent, coreFloor, coreConcerns, practical, practicalSummary, verdict };
 	};
-	const contactCardMarkup = `<fieldset class="question-card contact-card"><legend><span>Optional</span>Want Jack to be able to follow up?</legend><div class="question-meta"><span>Contact info</span></div><p class="contact-hint">Leave your name or a way to reach you if you would like Jack to see who this result belongs to. This is optional and the quiz works the same either way.</p><div class="contact-fields"><label class="contact-field"><span>Name (optional)</span><input type="text" name="respondent_name" autocomplete="name" placeholder="Your name" /></label><label class="contact-field"><span>Email, phone, or Instagram (optional)</span><input type="text" name="respondent_contact" autocomplete="email" placeholder="How Jack can reach you" /></label></div></fieldset>`;
 	if (list && form) {
-		list.innerHTML = attemptQuestions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('') + contactCardMarkup;
+		list.innerHTML = attemptQuestions.map((q, index) => `<fieldset class="question-card"><legend><span>${String(index + 1).padStart(2, '0')}</span>${q.text}</legend><div class="question-meta"><span>${q.category}</span><strong class="question-status" data-question-status="${q.id}">0 of 4 ranked</strong></div><div class="rank-grid">${displayOptions(q).map((option) => `<label class="rank-row"><span class="rank-option">${option.label}</span><select name="${q.id}__${option.id}" required aria-label="Rank ${option.label}"><option value="" selected disabled>Rank</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option></select></label>`).join('')}</div></fieldset>`).join('');
 		form.noValidate = true;
 		const cards = Array.from(list.querySelectorAll<HTMLElement>('.question-card'));
 		let currentStep = 0;
@@ -282,6 +316,13 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		event.preventDefault();
 		track('compatibility_quiz_submit_attempt', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, shuffle_seed: shuffleSeed });
 		const data = new FormData(form);
+		const missingPracticalGate = !data.get('relationship_intent') ? form.querySelector<HTMLInputElement>('input[name="relationship_intent"]') : !data.get('height_fit') ? form.querySelector<HTMLInputElement>('input[name="height_fit"]') : null;
+		if (missingPracticalGate) {
+			track('compatibility_quiz_invalid_practical_fit', { quiz_version: QUIZ_VERSION });
+			if (submissionStatus) submissionStatus.textContent = 'Answer both practical fit checks before submitting.';
+			missingPracticalGate.focus();
+			return;
+		}
 		const hasInvalidRanking = questions.some((question) => {
 			const ranks = question.options.map((option) => data.get(`${question.id}__${option.id}`)).filter(Boolean);
 			return ranks.length !== 4 || new Set(ranks).size !== 4;
@@ -296,7 +337,10 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		const categoryMarkup = result.categoryValues.map(({ category, score }) => `<div class="result-row"><span>${category}</span><div class="bar"><i style="width:${score}%"></i></div><strong>${score}%</strong></div>`).join('');
 		const strongest = result.categoryValues[0];
 		const biggestGap = result.categoryValues[result.categoryValues.length - 1];
-		const followUpMarkup = result.percent > 80 ? `<section class="high-fit-follow-up" aria-labelledby="high-fit-follow-up-title"><h3 id="high-fit-follow-up-title">Want Jack to contact you?</h3><p>You scored above 80. Leave a phone number or Instagram handle if you would like Jack to follow up about your result.</p><form id="high-fit-follow-up-form"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden /><label for="high-fit-contact">Phone number or Instagram handle</label><input id="high-fit-contact" name="follow_up_contact" type="text" required autocomplete="off" placeholder="Your phone number or @handle" /><button class="follow-up-submit" type="submit">Send contact details <span aria-hidden="true">&rarr;</span></button><p class="follow-up-status" id="high-fit-follow-up-status" role="status" aria-live="polite"></p></form></section>` : '';
+		const coreFlagsMarkup = result.coreConcerns.length ? `<section class="report-flags" aria-labelledby="core-flags-title"><h3 id="core-flags-title">Core flags to investigate</h3><ul class="flag-list">${result.coreConcerns.map((concern) => `<li><strong>${concern.label}</strong> scored ${concern.score}%.</li>`).join('')}</ul><p>One flag is a prompt for a real conversation, not a verdict. Two or more is a serious warning.</p></section>` : `<section class="report-flags" aria-labelledby="core-flags-title"><h3 id="core-flags-title">Core flags</h3><p>No core preference scored below 50%. That is encouraging, but it still cannot tell you how the two of you behave together.</p></section>`;
+		const practicalDetails = result.practical.practicalFlags.length ? `<p><strong>Mismatch:</strong> ${result.practical.practicalFlags.join(' and ')}.</p>` : result.practical.practicalCaveats.length ? `<p><strong>Needs discussion:</strong> ${result.practical.practicalCaveats.join(' and ')}.</p>` : '<p>Nothing in these two practical checks looks immediately misaligned.</p>';
+		const practicalMarkup = `<section class="practical-result" aria-labelledby="practical-result-title"><h3 id="practical-result-title">Practical fit: ${result.practicalSummary}</h3><div class="practical-result-grid"><p><span>Relationship intent</span><strong>${result.practical.intentLabel}</strong></p><p><span>Height</span><strong>${result.practical.heightLabel}</strong></p></div>${practicalDetails}<p class="small-note">These checks are reported separately and do not change the relationship-style alignment score.</p></section>`;
+		const followUpMarkup = result.percent > 80 && result.coreConcerns.length === 0 && !result.practical.hardGate && result.practical.practicalCaveats.length === 0 ? `<section class="high-fit-follow-up" aria-labelledby="high-fit-follow-up-title"><h3 id="high-fit-follow-up-title">Want Jack to contact you?</h3><p>Your relationship-style alignment is above 80, with no low-scoring core flags or practical caveats. Leave a phone number or Instagram handle if you would like Jack to follow up about your result.</p><form id="high-fit-follow-up-form"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden /><label for="high-fit-contact">Phone number or Instagram handle</label><input id="high-fit-contact" name="follow_up_contact" type="text" required autocomplete="off" placeholder="Your phone number or @handle" /><button class="follow-up-submit" type="submit">Send contact details <span aria-hidden="true">&rarr;</span></button><p class="follow-up-status" id="high-fit-follow-up-status" role="status" aria-live="polite"></p></form></section>` : '';
 		const payload = new FormData(form);
 		payload.append('access_key', WEB3FORMS_ACCESS_KEY);
 		payload.append('subject', 'Compatibility quiz submission');
@@ -316,7 +360,10 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 		payload.append('raw_score_before_caps', String(result.rawPercent));
 		payload.append('verdict', result.verdict[0]);
 		payload.append('core_floor', String(result.coreFloor));
-		payload.append('height_rank', String(result.heightRank));
+		payload.append('core_flags', JSON.stringify(result.coreConcerns));
+		payload.append('practical_fit', result.practicalSummary);
+		payload.append('practical_flags', JSON.stringify(result.practical.practicalFlags));
+		payload.append('practical_caveats', JSON.stringify(result.practical.practicalCaveats));
 		payload.append('question_scores', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, score }) => [question.id, score]))));
 		payload.append('category_scores', JSON.stringify(Object.fromEntries(result.categoryValues.map(({ category, score }) => [category, score]))));
 		payload.append('answer_codes', JSON.stringify(Object.fromEntries(result.questionScores.map(({ question, ranks }) => [
@@ -324,13 +371,14 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			question.options.map((option, index) => ({ id: option.id, rank: ranks[index] })).sort((a, b) => a.rank - b.rank).map((entry) => entry.id),
 		]))));
 		payload.append('how_to_read_these_numbers', [
-			'overall_score: the final 0-100 compatibility percentage shown in the report, after any caps below are applied.',
-			'raw_score_before_caps: the same 0-100 score before caps, i.e. what the person would have scored on preference alignment alone.',
-			'core_floor: the lowest score among the five core questions (banter, conflict, quiet, accountability, pull). If this drops below 50, overall_score is capped at 54 regardless of the rest of the answers.',
-			'height_rank: the rank (1-4) this person gave to the most dismissive height answer ("I know I would not be attracted"). Rank 1 caps overall_score at 54; rank 2 caps it at 69; rank 3 or 4 applies no height cap.',
+			'overall_score: relationship-style alignment from 0-100. It is not a total compatibility score and no practical caps are applied.',
+			'raw_score_before_caps: retained for continuity with earlier quiz submissions; it equals overall_score in this version.',
+			'core_floor: the lowest score among the seven core questions (banter, conflict, accountability, pull, intimacy, quiet, warmth).',
+			'core_flags: core questions below 50%. One is a prompt to investigate; two or more produce a Probably not a match result.',
+			'practical_fit, practical_flags, practical_caveats: separate relationship-intent and height checks. They do not change overall_score. Casual or short-term intent, not dating right now, or a height mismatch are practical mismatches; open-ended intent or height uncertainty are caveats.',
 			'question_scores: a 0-100 alignment score per question, showing how closely that single answer\'s ranking matched the preferred ranking.',
 			'category_scores: question_scores averaged (weighted) by category, e.g. Banter, Clarity, Ordinary life. These are the bars shown in the emailed report.',
-			'answer_codes: per question, the option codes this person picked in order from 1st choice to 4th choice, e.g. banter: [tease_back, name_landing, laugh_move_on, explain_habit]. Use this to see the exact options someone ranked, not just the resulting score.',
+			'answer_codes: per question, the option codes this person picked in order from 1st choice to 4th choice. Use this to see the exact options someone ranked, not just the resulting score.',
 		].join(' | '));
 		const params = new URLSearchParams(window.location.search);
 		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((name) => payload.append(name, params.get(name) ?? ''));
@@ -350,7 +398,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 			.finally(() => {
 				report.hidden = false;
 				report.tabIndex = -1;
-				report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${result.verdict[0]}</h2><p>${result.verdict[1]}</p></div><div class="score-number"><strong>${result.percent}</strong><span>Jack fit score</span></div></div><div class="result-insights"><div><span>Strongest alignment</span><strong>${strongest.category}</strong><b>${strongest.score}%</b></div><div><span>Biggest difference</span><strong>${biggestGap.category}</strong><b>${biggestGap.score}%</b></div></div><div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>Jack still needs real attraction, warmth, an active life, independence, sexual reciprocity, and direct communication during conflict. A quiz can compare ranked preferences. It cannot tell whether two people feel chemistry or want another date.</p></div>${followUpMarkup}<div class="report-actions"><button class="share-button" id="share-result" type="button">Share this result</button><span id="share-status" role="status" aria-live="polite"></span></div><a class="report-link" href="#matchmaker-wiki">Open the matchmaker wiki <span aria-hidden="true">&darr;</span></a></div>`;
+				report.innerHTML = `<div class="report-inner"><div class="report-head"><div><h2>${result.verdict[0]}</h2><p>${result.verdict[1]}</p></div><div class="score-number"><strong>${result.percent}</strong><span>Relationship-style alignment</span></div></div><div class="result-insights"><div><span>Strongest alignment</span><strong>${strongest.category}</strong><b>${strongest.score}%</b></div><div><span>Biggest difference</span><strong>${biggestGap.category}</strong><b>${biggestGap.score}%</b></div></div>${coreFlagsMarkup}${practicalMarkup}<div class="category-results"><h3>What shaped the result</h3>${categoryMarkup}</div><div class="report-callout"><strong>What the score cannot test</strong><p>This compares stated relationship preferences. It cannot measure actual warmth, conversational volley, integrity, availability, effort balance, chemistry, or whether either of you wants another date. Test those in a short, low-pressure date.</p></div>${followUpMarkup}<div class="report-actions"><button class="share-button" id="share-result" type="button">Share this result</button><span id="share-status" role="status" aria-live="polite"></span></div><a class="report-link" href="#matchmaker-wiki">Open the matchmaker wiki <span aria-hidden="true">&darr;</span></a></div>`;
 				track('compatibility_quiz_result_reveal', { quiz_version: QUIZ_VERSION, rubric_version: RUBRIC_VERSION, attempt_id: attemptId, score: result.percent });
 				wiki.hidden = false;
 				wiki.removeAttribute('aria-hidden');
@@ -397,7 +445,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 						});
 				});
 				document.querySelector<HTMLButtonElement>('#share-result')?.addEventListener('click', async () => {
-					const shareText = `I got ${result.percent}% on the Jack Maguire compatibility quiz: ${result.verdict[0]}.`;
+					const shareText = `I got ${result.percent}% relationship-style alignment on the Jack Maguire compatibility quiz: ${result.verdict[0]}.`;
 					const shareUrl = `${window.location.href.split('#')[0]}#compatibility-result`;
 					const shareStatus = document.querySelector<HTMLElement>('#share-status');
 					try {
@@ -644,6 +692,22 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 </style>
 
 <style is:global>
+	.practical-gates { margin: 0 0 2rem; padding: 1.25rem; border: 1px solid #c9c1b7; }
+	.practical-gates > legend, .gate-card > legend { padding: 0 .35rem; font: 700 1.35rem/1.1 Georgia, 'Times New Roman', serif; }
+	.practical-gates > p { max-width: 60ch; margin: .5rem 0 1.25rem; color: #6f6a61; font-size: .88rem; line-height: 1.5; }
+	.gate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+	.gate-card { min-width: 0; margin: 0; padding: 1rem; border: 1px solid #c9c1b7; }
+	.gate-card > legend { max-width: 28ch; padding: 0; font-size: 1.15rem; }
+	.gate-card label { display: flex; gap: .65rem; align-items: flex-start; margin-top: .8rem; color: #48443f; font-size: .9rem; line-height: 1.45; cursor: pointer; }
+	.gate-card input { flex: 0 0 auto; margin: .2rem 0 0; accent-color: #b43a2e; }
+	.report-flags, .practical-result { margin-top: 2.5rem; padding: 1.25rem 0; border-top: 1px solid #171717; border-bottom: 1px solid #c9c1b7; }
+	.report-flags h3, .practical-result h3 { margin: 0 0 1rem; font: 700 1.35rem/1.1 Georgia, 'Times New Roman', serif; }
+	.report-flags p, .practical-result > p { max-width: 68ch; margin: 1rem 0 0; color: #625e57; line-height: 1.55; }
+	.flag-list { margin: 0; padding-left: 1.25rem; color: #48443f; line-height: 1.55; }
+	.practical-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+	.practical-result-grid p { display: grid; gap: .35rem; margin: 0; }
+	.practical-result-grid span { color: #b43a2e; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.practical-result-grid strong { font-size: .95rem; font-weight: 400; }
 	.question-card { margin: 0; padding: clamp(2rem, 4vw, 3rem) 0; border: 0; border-top: 1px solid #d9dbd2; }
 	.question-card legend { box-sizing: border-box; width: 100%; max-width: 36ch; padding: 0 0 1.35rem; font-family: var(--font-heading); font-size: clamp(1.25rem, 2.2vw, 1.7rem); font-weight: 700; line-height: 1.22; text-wrap: pretty; }
 	.question-card legend > span { display: block; width: auto; margin-bottom: .55rem; color: #767d62; font: 800 .72rem/1 var(--font-body); letter-spacing: .1em; }
@@ -675,6 +739,7 @@ const description = 'A short, behavior-based compatibility quiz for people curio
 	.report-link { display: inline-block; min-height: 44px; margin-top: 2rem; color: #454c25; font-weight: 700; line-height: 44px; }
 	@media (max-width: 700px) {
 		.answer-grid { grid-template-columns: 1fr; }
+		.gate-grid, .practical-result-grid { grid-template-columns: 1fr; }
 		.rank-row { grid-template-columns: minmax(0, 1fr) 76px; gap: .55rem; }
 		.question-card { padding: 2.25rem 0; }
 		.question-card legend { max-width: none; padding-bottom: 1.15rem; }
