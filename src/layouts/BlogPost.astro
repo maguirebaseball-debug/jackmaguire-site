@@ -264,7 +264,7 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 
 	<body class:list={[plain && 'plain-blog']}>
 		{!plain && <ReadingProgressBar />}
-		<Header />
+		{!plain && <Header />}
 		<main>
 			<article>
 				<div class="hero-image">
@@ -313,6 +313,6 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				</div>
 			</article>
 		</main>
-		<Footer />
+		{plain ? <footer class="plain-footer"><a href="/blog/">More writing</a></footer> : <Footer />}
 	</body>
 </html>
