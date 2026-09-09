@@ -6,6 +6,7 @@ import { SITE_TITLE } from '../consts';
 import { PERSON_ID } from '../consts';
 import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title: string;
@@ -44,6 +45,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 <meta name="generator" content={Astro.generator} />
 
 <ClientRouter />
+<Analytics />
 
 <Font cssVariable="--font-heading" preload />
 <Font cssVariable="--font-ui" preload />
