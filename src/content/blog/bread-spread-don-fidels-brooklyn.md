@@ -27,6 +27,8 @@ Funny enough, they had an Andy Samberg movie playing on the television. I had ne
 
 Then I hopped on the L. It took me about 15 minutes to get to the Jefferson Street station, near Maria Hernandez Park, where I wanted to try two different desserts from [Don Fidel's Nieve de Garrafa](https://www.google.com/maps/place/Don+Fidel's+Nieve+de+Garrafa+-+Street+Mexican+Ice+Cream/@40.7338498,-73.9647174,13.05z/data=!4m10!1m3!11m2!2skjCyPj9ShUf5oTdZoxUBFA!3e3!3m5!1s0x89c25d126d16fcbb:0xf44ce795588bf557!8m2!3d40.7018795!4d-73.9241103!16s%2Fg%2F11jdj7_fs_?entry=ttu), a street stand near the park. Don Fidel was working under a small tarp on the corner with what looked like a couple of family members.
 
+![Coconut and cantaloupe nieves from Don Fidel's near Maria Hernandez Park](/images/bread-spread-don-fidels/don-fidels-nieves-cropped.png)
+
 The first one was coconut nieve. There were a lot of flavor options, but the coconut was really good. It was a little icy, sweet, and slightly gummy. It is different from typical milk-based ice cream, and I found it more refreshing. It tasted almost a little like horchata.
 
 The second thing I got was cantaloupe nieve. He put a little Tajín and chamoy on it, which gave it an acidic element. That was awesome. It was a fairly standard Mexican fruit ice, but it was very fresh and even had a piece of frozen mango in it. It was super refreshing.
