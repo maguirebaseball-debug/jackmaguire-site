@@ -11,11 +11,13 @@ I had the day off, so I wanted to string together a couple of interesting-lookin
 
 I ordered the short rib. I am typically skeptical of short rib because it is easy to mess up. When it is good, it is really good, but in a sandwich, it is typically overcooked in my experience.
 
+The menu lists the sandwich with braised short rib, pickled shallots with ginger, watercress, Swiss, blackberry jam, and a side of chips.
+
 In this case, the short rib was actually pretty good. The meat was not quite as fatty as I like it, but it was not overcooked. A lot of the people who had suggested this sandwich made it sound like it had a really good balance of horseradish and blackberry jam. I did not really find that. It mostly tasted like meat on bread.
 
-It was not bad, but the sandwich comes in around $22 after tax, so I felt like I could have gotten a better sandwich somewhere else. The menu lists the sandwich with braised short rib, pickled shallots with ginger, watercress, Swiss, blackberry jam, and a side of chips.
-
 The bread is really spectacular. It is a really good seeded roll, very chewy. It reminds me a lot of a Philly-style roll. The chips are just standard chips.
+
+It was not bad, but the sandwich comes in around $22 after tax, so I felt like I could have gotten a better sandwich somewhere else.
 
 Overall, this is a good, not great, sandwich, but it was pretty good. One side of the sandwich tasted a little different from the other, and I think that is because I got different cuts of the short rib. The second half was a little fattier, which I like.
 
