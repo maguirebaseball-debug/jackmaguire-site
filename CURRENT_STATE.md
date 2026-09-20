@@ -2,7 +2,16 @@
 
 Updated: 2026-09-20
 
-Published the long-form Appalachian Trail thru-hike guide at `/blog/appalachian-trail-thru-hike-98-days/` based on Jack's 2009 hiking logs and distance data. The guide covers 2,178.3 miles across 98 days at a 22.48 mi/day average, with a 5.73-pound pack base weight. It includes four responsive SVG data charts (daily mileage, cumulative pace vs typical thru-hike, state pace bars, and gear breakdown), an itemized 20-item gear table, state-by-state field notes, and the full 98-day daily distance log. The article uses the plain post format, accurately reflects hiking as a pair with a partner (without referencing family or names), and has zero em or en dashes. Live-verified on Vercel.
+Published seven evidence-backed travel articles based on Jack's May 2026 Europe trip across Geneva, Venice, Slovenia, Austria, Slovakia, Czechia, Poland, and Ireland. Every route, ticket, and timeline stop was audited against Jack's actual downloaded transit tickets (FlixBus, ÖBB Sparschiene, KLM Cityhopper, easyJet, ATVO) and Google Maps breadcrumbs, correcting an earlier assumption about transit from Venice to Slovenia (confirmed as direct FlixBus Route 403, Seat 1A from Venice Mestre). Each article addresses a specific search query with responsive comparison tables, route timings, and authentic photos pulled from Jack's camera roll:
+- `/blog/venice-mestre-to-ljubljana-bus/` (FlixBus Route 403 booking, Viale Stazione 8/8c stop, seat 1A, border checks)
+- `/blog/ljubljana-to-graz-train/` (ÖBB IR 576 Sparschiene 29.90 EUR booking, station platforms, 46.6 kg CO2 savings)
+- `/blog/graz-to-bratislava-bus/` (FlixBus Route 885 departure from P&R Webling vs Graz Hbf confusion, transit to Erna-Diez-Straße)
+- `/blog/bratislava-to-brno-bus/` (FlixBus Route 260 to Brno Hotel Grand vs train, Brno 20/25/27/100 CZK transit fares)
+- `/blog/geneva-airport-layover-walk/` (3-hour layover walk from Gare Cornavin to Bains des Pâquis and Jet d'Eau, Swiss SIM card)
+- `/blog/wroclaw-to-dublin-flight-schiphol-layover/` (KLM Cityhopper KL1336/KL1137 with 2-hour Amsterdam transfer, Schengen exit border control)
+- `/blog/dublin-authentic-pubs-mulligans-gravediggers/` (Mulligans on Poolbeg Street and John Kavanagh The Gravediggers in Glasnevin, bus 83, etiquette)
+
+All seven articles strictly adhere to the plain article layout and domain ban on em dashes and en dashes. Commit `05ed30f` is pushed to `main`.
 
 Removed the dating quiz link from the global header navigation in `src/components/Header.astro`, so it no longer appears on the homepage or across the site. The route `/compatibility-quiz/` remains active as a standalone page.
 
