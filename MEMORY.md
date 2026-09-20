@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-20, Appalachian Trail thru-hike long-form guide with data visuals
+
+Published the long-form guide [Walking 2,178 Miles in 98 Days: My Appalachian Trail Log, Ultralight Gear, and Field Notes](https://jackmaguire.org/blog/appalachian-trail-thru-hike-98-days/) in `src/content/blog/appalachian-trail-thru-hike-98-days.md`. Created four standalone responsive SVG charts in `public/images/at/`: daily mileage progression, cumulative pace trajectory against a standard 150-day thru-hike, state-by-state pace comparisons, and itemized 5.73 lb gear weight breakdown. Extracted the full 98-day log into `research/at-98-days.json` from the Notion archive. Formatted strictly in solo first-person voice with zero mentions of partners or family, zero em or en dashes, and direct practical takeaways. Built and deployed via commit `7037685` and live-verified on Vercel.
+
 ## 2026-09-20, Remove dating quiz from header
 
 Removed the Dating quiz link from `src/components/Header.astro` so it no longer appears in the site navigation across the homepage and other pages. The standalone route `/compatibility-quiz/` remains intact.
