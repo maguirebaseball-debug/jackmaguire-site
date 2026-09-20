@@ -1,6 +1,46 @@
 # Memory
 
+## 2026-09-20, Remove dating quiz from header
+
+Removed the Dating quiz link from `src/components/Header.astro` so it no longer appears in the site navigation across the homepage and other pages. The standalone route `/compatibility-quiz/` remains intact.
+
+## 2026-09-03, Compatibility quiz preference and practical-fit revision
+
+Revised `src/pages/compatibility-quiz.astro` to keep 16 ranked relationship-style questions while restoring quiet-life and family signals, replacing the disputed interest swap with warmth and specific care, and rewriting curiosity and accountability around remembered details, boundaries, context, and repair. Moved height out of the score into a direct 5'3" practical-fit check, added a long-term-intent check, removed the duplicate hidden contact form, and changed results to show relationship-style alignment, core flags, and practical fit separately. One weak core answer now prompts investigation; two or more produce a cautious mismatch result. Direct Astro compilation and prerendering passed, `git diff --check` passed, and final Vercel packaging still stops on the known Windows Sharp symlink permission error.
+
+## 2026-09-02, Compatibility quiz interests revision
+
+Removed the low-discrimination Quiet and Family questions from `src/pages/compatibility-quiz.astro`, reducing the quiz to 15 questions. Added an Interests question with appealing options that distinguish intellectual and psychological depth from familiar comfort entertainment. Updated weights, preference alignment, core-floor membership, hero copy, and the emailed core-question explanation.
+
 Append dated summaries of meaningful site changes, deployments, indexing work, and durable content decisions. Link to changed files and live validation. Do not paste build logs.
+
+## 2026-08-20, Compatibility quiz preference redesign
+
+Rewrote all 16 questions in `src/pages/compatibility-quiz.astro` as forced-choice tradeoffs among healthy relationship preferences. Each question has one Jack-specific answer worth 4 points and three reasonable alternatives worth 2, except the height dealbreaker, which remains 0 for practical incompatibility. Preferred answer positions are balanced four each across A, B, C, and D. Updated thresholds and report language so the score describes fit with Jack rather than relationship quality. The four Notion AI Slop gates passed, the route prerendered, commit `86e371b` deployed, and production served the new intro and quiz bundle.
+
+## 2026-08-20, Compatibility quiz mobile fix
+
+Fixed the dynamically generated quiz answer and report styles in `src/pages/compatibility-quiz.astro`. The live mobile-facing cards now render as separate flex targets with borders and spacing rather than run-on inline text. Verified the deployed route, all 64 radio inputs, 16 selected answers, successful report generation, and wiki visibility. The local Astro route still prerenders before the known Windows Vercel Sharp symlink packaging error.
+
+## 2026-08-20, Compatibility quiz
+
+Added `/compatibility-quiz/` in `src/pages/compatibility-quiz.astro` and linked it as `Dating quiz` in `src/components/Header.astro`. The page contains 16 mixed, behavior-based questions, a browser-only scored report, a neutral under-5'5" dating question with no height requirement, and the supplied full matchmaker wiki. The route prerendered successfully in the Astro build; final local Vercel packaging remains blocked by the known Windows Sharp symlink limitation.
+
+## 2026-08-12, How ChatGPT sees New York City interactive map
+
+Built `/blog/how-chatgpt-sees-new-york-city/` as a custom map-first interactive article. The city geometry comes from all 262 official 2020 Neighborhood Tabulation Area polygons and is grouped into 25 non-overlapping, exhaustive visual clusters. Generated one independent amateur-photo-style ChatGPT portrait for each cluster, compressed the final assets to local 720 pixel WebP files, and added hover, click, tap, select, and keyboard interactions. The article explains the shared prompt, synthetic people, possible model stereotypes, disputed neighborhood boundaries, editorial clustering, and the NYC Planning source. Desktop and mobile browser checks confirmed 25 unique clusters, successful image switching, keyboard activation, and no horizontal overflow. Astro prerendered the route and placed it first in the homepage, Writing archive, and RSS feed. Final local Vercel packaging remains blocked by the known Windows Sharp symlink limitation.
+
+## 2026-08-11, AI Audit wasted-time hero
+
+Replaced the AI Audit hero's abstract recurring-cost metaphor with the stronger cold-traffic pain: losing time to a repetitive task while suspecting AI could make it faster. The new support copy says the plan identifies where AI can help, what should stay manual, and one workflow to test, avoiding an implication that every task should be fully automated. The closing CTA now says the buyer already knows which task should take less time and Jack will show them what to test. Commit `07761c3` deployed successfully. Production returned the new hero, support copy, final CTA, and unchanged checkout measurement code.
+
+## 2026-08-11, AI Audit experience proof and LinkedIn verification
+
+Added a direct answer to the DIY objection on `/Your-AI-Audit/`. The page now connects more than 300 million agentic AI tokens of hands-on work across job applications, tailored outreach, websites, event planning, business plans, and custom business agents to the buyer benefit: skipping tool research and trial and error to receive one practical answer. Kept the metric out of the hero and proof tiles so it supports the offer without competing with it. Added a same-tab `Jack on LinkedIn` footer link with `rel="me"`. Commit `1d1c3f1` deployed successfully, production returned the new proof and link, and the checkout measurement script remained identical to the prior deployment.
+
+## 2026-08-11, AI Audit ad-to-page copy continuity and question form
+
+Revised the `/Your-AI-Audit/` hero and closing offer so cold traffic sees the same sequence promised in the repetitive-task ad: the recurring weekly cost, a 45-minute task threshold, the exact one-page deliverable, $59 price, next-business-day delivery after the completed intake, and the automatic refund condition. Added a low-emphasis Web3Forms question form below the final checkout block for task-fit questions. The form asks only for name, email, and a question, warns visitors not to share private data, and states that it does not add them to a newsletter. Astro prerendered the route successfully before the documented Windows Sharp symlink failure during final Vercel function packaging. Commit `e1d7d75` was pushed to `main`, and production returned the new hero, checkout path, form action, privacy note, and success copy.
 
 ## 2026-08-08, AI Audit CRO and funnel instrumentation
 
@@ -196,3 +236,75 @@ Created revised Meta assets at `public/meta-ads/ai-audit/` for task ledger, week
 Added true landscape versions of all three Meta ad concepts under `public/meta-ads/ai-audit/`. The task ledger, weekly question, and one-page plan files are exact 1920 by 1080 PNGs. Each keeps the same offer, refund condition, palette, and concept identity as its square and vertical counterparts. Commit `1f47aad` deployed the three assets and all public image URLs returned 200.
 
 The remaining operational blocker is `STRIPE_AI_AUDIT_RESTRICTED_KEY`. Without explicit authorization to create and configure this least-privilege live key, Checkout uses the current Payment Link fallback and intake submissions are labeled pending manual verification. Do not describe them as automatically verified. Exact concurrent intake idempotency also requires durable storage; the first-cohort implementation only suppresses sequential repeats through Stripe metadata when the key is available.
+
+## 2026-08-11, AI Audit editorial visual revision
+
+Reworked `src/pages/Your-AI-Audit.astro` around the requested tactile audit-room direction. Preserved the $59 offer, checkout, analytics, guarantee, FAQ, and intake behavior. Added case-file notation, a quieter oversized hero, document fragments, black rules, cobalt decision/action emphasis, restrained acid-lime proof marks, and a more physical one-page-plan artifact. Full Astro build was unavailable because dependencies are not installed in the local workspace; the Impeccable detector and `git diff --check` were run.
+
+## 2026-08-11, AI Audit lavender guided-space revision
+
+Revised the same route again at Jack's direction toward the supplied calm lavender reference. Preserved all offer and funnel behavior while replacing the audit-room treatment with soft lavender surfaces, serif headlines, rounded white panels, periwinkle emphasis, quiet shadows, centered section compositions, and mobile-friendly stacked cards. Removed the old grid and thick side-rule treatment from the active visual system.
+
+## 2026-08-10, AI Audit live campaign and measurement QA
+
+Audited the three identical Meta export files, the live Ads Manager setup, the current landing page, Stripe Checkout handoff, Meta Events Manager Test Events, and GA4 Realtime/Admin using logged-in Chrome. The campaign is correctly paused and contains one broad ad set plus the three named ads. Each ad has three selected media variants for square, horizontal, and vertical use. Ads 1 and 3 use Learn More while ad 2 uses Get Offer.
+
+The live labeled journey produced Meta PageView and InitiateCheckout with value 59, USD, and `ai_bottleneck_snapshot`. Meta ViewContent did not appear. GA4 received view-item and checkout events and has only purchase marked as a key event. The CTA routed to the live $59 fallback Payment Link, which confirmed that dynamic Checkout is still unavailable and dropped campaign ID, ad set ID, ad ID, and site-source fields while preserving source, medium, campaign, content, placement, Meta identifiers, and the GA client reference. No payment was submitted during that initial pass. Keep the campaign paused until the launch gates in `.gstack/qa-reports/qa-report-ai-audit-measurement-2026-08-10.md` pass.
+
+Follow-up sandbox testing created the $59 `One-Task AI Plan Test` Payment Link and completed a no-charge purchase with Stripe's 4242 test card. PaymentIntent `pi_3U35JoFVkBlWBiJ61wZUxSBt`, Checkout Session `cs_test_a1PzoXfr77DAA8CE7wP4y5eNEXMvDX5IQcjeMfp2E7k3eoQENJVXy5CRrl`, and event `evt_1U35JrFVkBlWBiJ6krYcXwxY` were created. The signed webhook returned HTTP 200 with snapshot resolution and successful Meta plus GA4 delivery. The Meta Test Events interface was waiting for `TEST57694`, not the deployed saved test code. GA4 DebugView excluded the test because the payload is marked internal and the Internal Traffic filter is actively excluding internal traffic. Do not treat empty testing views as a delivery failure; align those test controls explicitly before resending if visual confirmation is required.
+
+Temporarily aligned the production Meta test event code with `TEST57694` and resent the signed $59 Stripe event. Meta Events Manager visibly confirmed a processed server-side Purchase with value 59 USD, content ID `ai_bottleneck_snapshot`, and event ID `stripe_cs_test_a1PzoXfr77DAA8CE7wP4y5eNEXMvDX5IQcjeMfp2E7k3eoQENJVXy5CRrl`. Restored the original Vercel test code `TEST97456` and confirmed the restored production deployment was Ready. GA4's Internal Traffic filter was temporarily made inactive for the resend and then restored to Active Exclude. The historical transaction did not appear in DebugView, likely because GA4 had already seen the same Checkout Session transaction ID. Use a fresh sandbox Checkout Session for the remaining visible GA4 Purchase check.
+
+## 2026-08-11, AI Audit GA4 session attribution repair
+
+Same-day launch reporting exposed a measurement defect: Measurement Protocol CTA and checkout events used a synthetic timestamp session ID instead of the visitor's real GA4 session ID, splitting one paid-social visit into Paid Social and Unassigned sessions. Commit `070cf43` now resolves the real GA4 client and session IDs from GS2 or GS1 cookies and `gtag('get')`, adds standard campaign and page context to server events, and waits for both CTA and checkout-start delivery before redirecting to Stripe. A focused identity test covers both cookie formats. The production bootstrap and landing page are live, and an internal QA journey preserved all five UTMs and the compact Meta plus GA client reference. Because the active Internal Traffic filter excludes labeled QA, use subsequent real paid traffic to confirm that new Unassigned duplicates stop growing.
+
+## 2026-08-20, Compatibility quiz mobile design curation
+
+Applied the Impeccable polish workflow to `src/pages/compatibility-quiz.astro` in separate hierarchy, control, report, and wiki passes. Removed decorative eyebrow labels, constrained display type and reading measure, rebuilt answer choices around visible left-side radio affordances and full-label touch targets, improved focus and selected states, simplified the report, and changed the wiki from repeated white cards into an editorial reference layout with one dark final decision block. Preserved every question, option, score, and report threshold. A 390px browser test selected all 16 answers, returned a 63 Mixed fit result, and measured zero clipped answer copy and zero page overflow. The Impeccable detector returned no findings. Astro prerendered `/compatibility-quiz/`; final local Vercel bundling still fails on the known Windows Sharp symlink permission error.
+
+## 2026-08-20, Ox Tavern guide cleanup
+
+Rewrote the Ox Tavern order guide using the Notion AI Slop taxonomy, Humanizer, and Jack's public food-guide examples. Removed slogan-like labels, pseudo-scientific mechanisms, unsupported precision, repeated warnings, the server script, rationale sections, pacing advice, and drink suggestions. The page now contains only the three-dish order for two people, useful modifiers, one dipping note, and the estimated total. Commits `91d90b5` and `b97202f` deployed through GitHub and Vercel; the live route returned 200 with the short order and no explanatory sections. Astro prerendered the route before the known Windows Sharp symlink packaging failure.
+## 2026-08-21, Compatibility quiz ranked submission revision
+
+Reworked `src/pages/compatibility-quiz.astro` from single-choice scoring to 16 ranked-choice scenarios. The client shuffles display order, compares each response with an explicit target order using normalized rank distance, weights categories, caps results for weak core-fit dimensions and strong practical incompatibility, validates that each question uses ranks 1 through 4 exactly once, and keeps the full wiki hidden until completion. Submissions use the existing verified Web3Forms key with quiz version, raw ranks, computed scores, timestamp, referrer, and UTM metadata. Updated the privacy policy. Both affected routes prerender; the final Vercel build hook still hits the known Windows Sharp symlink error.
+## 2026-08-21, Compatibility quiz browser verification
+
+Removed the stale commented single-choice script left during the ranked-choice revision. A Playwright browser run confirmed 16 questions and 64 selects, the wiki and report start hidden, duplicate or incomplete ranks are rejected, and a valid mocked Web3Forms response reveals the report and wiki with the recorded-status message. The browser emitted no page errors after the clean reload. The full build still reaches both affected routes before the known Windows Sharp symlink packaging failure.
+
+## 2026-09-02, Appalachian Trail source archive in Notion
+
+Searched the local user document folders and Google Drive for the Appalachian Trail journal and related data. No local AT source file was found. The authoritative Google Drive set is the 664-paragraph AT Blog Google Doc, the native atdistancechart sheet with 98 daily rows, the public ATDistanceChart.xlsx workbook, two AT Hiking List gear-sheet copies, and four related slide decks.
+
+Created an Appalachian Trail Thru-Hike Wiki page under the existing Master Wiki in Notion. Added an AT Journal Entries database with all 77 dated source groups as child pages, an AT Distance Log database with all 98 daily rows, overview and stats, stats and graphs, gear and base weight, graphs and data workbook, and source index and press pages. Attached the original ATDistanceChart.xlsx file. The archive preserves the workbook's 2,178.3 cumulative-mile total, 22.48 reported average, and 5.0449 sample standard deviation, and records the 2,178.2 displayed-row sum as a rounding distinction.
+
+## 2026-09-02, Yelp review archive in Notion
+
+Located the complete Yelp export in the Google Doc `Yelp Reviews` and imported all 1,311 reviews into the Notion page `Yelp Restaurant Reviews` under `Master Wiki / Food & Dining Hub`. The archive has 26 chronological child pages, preserves date, restaurant, rating, comment, and Yelp status, and omits the exported IP-address field.
+
+## 2026-09-03, Philadelphia happy-hour research
+
+Created `research/philly-happy-hours-2026.md` after a current web research pass. The source-backed shortlist covers official 2026 happy-hour schedules, drink and food prices, stipulations, addresses, the active Fishtown TAPS program through September 29, Google Maps closure checks, and storefront-photo leads with licensing cautions. The simple site page is now implemented at `/recommendations/philly-happy-hours/` with 34 venue rows, Google Maps links, and five visually inspected official exterior photos. The route generates successfully before the known Windows Vercel Sharp symlink packaging error.
+
+Expanded the Philadelphia happy-hour research into neighborhood sections for Fishtown, University City, and Northern Liberties. Added itemized official deals for Fette Sau, Frankford Hall, Dock Street Fishtown, Picnic, CO-OP, White Dog, Louie Louie, Corio, New Deck Tavern, Urban Village, Yards, and SET NoLibs, plus clearly labeled mixed-source entries for The International, Yanaga, and Jerry's Bar.
+
+## 2026-09-03, Philadelphia happy-hour page
+
+Built `src/pages/recommendations/philly-happy-hours.astro` as a simple neighborhood-organized table with all 34 researched venue rows, deal hours, booze prices, appetizer prices, stipulations, venue links, and Google Maps search links. Added the Fishtown TAPS seasonal note. Checked every venue row in Google Maps on September 3, 2026; each resolved to a matching listing without a permanent or temporary closure notice. Visually inspected candidate exterior photos and used only five official venue-hosted storefront images. Desktop and 390px mobile renders were checked. Commit `4aec999` is pushed to `main`, and the production route is live. Astro route generation succeeds, while the final local Vercel adapter step still hits the known Windows Sharp symlink permission error.
+
+## 2026-09-03, Philadelphia happy-hour mobile tables
+
+Updated the live Philly happy-hour page so mobile widths use stacked, labeled deal rows instead of a horizontally scrolling table. Playwright checks at 390px found body scroll width equal to viewport width, all 12 tables and 34 rows present, hidden table headers, and block-level rows. Desktop checks retained the table header and row layout. Commit `85db404` is pushed to `main` and production was verified after deployment. The local Astro build still reaches the Philly route before the known Windows Vercel Sharp symlink packaging error.
+
+## 2026-09-06, AI Audit ad asset cleanup
+
+Removed all 26 files from `public/meta-ads/ai-audit/`, totaling approximately 59.72 MB. The assets were not referenced by site source pages and were used only as local ad creative files and research-note references. The cleanup is committed as `94c60fb` and pushed to `main`. Astro route generation succeeds after the removal; the final local Vercel packaging step still encounters the known Windows Sharp symlink permission error.
+
+## 2026-09-08, Vercel Web Analytics
+
+Installed `@vercel/analytics` version 2.0.1 and added its Astro `Analytics` component to `src/components/BaseHead.astro`, immediately after the Astro client router. The shared head covers the site layouts and pages already using `BaseHead`. A complete local `npm run build` succeeded, and generated HTML contains the Vercel analytics component and its pageview script.
+
+## 2026-09-08, INTI Kitchen & Bar Minneapolis review
+
+Added `src/content/blog/inti-kitchen-bar-minneapolis-review.md` as a plain Markdown review using all five supplied INTI photos under `public/images/inti-kitchen-minneapolis/`. The article preserves the original 4 out of 5 rating and personal meal observations. Its fact-checks correct the spelling to shoko phing, confirm the $17 eight-piece beef momo order, identify the dish's glass noodles and rice, tingmo, or naan serving options, and confirm the menu names for the cranberry curry puffs, Bhatsa Markhu, gulab jamun, and INTI kheer. Astro built the new route and included it in the homepage, writing archive, and sitemap. The repository indexing script falsely reported missing build output despite those generated files being present and verified.
