@@ -312,3 +312,20 @@ Installed `@vercel/analytics` version 2.0.1 and added its Astro `Analytics` comp
 ## 2026-09-08, INTI Kitchen & Bar Minneapolis review
 
 Added `src/content/blog/inti-kitchen-bar-minneapolis-review.md` as a plain Markdown review using all five supplied INTI photos under `public/images/inti-kitchen-minneapolis/`. The article preserves the original 4 out of 5 rating and personal meal observations. Its fact-checks correct the spelling to shoko phing, confirm the $17 eight-piece beef momo order, identify the dish's glass noodles and rice, tingmo, or naan serving options, and confirm the menu names for the cranberry curry puffs, Bhatsa Markhu, gulab jamun, and INTI kheer. Astro built the new route and included it in the homepage, writing archive, and sitemap. The repository indexing script falsely reported missing build output despite those generated files being present and verified.
+
+### 2026-09-20, Central Europe travel article series publication
+
+Published seven high-utility travel guides based on Jack's May 2026 Europe trip across Geneva, Venice, Slovenia, Austria, Slovakia, Czechia, Poland, and Ireland. 
+
+Audited ground-truth transit tickets and wallet passes from the device downloads folder, correcting an earlier assumption about transit from Venice to Slovenia: confirmed as direct FlixBus Route 403, Seat 1A ($46.52, booking 334 913 2154) departing Venice Mestre (Viale Stazione 8/8c) to Ljubljana. Extracted verified ticket data for ÖBB IR 576 Sparschiene (29.90 EUR, Ljubljana to Graz Hbf), FlixBus Route 885 (P&R Webling to Bratislava Nivy), FlixBus Route 260 (Bratislava to Brno Hotel Grand), KLM Cityhopper KL1336/KL1137 (Wrocław to Dublin via Amsterdam), easyJet EJU7457 (Geneva to Venice), and ATVO Venice Airport shuttle.
+
+Pulled 16 original camera photos directly via ADB from the connected Samsung Galaxy S25 Ultra camera roll into `public/images/europe-2026/`. Created the seven plain Markdown articles in `src/content/blog/`:
+1. `/blog/venice-mestre-to-ljubljana-bus/`
+2. `/blog/ljubljana-to-graz-train/`
+3. `/blog/graz-to-bratislava-bus/`
+4. `/blog/bratislava-to-brno-bus/`
+5. `/blog/geneva-airport-layover-walk/`
+6. `/blog/wroclaw-to-dublin-flight-schiphol-layover/`
+7. `/blog/dublin-authentic-pubs-mulligans-gravediggers/`
+
+Each article features responsive comparison tables, route timings, and authentic photos. An automated lint script confirmed zero em dashes or en dashes across all files. Local Astro build passed with 0 errors. Commits `05ed30f` and `72a8cdc` were pushed to `main`, and all seven production URLs were verified live with HTTP 200 responses on `jackmaguire.org`.
