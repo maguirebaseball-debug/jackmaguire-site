@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 const blogDir = join(root, 'src/pages/blog');
 const pagesDir = join(root, 'src/pages');
 /** Root-level article pages registered in standaloneBlogPosts (not under /blog/). */
