@@ -333,3 +333,6 @@ Pulled 16 original camera photos directly via ADB from the connected Samsung Gal
 7. `/blog/dublin-authentic-pubs-mulligans-gravediggers/`
 
 Each article features responsive comparison tables, route timings, and authentic photos. An automated lint script confirmed zero em dashes or en dashes across all files. Local Astro build passed with 0 errors. Commits `05ed30f` and `72a8cdc` were pushed to `main`, and all seven production URLs were verified live with HTTP 200 responses on `jackmaguire.org`.
+## 2026-09-20, NYC tsukemen article publication
+
+Published `src/content/blog/best-tsukemen-nyc.md` at `/blog/best-tsukemen-nyc/`. The plain article compares TabeTomo, Okiboru, Taishoken, Yasubee, and GOGYO using a 150-observation qualitative evidence table and links to Jack's own Yelp photo records. Astro build, indexing check, sitemap inclusion, and live HTTP 200 verification passed. Commit `c53ffe5` is pushed to `main`.
