@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="100%" height="auto" style="background:#fff; font-family:Charter, serif;">
+<text x="50" y="20" font-size="15" font-weight="bold" fill="#000">Cumulative Miles: 98-Day Actual vs Standard 150-Day Thru-Hike</text>
+<line x1="50" y1="254.1" x2="870" y2="254.1" stroke="#ddd" stroke-width="1"/>
+<text x="42" y="258.1" font-size="11" text-anchor="end" fill="#666">500 mi</text>
+<line x1="50" y1="188.2" x2="870" y2="188.2" stroke="#ddd" stroke-width="1"/>
+<text x="42" y="192.2" font-size="11" text-anchor="end" fill="#666">1000 mi</text>
+<line x1="50" y1="122.3" x2="870" y2="122.3" stroke="#ddd" stroke-width="1"/>
+<text x="42" y="126.3" font-size="11" text-anchor="end" fill="#666">1500 mi</text>
+<line x1="50" y1="56.4" x2="870" y2="56.4" stroke="#ddd" stroke-width="1"/>
+<text x="42" y="60.4" font-size="11" text-anchor="end" fill="#666">2000 mi</text>
+<line x1="50" y1="32.9" x2="870" y2="32.9" stroke="#ddd" stroke-width="1"/>
+<text x="42" y="36.9" font-size="11" text-anchor="end" fill="#666">2178 mi</text>
+<line x1="50" y1="320" x2="870" y2="132.4" stroke="#999" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="860" y="122.4" font-size="11" text-anchor="end" fill="#777">Standard 150-Day Pace (~1,420 mi at Day 98)</text>
+<polyline points="50.0,318.0 58.5,315.1 66.9,312.6 75.4,309.5 83.8,307.0 92.3,304.4 100.7,302.2 109.2,300.1 117.6,296.9 126.1,294.4 134.5,291.6 143.0,288.7 151.4,285.9 159.9,284.2 168.4,281.6 176.8,278.8 185.3,276.0 193.7,275.2 202.2,271.7 210.6,270.3 219.1,267.7 227.5,264.2 236.0,260.5 244.4,257.7 252.9,254.6 261.3,250.6 269.8,247.2 278.2,244.1 286.7,239.7 295.2,237.5 303.6,235.0 312.1,231.7 320.5,228.7 329.0,225.3 337.4,222.0 345.9,219.1 354.3,214.9 362.8,211.5 371.2,209.5 379.7,206.7 388.1,203.3 396.6,199.0 405.1,195.3 413.5,192.8 422.0,189.5 430.4,186.5 438.9,183.4 447.3,179.9 455.8,176.5 464.2,173.5 472.7,170.1 481.1,166.3 489.6,163.3 498.0,160.1 506.5,156.6 514.9,153.5 523.4,150.8 531.9,147.5 540.3,144.0 548.8,140.2 557.2,137.3 565.7,134.0 574.1,130.9 582.6,126.7 591.0,124.2 599.5,120.9 607.9,117.2 616.4,114.5 624.8,111.5 633.3,108.8 641.8,105.1 650.2,101.8 658.7,99.5 667.1,97.0 675.6,93.0 684.0,90.9 692.5,88.0 700.9,85.2 709.4,82.4 717.8,80.3 726.3,77.5 734.7,74.9 743.2,72.1 751.6,69.9 760.1,67.7 768.6,65.4 777.0,62.5 785.5,60.1 793.9,57.6 802.4,54.7 810.8,50.9 819.3,47.6 827.7,44.5 836.2,41.8 844.6,37.9 853.1,35.3 861.5,33.6 870.0,32.9" fill="none" stroke="#1565c0" stroke-width="3"/>
+<circle cx="870" cy="32.9" r="4" fill="#1565c0"/>
+<text x="860" y="22.9" font-size="12" font-weight="bold" text-anchor="end" fill="#1565c0">Day 98 Finish (2,178.3 mi)</text>
+<text x="50.0" y="345" font-size="11" text-anchor="middle" fill="#333">Day 1</text>
+<text x="210.6" y="345" font-size="11" text-anchor="middle" fill="#333">Day 20</text>
+<text x="379.7" y="345" font-size="11" text-anchor="middle" fill="#333">Day 40</text>
+<text x="548.8" y="345" font-size="11" text-anchor="middle" fill="#333">Day 60</text>
+<text x="717.8" y="345" font-size="11" text-anchor="middle" fill="#333">Day 80</text>
+<text x="870.0" y="345" font-size="11" text-anchor="middle" fill="#333">Day 98</text>
+<text x="450.0" y="358" font-size="12" text-anchor="middle" fill="#666">Trail Days (Solid Blue = 98-Day Actual, Dashed Gray = Standard 150-Day Pace)</text>
+</svg>

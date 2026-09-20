@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="auto" style="background:#fff; font-family:Charter, serif;">
+<text x="30" y="24" font-size="15" font-weight="bold" fill="#000">Jack's 5.73 lb (91.75 oz) Ultralight Base Weight Breakdown</text>
+<rect x="30.0" y="45" width="354.1" height="36" fill="#1565c0"><title>Shelter & Sleep: 43.9 oz (47.8%)</title></rect>
+<rect x="384.1" y="45" width="199.2" height="36" fill="#2e7d32"><title>Pack & Rain Shell: 24.7 oz (26.9%)</title></rect>
+<rect x="583.3" y="45" width="50.0" height="36" fill="#e65100"><title>Hydration & Kitchen: 6.2 oz (6.8%)</title></rect>
+<rect x="633.3" y="45" width="136.7" height="36" fill="#6a1b9a"><title>Electronics & Tools: 16.9 oz (18.5%)</title></rect>
+<rect x="30" y="105" width="14" height="14" fill="#1565c0" rx="2"/>
+<text x="52" y="117" font-size="13" font-weight="bold" fill="#000">Shelter & Sleep (43.90 oz / 2.74 lbs, 47.8%):</text>
+<text x="315" y="117" font-size="12" fill="#555">Marmot Pounder 17oz, Pad 9.4oz, Tarp 7.5oz, Stakes 2.8oz, Stuffsacks 2.7oz, Liner 2.1oz, Polycro 1.5oz, Rope 1oz</text>
+<rect x="30" y="135" width="14" height="14" fill="#2e7d32" rx="2"/>
+<text x="52" y="147" font-size="13" font-weight="bold" fill="#000">Pack & Rain Shell (24.70 oz / 1.54 lbs, 26.9%):</text>
+<text x="315" y="147" font-size="12" fill="#555">Golite Jam Backpack 19oz, DriDuck Rain Jacket 5.7oz</text>
+<rect x="30" y="165" width="14" height="14" fill="#e65100" rx="2"/>
+<text x="52" y="177" font-size="13" font-weight="bold" fill="#000">Hydration & Kitchen (6.20 oz / 0.39 lbs, 6.8%):</text>
+<text x="315" y="177" font-size="12" fill="#555">2x Platypus 2.2oz, Aquamira 2oz, Alcohol Stove 0.5oz, Spoon 0.2oz, Soap 2oz</text>
+<rect x="30" y="195" width="14" height="14" fill="#6a1b9a" rx="2"/>
+<text x="52" y="207" font-size="13" font-weight="bold" fill="#000">Electronics & Tools (16.95 oz / 1.06 lbs, 18.5%):</text>
+<text x="315" y="207" font-size="12" fill="#555">Camera w/ bat 9.1oz, Extra socks 3.5oz, Petzl light 2.7oz, Leatherman Micra 1.7oz, Cash/matches</text>
+</svg>

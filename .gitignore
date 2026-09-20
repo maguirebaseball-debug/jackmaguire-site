@@ -24,3 +24,15 @@ pnpm-debug.log*
 .idea/
 .vercel
 .env*
+*service*account*.json
+google-service-account.json
+credentials.json
+client_secret*.json
+local_notion.db
+.codex-*
+.pnpm-store/
+.npm-cache/
+.playwright-cli/
+.gstack/
+scratchpad/
+output/
