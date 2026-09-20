@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-20, Delete seven Central Europe 2026 travel articles
+
+Deleted all seven Central Europe travel articles (`venice-mestre-to-ljubljana-bus.md`, `ljubljana-to-graz-train.md`, `graz-to-bratislava-bus.md`, `bratislava-to-brno-bus.md`, `geneva-airport-layover-walk.md`, `wroclaw-to-dublin-flight-schiphol-layover.md`, and `dublin-authentic-pubs-mulligans-gravediggers.md`) and the entire `public/images/europe-2026/` image folder from the site per user request for further work. Local Astro build verified with clean generation.
+
 ## 2026-09-20, Appalachian Trail thru-hike long-form guide with data visuals
 
 Published the long-form guide [Walking 2,178 Miles in 98 Days: My Appalachian Trail Log, Ultralight Gear, and Field Notes](https://jackmaguire.org/blog/appalachian-trail-thru-hike-98-days/) in `src/content/blog/appalachian-trail-thru-hike-98-days.md`. Created four standalone responsive SVG charts in `public/images/at/`: daily mileage progression, cumulative pace trajectory against a standard 150-day thru-hike, state-by-state pace comparisons, and itemized 5.73 lb gear weight breakdown. Extracted the full 98-day log into `research/at-98-days.json` from the Notion archive. Formatted to accurately reflect hiking with a partner while keeping individual gear and data focus on Jack, with zero mentions of names or family, zero em or en dashes, and direct practical takeaways. Built and deployed via commits `7037685`, `3237760`, and `e857f4f`, and live-verified on Vercel.
