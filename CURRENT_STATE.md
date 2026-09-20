@@ -2,7 +2,7 @@
 
 Updated: 2026-09-20
 
-Published the long-form Appalachian Trail thru-hike guide at `/blog/appalachian-trail-thru-hike-98-days/` based on Jack's 2009 hiking logs and distance data. The guide covers 2,178.3 miles across 98 days at a 22.48 mi/day average, with a 5.73-pound pack base weight. It includes four responsive SVG data charts (daily mileage, cumulative pace vs typical thru-hike, state pace bars, and gear breakdown), an itemized 20-item gear table, state-by-state field notes, and the full 98-day daily distance log. The article uses the plain post format, solo Jack first-person perspective, and zero em or en dashes. Built locally and live-verified on Vercel.
+Published the long-form Appalachian Trail thru-hike guide at `/blog/appalachian-trail-thru-hike-98-days/` based on Jack's 2009 hiking logs and distance data. The guide covers 2,178.3 miles across 98 days at a 22.48 mi/day average, with a 5.73-pound pack base weight. It includes four responsive SVG data charts (daily mileage, cumulative pace vs typical thru-hike, state pace bars, and gear breakdown), an itemized 20-item gear table, state-by-state field notes, and the full 98-day daily distance log. The article uses the plain post format, accurately reflects hiking as a pair with a partner (without referencing family or names), and has zero em or en dashes. Live-verified on Vercel.
 
 Removed the dating quiz link from the global header navigation in `src/components/Header.astro`, so it no longer appears on the homepage or across the site. The route `/compatibility-quiz/` remains active as a standalone page.
 
