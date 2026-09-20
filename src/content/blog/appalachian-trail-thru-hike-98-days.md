@@ -1,15 +1,15 @@
 ---
 title: "Walking 2,178 Miles in 98 Days: My Appalachian Trail Log, Ultralight Gear, and Field Notes"
-description: "2,178 miles in 98 days at a 22.5 mile daily average with a 5.73-pound base weight. The complete state-by-state log, gear list, and data charts from Georgia to Maine."
+description: "2,178 miles in 98 days at a 22.5 mile daily average with a 5.73-pound base weight. The complete state-by-state log, gear list, partner pace dynamics, and data charts from Georgia to Maine."
 pubDate: 2026-09-20
 tags: ["essays", "travel"]
 ---
 
-In the summer of 2009, I took a Greyhound bus to Gainesville, Georgia, shared a taxi to Springer Mountain, and started walking north to Maine.
+In the summer of 2009, my hiking partner and I took a Greyhound bus to Gainesville, Georgia, shared a cab to Springer Mountain, and started walking north to Maine.
 
-Most Appalachian Trail thru-hikers take five to six months. I wanted to see what would happen if I treated the trail as a high-mileage physical and logistical problem rather than a relaxed summer stroll. I hiked 2,178.3 miles in 98 days, averaging 22.48 miles per day with an ultralight pack base weight of 5.73 pounds.
+Most Appalachian Trail thru-hikers take five to six months. We wanted to see what would happen if we treated the trail as a high-mileage physical and logistical problem rather than a relaxed summer stroll. We hiked 2,178.3 miles in 98 days, averaging 22.48 miles per day. I carried an individual ultralight pack base weight of 5.73 pounds.
 
-This is the complete record of that hike: the daily distance data, the exact gear list, state-by-state observations, and the physical reality of moving fast over mountain terrain.
+This is the complete record of that hike: the daily distance data, my itemized gear list, how hiking with a partner kept our pace steady, state-by-state observations, and the physical reality of moving fast over mountain terrain.
 
 ---
 
@@ -20,6 +20,7 @@ The daily numbers below come directly from my hiking log:
 | Metric | Recorded Value |
 | :--- | :--- |
 | **Route** | Springer Mountain, Georgia to Mount Katahdin, Maine |
+| **Party** | 2 hikers (hiked together with a partner) |
 | **Total Distance** | 2,178.3 cumulative miles |
 | **Hiking Days** | 98 days (May 21 to August 26, 2009) |
 | **Overall Average Pace** | 22.48 miles per day |
@@ -28,11 +29,11 @@ The daily numbers below come directly from my hiking log:
 | **Days Over 30 Miles** | 6 days |
 | **Longest Single Day** | 33.2 miles (Day 29, Wapiti Shelter, VA) |
 | **Shortest Single Day** | 5.2 miles (Day 98, Katahdin summit, ME) |
-| **Pack Base Weight** | 5.73 pounds (91.75 oz) |
+| **My Pack Base Weight** | 5.73 pounds (91.75 oz) |
 
 ![Cumulative Miles: 98-Day Actual vs Standard 150-Day Thru-Hike](/images/at/at-cumulative-pace-chart.svg)
 
-A standard 5-month thru-hike moves at about 14.5 miles per day. By Day 98, an average thru-hiker is around southern Pennsylvania or Massachusetts. Moving at 22.5 miles per day compresses the timeline, but it requires dialing in pack weight, food resupply, and daily routine.
+A standard 5-month thru-hike moves at about 14.5 miles per day. By Day 98, an average thru-hiker is around southern Pennsylvania or Massachusetts. Moving at 22.5 miles per day compresses the timeline, but it requires dialing in pack weight, food resupply, and a disciplined daily routine with your partner.
 
 ---
 
@@ -40,7 +41,7 @@ A standard 5-month thru-hike moves at about 14.5 miles per day. By Day 98, an av
 
 In 2009, ultralight backpacking was far less common than it is today. Carrying a base weight under 6 pounds required stripping away almost everything that outdoor retailers marketed as mandatory.
 
-I used a 19-ounce frameless pack, slept under a 5x7 flat silnylon tarp, and cooked over a homemade alcohol can stove that weighed half an ounce. If an item did not prevent hypothermia, keep water potable, or keep my feet moving, it stayed off the packing list.
+Hiking together with a partner made the logistical load manageable. We coordinated gear choices so we were not duplicating unnecessary weight, while keeping individual essentials self-contained. I used a 19-ounce frameless pack, slept under a 5x7 flat silnylon tarp, and cooked over a homemade alcohol can stove that weighed half an ounce. If an item did not prevent hypothermia, keep water potable, or keep our feet moving, it stayed off the packing list.
 
 ![Jack's 5.73 lb Base Weight Breakdown](/images/at/at-gear-weight-breakdown.svg)
 
@@ -75,7 +76,7 @@ On my body, I wore Montrail trail runners (22.3 oz), running shorts (5.2 oz), a 
 
 ### What Held Up and What Failed
 
-The 5x7 tarp required careful site selection. If wind whipped rain sideways during an exposed ridge storm, spray was unavoidable. But pitching it low in dense trees kept me dry through downpours from Georgia to Maine.
+The 5x7 tarp required careful site selection. If wind whipped rain sideways during an exposed ridge storm, spray was unavoidable. But pitching it low in dense trees kept us dry through downpours from Georgia to Maine.
 
 The DriDucks jacket tore easily against briars, requiring duct tape patches, but it cost under $20 and breathed far better than heavy proprietary shells. Trail runners caused early foot soreness, but they dried within thirty minutes of creek crossings, while heavy leather boots remained sodden for days.
 
@@ -83,16 +84,16 @@ The DriDucks jacket tore easily against briars, requiring duct tape patches, but
 
 ## Daily Mileage Dynamics: 20 Marathons and 6 Days Over 30 Miles
 
-Maintaining a 22.5 mile average on rugged mountain terrain comes from continuous motion rather than speed. I woke at dawn, started walking within fifteen minutes, took short fifteen-minute food breaks, and kept moving until dusk.
+Maintaining a 22.5 mile average on rugged mountain terrain comes from continuous motion rather than speed. Having a partner was central to that pace: we woke at dawn, started walking within fifteen minutes, kept food breaks to fifteen minutes, and kept moving until dusk. When one of us felt sluggish or dealt with aching joints, the other set the tempo.
 
 ![Daily Mileage Across 98 Days](/images/at/at-daily-mileage-chart.svg)
 
 Key patterns from the daily record:
 
-- **Early ramp:** I opened with 15.1 miles on Day 1, reached 22.0 miles on Day 2, and hit 24.0 miles by Day 9 in the Great Smoky Mountains.
+- **Early ramp:** We opened with 15.1 miles on Day 1, reached 22.0 miles on Day 2, and hit 24.0 miles by Day 9 in the Great Smoky Mountains.
 - **The Mid-Atlantic speedway:** Days 24 to 70 across Virginia, Maryland, Pennsylvania, and New Jersey were the fastest stretches of the hike. Terrain flattened out, trail legs were fully conditioned, and 25-to-30-mile days became standard.
 - **The 30-plus mile club:** 6 days exceeded 30 miles, peaking at 33.2 miles on Day 29 to Wapiti Shelter and 32.1 miles on Day 42 to Rock Spring Hut in Shenandoah.
-- **The rugged Northern slowdown:** Mileage dropped sharply in the White Mountains of New Hampshire (Day 77 to 83) and southern Maine (Day 84 to 88). Mahoosuc Notch and vertical granite climbs cut daily pace down to 18 to 20 miles despite hiking full 12-hour days.
+- **The rugged Northern slowdown:** Mileage dropped sharply in the White Mountains of New Hampshire (Day 77 to 83) and southern Maine (Day 84 to 88). Mahoosuc Notch and vertical granite climbs cut our daily pace down to 18 to 20 miles despite hiking full 12-hour days.
 
 ![Average Daily Mileage by State](/images/at/at-state-mileage-bars.svg)
 
@@ -103,53 +104,53 @@ Key patterns from the daily record:
 ### 1. Georgia (Days 1 to 4 | 79.3 miles | 20.7 mi/day)
 Georgia wastes no time. The climbs start immediately out of Springer Mountain, steep, humid, and rocky. My feet started hurting on day one, a dull ache that never completely disappeared for the next three months.
 
-That first week was about learning how to exist outdoors. I learned how to pitch my tarp cleanly, how to keep sleeping insulation dry in steady downpours, and how to eat constant calories while moving.
+That first week was about learning how to exist outdoors together. We figured out how to pitch our tarps cleanly, how to keep sleeping insulation dry in steady downpours, and how to eat constant calories while moving.
 
 ### 2. North Carolina and the Smokies (Days 5 to 14 | 192.5 miles | 18.9 mi/day)
-The balds in North Carolina delivered the first panoramic views. Max Patch felt like an open meadow floating above the clouds. But open ridgelines also meant watching severe thunderstorms roll in from miles away with nowhere to shelter.
+The balds in North Carolina delivered our first panoramic views. Max Patch felt like an open meadow floating above the clouds. But open ridgelines also meant watching severe thunderstorms roll in from miles away with nowhere to shelter.
 
 In the Great Smoky Mountains, cold rain, shelter rules, and severe stomach sickness hit around Day 11. Pushing through 20-mile days with fever and nausea was miserable, but stopping in wet woods felt worse than walking toward town.
 
 ### 3. Tennessee (Days 15 to 23 | 179.5 miles | 24.7 mi/day)
-Hot Springs and Damascus marked the first true trail town resets. Real food, grocery stores, and hot showers made a massive psychological difference. I ate double orders of diner food, pizza, and ice cream.
+Hot Springs and Damascus marked our first true trail town resets. Real food, grocery stores, and hot showers made a massive psychological difference. We ate double orders of diner food, pizza, and ice cream.
 
-By Roan Mountain and the Highlands, my body had adapted. Daily soreness became background noise, and 24 to 28 miles felt sustainable from morning to night.
+By Roan Mountain and the Highlands, our bodies had adapted. Daily soreness became background noise, and 24 to 28 miles felt sustainable from morning to night.
 
 ### 4. Virginia (Days 24 to 45 | 538.8 miles | 24.5 mi/day)
 Virginia is massive, making up one-quarter of the entire trail. It plays tricks on your head because you walk for three weeks and remain in the same state.
 
-This was my fastest extended block. On Day 26, I hiked 30.6 miles to Partnership Shelter and ordered delivery pizza directly to the trail. On Day 29, I hit my hike-wide record of 33.2 miles to Wapiti Shelter. Shenandoah National Park brought paved waysides, blackberry milkshakes, and Day 42's 32.1-mile push.
+This was our fastest extended block. On Day 26, we hiked 30.6 miles to Partnership Shelter and ordered delivery pizza directly to the trail. On Day 29, we hit our hike-wide record of 33.2 miles to Wapiti Shelter. Shenandoah National Park brought paved waysides, blackberry milkshakes, and Day 42's 32.1-mile push.
 
 ### 5. West Virginia and Maryland (Days 46 to 48 | 69.5 miles | 23.2 mi/day)
-Crossing the pedestrian bridge into Harpers Ferry was a huge mental milestone. At the psychological halfway point, Maine stopped feeling like a fantasy. Maryland was gentle, rolling terrain with well-maintained shelters and stone monuments.
+Crossing the pedestrian bridge into Harpers Ferry was a huge mental milestone for us. At the psychological halfway point, Maine stopped feeling like a fantasy. Maryland was gentle, rolling terrain with well-maintained shelters and stone monuments.
 
 ### 6. Pennsylvania (Days 49 to 57 | 222.5 miles | 24.7 mi/day)
 Pennsylvania is famous for sharp, ankle-twisting rocks. You stop looking at mountain views and spend eight hours a day staring directly at your shoe placement. Shoe rubber wore down quickly on the jagged sandstone.
 
-Trail magic in Pennsylvania was remarkable. Coolers of cold soda and fresh fruit left at gravel road crossings kept morale high. At Pine Grove Furnace, I completed the traditional half-gallon ice cream challenge in one sitting.
+Trail magic in Pennsylvania was remarkable. Coolers of cold soda and fresh fruit left at gravel road crossings kept morale high. At Pine Grove Furnace, we completed the traditional half-gallon ice cream challenge in one sitting.
 
 ### 7. New Jersey and New York (Days 58 to 64 | 177.3 miles | 25.3 mi/day)
-New Jersey was surprisingly flat and fast, producing my highest state average of 25.7 miles per day along the Kittatinny Ridge.
+New Jersey was surprisingly flat and fast, producing our highest state average of 25.7 miles per day along the Kittatinny Ridge.
 
-New York brought short, steep rock scrambles like Bear Mountain. Hiking within forty miles of Manhattan felt surreal. You could see glimpses of distant skyline haze from granite knobs, then drop down into quiet wooded notches.
+New York brought short, steep rock scrambles like Bear Mountain. Hiking within forty miles of Manhattan felt surreal. We could see glimpses of distant skyline haze from granite knobs, then drop down into quiet wooded notches.
 
 ### 8. Connecticut and Massachusetts (Days 65 to 70 | 147.6 miles | 24.8 mi/day)
-Summer heat and mosquitoes peaked in southern New England. Connecticut followed the Housatonic River before climbing into the Berkshires. On Day 64, I logged 31.6 miles to Silver Hill, and on Day 70, I crossed Mount Greylock into Vermont.
+Summer heat and mosquitoes peaked in southern New England. Connecticut followed the Housatonic River before climbing into the Berkshires. On Day 64, we logged 31.6 miles to Silver Hill, and on Day 70, we crossed Mount Greylock into Vermont.
 
 ### 9. Vermont (Days 71 to 76 | 139.8 miles | 23.3 mi/day)
-The Long Trail overlap brought classic green mountain terrain: deep mud, wooden bog planks, and cool mornings. On Day 75, I pushed 30.5 miles to Thistle Hill Shelter, crossing into Hanover, New Hampshire the next morning.
+The Long Trail overlap brought classic green mountain terrain: deep mud, wooden bog planks, and cool mornings. On Day 75, we pushed 30.5 miles to Thistle Hill Shelter, crossing into Hanover, New Hampshire the next morning.
 
 ### 10. New Hampshire (Days 77 to 83 | 138.7 miles | 19.8 mi/day)
 New Hampshire reset the physical difficulty completely. The White Mountains are steep granite walls with massive vertical drop and exposed ridgelines above tree line.
 
-Climbing Franconia Ridge and Mount Washington was humbling. Daily mileage dropped below 20 miles per day despite pushing from 6:30 AM to dark. Every step required quad and knee braking on wet granite steps.
+Climbing Franconia Ridge and Mount Washington was humbling. Our daily mileage dropped below 20 miles per day despite pushing from 6:30 AM to dark. Every step required quad and knee braking on wet granite steps.
 
 ### 11. Maine and Mount Katahdin (Days 84 to 98 | 213.2 miles | 20.9 mi/day)
 Southern Maine started with Mahoosuc Notch, known as the trail's toughest mile. It is a jumble of giant boulders where you take off your pack and crawl through subterranean ice caves.
 
-After Monson, I entered the 100-Mile Wilderness: no paved roads, no town resupplies, just dense boreal forest, river fords, and root-choked singletrack. Carrying five days of food in a frameless pack made the first thirty miles heavy, but pace stayed above 21 miles per day.
+After Monson, we entered the 100-Mile Wilderness: no paved roads, no town resupplies, just dense boreal forest, river fords, and root-choked singletrack. Carrying five days of food in frameless packs made the first thirty miles heavy, but our pace stayed above 21 miles per day.
 
-On Day 98 (August 26, 2009), I climbed the 5.2-mile final ascent of Mount Katahdin through the boulders of the Hunt Trail. Reaching Baxter Peak in cold, howling wind and touching the wooden sign marked the end of 98 days and 2,178 miles.
+On Day 98 (August 26, 2009), we climbed the 5.2-mile final ascent of Mount Katahdin through the boulders of the Hunt Trail. Reaching Baxter Peak in cold, howling wind and touching the wooden sign marked the end of 98 days and 2,178 miles together.
 
 ---
 
@@ -266,6 +267,7 @@ Walking 22.5 miles every day for three months taught me practical realities abou
 
 1. **Pack weight dictates joint longevity:** An extra five pounds in a backpack is thousands of extra pounds of impact per knee every mile. Dropping my base weight to 5.73 pounds was the single reason my tendons survived 98 consecutive days without a stress injury.
 2. **Consistent pace beats sporadic speed:** Averaging 22.5 miles a day comes from minimizing stationary breaks and maintaining a steady 2.5 to 3.0 mile-per-hour pace for nine to ten hours.
-3. **Radical mental simplification:** When your day consists entirely of four categories (miles, water, calories, and shelter), mental clutter disappears. The momentum of putting one foot in front of the other carries you through bad weather, steep terrain, and physical exhaustion.
+3. **Partner pacing builds mutual discipline:** Maintaining a high-mileage schedule across three months is much harder alone. Having a hiking partner meant dawn alarms were non-negotiable, breaks stayed short, and we pulled each other through low-energy stretches.
+4. **Radical mental simplification:** When your day consists entirely of four categories (miles, water, calories, and shelter), mental clutter disappears. The momentum of putting one foot in front of the other carries you through bad weather, steep terrain, and physical exhaustion.
 
 If you are planning an aggressive thru-hike or multiday push, weigh every piece of gear on a kitchen scale before leaving and treat daily mileage as a routine of small habits rather than big physical surges.
