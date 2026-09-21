@@ -2,6 +2,8 @@
 
 Updated: 2026-09-20
 
+Published the empirical culinary study `src/content/blog/octopus-baking-temperature-culinary-study.md` at `/blog/octopus-baking-temperature-culinary-study/` on 2026-09-20. The article presents 250 validated culinary observations across internal pull temperature, oven cooking heat, pre-salting method, pre-salting duration, and post-salt washing practice, with six 300 DPI data visualization charts in `public/images/octopus/`. Local Astro build and static page generation succeeded with zero errors.
+
 Published the plain Markdown article `src/content/blog/best-tsukemen-nyc.md` at `/blog/best-tsukemen-nyc/` on 2026-09-20. It compares NYC tsukemen by broth, noodles, price, and value, includes the 150-observation qualitative evidence table, and links to Jack's own Yelp photo records. Local Astro build and indexing checks passed. Commit `c53ffe5` was pushed to `main`, and the live URL returned HTTP 200 with canonical, GA4, and sitemap checks passing.
 
 Removed the seven draft Central Europe 2026 travel articles and their associated images directory `public/images/europe-2026/` from the site per user request for further revision. The deleted slugs comprise `/blog/venice-mestre-to-ljubljana-bus/`, `/blog/ljubljana-to-graz-train/`, `/blog/graz-to-bratislava-bus/`, `/blog/bratislava-to-brno-bus/`, `/blog/geneva-airport-layover-walk/`, `/blog/wroclaw-to-dublin-flight-schiphol-layover/`, and `/blog/dublin-authentic-pubs-mulligans-gravediggers/`.

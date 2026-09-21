@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-20, Octopus baking and roasting temperature culinary study with data visualizations
+
+Published the empirical culinary study [Baking Octopus: What 250 Culinary Sources Say About Internal Pull Temperature, Oven Heat, Pre-Salting, and Slime Removal](https://jackmaguire.org/blog/octopus-baking-temperature-culinary-study/) in `src/content/blog/octopus-baking-temperature-culinary-study.md`. Added six 300 DPI high-resolution data visualization charts in `public/images/octopus/`: internal pull temperature histogram, oven temperature histogram, pre-salting method distribution, pre-salting duration distribution, post-salt wash action distribution, and the 5-panel master executive dashboard. Built from a 250-observation empirical dataset across five dimensions (50 sources each) excluding government and food safety boilerplate. Local Astro build passed cleanly with zero errors.
+
 ## 2026-09-20, Delete seven Central Europe 2026 travel articles
 
 Deleted all seven Central Europe travel articles (`venice-mestre-to-ljubljana-bus.md`, `ljubljana-to-graz-train.md`, `graz-to-bratislava-bus.md`, `bratislava-to-brno-bus.md`, `geneva-airport-layover-walk.md`, `wroclaw-to-dublin-flight-schiphol-layover.md`, and `dublin-authentic-pubs-mulligans-gravediggers.md`) and the entire `public/images/europe-2026/` image folder from the site per user request for further work. Local Astro build verified with clean generation.
