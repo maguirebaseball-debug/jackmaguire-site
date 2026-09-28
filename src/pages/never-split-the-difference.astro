@@ -3,27 +3,27 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'The useful parts of Never Split the Difference';
-const description = 'The negotiation ideas readers mention most often in 18 screened long-form reviews and summaries of Chris Voss’s Never Split the Difference.';
+const title = 'The parts of Never Split the Difference that are actually useful';
+const description = 'The negotiation ideas readers keep coming back to in 18 screened long-form reviews and summaries of Chris Voss’s Never Split the Difference.';
 const canonical = 'https://jackmaguire.org/never-split-the-difference';
 
 const insights = [
-  ['Name the feeling', 17, 'Empathy here means finding the feeling in the room and saying it out loud. You do not have to agree with someone to show that you understand what is driving them.', 'Ask yourself what this person is trying to protect.', 'TE'],
-  ['Ask how and what', 16, 'These questions make the other person work through the problem with you. They reveal limits without forcing either side into a corner.', '“How am I supposed to do that?” puts the constraint on the table.', 'Q'],
-  ['Repeat the important words', 15, 'Repeating the last few words gives people room to keep talking. That is where the useful detail usually appears.', 'The point is less rapport than information.', 'M'],
-  ['Make no feel safe', 13, 'People speak more freely when they know they can say no. A little control can make the rest of the conversation less guarded.', 'A safe no can lead to a more honest yes.', 'NO'],
-  ['Get to that’s right', 12, 'Agreement is easy to perform. A good summary is harder. Try to describe the other person’s situation so accurately that they recognize it.', 'You are looking for recognition, not compliance.', 'TR'],
-  ['Look for the hidden fact', 11, 'The fact that changes the deal may be a private deadline, an internal rule, a fear, or a second person who is not in the room.', 'Keep asking after the obvious answer arrives.', 'BS'],
-  ['Say the awkward part first', 10, 'Name the objections before the other person has to. It makes the hard part easier to discuss.', 'A conversation gets sturdier once the awkward thing has a name.', 'AA'],
-  ['Slow down', 9, 'Your voice carries pressure before your words do. A slower pace can keep your urgency from becoming someone else’s problem.', 'You are part of the atmosphere.', 'TP'],
-  ['Do not split the difference', 9, 'A midpoint can look fair while leaving the real problem untouched. Find out what the number is supposed to solve.', 'Fairness is a frame, not a number.', 'SD'],
-  ['Check the deal three ways', 8, 'Ask for confirmation in more than one form. It exposes the polite agreement that never became a commitment.', 'A deal is still abstract until the other person can explain it back.', 'R3'],
+  ['Name the feeling', 17, 'This is probably the book’s most useful idea. Notice the feeling in the room and say it out loud. You do not have to agree with someone to show that you understand what is bothering them.', 'Ask yourself what this person is trying to protect.', 'TE'],
+  ['Ask how and what', 16, 'These questions make the other person think through the problem with you. They bring the limits into the open without turning the conversation into a fight.', '“How am I supposed to do that?” puts the constraint on the table.', 'Q'],
+  ['Repeat the important words', 15, 'Repeat the last few words that matter and then let the silence sit there. People often keep talking, and the useful detail usually comes next.', 'The point is less rapport than information.', 'M'],
+  ['Make no feel safe', 13, 'People are usually more honest when they know they can say no. Giving someone that little bit of control can make the rest of the conversation much less guarded.', 'A safe no can lead to a more honest yes.', 'NO'],
+  ['Get to that’s right', 12, 'Agreement is easy to fake. A good summary is harder. Try to describe the other person’s situation so accurately that they recognize it immediately.', 'You are looking for recognition, not compliance.', 'TR'],
+  ['Look for the hidden fact', 11, 'The thing that changes the deal might be a private deadline, an internal rule, a fear, or someone else who is not in the room.', 'Keep asking after the obvious answer arrives.', 'BS'],
+  ['Say the awkward part first', 10, 'If you already know what the other person is worried about, say it before they have to. The hard part gets easier once it is out in the open.', 'A conversation gets sturdier once the awkward thing has a name.', 'AA'],
+  ['Slow down', 9, 'Your voice can sound pressuring before your words do. Slow down enough that your urgency does not become someone else’s problem.', 'You are part of the atmosphere.', 'TP'],
+  ['Do not split the difference', 9, 'A midpoint can look fair and still leave everyone with the original problem. Ask what the number is actually supposed to solve.', 'Fairness is a frame, not a number.', 'SD'],
+  ['Check the deal three ways', 8, 'Ask for confirmation in a couple of different ways. This catches the polite agreement that never became a real commitment.', 'A deal is still abstract until the other person can explain it back.', 'R3'],
   ['Plan your concessions', 7, 'A planned series of smaller offers keeps you from improvising your way past your own limit.', 'Preparation makes restraint easier.', 'AC'],
-  ['Set the frame early', 7, 'The first serious number changes what people consider reasonable, especially when the underlying value is unclear.', 'The frame arrives before the arithmetic.', 'AN'],
-  ['Question the deadline', 6, 'A deadline may be real, invented, or simply useful pressure. Test it before allowing it to decide for you.', 'Urgency deserves a question first.', 'DL'],
-  ['Use styles as rough clues', 5, 'The book’s style categories can help you notice patterns. They become less useful when you start treating them as diagnoses.', 'A style model is a lens, not a label.', 'ST'],
-  ['Prepare the one sheet', 5, 'Write down the goal, the limit, the likely objections, and the questions you want to ask. It shrinks the amount you have to invent in real time.', 'The conversation starts before the conversation.', 'PR'],
-  ['Keep the ethics visible', 4, 'The same tools can help someone speak honestly or push them toward a choice they do not want. The difference is whether they keep a real way out.', 'Technique without judgment is pressure with better vocabulary.', 'ET'],
+  ['Set the frame early', 7, 'The first serious number changes what people consider reasonable, especially when nobody knows the exact value yet.', 'The frame arrives before the arithmetic.', 'AN'],
+  ['Question the deadline', 6, 'A deadline may be real, invented, or just useful pressure. Test it before letting it make the decision for you.', 'Urgency deserves a question first.', 'DL'],
+  ['Use styles as rough clues', 5, 'The book’s style categories can help you notice patterns. They stop being useful when you start treating them like diagnoses.', 'A style model is a lens, not a label.', 'ST'],
+  ['Prepare the one sheet', 5, 'Write down the goal, the limit, the likely objections, and the questions you want to ask. It is much easier than trying to invent all of that while you are nervous.', 'The conversation starts before the conversation.', 'PR'],
+  ['Keep the ethics visible', 4, 'These tools can help someone speak honestly, or they can push someone toward a choice they do not want. The difference is whether they still have a real way out.', 'Technique without judgment is pressure with better vocabulary.', 'ET'],
 ];
 
 const sources = [
@@ -42,13 +42,13 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
   <div class="navline"><span>FIELD NOTES / NEGOTIATION</span><span>18 QUALIFYING SOURCES</span></div>
   <section class="mast">
     <div>
-      <h1>The useful parts of <i>Never Split the Difference</i></h1>
-      <p class="lede">The ideas readers mention most often, ranked by how many of the screened pages called them useful.</p>
+      <h1>The parts of <i>Never Split the Difference</i> that are actually useful</h1>
+      <p class="lede">I went through the longer reviews to see which ideas people kept bringing up. Here they are, from most common to least.</p>
     </div>
     <div class="stamp">18<small>screened<br />sources</small></div>
   </section>
 
-  <section class="intro"><p>I screened 18 long-form reviews and summaries after removing duplicates and short pages. That is the denominator. The counts below show how often each idea was presented as useful, not whether it works every time.</p></section>
+  <section class="intro"><p>I screened 18 long-form reviews and summaries, removing duplicates and short pages. So that is the denominator. The counts show how often a source called an idea useful. They do not prove that it works every time.</p></section>
 
   <section class="grid" aria-label="Ranked negotiation insights">
     {insights.map(([name, count, body, thought, glyph], index) => (
@@ -66,8 +66,8 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
 
   <section class="sources">
     <h2>The pattern</h2>
-    <p>The ideas near the top all help you learn something. Name the feeling. Ask a question that shows the constraint. Repeat the important words. Keep listening after the first explanation.</p>
-    <p>The categories are normalized. “Tactical empathy,” emotional labeling, and making the other person feel heard count as the same family of idea.</p>
+    <p>The ideas near the top all help you learn something. Name the feeling. Ask about the constraint. Repeat the important words. Keep listening after the first explanation.</p>
+    <p>I grouped together ideas that are basically doing the same job. Tactical empathy, emotional labeling, and making the other person feel heard count as one family here.</p>
     <h2 class="source-title">A few of the source pages</h2>
     <ul>{sources.map(([name, url]) => <li><a href={url} rel="noopener noreferrer">{name}</a></li>)}</ul>
   </section>
