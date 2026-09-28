@@ -1,0 +1,101 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Never Split the Difference: the ideas reviewers return to most';
+const description = 'A ranked index of the negotiation ideas most often described as useful across 18 screened long-form reviews and summaries of Chris Voss’s Never Split the Difference.';
+const canonical = 'https://jackmaguire.org/never-split-the-difference';
+
+const insights = [
+  ['Tactical empathy and labeling', 17, 'Treat empathy as information gathering, not agreement. Naming the emotion gives the other person less reason to keep defending it.', 'The useful question is: what is this person trying to protect?', 'TE'],
+  ['Calibrated how and what questions', 16, 'Good questions hand the problem back without turning the exchange into a fight. They make constraints visible.', '“How am I supposed to do that?” is a constraint detector.', 'Q'],
+  ['Mirroring and active listening', 15, 'Repeating the last few important words creates room for the other person to continue. The payoff is information you would otherwise miss.', 'Rapport is the side effect. Better information is the point.', 'M'],
+  ['Making no safe', 13, 'A genuine “no” can give someone relief and control. Once they no longer feel trapped, the conversation can become more candid.', 'A safe no is often the door to a more honest yes.', 'NO'],
+  ['Reaching that’s right', 12, 'Agreement is cheap. Accurate recognition is harder. Summarize the other person’s world well enough that they feel understood.', 'The target is recognition, not compliance.', 'TR'],
+  ['Finding Black Swans', 11, 'The decisive fact is often something neither side initially names: a deadline, political constraint, fear, or private incentive.', 'Stay curious after the obvious explanation appears complete.', 'BS'],
+  ['Accusation Audits', 10, 'Say the uncomfortable negatives before the other person has to. It lowers the social cost of raising objections.', 'A conversation gets less brittle when the awkward part has a name.', 'AA'],
+  ['Tone, pace, silence, and regulation', 9, 'The voice carries meaning before the words do. Slow down enough to keep your own urgency from becoming the other person’s problem.', 'The negotiator is part of the atmosphere.', 'TP'],
+  ['Avoid splitting the difference', 9, 'A midpoint can feel fair while hiding the real question: what outcome actually solves the underlying problem?', 'Fairness is a frame, not a number.', 'SD'],
+  ['Execution checks and the Rule of Three', 8, 'Ask for confirmation in more than one form. Repetition exposes polite agreement that never became a real commitment.', 'A deal is still abstract until the other person can restate it.', 'R3'],
+  ['Ackerman bargaining model', 7, 'A planned sequence of decreasing offers gives a concession structure and keeps the final move deliberate.', 'Preparation makes restraint possible.', 'AC'],
+  ['Anchors and perceived fairness', 7, 'The first serious number changes the range people treat as reasonable, even when the underlying value is uncertain.', 'The frame arrives before the arithmetic.', 'AN'],
+  ['Deadlines are leverage, not truth', 6, 'A deadline can be real, invented, or simply useful pressure. Test it before letting it dictate the deal.', 'Urgency deserves a question before it deserves a concession.', 'DL'],
+  ['Negotiation styles', 5, 'Analyst, Accommodator, and Assertive are useful rough patterns, as long as they remain prompts for observation rather than fixed labels.', 'A style model is a lens, not a diagnosis.', 'ST'],
+  ['Preparation and constraints', 5, 'A one-sheet with goals, limits, likely objections, and questions turns improvisation into a smaller problem.', 'The conversation starts before the conversation.', 'PR'],
+  ['Ethical limits', 4, 'The tools can be used to listen better or to manufacture compliance. The difference is whether the other person keeps meaningful choice.', 'Technique without judgment is just pressure with better vocabulary.', 'ET'],
+];
+
+const sources = [
+  ['SuperSummary', 'https://www.supersummary.com/never-split-the-difference/summary/'],
+  ['Hasty Reader', 'https://hastyreader.com/never-split-the-difference-book-summary/'],
+  ['Mark Whelan', 'https://www.markmwhelan.com/never-split-the-difference-book-review/'],
+  ['Center for Understanding in Conflict', 'https://understandinginconflict.org/never-split-the-difference-by-chris-voss-and-tahl-raz/'],
+];
+
+const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-label="${glyph} marker"><circle cx="72" cy="72" r="65" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="72" cy="72" r="57" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5"/><path d="M72 12v14M72 118v14M12 72h14M118 72h14M29.6 29.6l9.9 9.9M104.5 104.5l9.9 9.9M114.4 29.6l-9.9 9.9M39.5 104.5l-9.9 9.9" stroke="currentColor" stroke-width="2"/><circle cx="72" cy="72" r="37" fill="none" stroke="currentColor" stroke-width="3"/><text x="72" y="84" text-anchor="middle">${glyph}</text></svg>`;
+---
+
+<BaseHead {title} {description} canonical={canonical} />
+<Header />
+<main class="research-page">
+  <div class="navline"><span>FIELD NOTES / NEGOTIATION</span><span>18 QUALIFYING SOURCES</span></div>
+  <section class="mast">
+    <div>
+      <h1>What people keep finding useful in <i>Never Split the Difference</i></h1>
+      <p class="lede">A ranked visual index of the ideas reviewers return to most often, with the live line each tactic tends to become.</p>
+    </div>
+    <div class="stamp">18<small>screened<br />sources</small></div>
+  </section>
+
+  <section class="intro"><p>The original request was for 100 long-form reviews and summaries. The live corpus produced 18 pages that met the length and relevance screen after duplicates and short summaries were removed. The denominator stays visible here so the frequency counts mean what they say.</p></section>
+
+  <section class="grid" aria-label="Ranked negotiation insights">
+    {insights.map(([name, count, body, thought, glyph], index) => (
+      <article class="insight" style={`--rank:${index}`}>
+        <div class="face" set:html={faceSvg(glyph as string)}></div>
+        <div class="copy">
+          <div class="top"><h2>{name}</h2><strong>{count}<small>/18</small></strong></div>
+          <div class="bar" aria-hidden="true"><span style={`width:${(Number(count) / 18) * 100}%`}></span></div>
+          <p>{body}</p>
+          <blockquote>{thought}</blockquote>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="sources">
+    <h2>How to read the pattern</h2>
+    <p>These are prevalence-of-mention counts, not proof that a tactic works. Categories were normalized to merge synonymous labels, such as tactical empathy, emotional labeling, and making the counterpart feel heard.</p>
+    <p>The strongest pattern is informational. The ideas that recur most often are the ones that make the other person easier to understand: name the emotion, ask a question that reveals constraints, mirror the important words, and keep listening after the obvious answer.</p>
+    <h2 class="source-title">A few of the source pages</h2>
+    <ul>{sources.map(([name, url]) => <li><a href={url} rel="noopener noreferrer">{name}</a></li>)}</ul>
+  </section>
+</main>
+<Footer />
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=Space+Mono:wght@400;700&display=swap');
+  :global(body){background:#f5f5ef;color:#11152b}
+  .research-page{max-width:1180px;margin:0 auto;padding:clamp(28px,6vw,80px) clamp(18px,4vw,56px) 72px;font-family:'Space Mono',monospace}
+  .navline{display:flex;justify-content:space-between;border-bottom:1px solid #11152b;padding-bottom:16px;margin-bottom:44px;font-size:11px;letter-spacing:.05em;color:#5d637a}
+  .mast{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;border-bottom:1px solid #d8dbe6;padding-bottom:30px}
+  h1,h2,.lede,.intro{font-family:'Bricolage Grotesque',sans-serif}
+  h1{font-size:clamp(42px,6.3vw,84px);font-weight:400;line-height:.95;letter-spacing:-.045em;max-width:850px;margin:0}
+  .lede{font-size:clamp(20px,2.1vw,28px);line-height:1.2;max-width:750px;margin:30px 0 0}
+  .stamp{display:grid;place-items:center;text-align:center;width:128px;height:128px;border:2px solid #11152b;border-radius:50%;background:#ceff3e;font-size:40px;font-weight:700;line-height:.9;transform:rotate(7deg)}
+  .stamp small{font-size:10px;line-height:1.25;text-transform:uppercase;letter-spacing:.08em}
+  .intro{max-width:700px;font-size:18px;line-height:1.35;margin:30px 0 52px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .insight{background:#fffef9;border:1px solid #d8dbe6;padding:18px;display:grid;grid-template-columns:150px 1fr;gap:14px;min-height:245px;animation:rise .55s both;animation-delay:calc(var(--rank) * 35ms)}
+  .face{width:144px;height:144px;color:#5965ff}.face :global(svg){width:144px;height:144px}.face :global(text){font:700 29px 'Space Mono',monospace}
+  .top{display:flex;justify-content:space-between;gap:12px;align-items:start}.top h2{font-size:22px;line-height:1.02;font-weight:400;margin:0}.top strong{color:#5965ff;font-size:18px;white-space:nowrap}.top small{font-size:10px;color:#5d637a;font-weight:400}
+  .bar{height:5px;background:#e5e7ef;margin:14px 0 12px}.bar span{display:block;height:100%;background:#5965ff}
+  .copy p{font-family:Verdana,Tahoma,sans-serif;font-size:14px;line-height:1.42;color:#3b425b;margin:0 0 12px}.copy blockquote{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;line-height:1.25;border-left:1px solid #5965ff;padding:0 0 0 10px;margin:0;color:#11152b}
+  .sources{border-top:1px solid #d8dbe6;margin-top:64px;padding-top:26px;max-width:760px}.sources h2{font-size:30px;font-weight:400;margin:0 0 14px}.sources p{font-family:Verdana,Tahoma,sans-serif;font-size:15px;line-height:1.5;color:#3b425b}.source-title{margin-top:34px!important}.sources ul{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;list-style:none;font-size:12px}.sources a{color:#11152b;text-decoration:underline;text-underline-offset:3px}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media(max-width:900px){.insight{grid-template-columns:100px 1fr}.face,.face :global(svg){width:96px;height:96px}.face :global(text){font-size:22px}}
+  @media(max-width:760px){.navline{gap:16px;line-height:1.35}.mast{grid-template-columns:1fr}.stamp{width:92px;height:92px;font-size:30px;margin-top:8px}.grid{grid-template-columns:1fr}.insight{min-height:0}.intro{margin-bottom:34px}}
+  @media(max-width:500px){.navline{font-size:9px}.insight{grid-template-columns:1fr}.face{margin-bottom:4px}.top h2{font-size:20px}}
+  @media(prefers-reduced-motion:reduce){.insight{animation:none}}
+</style>
