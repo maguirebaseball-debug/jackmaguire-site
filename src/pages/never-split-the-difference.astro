@@ -3,27 +3,27 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const title = 'Never Split the Difference: the ideas reviewers return to most';
-const description = 'A ranked index of the negotiation ideas most often described as useful across 18 screened long-form reviews and summaries of Chris Voss’s Never Split the Difference.';
+const title = 'The useful parts of Never Split the Difference';
+const description = 'The negotiation ideas readers mention most often in 18 screened long-form reviews and summaries of Chris Voss’s Never Split the Difference.';
 const canonical = 'https://jackmaguire.org/never-split-the-difference';
 
 const insights = [
-  ['Tactical empathy and labeling', 17, 'Treat empathy as information gathering, not agreement. Naming the emotion gives the other person less reason to keep defending it.', 'The useful question is: what is this person trying to protect?', 'TE'],
-  ['Calibrated how and what questions', 16, 'Good questions hand the problem back without turning the exchange into a fight. They make constraints visible.', '“How am I supposed to do that?” is a constraint detector.', 'Q'],
-  ['Mirroring and active listening', 15, 'Repeating the last few important words creates room for the other person to continue. The payoff is information you would otherwise miss.', 'Rapport is the side effect. Better information is the point.', 'M'],
-  ['Making no safe', 13, 'A genuine “no” can give someone relief and control. Once they no longer feel trapped, the conversation can become more candid.', 'A safe no is often the door to a more honest yes.', 'NO'],
-  ['Reaching that’s right', 12, 'Agreement is cheap. Accurate recognition is harder. Summarize the other person’s world well enough that they feel understood.', 'The target is recognition, not compliance.', 'TR'],
-  ['Finding Black Swans', 11, 'The decisive fact is often something neither side initially names: a deadline, political constraint, fear, or private incentive.', 'Stay curious after the obvious explanation appears complete.', 'BS'],
-  ['Accusation Audits', 10, 'Say the uncomfortable negatives before the other person has to. It lowers the social cost of raising objections.', 'A conversation gets less brittle when the awkward part has a name.', 'AA'],
-  ['Tone, pace, silence, and regulation', 9, 'The voice carries meaning before the words do. Slow down enough to keep your own urgency from becoming the other person’s problem.', 'The negotiator is part of the atmosphere.', 'TP'],
-  ['Avoid splitting the difference', 9, 'A midpoint can feel fair while hiding the real question: what outcome actually solves the underlying problem?', 'Fairness is a frame, not a number.', 'SD'],
-  ['Execution checks and the Rule of Three', 8, 'Ask for confirmation in more than one form. Repetition exposes polite agreement that never became a real commitment.', 'A deal is still abstract until the other person can restate it.', 'R3'],
-  ['Ackerman bargaining model', 7, 'A planned sequence of decreasing offers gives a concession structure and keeps the final move deliberate.', 'Preparation makes restraint possible.', 'AC'],
-  ['Anchors and perceived fairness', 7, 'The first serious number changes the range people treat as reasonable, even when the underlying value is uncertain.', 'The frame arrives before the arithmetic.', 'AN'],
-  ['Deadlines are leverage, not truth', 6, 'A deadline can be real, invented, or simply useful pressure. Test it before letting it dictate the deal.', 'Urgency deserves a question before it deserves a concession.', 'DL'],
-  ['Negotiation styles', 5, 'Analyst, Accommodator, and Assertive are useful rough patterns, as long as they remain prompts for observation rather than fixed labels.', 'A style model is a lens, not a diagnosis.', 'ST'],
-  ['Preparation and constraints', 5, 'A one-sheet with goals, limits, likely objections, and questions turns improvisation into a smaller problem.', 'The conversation starts before the conversation.', 'PR'],
-  ['Ethical limits', 4, 'The tools can be used to listen better or to manufacture compliance. The difference is whether the other person keeps meaningful choice.', 'Technique without judgment is just pressure with better vocabulary.', 'ET'],
+  ['Name the feeling', 17, 'Empathy here means finding the feeling in the room and saying it out loud. You do not have to agree with someone to show that you understand what is driving them.', 'Ask yourself what this person is trying to protect.', 'TE'],
+  ['Ask how and what', 16, 'These questions make the other person work through the problem with you. They reveal limits without forcing either side into a corner.', '“How am I supposed to do that?” puts the constraint on the table.', 'Q'],
+  ['Repeat the important words', 15, 'Repeating the last few words gives people room to keep talking. That is where the useful detail usually appears.', 'The point is less rapport than information.', 'M'],
+  ['Make no feel safe', 13, 'People speak more freely when they know they can say no. A little control can make the rest of the conversation less guarded.', 'A safe no can lead to a more honest yes.', 'NO'],
+  ['Get to that’s right', 12, 'Agreement is easy to perform. A good summary is harder. Try to describe the other person’s situation so accurately that they recognize it.', 'You are looking for recognition, not compliance.', 'TR'],
+  ['Look for the hidden fact', 11, 'The fact that changes the deal may be a private deadline, an internal rule, a fear, or a second person who is not in the room.', 'Keep asking after the obvious answer arrives.', 'BS'],
+  ['Say the awkward part first', 10, 'Name the objections before the other person has to. It makes the hard part easier to discuss.', 'A conversation gets sturdier once the awkward thing has a name.', 'AA'],
+  ['Slow down', 9, 'Your voice carries pressure before your words do. A slower pace can keep your urgency from becoming someone else’s problem.', 'You are part of the atmosphere.', 'TP'],
+  ['Do not split the difference', 9, 'A midpoint can look fair while leaving the real problem untouched. Find out what the number is supposed to solve.', 'Fairness is a frame, not a number.', 'SD'],
+  ['Check the deal three ways', 8, 'Ask for confirmation in more than one form. It exposes the polite agreement that never became a commitment.', 'A deal is still abstract until the other person can explain it back.', 'R3'],
+  ['Plan your concessions', 7, 'A planned series of smaller offers keeps you from improvising your way past your own limit.', 'Preparation makes restraint easier.', 'AC'],
+  ['Set the frame early', 7, 'The first serious number changes what people consider reasonable, especially when the underlying value is unclear.', 'The frame arrives before the arithmetic.', 'AN'],
+  ['Question the deadline', 6, 'A deadline may be real, invented, or simply useful pressure. Test it before allowing it to decide for you.', 'Urgency deserves a question first.', 'DL'],
+  ['Use styles as rough clues', 5, 'The book’s style categories can help you notice patterns. They become less useful when you start treating them as diagnoses.', 'A style model is a lens, not a label.', 'ST'],
+  ['Prepare the one sheet', 5, 'Write down the goal, the limit, the likely objections, and the questions you want to ask. It shrinks the amount you have to invent in real time.', 'The conversation starts before the conversation.', 'PR'],
+  ['Keep the ethics visible', 4, 'The same tools can help someone speak honestly or push them toward a choice they do not want. The difference is whether they keep a real way out.', 'Technique without judgment is pressure with better vocabulary.', 'ET'],
 ];
 
 const sources = [
@@ -42,13 +42,13 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
   <div class="navline"><span>FIELD NOTES / NEGOTIATION</span><span>18 QUALIFYING SOURCES</span></div>
   <section class="mast">
     <div>
-      <h1>What people keep finding useful in <i>Never Split the Difference</i></h1>
-      <p class="lede">A ranked visual index of the ideas reviewers return to most often, with the live line each tactic tends to become.</p>
+      <h1>The useful parts of <i>Never Split the Difference</i></h1>
+      <p class="lede">The ideas readers mention most often, ranked by how many of the screened pages called them useful.</p>
     </div>
     <div class="stamp">18<small>screened<br />sources</small></div>
   </section>
 
-  <section class="intro"><p>The original request was for 100 long-form reviews and summaries. The live corpus produced 18 pages that met the length and relevance screen after duplicates and short summaries were removed. The denominator stays visible here so the frequency counts mean what they say.</p></section>
+  <section class="intro"><p>I screened 18 long-form reviews and summaries after removing duplicates and short pages. That is the denominator. The counts below show how often each idea was presented as useful, not whether it works every time.</p></section>
 
   <section class="grid" aria-label="Ranked negotiation insights">
     {insights.map(([name, count, body, thought, glyph], index) => (
@@ -65,9 +65,9 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
   </section>
 
   <section class="sources">
-    <h2>How to read the pattern</h2>
-    <p>These are prevalence-of-mention counts, not proof that a tactic works. Categories were normalized to merge synonymous labels, such as tactical empathy, emotional labeling, and making the counterpart feel heard.</p>
-    <p>The strongest pattern is informational. The ideas that recur most often are the ones that make the other person easier to understand: name the emotion, ask a question that reveals constraints, mirror the important words, and keep listening after the obvious answer.</p>
+    <h2>The pattern</h2>
+    <p>The ideas near the top all help you learn something. Name the feeling. Ask a question that shows the constraint. Repeat the important words. Keep listening after the first explanation.</p>
+    <p>The categories are normalized. “Tactical empathy,” emotional labeling, and making the other person feel heard count as the same family of idea.</p>
     <h2 class="source-title">A few of the source pages</h2>
     <ul>{sources.map(([name, url]) => <li><a href={url} rel="noopener noreferrer">{name}</a></li>)}</ul>
   </section>
@@ -77,7 +77,7 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=Space+Mono:wght@400;700&display=swap');
   :global(body){background:#f5f5ef;color:#11152b}
-  .research-page{max-width:1180px;margin:0 auto;padding:clamp(28px,6vw,80px) clamp(18px,4vw,56px) 72px;font-family:'Space Mono',monospace}
+  .research-page{max-width:1180px;margin:0 auto;padding:clamp(24px,6vw,80px) clamp(16px,4vw,56px) 56px;font-family:'Space Mono',monospace}
   .navline{display:flex;justify-content:space-between;border-bottom:1px solid #11152b;padding-bottom:16px;margin-bottom:44px;font-size:11px;letter-spacing:.05em;color:#5d637a}
   .mast{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;border-bottom:1px solid #d8dbe6;padding-bottom:30px}
   h1,h2,.lede,.intro{font-family:'Bricolage Grotesque',sans-serif}
@@ -96,6 +96,6 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @media(max-width:900px){.insight{grid-template-columns:100px 1fr}.face,.face :global(svg){width:96px;height:96px}.face :global(text){font-size:22px}}
   @media(max-width:760px){.navline{gap:16px;line-height:1.35}.mast{grid-template-columns:1fr}.stamp{width:92px;height:92px;font-size:30px;margin-top:8px}.grid{grid-template-columns:1fr}.insight{min-height:0}.intro{margin-bottom:34px}}
-  @media(max-width:500px){.navline{font-size:9px}.insight{grid-template-columns:1fr}.face{margin-bottom:4px}.top h2{font-size:20px}}
+  @media(max-width:500px){.navline{font-size:9px;margin-bottom:30px}.mast{padding-bottom:22px}.mast h1{font-size:clamp(39px,12vw,58px);line-height:.98}.lede{font-size:21px;line-height:1.18;margin-top:20px}.intro{font-size:17px;line-height:1.38;margin:24px 0 30px}.insight{grid-template-columns:1fr;padding:16px;gap:4px}.face{margin-bottom:4px}.top{gap:8px}.top h2{font-size:20px;line-height:1.05}.top strong{font-size:16px}.copy p{font-size:15px;line-height:1.42;margin-bottom:12px}.copy blockquote{font-size:17px;line-height:1.22}.sources{margin-top:46px;padding-top:22px}.sources h2{font-size:28px}.sources p{font-size:15px}.sources ul{display:block;line-height:2.2}}
   @media(prefers-reduced-motion:reduce){.insight{animation:none}}
 </style>
