@@ -48,8 +48,6 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
     <div class="stamp">18<small>screened<br />sources</small></div>
   </section>
 
-  <section class="intro"><p>I screened 18 longer reviews and summaries, removing duplicates and short pages. That is the denominator. The counts show how often a source called an idea useful. They do not mean it works every time. Think of this as a reading guide, not a guarantee.</p></section>
-
   <section class="grid" aria-label="Ranked negotiation insights">
     {insights.map(([name, count, body, thought, glyph], index) => (
       <article class="insight" style={`--rank:${index}`}>
