@@ -340,3 +340,6 @@ Each article features responsive comparison tables, route timings, and authentic
 ## 2026-09-20, NYC tsukemen article publication
 
 Published `src/content/blog/best-tsukemen-nyc.md` at `/blog/best-tsukemen-nyc/`. The plain article compares TabeTomo, Okiboru, Taishoken, Yasubee, and GOGYO using a 150-observation qualitative evidence table and links to Jack's own Yelp photo records. Astro build, indexing check, sitemap inclusion, and live HTTP 200 verification passed. Commit `c53ffe5` is pushed to `main`.
+## 2026-09-27, Never Split the Difference research page
+
+Published `src/pages/never-split-the-difference.astro` at `/never-split-the-difference/` from the linked research task. The page uses the site's global header and footer, a custom Bricolage Grotesque and Space Mono treatment, ranked frequency bars, 16 normalized insights, and enlarged ornate SVG markers. It states the honest screened denominator of 18 qualifying sources. `npm run build` passed, the Impeccable detector returned no findings, commit `4843645` was pushed to `main`, and the live URL returned HTTP 200 after Vercel propagation.

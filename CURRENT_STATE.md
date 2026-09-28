@@ -2,6 +2,8 @@
 
 Updated: 2026-09-20
 
+Published `src/pages/never-split-the-difference.astro` at `/never-split-the-difference/` on 2026-09-27. The page presents the screened 18-source frequency index from the linked research task, keeps the global navigation, and uses the requested custom font, color scheme, and enlarged ornate SVG markers. Local `npm run build` and the Impeccable detector passed. Commit `4843645` was pushed to `main`; the production URL returned HTTP 200 with the expected title and content after Vercel propagation.
+
 Published the empirical culinary study `src/content/blog/octopus-baking-temperature-culinary-study.md` at `/blog/octopus-baking-temperature-culinary-study/` on 2026-09-20. The article presents 250 validated culinary observations across internal pull temperature, oven cooking heat, pre-salting method, pre-salting duration, and post-salt washing practice, with six 300 DPI data visualization charts in `public/images/octopus/`. Local Astro build and static page generation succeeded with zero errors.
 
 Published the plain Markdown article `src/content/blog/best-tsukemen-nyc.md` at `/blog/best-tsukemen-nyc/` on 2026-09-20. It compares NYC tsukemen by broth, noodles, price, and value, includes the 150-observation qualitative evidence table, and links to Jack's own Yelp photo records. Local Astro build and indexing checks passed. Commit `c53ffe5` was pushed to `main`, and the live URL returned HTTP 200 with canonical, GA4, and sitemap checks passing.
