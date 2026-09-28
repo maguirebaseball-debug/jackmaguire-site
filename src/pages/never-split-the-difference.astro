@@ -33,7 +33,7 @@ const sources = [
   ['Center for Understanding in Conflict', 'https://understandinginconflict.org/never-split-the-difference-by-chris-voss-and-tahl-raz/'],
 ];
 
-const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-label="${glyph} marker"><circle cx="72" cy="72" r="65" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="72" cy="72" r="57" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5"/><path d="M72 12v14M72 118v14M12 72h14M118 72h14M29.6 29.6l9.9 9.9M104.5 104.5l9.9 9.9M114.4 29.6l-9.9 9.9M39.5 104.5l-9.9 9.9" stroke="currentColor" stroke-width="2"/><circle cx="72" cy="72" r="37" fill="none" stroke="currentColor" stroke-width="3"/><text x="72" y="84" text-anchor="middle">${glyph}</text></svg>`;
+const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-label="${glyph} marker"><text x="72" y="106" text-anchor="middle">${glyph}</text></svg>`;
 ---
 
 <BaseHead {title} {description} canonical={canonical} />
@@ -88,13 +88,13 @@ const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-l
   .intro{max-width:700px;font-size:18px;line-height:1.35;margin:30px 0 52px}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .insight{background:#fffef9;border:1px solid #d8dbe6;padding:18px;display:grid;grid-template-columns:150px 1fr;gap:14px;min-height:245px;animation:rise .55s both;animation-delay:calc(var(--rank) * 35ms)}
-  .face{width:144px;height:144px;color:#5965ff}.face :global(svg){width:144px;height:144px}.face :global(text){font:700 29px 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
+  .face{width:144px;height:144px;color:#5965ff;display:grid;place-items:center}.face :global(svg){width:144px;height:144px}.face :global(text){font:700 116px 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
   .top{display:flex;justify-content:space-between;gap:12px;align-items:start}.top h2{font-size:22px;line-height:1.02;font-weight:400;margin:0}.top strong{color:#5965ff;font-size:18px;white-space:nowrap}.top small{font-size:10px;color:#5d637a;font-weight:400}
   .bar{height:5px;background:#e5e7ef;margin:14px 0 12px}.bar span{display:block;height:100%;background:#5965ff}
   .copy p{font-family:Verdana,Tahoma,sans-serif;font-size:14px;line-height:1.42;color:#3b425b;margin:0 0 12px}.copy blockquote{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;line-height:1.25;border-left:1px solid #5965ff;padding:0 0 0 10px;margin:0;color:#11152b}
   .sources{border-top:1px solid #d8dbe6;margin-top:64px;padding-top:26px;max-width:760px}.sources h2{font-size:30px;font-weight:400;margin:0 0 14px}.sources p{font-family:Verdana,Tahoma,sans-serif;font-size:15px;line-height:1.5;color:#3b425b}.source-title{margin-top:34px!important}.sources ul{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;list-style:none;font-size:12px}.sources a{color:#11152b;text-decoration:underline;text-underline-offset:3px}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  @media(max-width:900px){.insight{grid-template-columns:100px 1fr}.face,.face :global(svg){width:96px;height:96px}.face :global(text){font-size:22px}}
+  @media(max-width:900px){.insight{grid-template-columns:100px 1fr}.face,.face :global(svg){width:96px;height:96px}.face :global(text){font-size:88px}}
   @media(max-width:760px){.navline{gap:16px;line-height:1.35}.mast{grid-template-columns:1fr}.stamp{width:92px;height:92px;font-size:30px;margin-top:8px}.grid{grid-template-columns:1fr}.insight{min-height:0}.intro{margin-bottom:34px}}
   @media(max-width:500px){.navline{font-size:9px;margin-bottom:30px}.mast{padding-bottom:22px}.mast h1{font-size:clamp(39px,12vw,58px);line-height:.98}.lede{font-size:21px;line-height:1.18;margin-top:20px}.intro{font-size:17px;line-height:1.38;margin:24px 0 30px}.insight{grid-template-columns:1fr;padding:16px;gap:4px}.face{margin-bottom:4px}.top{gap:8px}.top h2{font-size:20px;line-height:1.05}.top strong{font-size:16px}.copy p{font-size:15px;line-height:1.42;margin-bottom:12px}.copy blockquote{font-size:17px;line-height:1.22}.sources{margin-top:46px;padding-top:22px}.sources h2{font-size:28px}.sources p{font-size:15px}.sources ul{display:block;line-height:2.2}}
   @media(prefers-reduced-motion:reduce){.insight{animation:none}}
