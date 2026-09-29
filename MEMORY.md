@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-29, Google Maps list link
+
+Added a bottom-of-page link from `/recommendations/nyc-restaurants/` to the shared Google Maps list.
+
 ## 2026-09-29, borough column on NYC restaurant list
 
 Added a Borough column to `/recommendations/nyc-restaurants/`. New Jersey locations display as `nj`, while New York locations use Brooklyn, Queens, or Manhattan.
