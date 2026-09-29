@@ -27,6 +27,7 @@ const pageDescription = 'A small Google Maps list of New York restaurants with h
 							<th>Restaurant</th>
 							<th>Cuisine</th>
 							<th>Neighborhood</th>
+							<th>Borough</th>
 							<th>Google</th>
 							<th>Website</th>
 						</tr>
@@ -37,6 +38,7 @@ const pageDescription = 'A small Google Maps list of New York restaurants with h
 								<td><a href={restaurant.mapsUrl} target="_blank" rel="noopener">{restaurant.name}</a></td>
 								<td>{restaurant.cuisine}</td>
 								<td>{restaurant.neighborhood}</td>
+								<td>{restaurant.borough}</td>
 								<td>{restaurant.rating.toFixed(1)} stars, {restaurant.reviewCount.toLocaleString()} reviews</td>
 								<td>
 									<a href={restaurant.website || restaurant.mapsUrl} target="_blank" rel="noopener">

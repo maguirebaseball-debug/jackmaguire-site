@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-29, borough column on NYC restaurant list
+
+Added a Borough column to `/recommendations/nyc-restaurants/`. New Jersey locations display as `nj`, while New York locations use Brooklyn, Queens, or Manhattan.
+
 ## 2026-09-29, NYC low-review restaurant list publication
 
 Published `src/pages/recommendations/nyc-restaurants.astro` at `/recommendations/nyc-restaurants/` with 25 unique restaurants from the Apify `poidata/google-maps-scraper` dataset. The page uses the normal site header, a simple GeoCities-style table, Google Maps current ratings and review counts, neighborhood and cuisine fields, and website or Google Maps links. Commit `2b88bbb` was pushed to `main`, and the live route returned HTTP 200 with the expected note, header, and 25 rows.

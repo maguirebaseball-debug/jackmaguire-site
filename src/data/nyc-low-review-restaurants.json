@@ -2,6 +2,7 @@
   {
     "name": "Rice & Beans Bar & Restaurant",
     "cuisine": "Restaurant",
+    "borough": "Brooklyn",
     "neighborhood": "Sunset Park",
     "rating": 5,
     "reviewCount": 3,
@@ -11,6 +12,7 @@
   {
     "name": "Roundabout",
     "cuisine": "Restaurant",
+    "borough": "Brooklyn",
     "neighborhood": "Greenwood Heights",
     "rating": 5,
     "reviewCount": 9,
@@ -20,6 +22,7 @@
   {
     "name": "Marmeta Restaurant",
     "cuisine": "Algerian",
+    "borough": "Brooklyn",
     "neighborhood": "Bay Ridge",
     "rating": 4.9,
     "reviewCount": 49,
@@ -29,6 +32,7 @@
   {
     "name": "Carol Ann's Table",
     "cuisine": "Restaurant",
+    "borough": "nj",
     "neighborhood": "The Heights",
     "rating": 4.9,
     "reviewCount": 118,
@@ -38,6 +42,7 @@
   {
     "name": "Margaritas Restaurant",
     "cuisine": "Restaurant",
+    "borough": "nj",
     "neighborhood": "Bergen-Lafayette",
     "rating": 4.8,
     "reviewCount": 8,
@@ -47,6 +52,7 @@
   {
     "name": "Fatsa Mediterranean Cuisine",
     "cuisine": "Mediterranean",
+    "borough": "Queens",
     "neighborhood": "Rego Park",
     "rating": 4.8,
     "reviewCount": 73,
@@ -56,6 +62,7 @@
   {
     "name": "Magdou Delicious Restaurant",
     "cuisine": "Haitian",
+    "borough": "nj",
     "neighborhood": "Hackensack River Waterfront",
     "rating": 4.8,
     "reviewCount": 169,
@@ -65,6 +72,7 @@
   {
     "name": "El Mexicano Restaurante & Cafe Inc. 5",
     "cuisine": "Mexican",
+    "borough": "Brooklyn",
     "neighborhood": "Carroll Gardens",
     "rating": 4.8,
     "reviewCount": 116,
@@ -74,6 +82,7 @@
   {
     "name": "Klein's Kosher",
     "cuisine": "Kosher",
+    "borough": "Brooklyn",
     "neighborhood": "South Williamsburg",
     "rating": 4.7,
     "reviewCount": 348,
@@ -83,6 +92,7 @@
   {
     "name": "Pampangueña's Restaurant",
     "cuisine": "Filipino",
+    "borough": "nj",
     "neighborhood": "West Side",
     "rating": 4.7,
     "reviewCount": 64,
@@ -92,6 +102,7 @@
   {
     "name": "BADABOOM",
     "cuisine": "French",
+    "borough": "Brooklyn",
     "neighborhood": "Bedford-Stuyvesant",
     "rating": 4.7,
     "reviewCount": 122,
@@ -101,6 +112,7 @@
   {
     "name": "Bergen Hall",
     "cuisine": "Event venue",
+    "borough": "nj",
     "neighborhood": "Jersey City",
     "rating": 4.7,
     "reviewCount": 75,
@@ -110,6 +122,7 @@
   {
     "name": "Two brothers restaurant & Cafe",
     "cuisine": "Breakfast",
+    "borough": "Brooklyn",
     "neighborhood": "Bay Ridge",
     "rating": 4.6,
     "reviewCount": 9,
@@ -119,6 +132,7 @@
   {
     "name": "Jamrock Bistro Jamaican Restaurant",
     "cuisine": "Restaurant",
+    "borough": "Brooklyn",
     "neighborhood": "Brownsville",
     "rating": 4.6,
     "reviewCount": 56,
@@ -128,6 +142,7 @@
   {
     "name": "Mauricio’s Restaurant",
     "cuisine": "Breakfast",
+    "borough": "nj",
     "neighborhood": "Greenville",
     "rating": 4.6,
     "reviewCount": 184,
@@ -137,6 +152,7 @@
   {
     "name": "Eliza Sazon 2",
     "cuisine": "Restaurant",
+    "borough": "nj",
     "neighborhood": "Hackensack River Waterfront",
     "rating": 4.6,
     "reviewCount": 77,
@@ -146,6 +162,7 @@
   {
     "name": "El Sabor Del Cafe Restaurante",
     "cuisine": "Dominican",
+    "borough": "nj",
     "neighborhood": "Greenville",
     "rating": 4.6,
     "reviewCount": 95,
@@ -155,6 +172,7 @@
   {
     "name": "El Gallo De Oro",
     "cuisine": "Mexican",
+    "borough": "nj",
     "neighborhood": "Greenville",
     "rating": 4.6,
     "reviewCount": 257,
@@ -164,6 +182,7 @@
   {
     "name": "Elizabeth Restaurant",
     "cuisine": "Dominican",
+    "borough": "nj",
     "neighborhood": "Bergen-Lafayette",
     "rating": 4.6,
     "reviewCount": 147,
@@ -173,6 +192,7 @@
   {
     "name": "The Vaux Bar + Restaurant",
     "cuisine": "American",
+    "borough": "Brooklyn",
     "neighborhood": "Prospect Heights",
     "rating": 4.6,
     "reviewCount": 83,
@@ -182,6 +202,7 @@
   {
     "name": "Bandido",
     "cuisine": "Restaurant",
+    "borough": "Brooklyn",
     "neighborhood": "Park Slope",
     "rating": 4.6,
     "reviewCount": 78,
@@ -191,6 +212,7 @@
   {
     "name": "COZY FOOD COF'E",
     "cuisine": "American",
+    "borough": "Manhattan",
     "neighborhood": "Lower Manhattan",
     "rating": 4.6,
     "reviewCount": 110,
@@ -200,6 +222,7 @@
   {
     "name": "ANTOJAO Deli & Rest.",
     "cuisine": "Spanish",
+    "borough": "nj",
     "neighborhood": "Greenville",
     "rating": 4.6,
     "reviewCount": 174,
@@ -209,6 +232,7 @@
   {
     "name": "Lamoza Bar & Restaurant",
     "cuisine": "Mediterranean",
+    "borough": "Brooklyn",
     "neighborhood": "Bay Ridge",
     "rating": 4.6,
     "reviewCount": 315,
@@ -218,6 +242,7 @@
   {
     "name": "Figuritas Mexican Kitchen",
     "cuisine": "Mexican",
+    "borough": "nj",
     "neighborhood": "Bayonne",
     "rating": 4.6,
     "reviewCount": 170,
