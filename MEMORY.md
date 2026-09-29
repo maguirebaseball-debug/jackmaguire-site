@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-09-29, NYC low-review restaurant list publication
+
+Published `src/pages/recommendations/nyc-restaurants.astro` at `/recommendations/nyc-restaurants/` with 25 unique restaurants from the Apify `poidata/google-maps-scraper` dataset. The page uses the normal site header, a simple GeoCities-style table, Google Maps current ratings and review counts, neighborhood and cuisine fields, and website or Google Maps links. Commit `2b88bbb` was pushed to `main`, and the live route returned HTTP 200 with the expected note, header, and 25 rows.
+
 ## 2026-09-20, Octopus baking and roasting temperature culinary study with data visualizations
 
 Published the empirical culinary study [Baking Octopus: What 250 Culinary Sources Say About Internal Pull Temperature, Oven Heat, Pre-Salting, and Slime Removal](https://jackmaguire.org/blog/octopus-baking-temperature-culinary-study/) in `src/content/blog/octopus-baking-temperature-culinary-study.md`. Added six 300 DPI high-resolution data visualization charts in `public/images/octopus/`: internal pull temperature histogram, oven temperature histogram, pre-salting method distribution, pre-salting duration distribution, post-salt wash action distribution, and the 5-panel master executive dashboard. Built from a 250-observation empirical dataset across five dimensions (50 sources each) excluding government and food safety boilerplate. Local Astro build passed cleanly with zero errors.

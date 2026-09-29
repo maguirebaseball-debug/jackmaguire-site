@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-09-20
+Updated: 2026-09-29
+
+Published the current low-review-count NYC restaurant list at `/recommendations/nyc-restaurants/` on 2026-09-29. The page keeps the normal site header, uses a deliberately basic GeoCities-style table, and contains 25 unique restaurants from the Apify Google Maps scrape after the requested exclusions. Ratings and review counts were checked against current Google Maps place pages. Commit `2b88bbb` was pushed to `main`, and the production route returned HTTP 200 with the note, header, and 25 table rows. The local Astro build rendered the route before the known Windows Vercel symlink packaging error.
 
 Published `src/pages/never-split-the-difference.astro` at `/never-split-the-difference/` on 2026-09-27. The page presents the screened 18-source frequency index from the linked research task, keeps the global navigation, and uses the requested custom font, color scheme, and enlarged ornate SVG markers. Local `npm run build` and the Impeccable detector passed. Commit `4843645` was pushed to `main`; the production URL returned HTTP 200 with the expected title and content after Vercel propagation.
 
