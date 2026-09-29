@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Rice & Beans Bar & Restaurant",
+    "cuisine": "Restaurant",
+    "neighborhood": "Sunset Park",
+    "rating": 5,
+    "reviewCount": 3,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLwYsg7dawokRNtSYXsEp7bI"
+  },
+  {
+    "name": "Roundabout",
+    "cuisine": "Restaurant",
+    "neighborhood": "Greenwood Heights",
+    "rating": 5,
+    "reviewCount": 9,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ8aiG8KBbwokR6rvlglit5TI"
+  },
+  {
+    "name": "Marmeta Restaurant",
+    "cuisine": "Algerian",
+    "neighborhood": "Bay Ridge",
+    "rating": 4.9,
+    "reviewCount": 49,
+    "website": "https://mermetaalgerianrestaurant.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJraaejGdFwokRzdfsEDR6F3U"
+  },
+  {
+    "name": "Carol Ann's Table",
+    "cuisine": "Restaurant",
+    "neighborhood": "The Heights",
+    "rating": 4.9,
+    "reviewCount": 118,
+    "website": "http://carolannstable.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJfwX2uPJXwokReqJiZTKAt2c"
+  },
+  {
+    "name": "Margaritas Restaurant",
+    "cuisine": "Restaurant",
+    "neighborhood": "Bergen-Lafayette",
+    "rating": 4.8,
+    "reviewCount": 8,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJh-MPPgRRwokRGF4cUtXWW2M"
+  },
+  {
+    "name": "Fatsa Mediterranean Cuisine",
+    "cuisine": "Mediterranean",
+    "neighborhood": "Rego Park",
+    "rating": 4.8,
+    "reviewCount": 73,
+    "website": "https://www.fatsamediterranean.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ428xpWFfwokRjaK5JCXjhfU"
+  },
+  {
+    "name": "Magdou Delicious Restaurant",
+    "cuisine": "Haitian",
+    "neighborhood": "Hackensack River Waterfront",
+    "rating": 4.8,
+    "reviewCount": 169,
+    "website": "https://magdoudeliciousresto.my.canva.site/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJfbDzEmZRwokR3dEeoz4y2tM"
+  },
+  {
+    "name": "El Mexicano Restaurante & Cafe Inc. 5",
+    "cuisine": "Mexican",
+    "neighborhood": "Carroll Gardens",
+    "rating": 4.8,
+    "reviewCount": 116,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ6ar9xGxbwokRTkfHNjHFJTE"
+  },
+  {
+    "name": "Klein's Kosher",
+    "cuisine": "Kosher",
+    "neighborhood": "South Williamsburg",
+    "rating": 4.7,
+    "reviewCount": 348,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJRdCQQt1bwokRcNrSwvXqU0g"
+  },
+  {
+    "name": "Pampangueña's Restaurant",
+    "cuisine": "Filipino",
+    "neighborhood": "West Side",
+    "rating": 4.7,
+    "reviewCount": 64,
+    "website": "https://www.facebook.com/PampaguenaRestaurant",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJJWLprdFRwokRVEovKcNK7Jw"
+  },
+  {
+    "name": "BADABOOM",
+    "cuisine": "French",
+    "neighborhood": "Bedford-Stuyvesant",
+    "rating": 4.7,
+    "reviewCount": 122,
+    "website": "http://badaboom.us/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ44Om35ddwokRLcmopuv7UaE"
+  },
+  {
+    "name": "Bergen Hall",
+    "cuisine": "Event venue",
+    "neighborhood": "Jersey City",
+    "rating": 4.7,
+    "reviewCount": 75,
+    "website": "https://www.bergen-hall.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ63NbN5RRwokRNB4pZuKkYV0"
+  },
+  {
+    "name": "Two brothers restaurant & Cafe",
+    "cuisine": "Breakfast",
+    "neighborhood": "Bay Ridge",
+    "rating": 4.6,
+    "reviewCount": 9,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJmwrMYfxFwokRZ54C0Sr-d00"
+  },
+  {
+    "name": "Jamrock Bistro Jamaican Restaurant",
+    "cuisine": "Restaurant",
+    "neighborhood": "Brownsville",
+    "rating": 4.6,
+    "reviewCount": 56,
+    "website": "http://www.jamrockbistro.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJEaQGXABdwokRdMyCYxLl1JI"
+  },
+  {
+    "name": "Mauricio’s Restaurant",
+    "cuisine": "Breakfast",
+    "neighborhood": "Greenville",
+    "rating": 4.6,
+    "reviewCount": 184,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJw1y1xOJRwokRtDDpIsqCues"
+  },
+  {
+    "name": "Eliza Sazon 2",
+    "cuisine": "Restaurant",
+    "neighborhood": "Hackensack River Waterfront",
+    "rating": 4.6,
+    "reviewCount": 77,
+    "website": "https://www.elizasazon2.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ22wIle1RwokRY1GagUFhWB0"
+  },
+  {
+    "name": "El Sabor Del Cafe Restaurante",
+    "cuisine": "Dominican",
+    "neighborhood": "Greenville",
+    "rating": 4.6,
+    "reviewCount": 95,
+    "website": "https://elsabordelcafe.rest/?utm_source=google",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJdxV3GBBRwokRXKqJq2DgCCE"
+  },
+  {
+    "name": "El Gallo De Oro",
+    "cuisine": "Mexican",
+    "neighborhood": "Greenville",
+    "rating": 4.6,
+    "reviewCount": 257,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJGVX25gRRwokRWcn-ngJ-iF0"
+  },
+  {
+    "name": "Elizabeth Restaurant",
+    "cuisine": "Dominican",
+    "neighborhood": "Bergen-Lafayette",
+    "rating": 4.6,
+    "reviewCount": 147,
+    "website": "https://elizabethrestaurantnj.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJq1GzGZ9RwokRR3hG-ad5rN8"
+  },
+  {
+    "name": "The Vaux Bar + Restaurant",
+    "cuisine": "American",
+    "neighborhood": "Prospect Heights",
+    "rating": 4.6,
+    "reviewCount": 83,
+    "website": "http://thevauxsocial.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJ45c7LgBbwokR6GskZ46FOnU"
+  },
+  {
+    "name": "Bandido",
+    "cuisine": "Restaurant",
+    "neighborhood": "Park Slope",
+    "rating": 4.6,
+    "reviewCount": 78,
+    "website": "https://bandidony.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJfWMHD2RbwokRB3IeP0SeOVA"
+  },
+  {
+    "name": "COZY FOOD COF'E",
+    "cuisine": "American",
+    "neighborhood": "Lower Manhattan",
+    "rating": 4.6,
+    "reviewCount": 110,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJSYh8PQBbwokRRFWH_Gcxx4A"
+  },
+  {
+    "name": "ANTOJAO Deli & Rest.",
+    "cuisine": "Spanish",
+    "neighborhood": "Greenville",
+    "rating": 4.6,
+    "reviewCount": 174,
+    "website": "http://www.antojaonj.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJF1QnA7lRwokRfVQr4wqB_1E"
+  },
+  {
+    "name": "Lamoza Bar & Restaurant",
+    "cuisine": "Mediterranean",
+    "neighborhood": "Bay Ridge",
+    "rating": 4.6,
+    "reviewCount": 315,
+    "website": null,
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJTTN8jVhFwokRK6dsocsqteQ"
+  },
+  {
+    "name": "Figuritas Mexican Kitchen",
+    "cuisine": "Mexican",
+    "neighborhood": "Bayonne",
+    "rating": 4.6,
+    "reviewCount": 170,
+    "website": "https://figuritasmexicankitchennj.com/",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJJSKnO3BRwokRZaX8_QemrfM"
+  }
+]
