@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-09-29
+Updated: 2026-10-02
+
+Published `src/content/blog/my-experience-working-for-mercor.md` at `/blog/my-experience-working-for-mercor/` on 2026-10-02. The post preserves Jack's firsthand account while scoping AI-use and task details to his project and presenting the effective-rate and sustainable-hours estimates as personal experience. Mercor's current public policies were checked: hourly workers pause tracking for breaks, task rules can restrict AI, and Mercor permits high-level public reviews while barring client names and confidential task material. Astro build and indexing checks passed; the route appeared in generated homepage, blog archive, RSS, and sitemap output. Commit `06f2a94` was pushed to `main`; the live route, canonical URL, GA4 tag, Open Graph/Twitter metadata, and sitemap entry were verified.
 
 Published the current low-review-count NYC restaurant list at `/recommendations/nyc-restaurants/` on 2026-09-29. The page keeps the normal site header, uses a deliberately basic GeoCities-style table, and contains 25 unique restaurants from the Apify Google Maps scrape after the requested exclusions. Ratings and review counts were checked against current Google Maps place pages. Commit `2b88bbb` was pushed to `main`, and the production route returned HTTP 200 with the note, header, and 25 table rows. The local Astro build rendered the route before the known Windows Vercel symlink packaging error.
 
