@@ -1,6 +1,6 @@
 ---
 title: "NYC Omakase Prices: Best Values by Course Count"
-description: "Compare 50 NYC omakase restaurants by course count and price per course. This May 2026 snapshot covers quick counters through long tasting menus."
+description: "Compare 51 NYC omakase restaurants by menu length and price per course or counted item. October checks update selected menus; other prices remain a May 2026 snapshot."
 pubDate: 2026-05-22
 updatedDate: 2026-10-02T08:00:00Z
 tags: ["nyc", "food"]
@@ -13,24 +13,25 @@ showHeader: true
 
 Omakase is the most pricing-opaque food category in New York. A 12-course meal can cost $50 or $200 depending entirely on which counter you sit at. Restaurant websites rarely explain why. Most listicles sort by reputation or vibe, which tells you nothing about whether you're getting value.
 
-I wanted a different frame: price per course, across the whole market, organized by how many courses you're actually getting.
+I wanted a different frame: price against the length of the meal, organized by how many courses or listed pieces you get.
 
-This is a May 2026 snapshot, not a live price list. I started with the [2026 NYC Omakase List from The Sushi Legend](https://thesushilegend.com/nyc-omakase-list-2026/), a dataset of approximately 150 active NYC omakase restaurants. Its course counts are estimates and can change nightly. I cross-checked the listed prices against [The Infatuation's under-$100 omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100), restaurant websites, [Food and Spot reviews](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc), and Resy when I prepared this article in May. Those sources do not confirm every listed price today, so check the restaurant or booking page before you go.
+This list began as a May 2026 snapshot, not a live price list. I started with the [2026 NYC Omakase List from The Sushi Legend](https://thesushilegend.com/nyc-omakase-list-2026/), a dataset of approximately 150 active NYC omakase restaurants. Its course counts are estimates and can change nightly. I cross-checked prices against [The Infatuation's under-$100 omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100), restaurant websites, [Food and Spot reviews](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc), and Resy in May. On October 2, I rechecked the official menus for Sendo, Sushi by Bou, Sushi W, Tsumo, and SoZo, plus Yamashiro's current booking listing. Other prices and course counts below remain May figures. Check the restaurant or booking page before you go.
 
 This covers traditional Japanese sushi omakase only. All-you-can-eat formats (SourAji, Shinsen, Hatsu Omakase), non-Japanese omakase, and cocktail or vegan variations are not included. Kaiseki elements, dessert courses, and standard supplements within a traditional omakase are fine. Those are part of the format.
 
 I haven't eaten at all of these. Some I've been to. The rankings are data, not tasting notes.
 
-## Best NYC Omakase Values in the May 2026 Snapshot
+## Best NYC Omakase Values
 
-These are useful starting points by meal length. Every price and course count below comes from the May 2026 snapshot, not a current menu check.
+These picks mix October 2 menu checks with historical May listings. The label beside each pick shows which figures were rechecked.
 
-| Pick | May 2026 listing | Best for |
-|------|------------------|----------|
-| [Sendo](#tier-a-10-to-13-courses) | 10-13 courses, $33-48, about $3.30-3.69 per course | Lowest raw price per course, fast-casual counter |
-| [Uka Omakase](#tier-b-14-to-17-courses) | 16 courses, $56, $3.50 per course, historical listing | Lowest listed seated value |
-| [Yamashiro](#tier-c-18-to-20-courses) | 19 courses, $108, $5.68 per course | Extended format |
-| [Sushi Nakazawa](#tier-d-21-courses) | 21 courses, $190, about $9.05 per course | Lowest price in the 21+ tier |
+| Pick | Listing | Best for |
+|------|---------|----------|
+| [Sushi W lunch](#tier-a-10-to-13-courses) | 12 listed items, $38, $3.17 per item, checked Oct 2 | Lowest current listed price per counted item |
+| [Sendo](#tier-a-10-to-13-courses) | 10-13 listed components, $36-53, $3.60-4.08 per component, checked Oct 2 | Fast-casual counter |
+| [Uka Omakase](#tier-b-14-to-17-courses) | 16 courses, $56, $3.50 per course, May listing | Lowest historical seated value |
+| [Yamashiro](#tier-c-18-to-20-courses) | 19 courses, $108, $5.68 per course, booking listing checked Oct 2 | Extended format |
+| [Sushi Nakazawa](#tier-d-21-courses) | 21 courses, $190, about $9.05 per course, May listing | Lowest price in the 21+ tier |
 
 Jump to a course-count tier: [10-13 courses](#tier-a-10-to-13-courses) · [14-17 courses](#tier-b-14-to-17-courses) · [18-20 courses](#tier-c-18-to-20-courses) · [21+ courses](#tier-d-21-courses).
 
@@ -49,7 +50,7 @@ Course counts cluster naturally into four tiers based on where the market concen
 | C | 18-20 | 90-120 min | Extended, premium-ingredient heavy |
 | D | 21+ | 2+ hours | Grand omakase |
 
-The 13→14 boundary marks a real shift in pace and formality. The 17→18 boundary marks the jump to extended-format meals with more complex preparations. Everything at 21+ is a different category of commitment, in time and cost.
+The 13-to-14 boundary marks a real shift in pace and formality. The 17-to-18 boundary marks the jump to extended-format meals with more complex preparations. Everything at 21+ is a different category of commitment, in time and cost. Some menus publish individual nigiri and handroll counts instead of formal course totals. I show those as counted components, while the tier label reflects the approximate menu length. Price-per-course comparisons across formats are directional, not perfectly equivalent.
 
 ---
 
@@ -59,16 +60,17 @@ The 13→14 boundary marks a real shift in pace and formality. The 17→18 bound
 
 ## Tier A: 10 to 13 Courses
 
-The most crowded tier. Over 50 restaurants in this range. This is where lunch omakase, casual counter spots, and high-turnover value plays concentrate.
+The most crowded tier in the broader NYC market. This is where lunch omakase, casual counter spots, and high-turnover value plays concentrate.
 
-**Top values by price per course:**
+**Top values by price per course or counted item:**
 
-| Restaurant | Neighborhood | Courses | Price | $/Course |
-|-----------|-------------|---------|-------|----------|
-| [Sendo](https://www.sendo.nyc/) | NoMad (876 6th Ave) | 10-13 | $33-48 | ~$3.30-3.69 |
-| [Sushi by Bou](https://www.sushibybou.com/) | Multiple (Times Square, East Village, NoMad) | 12 | $50 | $4.17 |
+| Restaurant | Neighborhood | Courses or items | Price | $/course or item |
+|-----------|-------------|------------------|-------|------------------|
+| [Sushi W (lunch)†](https://www.sushiwny.com/) | UWS, UES, East Village | 12 items | $38 | $3.17 |
+| [Sendo†](https://www.sendo.nyc/menu) | NoMad + Greenwich Village | 10-13 items | $36-53 | $3.60-4.08 |
 | [Mojo East](https://www.theinfatuation.com/new-york/reviews/mojo-east) | Lower East Side | 13 | $55* | $4.23 |
-| [Tsumo](https://www.yelp.com/biz/tsumo-new-york) | Upper Manhattan + Midtown | 13 | $58 | $4.46 |
+| [Tsumo lunch†](https://www.tsumony.com/menu) | Kips Bay + Upper West Side | 11 | $48 | $4.36 |
+| [Tsumo dinner†](https://www.tsumony.com/menu) | Kips Bay + Upper West Side | 13 | $58 | $4.46 |
 | [Sushi Yashin](https://www.yelp.com/biz/sushi-yashin-brooklyn) | Park Slope | 11 | $50 | $4.55 |
 | [Sushi Masu](https://www.yelp.com/biz/sushi-masu-new-york) | Upper Manhattan | 13 | $68 | $5.23 |
 | [Kyuubi Omakase](https://www.yelp.com/biz/kyuubi-omakase-new-york) | East Village | 13 | $68 | $5.23 |
@@ -77,6 +79,7 @@ The most crowded tier. Over 50 restaurants in this range. This is where lunch om
 | [Kaizen Omakase](https://resy.com/cities/new-york-ny/venues/kaizen-omakase) | Queens | 12 | $65 | $5.42 |
 | [Shiki Omakase](https://www.theinfatuation.com/new-york/reviews/shiki-omakase) | SoHo | 12 | $65 | $5.42 |
 | [Kazumi Omakase](https://www.yelp.com/biz/kazumi-omakase-new-york) | Greenwich Village | 13 | $75 | $5.77 |
+| [Sushi by Bou†](https://www.sushibybou.com/menus/) | Multiple Manhattan locations | 12 | $70 | $5.83 |
 | [Thirteen Water](https://www.theinfatuation.com/new-york/reviews/thirteen-water) | East Village / Hell's Kitchen | 13 | $85 | $6.54 |
 | [Sushi Kai](https://www.yelp.com/biz/sushi-kai-new-york) | East Village / West Village | 13 | $85 | $6.54 |
 | [U Omakase](https://www.u-bk.com/) | Brooklyn | 13 | $89 | $6.85 |
@@ -85,9 +88,9 @@ The most crowded tier. Over 50 restaurants in this range. This is where lunch om
 
 **[Mojo East](https://www.theinfatuation.com/new-york/reviews/mojo-east)** (85 Stanton St, Lower East Side) is the best seated value in this tier. Thirteen courses for $55 with gratuity included, meaning the all-in cost is $55. The menu goes through wagyu, uni, caviar, and sablefish in an hour, with a no-tipping policy built into the price. The founder also runs SourAji. Reservations through Resy or text 929-331-4539, since they fill quickly.
 
-**[Sendo](https://www.sendo.nyc/)** at 876 6th Avenue beats Mojo East on raw price-per-course at roughly $3.30 to $3.69 for 10 to 13 courses. Sendo describes itself as a Tokyo-style sushi bar with fast-casual service. Its website now lists locations at 876 6th Ave in NoMad and 43 W 8th St in Greenwich Village. The May 2026 source list included the 876 6th Ave location.
+**[Sendo†](https://www.sendo.nyc/menu)** has NoMad and Greenwich Village locations. Its current official menu lists Kyoto at $36 for 10 counted components, Tokyo at $47 for 12, and Hokkaido at $53 for 13. That works out to $3.60 to $4.08 per counted component. These are menu components, not necessarily formal chef-delivered courses.
 
-**[Sushi by Bou](https://www.sushibybou.com/)** runs 45-minute seatings at $50 for 12 courses across multiple Manhattan locations. The [Infatuation's under-$100 guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) covers several of these Tier A spots in detail, and their coverage on Shiki Omakase and Shinn East is worth reading before booking.
+**[Sushi by Bou†](https://www.sushibybou.com/menus/)** currently lists its Signature menu at $70 for 12 courses. The $100 Bougie and $150 Bou Reserve menus each list 17 courses. The old $50 Signature price in the May snapshot is outdated. The [Infatuation's under-$100 guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) covers several of these Tier A spots in detail, and their coverage on Shiki Omakase and Shinn East is worth reading before booking.
 
 ---
 
@@ -101,10 +104,10 @@ The standard dinner omakase tier. This is what many people picture when they thi
 
 **Top values by price per course:**
 
-| Restaurant | Neighborhood | Courses | Price | $/Course |
-|-----------|-------------|---------|-------|----------|
+| Restaurant | Neighborhood | Courses or items | Price | $/course or item |
+|-----------|-------------|------------------|-------|------------------|
 | [Uka Omakase](https://ukaomakase.com/) | Upper East Side | 16 | $56 | $3.50 |
-| [Sushi W](https://www.sushiwny.com/) | Upper West Side | 14 | $53* | $3.79 |
+| [Sushi W†](https://www.sushiwny.com/) | UWS, UES, East Village | 14 items | $53* | $3.79 |
 | [Koi Omakase](https://koi-omakase.goto-restaurants.com/) | Brooklyn | 14 | $68 | $4.86 |
 | [Miro Sushi](https://www.yelp.com/biz/miro-sushi-brooklyn) | Bay Ridge, Brooklyn | 15 | $75 | $5.00 |
 | [Omakase 33](https://www.yelp.com/biz/omakase-33-new-york) | Midtown | 17 | $88 | $5.18 |
@@ -112,6 +115,7 @@ The standard dinner omakase tier. This is what many people picture when they thi
 | [Oita](https://www.yelp.com/biz/oita-brooklyn) | Brooklyn | 15 | $85 | $5.67 |
 | [Genki Omakase](https://www.yelp.com/biz/genki-omakase-new-york) | Greenwich Village | 17 | $98 | $5.76 |
 | [Omakase by Korami](https://www.theinfatuation.com/new-york/reviews/omakase-by-korami) | Hell's Kitchen | 15 | $89 | $5.93 |
+| [SoZo†](https://www.sozo-nyc.com/menu) | Bowery (319 Bowery) | 15 | $89 | $5.93 |
 | [Takumi Omakase](https://www.theinfatuation.com/new-york/reviews/takumi-omakase) | Lower East Side | 15 | $89 | $5.93 |
 | [Zen Sushi Omakase](https://www.zensushiomakase.com/) | Lower Manhattan | 14 | $89 | $6.36 |
 | [Kaiyo Omakase](https://resy.com/cities/new-york-ny/venues/kaiyo-omakase) | Queens | 15 | $98 | $6.53 |
@@ -121,9 +125,11 @@ The standard dinner omakase tier. This is what many people picture when they thi
 
 *Gratuity included or no-tip policy.
 
-The May 2026 sources listed **[Uka Omakase](https://ukaomakase.com/)** at 238 E 60th Street at $56 for 16 courses, or $3.50 per course, and an 18-course VIP option at $98. The restaurant's current website confirms the address but does not publish those prices or course counts, so treat them as historical figures and check current booking details before making plans. [Food and Spot's review](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc) describes menu items reported at the time of its review.
+The May 2026 sources listed **[Uka Omakase](https://ukaomakase.com/)** at 238 E 60th Street at $56 for 16 courses, or $3.50 per course, and an 18-course VIP option at $98. Its current website confirms the address but does not publish those prices or course counts, so treat them as historical and check current booking details before making plans. **[SoZo†](https://www.sozo-nyc.com/menu)** currently lists a 15-course seasonal tasting menu for $89 at 319 Bowery, or $5.93 per course. [Food and Spot's review](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/uka-omakase-nyc) describes menu items reported at the time of its review.
 
-**[Sushi W](https://www.sushiwny.com/)** on the Upper West Side runs at $53 for 14 courses with a no-tip policy, making the all-in cost comparable to Uka at roughly $3.79 per course. [The Infatuation's budget omakase guide](https://www.theinfatuation.com/new-york/guides/best-sushi-nyc-under-100) calls it the most affordable seated option in the city. The same location offers 17 courses for $68, which sits at the top of Tier B.
+**[Tsumo†](https://www.tsumony.com/menu)** lists an 11-course lunch for $48 and a 13-course dinner for $58 at its Kips Bay and Upper West Side locations. The lunch works out to $4.36 per course, and dinner to $4.46.
+
+**[Sushi W†](https://www.sushiwny.com/)** lists a $38 daily lunch menu with 10 nigiri and 2 handrolls, or 12 counted items. Its regular Basic menu is $53 for 12 nigiri and 2 handrolls, and Premium is $68 for 15 nigiri and 2 handrolls. The menu says there is no tipping. Sushi W lists locations on the Upper West Side, Upper East Side, and in the East Village. These counts describe listed pieces, not formal courses.
 
 **[Sanyuu West](https://www.sanyuuwest.com/)** in Chelsea is the most-reviewed value play in this tier. Fifteen courses for $78 at a 16-seat U-shaped counter, with the full range of premium ingredients: uni, truffle, foie gras, caviar. The [Infatuation review](https://www.theinfatuation.com/new-york/reviews/sanyuu-west) rates it highly. About 70 minutes, dinner only.
 
@@ -146,7 +152,7 @@ This tier is smaller than the lower two. Around 30 active restaurants in NYC off
 | Restaurant | Neighborhood | Courses | Price | $/Course |
 |-----------|-------------|---------|-------|----------|
 | [Uka Omakase](https://ukaomakase.com/) (VIP counter) | Upper East Side | 18 | $98 | $5.44 |
-| [Yamashiro](https://yamashirony.com/) | Clinton Hill, Brooklyn | 19 | $108 | $5.68 |
+| [Yamashiro†](https://www.opentable.com/r/yamashiro-brooklyn) | Clinton Hill, Brooklyn | 19 | $108 | $5.68 |
 | [Sushi Koya](https://www.instagram.com/sushi_koya/) | Upper West Side | 18 | $115 | $6.39 |
 | [Kaiyo Omakase](https://resy.com/cities/new-york-ny/venues/kaiyo-omakase) | Queens | 18 | $118 | $6.56 |
 | [Moko](https://www.yelp.com/biz/moko-omakase-new-york) | East Village | 18 | $120 | $6.67 |
@@ -161,7 +167,7 @@ This tier is smaller than the lower two. Around 30 active restaurants in NYC off
 | [ITO](https://www.itonyc.com/) | Tribeca | 20 | $295 | $14.75 |
 | [Yoshino](https://www.yoshinonyc.com/) | NoHo | 20 | $500 | $25.00 |
 
-**[Yamashiro](https://yamashirony.com/)** at 466 Myrtle Avenue in Clinton Hill is the standout for this tier. Nineteen courses for $108 is $5.68 per course, which competes with mid-tier Tier B pricing while delivering a full extended-omakase format. The menu features A5 wagyu, otoro seared over oak charcoal, caviar, and truffle. The [2026 Sushi Legend list](https://thesushilegend.com/nyc-omakase-list-2026/) confirms the pricing. Reviews on [Yelp](https://www.yelp.com/biz/yamashiro-brooklyn-2) are consistently strong, with the 19-course version getting specific praise over the base 12-course option.
+**[Yamashiro†](https://www.opentable.com/r/yamashiro-brooklyn)** at 466 Myrtle Avenue in Clinton Hill is a strong value in this tier. Its current booking listing shows 19 courses for $108, or $5.68 per course. Menu details and availability can change, so confirm them when booking.
 
 **[Uka Omakase's](https://ukaomakase.com/) VIP counter** at $98 for 18 courses ($5.44 per course) is the best price-per-course in this tier, but it's the same restaurant as the Tier B recommendation. For a different venue, Yamashiro is the pick.
 
@@ -202,7 +208,7 @@ Everything above $225 in this tier is a different category of proposition. If yo
 
 ## The Single Best Value in NYC
 
-In the May 2026 snapshot, **[Uka Omakase](https://ukaomakase.com/)** was listed at $56 for 16 courses, or $3.50 per course. That beat Sushi W at $3.79 per course in the same table. The source figures are historical and the restaurant does not publish current prices or course counts on its website.
+For a current listed lunch value, **[Sushi W](https://www.sushiwny.com/)** is $38 for 12 counted items, or $3.17 per item. Among the May 2026 seated-dinner listings, **[Uka Omakase](https://ukaomakase.com/)** was lowest at $56 for 16 courses, or $3.50 per course. Uka's figures remain historical because its website does not publish current prices or course counts.
 
 The source list and ranked sample are below.
 
@@ -210,7 +216,7 @@ The source list and ranked sample are below.
 
 ## A Note on Timing
 
-The [Sushi Legend's 2026 list](https://thesushilegend.com/nyc-omakase-list-2026/) was published in January 2026. Prices and course counts change. A few restaurants confirmed in that list have already moved: Shiso closed, a few prices updated. The values here were checked in May 2026 against the sources listed below. It is now October 2026, so these figures are several months old and have not been reverified for this update. The source dataset describes course counts as approximate and says they can change nightly. Check restaurant websites or booking pages for current prices and menus.
+The [Sushi Legend's 2026 list](https://thesushilegend.com/nyc-omakase-list-2026/) was published in January 2026. Prices and course counts change. The Sendo, Sushi by Bou, Sushi W, Tsumo, and SoZo entries were checked against official menus on October 2, 2026. Yamashiro's $108, 19-course listing was checked on OpenTable the same day. All other prices and counts remain the May 2026 snapshot and have not been rechecked for this update. The dagger (†) marks a menu or booking listing checked October 2. The source dataset describes counts as approximate and says they can change nightly. Check restaurant websites or booking pages for current prices and menus.
 
 If a restaurant from this list has raised prices or closed by the time you read this, that's how this works. The methodology stays the same even when the data ages out.
 
@@ -230,5 +236,10 @@ If a restaurant from this list has raised prices or closed by the time you read 
 - [Food and Spot: Mojo East](https://www.foodandspot.com/articles/restaurants-and-bars/restaurants/mojo-east-affordable-usd55-omakase-in-nyc-13-course-sushi-with-no-tip): $55/13-course pricing verification
 - [The Sushi Legend: Under-$100 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-100-nyc/): curated budget guide, supplemental cross-reference
 - [The Sushi Legend: Under-$200 Omakase NYC (2026)](https://thesushilegend.com/omakase-under-200-in-nyc-2026/): Tier B/C mid-range cross-reference
-- [Yamashiro Brooklyn (Yelp)](https://www.yelp.com/biz/yamashiro-brooklyn-2): Tier C pricing and review verification
+- [Yamashiro Brooklyn (OpenTable)](https://www.opentable.com/r/yamashiro-brooklyn): current $108, 19-course booking listing checked October 2, 2026
+- [Sendo official menu](https://www.sendo.nyc/menu): current prices and listed menu components checked October 2, 2026
+- [Sushi by Bou official menus](https://www.sushibybou.com/menus/): current Signature, Bougie, and Reserve prices and course counts checked October 2, 2026
+- [Sushi W official site](https://www.sushiwny.com/): current lunch and regular menu prices, piece counts, locations, and no-tip policy checked October 2, 2026
+- [Tsumo official menu](https://www.tsumony.com/menu): current lunch and dinner prices, course counts, and locations checked October 2, 2026
+- [SoZo official menu](https://www.sozo-nyc.com/menu): current 15-course $89 menu checked October 2, 2026
 - [Shiso NYC (Yelp, Closed)](https://www.yelp.com/biz/shiso-new-york): closure confirmed May 2026
