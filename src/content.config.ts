@@ -14,6 +14,7 @@ const blog = defineCollection({
 			ogImage: z.string().optional(),
 			tags: z.array(z.string()).optional(),
 			plain: z.boolean().optional(),
+			showHeader: z.boolean().optional(),
 			relatedLinks: z
 				.array(
 					z.object({

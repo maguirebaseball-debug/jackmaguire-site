@@ -11,7 +11,7 @@ import { PERSON_ID } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks, plain = true } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks, plain = true, showHeader = false } = Astro.props;
 const defaultRelatedRecommendationLinks = [
 	...(tags.includes('nyc') || tags.includes('food')
 		? [
@@ -264,7 +264,7 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 
 	<body class:list={[plain && 'plain-blog']}>
 		{!plain && <ReadingProgressBar />}
-		{!plain && <Header />}
+		{(!plain || showHeader) && <Header />}
 		<main>
 			<article>
 				<div class="hero-image">
