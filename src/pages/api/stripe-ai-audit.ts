@@ -312,7 +312,7 @@ export const POST: APIRoute = async ({ request }) => {
 				event_id: `stripe_${session.id}`,
 				event_time: event.created ?? Math.floor(Date.now() / 1000),
 				action_source: 'website',
-				event_source_url: 'https://jackmaguire.org/Your-AI-Audit/',
+				event_source_url: 'https://jackmaguire.org/',
 				user_data: userData,
 				custom_data: {
 					value: session.amount_total / 100,

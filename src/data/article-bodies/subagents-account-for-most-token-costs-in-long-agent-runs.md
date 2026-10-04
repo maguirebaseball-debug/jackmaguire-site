@@ -118,7 +118,7 @@ Start with measurement on one recurring task. Add one guardrail: a read budget o
 
 The same pattern that turns a four-hour research army from hundreds of thousands of tokens into a bounded process applies to any workflow where repeated context would otherwise dominate the bill.
 
-See how the underlying research workflows that surface these costs operate in practice in [how I use AI to solve everyday problems](/blog/how-i-use-ai-to-solve-everyday-problems/). Related agent control lessons appear in the analysis of three documented database deletions in [ai coding agents deleted databases](/blog/ai-coding-agents-deleted-databases/). The tools that make the caching and extraction steps practical appear in [recommendations for apps](/recommendations/apps/).
+See how the underlying research workflows that surface these costs operate in practice in [how I use AI to solve everyday problems](/blog/how-i-use-ai-to-solve-everyday-problems/). Related agent control lessons appear in the analysis of three documented database deletions in [ai coding agents deleted databases](/blog/ai-coding-agents-deleted-databases/). The caching and extraction steps make these tools practical.
 
 Citations link directly to the primary papers and vendor documentation listed below. The author's vantage point is as a practitioner who runs these sessions inside marketing and research workflows rather than as an AI researcher or infrastructure engineer.
 

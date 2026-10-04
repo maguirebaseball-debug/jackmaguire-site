@@ -39,11 +39,6 @@
   ],
   "redirects": [
     {
-      "source": "/your-ai-audit/",
-      "destination": "/Your-AI-Audit/",
-      "statusCode": 308
-    },
-    {
       "source": "/(.*)",
       "has": [
         {
@@ -65,11 +60,6 @@
       "permanent": true
     },
     {
-      "source": "/2026/01/11/hudson-river-pathway/",
-      "destination": "/blog/hudson-river-pathway/",
-      "permanent": true
-    },
-    {
       "source": "/2026/01/12/sushi-lin-park-slope-omakase/",
       "destination": "/blog/sushi-lin-park-slope-omakase/",
       "permanent": true
@@ -80,11 +70,6 @@
       "permanent": true
     },
     {
-      "source": "/2026/01/18/luthun-excels/",
-      "destination": "/blog/luthun-excels/",
-      "permanent": true
-    },
-    {
       "source": "/2026/01/21/wayla-thai-restaurant-nyc/",
       "destination": "/blog/wayla-thai-restaurant-nyc/",
       "permanent": true
@@ -92,21 +77,6 @@
     {
       "source": "/2026/01/24/how-i-use-ai-to-solve-everyday-problems/",
       "destination": "/blog/how-i-use-ai-to-solve-everyday-problems/",
-      "permanent": true
-    },
-    {
-      "source": "/2026/01/24/my-brother-is-building-a-data-platform-for-fishermen-and-its-exposing-how-broken-the-industry-really-is/",
-      "destination": "/blog/my-brother-building-data-platform-fishermen/",
-      "permanent": true
-    },
-    {
-      "source": "/2026/01/24/my-brother-building-data-platform-fishermen/",
-      "destination": "/blog/my-brother-building-data-platform-fishermen/",
-      "permanent": true
-    },
-    {
-      "source": "/2026/01/28/the-only-place-skunk-cabbage-ever-lived/",
-      "destination": "/blog/the-only-place-skunk-cabbage-ever-lived/",
       "permanent": true
     },
     {
@@ -130,11 +100,6 @@
       "permanent": true
     },
     {
-      "source": "/2026/02/13/when-things-fall-apart-pema-chodron/",
-      "destination": "/blog/when-things-fall-apart-pema-chodron/",
-      "permanent": true
-    },
-    {
       "source": "/2026/02/16/best-ovrride-snowboard-resorts-near-nyc/",
       "destination": "/blog/best-ovrride-snowboard-resorts-near-nyc/",
       "permanent": true
@@ -147,11 +112,6 @@
     {
       "source": "/2026/02/20/five-recommended-nyc-counter-service-dumpling-spots/",
       "destination": "/blog/five-recommended-nyc-counter-service-dumpling-spots/",
-      "permanent": true
-    },
-    {
-      "source": "/2026/02/22/three-martini-lunch-manhattan/",
-      "destination": "/blog/three-martini-lunch-manhattan/",
       "permanent": true
     },
     {
@@ -208,16 +168,6 @@
       "source": "/start/",
       "destination": "/about/",
       "statusCode": 301
-    },
-    {
-      "source": "/projects/",
-      "destination": "/blog/",
-      "statusCode": 301
-    },
-    {
-      "source": "/app-recommendations/",
-      "destination": "/recommendations/apps/",
-      "permanent": true
     },
     {
       "source": "/2026/:month/:day/:slug/",

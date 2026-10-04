@@ -17,14 +17,10 @@ const defaultRelatedRecommendationLinks = [
 		? [
 				{ href: '/recommendations/nyc-restaurants/', label: 'NYC restaurant recommendations' },
 				{ href: '/recommendations/nyc-pastrami/', label: 'NYC pastrami ranking' },
-				{ href: '/recommendations/curry-house-chinatown/', label: 'Curry House Chinatown guide' },
 			]
 		: []),
 	...(tags.includes('books') || tags.includes('philosophy') || tags.includes('essays')
 		? [{ href: '/recommendations/books/', label: 'recommended books' }]
-		: []),
-	...(tags.includes('tech') || tags.includes('ai')
-		? [{ href: '/recommendations/apps/', label: 'recommended apps' }]
 		: []),
 ];
 const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationLinks;
