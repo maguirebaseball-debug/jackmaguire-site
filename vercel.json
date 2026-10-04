@@ -170,7 +170,7 @@
       "statusCode": 301
     },
     {
-      "source": "/2026/:month/:day/:slug/",
+      "source": "/2026/:month/:day/:slug((?!the-only-place-skunk-cabbage-ever-lived/|three-martini-lunch-manhattan/)[^/]+)/",
       "destination": "/blog/:slug/",
       "permanent": true
     },
