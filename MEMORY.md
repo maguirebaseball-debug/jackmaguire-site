@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-10-05, Questionnaire top strip removal
+
+Removed the decorative "Reflection questionnaire / Pilot 0.1" strip above the questionnaire title, matching Jack's screenshot. The separate report label remains. Astro build passed; commit `672c1cf` was pushed to `main`, and the production HTML returned 200 without the top strip.
+
 ## 2026-10-05, Adult Relationship Patterns questionnaire
 
 Published `/inner-child-questionnaire/` from the supplied pilot DOCX. All 48 item texts and six scoring keys were checked against the source. Numeric answers of 1 to 5 are averaged only when at least 6 of 8 items in a pattern are answered; N, U, S, and blanks remain distinct missing responses. The page shows a descriptive report and generates a four-page PDF with every answer. Open Sans is locally served at 18px based on U.S. health literacy and UK ONS guidance. No analytics scripts run on this route. Local build, 390px mobile layout, PDF rendering, live report and PDF download, homepage link, and sitemap inclusion were verified. Commit `c216282` deployed the site changes. The existing blog indexing check fails on `my-experience-working-for-mercor.md` missing `pubDate`.

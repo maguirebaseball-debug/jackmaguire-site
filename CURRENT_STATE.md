@@ -2,6 +2,8 @@
 
 Updated: 2026-10-05
 
+Removed the decorative "Reflection questionnaire / Pilot 0.1" strip above the questionnaire title at Jack's request. Commit `672c1cf` was pushed to `main`; the live route returned 200 without the strip and retained the report's separate label. Local Astro build passed.
+
 The Adult Relationship Patterns questionnaire now offers an optional, explicit send action after the browser report. Web3Forms receives all 48 answers, six provisional scores, caregiver reference, client code when supplied, and completion time using the same access key as the site's existing forms. A synthetic submission with code `CODEX-TEST-IGNORE` returned success from Web3Forms in Edge on 2026-10-05. The privacy policy explains the submission and retention. Users can still view and download without sharing. Commit `93cc5d1` was pushed to `main`; the live questionnaire and privacy policy both returned 200 with the new copy.
 
 Published the 48-item Adult Relationship Patterns pilot questionnaire at `/inner-child-questionnaire/` on 2026-10-05. The page keeps the original item wording and order, separate N/U/S responses, a caregiver reference, provisional six-pattern scoring, an on-page report, and a downloadable PDF with all answers. It uses locally served Open Sans and omits analytics scripts on this sensitive route. The homepage links to it. Commit `c216282` was pushed to `main`; the live route, browser report and PDF flow, homepage link, and sitemap entry were verified. The blog indexing script remains blocked by the existing `my-experience-working-for-mercor.md` file without `pubDate`, unrelated to this questionnaire.
