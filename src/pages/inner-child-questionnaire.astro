@@ -1,0 +1,385 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '@fontsource/open-sans/latin-400.css';
+import '@fontsource/open-sans/latin-600.css';
+import '@fontsource/open-sans/latin-700.css';
+import items from '../data/inner-child-questionnaire.json';
+import { QUESTIONNAIRE_VERSION, responseLabels } from '../lib/innerChildQuestionnaire';
+
+const title = 'Adult Relationship Patterns Questionnaire | Jack Maguire';
+const description = 'Take the 48-item Adult Relationship Patterns pilot questionnaire. See a provisional report in your browser and download a PDF copy.';
+const canonical = new URL('/inner-child-questionnaire/', Astro.site).toString();
+const sections = [0, 1, 2, 3].map((index) => items.slice(index * 12, index * 12 + 12));
+const numericOptions = [1, 2, 3, 4, 5];
+const missingOptions = [
+	{ value: 'N', visible: 'N / Not applicable' },
+	{ value: 'U', visible: 'U / Unsure' },
+	{ value: 'S', visible: 'S / Skip' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonical} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content="https://jackmaguire.org/og-default.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+	</head>
+	<body>
+		<Header />
+		<main class="questionnaire">
+			<div class="eyebrow"><span>Reflection questionnaire</span><span>{QUESTIONNAIRE_VERSION}</span></div>
+			<header class="intro">
+				<h1>Adult Relationship Patterns</h1>
+				<p class="lede">48 statements about close relationships and the choices you make around them.</p>
+				<p>This questionnaire is inspired by Galit Atlas's six inner-child archetypes. The items are original and are not an official Atlas test. Reliability and validity have not yet been established.</p>
+			</header>
+
+			<section class="instructions" aria-labelledby="before-starting">
+				<h2 id="before-starting">Before starting</h2>
+				<p>Think about your usual feelings and behavior during the past six months. Consider close relationships with friends, family, or partners. You do not need to be in a romantic relationship. Answer based on what has been true for you, rather than what you think should be true.</p>
+				<p>You can leave an item unanswered or choose N, U, or S. If a relevant situation happened and the statement was not true, choose 1. Do not guess about a situation you have not experienced.</p>
+				<p>You may pause or skip any item. This pilot is for reflection and discussion, not diagnosis. It cannot establish what caused a pattern or what happened in your childhood. Caring for family, valuing privacy, and grieving a loss are not problems by themselves.</p>
+				<p class="privacy"><strong>Privacy:</strong> Your answers are scored in this browser tab. They are not submitted to the site or saved in an account. This page does not load analytics scripts. Closing the tab may clear your progress.</p>
+			</section>
+
+			<form id="questionnaire-form" novalidate>
+				<div class="reference-fields">
+					<div>
+						<label for="caregiver">Caregiver reference</label>
+						<p class="field-help">Choose the parent or childhood caregiver whose approval most affects your choices today. A role or initials are enough. Use this same person for every statement that says "this caregiver." If they have died or are no longer in contact, answer about their current influence in your thoughts. If nobody fits, leave this blank and choose N for those statements.</p>
+						<input id="caregiver" name="caregiver" type="text" maxlength="80" autocomplete="off" placeholder="For example: mother or A.B." />
+					</div>
+					<div class="code-field">
+						<label for="client-code">Client code <span>(optional)</span></label>
+						<p class="field-help">Use a code rather than your name if you want to identify your downloaded report.</p>
+						<input id="client-code" name="client-code" type="text" maxlength="40" autocomplete="off" />
+					</div>
+				</div>
+
+				<div class="scale-key" aria-label="Response scale">
+					<h2>Response scale</h2>
+					<dl>
+						{numericOptions.map((value) => <div><dt>{value}</dt><dd>{responseLabels[String(value)]}</dd></div>)}
+					</dl>
+					<p><strong>N</strong> Not applicable or no relevant situation <strong>U</strong> Unsure <strong>S</strong> Prefer to skip</p>
+				</div>
+
+				<div class="progress" aria-live="polite">
+					<span id="section-progress">Statements 1-12 of 48</span>
+					<span id="answer-progress">0 of 48 answered</span>
+				</div>
+
+				{sections.map((section, sectionIndex) => (
+					<section class="question-section" data-section={sectionIndex} hidden={sectionIndex !== 0} aria-label={`Statements ${section[0].id} to ${section[11].id}`}>
+						{section.map((item) => (
+							<fieldset class="item" id={`item-${item.id}`}>
+								<legend><span class="item-number">{String(item.id).padStart(2, '0')}</span><span>{item.text}</span></legend>
+								<div class="answer-choices">
+									<div class="number-options" role="group" aria-label={`Rating for statement ${item.id}`}>
+										{numericOptions.map((value) => (
+											<label class="choice">
+												<input type="radio" name={`q${item.id}`} value={value} aria-label={`${value}: ${responseLabels[String(value)]}`} />
+												<span>{value}</span>
+											</label>
+										))}
+									</div>
+									<div class="missing-options" role="group" aria-label={`Other responses for statement ${item.id}`}>
+										{missingOptions.map((option) => (
+											<label class="choice">
+												<input type="radio" name={`q${item.id}`} value={option.value} aria-label={`${option.value}: ${responseLabels[option.value]}`} />
+												<span>{option.visible}</span>
+											</label>
+										))}
+									</div>
+								</div>
+							</fieldset>
+						))}
+						{sectionIndex < 3 && <p class="caregiver-reminder">"This caregiver" means the one person you selected above. Use current feelings, including feelings about an absent or deceased caregiver.</p>}
+					</section>
+				))}
+
+				<div class="form-actions">
+					<button type="button" id="previous-section" class="secondary" hidden>Previous 12</button>
+					<button type="button" id="next-section">Next 12</button>
+					<button type="submit" id="show-report" hidden>See my report</button>
+				</div>
+				<p class="form-note">Blank items remain unanswered. The report will only show a pattern average when at least 6 of its 8 items have numeric answers.</p>
+			</form>
+
+			<section id="report" class="report" hidden aria-labelledby="report-title" tabindex="-1">
+				<div class="report-heading">
+					<p class="eyebrow">Your report / {QUESTIONNAIRE_VERSION}</p>
+					<h2 id="report-title">Your responses, in context</h2>
+					<p id="report-meta"></p>
+				</div>
+				<p class="report-caution">These are provisional descriptive averages, not diagnoses, percentiles, probabilities, or measures of childhood harm. A higher average means stronger endorsement of these particular statements. The six scores are not validated as equally comparable, so small differences between them are not reliable distinctions.</p>
+				<div id="pattern-results" class="pattern-results"></div>
+				<div id="missing-summary" class="missing-summary"></div>
+				<section class="reflection">
+					<h3>Questions for reflection</h3>
+					<ol>
+						<li>Which answer would you most like to explain?</li>
+						<li>In what situations does that pattern help you, and when does it create difficulty?</li>
+						<li>Does it connect with an earlier experience, or does another explanation fit better?</li>
+						<li>What would you like to respond to differently now?</li>
+					</ol>
+				</section>
+				<details class="response-detail">
+					<summary>Review all 48 responses</summary>
+					<ol id="all-responses"></ol>
+				</details>
+				<p class="report-caution report-end">This exercise cannot identify a caregiver as the cause of a response. Current relationships, grief, health, culture, finances, and chosen caregiving duties can all affect answers. Discuss any pattern with context before drawing conclusions.</p>
+				<div class="report-actions">
+					<button type="button" id="download-pdf">Download report as PDF</button>
+					<button type="button" id="edit-responses" class="secondary">Edit responses</button>
+					<button type="button" id="start-over" class="text-button">Start over</button>
+				</div>
+				<p id="download-status" role="status"></p>
+			</section>
+		</main>
+		<Footer />
+		<script>
+			import items from '../data/inner-child-questionnaire.json';
+			import { QUESTIONNAIRE_VERSION, responseLabels, scoreResponses, type Answer } from '../lib/innerChildQuestionnaire';
+
+			function initQuestionnaire() {
+				const form = document.querySelector<HTMLFormElement>('#questionnaire-form');
+				if (!form || form.dataset.ready === 'true') return;
+				form.dataset.ready = 'true';
+				const sections = [...form.querySelectorAll<HTMLElement>('.question-section')];
+				const report = document.querySelector<HTMLElement>('#report')!;
+				const previous = document.querySelector<HTMLButtonElement>('#previous-section')!;
+				const next = document.querySelector<HTMLButtonElement>('#next-section')!;
+				const submit = document.querySelector<HTMLButtonElement>('#show-report')!;
+				let currentSection = 0;
+				let reportDate = '';
+
+				function answers(): Record<number, Answer> {
+					const values: Record<number, Answer> = {};
+					for (const item of items) {
+						const selected = form.querySelector<HTMLInputElement>(`input[name="q${item.id}"]:checked`);
+						const value = selected?.value;
+						values[item.id] = value && /^[1-5]$/.test(value) ? Number(value) as Answer : value === 'N' || value === 'U' || value === 'S' ? value : null;
+					}
+					return values;
+				}
+
+				function updateProgress() {
+					const chosen = Object.values(answers()).filter((answer) => answer !== null).length;
+					document.querySelector('#answer-progress')!.textContent = `${chosen} of 48 answered`;
+				}
+
+				function showSection(index: number) {
+					currentSection = Math.max(0, Math.min(3, index));
+					sections.forEach((section, sectionIndex) => section.hidden = sectionIndex !== currentSection);
+					previous.hidden = currentSection === 0;
+					next.hidden = currentSection === 3;
+					submit.hidden = currentSection !== 3;
+					document.querySelector('#section-progress')!.textContent = `Statements ${currentSection * 12 + 1}-${currentSection * 12 + 12} of 48`;
+					const progress = document.querySelector<HTMLElement>('.progress')!;
+					progress.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+
+				function appendText(parent: Element, tag: string, content: string, className?: string) {
+					const element = document.createElement(tag);
+					element.textContent = content;
+					if (className) element.className = className;
+					parent.append(element);
+					return element;
+				}
+
+				function showReport() {
+					const values = answers();
+					const scores = scoreResponses(values);
+					reportDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+					const caregiver = (document.querySelector<HTMLInputElement>('#caregiver')!.value || '').trim();
+					const clientCode = (document.querySelector<HTMLInputElement>('#client-code')!.value || '').trim();
+					const numericCount = Object.values(values).filter((answer) => typeof answer === 'number').length;
+					const nCount = Object.values(values).filter((answer) => answer === 'N').length;
+					const uCount = Object.values(values).filter((answer) => answer === 'U').length;
+					const sCount = Object.values(values).filter((answer) => answer === 'S').length;
+					const blankCount = Object.values(values).filter((answer) => answer === null).length;
+					const meta = [QUESTIONNAIRE_VERSION, reportDate, `${numericCount} numeric answers`];
+					if (clientCode) meta.push(`Client code: ${clientCode}`);
+					meta.push(`Caregiver reference: ${caregiver || 'Not provided'}`);
+					document.querySelector('#report-meta')!.textContent = meta.join(' | ');
+
+					const results = document.querySelector('#pattern-results')!;
+					results.replaceChildren();
+					for (const score of scores) {
+						const row = document.createElement('section');
+						row.className = 'pattern-row';
+						appendText(row, 'h3', score.name);
+						appendText(row, 'p', score.mean === null ? `Insufficient responses. ${score.answered} of 8 numeric items answered.` : `${score.mean.toFixed(1)} out of 5. ${score.answered} of 8 numeric items answered.`, 'pattern-score');
+						appendText(row, 'p', score.focus, 'pattern-focus');
+						results.append(row);
+					}
+					document.querySelector('#missing-summary')!.textContent = `Responses kept separate: ${nCount} not applicable, ${uCount} unsure, ${sCount} skipped, ${blankCount} unanswered. None count as a numeric rating.`;
+					const responseList = document.querySelector('#all-responses')!;
+					responseList.replaceChildren();
+					for (const item of items) {
+						const row = document.createElement('li');
+						appendText(row, 'span', item.text);
+						const answer = values[item.id];
+						appendText(row, 'strong', answer === null ? 'Unanswered' : `${answer}: ${responseLabels[String(answer)]}`);
+						responseList.append(row);
+					}
+					form.hidden = true;
+					report.hidden = false;
+					report.focus();
+					report.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+
+				form.addEventListener('change', updateProgress);
+				previous.addEventListener('click', () => showSection(currentSection - 1));
+				next.addEventListener('click', () => showSection(currentSection + 1));
+				form.addEventListener('submit', (event) => { event.preventDefault(); showReport(); });
+				document.querySelector('#edit-responses')!.addEventListener('click', () => {
+					report.hidden = true;
+					form.hidden = false;
+					showSection(currentSection);
+				});
+				document.querySelector('#start-over')!.addEventListener('click', () => {
+					form.reset();
+					report.hidden = true;
+					form.hidden = false;
+					updateProgress();
+					showSection(0);
+				});
+				document.querySelector<HTMLButtonElement>('#download-pdf')!.addEventListener('click', async () => {
+					const button = document.querySelector<HTMLButtonElement>('#download-pdf')!;
+					const status = document.querySelector('#download-status')!;
+					button.disabled = true;
+					status.textContent = 'Preparing your PDF...';
+					try {
+						const { downloadReportPdf } = await import('../lib/innerChildReportPdf');
+						await downloadReportPdf({
+							answers: answers(),
+							scores: scoreResponses(answers()),
+							items,
+							date: reportDate,
+							caregiver: document.querySelector<HTMLInputElement>('#caregiver')!.value.trim(),
+							clientCode: document.querySelector<HTMLInputElement>('#client-code')!.value.trim(),
+						});
+						status.textContent = 'PDF downloaded.';
+					} catch (error) {
+						console.error(error);
+						status.textContent = 'The PDF could not be created. Please try again.';
+					} finally {
+						button.disabled = false;
+					}
+				});
+				updateProgress();
+			}
+
+			document.addEventListener('astro:page-load', initQuestionnaire);
+			if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQuestionnaire);
+			else initQuestionnaire();
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root { --font-heading: 'Atkinson Hyperlegible', Verdana, sans-serif; --font-ui: 'Atkinson Hyperlegible', Verdana, sans-serif; }
+	.questionnaire { max-width: 980px; padding: 2.4rem 1.25rem 5rem; font-family: 'Open Sans', Verdana, sans-serif; font-size: 18px; line-height: 1.48; color: #202824; }
+	.questionnaire h1, .questionnaire h2, .questionnaire h3 { font-family: 'Open Sans', Verdana, sans-serif; letter-spacing: -0.02em; color: #172219; }
+	.eyebrow { display: flex; justify-content: space-between; gap: 1rem; margin: 0 0 1.6rem; border-top: 3px solid #435a2b; padding-top: 0.65rem; color: #435a2b; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+	.intro { max-width: 760px; }
+	.intro h1 { margin: 0 0 0.55rem; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; }
+	.intro p { margin: 0 0 1rem; }
+	.intro .lede { font-size: 1.18rem; font-weight: 600; }
+	.instructions { max-width: 760px; margin: 2.2rem 0 2.6rem; border-top: 1px solid #b6c0ad; padding-top: 1.3rem; }
+	.instructions h2, .scale-key h2 { margin: 0 0 0.8rem; font-size: 1.3rem; }
+	.instructions p { margin: 0 0 0.8rem; }
+	.privacy { border-left: 3px solid #435a2b; padding-left: 0.8rem; }
+	.reference-fields { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; border-top: 1px solid #b6c0ad; padding: 1.5rem 0 2rem; }
+	.reference-fields label { display: block; margin-bottom: 0.4rem; font-weight: 700; }
+	.reference-fields label span { font-weight: 400; }
+	.field-help { margin: 0 0 0.7rem; font-size: 0.91rem; line-height: 1.5; }
+	.reference-fields input { width: 100%; box-sizing: border-box; min-height: 48px; border: 1px solid #677460; border-radius: 0; background: white; padding: 0.65rem 0.75rem; font: inherit; font-size: 1rem; }
+	.reference-fields input:focus-visible, .questionnaire button:focus-visible, .choice input:focus-visible + span, .response-detail summary:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
+	.scale-key { border-top: 1px solid #b6c0ad; border-bottom: 1px solid #b6c0ad; padding: 1.2rem 0 1.3rem; }
+	.scale-key dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin: 0; }
+	.scale-key dl div { display: flex; align-items: start; gap: 0.45rem; }
+	.scale-key dt { min-width: 1.5rem; font-weight: 700; color: #435a2b; }
+	.scale-key dd { margin: 0; font-size: 0.86rem; line-height: 1.35; }
+	.scale-key p { margin: 0.9rem 0 0; font-size: 0.86rem; }
+	.scale-key p strong { margin-left: 0.7rem; color: #435a2b; }
+	.scale-key p strong:first-child { margin-left: 0; }
+	.progress { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0 0; border-bottom: 2px solid #435a2b; padding-bottom: 0.6rem; font-size: 0.88rem; font-weight: 700; scroll-margin-top: 1rem; }
+	.question-section[hidden], .report[hidden], #questionnaire-form[hidden], button[hidden] { display: none !important; }
+	.item { min-width: 0; margin: 0; border: 0; border-bottom: 1px solid #d4dacf; padding: 1.55rem 0 1.6rem; }
+	.item legend { display: flex; align-items: baseline; gap: 0.7rem; width: 100%; padding: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.45; }
+	.item-number { min-width: 2.2rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: #526746; }
+	.answer-choices { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 1.4rem; margin: 0.9rem 0 0 2.9rem; }
+	.number-options, .missing-options { display: flex; gap: 0.42rem; }
+	.choice { position: relative; display: inline-block; cursor: pointer; }
+	.choice input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+	.choice span { display: inline-flex; align-items: center; justify-content: center; min-width: 2.45rem; min-height: 2.45rem; box-sizing: border-box; border: 1px solid #7e8977; background: #fff; padding: 0.3rem 0.5rem; font-size: 0.86rem; font-weight: 600; line-height: 1.2; text-align: center; }
+	.choice:hover span { border-color: #243e1b; background: #f0f4ec; }
+	.choice input:checked + span { border-color: #2f451f; background: #2f451f; color: white; }
+	.caregiver-reminder { margin: 1.4rem 0 0; font-size: 0.88rem; color: #4a564a; }
+	.form-actions, .report-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+	.questionnaire button { min-height: 48px; border: 1px solid #2f451f; border-radius: 0; background: #2f451f; padding: 0.65rem 1.15rem; color: #fff; font: inherit; font-size: 0.93rem; font-weight: 700; cursor: pointer; }
+	.questionnaire button:hover { background: #182b12; }
+	.questionnaire button.secondary { background: transparent; color: #2f451f; }
+	.questionnaire button.secondary:hover { background: #edf1e8; }
+	.questionnaire button.text-button { border: 0; background: transparent; color: #2f451f; text-decoration: underline; }
+	.questionnaire button:disabled { opacity: 0.5; cursor: wait; }
+	.form-note { margin: 0.8rem 0 0; font-size: 0.83rem; color: #4a564a; }
+	.report { max-width: 800px; scroll-margin-top: 1rem; }
+	.report:focus { outline: 0; }
+	.report-heading .eyebrow { margin-bottom: 1rem; }
+	.report h2 { margin: 0 0 0.4rem; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+	#report-meta { margin: 0 0 1.5rem; font-size: 0.86rem; color: #4a564a; }
+	.report-caution { margin: 1.4rem 0; max-width: 720px; }
+	.pattern-results { border-top: 2px solid #435a2b; }
+	.pattern-row { display: grid; grid-template-columns: 11rem 1fr; column-gap: 1rem; border-bottom: 1px solid #b6c0ad; padding: 1.2rem 0; }
+	.pattern-row h3 { grid-row: span 2; margin: 0; font-size: 1.06rem; }
+	.pattern-row p { margin: 0; }
+	.pattern-score { font-weight: 700; }
+	.pattern-focus { font-size: 0.87rem; color: #4a564a; }
+	.missing-summary { margin: 1.3rem 0 2rem; font-size: 0.87rem; }
+	.reflection { border-top: 1px solid #b6c0ad; padding-top: 1rem; }
+	.reflection h3 { margin: 0 0 0.7rem; font-size: 1.25rem; }
+	.reflection ol { margin: 0; padding-left: 1.35rem; }
+	.reflection li { margin-bottom: 0.4rem; }
+	.response-detail { margin-top: 2rem; border-top: 1px solid #b6c0ad; border-bottom: 1px solid #b6c0ad; padding: 0.9rem 0; }
+	.response-detail summary { cursor: pointer; font-weight: 700; }
+	.response-detail ol { padding-left: 1.65rem; }
+	.response-detail li { border-top: 1px solid #d4dacf; padding: 0.7rem 0; }
+	.response-detail li span, .response-detail li strong { display: block; }
+	.response-detail li strong { margin-top: 0.15rem; font-size: 0.88rem; }
+	.report-end { font-size: 0.92rem; }
+	#download-status { min-height: 1.5rem; font-size: 0.86rem; }
+	@media (max-width: 720px) {
+		.questionnaire { padding: 1.5rem 0.95rem 4rem; font-size: 17px; }
+		.eyebrow { font-size: 0.68rem; }
+		.reference-fields { grid-template-columns: 1fr; gap: 1rem; }
+		.scale-key dl { grid-template-columns: 1fr 1fr; gap: 0.35rem 1rem; }
+		.scale-key dl div:last-child { grid-column: span 2; }
+		.item legend { font-size: 1rem; }
+		.answer-choices { margin-left: 0; }
+		.number-options { width: 100%; }
+		.number-options .choice { flex: 1; }
+		.number-options .choice span { width: 100%; }
+		.missing-options { width: 100%; }
+		.missing-options .choice { flex: 1; }
+		.missing-options .choice span { width: 100%; font-size: 0.72rem; }
+		.pattern-row { display: block; }
+		.pattern-row h3 { margin-bottom: 0.3rem; }
+	}
+</style>
