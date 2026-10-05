@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-10-04
+Updated: 2026-10-05
+
+Published the 48-item Adult Relationship Patterns pilot questionnaire at `/inner-child-questionnaire/` on 2026-10-05. The page keeps the original item wording and order, separate N/U/S responses, a caregiver reference, provisional six-pattern scoring, an on-page report, and a downloadable PDF with all answers. It uses locally served Open Sans and omits analytics scripts on this sensitive route. The homepage links to it. Commit `c216282` was pushed to `main`; the live route, browser report and PDF flow, homepage link, and sitemap entry were verified. The blog indexing script remains blocked by the existing `my-experience-working-for-mercor.md` file without `pubDate`, unrelated to this questionnaire.
 
 Removed the actual pages and aliases represented by GSC URLs with fewer than 10 impressions in the 90 days ending 2026-09-29. Deleted 27 routes: 9 NYC intern guide pages, 4 recommendation pages, 2 AI Audit pages, 4 standalone utility pages, and 8 blog posts, plus 3 unused AI Audit social images and the page-specific checkout, intake, and analytics endpoints. Removed their redirects and internal references, and cleaned the recommendation hub and homepage copy. Kept the high-impression parent pages for fragment rows, the embedded World Cup SVG asset, and two canonical blog posts whose dated aliases alone were below threshold. Commits `7330978` and `42979cf` are live on `main`. The Astro build passed; live checks confirmed all 27 removed routes and the 2 old aliases return 404, retained parent articles return 200, current redirects still work, and the homepage and recommendation hub load cleanly. The existing indexing checker stops on the unrelated missing `pubDate` in `my-experience-working-for-mercor.md`.
 
