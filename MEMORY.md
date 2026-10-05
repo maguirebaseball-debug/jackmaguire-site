@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-10-05, Questionnaire introduction trim
+
+Removed the two sentences highlighted in Jack's browser comment from the questionnaire introduction, keeping the first sentence about Galit Atlas. Astro build passed. Commit `02ec86c` was pushed to `main`, and the live page returned 200 without the selected text.
+
 ## 2026-10-05, Questionnaire top strip removal
 
 Removed the decorative "Reflection questionnaire / Pilot 0.1" strip above the questionnaire title, matching Jack's screenshot. The separate report label remains. Astro build passed; commit `672c1cf` was pushed to `main`, and the production HTML returned 200 without the top strip.

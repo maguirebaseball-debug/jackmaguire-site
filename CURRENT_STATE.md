@@ -2,6 +2,8 @@
 
 Updated: 2026-10-05
 
+Removed the two highlighted qualification sentences from the questionnaire introduction at Jack's request. The opening sentence about Galit Atlas remains. Commit `02ec86c` was pushed to `main`; the live route returned 200 and the removed text was absent. Astro build passed.
+
 Removed the decorative "Reflection questionnaire / Pilot 0.1" strip above the questionnaire title at Jack's request. Commit `672c1cf` was pushed to `main`; the live route returned 200 without the strip and retained the report's separate label. Local Astro build passed.
 
 The Adult Relationship Patterns questionnaire now offers an optional, explicit send action after the browser report. Web3Forms receives all 48 answers, six provisional scores, caregiver reference, client code when supplied, and completion time using the same access key as the site's existing forms. A synthetic submission with code `CODEX-TEST-IGNORE` returned success from Web3Forms in Edge on 2026-10-05. The privacy policy explains the submission and retention. Users can still view and download without sharing. Commit `93cc5d1` was pushed to `main`; the live questionnaire and privacy policy both returned 200 with the new copy.
