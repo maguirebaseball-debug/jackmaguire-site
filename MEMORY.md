@@ -417,4 +417,4 @@ Set the shared header navigation to the locally hosted Atkinson Hyperlegible fon
 
 ## 2026-10-06, Shorten shared footer Instagram link
 
-Changed the shared footer's Instagram phrase and link label to simply "IG," preserving the link destination and click tracking ID. Astro build and diff check passed. Deployment pending.
+Changed the shared footer's Instagram phrase and link label to simply "IG," preserving the link destination and click tracking ID. Astro build and diff check passed. Commit `6b1bfb8` was pushed to `main`; the live questionnaire showed "IG" and no old phrase.

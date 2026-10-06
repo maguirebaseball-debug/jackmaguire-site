@@ -2,7 +2,7 @@
 
 Updated: 2026-10-06
 
-Shortened the shared footer Instagram link to "IG" and removed the preceding phrase, while retaining its URL and click tracking. Astro build and diff check passed. Deployment pending.
+Shortened the shared footer Instagram link to "IG" and removed the preceding phrase, while retaining its URL and click tracking. Astro build and diff check passed. Commit `6b1bfb8` was pushed to `main`; the live questionnaire showed "IG" and no old phrase.
 
 Set the shared header navigation links in locally hosted Atkinson Hyperlegible, a distinctive face already available on the site, and shortened the shared footer link label to "LinkedIn." Browser checks at 1386px and 390px found no overflow; the desktop nav stayed on one row. Astro build passed. Commit `b64becb` was pushed to `main`, and the live questionnaire confirmed both changes.
 
