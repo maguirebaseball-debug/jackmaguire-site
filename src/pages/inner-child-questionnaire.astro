@@ -52,7 +52,6 @@ const missingOptions = [
 				<p>You can leave an item unanswered or choose N, U, or S. If a relevant situation happened and the statement was not true, choose 1. Do not guess about a situation you have not experienced.</p>
 				<p>For statements that say "this caregiver," think of one parent or childhood caregiver whose approval most affects your choices today. If nobody fits, choose N for those statements.</p>
 				<p>You may pause or skip any item.</p>
-				<p class="privacy"><strong>Privacy:</strong> When you submit to see your report, your 48 answers, six provisional averages, and submission time are sent to Jack through Web3Forms. This form does not ask for your name, email, phone number, address, or free-text identifying details. Web3Forms may process your IP address and browser data to handle and protect the submission. See the <a href="/privacy-policy/">privacy policy</a>.</p>
 			</section>
 
 			<form id="questionnaire-form" novalidate>
@@ -102,6 +101,7 @@ const missingOptions = [
 					<button type="button" id="next-section">Next 12</button>
 					<button type="submit" id="show-report" hidden>Submit answers and see report</button>
 				</div>
+				<p id="submit-disclosure" class="form-note" hidden>Submitting sends your answers and scores to Jack. No name or contact details are requested. Web3Forms may process technical data such as your IP address. <a href="/privacy-policy/">Privacy policy</a>.</p>
 				<p id="submit-status" role="status" aria-live="polite"></p>
 				<p class="form-note">Blank items remain unanswered. The report will only show a pattern average when at least 6 of its 8 items have numeric answers.</p>
 			</form>
@@ -179,6 +179,7 @@ const missingOptions = [
 					previous.hidden = currentSection === 0;
 					next.hidden = currentSection === 3;
 					submit.hidden = currentSection !== 3;
+					document.querySelector<HTMLElement>('#submit-disclosure')!.hidden = currentSection !== 3;
 					document.querySelector('#section-progress')!.textContent = `Statements ${currentSection * 12 + 1}-${currentSection * 12 + 12} of 48`;
 					const progress = document.querySelector<HTMLElement>('.progress')!;
 					progress.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -335,7 +336,6 @@ const missingOptions = [
 	.instructions { max-width: 760px; margin: 2.2rem 0 2.6rem; border-top: 1px solid #b6c0ad; padding-top: 1.3rem; }
 	.instructions h2, .scale-key h2 { margin: 0 0 0.8rem; font-size: 1.3rem; }
 	.instructions p { margin: 0 0 0.8rem; }
-	.privacy { border-left: 3px solid #435a2b; padding-left: 0.8rem; }
 	.questionnaire button:focus-visible, .choice input:focus-visible + span, .response-detail summary:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
 	.scale-key { border-top: 1px solid #b6c0ad; border-bottom: 1px solid #b6c0ad; padding: 1.2rem 0 1.3rem; }
 	.scale-key dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin: 0; }

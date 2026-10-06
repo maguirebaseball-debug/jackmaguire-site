@@ -390,3 +390,7 @@ Added an optional, explicitly consented Web3Forms send action to the Adult Relat
 ## 2026-10-05, Require questionnaire submission for report
 
 Changed the final questionnaire action to submit answers through Web3Forms before showing the UI report or PDF download. A failed submission leaves the form and answers available for retry. Removed the optional send section. The page and privacy policy say the form asks for no name or contact details, while accurately disclosing that Web3Forms may process IP and browser data. Astro build passed. Local Playwright checks with mocked provider responses confirmed success opens the report and failure keeps it hidden; the request contained answer and score fields without visitor identity fields. Commit `0ce1387` was pushed to `main`, and the live questionnaire and privacy policy returned 200 with updated copy.
+
+## 2026-10-06, Move questionnaire disclosure to submission
+
+Removed the large privacy note from the top of the questionnaire at Jack's request. A concise disclosure now appears only on the final section by the submit button, explaining that answers and scores go to Jack, the form asks for no name or contact details, and Web3Forms may process IP data. Astro build and diff check passed. Deployment pending.
