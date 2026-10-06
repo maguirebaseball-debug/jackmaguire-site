@@ -2,6 +2,8 @@
 
 Updated: 2026-10-05
 
+Increased space above every questionnaire item by adding 1rem of top padding to each legend. Desktop and 390px mobile browser checks measured roughly 20-21px from divider to question text, up from 4-5px, with no mobile horizontal overflow. Astro build passed. Commit `964adc8` was pushed to `main`, and the live page showed 16px legend padding and a 20px measured gap.
+
 Removed the caregiver reference and client code fields from `/inner-child-questionnaire/` at Jack's request. The report, PDF, optional Web3Forms payload, and privacy policy no longer include those fields. A concise instruction defines "this caregiver" for the original questionnaire items. Astro build, browser report, PDF download, and mocked submission payload passed. Commit `314819e` was pushed to `main`; the live questionnaire and privacy policy returned 200 without the old fields.
 
 Removed the two highlighted qualification sentences from the questionnaire introduction at Jack's request. The opening sentence about Galit Atlas remains. Commit `02ec86c` was pushed to `main`; the live route returned 200 and the removed text was absent. Astro build passed.
