@@ -410,3 +410,7 @@ Reduced the lede and all question legends to regular weight, with section headin
 ## 2026-10-06, Shared header name typography
 
 Changed the shared Header component's "Jack Maguire" wordmark from bold to regular weight and set 0.035em letter spacing. Desktop and 390px homepage browser checks confirmed the computed style and no horizontal overflow. Astro build and diff check passed. Commit `16ec519` was pushed to `main`; the live questionnaire header computed regular weight and increased tracking.
+
+## 2026-10-06, Shared navigation font and footer LinkedIn label
+
+Set the shared header navigation to the locally hosted Atkinson Hyperlegible font and changed the shared footer link text from "Jack Maguire on LinkedIn" to "LinkedIn." Desktop and 390px questionnaire browser checks confirmed the font, label, and no horizontal overflow; the desktop links stayed on one row. Astro build and diff check passed. Deployment pending.
