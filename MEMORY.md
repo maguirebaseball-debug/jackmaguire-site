@@ -406,3 +406,7 @@ Changed the 1-5 response-scale key from equal-width grid cells to a wrapping fle
 ## 2026-10-06, Lighter questionnaire hierarchy
 
 Reduced the lede and all question legends to regular weight, with section headings and progress labels at medium weight. Kept the page title and action buttons prominent. Desktop and mobile browser screenshots were inspected, computed weights matched the intended 400/600 values, and the Astro build passed. Commit `f44d72e` was pushed to `main`; the live page computed the intended weights.
+
+## 2026-10-06, Shared header name typography
+
+Changed the shared Header component's "Jack Maguire" wordmark from bold to regular weight and set 0.035em letter spacing. Desktop and 390px homepage browser checks confirmed the computed style and no horizontal overflow. Astro build and diff check passed. Deployment pending.
