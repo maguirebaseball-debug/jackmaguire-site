@@ -2,6 +2,8 @@
 
 Updated: 2026-10-06
 
+Reduced questionnaire text weights at Jack's request: the lede and all item legends are regular weight, and section headings and progress labels use medium weight. Desktop and mobile browser views were inspected, and the Astro build passed. Deployment pending.
+
 Tightened the questionnaire response-scale layout so each number sits flush with its label and the five options use consistent gaps. Desktop browser checks kept all five on one row; at 390px they wrapped cleanly without horizontal overflow. Astro build and diff check passed. Commit `5f5b6c0` was pushed to `main`; the live page computed a flex scale with 20px gaps and no horizontal overflow.
 
 Removed the final-step submission disclosure at Jack's request. The questionnaire still submits answers before showing the report, and the privacy policy retains the data details. Astro build and diff check passed. Commit `6a5cb68` was pushed to `main`; the live route no longer contains the disclosure and still shows the submit button.
