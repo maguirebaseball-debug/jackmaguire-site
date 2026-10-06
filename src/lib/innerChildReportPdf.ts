@@ -8,8 +8,6 @@ export type ReportData = {
 	scores: PatternScore[];
 	items: Item[];
 	date: string;
-	caregiver: string;
-	clientCode: string;
 };
 
 export async function downloadReportPdf(report: ReportData): Promise<void> {
@@ -79,9 +77,7 @@ export async function downloadReportPdf(report: ReportData): Promise<void> {
 	newPage();
 	paragraph('Adult Relationship Patterns', { size: 22, font: bold, gap: 2 });
 	paragraph('Your questionnaire report', { size: 14, color: muted, gap: 18 });
-	paragraph(`${QUESTIONNAIRE_VERSION}  |  ${report.date}`, { size: 10, color: muted, gap: 5 });
-	if (report.clientCode) paragraph(`Client code: ${report.clientCode}`, { size: 10, color: muted, gap: 5 });
-	paragraph(`Caregiver reference: ${report.caregiver || 'Not provided'}`, { size: 10, color: muted, gap: 18 });
+	paragraph(`${QUESTIONNAIRE_VERSION}  |  ${report.date}`, { size: 10, color: muted, gap: 18 });
 	paragraph('This unvalidated pilot is for reflection and discussion. A score is a provisional average of responses to these statements. It is not a diagnosis, percentile, probability, amount of childhood harm, or evidence of what caused a pattern.', { gap: 14 });
 	paragraph('Each pattern is scored only when at least 6 of its 8 items have numeric answers. N, U, S, and unanswered items are missing and never count as low or middle ratings. Do not compare small differences between patterns or use this report to make treatment, eligibility, or employment decisions.', { gap: 18 });
 

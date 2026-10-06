@@ -6,8 +6,6 @@ const WEB3FORMS_ACCESS_KEY = '0d5ededb-778b-452f-b8f0-72ebb2e4e461';
 export type SubmissionData = {
 	answers: Record<number, Answer>;
 	scores: PatternScore[];
-	caregiver: string;
-	clientCode: string;
 	completedAt: string;
 };
 
@@ -32,8 +30,6 @@ export function buildSubmission(data: SubmissionData): Record<string, string | n
 		'Adult Relationship Patterns questionnaire',
 		QUESTIONNAIRE_VERSION,
 		`Completed: ${data.completedAt}`,
-		`Client code: ${data.clientCode || 'Not provided'}`,
-		`Caregiver reference: ${data.caregiver || 'Not provided'}`,
 		`Responses: ${counts.numeric} numeric, ${counts.N} N, ${counts.U} U, ${counts.S} S, ${counts.blank} blank`,
 		'',
 		'Provisional pattern averages',
@@ -51,8 +47,6 @@ export function buildSubmission(data: SubmissionData): Record<string, string | n
 		from_name: 'jackmaguire.org questionnaire',
 		questionnaire_version: QUESTIONNAIRE_VERSION,
 		completed_at_utc: data.completedAt,
-		client_code: data.clientCode || 'Not provided',
-		caregiver_reference: data.caregiver || 'Not provided',
 		numeric_answers: counts.numeric,
 		missing_N: counts.N,
 		missing_U: counts.U,

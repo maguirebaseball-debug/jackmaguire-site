@@ -50,24 +50,12 @@ const missingOptions = [
 				<h2 id="before-starting">Before starting</h2>
 				<p>Think about your usual feelings and behavior during the past six months. Consider close relationships with friends, family, or partners. Answer based on what has been true for you, rather than what you think should be true.</p>
 				<p>You can leave an item unanswered or choose N, U, or S. If a relevant situation happened and the statement was not true, choose 1. Do not guess about a situation you have not experienced.</p>
+				<p>For statements that say "this caregiver," think of one parent or childhood caregiver whose approval most affects your choices today. If nobody fits, choose N for those statements.</p>
 				<p>You may pause or skip any item.</p>
 				<p class="privacy"><strong>Privacy:</strong> Your answers are scored in this browser tab. You can see and download your report without sending it to Jack. Closing the tab may clear your progress.</p>
 			</section>
 
 			<form id="questionnaire-form" novalidate>
-				<div class="reference-fields">
-					<div>
-						<label for="caregiver">Caregiver reference</label>
-						<p class="field-help">Choose the parent or childhood caregiver whose approval most affects your choices today. A role or initials are enough. Use this same person for every statement that says "this caregiver." If they have died or are no longer in contact, answer about their current influence in your thoughts. If nobody fits, leave this blank and choose N for those statements.</p>
-						<input id="caregiver" name="caregiver" type="text" maxlength="80" autocomplete="off" placeholder="For example: mother or A.B." />
-					</div>
-					<div class="code-field">
-						<label for="client-code">Client code <span>(optional)</span></label>
-						<p class="field-help">Use a code rather than your name if you want to identify your report. If you share it and later ask for deletion, this code can help locate it.</p>
-						<input id="client-code" name="client-code" type="text" maxlength="40" autocomplete="off" />
-					</div>
-				</div>
-
 				<div class="scale-key" aria-label="Response scale">
 					<h2>Response scale</h2>
 					<dl>
@@ -106,7 +94,6 @@ const missingOptions = [
 								</div>
 							</fieldset>
 						))}
-						{sectionIndex < 3 && <p class="caregiver-reminder">"This caregiver" means the one person you selected above. Use current feelings, including feelings about an absent or deceased caregiver.</p>}
 					</section>
 				))}
 
@@ -143,7 +130,7 @@ const missingOptions = [
 				<p class="report-caution report-end">This exercise cannot identify a caregiver as the cause of a response. Current relationships, grief, health, culture, finances, and chosen caregiving duties can all affect answers. Discuss any pattern with context before drawing conclusions.</p>
 				<section class="share-report" aria-labelledby="share-title">
 					<h3 id="share-title">Send a copy to Jack</h3>
-					<p>Sharing is optional. If you send this report, Jack receives your 48 responses, six provisional averages, caregiver reference, optional client code, and submission time through Web3Forms. No name or email address is required. Web3Forms emails and stores form submissions, with a default retention of up to three years. See the <a href="/privacy-policy/">privacy policy</a>.</p>
+					<p>Sharing is optional. If you send this report, Jack receives your 48 responses, six provisional averages, and submission time through Web3Forms. No name or email address is required. Web3Forms emails and stores form submissions, with a default retention of up to three years. See the <a href="/privacy-policy/">privacy policy</a>.</p>
 					<label class="share-consent" for="share-consent">
 						<input id="share-consent" type="checkbox" />
 						<span>I choose to send this report and understand what will be shared.</span>
@@ -216,27 +203,19 @@ const missingOptions = [
 				}
 
 				function reportFingerprint() {
-					return JSON.stringify({
-						answers: answers(),
-						caregiver: document.querySelector<HTMLInputElement>('#caregiver')!.value.trim(),
-						clientCode: document.querySelector<HTMLInputElement>('#client-code')!.value.trim(),
-					});
+					return JSON.stringify(answers());
 				}
 
 				function showReport() {
 					const values = answers();
 					const scores = scoreResponses(values);
 					reportDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
-					const caregiver = (document.querySelector<HTMLInputElement>('#caregiver')!.value || '').trim();
-					const clientCode = (document.querySelector<HTMLInputElement>('#client-code')!.value || '').trim();
 					const numericCount = Object.values(values).filter((answer) => typeof answer === 'number').length;
 					const nCount = Object.values(values).filter((answer) => answer === 'N').length;
 					const uCount = Object.values(values).filter((answer) => answer === 'U').length;
 					const sCount = Object.values(values).filter((answer) => answer === 'S').length;
 					const blankCount = Object.values(values).filter((answer) => answer === null).length;
 					const meta = [QUESTIONNAIRE_VERSION, reportDate, `${numericCount} numeric answers`];
-					if (clientCode) meta.push(`Client code: ${clientCode}`);
-					meta.push(`Caregiver reference: ${caregiver || 'Not provided'}`);
 					document.querySelector('#report-meta')!.textContent = meta.join(' | ');
 
 					const results = document.querySelector('#pattern-results')!;
@@ -282,8 +261,6 @@ const missingOptions = [
 						const payload = buildSubmission({
 							answers: answers(),
 							scores: scoreResponses(answers()),
-							caregiver: document.querySelector<HTMLInputElement>('#caregiver')!.value.trim(),
-							clientCode: document.querySelector<HTMLInputElement>('#client-code')!.value.trim(),
 							completedAt: new Date().toISOString(),
 						});
 						const body = new FormData();
@@ -332,8 +309,6 @@ const missingOptions = [
 							scores: scoreResponses(answers()),
 							items,
 							date: reportDate,
-							caregiver: document.querySelector<HTMLInputElement>('#caregiver')!.value.trim(),
-							clientCode: document.querySelector<HTMLInputElement>('#client-code')!.value.trim(),
 						});
 						status.textContent = 'PDF downloaded.';
 					} catch (error) {
@@ -366,12 +341,7 @@ const missingOptions = [
 	.instructions h2, .scale-key h2 { margin: 0 0 0.8rem; font-size: 1.3rem; }
 	.instructions p { margin: 0 0 0.8rem; }
 	.privacy { border-left: 3px solid #435a2b; padding-left: 0.8rem; }
-	.reference-fields { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; border-top: 1px solid #b6c0ad; padding: 1.5rem 0 2rem; }
-	.reference-fields label { display: block; margin-bottom: 0.4rem; font-weight: 700; }
-	.reference-fields label span { font-weight: 400; }
-	.field-help { margin: 0 0 0.7rem; font-size: 0.91rem; line-height: 1.5; }
-	.reference-fields input { width: 100%; box-sizing: border-box; min-height: 48px; border: 1px solid #677460; border-radius: 0; background: white; padding: 0.65rem 0.75rem; font: inherit; font-size: 1rem; }
-	.reference-fields input:focus-visible, .questionnaire button:focus-visible, .choice input:focus-visible + span, .response-detail summary:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
+	.questionnaire button:focus-visible, .choice input:focus-visible + span, .response-detail summary:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
 	.scale-key { border-top: 1px solid #b6c0ad; border-bottom: 1px solid #b6c0ad; padding: 1.2rem 0 1.3rem; }
 	.scale-key dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin: 0; }
 	.scale-key dl div { display: flex; align-items: start; gap: 0.45rem; }
@@ -392,7 +362,6 @@ const missingOptions = [
 	.choice span { display: inline-flex; align-items: center; justify-content: center; min-width: 2.45rem; min-height: 2.45rem; box-sizing: border-box; border: 1px solid #7e8977; background: #fff; padding: 0.3rem 0.5rem; font-size: 0.86rem; font-weight: 600; line-height: 1.2; text-align: center; }
 	.choice:hover span { border-color: #243e1b; background: #f0f4ec; }
 	.choice input:checked + span { border-color: #2f451f; background: #2f451f; color: white; }
-	.caregiver-reminder { margin: 1.4rem 0 0; font-size: 0.88rem; color: #4a564a; }
 	.form-actions, .report-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 	.questionnaire button { min-height: 48px; border: 1px solid #2f451f; border-radius: 0; background: #2f451f; padding: 0.65rem 1.15rem; color: #fff; font: inherit; font-size: 0.93rem; font-weight: 700; cursor: pointer; }
 	.questionnaire button:hover { background: #182b12; }
@@ -436,7 +405,6 @@ const missingOptions = [
 	@media (max-width: 720px) {
 		.questionnaire { padding: 1.5rem 0.95rem 4rem; font-size: 17px; }
 		.eyebrow { font-size: 0.68rem; }
-		.reference-fields { grid-template-columns: 1fr; gap: 1rem; }
 		.scale-key dl { grid-template-columns: 1fr 1fr; gap: 0.35rem 1rem; }
 		.scale-key dl div:last-child { grid-column: span 2; }
 		.item legend { font-size: 1rem; }

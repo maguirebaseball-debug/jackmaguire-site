@@ -1,5 +1,9 @@
 # Memory
 
+## 2026-10-05, Remove questionnaire reference fields
+
+Removed the caregiver reference and client code form section at Jack's request. Updated the report, PDF, optional Web3Forms payload, and privacy policy to omit those fields. Kept a short instruction defining "this caregiver" because the original questionnaire items use it. Astro build passed. Local browser QA showed the section absent, report rendering, PDF download, and a mocked submission with all answer and score fields but no caregiver or client code fields.
+
 ## 2026-10-05, Questionnaire introduction trim
 
 Removed the two sentences highlighted in Jack's browser comment from the questionnaire introduction, keeping the first sentence about Galit Atlas. Astro build passed. Commit `02ec86c` was pushed to `main`, and the live page returned 200 without the selected text.
