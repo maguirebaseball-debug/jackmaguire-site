@@ -2,7 +2,7 @@
 
 Updated: 2026-10-05
 
-The Adult Relationship Patterns report now requires a successful Web3Forms submission. The questionnaire discloses that answers, scores, and submission time go to Jack, asks for no name or contact details, and accurately notes that Web3Forms may process IP and browser data. Failed submissions preserve answers and keep the report hidden for retry. The privacy policy reflects this flow. Local Astro build and browser success/failure checks passed. Deployment pending.
+The Adult Relationship Patterns report now requires a successful Web3Forms submission. The questionnaire discloses that answers, scores, and submission time go to Jack, asks for no name or contact details, and accurately notes that Web3Forms may process IP and browser data. Failed submissions preserve answers and keep the report hidden for retry. The privacy policy reflects this flow. Local Astro build and browser success/failure checks passed. Commit `0ce1387` was pushed to `main`; both live routes returned 200 with the new copy.
 
 Increased space above every questionnaire item by adding 1rem of top padding to each legend. Desktop and 390px mobile browser checks measured roughly 20-21px from divider to question text, up from 4-5px, with no mobile horizontal overflow. Astro build passed. Commit `964adc8` was pushed to `main`, and the live page showed 16px legend padding and a 20px measured gap.
 
