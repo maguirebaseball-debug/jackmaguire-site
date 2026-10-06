@@ -101,7 +101,6 @@ const missingOptions = [
 					<button type="button" id="next-section">Next 12</button>
 					<button type="submit" id="show-report" hidden>Submit answers and see report</button>
 				</div>
-				<p id="submit-disclosure" class="form-note" hidden>Submitting sends your answers and scores to Jack. No name or contact details are requested. Web3Forms may process technical data such as your IP address. <a href="/privacy-policy/">Privacy policy</a>.</p>
 				<p id="submit-status" role="status" aria-live="polite"></p>
 				<p class="form-note">Blank items remain unanswered. The report will only show a pattern average when at least 6 of its 8 items have numeric answers.</p>
 			</form>
@@ -179,7 +178,6 @@ const missingOptions = [
 					previous.hidden = currentSection === 0;
 					next.hidden = currentSection === 3;
 					submit.hidden = currentSection !== 3;
-					document.querySelector<HTMLElement>('#submit-disclosure')!.hidden = currentSection !== 3;
 					document.querySelector('#section-progress')!.textContent = `Statements ${currentSection * 12 + 1}-${currentSection * 12 + 12} of 48`;
 					const progress = document.querySelector<HTMLElement>('.progress')!;
 					progress.scrollIntoView({ behavior: 'smooth', block: 'start' });

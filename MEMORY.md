@@ -394,3 +394,7 @@ Changed the final questionnaire action to submit answers through Web3Forms befor
 ## 2026-10-06, Move questionnaire disclosure to submission
 
 Removed the large privacy note from the top of the questionnaire at Jack's request. A concise disclosure now appears only on the final section by the submit button, explaining that answers and scores go to Jack, the form asks for no name or contact details, and Web3Forms may process IP data. Astro build and diff check passed. Commit `92a2430` was pushed to `main`, and the live route showed the old block gone and the short notice present.
+
+## 2026-10-06, Remove final questionnaire disclosure
+
+Removed the short disclosure next to the final submit button at Jack's request. The button still says "Submit answers and see report," the report still requires a confirmed Web3Forms submission, and the privacy policy retains the collection and provider details. Astro build and diff check passed. Deployment pending.
