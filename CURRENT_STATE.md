@@ -2,6 +2,8 @@
 
 Updated: 2026-10-05
 
+The Adult Relationship Patterns report now requires a successful Web3Forms submission. The questionnaire discloses that answers, scores, and submission time go to Jack, asks for no name or contact details, and accurately notes that Web3Forms may process IP and browser data. Failed submissions preserve answers and keep the report hidden for retry. The privacy policy reflects this flow. Local Astro build and browser success/failure checks passed. Deployment pending.
+
 Increased space above every questionnaire item by adding 1rem of top padding to each legend. Desktop and 390px mobile browser checks measured roughly 20-21px from divider to question text, up from 4-5px, with no mobile horizontal overflow. Astro build passed. Commit `964adc8` was pushed to `main`, and the live page showed 16px legend padding and a 20px measured gap.
 
 Removed the caregiver reference and client code fields from `/inner-child-questionnaire/` at Jack's request. The report, PDF, optional Web3Forms payload, and privacy policy no longer include those fields. A concise instruction defines "this caregiver" for the original questionnaire items. Astro build, browser report, PDF download, and mocked submission payload passed. Commit `314819e` was pushed to `main`; the live questionnaire and privacy policy returned 200 without the old fields.
@@ -10,7 +12,7 @@ Removed the two highlighted qualification sentences from the questionnaire intro
 
 Removed the decorative "Reflection questionnaire / Pilot 0.1" strip above the questionnaire title at Jack's request. Commit `672c1cf` was pushed to `main`; the live route returned 200 without the strip and retained the report's separate label. Local Astro build passed.
 
-The Adult Relationship Patterns questionnaire offers an optional, explicit send action after the browser report. Web3Forms receives all 48 answers, six provisional scores, and completion time using the same access key as the site's existing forms. A synthetic submission returned success from Web3Forms in Edge on 2026-10-05. The privacy policy explains the submission and retention. Users can still view and download without sharing. Commit `93cc5d1` introduced sharing, and the live questionnaire and privacy policy both returned 200.
+The Adult Relationship Patterns questionnaire originally offered an optional send action after the browser report. Commit `93cc5d1` introduced it, and a synthetic submission returned success from Web3Forms in Edge on 2026-10-05. The current required submission flow is described above.
 
 Published the 48-item Adult Relationship Patterns pilot questionnaire at `/inner-child-questionnaire/` on 2026-10-05. The page keeps the original item wording and order, separate N/U/S responses, provisional six-pattern scoring, an on-page report, and a downloadable PDF with all answers. It uses locally served Open Sans and omits analytics scripts on this sensitive route. The homepage links to it. Commit `c216282` was pushed to `main`; the live route, browser report and PDF flow, homepage link, and sitemap entry were verified. The blog indexing script remains blocked by the existing `my-experience-working-for-mercor.md` file without `pubDate`, unrelated to this questionnaire.
 

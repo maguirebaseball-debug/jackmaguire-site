@@ -52,7 +52,7 @@ const missingOptions = [
 				<p>You can leave an item unanswered or choose N, U, or S. If a relevant situation happened and the statement was not true, choose 1. Do not guess about a situation you have not experienced.</p>
 				<p>For statements that say "this caregiver," think of one parent or childhood caregiver whose approval most affects your choices today. If nobody fits, choose N for those statements.</p>
 				<p>You may pause or skip any item.</p>
-				<p class="privacy"><strong>Privacy:</strong> Your answers are scored in this browser tab. You can see and download your report without sending it to Jack. Closing the tab may clear your progress.</p>
+				<p class="privacy"><strong>Privacy:</strong> When you submit to see your report, your 48 answers, six provisional averages, and submission time are sent to Jack through Web3Forms. This form does not ask for your name, email, phone number, address, or free-text identifying details. Web3Forms may process your IP address and browser data to handle and protect the submission. See the <a href="/privacy-policy/">privacy policy</a>.</p>
 			</section>
 
 			<form id="questionnaire-form" novalidate>
@@ -100,8 +100,9 @@ const missingOptions = [
 				<div class="form-actions">
 					<button type="button" id="previous-section" class="secondary" hidden>Previous 12</button>
 					<button type="button" id="next-section">Next 12</button>
-					<button type="submit" id="show-report" hidden>See my report</button>
+					<button type="submit" id="show-report" hidden>Submit answers and see report</button>
 				</div>
+				<p id="submit-status" role="status" aria-live="polite"></p>
 				<p class="form-note">Blank items remain unanswered. The report will only show a pattern average when at least 6 of its 8 items have numeric answers.</p>
 			</form>
 
@@ -128,16 +129,6 @@ const missingOptions = [
 					<ol id="all-responses"></ol>
 				</details>
 				<p class="report-caution report-end">This exercise cannot identify a caregiver as the cause of a response. Current relationships, grief, health, culture, finances, and chosen caregiving duties can all affect answers. Discuss any pattern with context before drawing conclusions.</p>
-				<section class="share-report" aria-labelledby="share-title">
-					<h3 id="share-title">Send a copy to Jack</h3>
-					<p>Sharing is optional. If you send this report, Jack receives your 48 responses, six provisional averages, and submission time through Web3Forms. No name or email address is required. Web3Forms emails and stores form submissions, with a default retention of up to three years. See the <a href="/privacy-policy/">privacy policy</a>.</p>
-					<label class="share-consent" for="share-consent">
-						<input id="share-consent" type="checkbox" />
-						<span>I choose to send this report and understand what will be shared.</span>
-					</label>
-					<button type="button" id="share-report-button" disabled>Send my report to Jack</button>
-					<p id="share-status" role="status" aria-live="polite"></p>
-				</section>
 				<div class="report-actions">
 					<button type="button" id="download-pdf">Download report as PDF</button>
 					<button type="button" id="edit-responses" class="secondary">Edit responses</button>
@@ -161,12 +152,11 @@ const missingOptions = [
 				const previous = document.querySelector<HTMLButtonElement>('#previous-section')!;
 				const next = document.querySelector<HTMLButtonElement>('#next-section')!;
 				const submit = document.querySelector<HTMLButtonElement>('#show-report')!;
-				const shareConsent = document.querySelector<HTMLInputElement>('#share-consent')!;
-				const shareButton = document.querySelector<HTMLButtonElement>('#share-report-button')!;
-				const shareStatus = document.querySelector<HTMLElement>('#share-status')!;
+				const submitStatus = document.querySelector<HTMLElement>('#submit-status')!;
 				let currentSection = 0;
 				let reportDate = '';
-				let lastSharedFingerprint = '';
+				let lastSubmittedFingerprint = '';
+				let submissionInProgress = false;
 
 				function answers(): Record<number, Answer> {
 					const values: Record<number, Answer> = {};
@@ -238,29 +228,32 @@ const missingOptions = [
 						appendText(row, 'strong', answer === null ? 'Unanswered' : `${answer}: ${responseLabels[String(answer)]}`);
 						responseList.append(row);
 					}
-					shareConsent.checked = false;
-					shareConsent.disabled = reportFingerprint() === lastSharedFingerprint;
-					shareButton.disabled = true;
-					shareStatus.textContent = shareConsent.disabled ? 'This version of your report was already sent to Jack.' : '';
 					form.hidden = true;
 					report.hidden = false;
 					report.focus();
 					report.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}
 
-				form.addEventListener('change', updateProgress);
-				shareConsent.addEventListener('change', () => {
-					shareButton.disabled = !shareConsent.checked || reportFingerprint() === lastSharedFingerprint;
+				form.addEventListener('change', () => {
+					updateProgress();
+					submitStatus.textContent = '';
 				});
-				shareButton.addEventListener('click', async () => {
+				form.addEventListener('submit', async (event) => {
+					event.preventDefault();
+					if (submissionInProgress) return;
 					const fingerprint = reportFingerprint();
-					if (!shareConsent.checked || fingerprint === lastSharedFingerprint) return;
-					shareButton.disabled = true;
-					shareStatus.textContent = 'Sending your report...';
+					if (fingerprint === lastSubmittedFingerprint) {
+						showReport();
+						return;
+					}
+					submissionInProgress = true;
+					submit.disabled = true;
+					submitStatus.textContent = 'Submitting your answers...';
 					try {
+						const values = answers();
 						const payload = buildSubmission({
-							answers: answers(),
-							scores: scoreResponses(answers()),
+							answers: values,
+							scores: scoreResponses(values),
 							completedAt: new Date().toISOString(),
 						});
 						const body = new FormData();
@@ -272,18 +265,19 @@ const missingOptions = [
 						});
 						const result = await response.json();
 						if (!response.ok || result.success !== true) throw new Error(result.message || 'Submission failed');
-						lastSharedFingerprint = fingerprint;
-						shareConsent.disabled = true;
-						shareStatus.textContent = 'Sent to Jack. You can still download your copy below.';
+						lastSubmittedFingerprint = fingerprint;
+						submitStatus.textContent = '';
+						showReport();
 					} catch (error) {
 						console.error(error);
-						shareButton.disabled = false;
-						shareStatus.textContent = 'The report could not be sent. Your answers are still here, and you can try again.';
+						submitStatus.textContent = 'Your answers could not be submitted. They are still here. Please try again to see your report.';
+					} finally {
+						submissionInProgress = false;
+						submit.disabled = false;
 					}
 				});
 				previous.addEventListener('click', () => showSection(currentSection - 1));
 				next.addEventListener('click', () => showSection(currentSection + 1));
-				form.addEventListener('submit', (event) => { event.preventDefault(); showReport(); });
 				document.querySelector('#edit-responses')!.addEventListener('click', () => {
 					report.hidden = true;
 					form.hidden = false;
@@ -291,7 +285,8 @@ const missingOptions = [
 				});
 				document.querySelector('#start-over')!.addEventListener('click', () => {
 					form.reset();
-					lastSharedFingerprint = '';
+					lastSubmittedFingerprint = '';
+					submitStatus.textContent = '';
 					report.hidden = true;
 					form.hidden = false;
 					updateProgress();
@@ -370,6 +365,8 @@ const missingOptions = [
 	.questionnaire button.text-button { border: 0; background: transparent; color: #2f451f; text-decoration: underline; }
 	.questionnaire button:disabled { opacity: 0.5; cursor: not-allowed; }
 	.form-note { margin: 0.8rem 0 0; font-size: 0.83rem; color: #4a564a; }
+	#submit-status { margin: 0.8rem 0 0; font-size: 0.9rem; font-weight: 600; }
+	#submit-status:empty { display: none; }
 	.report { max-width: 800px; scroll-margin-top: 1rem; }
 	.report:focus { outline: 0; }
 	.report-heading .eyebrow { margin-bottom: 1rem; }
@@ -394,13 +391,6 @@ const missingOptions = [
 	.response-detail li span, .response-detail li strong { display: block; }
 	.response-detail li strong { margin-top: 0.15rem; font-size: 0.88rem; }
 	.report-end { font-size: 0.92rem; }
-	.share-report { margin-top: 2rem; border-top: 2px solid #435a2b; padding-top: 1.25rem; }
-	.share-report h3 { margin: 0 0 0.65rem; font-size: 1.25rem; }
-	.share-report p { margin: 0 0 1rem; font-size: 0.92rem; }
-	.share-consent { display: flex; align-items: flex-start; gap: 0.65rem; max-width: 640px; margin: 1.15rem 0; font-size: 0.92rem; font-weight: 600; cursor: pointer; }
-	.share-consent input { flex: 0 0 auto; width: 1.2rem; height: 1.2rem; margin: 0.18rem 0 0; accent-color: #2f451f; }
-	.share-consent input:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
-	#share-status { min-height: 1.5rem; margin: 0.75rem 0 0; font-weight: 600; }
 	#download-status { min-height: 1.5rem; font-size: 0.86rem; }
 	@media (max-width: 720px) {
 		.questionnaire { padding: 1.5rem 0.95rem 4rem; font-size: 17px; }
