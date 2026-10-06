@@ -336,9 +336,9 @@ const missingOptions = [
 	.instructions p { margin: 0 0 0.8rem; }
 	.questionnaire button:focus-visible, .choice input:focus-visible + span, .response-detail summary:focus-visible { outline: 3px solid #2f5f9e; outline-offset: 2px; }
 	.scale-key { border-top: 1px solid #b6c0ad; border-bottom: 1px solid #b6c0ad; padding: 1.2rem 0 1.3rem; }
-	.scale-key dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.7rem; margin: 0; }
-	.scale-key dl div { display: flex; align-items: start; gap: 0.45rem; }
-	.scale-key dt { min-width: 1.5rem; font-weight: 700; color: #435a2b; }
+	.scale-key dl { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; }
+	.scale-key dl div { display: flex; align-items: baseline; gap: 0.35rem; white-space: nowrap; }
+	.scale-key dt { font-weight: 700; color: #435a2b; }
 	.scale-key dd { margin: 0; font-size: 0.86rem; line-height: 1.35; }
 	.scale-key p { margin: 0.9rem 0 0; font-size: 0.86rem; }
 	.scale-key p strong { margin-left: 0.7rem; color: #435a2b; }
@@ -393,8 +393,6 @@ const missingOptions = [
 	@media (max-width: 720px) {
 		.questionnaire { padding: 1.5rem 0.95rem 4rem; font-size: 17px; }
 		.eyebrow { font-size: 0.68rem; }
-		.scale-key dl { grid-template-columns: 1fr 1fr; gap: 0.35rem 1rem; }
-		.scale-key dl div:last-child { grid-column: span 2; }
 		.item legend { font-size: 1rem; }
 		.answer-choices { margin-left: 0; }
 		.number-options { width: 100%; }

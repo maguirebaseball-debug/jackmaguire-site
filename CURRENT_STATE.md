@@ -2,6 +2,8 @@
 
 Updated: 2026-10-06
 
+Tightened the questionnaire response-scale layout so each number sits flush with its label and the five options use consistent gaps. Desktop browser checks kept all five on one row; at 390px they wrapped cleanly without horizontal overflow. Astro build and diff check passed. Deployment pending.
+
 Removed the final-step submission disclosure at Jack's request. The questionnaire still submits answers before showing the report, and the privacy policy retains the data details. Astro build and diff check passed. Commit `6a5cb68` was pushed to `main`; the live route no longer contains the disclosure and still shows the submit button.
 
 Removed the long privacy block from the questionnaire introduction at Jack's request. A short disclosure now appears by the final submission button, retaining clear notice that responses go to Jack, that no name or contact details are requested, and that Web3Forms may process IP data. Astro build and diff check passed. Commit `92a2430` was pushed to `main`, and the live route showed the old block gone and the short notice present.

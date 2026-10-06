@@ -398,3 +398,7 @@ Removed the large privacy note from the top of the questionnaire at Jack's reque
 ## 2026-10-06, Remove final questionnaire disclosure
 
 Removed the short disclosure next to the final submit button at Jack's request. The button still says "Submit answers and see report," the report still requires a confirmed Web3Forms submission, and the privacy policy retains the collection and provider details. Astro build and diff check passed. Commit `6a5cb68` was pushed to `main`, and the live route no longer contains the disclosure.
+
+## 2026-10-06, Questionnaire response-scale spacing
+
+Changed the 1-5 response-scale key from equal-width grid cells to a wrapping flex row, with each number aligned close to its label and consistent spacing between pairs. Desktop layout kept five options on one line; at 390px the options wrapped without horizontal overflow. Astro build and diff check passed. Deployment pending.
