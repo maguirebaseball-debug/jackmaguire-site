@@ -409,4 +409,4 @@ Reduced the lede and all question legends to regular weight, with section headin
 
 ## 2026-10-06, Shared header name typography
 
-Changed the shared Header component's "Jack Maguire" wordmark from bold to regular weight and set 0.035em letter spacing. Desktop and 390px homepage browser checks confirmed the computed style and no horizontal overflow. Astro build and diff check passed. Deployment pending.
+Changed the shared Header component's "Jack Maguire" wordmark from bold to regular weight and set 0.035em letter spacing. Desktop and 390px homepage browser checks confirmed the computed style and no horizontal overflow. Astro build and diff check passed. Commit `16ec519` was pushed to `main`; the live questionnaire header computed regular weight and increased tracking.

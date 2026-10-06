@@ -2,7 +2,7 @@
 
 Updated: 2026-10-06
 
-Changed the shared Header component's "Jack Maguire" wordmark to regular weight with 0.035em letter spacing, affecting pages that use the site header. Desktop and 390px homepage checks confirmed the computed style and no overflow; Astro build passed. Deployment pending.
+Changed the shared Header component's "Jack Maguire" wordmark to regular weight with 0.035em letter spacing, affecting pages that use the site header. Desktop and 390px homepage checks confirmed the computed style and no overflow; Astro build passed. Commit `16ec519` was pushed to `main`, and the live questionnaire header computed regular weight and increased tracking.
 
 Reduced questionnaire text weights at Jack's request: the lede and all item legends are regular weight, and section headings and progress labels use medium weight. Desktop and mobile browser views were inspected, and the Astro build passed. Commit `f44d72e` was pushed to `main`; the live page computed the intended 400/600 weights.
 
