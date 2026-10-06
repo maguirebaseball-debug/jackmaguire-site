@@ -2,7 +2,7 @@
 
 Updated: 2026-10-06
 
-Removed the long privacy block from the questionnaire introduction at Jack's request. A short disclosure now appears by the final submission button, retaining clear notice that responses go to Jack, that no name or contact details are requested, and that Web3Forms may process IP data. Astro build and diff check passed. Deployment pending.
+Removed the long privacy block from the questionnaire introduction at Jack's request. A short disclosure now appears by the final submission button, retaining clear notice that responses go to Jack, that no name or contact details are requested, and that Web3Forms may process IP data. Astro build and diff check passed. Commit `92a2430` was pushed to `main`, and the live route showed the old block gone and the short notice present.
 
 The Adult Relationship Patterns report now requires a successful Web3Forms submission. The questionnaire discloses that answers, scores, and submission time go to Jack, asks for no name or contact details, and accurately notes that Web3Forms may process IP and browser data. Failed submissions preserve answers and keep the report hidden for retry. The privacy policy reflects this flow. Local Astro build and browser success/failure checks passed. Commit `0ce1387` was pushed to `main`; both live routes returned 200 with the new copy.
 
