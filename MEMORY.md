@@ -401,4 +401,4 @@ Removed the short disclosure next to the final submit button at Jack's request. 
 
 ## 2026-10-06, Questionnaire response-scale spacing
 
-Changed the 1-5 response-scale key from equal-width grid cells to a wrapping flex row, with each number aligned close to its label and consistent spacing between pairs. Desktop layout kept five options on one line; at 390px the options wrapped without horizontal overflow. Astro build and diff check passed. Deployment pending.
+Changed the 1-5 response-scale key from equal-width grid cells to a wrapping flex row, with each number aligned close to its label and consistent spacing between pairs. Desktop layout kept five options on one line; at 390px the options wrapped without horizontal overflow. Astro build and diff check passed. Commit `5f5b6c0` was pushed to `main`; the live page computed a flex scale with 20px gaps and no horizontal overflow.
