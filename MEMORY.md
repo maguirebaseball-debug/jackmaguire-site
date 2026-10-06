@@ -414,3 +414,7 @@ Changed the shared Header component's "Jack Maguire" wordmark from bold to regul
 ## 2026-10-06, Shared navigation font and footer LinkedIn label
 
 Set the shared header navigation to the locally hosted Atkinson Hyperlegible font and changed the shared footer link text from "Jack Maguire on LinkedIn" to "LinkedIn." Desktop and 390px questionnaire browser checks confirmed the font, label, and no horizontal overflow; the desktop links stayed on one row. Astro build and diff check passed. Commit `b64becb` was pushed to `main`; the live questionnaire confirmed both changes.
+
+## 2026-10-06, Shorten shared footer Instagram link
+
+Changed the shared footer's Instagram phrase and link label to simply "IG," preserving the link destination and click tracking ID. Astro build and diff check passed. Deployment pending.

@@ -2,6 +2,8 @@
 
 Updated: 2026-10-06
 
+Shortened the shared footer Instagram link to "IG" and removed the preceding phrase, while retaining its URL and click tracking. Astro build and diff check passed. Deployment pending.
+
 Set the shared header navigation links in locally hosted Atkinson Hyperlegible, a distinctive face already available on the site, and shortened the shared footer link label to "LinkedIn." Browser checks at 1386px and 390px found no overflow; the desktop nav stayed on one row. Astro build passed. Commit `b64becb` was pushed to `main`, and the live questionnaire confirmed both changes.
 
 Changed the shared Header component's "Jack Maguire" wordmark to regular weight with 0.035em letter spacing, affecting pages that use the site header. Desktop and 390px homepage checks confirmed the computed style and no overflow; Astro build passed. Commit `16ec519` was pushed to `main`, and the live questionnaire header computed regular weight and increased tracking.
