@@ -418,3 +418,7 @@ Set the shared header navigation to the locally hosted Atkinson Hyperlegible fon
 ## 2026-10-06, Shorten shared footer Instagram link
 
 Changed the shared footer's Instagram phrase and link label to simply "IG," preserving the link destination and click tracking ID. Astro build and diff check passed. Commit `6b1bfb8` was pushed to `main`; the live questionnaire showed "IG" and no old phrase.
+
+## 2026-10-11, Fall NYC food article
+
+Prepared the approved ten-place article at `/blog/nyc-restaurants-pop-ups-fall-2026/`. Jack explicitly approved the custom local preview and requested publication, so this article retains that layout, Taviraj supporting typography, the ten food-request suggestions, and category reading links. It uses BaseHead for canonical metadata, structured data, and analytics; standalone discovery supplies homepage, blog, RSS, and sitemap inclusion. Publishing through main.
