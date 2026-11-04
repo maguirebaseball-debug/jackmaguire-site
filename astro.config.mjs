@@ -30,6 +30,8 @@ export default defineConfig({
 		sitemap({
 			filter: (page) =>
 				![
+				        'https://jackmaguire.org/rahway-vienna/',
+				        'https://jackmaguire.org/rahway-vienna/legal/',
 				        'https://jackmaguire.org/sobriety/',
 				        'https://jackmaguire.org/sobriety-admin/',
 				        'https://jackmaguire.org/x/peak/',

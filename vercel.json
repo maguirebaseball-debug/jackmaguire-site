@@ -2,6 +2,24 @@
   "trailingSlash": true,
   "headers": [
     {
+      "source": "/rahway-vienna",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex"
+        }
+      ]
+    },
+    {
+      "source": "/rahway-vienna/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex"
+        }
+      ]
+    },
+    {
       "source": "/vince-previewer/(.*)",
       "headers": [
         {
