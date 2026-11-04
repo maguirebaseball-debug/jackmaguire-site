@@ -422,3 +422,7 @@ Changed the shared footer's Instagram phrase and link label to simply "IG," pres
 ## 2026-10-11, Fall NYC food article
 
 Prepared the approved ten-place article at `/blog/nyc-restaurants-pop-ups-fall-2026/`. Jack explicitly approved the custom local preview and requested publication, so this article retains that layout, Taviraj supporting typography, the ten food-request suggestions, and category reading links. It uses BaseHead for canonical metadata, structured data, and analytics; standalone discovery supplies homepage, blog, RSS, and sitemap inclusion. Publishing through main.
+
+## 2026-11-04, Standalone Vienna travel guide
+
+Published `/rahway-vienna/` and `/rahway-vienna/legal/` as a standalone, non-indexed microsite with no shared site header or footer. It includes all 30 recommendations from Jack's Vienna trip document, source maps, NomadList Vienna tips, five contemporary Austrian legal facts with official references, and an offline ZIP with local fonts and styles. Sitemap exclusion and noindex response headers are in place. Responsive layouts were checked at 320px and 390px, Astro build passed, Vercel succeeded, and the live pages and ZIP returned 200. Commit `0073b44`.

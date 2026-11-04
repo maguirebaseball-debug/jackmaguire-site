@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-10-06
+Updated: 2026-11-04
+
+Published the standalone `/rahway-vienna/` travel guide and `/rahway-vienna/legal/` page from Jack's Vienna trip document. Both pages omit the main site header and footer, carry noindex directives, and are excluded from the sitemap. The guide includes 30 recommendations, map links, NomadList Vienna tips, and an offline ZIP download. Added current Austrian legal-system facts with official sources. Mobile layouts were inspected at 320px and 390px; the Astro build passed. Commit `0073b44` is on `main`; Vercel succeeded, and the guide, legal page, and ZIP all returned 200 with `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex`.
 
 Shortened the shared footer Instagram link to "IG" and removed the preceding phrase, while retaining its URL and click tracking. Astro build and diff check passed. Commit `6b1bfb8` was pushed to `main`; the live questionnaire showed "IG" and no old phrase.
 
