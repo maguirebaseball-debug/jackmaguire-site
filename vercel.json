@@ -2,6 +2,15 @@
   "trailingSlash": true,
   "headers": [
     {
+      "source": "/partiful/nov62026/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, noimageindex"
+        }
+      ]
+    },
+    {
       "source": "/rahway-vienna",
       "headers": [
         {
