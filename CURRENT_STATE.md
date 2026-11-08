@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-11-04
+Updated: 2026-11-08
+
+Published the Tsumo Sunday lunch omakase value guide at /blog/tsumo-sunday-lunch-omakase/ on 2026-11-08. The 181-word guide covers the $48, 11-course, 60-minute lunch with two photos. The first publish attempt landed the file in a nested folder by mistake; the path was corrected and the route verified live. Local Astro build passed and the route, sitemap entry, and images were verified in the build output. Commit 5bd8465 is on main; the live route returned 200.
 
 Published the standalone `/rahway-vienna/` travel guide and `/rahway-vienna/legal/` page from Jack's Vienna trip document. Both pages omit the main site header and footer, carry noindex directives, and are excluded from the sitemap. The guide includes 30 recommendations, map links, NomadList Vienna tips, and an offline ZIP download. Added current Austrian legal-system facts with official sources. Mobile layouts were inspected at 320px and 390px; the Astro build passed. Commit `0073b44` is on `main`; Vercel succeeded, and the guide, legal page, and ZIP all returned 200 with `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex`.
 
