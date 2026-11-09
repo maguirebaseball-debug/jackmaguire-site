@@ -1,0 +1,781 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ReadingProgressBar from '../../components/ReadingProgressBar.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+
+const title = "St. Ignace & Mackinac Island: Family Trip Guide";
+const description = "Free and cheap activities, Mackinac Island day-trip tips, and essential logistics for a June family trip to St. Ignace, Michigan.";
+const pubDate = "Jun 10, 2026";
+
+const straits = [
+  {
+    name: "Straits State Park",
+    cost: "Free / $12 Recreation Passport",
+    costTier: "cheap",
+    desc: "181 acres along Lake Huron with unobstructed views of the Mackinac Bridge. Picnic areas, a playground, a beach, and a 1-mile waterfront trail. The Bridge View picnic area is the best free lookout in town.",
+    tip: "Michigan Recreation Passport: $12/year per vehicle covers all state parks. Buy at the park entrance kiosk. Pay-per-day is $17 for non-residents, so the annual pass pays off after one visit.",
+    url: "https://www.michigan.gov/recsearch/parks/straits",
+  },
+  {
+    name: "Castle Rock",
+    cost: "$1 per person",
+    costTier: "cheap",
+    desc: "A 200-foot limestone sea stack just north of town on US-2. The climb is about 170 steps and takes 10 minutes. The view from the top takes in Lake Huron, the Straits, and Mackinac Island. One of the best dollar-per-view ratios in the Upper Peninsula.",
+    tip: "Kids love the 170-step staircase. There is a trading post at the bottom with fudge and souvenirs if anyone needs a sugar break.",
+    url: "https://www.travel-mi.com/St-Ignace.html",
+  },
+  {
+    name: "Huron Boardwalk Walking Tour",
+    cost: "Free",
+    costTier: "free",
+    desc: "A self-guided walking loop along the shoreline from Kiwanis Beach to the Wawatam Lighthouse Dock area. The route is flat, stroller-friendly, and passes the marina with views toward the Bridge. Pick up a map at the St. Ignace Chamber of Commerce.",
+    tip: "The Chamber of Commerce on Spring Street has a lighthouse map covering the whole region. Worth grabbing.",
+    url: "https://www.saintignace.org/visit-st-ignace/recreation/",
+  },
+  {
+    name: "American Legion Park Beach",
+    cost: "Free",
+    costTier: "free",
+    desc: "A public beach on the east side of downtown with a covered picnic area, grills, a playground, and a designated swimming zone. Calm water, family-friendly, and the nicest free beach in town.",
+    tip: "The picnic shelter has outlets and tables. Arrive before 11am on weekdays to claim a covered table.",
+    url: "https://www.saintignace.org/16681-2/",
+  },
+  {
+    name: "US-2 Sand Dunes Beach",
+    cost: "Free",
+    costTier: "free",
+    desc: "About 3 miles west of downtown on US-2, a stretch of sandy beach along the north shore of Lake Michigan. Dunes, trails, clear water, and almost no foot traffic. One of the quieter spots along the whole Straits corridor.",
+    tip: "Water temperature in mid-June is typically 55 to 62 degrees. Cold enough for a quick dip to feel refreshing, not comfortable for long swims. Pack towels.",
+    url: "https://www.recreation.gov/camping/campgrounds/234081",
+  },
+];
+
+const mackinac_free = [
+  {
+    name: "Arch Rock",
+    cost: "Free",
+    desc: "A natural limestone arch 146 feet above Lake Huron. The overlook is 206 steps from the trail. One of the most photographed spots on the island. Access from the Arch Rock Trail off Huron Road or via the 8.3-mile perimeter path.",
+    url: "https://heymichigan.com/free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Island Perimeter Path",
+    cost: "Free",
+    desc: "The entire perimeter of Mackinac Island is a paved, mostly flat path with continuous Lake Huron views. The full loop is 8.3 miles. Walking the southern half from the ferry dock to Arch Rock and back covers the best scenery in about 3 miles round trip.",
+    url: "https://www.mackinacisland.org/blog/post/8-free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Fudge Shop Samples",
+    cost: "Free",
+    desc: "All 13 fudge shops on the island offer free samples. Most have viewing windows so you can watch the paddle process on the marble slabs. Ryba's and Murdick's are the largest, both with multiple storefronts on Main Street.",
+    url: "https://innonmackinac.com/best-free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Marquette Park",
+    cost: "Free",
+    desc: "A central green directly off the ferry dock at the base of Fort Mackinac. The best picnic spot on the island. Has a bandstand, open lawn, and benches facing the harbor.",
+    url: "https://heymichigan.com/free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Beach Glass Hunting",
+    cost: "Free",
+    desc: "The rocky shoreline along the eastern side of the island is full of beach glass and smooth stones. Walk 10 minutes north of the ferry dock for the best stretches. Worth 45 minutes with the kids.",
+    url: "https://innonmackinac.com/best-free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Grand Hotel Stables",
+    cost: "Free",
+    desc: "The Grand Hotel stables are open to the public at no charge. You can walk through and see the working carriage horses that run the island's transportation fleet. A short walk up the hill from downtown.",
+    url: "https://www.mackinacisland.org/blog/post/8-free-things-to-do-on-mackinac-island/",
+  },
+  {
+    name: "Great Turtle Park",
+    cost: "Free",
+    desc: "A sports park with disc golf, sand volleyball, a basketball court, and a softball field. Located on the western side of downtown. Good for burning energy with the kids before the ferry back.",
+    url: "https://grkids.com/things-to-do-on-mackinac-island-with-kids/",
+  },
+];
+
+const ferries = [
+  {
+    name: "Shepler's Mackinac Island Ferry",
+    note: "Departs from downtown St. Ignace dock. The fastest crossing at about 16 minutes. Adults roughly $26-28 RT; children (ages 5-12) roughly $13-15 RT; under 5 typically free. Book online in advance for the best pricing.",
+    url: "https://www.sheplersferry.com/",
+  },
+  {
+    name: "Arnold Transit Company",
+    note: "Also departs St. Ignace. Slightly slower boats but the same price range. Runs more frequency in peak season. Check their schedule for the June timetable as early boats start around 7:30am.",
+    url: "https://www.arnoldline.com/",
+  },
+];
+
+const food_tips = [
+  {
+    label: "Stock up before you arrive",
+    desc: "The nearest Meijer or Walmart is in Mackinaw City (just south of the Bridge) or in St. Ignace itself. Buy breakfast items, snacks, sandwich supplies, and drinks on Day 1. Eating from the cabin for most meals cuts the trip budget significantly.",
+  },
+  {
+    label: "Doud's Market on Mackinac Island",
+    desc: "The only grocery store on the island. Grab-and-go sandwiches, drinks, and snacks. More expensive than mainland, but fine for a day-trip picnic. Better option than a sit-down restaurant for a group this size.",
+    url: "https://doudsmarket.com/",
+  },
+  {
+    label: "Fudge",
+    desc: "A small piece from Ryba's or Murdick's is the one non-negotiable Mackinac Island purchase. Roughly $3-5 per person for a single serving. Buy it by the pound if you want to take some home.",
+  },
+  {
+    label: "Picnic at Straits State Park",
+    desc: "The Bridge View picnic area has tables and grills with the best outdoor dining view in the region. Pack lunch from the cabin and eat here on the days you stay in St. Ignace.",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      .article-container {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      @media (max-width: 1280px) {
+        .article-container { display: block; }
+      }
+      .article-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.25rem 5rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* ── Header ──────────────────────────────────────────────── */
+      .article-header {
+        padding: 2.5rem 0 2rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        margin-bottom: 2.5rem;
+      }
+      .article-header h1 {
+        font-size: clamp(1.6rem, 4vw, 2.5rem);
+        line-height: 1.2;
+        margin: 0 0 0.75rem;
+      }
+      .meta {
+        font-size: 0.83rem;
+        color: rgb(var(--gray));
+        margin: 0 0 0.9rem;
+      }
+      .trip-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #eef2e6;
+        color: #3a5010;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 0.3rem 0.75rem;
+        border-radius: 4px;
+        margin-bottom: 1.2rem;
+      }
+      .intro {
+        font-size: 1.02rem;
+        line-height: 1.75;
+        max-width: 780px;
+        margin: 0 0 0.7rem;
+      }
+
+      /* ── Trip summary box ─────────────────────────────────────── */
+      .trip-summary {
+        background: #f7f9f3;
+        border: 1px solid #c8d9a8;
+        border-radius: 8px;
+        padding: 1.25rem 1.4rem;
+        margin: 1.75rem 0 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem 1.5rem;
+      }
+      .summary-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+      .summary-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgb(var(--gray));
+      }
+      .summary-value {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: rgb(var(--black));
+        line-height: 1.4;
+      }
+
+      /* ── Day call-out ─────────────────────────────────────────── */
+      .day-callout {
+        background: #556B2F;
+        color: #fff;
+        border-radius: 8px;
+        padding: 1.1rem 1.4rem;
+        margin-bottom: 1.75rem;
+      }
+      .day-callout h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+        letter-spacing: 0.04em;
+      }
+      .day-callout p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        margin: 0;
+        opacity: 0.92;
+      }
+
+      /* ── Section titles ───────────────────────────────────────── */
+      .section-block {
+        margin-bottom: 3rem;
+      }
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.65rem;
+        border-radius: 3px;
+        margin-bottom: 0.4rem;
+      }
+      .tag-green  { background: #eef2e6; color: #3a5010; }
+      .tag-blue   { background: #e6edf5; color: #1a3050; }
+      .tag-amber  { background: #fef4dc; color: #6a4500; }
+      .tag-purple { background: #f0ecf8; color: #4a2878; }
+
+      .section-block h2 {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        margin: 0 0 0.25rem;
+        line-height: 1.2;
+      }
+      .section-intro {
+        font-size: 0.9rem;
+        color: rgb(var(--gray));
+        margin: 0 0 1.4rem;
+        line-height: 1.6;
+        max-width: 720px;
+      }
+
+      /* ── Activity cards ───────────────────────────────────────── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.1rem;
+      }
+      .act-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .act-card-inner {
+        padding: 1rem 1.1rem 1.15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        flex: 1;
+      }
+      .act-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .act-name {
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.2;
+        color: rgb(var(--black));
+      }
+      .cost-badge {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 0.2rem 0.55rem;
+        border-radius: 99px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .cost-free  { background: #eef2e6; color: #3a5010; border: 1px solid #b8d490; }
+      .cost-cheap { background: #fef4dc; color: #6a4500; border: 1px solid #e8c87a; }
+      .cost-paid  { background: #f5ede8; color: #6a3010; border: 1px solid #d4b090; }
+
+      .act-desc {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: rgb(var(--gray-dark));
+        margin: 0;
+        flex: 1;
+      }
+      .act-tip {
+        font-size: 0.78rem;
+        background: #f7f9f3;
+        border-left: 2px solid #556B2F;
+        padding: 0.3rem 0.65rem;
+        border-radius: 0 4px 4px 0;
+        color: #3a5010;
+        line-height: 1.55;
+        margin-top: 0.1rem;
+      }
+      .act-link {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #556B2F;
+        text-decoration: none;
+        margin-top: 0.35rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.15rem;
+        opacity: 0.85;
+      }
+      .act-link:hover { opacity: 1; text-decoration: underline; }
+
+      /* ── Ferry cards ──────────────────────────────────────────── */
+      .ferry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .ferry-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        padding: 1rem 1.1rem;
+        border-top: 3px solid #556B2F;
+      }
+      .ferry-name {
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 0 0 0.4rem;
+        color: rgb(var(--black));
+      }
+      .ferry-note {
+        font-size: 0.84rem;
+        line-height: 1.65;
+        color: rgb(var(--gray-dark));
+        margin: 0 0 0.5rem;
+      }
+
+      /* ── Warning box ──────────────────────────────────────────── */
+      .warning-box {
+        background: #fffbec;
+        border: 1px solid #e8c87a;
+        border-left: 4px solid #c89a20;
+        border-radius: 0 8px 8px 0;
+        padding: 0.9rem 1.1rem;
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+        color: #5a4000;
+      }
+      .warning-box strong { color: #3a2800; }
+
+      /* ── Tips list ────────────────────────────────────────────── */
+      .tips-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tip-item {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        padding: 0.85rem 1rem;
+      }
+      .tip-icon {
+        font-size: 1.15rem;
+        flex-shrink: 0;
+        margin-top: 0.05rem;
+      }
+      .tip-text {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: rgb(var(--gray-dark));
+      }
+      .tip-text strong {
+        display: block;
+        font-size: 0.9rem;
+        color: rgb(var(--black));
+        margin-bottom: 0.15rem;
+      }
+
+      /* ── Food grid ────────────────────────────────────────────── */
+      .food-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 1rem;
+      }
+      .food-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        padding: 1rem 1.1rem;
+      }
+      .food-label {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: rgb(var(--black));
+        margin: 0 0 0.3rem;
+      }
+      .food-desc {
+        font-size: 0.84rem;
+        line-height: 1.65;
+        color: rgb(var(--gray-dark));
+        margin: 0;
+      }
+
+      /* ── Itinerary summary table ──────────────────────────────── */
+      .itin-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.86rem;
+        margin-bottom: 0.5rem;
+      }
+      .itin-table th {
+        text-align: left;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgb(var(--gray));
+        padding: 0.5rem 0.75rem;
+        border-bottom: 2px solid rgba(85,107,47,0.25);
+      }
+      .itin-table td {
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        vertical-align: top;
+        line-height: 1.5;
+      }
+      .itin-table tr:last-child td {
+        border-bottom: none;
+      }
+      .day-num {
+        font-weight: 700;
+        color: #556B2F;
+        white-space: nowrap;
+      }
+
+      /* ── Divider ──────────────────────────────────────────────── */
+      .section-divider {
+        border: none;
+        border-top: 1px solid rgb(var(--gray-light));
+        margin: 3rem 0;
+      }
+
+      @media (max-width: 720px) {
+        .card-grid { grid-template-columns: 1fr; }
+        .ferry-grid { grid-template-columns: 1fr; }
+        .food-grid { grid-template-columns: 1fr; }
+        .article-wrap { padding: 0 1rem 3.5rem; }
+        .trip-summary { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 480px) {
+        .trip-summary { grid-template-columns: 1fr; }
+        .article-header h1 { font-size: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <ReadingProgressBar />
+    <Header />
+    <main>
+      <div class="article-container">
+        <TableOfContents />
+        <div class="article-wrap">
+
+          <header class="article-header">
+            <p class="meta">{pubDate}</p>
+            <h1>{title}</h1>
+            <div class="trip-badge">&#127966; June 13-17, 2026 | Family Trip, 7 People</div>
+            <p class="intro">
+              Four nights at a waterfront cabin in St. Ignace, with a day trip to Mackinac Island. This guide covers everything free or cheap in the area for a family with young kids, two teenagers, and a pregnant traveler. The focus is outdoor and waterfront activities that require almost no advance booking and no real budget.
+            </p>
+            <div class="trip-summary">
+              <div class="summary-item">
+                <span class="summary-label">Base</span>
+                <span class="summary-value">St. Ignace, MI</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Dates</span>
+                <span class="summary-value">June 13-17, 2026</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Group</span>
+                <span class="summary-value">7 (including young kids + pregnant)</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Must-do</span>
+                <span class="summary-value">Mackinac Island day trip</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Drive from NYC</span>
+                <span class="summary-value">~13-14 hrs (split across 2 days)</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Weather</span>
+                <span class="summary-value">Mid-60s-70s, cooler at water</span>
+              </div>
+            </div>
+          </header>
+
+          {/* ── DAY 1 STOP ─────────────────────────────────────────────── */}
+          <section class="section-block" id="day-1">
+            <div class="section-tag tag-purple">&#9735; Day 1 Stop</div>
+            <h2>Our Lady of Champion</h2>
+            <p class="section-intro">
+              A Marian shrine in Champion, Wisconsin, roughly midway through the drive. Worth a brief stop for those who want it. The grounds are free to walk.
+            </p>
+            <div class="day-callout">
+              <h3>Champion, WI: Midpoint Break</h3>
+              <p>
+                <a href="https://ourladyofchampion.org/" target="_blank" rel="noopener noreferrer" style="color:#c8e098;">Our Lady of Champion</a> is the only approved Marian apparition site in the United States. The outdoor grounds, Stations of the Cross path, and small chapel are open to visitors at no charge. Plan for 30 to 60 minutes. From the New York side, this is approximately the 9-10 hour mark of the drive. Continuing to St. Ignace is another 3 to 4 hours.
+              </p>
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          {/* ── ST. IGNACE FREE + CHEAP ───────────────────────────────── */}
+          <section class="section-block" id="st-ignace">
+            <div class="section-tag tag-green">&#127966; St. Ignace</div>
+            <h2>Free and Cheap Activities</h2>
+            <p class="section-intro">
+              St. Ignace sits at the northern end of the <a href="https://www.michigan.gov/mdot/travel/bridges-ferries-and-tunnels/mackinac-bridge" target="_blank" rel="noopener noreferrer">Mackinac Bridge</a>, where Lake Huron and Lake Michigan meet. The town is small enough to walk end to end in 20 minutes, and most of what is worth doing is free or close to it.
+            </p>
+
+            <div class="warning-box">
+              <strong>Note for June 2026:</strong> The <a href="https://www.nps.gov/foma/index.htm" target="_blank" rel="noopener noreferrer">Father Marquette National Memorial</a> is closed through July 2026 for a planned renovation. Skip it on this trip. Everything else below is open.
+            </div>
+
+            <div class="card-grid">
+              {straits.map(a => (
+                <div class="act-card">
+                  <div class="act-card-inner">
+                    <div class="act-top">
+                      <h3 class="act-name">{a.name}</h3>
+                      <span class={`cost-badge ${a.costTier === 'free' ? 'cost-free' : a.costTier === 'cheap' ? 'cost-cheap' : 'cost-paid'}`}>
+                        {a.cost}
+                      </span>
+                    </div>
+                    <p class="act-desc">{a.desc}</p>
+                    {a.tip && <p class="act-tip">Tip: {a.tip}</p>}
+                    {a.url && <a href={a.url} class="act-link" target="_blank" rel="noopener noreferrer">More info &#8599;</a>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          {/* ── MACKINAC ISLAND ───────────────────────────────────────── */}
+          <section class="section-block" id="mackinac-island">
+            <div class="section-tag tag-blue">&#9875; Mackinac Island</div>
+            <h2>Mackinac Island Day Trip</h2>
+            <p class="section-intro">
+              No cars on the island. Everything moves by foot, bike, or horse-drawn carriage. The ferry from St. Ignace takes about 16 minutes. Plan a full day: leave by 9am, return by 4 or 5pm. The island is extremely walkable and the free attractions are genuinely the best ones.
+            </p>
+
+            <h3 style="font-size: 1.1rem; margin: 0 0 0.75rem;">Ferries from St. Ignace</h3>
+            <div class="ferry-grid">
+              {ferries.map(f => (
+                <div class="ferry-card">
+                  <p class="ferry-name">{f.name}</p>
+                  <p class="ferry-note">{f.note}</p>
+                  <a href={f.url} class="act-link" target="_blank" rel="noopener noreferrer">Book tickets &#8599;</a>
+                </div>
+              ))}
+            </div>
+
+            <div class="warning-box">
+              <strong>Bike tip:</strong> Renting bikes on the island costs $10-15/hour or $30-45/day per bike. Bringing your own on the ferry costs $21/bike one-way, which pays off for 2+ hours of riding. With young kids and a pregnant traveler in the group, the <strong>perimeter path</strong> is the most accessible route and manageable on foot in sections.
+            </div>
+
+            <h3 style="font-size: 1.1rem; margin: 0 0 0.75rem;">Free on the Island</h3>
+            <div class="card-grid">
+              {mackinac_free.map(a => (
+                <div class="act-card">
+                  <div class="act-card-inner">
+                    <div class="act-top">
+                      <h3 class="act-name">{a.name}</h3>
+                      <span class="cost-badge cost-free">Free</span>
+                    </div>
+                    <p class="act-desc">{a.desc}</p>
+                    {a.url && <a href={a.url} class="act-link" target="_blank" rel="noopener noreferrer">More info &#8599;</a>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          {/* ── FOOD ──────────────────────────────────────────────────── */}
+          <section class="section-block" id="food">
+            <div class="section-tag tag-amber">&#127860; Food</div>
+            <h2>Eating on a Budget</h2>
+            <p class="section-intro">
+              Restaurants in St. Ignace and on Mackinac Island are priced for tourist season. Eating most meals from the cabin and packing lunches on day-trip days is the fastest way to keep the food budget low.
+            </p>
+            <div class="food-grid">
+              {food_tips.map(f => (
+                <div class="food-card">
+                  <p class="food-label">{f.label}</p>
+                  <p class="food-desc">
+                    {f.desc}
+                    {f.url && <> <a href={f.url} target="_blank" rel="noopener noreferrer" style="color:#556B2F; font-weight:600;">&#8599;</a></>}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <hr class="section-divider" />
+
+          {/* ── SUGGESTED DAYS ────────────────────────────────────────── */}
+          <section class="section-block" id="suggested-days">
+            <div class="section-tag tag-green">&#128197; Day by Day</div>
+            <h2>Suggested Day Breakdown</h2>
+            <p class="section-intro">A loose framework. All of this is adjustable around nap schedules, weather, and energy levels.</p>
+
+            <table class="itin-table">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Date</th>
+                  <th>Plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="day-num">Day 1</span></td>
+                  <td>Sat, Jun 13</td>
+                  <td>Drive. Stop at <a href="https://ourladyofchampion.org/" target="_blank" rel="noopener noreferrer">Our Lady of Champion</a> in Champion, WI. Arrive St. Ignace, check in, settle. Short walk on the boardwalk if energy allows.</td>
+                </tr>
+                <tr>
+                  <td><span class="day-num">Day 2</span></td>
+                  <td>Sun, Jun 14</td>
+                  <td>Morning: <a href="https://www.michigan.gov/recsearch/parks/straits" target="_blank" rel="noopener noreferrer">Straits State Park</a> (picnic lunch at the bridge view area). Afternoon: <a href="https://www.travel-mi.com/St-Ignace.html" target="_blank" rel="noopener noreferrer">Castle Rock</a> ($1/person) then walk the downtown boardwalk and marina.</td>
+                </tr>
+                <tr>
+                  <td><span class="day-num">Day 3</span></td>
+                  <td>Mon, Jun 15</td>
+                  <td>Full Mackinac Island day. Ferry from St. Ignace dock by 9am. <a href="https://heymichigan.com/free-things-to-do-on-mackinac-island/" target="_blank" rel="noopener noreferrer">Arch Rock</a>, fudge samples, perimeter path, Marquette Park picnic, beach glass. Return by 4-5pm.</td>
+                </tr>
+                <tr>
+                  <td><span class="day-num">Day 4</span></td>
+                  <td>Tue, Jun 16</td>
+                  <td>Drive west on <a href="https://www.recreation.gov/camping/campgrounds/234081" target="_blank" rel="noopener noreferrer">US-2</a> for the sand dunes beach. Relax at the cabin. Optional: disc golf at <a href="https://stignace.com/attractions/" target="_blank" rel="noopener noreferrer">Doc Holle's Silver Mountain</a>. Dinner at the cabin.</td>
+                </tr>
+                <tr>
+                  <td><span class="day-num">Day 5</span></td>
+                  <td>Wed, Jun 17</td>
+                  <td>Check out and start the drive home. Stop in Mackinaw City (just south of the bridge) for gas and a final look at the <a href="https://www.michigan.gov/mdot/travel/bridges-ferries-and-tunnels/mackinac-bridge" target="_blank" rel="noopener noreferrer">Mackinac Bridge</a> from the south side before getting on I-75.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <hr class="section-divider" />
+
+          {/* ── PRACTICAL TIPS ────────────────────────────────────────── */}
+          <section class="section-block" id="practical">
+            <div class="section-tag tag-green">&#128204; Practical</div>
+            <h2>Essential Tips</h2>
+            <ul class="tips-list">
+              <li class="tip-item">
+                <span class="tip-icon">&#127965;</span>
+                <span class="tip-text">
+                  <strong>Michigan Recreation Passport</strong>
+                  Buy it at the first state park entrance kiosk you visit. It costs $12 for the year and covers all Michigan state parks for your vehicle. Paying per-day for non-residents is $17/visit, so the pass pays off after a single park stop.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#127754;</span>
+                <span class="tip-text">
+                  <strong>Water temperature</strong>
+                  Lake Huron in mid-June runs 55 to 63 degrees. Wading and brief swims are fine for kids. Full-length swimming is cold. Pack towels and a change of clothes for beach days.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#9729;</span>
+                <span class="tip-text">
+                  <strong>Weather layers</strong>
+                  Daytime highs are typically 65 to 72 degrees in June, but wind off the Straits can make it feel 10 degrees cooler at the water. Pack a light jacket for every family member, including the kids. Evenings drop to the low 50s.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#9875;</span>
+                <span class="tip-text">
+                  <strong>Mackinac Island ferry booking</strong>
+                  Book online 1 to 2 days in advance for the best pricing and to guarantee your preferred departure time. Walk-up tickets are available but may cost slightly more. Early boats (7:30-9am) are the least crowded.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#128694;</span>
+                <span class="tip-text">
+                  <strong>Mackinac Island for young kids and pregnant travelers</strong>
+                  The paved perimeter path is flat and stroller-friendly for the lower sections near the dock and Marquette Park. Arch Rock requires a steep 206-step climb; skip it if it is not practical on the day. The downtown area (fudge shops, Marquette Park, harbor) is entirely walkable without elevation.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#128663;</span>
+                <span class="tip-text">
+                  <strong>Parking in St. Ignace</strong>
+                  Downtown street parking is free. The state park and Castle Rock have small parking areas. The ferry docks have paid lots; arrive early on Mackinac Island day to avoid the peak lot fees.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#128137;</span>
+                <span class="tip-text">
+                  <strong>Medical facilities</strong>
+                  The nearest full hospital is <a href="https://www.mgh.org/" target="_blank" rel="noopener noreferrer">Mackinac Straits Health System</a> in St. Ignace, about 2 miles from the waterfront. For the pregnant traveler, note the address before arriving: 220 Burdette St, St. Ignace, MI 49781.
+                </span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-icon">&#128247;</span>
+                <span class="tip-text">
+                  <strong>Best photos</strong>
+                  Mackinac Bridge view from Straits State Park at golden hour (around 8:30-9pm in June). Arch Rock from below, looking up through the arch at the sky. Castle Rock summit, looking southeast toward the island.
+                </span>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
