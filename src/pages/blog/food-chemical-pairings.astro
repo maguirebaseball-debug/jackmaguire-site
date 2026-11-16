@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -795,6 +796,7 @@ const groups = [
       <header class="article-header">
         <p class="meta">{pubDate} &nbsp;|&nbsp; Food Science</p>
         <h1>{title}</h1>
+        <AuthorByline />
         <p class="lede">
           A research team published a food ingredient embedding model this week that encodes both recipe co-occurrence and chemical compound relationships across 4.1 million multilingual recipes. I used their framework as a starting point, pulled the underlying ingredient-compound data from FooDB independently, and ran a statistical search for ingredient pairs with strong chemical compatibility and near-zero recipe frequency. What follows are 25 pairings that the chemistry says should work and that 294,000 recipes suggest nobody has tried.
         </p>

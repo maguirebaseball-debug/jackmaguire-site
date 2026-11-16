@@ -1,6 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../../lib/person';
 import BaseHead from '../../components/BaseHead.astro';
-import { PERSON_ID } from '../../consts';
 import countries from '../../data/travel-affordability/countries.json';
 import cities from '../../data/travel-affordability/cities.json';
 import causalFeatures from '../../data/travel-affordability/causal-features.json';
@@ -32,7 +32,7 @@ const canonical = 'https://jackmaguire.org/blog/jacks-travel-affordability-index
 			description,
 			datePublished: '2026-07-15',
 			dateModified: '2026-07-15',
-			author: { '@id': PERSON_ID },
+			author: ARTICLE_AUTHOR,
 			mainEntityOfPage: canonical,
 		})} />
 	</head>

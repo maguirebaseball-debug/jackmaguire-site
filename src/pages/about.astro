@@ -2,33 +2,36 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
+import { PERSON_LINKEDIN, SITE_TITLE } from '../consts';
+import { PERSON_PROFILE } from '../lib/person';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`About: ${SITE_TITLE}`} description="Jack Maguire is a performance marketing and paid social media director based in East Village, NYC. 12+ years managing paid social campaigns across Meta, TikTok, and Instagram." />
+		<BaseHead title={`About: ${SITE_TITLE}`} description="Jack Maguire is the Creative Intelligence Lead at NewForm in New York City. He writes about NYC food, travel, philosophy, AI, and work." ogImage="/images/about/jack-professional-portrait.jpg" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'ProfilePage',
-			mainEntity: {
-				'@type': 'Person',
-				'@id': PERSON_ID,
-				name: 'Jack Maguire',
-			},
+			mainEntity: PERSON_PROFILE,
 		})} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="page-lede">
-				<p class="kicker">East Village, paid social, long walks</p>
-				<h1>About</h1>
-				<p>
-					I work at the intersection of paid social media, analytical systems, and ordinary city life.
-					The site records the work questions and personal obsessions that keep recurring.
-				</p>
+				<div>
+					<p class="kicker">East Village, paid social, long walks</p>
+					<h1>Jack Maguire</h1>
+					<p>
+						I'm Jack Maguire, the Creative Intelligence Lead at NewForm in New York City.
+						This site covers NYC food, travel, philosophy, AI, and occasionally work.
+					</p>
+				</div>
+				<figure class="primary-portrait">
+					<img src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire smiling outdoors in New York City" width="732" height="790" />
+					<figcaption>Jack Maguire in New York City</figcaption>
+				</figure>
 			</section>
 			<div class="photo-collage" aria-label="Photos of Jack Maguire">
 				<img src="/images/about/jack-east-village.jpg" alt="Jack Maguire on a brownstone-lined street in the East Village, NYC" loading="eager" width="900" height="506" class="c1" />
@@ -55,20 +58,22 @@ import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 			<div class="prose">
 				<h2>Which Jack Maguire?</h2>
 				<p>
-					I am Jack Maguire, the paid social director in New York, not the professional golfer or the baseball player.
+					I am Jack Maguire, the Creative Intelligence Lead at NewForm in New York, not the professional golfer or the baseball player.
 					I studied at McGill University, live in the East Village, and worked at National Debt Relief through January 2026 after Good Apple.
 				</p>
 				<p>
-					I'm Jack Maguire, a performance marketing and paid social media director based in
-					New York City. Over the past 12 years I've built and led advertising programs for
+					Over the past 12 years I've built and led advertising programs for
 					large organizations across Meta, TikTok, Instagram, Facebook, and Snapchat, working
-					at the intersection of creative strategy, data analysis, and media buying. This site
-					covers NYC food, travel, philosophy, AI, and occasionally work.
+					at the intersection of creative strategy, data analysis, and media buying.
 				</p>
 
 				<h2>Work</h2>
 				<p>
-					Most recently, I served as Senior Paid Social Media Director at National Debt Relief
+					I'm the Creative Intelligence Lead at NewForm. I own a book of performance accounts,
+					setting creative strategy and test intent against each client's business objectives.
+				</p>
+				<p>
+					Before NewForm, I served as Senior Paid Social Media Director at National Debt Relief
 					(March 2022 to January 2026), where I managed over $1M in monthly ad spend across
 					Meta and TikTok, led a team of paid social managers, and navigated the regulatory
 					complexity of advertising in the debt settlement industry alongside legal and
@@ -95,6 +100,12 @@ import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 					perspective is analytical and firsthand. I write about what I have actually done,
 					read, or worked through.
 				</p>
+				<ul>
+					<li><a href="/blog/nyc-omakase-price-per-course/">NYC Omakase Prices: Best Values by Course Count</a></li>
+					<li><a href="/blog/best-cheese-blintzes-nyc/">The 25 Best Cheese Blintzes in NYC, Ranked</a></li>
+					<li><a href="/blog/living-in-nyc-recommendations-from-year-one/">Living in NYC: Recommendations from Year One</a></li>
+					<li><a href="/Travellist/">Travel list</a></li>
+				</ul>
 
 				<h2>Outside work</h2>
 				<p>
@@ -106,8 +117,8 @@ import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 
 				<h2>Background</h2>
 				<ul>
-					<li>Most recently: Senior Paid Social Media Director, National Debt Relief</li>
-					<li>Previously: Good Apple &middot; Visiting Angels &middot; Ascension Press &middot; Renegade Communications</li>
+					<li>Creative Intelligence Lead, NewForm</li>
+					<li>Previously: National Debt Relief, Good Apple, Visiting Angels, Ascension Press, Renegade Communications</li>
 					<li>McGill University: Business Management &amp; Philosophy</li>
 					<li>East Village, New York City</li>
 				</ul>
@@ -207,6 +218,32 @@ import { PERSON_ID, PERSON_LINKEDIN, SITE_TITLE } from '../consts';
 		margin-bottom: 2rem;
 		padding-bottom: 1.35rem;
 		border-bottom: 1px solid rgba(85, 107, 47, 0.22);
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 180px;
+		align-items: start;
+		gap: 1.5rem;
+	}
+	.primary-portrait {
+		margin: 0;
+	}
+	.primary-portrait img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.primary-portrait figcaption {
+		margin-top: 0.4rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.85rem;
+		line-height: 1.4;
+	}
+	@media (max-width: 600px) {
+		.page-lede {
+			grid-template-columns: 1fr;
+		}
+		.primary-portrait {
+			width: min(180px, 100%);
+		}
 	}
 	.kicker {
 		margin: 0 0 0.5rem;

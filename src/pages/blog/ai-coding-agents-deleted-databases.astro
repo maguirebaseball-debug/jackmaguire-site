@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../../lib/person';
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import { PERSON_ID } from '../../consts';
 
@@ -15,7 +17,7 @@ const pubDate = "Jun 1, 2026";
     "@type": "Article",
     "headline": title,
     "description": description,
-    "author": { "@id": PERSON_ID },
+    "author": ARTICLE_AUTHOR,
     "datePublished": "2026-06-01",
     "publisher": { "@id": PERSON_ID }
   })} />
@@ -310,6 +312,7 @@ const pubDate = "Jun 1, 2026";
         <header class="article-header">
           <p class="meta">{pubDate}</p>
           <h1>Three AI Coding Agents Deleted Production Databases in 16 Months. One Control Was Missing Each Time.</h1>
+          <AuthorByline />
           <p class="intro">Three documented incidents at Replit, Amazon Kiro, and PocketOS share one missing infrastructure control: no technical enforcement layer between an agent's destructive database operation and its execution.</p>
         </header>
 

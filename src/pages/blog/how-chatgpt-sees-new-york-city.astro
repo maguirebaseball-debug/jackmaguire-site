@@ -1,4 +1,5 @@
 ---
+import { ARTICLE_AUTHOR } from '../../lib/person';
 import BaseHead from '../../components/BaseHead.astro';
 import { PERSON_ID } from '../../consts';
 import mapData from '../../data/chatgpt-nyc-map.json';
@@ -75,7 +76,7 @@ const articleUrl = new URL('/blog/how-chatgpt-sees-new-york-city/', Astro.site).
 			url: articleUrl,
 			mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
 			image: new URL(`${imageBase}/${initialFeature.image}.webp`, Astro.site).toString(),
-			author: { '@id': PERSON_ID },
+			author: ARTICLE_AUTHOR,
 			publisher: { '@id': PERSON_ID },
 			datePublished,
 			dateModified: datePublished,

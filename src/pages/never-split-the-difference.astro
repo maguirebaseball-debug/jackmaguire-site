@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../components/AuthorByline.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -36,13 +37,14 @@ const sources = [
 const faceSvg = (glyph: string) => `<svg viewBox="0 0 144 144" role="img" aria-label="${glyph} marker"><text x="72" y="106" text-anchor="middle">${glyph}</text></svg>`;
 ---
 
-<BaseHead {title} {description} canonical={canonical} />
+<BaseHead {title} {description} canonical={canonical} articlePublished="2026-09-27" />
 <Header />
 <main class="research-page">
   <div class="navline"><span>FIELD NOTES / NEGOTIATION</span><span>18 QUALIFYING SOURCES</span></div>
   <section class="mast">
     <div>
       <h1>The parts of <i>Never Split the Difference</i> I’d keep</h1>
+      <AuthorByline />
       <p class="lede">I went through the longer reviews and pulled out the ideas people kept coming back to.</p>
     </div>
     <div class="stamp">18<small>screened<br />sources</small></div>

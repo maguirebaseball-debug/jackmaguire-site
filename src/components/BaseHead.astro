@@ -3,7 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import { SITE_TITLE } from '../consts';
-import { PERSON_ID } from '../consts';
+import { ARTICLE_AUTHOR } from '../lib/person';
 import { Font } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
@@ -12,6 +12,7 @@ interface Props {
 	title: string;
 	description: string;
 	ogImage?: string;
+	article?: boolean;
 	articlePublished?: string;
 	articleModified?: string;
 }
@@ -22,7 +23,7 @@ if (!cleanPathname.endsWith('/') && !cleanPathname.split('/').pop().includes('.'
 }
 const canonicalURL = new URL(cleanPathname, Astro.site);
 
-const { title, description, ogImage = '/og-default.png', articlePublished, articleModified } = Astro.props;
+const { title, description, ogImage = '/og-default.png', article = false, articlePublished, articleModified } = Astro.props;
 const pageTitle = (Astro.url.pathname.startsWith('/blog/') || articlePublished) && !title.endsWith(' | Jack Maguire')
 	? `${title} | Jack Maguire`
 	: title;
@@ -60,7 +61,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 <title>{pageTitle}</title>
 <meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
-{publishedIso && (
+{(article || publishedIso) && (
 	<script type="application/ld+json" set:html={JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -68,7 +69,7 @@ const modifiedIso = articleModified ? new Date(articleModified).toISOString() : 
 		description,
 		url: canonicalURL.toString(),
 		mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.toString() },
-		author: { '@id': PERSON_ID },
+		author: ARTICLE_AUTHOR,
 		datePublished: publishedIso,
 		dateModified: modifiedIso,
 	})} />

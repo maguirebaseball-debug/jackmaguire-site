@@ -2,10 +2,10 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { PERSON_ID } from '../consts';
+import { PERSON_PROFILE } from '../lib/person';
 
 const title = 'Jack Maguire | Paid Social and Performance Marketing Leader';
-const description = 'Jack Maguire is a New York performance marketing leader with 12+ years of experience, $30M+ in managed media spend, and deep expertise in paid social, measurement, creative testing, and AI-enabled marketing operations.';
+const description = 'Jack Maguire is Creative Intelligence Lead at NewForm in New York, with 12+ years of experience in paid social, measurement, and creative testing.';
 
 const proofPoints = [
 	{ value: '12+', label: 'years in performance marketing' },
@@ -48,6 +48,12 @@ const capabilities = [
 ];
 
 const roles = [
+	{
+		years: 'September 2026 to present',
+		company: 'NewForm',
+		role: 'Creative Intelligence Lead',
+		copy: "Own a book of performance accounts, setting creative strategy and test intent against each client's business objectives.",
+	},
 	{
 		years: '2022 to 2026',
 		company: 'National Debt Relief',
@@ -109,11 +115,7 @@ const writing = [
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'ProfilePage',
-			mainEntity: {
-				'@type': 'Person',
-				'@id': PERSON_ID,
-				name: 'Jack Maguire',
-			},
+			mainEntity: PERSON_PROFILE,
 		})} />
 	</head>
 	<body>
@@ -142,8 +144,8 @@ const writing = [
 						<a class="text-action" href="https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/">LinkedIn <span aria-hidden="true">↗</span></a>
 					</div>
 					<p class="current-note">
-						<span>Most recently</span>
-						Social Media Marketing Director at National Debt Relief
+						<span>Currently</span>
+						Creative Intelligence Lead at NewForm
 					</p>
 				</div>
 				<aside class="hero-profile" aria-label="Jack Maguire profile">

@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -416,6 +417,7 @@ const authorBio = "Performance marketing strategist and paid social media direct
           <header class="article-header">
             <p class="meta">{pubDate}</p>
             <h1>{title}</h1>
+            <AuthorByline />
             <p class="intro">
               I live in the East Village and I don't follow the Knicks through a regular season. But they're in the Finals, and I'm going somewhere to watch.
             </p>

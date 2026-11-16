@@ -1,4 +1,5 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
@@ -40,7 +41,7 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				"@id": Astro.url.href
 			},
 			"image": ogImage ? new URL(ogImage, Astro.site).toString() : new URL('/og-default.png', Astro.site).toString(),
-			"author": { "@id": PERSON_ID },
+			"author": ARTICLE_AUTHOR,
 			"publisher": { "@id": PERSON_ID },
 			"datePublished": pubDate.toISOString(),
 			"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),

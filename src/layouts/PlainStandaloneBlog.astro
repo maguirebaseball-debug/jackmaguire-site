@@ -1,4 +1,5 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
 import BaseHead from '../components/BaseHead.astro';
 import { PERSON_ID } from '../consts';
 
@@ -29,7 +30,7 @@ const published = datePublished ?? pubDate;
 				"@id": Astro.url.href
 			},
 			"image": new URL('/og-default.png', Astro.site).toString(),
-			"author": { "@id": PERSON_ID },
+			"author": ARTICLE_AUTHOR,
 			"publisher": { "@id": PERSON_ID },
 			"datePublished": published,
 			"dateModified": published

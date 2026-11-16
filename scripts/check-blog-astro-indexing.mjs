@@ -81,7 +81,7 @@ const mdFiles = readdirSync(mdBlogDir).filter((f) => f.endsWith('.md'));
 const mdPosts = mdFiles.map((filename) => {
 	const content = readFileSync(join(mdBlogDir, filename), 'utf8');
 	const slug = filename.replace(/\.md$/, '');
-	const dateMatch = content.match(/pubDate:\s*([\d-]+)/);
+	const dateMatch = content.match(/^pubDate:\s*["']?(\d{4}-\d{2}-\d{2})/m);
 	if (!dateMatch) {
 		throw new Error(`${filename} is missing pubDate`);
 	}

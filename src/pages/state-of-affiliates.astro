@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
+import AuthorByline from '../components/AuthorByline.astro';
 import BaseHead from '../components/BaseHead.astro';
 import { PERSON_ID } from '../consts';
 
@@ -25,7 +27,7 @@ const pubDate = 'July 20, 2026';
 			"url": Astro.url.href,
 			"mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
 			"image": new URL('/og-default.png', Astro.site).toString(),
-			"author": { "@id": PERSON_ID },
+			"author": ARTICLE_AUTHOR,
 			"publisher": { "@id": PERSON_ID },
 			"datePublished": "2026-07-20",
 			"dateModified": "2026-07-20"
@@ -38,6 +40,7 @@ const pubDate = 'July 20, 2026';
 				<div class="wrap">
 					<p class="eyebrow">Industry ledger &middot; Credit repair lead generation &middot; {pubDate}</p>
 					<h1>Every number in this industry has to clear a compliance wall before it clears a bank.</h1>
+					<AuthorByline />
 					<p class="hero-sub">
 						Credit repair lead gen runs on the same two platforms as everything else, Meta and TikTok,
 						inside a regulatory perimeter almost nothing else in performance marketing has to deal with:

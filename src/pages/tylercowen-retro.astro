@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
+import AuthorByline from '../components/AuthorByline.astro';
 import BaseHead from '../components/BaseHead.astro';
 import analysis from '../data/tyler-retro-analysis.json';
 import guestForecast from '../data/tyler-guest-forecast.json';
@@ -75,7 +77,7 @@ const tylerWeights = [
       headline: title,
       description,
       datePublished: '2026-07-17',
-      author: { '@type': 'Person', name: 'Jack Maguire' },
+      author: ARTICLE_AUTHOR,
       mainEntityOfPage: canonical,
     })} />
   </head>
@@ -90,6 +92,7 @@ const tylerWeights = [
       <section class="hero">
         <p class="eyebrow">CONVERSATIONS WITH TYLER / 2019-2025</p>
         <h1>Celebrity opens<br />the door.<br /><em>Specificity</em> earns<br />the room.</h1>
+        <AuthorByline />
         <div class="hero-bottom">
           <p>A seven-year read of which conversations attracted the largest audience, which became loved, and which Tyler himself found most alive.</p>
           <dl>

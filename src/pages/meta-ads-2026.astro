@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
+import AuthorByline from '../components/AuthorByline.astro';
 import BaseHead from '../components/BaseHead.astro';
 import { PERSON_ID } from '../consts';
 
@@ -19,7 +21,7 @@ const pubDate = 'July 10, 2026';
 			"url": Astro.url.href,
 			"mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
 			"image": new URL('/og-default.png', Astro.site).toString(),
-			"author": { "@id": PERSON_ID },
+			"author": ARTICLE_AUTHOR,
 			"publisher": { "@id": PERSON_ID },
 			"datePublished": "2026-07-10",
 			"dateModified": "2026-07-10"
@@ -32,6 +34,7 @@ const pubDate = 'July 10, 2026';
 				<div class="wrap">
 					<p class="eyebrow">Account audit &middot; Meta advertising &middot; {pubDate}</p>
 					<h1>Your Meta account is still built for an algorithm that doesn't exist anymore.</h1>
+					<AuthorByline />
 					<p class="hero-sub">
 						Common Thread Collective published a framework in June 2026 called the CTC Canon. I checked
 						it against Meta's own engineering blog and independent experts with no methodology to

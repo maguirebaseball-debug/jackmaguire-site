@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -116,6 +117,7 @@ const pubDate = "Mar 06, 2026";
         <header class="article-header">
           <p class="meta">{pubDate} &nbsp;|&nbsp; NYC Coffee Guide</p>
           <h1>{title}</h1>
+          <AuthorByline />
           <p class="intro">{description}</p>
         </header>
 

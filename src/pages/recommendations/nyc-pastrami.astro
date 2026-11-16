@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -37,7 +38,7 @@ const pastramiRanking = [
 	<head>
 		<BaseHead
 			title={`Best Pastrami in NYC: Consensus Ranking: ${SITE_TITLE}`}
-			description="We pulled 30 ranked lists of NYC pastrami sandwiches from food blogs, newsletters, and local guides, then re-ranked every spot by its average position across the lists it appeared in."
+			description="We pulled 30 ranked lists of NYC pastrami sandwiches from food blogs, newsletters, and local guides, then re-ranked every spot by its average position across the lists it appeared in." article
 		/>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
@@ -357,6 +358,7 @@ const pastramiRanking = [
 		<Header />
 		<main>
 			<h1>NYC Pastrami, Ranked</h1>
+			<AuthorByline />
 
 			<p class="intro">
 				There is no shortage of lists ranking pastrami sandwiches in New York City. The problem is that every list has its own agenda: a top pick on one is buried at the bottom of another. So instead of adding one more opinion, we pulled 30 ranked lists from food blogs, newsletters, and local guides published between 2024 and 2026, and let the aggregate do the talking.

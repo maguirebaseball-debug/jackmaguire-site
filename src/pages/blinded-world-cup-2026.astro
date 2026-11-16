@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../lib/person';
+import AuthorByline from '../components/AuthorByline.astro';
 import BaseHead from '../components/BaseHead.astro';
 import { PERSON_ID } from '../consts';
 import Header from '../components/Header.astro';
@@ -27,7 +29,7 @@ const canonical = "https://jackmaguire.org/blinded-world-cup-2026/";
       "url": canonical,
       "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
       "image": new URL("/og-default.png", Astro.site).toString(),
-      "author": { "@id": PERSON_ID },
+      "author": ARTICLE_AUTHOR,
       "publisher": { "@id": PERSON_ID },
       "datePublished": "2026-07-19",
       "dateModified": "2026-07-19"
@@ -259,6 +261,7 @@ const canonical = "https://jackmaguire.org/blinded-world-cup-2026/";
         <header class="article-header">
           <div class="seal">Sealed envelope · no markets · no vibes</div>
           <h1>{title}</h1>
+          <AuthorByline />
           <p class="meta"><FormattedDate date={dateObj} /> · {category}</p>
           <p class="lede">
             On final day I wanted a forecast that could not cheat. No team names, no star players, no injury chatter, no odds board. Just tournament rates, an Elo gap, and the fact that this was the highest-intensity match in the sport. The model still picked a favorite.

@@ -434,3 +434,7 @@ Published the supplied review as `src/content/blog/you-can-see-everything.md` at
 ## 2026-11-15, Review header and footer
 
 Added the normal site header and footer to the You Can See Everything review at Jack's request. A `showFooter` frontmatter option allows a plain article to use the shared footer independently of its header. Existing plain and header-only article defaults remain unchanged. Astro build passed, and desktop and mobile browser checks matched the homepage navigation and footer while preserving the article typography.
+
+## 2026-11-15, Author identity update
+
+Prepared an author identity update using Jack's own About page and [LinkedIn profile](https://www.linkedin.com/in/jackmaguire-paidsocial-nyc/), which lists Creative Intelligence Lead at NewForm from September 2026 to present. The About page links to selected work and shows the same real portrait used on the homepage and professional bio. Consistent author bylines and metadata cover 84 substantive article and guide pages, and both profile pages share the same person details. Copy follows Jack's existing wording and the short-sentence, active-voice, and simplicity guidance in [Scott Adams's writing essay](https://johncandeto.com/information-flow/the-dilbert-blog-the-day-you-became-a-better-writer). Astro build, indexing check, structured data audit, and mobile previews passed. The indexing script now accepts quoted publication dates. Deployment is pending.

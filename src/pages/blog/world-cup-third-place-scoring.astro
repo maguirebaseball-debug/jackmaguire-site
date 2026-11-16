@@ -1,4 +1,6 @@
 ---
+import { ARTICLE_AUTHOR } from '../../lib/person';
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import { PERSON_ID } from '../../consts';
 import Header from '../../components/Header.astro';
@@ -25,7 +27,7 @@ const img = "/images/world-cup-third-place";
       "url": Astro.url.href,
       "mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
       "image": new URL("/og-default.png", Astro.site).toString(),
-      "author": { "@id": PERSON_ID },
+      "author": ARTICLE_AUTHOR,
       "publisher": { "@id": PERSON_ID },
       "datePublished": "2026-07-18",
       "dateModified": "2026-07-18"
@@ -270,6 +272,7 @@ const img = "/images/world-cup-third-place";
       <article class="article-wrap">
         <header class="article-header">
           <h1>{title}</h1>
+          <AuthorByline />
           <p class="meta"><FormattedDate date={dateObj} /> · {category}</p>
           <p class="lede">
             The folklore says World Cup third-place games are always a goalfest. All-time, bronze matches and finals average almost the same goals. The real pattern starts in the modern low-scoring knockout era: since 1990 the bronze game stays open while finals and semis tighten.

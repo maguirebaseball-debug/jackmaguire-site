@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -17,7 +18,7 @@ const bookRecommendations = [
 	<head>
 		<BaseHead
 			title={`Best Books on Systems, Philosophy, and Decision-Making: ${SITE_TITLE}`}
-			description="A curated catalog of books worth your time and focus, covering systems thinking, theology, economics, and philosophy."
+			description="A curated catalog of books worth your time and focus, covering systems thinking, theology, economics, and philosophy." article
 		/>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
@@ -125,6 +126,7 @@ const bookRecommendations = [
 		<Header />
 		<main>
 			<h1>Recommended Books</h1>
+			<AuthorByline />
 			<p class="intro">Evaluations of books that have significantly influenced my perspective on systems, philosophy, and practical decision-making.</p>
 			<p class="updated">Last updated: {lastUpdated}</p>
 

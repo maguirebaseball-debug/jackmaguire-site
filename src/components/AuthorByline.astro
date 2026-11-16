@@ -1,0 +1,23 @@
+---
+interface Props {
+	plain?: boolean;
+}
+const { plain = false } = Astro.props;
+---
+
+<p class="author-byline" style={plain ? 'font: inherit;' : undefined}>By <a href="/about/">Jack Maguire</a></p>
+
+<style>
+	.author-byline {
+		margin: 0.7rem 0 1rem;
+		font-family: var(--font-ui), sans-serif;
+		font-size: 0.95rem;
+		font-weight: 400;
+		line-height: 1.4;
+	}
+	.author-byline a {
+		color: inherit;
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+</style>

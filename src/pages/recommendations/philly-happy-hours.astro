@@ -1,4 +1,5 @@
 ---
+import AuthorByline from '../../components/AuthorByline.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import { SITE_TITLE } from '../../consts';
 
@@ -300,7 +301,7 @@ const description = 'A current Philadelphia happy-hour table with drink and appe
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Philadelphia Happy Hours 2026: Booze and Appetizer Deals | ${SITE_TITLE}`} description={description} />
+		<BaseHead title={`Philadelphia Happy Hours 2026: Booze and Appetizer Deals | ${SITE_TITLE}`} description={description} article />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'ItemList',
@@ -376,6 +377,7 @@ const description = 'A current Philadelphia happy-hour table with drink and appe
 	<body>
 		<main>
 			<h1>Philadelphia happy hours in 2026</h1>
+			<AuthorByline />
 			<p class="intro">Drink and appetizer deals, organized by neighborhood. Prices and hours were checked September 3, 2026. Every venue row below has a Google Maps listing that did not show a permanent or temporary closure notice when checked.</p>
 			<p class="last-checked">Deals can change without notice. Open the venue menu before leaving, especially for seasonal menus, patio-only service, and the rows marked for confirmation.</p>
 

@@ -5,7 +5,8 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import { PERSON_ID, PERSON_INSTAGRAM, PERSON_LINKEDIN, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { PERSON_LINKEDIN, SITE_DESCRIPTION } from '../consts';
+import { PERSON_PROFILE } from '../lib/person';
 import { getStandaloneBlogPosts } from '../lib/standaloneBlogPosts';
 
 const markdownPosts = (await getCollection('blog')).map((post) => ({
@@ -20,50 +21,24 @@ const posts = [...new Map([...getStandaloneBlogPosts(), ...markdownPosts].map((p
 
 const personSchema = {
 	'@context': 'https://schema.org',
-	'@type': 'Person',
-	'@id': PERSON_ID,
-	name: 'Jack Maguire',
-	url: 'https://jackmaguire.org/',
-	image: 'https://jackmaguire.org/images/about/jack-professional-portrait.jpg',
-	jobTitle: 'Paid Social Director',
-	address: {
-		'@type': 'PostalAddress',
-		addressLocality: 'New York',
-		addressRegion: 'NY',
-		addressCountry: 'US',
-	},
-	alumniOf: {
-		'@type': 'CollegeOrUniversity',
-		name: 'McGill University',
-	},
-	knowsAbout: [
-		'Paid social media',
-		'Meta Conversions API',
-		'Meta Pixel implementation',
-		'Conversion measurement',
-		'Creative testing',
-	],
-	sameAs: [
-		PERSON_LINKEDIN,
-		PERSON_INSTAGRAM,
-	],
+	...PERSON_PROFILE,
 };
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title="Jack Maguire | Paid Social Director in New York" description={SITE_DESCRIPTION} />
+		<BaseHead title="Jack Maguire | Creative Intelligence Lead in New York" description={SITE_DESCRIPTION} />
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="intro">
-				<img class="portrait" src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire, paid social director in New York" width="900" height="900" />
-				<h1>Jack Maguire, paid social director in New York</h1>
+				<img class="portrait" src="/images/about/jack-professional-portrait.jpg" alt="Jack Maguire smiling outdoors in New York City" width="732" height="790" />
+				<h1>Jack Maguire, Creative Intelligence Lead in New York</h1>
 				<p>
-					Paid social director in the East Village. I write field notes on performance marketing,
+					I'm the Creative Intelligence Lead at NewForm. I live in the East Village. I write field notes on performance marketing,
 					NYC restaurants, long walks, books, travel logistics, and the useful edges of AI.
 				</p>
 				<p><a href={PERSON_LINKEDIN}>Jack Maguire on LinkedIn</a></p>
