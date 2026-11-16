@@ -6,7 +6,7 @@ export const PERSON_PROFILE = {
 	name: SITE_TITLE,
 	url: 'https://jackmaguire.org/about/',
 	image: 'https://jackmaguire.org/images/about/jack-professional-portrait.jpg',
-	description: 'Creative Intelligence Lead at NewForm in New York City. Writes about NYC food, travel, philosophy, AI, and work.',
+	description: 'Creative Intelligence Lead at NewForm in New York City. Writes about paid social, NYC food, travel, philosophy, and AI.',
 	jobTitle: 'Creative Intelligence Lead',
 	worksFor: { '@type': 'Organization', name: 'NewForm' },
 	address: {
