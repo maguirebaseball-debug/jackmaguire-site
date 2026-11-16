@@ -11,7 +11,7 @@ import { PERSON_ID } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks, plain = true, showHeader = false } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, ogImage, tags = [], relatedLinks, plain = true, showHeader = false, showFooter = false } = Astro.props;
 const defaultRelatedRecommendationLinks = [
 	...(tags.includes('nyc') || tags.includes('food')
 		? [
@@ -309,6 +309,6 @@ const relatedRecommendationLinks = relatedLinks ?? defaultRelatedRecommendationL
 				</div>
 			</article>
 		</main>
-		{plain ? <footer class="plain-footer"><a href="/blog/">More writing</a></footer> : <Footer />}
+		{plain && !showFooter ? <footer class="plain-footer"><a href="/blog/">More writing</a></footer> : <Footer />}
 	</body>
 </html>

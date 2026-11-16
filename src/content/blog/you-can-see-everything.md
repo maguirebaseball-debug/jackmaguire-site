@@ -3,6 +3,8 @@ title: "You Can See Everything: Elizabeth Holmes Never Meant to Deceive Anyone"
 description: "A review of Nathan Fielder and Lance Oppenheim's You Can See Everything, and an argument about Elizabeth Holmes, optimism, and intent."
 pubDate: 2026-11-15T12:00:00.000Z
 tags: ["essays"]
+showHeader: true
+showFooter: true
 ---
 
 *(Contains spoilers.)*
@@ -71,18 +73,18 @@ The movie hints at a theory but leaves the verdict to the viewer, which comes fr
 Go see it. It is the most unsettling and the most fascinating film I have seen about Silicon Valley, and about what happens when the person selling the future cannot see the present.
 
 <style>
-  body.plain-blog.plain-blog.plain-blog,
+  body.plain-blog.plain-blog.plain-blog {
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
+  }
   body.plain-blog.plain-blog.plain-blog .prose,
   body.plain-blog.plain-blog.plain-blog .prose .title h1,
   body.plain-blog.plain-blog.plain-blog .prose .date,
   body.plain-blog.plain-blog.plain-blog .prose .byline,
-  body.plain-blog.plain-blog.plain-blog .prose h2,
-  body.plain-blog.plain-blog.plain-blog .plain-footer {
+  body.plain-blog.plain-blog.plain-blog .prose h2 {
     font-family: "Times New Roman", Times, serif;
   }
   body.plain-blog.plain-blog.plain-blog .prose,
-  body.plain-blog.plain-blog.plain-blog .prose .date,
-  body.plain-blog.plain-blog.plain-blog .plain-footer {
+  body.plain-blog.plain-blog.plain-blog .prose .date {
     font-size: 16px;
     line-height: 1.35;
   }

@@ -430,3 +430,7 @@ Published `/rahway-vienna/` and `/rahway-vienna/legal/` as a standalone, non-ind
 ## 2026-11-15, You Can See Everything review
 
 Published the supplied review as `src/content/blog/you-can-see-everything.md` at `/blog/you-can-see-everything/`, preserving its prose and formatting. Commit `816d6bd` reached `main`, Vercel succeeded, and the live route, homepage, blog archive, RSS, and sitemap were verified. Local Astro build, article text comparison, desktop and mobile presentation, homepage, blog archive, RSS, sitemap, and metadata checks passed. The repository indexing checker has a pre-existing quoted-date parsing failure for the unrelated Mercor post; the full check passed with that parsing fixed in memory.
+
+## 2026-11-15, Review header and footer
+
+Added the normal site header and footer to the You Can See Everything review at Jack's request. A `showFooter` frontmatter option allows a plain article to use the shared footer independently of its header. Existing plain and header-only article defaults remain unchanged. Astro build passed, and desktop and mobile browser checks matched the homepage navigation and footer while preserving the article typography.
