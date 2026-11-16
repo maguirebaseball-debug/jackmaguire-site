@@ -426,3 +426,7 @@ Prepared the approved ten-place article at `/blog/nyc-restaurants-pop-ups-fall-2
 ## 2026-11-04, Standalone Vienna travel guide
 
 Published `/rahway-vienna/` and `/rahway-vienna/legal/` as a standalone, non-indexed microsite with no shared site header or footer. It includes all 30 recommendations from Jack's Vienna trip document, source maps, NomadList Vienna tips, five contemporary Austrian legal facts with official references, and an offline ZIP with local fonts and styles. Sitemap exclusion and noindex response headers are in place. Responsive layouts were checked at 320px and 390px, Astro build passed, Vercel succeeded, and the live pages and ZIP returned 200. Commit `0073b44`.
+
+## 2026-11-15, You Can See Everything review
+
+Added the supplied review as `src/content/blog/you-can-see-everything.md` for `/blog/you-can-see-everything/`, preserving its prose and formatting. Local Astro build, article text comparison, desktop and mobile presentation, homepage, blog archive, RSS, sitemap, and metadata checks passed. The repository indexing checker has a pre-existing quoted-date parsing failure for the unrelated Mercor post; the full check passed with that parsing fixed in memory.

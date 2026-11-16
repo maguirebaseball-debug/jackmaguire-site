@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-11-08
+Updated: 2026-11-15
+
+Added `src/content/blog/you-can-see-everything.md` for publication at `/blog/you-can-see-everything/`. The supplied film review is preserved in the plain article layout, with Times New Roman at 16px and 1.35 line-height. The local Astro build passed; the route, homepage, blog archive, RSS, sitemap, metadata, and desktop and mobile typography were checked. The existing indexing script rejects an unrelated quoted publication date; its checks passed when quoted dates were accepted in memory.
 
 Published the Tsumo Sunday lunch omakase value guide at /blog/tsumo-sunday-lunch-omakase/ on 2026-11-08. The 181-word guide covers the $48, 11-course, 60-minute lunch with two photos. The first publish attempt landed the file in a nested folder by mistake; the path was corrected and the route verified live. Local Astro build passed and the route, sitemap entry, and images were verified in the build output. Commit 5bd8465 is on main; the live route returned 200.
 
