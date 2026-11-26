@@ -29,11 +29,6 @@
   .row.next .st { color: #1c7a2e; }
   .row.next { background: #f0faf1; margin: 0 -18px; padding-left: 18px; padding-right: 18px; }
   .row.dest .st { color: #1a1a1a; }
-  .src { font-size: 13px; color: #555; line-height: 1.5; }
-  .src b { color: #1a1a1a; }
-  .check { font-size: 15px; font-weight: 700; margin: 0 0 6px; }
-  .check.ok { color: #1c7a2e; }
-  .check.warn { color: #9a6200; }
   .foot { font-size: 12px; color: #888; text-align: center; margin-top: 18px; line-height: 1.5; }
   .pickup { font-size: 15px; line-height: 1.5; }
 </style>
@@ -56,11 +51,6 @@
   </div>
 
   <div class="card">
-    <div class="check ok" id="verifyLine">Checking location&hellip;</div>
-    <div class="src" id="sources"></div>
-  </div>
-
-  <div class="card">
     <div id="stations"></div>
   </div>
 
@@ -68,7 +58,7 @@
     <div class="pickup"><b>Pickup:</b> BWI Amtrak station, around 10:47 to 11:00 AM. The station is at the airport, a short shuttle ride from the terminals.</div>
   </div>
 
-  <div class="foot">This page refreshes itself every 30 seconds. No need to reload.<br>Train position is live from Amtrak. The phone check is a snapshot and updates when a new one is pushed.</div>
+  <div class="foot">This page refreshes itself every 30 seconds. No need to reload.<br>Train position is live from Amtrak.</div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -91,25 +81,11 @@ L.polyline(STATIONS.map(s => [s.lat, s.lon]), {color: '#2a893d', weight: 3, opac
 const bwi = STATIONS.find(s => s.code === 'BWI');
 L.marker([bwi.lat, bwi.lon]).addTo(map).bindPopup('<b>BWI Airport</b><br>Destination');
 
-let trainMarker = null, phoneMarker = null;
-let lastTrain = null, lastPhone = null;
+let trainMarker = null;
 
 function fmtTime(iso) {
   const d = new Date(iso);
   return d.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
-}
-function haversineMi(a, b) {
-  const R = 3958.8, toRad = d => d * Math.PI / 180;
-  const dLat = toRad(b.lat - a.lat), dLon = toRad(b.lon - a.lon);
-  const h = Math.sin(dLat/2)**2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLon/2)**2;
-  return 2 * R * Math.asin(Math.sqrt(h));
-}
-function timeAgo(iso) {
-  const s = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
-  if (s < 60) return s + 's ago';
-  const m = Math.round(s / 60);
-  if (m < 60) return m + ' min ago';
-  return Math.round(m / 60) + ' hr ago';
 }
 function stationName(code, fallback) {
   const k = STATIONS.find(s => s.code === code);
@@ -130,40 +106,12 @@ function renderStations(list) {
   }).join('');
 }
 
-function renderAll() {
-  const v = document.getElementById('verifyLine');
-  const s = document.getElementById('sources');
-  let html = '';
-  if (lastTrain) {
-    html += `<b>Train GPS (Amtrak, live):</b> ${lastTrain.lat.toFixed(4)}, ${lastTrain.lon.toFixed(4)} &middot; heading ${lastTrain.heading || ''} &middot; updated ${timeAgo(lastTrain.checkedAt)}<br>`;
-  }
-  if (lastPhone) {
-    html += `<b>Jack's phone (snapshot):</b> ${lastPhone.address || (lastPhone.lat.toFixed(4) + ', ' + lastPhone.lon.toFixed(4))} &middot; checked ${timeAgo(lastPhone.timestamp)}`;
-  }
-  s.innerHTML = html;
-  if (lastTrain && lastPhone) {
-    const phoneAgeMin = (Date.now() - new Date(lastPhone.timestamp).getTime()) / 60000;
-    const d = haversineMi(lastTrain, lastPhone);
-    if (phoneAgeMin <= 15 && d <= 12) {
-      v.className = 'check ok';
-      v.textContent = 'Phone and train agree: Jack is on this train (' + d.toFixed(1) + ' mi apart).';
-    } else if (phoneAgeMin <= 15) {
-      v.className = 'check warn';
-      v.textContent = 'Phone and train are ' + d.toFixed(0) + ' mi apart right now. Train GPS updates every few minutes, so a gap is normal while moving.';
-    } else {
-      v.className = 'check warn';
-      v.textContent = 'Phone check is ' + timeAgo(lastPhone.timestamp) + ' old. The train GPS above is live and is the best signal now.';
-    }
-  }
-}
-
 async function fetchTrain() {
   try {
     const r = await fetch('https://api-v3.amtraker.com/v3/trains/101');
     const j = await r.json();
     const t = j['101'][0];
     const now = new Date().toISOString();
-    lastTrain = {lat: t.lat, lon: t.lon, heading: t.heading, checkedAt: now};
     const bwiSt = t.stations.find(s => s.code === 'BWI');
     const etaIso = bwiSt.arr || bwiSt.schArr;
     document.getElementById('eta').textContent = fmtTime(etaIso);
@@ -208,30 +156,10 @@ async function fetchTrain() {
     }
     trainMarker.bindPopup('<b>Train 101</b><br>Live Amtrak GPS &middot; ' + fmtTime(now));
   } catch (e) { /* keep last good data */ }
-  renderAll();
 }
 
-async function fetchPhone() {
-  try {
-    const r = await fetch('eta.json?t=' + Date.now());
-    const j = await r.json();
-    if (j.phone) {
-      lastPhone = j.phone;
-      if (phoneMarker) { phoneMarker.setLatLng([j.phone.lat, j.phone.lon]); }
-      else {
-        phoneMarker = L.marker([j.phone.lat, j.phone.lon]).addTo(map)
-          .bindPopup('<b>Jack\'s phone</b><br>' + (j.phone.address || ''));
-      }
-      phoneMarker.bindPopup('<b>Jack\'s phone</b><br>' + (j.phone.address || '') + '<br>checked ' + timeAgo(j.phone.timestamp));
-    }
-  } catch (e) { /* keep last good data */ }
-  renderAll();
-}
-
-fetchTrain(); fetchPhone();
+fetchTrain();
 setInterval(fetchTrain, 30000);
-setInterval(fetchPhone, 60000);
-setInterval(renderAll, 30000);
 </script>
 </body>
 </html>
