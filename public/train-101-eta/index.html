@@ -19,6 +19,7 @@
   .badge.late { background: #fdeeda; color: #9a6200; }
   .badge.arrived { background: #e2f5e6; color: #1c7a2e; }
   .countdown { font-size: 17px; font-weight: 600; margin-top: 8px; }
+  .nowline { font-size: 17px; font-weight: 700; margin-top: 10px; }
   #map { height: 320px; border-radius: 12px; }
   .row { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 7px 0; border-bottom: 1px solid #eee; }
   .row:last-child { border-bottom: none; }
@@ -45,6 +46,7 @@
   <div class="card">
     <div class="eta-big" id="eta">10:48 AM</div>
     <div class="eta-label">arriving at BWI Airport station</div>
+    <div class="nowline" id="nowLine">Locating train&hellip;</div>
     <div><span class="badge on-time" id="statusBadge">On time</span></div>
     <div class="countdown" id="countdown"></div>
   </div>
@@ -66,7 +68,7 @@
     <div class="pickup"><b>Pickup:</b> BWI Amtrak station, around 10:47 to 11:00 AM. The station is at the airport, a short shuttle ride from the terminals.</div>
   </div>
 
-  <div class="foot">This page refreshes itself every 30 seconds. No need to reload.<br>Train position from Amtrak. Phone position checked every few minutes.</div>
+  <div class="foot">This page refreshes itself every 30 seconds. No need to reload.<br>Train position is live from Amtrak. The phone check is a snapshot and updates when a new one is pushed.</div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -109,13 +111,16 @@ function timeAgo(iso) {
   if (m < 60) return m + ' min ago';
   return Math.round(m / 60) + ' hr ago';
 }
+function stationName(code, fallback) {
+  const k = STATIONS.find(s => s.code === code);
+  return k ? k.name : (fallback || code);
+}
 
 function renderStations(list) {
   const el = document.getElementById('stations');
   let nextSeen = false;
   el.innerHTML = list.map(st => {
-    const known = STATIONS.find(s => s.code === st.code);
-    const name = known ? known.name : st.name;
+    const name = stationName(st.code, st.name);
     let cls = '', tag = '';
     if (st.code === 'BWI') cls = 'dest';
     if (st.status === 'Departed' || st.status === 'Arrived') { cls += ' done'; tag = '&nbsp;&middot; left ' + fmtTime(st.dep || st.arr); }
@@ -130,20 +135,24 @@ function renderAll() {
   const s = document.getElementById('sources');
   let html = '';
   if (lastTrain) {
-    html += `<b>Train GPS (Amtrak):</b> ${lastTrain.lat.toFixed(4)}, ${lastTrain.lon.toFixed(4)} &middot; heading ${lastTrain.heading || ''} &middot; updated ${timeAgo(lastTrain.checkedAt)}<br>`;
+    html += `<b>Train GPS (Amtrak, live):</b> ${lastTrain.lat.toFixed(4)}, ${lastTrain.lon.toFixed(4)} &middot; heading ${lastTrain.heading || ''} &middot; updated ${timeAgo(lastTrain.checkedAt)}<br>`;
   }
   if (lastPhone) {
-    html += `<b>Jack's phone:</b> ${lastPhone.address || (lastPhone.lat.toFixed(4) + ', ' + lastPhone.lon.toFixed(4))} &middot; checked ${timeAgo(lastPhone.timestamp)}`;
+    html += `<b>Jack's phone (snapshot):</b> ${lastPhone.address || (lastPhone.lat.toFixed(4) + ', ' + lastPhone.lon.toFixed(4))} &middot; checked ${timeAgo(lastPhone.timestamp)}`;
   }
   s.innerHTML = html;
   if (lastTrain && lastPhone) {
+    const phoneAgeMin = (Date.now() - new Date(lastPhone.timestamp).getTime()) / 60000;
     const d = haversineMi(lastTrain, lastPhone);
-    if (d <= 12) {
+    if (phoneAgeMin <= 15 && d <= 12) {
       v.className = 'check ok';
-      v.textContent = 'Phone and train agree: Jack is on this train (' + d.toFixed(1) + ' mi apart, train GPS lags a few minutes).';
-    } else {
+      v.textContent = 'Phone and train agree: Jack is on this train (' + d.toFixed(1) + ' mi apart).';
+    } else if (phoneAgeMin <= 15) {
       v.className = 'check warn';
       v.textContent = 'Phone and train are ' + d.toFixed(0) + ' mi apart right now. Train GPS updates every few minutes, so a gap is normal while moving.';
+    } else {
+      v.className = 'check warn';
+      v.textContent = 'Phone check is ' + timeAgo(lastPhone.timestamp) + ' old. The train GPS above is live and is the best signal now.';
     }
   }
 }
@@ -181,6 +190,17 @@ async function fetchTrain() {
       document.getElementById('countdown').textContent = h > 0 ? `Arriving in about ${h} hr ${m} min` : `Arriving in about ${m} min`;
     }
     renderStations(t.stations);
+    const atStation = t.stations.find(s => s.status === 'Station' || s.status === 'Arrived');
+    const departed = t.stations.filter(s => s.status === 'Departed');
+    const next = t.stations.find(s => s.status === 'Enroute');
+    const nl = document.getElementById('nowLine');
+    if (atStation) {
+      nl.textContent = 'Now at ' + stationName(atStation.code, atStation.name);
+    } else if (departed.length && next) {
+      nl.textContent = 'Now between ' + stationName(departed[departed.length-1].code, departed[departed.length-1].name) + ' and ' + stationName(next.code, next.name);
+    } else {
+      nl.textContent = '';
+    }
     if (trainMarker) { trainMarker.setLatLng([t.lat, t.lon]); }
     else {
       trainMarker = L.marker([t.lat, t.lon]).addTo(map).bindPopup('<b>Train 101</b><br>Live Amtrak GPS');
