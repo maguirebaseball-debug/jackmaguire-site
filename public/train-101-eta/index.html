@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jack's Train to BWI - Northeast Regional 101</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f6f8; color: #1a1a1a; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 16px 16px 32px; }
+  h1 { font-size: 22px; margin: 8px 0 2px; }
+  .sub { color: #555; font-size: 14px; margin: 0 0 16px; }
+  .card { background: #fff; border-radius: 14px; padding: 18px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .eta-big { font-size: 40px; font-weight: 800; line-height: 1.1; }
+  .eta-label { font-size: 15px; color: #555; margin-top: 2px; }
+  .badge { display: inline-block; font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-top: 10px; }
+  .badge.on-time { background: #e2f5e6; color: #1c7a2e; }
+  .badge.late { background: #fdeeda; color: #9a6200; }
+  .badge.arrived { background: #e2f5e6; color: #1c7a2e; }
+  .countdown { font-size: 17px; font-weight: 600; margin-top: 8px; }
+  #map { height: 320px; border-radius: 12px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 7px 0; border-bottom: 1px solid #eee; }
+  .row:last-child { border-bottom: none; }
+  .row .st { font-weight: 600; }
+  .row .tm { color: #555; white-space: nowrap; }
+  .row.done .st { color: #888; }
+  .row.next .st { color: #1c7a2e; }
+  .row.next { background: #f0faf1; margin: 0 -18px; padding-left: 18px; padding-right: 18px; }
+  .row.dest .st { color: #1a1a1a; }
+  .src { font-size: 13px; color: #555; line-height: 1.5; }
+  .src b { color: #1a1a1a; }
+  .check { font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+  .check.ok { color: #1c7a2e; }
+  .check.warn { color: #9a6200; }
+  .foot { font-size: 12px; color: #888; text-align: center; margin-top: 18px; line-height: 1.5; }
+  .pickup { font-size: 15px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Jack's train to BWI</h1>
+  <p class="sub">Amtrak Northeast Regional 101 &middot; New York Penn to BWI Airport &middot; Thu Nov 26, 2026</p>
+
+  <div class="card">
+    <div class="eta-big" id="eta">10:48 AM</div>
+    <div class="eta-label">arriving at BWI Airport station</div>
+    <div><span class="badge on-time" id="statusBadge">On time</span></div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <div class="card">
+    <div id="map"></div>
+  </div>
+
+  <div class="card">
+    <div class="check ok" id="verifyLine">Checking location&hellip;</div>
+    <div class="src" id="sources"></div>
+  </div>
+
+  <div class="card">
+    <div id="stations"></div>
+  </div>
+
+  <div class="card">
+    <div class="pickup"><b>Pickup:</b> BWI Amtrak station, around 10:47 to 11:00 AM. The station is at the airport, a short shuttle ride from the terminals.</div>
+  </div>
+
+  <div class="foot">This page refreshes itself every 30 seconds. No need to reload.<br>Train position from Amtrak. Phone position checked every few minutes.</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const STATIONS = [
+  {code:"NYP", name:"New York Penn", lat:40.7506, lon:-73.9935},
+  {code:"NWK", name:"Newark Penn", lat:40.7347, lon:-74.1644},
+  {code:"MET", name:"Metropark", lat:40.5682, lon:-74.3285},
+  {code:"TRE", name:"Trenton", lat:40.2187, lon:-74.7543},
+  {code:"PHL", name:"Philadelphia 30th St", lat:39.9559, lon:-75.1820},
+  {code:"WIL", name:"Wilmington", lat:39.7368, lon:-75.5513},
+  {code:"BAL", name:"Baltimore Penn", lat:39.3074, lon:-76.6156},
+  {code:"BWI", name:"BWI Airport", lat:39.1929, lon:-76.6946},
+  {code:"WAS", name:"Washington Union", lat:38.8977, lon:-77.0063}
+];
+
+const map = L.map('map').setView([40.1, -74.9], 8);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap'}).addTo(map);
+L.polyline(STATIONS.map(s => [s.lat, s.lon]), {color: '#2a893d', weight: 3, opacity: 0.6}).addTo(map);
+const bwi = STATIONS.find(s => s.code === 'BWI');
+L.marker([bwi.lat, bwi.lon]).addTo(map).bindPopup('<b>BWI Airport</b><br>Destination');
+
+let trainMarker = null, phoneMarker = null;
+let lastTrain = null, lastPhone = null;
+
+function fmtTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'});
+}
+function haversineMi(a, b) {
+  const R = 3958.8, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(b.lat - a.lat), dLon = toRad(b.lon - a.lon);
+  const h = Math.sin(dLat/2)**2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+function timeAgo(iso) {
+  const s = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
+  if (s < 60) return s + 's ago';
+  const m = Math.round(s / 60);
+  if (m < 60) return m + ' min ago';
+  return Math.round(m / 60) + ' hr ago';
+}
+
+function renderStations(list) {
+  const el = document.getElementById('stations');
+  let nextSeen = false;
+  el.innerHTML = list.map(st => {
+    const known = STATIONS.find(s => s.code === st.code);
+    const name = known ? known.name : st.name;
+    let cls = '', tag = '';
+    if (st.code === 'BWI') cls = 'dest';
+    if (st.status === 'Departed' || st.status === 'Arrived') { cls += ' done'; tag = '&nbsp;&middot; left ' + fmtTime(st.dep || st.arr); }
+    else if (!nextSeen) { cls += ' next'; nextSeen = true; tag = '&nbsp;&middot; next stop'; }
+    const t = st.arr ? fmtTime(st.arr) : '';
+    return `<div class="row${cls}"><span class="st">${name}${tag}</span><span class="tm">${t}</span></div>`;
+  }).join('');
+}
+
+function renderAll() {
+  const v = document.getElementById('verifyLine');
+  const s = document.getElementById('sources');
+  let html = '';
+  if (lastTrain) {
+    html += `<b>Train GPS (Amtrak):</b> ${lastTrain.lat.toFixed(4)}, ${lastTrain.lon.toFixed(4)} &middot; heading ${lastTrain.heading || ''} &middot; updated ${timeAgo(lastTrain.checkedAt)}<br>`;
+  }
+  if (lastPhone) {
+    html += `<b>Jack's phone:</b> ${lastPhone.address || (lastPhone.lat.toFixed(4) + ', ' + lastPhone.lon.toFixed(4))} &middot; checked ${timeAgo(lastPhone.timestamp)}`;
+  }
+  s.innerHTML = html;
+  if (lastTrain && lastPhone) {
+    const d = haversineMi(lastTrain, lastPhone);
+    if (d <= 12) {
+      v.className = 'check ok';
+      v.textContent = 'Phone and train agree: Jack is on this train (' + d.toFixed(1) + ' mi apart, train GPS lags a few minutes).';
+    } else {
+      v.className = 'check warn';
+      v.textContent = 'Phone and train are ' + d.toFixed(0) + ' mi apart right now. Train GPS updates every few minutes, so a gap is normal while moving.';
+    }
+  }
+}
+
+async function fetchTrain() {
+  try {
+    const r = await fetch('https://api-v3.amtraker.com/v3/trains/101');
+    const j = await r.json();
+    const t = j['101'][0];
+    const now = new Date().toISOString();
+    lastTrain = {lat: t.lat, lon: t.lon, heading: t.heading, checkedAt: now};
+    const bwiSt = t.stations.find(s => s.code === 'BWI');
+    const etaIso = bwiSt.arr || bwiSt.schArr;
+    document.getElementById('eta').textContent = fmtTime(etaIso);
+    const sch = new Date(bwiSt.schArr).getTime();
+    const eta = new Date(etaIso).getTime();
+    const minsLate = Math.round((eta - sch) / 60000);
+    const badge = document.getElementById('statusBadge');
+    const arrived = bwiSt.status === 'Arrived' || bwiSt.status === 'Departed';
+    if (arrived) {
+      badge.className = 'badge arrived';
+      badge.textContent = 'Arrived at BWI';
+      document.getElementById('eta').textContent = fmtTime(bwiSt.arr);
+      document.getElementById('countdown').textContent = 'Jack is at BWI Airport station.';
+    } else if (minsLate <= 5) {
+      badge.className = 'badge on-time';
+      badge.textContent = 'On time';
+    } else {
+      badge.className = 'badge late';
+      badge.textContent = minsLate + ' min late';
+    }
+    if (!arrived) {
+      const mins = Math.max(0, Math.round((eta - Date.now()) / 60000));
+      const h = Math.floor(mins / 60), m = mins % 60;
+      document.getElementById('countdown').textContent = h > 0 ? `Arriving in about ${h} hr ${m} min` : `Arriving in about ${m} min`;
+    }
+    renderStations(t.stations);
+    if (trainMarker) { trainMarker.setLatLng([t.lat, t.lon]); }
+    else {
+      trainMarker = L.marker([t.lat, t.lon]).addTo(map).bindPopup('<b>Train 101</b><br>Live Amtrak GPS');
+      map.setView([t.lat, t.lon], 8);
+    }
+    trainMarker.bindPopup('<b>Train 101</b><br>Live Amtrak GPS &middot; ' + fmtTime(now));
+  } catch (e) { /* keep last good data */ }
+  renderAll();
+}
+
+async function fetchPhone() {
+  try {
+    const r = await fetch('eta.json?t=' + Date.now());
+    const j = await r.json();
+    if (j.phone) {
+      lastPhone = j.phone;
+      if (phoneMarker) { phoneMarker.setLatLng([j.phone.lat, j.phone.lon]); }
+      else {
+        phoneMarker = L.marker([j.phone.lat, j.phone.lon]).addTo(map)
+          .bindPopup('<b>Jack\'s phone</b><br>' + (j.phone.address || ''));
+      }
+      phoneMarker.bindPopup('<b>Jack\'s phone</b><br>' + (j.phone.address || '') + '<br>checked ' + timeAgo(j.phone.timestamp));
+    }
+  } catch (e) { /* keep last good data */ }
+  renderAll();
+}
+
+fetchTrain(); fetchPhone();
+setInterval(fetchTrain, 30000);
+setInterval(fetchPhone, 60000);
+setInterval(renderAll, 30000);
+</script>
+</body>
+</html>
