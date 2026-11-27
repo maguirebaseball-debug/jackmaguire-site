@@ -1,0 +1,337 @@
+---
+import PlainStandaloneBlog from '../../layouts/PlainStandaloneBlog.astro';
+
+const title = "Do You Tip at Omakase in NYC? Service Charges, Gratuity and the Real Cost";
+const description = "How much to tip at NYC omakase, when gratuity is included, how service charges work, and what sushi counters actually cost after tax and tip.";
+const pubDate = "November 27, 2026";
+const category = "Food";
+
+type Restaurant = {
+	name: string;
+	location: string;
+	price: number | null;
+	policy: 'no-tip' | 'included' | 'optional' | 'fee' | 'expected';
+	policyLabel: string;
+	total: number | null;
+	note: string;
+};
+
+const restaurants: Restaurant[] = [
+	{ name: 'Sushi W', location: 'Upper West Side', price: 53, policy: 'no-tip', policyLabel: 'No tipping', total: 57.70, note: '12 nigiri + 2 rolls. Lunch $38, premium $68.' },
+	{ name: 'Sushi W', location: 'Upper East Side', price: 53, policy: 'no-tip', policyLabel: 'No tipping', total: 57.70, note: '12 nigiri + 2 rolls. Lunch $38, premium $68.' },
+	{ name: 'Sushi W', location: 'East Village', price: 53, policy: 'no-tip', policyLabel: 'No tipping', total: 57.70, note: '12 nigiri + 2 rolls. Lunch $38, premium $68.' },
+	{ name: 'Mojo East', location: 'Lower East Side', price: 55, policy: 'no-tip', policyLabel: 'No tipping', total: 59.88, note: 'Tax treatment not expressly confirmed in booking text.' },
+	{ name: 'Mitani', location: 'Midtown East', price: 700, policy: 'included', policyLabel: 'Gratuity included', total: 762.12, note: 'Gratuity included in menu price. Tax excluded.' },
+	{ name: 'Masa', location: 'Columbus Circle', price: 950, policy: 'optional', policyLabel: 'Gratuity optional', total: 1034.31, note: 'Gratuity excluded, explicitly not required. A 20% tip would add $190.' },
+	{ name: 'Sushi by Scratch', location: 'Flatiron', price: 245, policy: 'fee', policyLabel: '20% service charge', total: 320.09, note: '20% taxable service charge. Purpose and distribution not disclosed.' },
+	{ name: 'Koju', location: 'Downtown Brooklyn', price: null, policy: 'fee', policyLabel: '20% admin fee', total: null, note: '20% admin fee, not gratuity. Additional tip discretionary. No menu price available.' },
+	{ name: 'Yugin', location: 'Upper Manhattan', price: 475, policy: 'fee', policyLabel: '20% admin fee, no tip', total: 620.59, note: '20% taxable admin fee retained by company. Tips not accepted.' },
+	{ name: 'Sushi by Bou', location: 'Times Square', price: 70, policy: 'expected', policyLabel: 'Tip expected', total: 90.21, note: '' },
+	{ name: 'Sushi by Bou', location: 'Chelsea', price: 70, policy: 'expected', policyLabel: 'Tip expected', total: 90.21, note: '' },
+	{ name: 'Sushi by Bou', location: 'NoMad', price: 70, policy: 'expected', policyLabel: 'Tip expected', total: 90.21, note: '' },
+	{ name: 'Atto Sushi', location: 'Manhattan', price: 85, policy: 'expected', policyLabel: 'Tip expected', total: 109.54, note: 'Also a $115 menu with 17 courses.' },
+	{ name: 'Sushi on Me', location: 'Jackson Heights', price: 99, policy: 'expected', policyLabel: 'Tip expected', total: 127.59, note: '50% deposit required.' },
+	{ name: 'Sushi on Me', location: 'Williamsburg', price: 99, policy: 'expected', policyLabel: 'Tip expected', total: 127.59, note: '50% deposit required.' },
+	{ name: 'Zama', location: "Hell's Kitchen", price: 115, policy: 'expected', policyLabel: 'Tip expected', total: 148.21, note: 'Dinner only.' },
+	{ name: 'Omi Omakase', location: 'Flushing', price: 119, policy: 'expected', policyLabel: 'Tip expected', total: 153.36, note: '18 to 20% gratuity appreciated. $159 premium menu.' },
+	{ name: 'Sushi Ishikawa', location: 'Upper East Side', price: 175, policy: 'expected', policyLabel: 'Tip expected', total: 225.53, note: 'Signature Matsu menu.' },
+	{ name: 'Sushi Ishikawa', location: 'Upper West Side', price: 175, policy: 'expected', policyLabel: 'Tip expected', total: 225.53, note: 'Signature Matsu menu.' },
+	{ name: 'Chikara', location: 'Upper West Side', price: 185, policy: 'expected', policyLabel: 'Tip expected', total: 238.42, note: '20% service charge for parties of 6 or more.' },
+	{ name: 'Tsubame', location: 'Tribeca', price: 250, policy: 'expected', policyLabel: 'Tip expected', total: 322.19, note: 'Kaiseki-inspired sushi omakase.' },
+	{ name: 'Sushi Amane', location: 'Turtle Bay', price: 250, policy: 'expected', policyLabel: 'Tip expected', total: 322.19, note: '20% charge reported for groups of 5 or more. Confirm at booking.' },
+	{ name: 'ITO', location: 'Tribeca', price: 295, policy: 'expected', policyLabel: 'Tip expected', total: 380.18, note: '' },
+	{ name: 'Takeda', location: 'Tribeca', price: 360, policy: 'expected', policyLabel: 'Tip expected', total: 463.95, note: '' },
+	{ name: 'Nakaji', location: 'Chinatown', price: 365, policy: 'expected', policyLabel: 'Tip expected', total: 470.39, note: '' },
+	{ name: 'Joji', location: 'Midtown East', price: 450, policy: 'expected', policyLabel: 'Tip expected', total: 579.94, note: 'Lunch $325.' },
+];
+
+const money = (n: number | null) => (n === null ? 'Not listed' : `$${n.toFixed(2)}`);
+const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
+---
+
+<PlainStandaloneBlog title={title} description={description} pubDate={pubDate} datePublished="2026-11-27">
+	<style>
+		.calc { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 0 0 1.5rem; }
+		.calc label { display: block; font-size: 15px; margin: 0 0 10px; }
+		.calc input[type="number"] { width: 110px; font: inherit; padding: 4px 6px; margin-left: 6px; }
+		.calc input[type="checkbox"] { margin-right: 6px; }
+		.calc .out { font-size: 16px; margin: 6px 0; }
+		.calc .out strong { font-weight: 700; }
+		.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+		.filters button { font: inherit; font-size: 14px; padding: 6px 12px; border: 1px solid #999; border-radius: 999px; background: #fff; cursor: pointer; }
+		.filters button[aria-pressed="true"] { background: #000; color: #fff; border-color: #000; }
+		.dir-table { width: 100%; font-size: 15px; }
+		.dir-table th, .dir-table td { padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
+		.dir-table th { border-bottom: 1px solid #999; }
+		.dir-note { font-size: 14px; color: #444; }
+	</style>
+
+	<p>Budget an 18 to 20 percent tip before tax if your omakase does not include gratuity. If gratuity is included or the restaurant has a no-tipping policy, you do not need to add another tip. If your bill includes a service or administrative charge, check whether that charge replaces gratuity. Prepaying your meal does not necessarily mean you have prepaid the tip.</p>
+
+	<p>That is the short version. The rest of this guide explains how to tell which situation you are in, what 26 verified NYC counters actually charge, and what a meal really costs once tax and tip are added.</p>
+
+	<p>This is a research guide, not a list of places I have eaten. I checked each restaurant below against its own website, menu, or booking page on November 26, 2026. Prices and policies change, so confirm on the restaurant or booking page before you go. For menu prices by course count, see my <a href="/blog/nyc-omakase-price-per-course/">NYC omakase price-per-course guide</a>.</p>
+
+	<h2>Do you tip at omakase in NYC?</h2>
+
+	<p>Most of the time, yes. The standard is the same as any sit-down restaurant in New York: 18 to 20 percent of the pre-tax food and drink total is a practical budgeting convention when gratuity is not included. That is a convention, not a legal requirement and not an omakase-specific measured norm.</p>
+
+	<p>A few counters are different. Some have a no-tipping policy and build service into the menu price. Some include gratuity in the price. Some add a mandatory service or administrative fee instead of a tip. The directory below shows which is which for 26 verified locations.</p>
+
+	<p>The confusion comes from the fact that these policies are not standardized. One counter charges $55 with no tip expected. Another charges $245 plus a 20 percent service charge. Another charges $950 and says gratuity is optional. You cannot guess from the price alone.</p>
+
+	<h2>Do you tip on top of a service charge?</h2>
+
+	<p>It depends on what the charge is.</p>
+
+	<p>A service charge and a gratuity are not the same thing, though restaurants sometimes use the words loosely. A gratuity is a tip. A service charge is a fee the restaurant adds to the bill. An administrative fee is a fee the restaurant keeps for its own costs.</p>
+
+	<p>If the restaurant says gratuity is included, do not add a second full tip. If the restaurant adds a service charge and does not say it replaces gratuity, ask. If the restaurant adds an administrative fee, that fee is generally not a tip, and a separate tip may still be expected unless the restaurant says otherwise.</p>
+
+	<p>The practical rule: read the booking page and the receipt before you decide. If the charge is labeled as gratuity and it goes to staff, that is your tip. If it is labeled as a service or administrative fee, ask whether tipping is still expected. An extra tip on top of an included gratuity is discretionary, not required.</p>
+
+	<p>Do not double tip by default. If you already paid a 20 percent service charge, adding another 20 percent on top means you paid 40 percent for service.</p>
+
+	<h2>NYC omakase with no tipping, gratuity included, or a mandatory fee</h2>
+
+	<p>These 26 locations were verified against restaurant-owned websites, official menus, or restaurant-authored booking pages on November 26, 2026. Prices are per person for the listed dinner menu, before tax and tip unless noted. Estimated totals use New York City sales tax of 8.875 percent and a 20 percent voluntary tip where a tip is expected. Drinks, supplements, and extras are not included. Use the buttons to filter by policy.</p>
+
+	<div class="filters" id="dirFilters" role="group" aria-label="Filter directory by tipping policy">
+		<button type="button" data-filter="all" aria-pressed="true">All 26</button>
+		<button type="button" data-filter="no-tip" aria-pressed="false">No tipping</button>
+		<button type="button" data-filter="included" aria-pressed="false">Gratuity included</button>
+		<button type="button" data-filter="optional" aria-pressed="false">Gratuity optional</button>
+		<button type="button" data-filter="fee" aria-pressed="false">Service or admin fee</button>
+		<button type="button" data-filter="expected" aria-pressed="false">Tip expected</button>
+	</div>
+
+	<table class="dir-table" id="dirTable">
+		<thead>
+			<tr><th>Restaurant</th><th>Location</th><th>Menu</th><th>Policy</th><th>Est. total per person</th><th>Notes</th></tr>
+		</thead>
+		<tbody>
+			{restaurants.map((r) => (
+				<tr data-policy={r.policy}>
+					<td>{r.name}</td>
+					<td>{r.location}</td>
+					<td>{priceCell(r.price)}</td>
+					<td>{r.policyLabel}</td>
+					<td>{money(r.total)}</td>
+					<td class="dir-note">{r.note}</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+
+	<p>This is a verified sample, not a complete list of NYC omakase and not a citywide survey. It covers counters across price tiers, from under $100 to over $400, in Manhattan, Brooklyn, and Queens. Several well-known counters were not included because their tip policy could not be confirmed from a primary source. That includes Sushi Sho, Yoshino, Icca, Noda, Shota, Sushi Noz, and Sushi Nakazawa. If a restaurant is not listed here, that means its policy was not verified, not that it has no policy.</p>
+
+	<h2>The true cost of omakase in NYC</h2>
+
+	<p>Menu price is not the meal price. Tax adds 8.875 percent. A tip or service fee adds 18 to 20 percent more. Here is what the same menu costs under four payment models.</p>
+
+	<table>
+		<thead>
+			<tr><th>Menu per person</th><th>No extra tip, tax only</th><th>18% voluntary tip</th><th>20% voluntary tip</th><th>20% taxable service fee, no extra tip</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>$55</td><td>$59.88</td><td>$69.78</td><td>$70.88</td><td>$71.86</td></tr>
+			<tr><td>$100</td><td>$108.88</td><td>$126.88</td><td>$128.88</td><td>$130.65</td></tr>
+			<tr><td>$200</td><td>$217.75</td><td>$253.75</td><td>$257.75</td><td>$261.30</td></tr>
+			<tr><td>$300</td><td>$326.63</td><td>$380.63</td><td>$386.63</td><td>$391.95</td></tr>
+			<tr><td>$500</td><td>$544.38</td><td>$634.38</td><td>$644.38</td><td>$653.25</td></tr>
+		</tbody>
+	</table>
+
+	<p>These are illustrative totals, not venue receipts. Actual rounding can differ by a few cents.</p>
+
+	<p>For two people at a $200 menu each, tax plus a 20 percent pre-tax voluntary tip makes $515.50. The same meal with a 20 percent taxable service fee instead makes $522.60. If you add a 20 percent voluntary tip on top of that service fee, the total jumps to $602.60. That is the double-tip trap.</p>
+
+	<p>Drinks change the math. A $200 meal plus a $60 sake pairing, with a 20 percent pre-tax tip, totals about $335.08 for one person. If the pairing is added after a service fee is calculated, the fee may or may not apply to it. Check the receipt.</p>
+
+	<h2>Estimate your own bill</h2>
+
+	<p>Enter your menu price, party size, and any drinks or extras. The calculator uses New York City sales tax of 8.875 percent. Set the tip to 0 if gratuity is included or tipping is not accepted. Set the service fee to 0 if there is none.</p>
+
+	<div class="calc" id="tipCalc">
+		<label>Menu price per person ($)<input type="number" id="calcMenu" value="200" min="0" step="1" /></label>
+		<label>Party size<input type="number" id="calcParty" value="2" min="1" step="1" /></label>
+		<label>Drinks and extras per person ($)<input type="number" id="calcDrinks" value="0" min="0" step="1" /></label>
+		<label>Service or admin fee (%)<input type="number" id="calcFee" value="0" min="0" step="0.5" /></label>
+		<label><input type="checkbox" id="calcFeeTaxable" checked /> Service fee is taxable</label>
+		<label>Voluntary tip (%)<input type="number" id="calcTip" value="20" min="0" step="1" /></label>
+		<label>Amount already paid ($)<input type="number" id="calcPaid" value="0" min="0" step="1" /></label>
+		<p class="out">Subtotal (food and drinks): <strong id="calcSubtotal">$400.00</strong></p>
+		<p class="out">Service fee: <strong id="calcFeeOut">$0.00</strong></p>
+		<p class="out">Sales tax (8.875%): <strong id="calcTax">$35.50</strong></p>
+		<p class="out">Voluntary tip: <strong id="calcTipOut">$80.00</strong></p>
+		<p class="out">Total per person: <strong id="calcPerPerson">$257.75</strong></p>
+		<p class="out">Total for the party: <strong id="calcTotal">$515.50</strong></p>
+		<p class="out">Still due at the restaurant: <strong id="calcDue">$515.50</strong></p>
+	</div>
+
+	<p>To estimate by hand, use this formula. Let B be the food and drink subtotal, F be a taxable mandatory service fee, G be a separately identified qualifying nontaxable mandatory gratuity, and T be any voluntary tip. Total equals (B plus F) times 1.08875, plus G, plus T. For a typical voluntary tip, T equals B times your tip rate. Do not add a second full tip automatically.</p>
+
+	<h2>Do you tip before or after tax?</h2>
+
+	<p>Tip on the pre-tax total. That is the standard convention. Your tip base should be food, drinks, and additional items you ordered. Do not tip on the sales tax itself.</p>
+
+	<p>For expensive bottles, corkage, or supplements, practices vary. Some restaurants apply a service fee to drinks and extras, some do not. Check whether the fee applies to those items. There is no single legal tip basis, so the receipt is the authority.</p>
+
+	<p>If a suggested tip on the check is calculated after tax, that inflates the tip by about 9 percent. You can adjust it down to the pre-tax amount. The check may show a suggested tip; you are not obligated to use that number.</p>
+
+	<h2>How do prepaid omakase reservations work?</h2>
+
+	<p>Prepaid meal, deposit, card hold, booking fee, and cancellation fee are different things.</p>
+
+	<p>Many omakase counters use Tock, Resy, or OpenTable. Some charge the full meal in advance. Some take a deposit, often 50 percent, with the balance due at the restaurant. Some place a card hold that is released after the meal. A booking fee is a separate charge for using the platform. A cancellation fee applies if you cancel inside the window.</p>
+
+	<p>Prepaying the meal does not necessarily mean you prepaid the tip. Read the prepayment summary before you confirm. It should state whether gratuity is included, whether a service fee applies, and what remains due at the restaurant. Calculate any outstanding tip against the total eligible food and drinks, excluding amounts already tipped.</p>
+
+	<p>If you prepaid and the receipt at the restaurant shows an additional tip line, check whether gratuity was already included in what you paid. Do not tip twice on the same meal.</p>
+
+	<h2>Are restaurant service charges legal in NYC?</h2>
+
+	<p>Yes, with conditions, but the rules are specific and the details matter.</p>
+
+	<p>New York City prohibits blanket menu surcharges. A bona fide service charge for an additional requested service is allowed with conspicuous disclosure before ordering. Examples include parties of eight or more, a split meal, and per-person minimums. A separate exception applies to qualifying written employer-employee agreements where the full proceeds go to employees and the arrangement is disclosed in advance. These rules took effect April 19, 2026. The source is the NYC Department of Consumer and Worker Protection adopted rule and 6 RCNY section 5-59.</p>
+
+	<p>Under New York labor law, charges presented as tips must go to eligible service workers. Additional service charges are rebuttably presumed to be tips under 12 NYCRR section 146-2.18. Administrative fees for banquets, special functions, or package deals have specific written disclosure requirements under section 146-2.19, including mixed-charge breakdowns. This does not establish that any specific published charge is lawful, or that every service charge is a tip.</p>
+
+	<p>For sales tax, New York City restaurant food and beverages are generally taxed at 8.875 percent. Voluntary tips are exempt. Mandatory gratuities are exempt only when separately shown, labeled as gratuity, and transferred in full to employees. Other service charges are taxable. The source is New York State Tax Bulletin ST-320.</p>
+
+	<p>If a charge is unexpected, ask for its basis and an itemized check. Preserve the receipt. You can file a complaint through NYC311 if appropriate. Do not refuse to pay a disputed contractual charge on the spot; resolve it through the restaurant or the complaint process.</p>
+
+	<p>This section is a summary of public rules, not legal advice and not a finding about any specific restaurant.</p>
+
+	<h2>Who gets the tip?</h2>
+
+	<p>That depends on the restaurant's tip pool and who participates in it.</p>
+
+	<p>New York rules are based on duties, not job titles. A sushi chef, a server, a bartender, and a busser may all be eligible if their work involves direct customer service. An owner or manager generally cannot take a share.</p>
+
+	<p>Do not presume the fee goes to the chef. Do not presume that handing cash directly to the chef bypasses a pool. Some restaurants pool all tips and distribute them by a set formula. Others let the chef keep direct tips. If you want to know, ask who participates in the pool.</p>
+
+	<p>At a counter where gratuity is included or a service fee is charged, the money may go to staff, to the house, or to both. The booking page rarely says. If the restaurant does not disclose it, you cannot verify it from the menu alone.</p>
+
+	<h2>Omakase tipping in Japan vs NYC</h2>
+
+	<p>Tipping is not customary in Japan. Restaurants there do not expect it, and offering a tip can be awkward. That is the Japanese norm.</p>
+
+	<p>New York is different. The local policy of the restaurant you are sitting in takes precedence over the Japanese custom. If the NYC counter expects a tip, tip. If it has a no-tipping policy, do not tip, and show appreciation verbally instead.</p>
+
+	<p>Do not apply Japanese tipping norms to a New York restaurant, and do not assume a Japanese chef in New York expects no tip. The restaurant's stated policy is what counts.</p>
+
+	<h2>Quick answers</h2>
+
+	<p><strong>Is 15 percent enough?</strong> It is below the 18 to 20 percent convention, but it is a tip. At a counter where gratuity is included or tipping is not accepted, 15 percent is not relevant. At a counter where a tip is expected, 18 to 20 percent is the practical standard.</p>
+
+	<p><strong>Do I tip the chef separately?</strong> Only if the restaurant invites it or the chef is the one serving you directly and no pool applies. In most cases, one tip on the bill covers the meal. Ask if you are unsure.</p>
+
+	<p><strong>Do I tip at lunch?</strong> Yes, if gratuity is not included. Lunch menus are often cheaper, but the tipping convention is the same.</p>
+
+	<p><strong>Is a 20 percent service charge an automatic tip?</strong> Not necessarily. A service charge is a fee. Whether it functions as a tip depends on how the restaurant labels it and where the money goes. Ask if the wording is ambiguous.</p>
+
+	<p><strong>Is a 10 percent admin fee a tip?</strong> Generally no. An administrative fee is a charge the restaurant keeps for its own costs. It does not replace a tip unless the restaurant says it does.</p>
+
+	<p><strong>Can I tip in cash?</strong> Usually yes, but some counters are cashless or prefer card. Cash does not automatically bypass a tip pool.</p>
+
+	<p><strong>What if I prepaid online?</strong> Check whether gratuity was included in the prepayment. If it was not, tip on the eligible food and drink total at the restaurant.</p>
+
+	<p><strong>Do I tip on the deposit or the full meal?</strong> Tip on the full meal value, not just the deposit. If you already tipped on a portion, do not tip again on that portion.</p>
+
+	<p><strong>What if service was poor?</strong> A tip is discretionary. You can reduce it. You cannot refuse to pay a mandatory service charge or a contractual fee on the grounds of poor service; that is a separate dispute.</p>
+
+	<p><strong>Is a suggested tip calculated after tax?</strong> Sometimes. Check the base. Tip on the pre-tax total.</p>
+
+	<p><strong>Do I tip on a complimentary course?</strong> No. A complimentary course has no price, so there is nothing to tip on.</p>
+
+	<p><strong>Does a gift card reduce the tip base?</strong> A gift card is payment, not a price reduction. Tipping on the pre-discount value is an etiquette choice, not an obligation.</p>
+
+	<p><strong>Does Japan expect tipping?</strong> No. Tipping is not customary in Japan. New York policy takes precedence at a New York restaurant.</p>
+
+	<p><strong>Are taxes included in no-tip prices?</strong> Not always. Sushi W and Mojo East list menu prices before tax. Mitani includes gratuity but excludes tax. Always check.</p>
+
+	<p><strong>Can I decline an automatic charge?</strong> A mandatory service charge or gratuity is part of the bill. You can ask about it, but you cannot unilaterally remove a disclosed contractual charge.</p>
+
+	<p><strong>What about parties of five to eight?</strong> Large-party rules vary. Chikara adds 20 percent for six or more. Sushi Amane reports 20 percent for five or more. Other counters have their own thresholds. Confirm when you book.</p>
+
+	<h2>How this guide was built</h2>
+
+	<p>I verified 26 NYC omakase locations against restaurant-owned websites, official menus, or restaurant-authored booking pages on November 26, 2026. Each entry records the menu price, the stated policy for a party of two, any fee rate, and the source URL. Locations whose policy could not be confirmed from a primary source were omitted from the directory, not guessed.</p>
+
+	<p>The sample is purposive, not random. It covers price tiers from under $100 to over $400, and locations in Manhattan, Brooklyn, and Queens. It does not support a citywide estimate of how common each fee model is.</p>
+
+	<p>Menu prices are per person for the listed dinner menu. Tax is 8.875 percent. A voluntary tip is modeled at 20 percent pre-tax. A taxable service fee is modeled as taxable. Where the source did not establish tax treatment or fee distribution, the guide says so.</p>
+
+	<p>Prices and policies are time sensitive. Confirm on the restaurant or booking page before you go.</p>
+
+	<p>For menu prices organized by course count, see my <a href="/blog/nyc-omakase-price-per-course/">NYC omakase price-per-course guide</a>.</p>
+
+	<script>
+		(function () {
+			var TAX = 0.08875;
+			function num(id, fallback) {
+				var el = document.getElementById(id);
+				if (!el) return fallback;
+				var v = parseFloat(el.value);
+				return isNaN(v) || v < 0 ? fallback : v;
+			}
+			function fmt(n) {
+				return '$' + n.toFixed(2);
+			}
+			function calc() {
+				var menu = num('calcMenu', 0);
+				var party = Math.max(1, Math.round(num('calcParty', 1)));
+				var drinks = num('calcDrinks', 0);
+				var feePct = num('calcFee', 0);
+				var feeTaxable = document.getElementById('calcFeeTaxable');
+				var feeIsTaxable = feeTaxable ? feeTaxable.checked : true;
+				var tipPct = num('calcTip', 0);
+				var paid = num('calcPaid', 0);
+				var base = menu + drinks;
+				var subtotal = base * party;
+				var fee = subtotal * (feePct / 100);
+				var taxableBase = feeIsTaxable ? subtotal + fee : subtotal;
+				var tax = taxableBase * TAX;
+				var tip = subtotal * (tipPct / 100);
+				var total = subtotal + fee + tax + tip;
+				var perPerson = party > 0 ? total / party : 0;
+				var due = Math.max(0, total - paid);
+				function set(id, val) {
+					var el = document.getElementById(id);
+					if (el) el.textContent = val;
+				}
+				set('calcSubtotal', fmt(subtotal));
+				set('calcFeeOut', fmt(fee));
+				set('calcTax', fmt(tax));
+				set('calcTipOut', fmt(tip));
+				set('calcPerPerson', fmt(perPerson));
+				set('calcTotal', fmt(total));
+				set('calcDue', fmt(due));
+			}
+			var ids = ['calcMenu', 'calcParty', 'calcDrinks', 'calcFee', 'calcFeeTaxable', 'calcTip', 'calcPaid'];
+			ids.forEach(function (id) {
+				var el = document.getElementById(id);
+				if (el) el.addEventListener('input', calc);
+				if (el) el.addEventListener('change', calc);
+			});
+			calc();
+			var filterWrap = document.getElementById('dirFilters');
+			var table = document.getElementById('dirTable');
+			if (filterWrap && table) {
+				filterWrap.addEventListener('click', function (e) {
+					var btn = e.target.closest('button[data-filter]');
+					if (!btn) return;
+					var filter = btn.getAttribute('data-filter');
+					filterWrap.querySelectorAll('button').forEach(function (b) {
+						b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+					});
+					table.querySelectorAll('tbody tr').forEach(function (row) {
+						var show = filter === 'all' || row.getAttribute('data-policy') === filter;
+						row.style.display = show ? '' : 'none';
+					});
+				});
+			}
+		})();
+	</script>
+</PlainStandaloneBlog>
