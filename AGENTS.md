@@ -47,8 +47,8 @@ Layout rules:
 * Use browser-default link styling for links.
 * Keep the visible date.
 * Do not show tags on article pages.
-* Do not show the normal header, footer, reading progress bar, author box, table of contents, related-links block, decorative backgrounds, hero image, or custom typography on plain article pages.
-* Show one minimal footer link at the bottom: `More writing`, linking to `/blog/`.
+* Standalone Astro articles (PlainStandaloneBlog layout) show the normal site header and footer (changed Nov 27, 2026: Astro articles keep their formatting and also get the site chrome, so any new .astro article published with this layout gets the header and footer automatically). Markdown plain posts still show no header. Do not show the reading progress bar, author box, table of contents, related-links block, decorative backgrounds, hero image, or custom typography on plain article pages.
+* Markdown plain posts show one minimal footer link at the bottom: `More writing`, linking to `/blog/`.
 * Keep SEO/AEO metadata: title, description, canonical URL, Article schema, RSS, sitemap inclusion, Open Graph metadata, and analytics.
 * Visible article images are text-only by default. Add images only when explicitly requested or when the post cannot work without them. OG images are allowed as metadata and should not display in the article body by default.
 * Basic HTML tables are allowed when they make information clearer. Do not add custom table styling for plain posts.
