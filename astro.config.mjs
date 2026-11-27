@@ -11,7 +11,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
 	site: 'https://jackmaguire.org',
 	trailingSlash: 'always',
-	output: 'static',
+	output: 'hybrid',
 	adapter: vercel(),
 	redirects: {
 		'/2026/01/10/william-gaddis-recognitions-my-thoughts/': '/blog/william-gaddis-recognitions/',
