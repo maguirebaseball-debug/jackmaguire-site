@@ -64,6 +64,18 @@ const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
 		.dir-table th, .dir-table td { padding: 4px 8px 4px 0; text-align: left; vertical-align: top; }
 		.dir-table th { border-bottom: 1px solid #999; }
 		.dir-note { font-size: 14px; color: #444; }
+		.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.5rem; }
+		.table-wrap table { margin: 0; }
+		.dir-table { min-width: 700px; table-layout: auto; display: table; }
+		.dir-table th, .dir-table td { white-space: nowrap; }
+		.dir-table td.dir-note { white-space: normal; min-width: 200px; }
+		.cost-table { min-width: 620px; table-layout: auto; display: table; }
+		.cost-table th, .cost-table td { white-space: nowrap; }
+		@media (max-width: 600px) {
+			.calc { padding: 14px; }
+			.calc label { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }
+			.calc input[type="number"] { margin-left: 0; }
+		}
 	</style>
 
 	<p>Budget an 18 to 20 percent tip before tax if your omakase does not include gratuity. If gratuity is included or the restaurant has a no-tipping policy, you do not need to add another tip. If your bill includes a service or administrative charge, check whether that charge replaces gratuity. Prepaying your meal does not necessarily mean you have prepaid the tip.</p>
@@ -105,6 +117,7 @@ const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
 		<button type="button" data-filter="expected" aria-pressed="false">Tip expected</button>
 	</div>
 
+	<div class="table-wrap">
 	<table class="dir-table" id="dirTable">
 		<thead>
 			<tr><th>Restaurant</th><th>Location</th><th>Menu</th><th>Policy</th><th>Est. total per person</th><th>Notes</th></tr>
@@ -122,6 +135,7 @@ const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
 			))}
 		</tbody>
 	</table>
+	</div>
 
 	<p>This is a verified sample, not a complete list of NYC omakase and not a citywide survey. It covers counters across price tiers, from under $100 to over $400, in Manhattan, Brooklyn, and Queens. Several well-known counters were not included because their tip policy could not be confirmed from a primary source. That includes Sushi Sho, Yoshino, Icca, Noda, Shota, Sushi Noz, and Sushi Nakazawa. If a restaurant is not listed here, that means its policy was not verified, not that it has no policy.</p>
 
@@ -129,7 +143,8 @@ const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
 
 	<p>Menu price is not the meal price. Tax adds 8.875 percent. A tip or service fee adds 18 to 20 percent more. Here is what the same menu costs under four payment models.</p>
 
-	<table>
+	<div class="table-wrap">
+	<table class="cost-table">
 		<thead>
 			<tr><th>Menu per person</th><th>No extra tip, tax only</th><th>18% voluntary tip</th><th>20% voluntary tip</th><th>20% taxable service fee, no extra tip</th></tr>
 		</thead>
@@ -141,6 +156,7 @@ const priceCell = (n: number | null) => (n === null ? 'Not listed' : `$${n}`);
 			<tr><td>$500</td><td>$544.38</td><td>$634.38</td><td>$644.38</td><td>$653.25</td></tr>
 		</tbody>
 	</table>
+	</div>
 
 	<p>These are illustrative totals, not venue receipts. Actual rounding can differ by a few cents.</p>
 
