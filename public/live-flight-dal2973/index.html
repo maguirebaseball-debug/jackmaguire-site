@@ -382,9 +382,9 @@
 
   // Map
   var map = L.map('map', { zoomControl: true, attributionControl: true });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 16,
+    attribution: 'Tiles &copy; Esri, Source: Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
   }).addTo(map);
 
   var originMarker = L.circleMarker([ORIGIN.lat, ORIGIN.lon], { radius: 7, color: '#5aa2ff', weight: 2, fillColor: '#5aa2ff', fillOpacity: 0.9 }).addTo(map);
